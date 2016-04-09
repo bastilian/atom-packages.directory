@@ -36,9 +36,10 @@ p {
 }
 
 header {
-  background: $header-background;
-  color: $bright-text-color;
+  color: $header-background;
+  line-height: 3em;
   padding: 1em 0 0;
+  vertical-align: middle;
 
   a:hover {
     text-decoration: none;
@@ -48,16 +49,17 @@ header {
     font-size: 1.2em;
     font-weight: normal;
     margin: 0 auto;
+    padding-left: 3em;
+    position: relative;
     width: $content-width;
   }
 
   .octicon {
-    background: $bright-text-color;
-    border-radius: 50%;
     color: $header-background;
     font-size: 2.5em;
-    margin: 0 .3em -.2em 0;
-    padding: .4em;
+    position: absolute;
+    left: 0;
+    top: 0;
   }
 }
 
@@ -76,3 +78,5 @@ footer {
   margin: 1em 0;
   text-align: center;
 }
+
+@import 'package-list';

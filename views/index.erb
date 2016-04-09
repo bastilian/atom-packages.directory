@@ -1,1 +1,11 @@
-<%= partial :_list, locals: {packages: @packages} %>
+
+
+<% @top_categories.each do |category| %>
+  TOP: <a href="/<%= category.permalink %>"><%= category.name %></a>
+<% end %>
+
+<% @categories.each do |category| %>
+  <a href="/<%= category.permalink %>"><%= category.name %></a>
+<% end %>
+
+<%= partial :_package_list, locals: {packages: @packages} %>

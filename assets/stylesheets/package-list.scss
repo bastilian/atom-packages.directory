@@ -1,0 +1,19 @@
+* {
+  box-sizing: border-box;
+}
+.package-list {
+
+}
+
+.package-list .package {
+  vertical-align: top;
+  display: inline-block;
+  width: 28%;
+  margin-right: 4.25%;
+  height: 9em;
+}
+
+.package-list .package-description,
+.package-list .package-meta {
+  font-size: .85em;
+}

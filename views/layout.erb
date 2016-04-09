@@ -3,9 +3,19 @@
   <head>
     <meta charset="utf-8">
     <title>Atom Packages</title>
+    <link rel="stylesheet" href="/octicons/octicons.css">
+    <link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/master/devicon.min.css">
     <%= stylesheet_tag 'application' %>
   </head>
   <body>
-    <%= yield %>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages</a></h1>
+    </header>
+    <section id="content">
+      <%= yield %>
+    </section>
+    <footer>
+      Made with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a>
+    </footer>
   </body>
 </html>

@@ -7,6 +7,8 @@ class Package
         index: true,
         uniq: true
 
+  field :description
+
   field :downloads,
         index: true,
         required: true,
@@ -54,6 +56,7 @@ class Package
     def build_package_attributes(package)
       {
         name: package['name'],
+        description: (package['metadata'] ? package['metadata']['description'] : ''),
         readme: package['readme'],
         repository: package['repository'],
         downloads: package['downloads'],

@@ -1,2 +1,23 @@
-<h1><%= @package.name %></h1>
+<h1><%= humanize_atom_package_name @package.name %></h1>
 <%= markdown(@package.readme) %>
+
+
+<% if @categories %>
+Categorise as:
+  <ul>
+  <% @categories.each do |category| %>
+    <% unless @package.categories.include?(category) %>
+      <li><a href="/categorise/<%= @package.permalink %>/as/<%= category.permalink %>"><%= category.name %></a></li>
+    <% end %>
+  <% end %>
+  </ul>
+<% end %>
+
+<% if @package.keywords %>
+Category from Keyword:
+  <ul>
+    <% @package.keywords.each do |keyword| %>
+      <li><a href="/categorise/<%= @package.permalink %>/as/<%= keyword %>"><%= keyword %></a></li>
+    <% end %>
+  </ul>
+<% end %>

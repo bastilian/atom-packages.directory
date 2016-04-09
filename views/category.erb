@@ -1,1 +1,11 @@
-<%= partial :_list, locals: {packages: @category.packages} %>
+<h1><%= @category.name %></h1>
+
+<% if @categories && !@category.parent_category %>
+<ul>
+  <% @categories.each do |parent_category| %>
+    <li><a href="/subcategorise/<%= @category.permalink %>/as/<%= parent_category.permalink %>">Subcategory of <%= parent_category.name %></a></li>
+  <% end %>
+</ul>
+<% end %>
+
+<%= partial :_package_list, locals: {packages: @category.packages} %>

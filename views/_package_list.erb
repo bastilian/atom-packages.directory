@@ -1,0 +1,20 @@
+<section class="package-list">
+  <% packages.each do |package| %>
+  <div class="package">
+    <h2>
+      <a href="/package/<%= package.permalink %>">
+        <%= humanize_atom_package_name(package.name) %>
+      </a>
+    </h2>
+
+    <p class="package-description">
+      <%= package.description %>
+    </p>
+
+
+    <div class="package-meta">
+      <%= package.downloads %> <%= package.stargazers_count %>
+    </div>
+  </div>
+  <% end %>
+</section>
