@@ -30,6 +30,7 @@ GEM
     compass-import-once (1.0.5)
       sass (>= 3.2, < 3.5)
     daemons (1.2.3)
+    diff-lcs (1.2.5)
     eventmachine (1.2.0.1)
     execjs (2.6.0)
     faraday (0.9.2)
@@ -63,6 +64,19 @@ GEM
       ffi (>= 0.5.0)
     rethinkdb (2.1.0)
       json
+    rspec (3.4.0)
+      rspec-core (~> 3.4.0)
+      rspec-expectations (~> 3.4.0)
+      rspec-mocks (~> 3.4.0)
+    rspec-core (3.4.4)
+      rspec-support (~> 3.4.0)
+    rspec-expectations (3.4.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.4.0)
+    rspec-mocks (3.4.1)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.4.0)
+    rspec-support (3.4.1)
     sass (3.4.22)
     shotgun (0.9.1)
       rack (>= 1.0)
@@ -111,6 +125,7 @@ DEPENDENCIES
   nobrainer
   pry
   rethinkdb (= 2.1.0)
+  rspec
   sass
   shotgun
   sinatra

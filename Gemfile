@@ -22,10 +22,13 @@ gem 'kramdown'
 # Server
 gem 'thin'
 
-group :development do
+group :development, :test do
   # Application reloader
   gem 'shotgun'
 
   # Pry for rake console
   gem 'pry'
+
+  # Rspec for testing
+  gem 'rspec'
 end
