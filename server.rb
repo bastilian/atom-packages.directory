@@ -2,8 +2,12 @@ require 'lib/environment'
 
 # Server instance serves the site. Tada!
 class Server < Sinatra::Base
+  # Partials support for views
   register Sinatra::Partial
   set :partial_template_engine, :erb
+
+  # Sprockets asset pipeline
+  register Sinatra::AssetPipeline
 
   configure do
     enable :logging
