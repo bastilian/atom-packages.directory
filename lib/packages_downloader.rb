@@ -23,7 +23,7 @@ module Packages
     def download(page: 1, max_pages: options[:max_pages])
       puts "Downloading page ##{page}"
       response = client.get do |req|
-        req.url '/api/packages', page: page
+        req.url '/api/packages', (page > 1 ? { page: page } : {})
       end
       save(json: response.body.force_encoding('utf-8'), page: page)
       download(page: page.next) unless page == max_pages
