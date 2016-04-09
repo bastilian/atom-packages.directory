@@ -1,15 +1,15 @@
 <section class="package-list">
   <% packages.each do |package| %>
   <div class="package">
-    <h2>
+    <strong>
       <a href="/package/<%= package.permalink %>">
         <%= humanize_atom_package_name(package.name) %>
       </a>
-    </h2>
+    </strong>
 
-    <p class="package-description">
-      <%= package.description %>
-    </p>
+    <div class="package-description">
+      <%= markdown(package.description) %>
+    </div>
 
 
     <div class="package-meta">

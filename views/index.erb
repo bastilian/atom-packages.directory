@@ -1,11 +1,10 @@
 
 
 <% @top_categories.each do |category| %>
-  TOP: <a href="/<%= category.permalink %>"><%= category.name %></a>
+  <a href="/<%= category.permalink %>"><%= category.name %></a>
+  <%= partial :_package_list, locals: {packages: category.packages[0..8]} %>
 <% end %>
 
 <% @categories.each do |category| %>
   <a href="/<%= category.permalink %>"><%= category.name %></a>
 <% end %>
-
-<%= partial :_package_list, locals: {packages: @packages} %>

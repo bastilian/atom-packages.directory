@@ -1,23 +1,30 @@
+<ul>
+  <% @package.categories.each do |category| %>
+      <li><a href="/category/<%= category.permalink %>"><%= category.name %></a></li>
+  <% end %>
+</ul>
+
 <h1><%= humanize_atom_package_name @package.name %></h1>
 <%= markdown(@package.readme) %>
 
-
-<% if @categories %>
-Categorise as:
-  <ul>
-  <% @categories.each do |category| %>
-    <% unless @package.categories.include?(category) %>
-      <li><a href="/categorise/<%= @package.permalink %>/as/<%= category.permalink %>"><%= category.name %></a></li>
+<% if  @package.categories.count == 0 %>
+  <% if @categories %>
+  Categorise as:
+    <ul>
+    <% @categories.each do |category| %>
+      <% unless @package.categories.include?(category) %>
+        <li><a href="/categorise/<%= @package.permalink %>/as/<%= category.permalink %>"><%= category.name %></a></li>
+      <% end %>
     <% end %>
+    </ul>
   <% end %>
-  </ul>
-<% end %>
 
-<% if @package.keywords %>
-Category from Keyword:
-  <ul>
-    <% @package.keywords.each do |keyword| %>
-      <li><a href="/categorise/<%= @package.permalink %>/as/<%= keyword %>"><%= keyword %></a></li>
-    <% end %>
-  </ul>
+  <% if @package.keywords %>
+  Category from Keyword:
+    <ul>
+      <% @package.keywords.each do |keyword| %>
+        <li><a href="/categorise/<%= @package.permalink %>/as/<%= keyword %>"><%= keyword %></a></li>
+      <% end %>
+    </ul>
+  <% end %>
 <% end %>
