@@ -43,6 +43,8 @@ class Package
     order_by(downloads: :desc)
   end
 
+  scope :top, -> { limit(10) }
+
   def categorise(category)
     return if categories.include?(category)
     PackageCategorisation.create(category: category, categorised_package: self)
