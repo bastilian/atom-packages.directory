@@ -1,3 +1,4 @@
+require 'sinatra/asset_pipeline'
 require 'lib/environment'
 
 # Server instance serves the site. Tada!
