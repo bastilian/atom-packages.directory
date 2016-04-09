@@ -7,3 +7,8 @@ require 'sinatra/asset_pipeline/task'
 Sinatra::AssetPipeline::Task.define! Server
 
 Dir.glob('lib/tasks/*.rake').each { |r| import r }
+
+require 'pry'
+task :console do
+  pry
+end

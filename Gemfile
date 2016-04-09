@@ -25,4 +25,7 @@ gem 'thin'
 group :development do
   # Application reloader
   gem 'shotgun'
+
+  # Pry for rake console
+  gem 'pry'
 end
