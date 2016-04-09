@@ -14,7 +14,12 @@ class Category
         index: true,
         required: true,
         uniq: true
+
   field :packages_count,
+        index: true,
+        required: true,
+        default: 0
+  field :sub_categories_count,
         index: true,
         required: true,
         default: 0
@@ -22,18 +27,20 @@ class Category
   has_many :package_categorisations
   has_many :categorised_packages, through: :package_categorisations
 
-  field :parent_category_id
+  belongs_to :parent_category, class_name: Category
   has_many :sub_categories, class_name: Category, foreign_key: :parent_category_id
 
   before_validation do
     write_attribute(:packages_count, packages.size)
+    write_attribute(:sub_categories_count, sub_categories.count)
+    parent_category.save if parent_category
     uniq_permalink_from(read_attribute(:name))
   end
 
-  scope :top, -> { where(parent_category_id: nil) }
+  scope :top, -> { where(:sub_categories_count.gt => 0) }
 
   default_scope do
-    order_by(:packages_count)
+    order_by(packages_count: :desc)
   end
 
   def packages
