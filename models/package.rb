@@ -50,6 +50,10 @@ class Package
     PackageCategorisation.create(category: category, categorised_package: self)
   end
 
+  def uncategorise(category)
+    PackageCategorisation.where(category: category, categorised_package: self).first.destroy
+  end
+
   class << self
     def from_data_json(json)
       new(build_package_attributes(json))

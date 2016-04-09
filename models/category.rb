@@ -32,8 +32,11 @@ class Category
 
   before_validation do
     write_attribute(:packages_count, packages.size)
-    write_attribute(:sub_categories_count, sub_categories.count)
-    parent_category.save if parent_category
+
+    if sub_categories.count > 0
+      write_attribute(:sub_categories_count, sub_categories.count)
+    end
+
     uniq_permalink_from(read_attribute(:name))
   end
 

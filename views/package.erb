@@ -1,6 +1,11 @@
 <ul>
   <% @package.categories.each do |category| %>
-      <li><a href="/category/<%= category.permalink %>"><%= category.name %></a></li>
+      <li>
+        <a href="/category/<%= category.permalink %>"><%= category.name %></a>
+        <a href="/uncategorise/<%= @package.permalink %>/from/<%= category.permalink %>">
+          <span class="octicon octicon-trashcan"></span>
+        </a>
+      </li>
   <% end %>
 </ul>
 

@@ -1,11 +1,12 @@
 module Permalink
   def uniq_permalink_from(str)
     return if read_attribute(:permalink)
+    str.strip!
     new_permalink = permalink_from(str)
     count = self.class.where(:permalink.eq => /^#{new_permalink}/).count
-    new_permalink = next_permalink(new_permalink, count) if count > 0
+    new_permalink = next_permalink(str, count) if count > 0
     if self.class.where(:permalink.eq => /^#{new_permalink}/).count != 0
-      new_permalink = next_permalink(new_permalink, count + 1)
+      new_permalink = next_permalink(str, count + 1)
     end
     write_permalink(new_permalink)
   end
