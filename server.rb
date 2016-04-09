@@ -22,7 +22,6 @@ class Server < Sinatra::Base
 
   get '/' do
     @top_categories = Category.top
-    @packages = Package.all.limit(20)
 
     erb :index
   end
