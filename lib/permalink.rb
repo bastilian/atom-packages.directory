@@ -1,4 +1,23 @@
 module Permalink
+  def uniq_permalink_from(str)
+    return if read_attribute(:permalink)
+    new_permalink = permalink_from(str)
+    count = self.class.where(:permalink.eq => /^#{new_permalink}/).count
+    new_permalink = next_permalink(new_permalink, count) if count > 0
+    if self.class.where(:permalink.eq => /^#{new_permalink}/).count != 0
+      new_permalink = next_permalink(new_permalink, count + 1)
+    end
+    write_permalink(new_permalink)
+  end
+
+  def next_permalink(str, count)
+    "#{str}-#{count + 1}"
+  end
+
+  def write_permalink(str)
+    write_attribute(:permalink, str)
+  end
+
   def permalink_from(str)
     return if str.blank?
     n = str.mb_chars.downcase.to_s.strip
@@ -30,6 +49,7 @@ module Permalink
     n.gsub!(/-{2,}/,          '-')
     n.gsub!(/^-/,             '')
     n.gsub!(/-$/,             '')
+    n.gsub!(/\+/,             'plus')
     n
   end
 end

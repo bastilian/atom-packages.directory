@@ -1,5 +1,6 @@
 require 'lib/packages_downloader'
 require 'lib/packages_importer'
+require 'lib/packages_categorizer'
 
 namespace :packages do
   desc 'Download latest package data from api.atom.io'
@@ -12,5 +13,11 @@ namespace :packages do
   task :import do
     importer = Packages::Importer.new
     importer.start
+  end
+
+  desc 'Categorise packages'
+  task :categorise do
+    categorizer = Packages::Categorizer.new
+    categorizer.start
   end
 end

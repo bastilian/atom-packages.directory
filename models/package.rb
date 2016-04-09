@@ -19,7 +19,9 @@ class Package
 
   field :permalink,
         index: true,
-        required: true
+        required: true,
+        uniq: true
+
   field :keywords,
         index: true
 
@@ -28,12 +30,20 @@ class Package
   field :releases
   field :versions
 
+  has_many :package_categorisations, foreign_key: :categorised_package_id
+  has_many :categories, through: :package_categorisations
+
   before_validation do
-    write_attribute(:permalink, permalink_from(read_attribute(:name)))
+    uniq_permalink_from(read_attribute(:name))
   end
 
   default_scope do
     order_by(downloads: :desc)
+  end
+
+  def categorise(category)
+    return if categories.include?(category)
+    PackageCategorisation.create(category: category, categorised_package: self)
   end
 
   class << self
