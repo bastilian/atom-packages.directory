@@ -1,0 +1,16 @@
+site:
+  build: .
+  command: shotgun -o 0.0.0.0
+  environment:
+    - RETHINKDB_URL=rethinkdb://database/atom
+  ports:
+    - "80:9393"
+  volumes:
+    - .:/site
+  links:
+    - database
+
+database:
+  image: rethinkdb:latest
+  ports:
+    - "8080:8080"
