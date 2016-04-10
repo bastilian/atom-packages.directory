@@ -13,7 +13,7 @@
 
 <% if @categories && !@category.parent_category %>
 <ul>
-  <% @categories[0..99].each do |parent_category| %>
+  <% @categories.each do |parent_category| %>
     <li><a href="/subcategorise/<%= @category.permalink %>/as/<%= parent_category.permalink %>">Subcategory of <%= parent_category.name %></a></li>
   <% end %>
 </ul>
