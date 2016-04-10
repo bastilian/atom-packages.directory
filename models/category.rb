@@ -32,16 +32,14 @@ class Category
   has_many :sub_categories, class_name: Category, foreign_key: :parent_category_id
 
   before_validation do
-    write_attribute(:packages_count, packages.size)
-
-    if sub_categories.count > 0
-      write_attribute(:sub_categories_count, sub_categories.count)
-    end
-
     uniq_permalink_from(read_attribute(:name))
   end
 
-  scope :top, -> { where(:sub_categories_count.gt => 0) }
+  after_save do
+    parent_category.update_counts if parent_category
+  end
+
+  scope :top, -> { where(:parent_category.undefined => true).where(:sub_categories_count.gt => 0) }
 
   default_scope do
     order_by(packages_count: :desc)
@@ -54,5 +52,10 @@ class Category
   def parent_category
     return false unless parent_category_id
     @parent_category ||= Category.find(parent_category_id)
+  end
+
+  def update_counts
+    write_attribute(:packages_count, packages.size)
+    write_attribute(:sub_categories_count, sub_categories.count)
   end
 end
