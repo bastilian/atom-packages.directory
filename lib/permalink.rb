@@ -5,14 +5,11 @@ module Permalink
     new_permalink = permalink_from(str)
     count = self.class.where(:permalink.eq => /^#{new_permalink}/).count
     new_permalink = next_permalink(new_permalink, count) if count > 0
-    if self.class.where(:permalink.eq => /^#{new_permalink}/).count != 0
-      new_permalink = next_permalink(new_permalink, count + 1)
-    end
     write_permalink(new_permalink)
   end
 
   def next_permalink(str, count)
-    "#{str}-#{count + 1}"
+    "#{str}-#{count}"
   end
 
   def write_permalink(str)
@@ -56,8 +53,8 @@ module Permalink
   end
 
   def in_words(int)
-  numbers_to_name = {
-      1000000 => 'million',
+    numbers_to_name = {
+      1_000_000 => 'million',
       1000 => 'thousand',
       100 => 'hundred',
       90 => 'ninety',
@@ -87,19 +84,19 @@ module Permalink
       3 => 'three',
       2 => 'two',
       1 => 'one'
-  }
-  str = ''
-  numbers_to_name.each do |num, name|
-    if int == 0
-      return str
-    elsif int.to_s.length == 1 && int/num > 0
-      return str + "#{name}"
-    elsif int < 100 && int/num > 0
-      return str + "#{name}" if int%num == 0
-      return str + "#{name} " + in_words(int%num)
-    elsif int/num > 0
-      return str + in_words(int/num) + " #{name} " + in_words(int%num)
+    }
+    str = ''
+    numbers_to_name.each do |num, name|
+      if int == 0
+        return str
+      elsif int.to_s.length == 1 && int / num > 0
+        return str + "#{name}"
+      elsif int < 100 && int / num > 0
+        return str + "#{name}" if int % num == 0
+        return str + "#{name} " + in_words(int % num)
+      elsif int / num > 0
+        return str + in_words(int / num) + " #{name} " + in_words(int % num)
+      end
     end
   end
-end
 end
