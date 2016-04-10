@@ -1,6 +1,7 @@
 module Packages
   # Takes packages in batches and categorises them based on their keywords
   class Categorizer
+    include Permalink
     attr_accessor :options
 
     DEFAULT_OPTIONS = {
@@ -20,7 +21,8 @@ module Packages
       package.keywords.each do |keyword|
         next if keyword.blank?
         category_name = keyword.capitalize
-        category = Category.where(name: category_name).first_or_create
+        category = Category.where(permalink: permalink_from(keyword)).first_or_create(name: category_name)
+        cats = Category.where(name: category_name).all
         category.save!
         package.categorise(category)
       end
