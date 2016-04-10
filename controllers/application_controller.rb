@@ -2,6 +2,8 @@ require 'lib/environment'
 require 'sinatra/asset_pipeline'
 
 class ApplicationController < Sinatra::Base
+  helpers ApplicationHelpers
+
   # Partials support for views
   register Sinatra::Partial
   set :partial_template_engine, :erb
@@ -10,7 +12,6 @@ class ApplicationController < Sinatra::Base
 
   # Sprockets asset pipeline
   register Sinatra::AssetPipeline
-
 
   configure do
     enable :logging
@@ -25,18 +26,5 @@ class ApplicationController < Sinatra::Base
   get '/' do
     @top_categories = Category.top
     erb :index
-  end
-
-  helpers do
-    def markdown(string)
-      Kramdown::Document.new(string).to_html
-    end
-
-    def humanize_atom_package_name(string)
-      string.gsub!(/^language-/, '')
-      string.gsub!(/-ui$/, '')
-      string.tr!('-', ' ')
-      string.split(/(\W)/).map(&:capitalize).join
-    end
   end
 end
