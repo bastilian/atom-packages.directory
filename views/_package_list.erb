@@ -1,9 +1,10 @@
 <section class="package-list">
   <% packages.each do |package| %>
+  <% package = PackageDecorator.new(package) %>
   <div class="package">
     <strong>
       <a href="/package/<%= package.permalink %>">
-        <%= humanize_atom_package_name(package.name) %>
+        <%= package.humanized_name %>
       </a>
     </strong>
 

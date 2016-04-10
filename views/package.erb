@@ -9,7 +9,7 @@
   <% end %>
 </ul>
 
-<h1><%= humanize_atom_package_name @package.name %></h1>
+<h1><%= @package.humanized_name %></h1>
 <%= markdown(@package.readme) %>
 
 <% if  @package.categories.count == 0 %>
