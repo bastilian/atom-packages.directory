@@ -18,6 +18,6 @@ class CategoriesController < ApplicationController
     @category.parent_category = @parent_category
     @category.save
 
-    redirect to("/#{@category.permalink}")
+    redirect to("/category/#{@category.permalink}")
   end
 end
