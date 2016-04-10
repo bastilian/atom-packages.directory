@@ -32,7 +32,7 @@ class Package
   field :releases
   field :versions
 
-  has_many :package_categorisations, foreign_key: :categorised_package_id
+  has_many :package_categorisations
   has_many :categories, through: :package_categorisations
 
   before_validation do
@@ -47,11 +47,11 @@ class Package
 
   def categorise(category)
     return if categories.include?(category)
-    PackageCategorisation.create(category: category, categorised_package: self)
+    PackageCategorisation.create!(category: category, package: self)
   end
 
   def uncategorise(category)
-    PackageCategorisation.where(category: category, categorised_package: self).first.destroy
+    PackageCategorisation.where(category: category, package: self).first.destroy
   end
 
   class << self

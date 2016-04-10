@@ -7,9 +7,9 @@ class Category
         index: true,
         uniq: true,
         required: true
-  field :keywords, type: Array
 
   field :description
+
   field :permalink,
         index: true,
         required: true,
@@ -19,13 +19,14 @@ class Category
         index: true,
         required: true,
         default: 0
+
   field :sub_categories_count,
         index: true,
         required: true,
         default: 0
 
   has_many :package_categorisations
-  has_many :categorised_packages, through: :package_categorisations
+  has_many :packages, through: :package_categorisations
 
   belongs_to :parent_category, class_name: Category
   has_many :sub_categories, class_name: Category, foreign_key: :parent_category_id
@@ -44,10 +45,6 @@ class Category
 
   default_scope do
     order_by(packages_count: :desc)
-  end
-
-  def packages
-    @packages ||= [Package.where(:keywords.include => keywords), categorised_packages].flatten
   end
 
   def parent_category=(category)

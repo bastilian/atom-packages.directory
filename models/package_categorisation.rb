@@ -2,7 +2,7 @@
 class PackageCategorisation
   include NoBrainer::Document
 
-  belongs_to :categorised_package, class_name: Package
+  belongs_to :package, class_name: Package
   belongs_to :category
 
   before_destroy do
