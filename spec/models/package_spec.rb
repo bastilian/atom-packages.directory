@@ -24,6 +24,32 @@ describe Package, type: :model do
     end
   end
 
+  describe 'permalink' do
+    it 'has a permalink after it\'s created' do
+      expect(subject.permalink).to_not be(nil)
+    end
+
+    context 'name contains a number' do
+      subject { FactoryGirl.create(:package, name: 'CSS 3') }
+
+      it 'will be replaced by the word in the permalink' do
+        expect(subject.permalink).to eq('css-three')
+      end
+    end
+
+    context 'with a literal number created from a name' do
+      subject { FactoryGirl.create(:package, name: 'CSS 3') }
+      before do
+        Package.all.destroy_all
+        FactoryGirl.create(:package, name: 'CSS Three')
+      end
+
+      it 'will add a count to the permalink' do
+        expect(subject.permalink).to eq('css-three-1')
+      end
+    end
+  end
+
   describe 'Class Methods' do
     subject       { Package }
     let(:file)    { File.join(File.dirname(__FILE__), '../fixtures/packages.json') }
