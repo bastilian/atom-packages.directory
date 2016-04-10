@@ -31,4 +31,6 @@ group :development, :test do
 
   # Rspec for testing
   gem 'rspec'
+  gem 'factory_girl'
+  gem 'faker'
 end

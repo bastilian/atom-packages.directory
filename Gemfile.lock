@@ -33,6 +33,10 @@ GEM
     diff-lcs (1.2.5)
     eventmachine (1.2.0.1)
     execjs (2.6.0)
+    factory_girl (4.7.0)
+      activesupport (>= 3.0.0)
+    faker (1.6.3)
+      i18n (~> 0.5)
     faraday (0.9.2)
       multipart-post (>= 1.2, < 3)
     ffi (1.9.10)
@@ -120,6 +124,8 @@ PLATFORMS
 
 DEPENDENCIES
   compass
+  factory_girl
+  faker
   faraday
   kramdown
   nobrainer
