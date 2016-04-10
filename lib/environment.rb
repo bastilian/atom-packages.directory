@@ -16,3 +16,4 @@ NoBrainer.configure do |config|
   config.rethinkdb_urls = [ENV['RETHINKDB_URL']]
   config.logger = Logger.new(LOG_FILE)
 end
+NoBrainer.sync_indexes
