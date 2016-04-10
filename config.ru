@@ -1,10 +1,5 @@
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__)))
 
-Dir.glob('./{helpers,controllers}/*.rb').each { |file| require file }
-
-run Rack::Cascade.new([
-  PackagesController,
-  PackageCategorisationsController,
-  CategoriesController,
-  ApplicationController
-])
+require 'lib/environment'
+controllers = Object.constants.select { |c| c.match(/Controller$/) }.map { |c| Kernel.const_get(c) }
+run Rack::Cascade.new(controllers)
