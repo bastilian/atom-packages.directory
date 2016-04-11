@@ -79,4 +79,34 @@ footer {
   text-align: center;
 }
 
+.system,
+.system-2 {
+  @include animation(spin 50s ease-in infinite);
+  background: 50% 50% image-url('system.png') no-repeat;
+  height: 512px;
+  left: 0;
+  margin-left: -256px;
+  margin-top: -256px;
+  position: fixed;
+  top: 0;
+  width: 512px;
+  z-index: -1;
+}
+
+.system-2 {
+  @include animation(spin-reverse 50s ease-in infinite);
+}
+
+@include keyframes(spin) {
+  100% {
+    @include transform(rotate(360deg));
+  }
+};
+
+@include keyframes(reverse-spin) {
+  100% {
+    @include transform(rotate(360deg));
+  }
+};
+
 @import 'package-list';
