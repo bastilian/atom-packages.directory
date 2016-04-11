@@ -52,6 +52,7 @@ class Category
   end
 
   def merge(other_category)
+    Category.where(parent_category_id: other_category.id).update_all(parent_category_id: id)
     PackageCategorisation.where(category_id: other_category.id).update_all(category_id: id)
     other_category.destroy
   end

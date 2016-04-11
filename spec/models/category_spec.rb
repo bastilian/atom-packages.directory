@@ -29,6 +29,7 @@ describe Category, type: :model do
     before do
       package.save
       subject.save
+      other_category.save
       package_categorisation.save
     end
 
@@ -41,6 +42,14 @@ describe Category, type: :model do
       expect do
         subject.merge(other_category)
       end.to change(Category, :count).by(-1)
+    end
+
+    it 'updates all subcategories to link to the new one' do
+      sub_category = FactoryGirl.create(:category, parent_category_id: other_category.id)
+      sub_category.save
+
+      subject.merge(other_category)
+      expect(sub_category.reload.parent_category).to eq(subject)
     end
   end
 end
