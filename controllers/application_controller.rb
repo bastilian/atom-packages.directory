@@ -24,7 +24,6 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/' do
-    @top_categories = Category.top
-    erb :index
+    erb :index, locals: { top_categories: Category.top }
   end
 end

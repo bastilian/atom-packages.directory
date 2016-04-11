@@ -10,6 +10,7 @@
   <body>
     <header>
       <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a text editor of the 21st Century</span>
     </header>
     <section id="content">
       <%= yield %>
@@ -17,5 +18,9 @@
     <footer>
       Made with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a>
     </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
   </body>
 </html>

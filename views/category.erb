@@ -1,20 +1,19 @@
-<h1><%= @category.name %></h1>
+<h1>
+  <%= category.name %>
+</h1>
 
-<%= partial :_package_list, locals: { packages: @category.packages } %>
+<%= partial :_package_list, locals: { packages: category.packages } %>
 
-<% if @category.sub_categories %>
+<% if category.sub_categories %>
 
-  <% @category.sub_categories.each do |category| %>
-    <h2><a href="/category/<%= category.permalink %>"><%= category.name %></a></h2>
+  <% category.sub_categories.each do |category| %>
+    <h2>
+      <a href="/category/<%= category.permalink %>">
+        <%= category.name %>
+      </a>
+    </h2>
+
     <%= partial :_package_list, locals: {packages: category.packages[0..5]} %>
   <% end %>
 
-<% end %>
-
-<% if @categories && !@category.parent_category %>
-<ul>
-  <% @categories.each do |parent_category| %>
-    <li><a href="/subcategorise/<%= @category.permalink %>/as/<%= parent_category.permalink %>">Subcategory of <%= parent_category.name %></a></li>
-  <% end %>
-</ul>
 <% end %>
