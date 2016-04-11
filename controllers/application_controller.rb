@@ -8,8 +8,8 @@ class ApplicationController < Sinatra::Base
   register Sinatra::Partial
   set :partial_template_engine, :erb
   set :views, File.join(File.dirname(__FILE__), '../views')
-  set :assets_prefix, %w(../assets)
 
+  set :assets_prefix, %w(../assets ../assets/javascripts/bower_components)
   # Sprockets asset pipeline
   register Sinatra::AssetPipeline
 

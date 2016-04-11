@@ -1,0 +1,22 @@
+{
+  "name": "Atom Package Directory",
+  "homepage": "https://github.com/bastilian/atom-packages.directory",
+  "authors": [
+    "Sebastian Gräßl <sebastian@validcode.me>"
+  ],
+  "description": "a package directory for a text editor of the 21st Century",
+  "main": "application.js",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "assets/javascripts/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "fetch": "^0.11.0"
+  }
+}
