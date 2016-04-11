@@ -23,4 +23,20 @@ describe ResourcesController, type: :controller do
       expect(JSON.parse(last_response.body)['name']).to eq(resource.name)
     end
   end
+
+  describe '# DELETE /resource/id' do
+    it 'destroys a resource' do
+      expect do
+        delete "/package/#{resource.id}"
+      end.to change(Package, :count)
+    end
+
+    context "when a resource does not exist" do
+      it 'returns a 404' do
+        delete "/package/random-id"
+
+        expect(last_response.status).to eq(404)
+      end
+    end
+  end
 end

@@ -6,8 +6,19 @@ class ResourcesController < ApplicationController
     content_type :json
   end
 
-  get ResourceMatcher.new do |resource_object, id|
-    resource = Object.const_get(resource_object)
-    (id ? resource.find(id) : resource.all).to_json
+  get ResourceMatcher.new do |resource, id|
+    resource_object = Object.const_get(resource)
+    (id ? resource_object.find?(id) : resource_object.all).to_json
+  end
+
+  delete ResourceMatcher.new do |resource, id|
+    resource_object = Object.const_get(resource)
+    resource = resource_object.find?(id)
+    if resource
+      resource.destroy
+      status 200
+    else
+      status 404
+    end
   end
 end
