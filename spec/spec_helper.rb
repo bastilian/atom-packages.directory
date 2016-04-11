@@ -9,13 +9,13 @@ RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
 
   config.before(:suite) do
+    FactoryGirl.find_definitions
     NoBrainer.sync_indexes
   end
 
   config.before(:all) do
     NoBrainer.drop!
     NoBrainer.sync_schema
-    FactoryGirl.find_definitions
   end
 
   config.before(:each) do
