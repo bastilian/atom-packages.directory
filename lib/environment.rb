@@ -8,7 +8,7 @@ LOG_FILE = File.new(File.join(File.dirname(__FILE__), '../log/dev.log'), 'a+')
 LOG_FILE.sync = true
 
 Dir.glob(
-  File.join(File.dirname(__FILE__), '../{decorators,models,helpers,controllers}/*.rb')
+  File.join(File.dirname(__FILE__), '../{models,helpers,decorators,controllers}/*.rb')
 ).each { |file| require file }
 
 NoBrainer.configure do |config|
