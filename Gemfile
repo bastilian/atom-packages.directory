@@ -31,6 +31,6 @@ group :development, :test do
 
   # Rspec for testing
   gem 'rspec'
-  gem 'factory_girl'
+  gem 'factory_girl', require: false
   gem 'faker'
 end
