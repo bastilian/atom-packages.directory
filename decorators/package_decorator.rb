@@ -1,4 +1,8 @@
 class PackageDecorator < Decorator
+  def readme_html
+    markdown(readme)
+  end
+
   def humanized_name
     string = name
     string.gsub!(/^(language|atom)-/, '')
