@@ -24,6 +24,23 @@ describe ResourcesController, type: :controller do
     end
   end
 
+  describe '# POST /resources' do
+    it 'creates a new resource' do
+      resource = FactoryGirl.build(:package)
+      expect do
+        post_json '/packages', resource.to_json
+      end.to change(Package, :count).by(1)
+    end
+  end
+
+  describe '# PUT /resource/id' do
+    it 'updates a resource' do
+      new_name = Faker::Name.name
+      put "/package/#{resource.id}", { name: new_name }.to_json
+      expect(resource.reload.name).to eq(new_name)
+    end
+  end
+
   describe '# DELETE /resource/id' do
     it 'destroys a resource' do
       expect do
@@ -31,9 +48,9 @@ describe ResourcesController, type: :controller do
       end.to change(Package, :count)
     end
 
-    context "when a resource does not exist" do
+    context 'when a resource does not exist' do
       it 'returns a 404' do
-        delete "/package/random-id"
+        delete '/package/random-id'
 
         expect(last_response.status).to eq(404)
       end
