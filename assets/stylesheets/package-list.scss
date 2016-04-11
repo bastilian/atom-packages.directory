@@ -1,19 +1,37 @@
-* {
-  box-sizing: border-box;
-}
 .package-list {
-
+  margin-top: .5em;
 }
 
-.package-list .package {
+.package {
   vertical-align: top;
   display: inline-block;
   width: 28%;
   margin-right: 4.25%;
-  height: 9em;
+  margin-bottom: 3em;
 }
 
-.package-list .package-description p,
+.package-list .package-description {
+  font-size: .9em;
+  height: 5em;
+
+  p {
+
+  }
+}
 .package-list .package-meta {
-  font-size: .85em;
+  font-size: .8em;
+}
+
+.package-meta {
+  display: block;
+  text-align: right;
+
+  .octicon {
+    margin: 0 .2em;
+  }
+
+  &>span {
+    display: inline-block;
+    margin-left: .6em;
+  }
 }
