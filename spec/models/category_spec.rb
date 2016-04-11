@@ -20,4 +20,27 @@ describe Category, type: :model do
       end
     end
   end
+
+  describe '#merge' do
+    let(:other_category) { FactoryGirl.create(:category) }
+    let(:package) { FactoryGirl.create(:package) }
+    let(:package_categorisation) { FactoryGirl.create(:package_categorisation, category: other_category, package: package) }
+
+    before do
+      package.save
+      subject.save
+      package_categorisation.save
+    end
+
+    it 'moves packages from the given category in' do
+      subject.merge(other_category)
+      expect(package.categories).to include(subject)
+    end
+
+    it 'destroys the other category' do
+      expect do
+        subject.merge(other_category)
+      end.to change(Category, :count).by(-1)
+    end
+  end
 end

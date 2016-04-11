@@ -50,4 +50,9 @@ class Category
       sub_categories_count: sub_categories.count
     )
   end
+
+  def merge(other_category)
+    PackageCategorisation.where(category_id: other_category.id).update_all(category_id: id)
+    other_category.destroy
+  end
 end
