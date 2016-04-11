@@ -33,4 +33,5 @@ group :development, :test do
   gem 'rspec'
   gem 'factory_girl', require: false
   gem 'faker'
+  gem 'rack-test'
 end

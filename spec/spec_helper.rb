@@ -1,12 +1,22 @@
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..'))
-
-ENV['RETHINKDB_URL'] = 'rethinkdb://database/atom_test'
-require 'lib/environment'
 require 'factory_girl'
 require 'faker'
+require 'rack/test'
+
+ENV['RACK_ENV'] = 'test'
+ENV['RETHINKDB_URL'] = 'rethinkdb://database/atom_test'
+require 'lib/environment'
+
+module RSpecMixin
+  include Rack::Test::Methods
+  def app
+    described_class
+  end
+end
 
 RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
+  config.include RSpecMixin, type: :controller
 
   config.before(:suite) do
     FactoryGirl.find_definitions
