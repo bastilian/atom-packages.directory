@@ -2,10 +2,14 @@
 class PackageCategorisation
   include NoBrainer::Document
 
-  belongs_to :package, class_name: Package
+  belongs_to :package
   belongs_to :category
 
-  before_destroy do
+  after_destroy do
     category.destroy if category.packages.count == 0
+  end
+
+  after_save do
+    category.update_counts
   end
 end

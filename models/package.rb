@@ -32,7 +32,7 @@ class Package
   field :releases
   field :versions
 
-  has_many :package_categorisations
+  has_many :package_categorisations, dependent: :destroy
   has_many :categories, through: :package_categorisations
 
   before_validation do

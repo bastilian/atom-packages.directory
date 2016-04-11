@@ -39,23 +39,15 @@ class Category
     parent_category.update_counts if parent_category
   end
 
-  scope :top, -> { where(:parent_category.undefined => true).where(:sub_categories_count.gt => 0) }
-
-  default_scope do
-    order_by(packages_count: :desc)
-  end
-
-  def parent_category=(category)
-    self.parent_category_id = category.id
-  end
-
-  def parent_category
-    return false unless parent_category_id
-    @parent_category ||= Category.find(parent_category_id)
-  end
+  scope :top, lambda {
+    where(:parent_category.undefined => true)
+      .where(:sub_categories_count.gt => 0)
+  }
 
   def update_counts
-    write_attribute(:packages_count, packages.size)
-    write_attribute(:sub_categories_count, sub_categories.count)
+    update(
+      packages_count: packages.count,
+      sub_categories_count: sub_categories.count
+    )
   end
 end
