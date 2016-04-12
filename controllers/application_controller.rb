@@ -10,7 +10,6 @@ class ApplicationController < Sinatra::Base
   set :views, File.join(File.dirname(__FILE__), '../views')
 
   set :assets_prefix, %w(../assets ../assets/javascripts/bower_components)
-  # Sprockets asset pipeline
   register Sinatra::AssetPipeline
 
   configure do
