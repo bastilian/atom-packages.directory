@@ -18,7 +18,12 @@
       <%= yield %>
     </section>
     <footer>
-      Made with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a>
+      <p>
+        Made with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a>
+      </p>
+      <p>
+        <small>Last updated: <%= Time.now.strftime('%Y-%m-%d') %></small>
+      </p>
     </footer>
     <div style="opacity:.15;position:relative;z-index:-1;">
       <div class="system"></div>
