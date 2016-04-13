@@ -1,7 +1,12 @@
+require 'lib/resource'
+
 # A Category can have packages associated via PackageCateorisations and through keywords
 class Category
+  include Resource
   include NoBrainer::Document
   include Permalink
+
+  identify_by :permalink
 
   field :name,
         index: true,

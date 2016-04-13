@@ -1,7 +1,14 @@
+require 'lib/resource'
+require 'decorators/package_decorator'
+
 # An Atom Package
 class Package
+  include Resource
   include NoBrainer::Document
   include Permalink
+
+  identify_by :permalink
+  decorate_with PackageDecorator
 
   field :name,
         index: true,
