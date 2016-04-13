@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 # Framework
 gem 'sinatra'
 gem 'sinatra-partial'
+gem 'sinatra-contrib', require: false
 
 # Asset compilation
 gem 'coffee-script'
