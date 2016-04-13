@@ -9,6 +9,8 @@ class ApplicationController < Sinatra::Base
   set :partial_template_engine, :erb
   set :views, File.join(File.dirname(__FILE__), '../views')
 
+  set :assets_precompile, %w(*.coffee *.scss *.png *.jpg *.svg *.eot *.ttf *.woff *.woff2)
+
   set :assets_prefix, %w(../assets ../assets/javascripts/bower_components)
   register Sinatra::AssetPipeline
 
