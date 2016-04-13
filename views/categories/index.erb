@@ -1,0 +1,21 @@
+<% categories.each do |category| %>
+<div class="category">
+  <header>
+    <h2><a href="/category/<%= category.permalink %>"><%= category.name %></a></h2>
+  </header>
+  <div class="category-subcategories">
+    <ul>
+      <% category.sub_categories.each do |category| %>
+        <li>
+          <a href="/category/<%= category.permalink %>">
+            <%= category.name %>
+          </a>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="category-packages">
+    <%= partial :_package_list, locals: {packages: category.packages[0..8]} %>
+  </div>
+</div>
+<% end %>
