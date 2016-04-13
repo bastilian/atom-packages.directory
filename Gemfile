@@ -5,9 +5,11 @@ gem 'sinatra'
 gem 'sinatra-partial'
 
 # Asset compilation
-gem 'sinatra-asset-pipeline'
+gem 'coffee-script'
 gem 'sass'
 gem 'compass'
+gem 'sprockets-sass'
+gem 'sprockets-helpers'
 
 # Database
 gem 'nobrainer'
@@ -21,6 +23,8 @@ gem 'kramdown'
 
 # Server
 gem 'thin'
+
+gem 'rake'
 
 group :development, :test do
   # Application reloader

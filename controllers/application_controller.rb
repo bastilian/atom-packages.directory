@@ -1,19 +1,32 @@
 require 'lib/environment'
-require 'sinatra/asset_pipeline'
+require 'sprockets'
+require 'sprockets-helpers'
+require 'compass'
 
 class ApplicationController < Sinatra::Base
   helpers ApplicationHelpers
+  set :sprockets, Sprockets::Environment.new(root)
 
   # Partials support for views
   register Sinatra::Partial
+
   set :partial_template_engine, :erb
   set :views, File.join(File.dirname(__FILE__), '../views')
-  set :assets_prefix, %w(../assets ../assets/javascripts/bower_components)
-  register Sinatra::AssetPipeline
 
   configure do
     enable :logging
     use Rack::CommonLogger, LOG_FILE
+
+    %w(javascripts stylesheets images).each do |type|
+      sprockets.append_path File.join(root, "../assets/#{type}")
+    end
+    sprockets.append_path File.join(root, '../assets/javascripts/views')
+    sprockets.append_path File.join(root, '../assets', 'javascripts', 'bower_components')
+
+    Sprockets::Helpers.configure do |config|
+      config.environment = sprockets
+      config.prefix      = '/assets'
+    end
   end
 
   before do
