@@ -1,15 +1,30 @@
+require 'active_support/inflections'
+require 'json'
+require 'sinatra/respond_with'
 require 'controllers/application_controller'
 require 'lib/resource_matcher'
-require 'json'
 
 class ResourcesController < ApplicationController
-  before do
-    content_type :json
-  end
+  register Sinatra::RespondWith
+  respond_to :json, :html
 
-  get ResourceMatcher.new do |resource, id|
-    resource_object = Object.const_get(resource)
-    (id ? resource_object.find?(id) : resource_object.all).to_json
+  get ResourceMatcher.new do |resource_name, id|
+    resource_object = Object.const_get(resource_name)
+
+    if id
+      resource = resource_object.where(resource_object.identifier => id).first.decorated
+      template = "#{resource_name.downcase.pluralize}/show"
+      locals_name = resource_name.downcase.singularize
+    else
+      resource = resource_object.all
+      template = "#{resource_name.downcase.pluralize}/index"
+      locals_name = resource_name.pluralize.downcase
+    end
+
+    respond_to do |format|
+      format.html { erb template.to_sym, locals: { locals_name => resource } }
+      format.json { resource.to_json }
+    end
   end
 
   post ResourceMatcher.new do |resource, _|
