@@ -18,7 +18,7 @@ describe ResourcesController, type: :controller do
 
   describe '# GET /resource/id' do
     it 'returns a json object for the resource' do
-      get "/package/#{resource.id}"
+      get "/package/#{resource.permalink}"
 
       expect(JSON.parse(last_response.body)['name']).to eq(resource.name)
     end
