@@ -8,8 +8,8 @@ class @CategoryNavigatorView
     @render()
 
   categoryElement: (category) ->
-    el = el('option')
-    el.textContent = category.name
+    elm = el('option')
+    elm.textContent = category.name
 
   render: ->
     @el.textContent = 'Go to: '
