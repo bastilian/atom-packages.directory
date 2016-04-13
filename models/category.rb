@@ -28,7 +28,7 @@ class Category
   has_many :package_categorisations
   has_many :packages, through: :package_categorisations
 
-  belongs_to :parent_category, class_name: Category
+  belongs_to :parent_category, class_name: Category, index: true
   has_many :sub_categories, class_name: Category, foreign_key: :parent_category_id
 
   before_validation do
