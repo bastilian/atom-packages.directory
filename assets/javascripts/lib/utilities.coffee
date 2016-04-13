@@ -39,3 +39,6 @@
     fn()
   else
     document.addEventListener('DOMContentLoaded', fn)
+
+@observe = (elm, eventName, callback) ->
+  elm.addEventListener(eventName, callback)
