@@ -1,3 +1,4 @@
+require 'controllers/application_controller'
 require 'lib/resource_matcher'
 require 'json'
 
