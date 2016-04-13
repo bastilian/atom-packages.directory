@@ -31,7 +31,6 @@ class ApplicationController < Sinatra::Base
 
   before do
     NoBrainer.sync_schema
-    @categories = Category.all
   end
 
   get '/' do

@@ -5,10 +5,17 @@ class @CategoryNavigatorView
     @categories = categories
     @application = application
 
+    observe @select, 'change', (event) ->
+      select_elm = event.target
+      location.href = select_elm.options[select_elm.selectedIndex]
+                                  .getAttribute('data-url')
+
     @render()
 
   categoryElement: (category) ->
     elm = el('option')
+    elm.setAttribute 'value', category.id
+    elm.setAttribute 'data-url', '/category/' + category.permalink
     elm.textContent = category.name
 
     elm
