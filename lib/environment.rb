@@ -4,7 +4,7 @@ Bundler.require
 require 'lib/permalink'
 require 'lib/decorator'
 
-LOG_FILE = File.new(File.join(File.dirname(__FILE__), '../log/dev.log'), 'a+')
+LOG_FILE = File.new(File.join(File.dirname(__FILE__), "../log/#{ENV['RACK_ENV']}.log"), 'a+')
 LOG_FILE.sync = true
 
 Dir.glob(
@@ -13,7 +13,7 @@ Dir.glob(
 
 NoBrainer.configure do |config|
   config.app_name = 'atom_packages'
-  config.rethinkdb_urls = [ENV['RETHINKDB_URL']]
+  config.rethinkdb_urls = ["rethinkdb://#{ENV['RETHINKDB_HOST']}/#{ENV['RETHINKDB_DB']}"]
   config.logger = Logger.new(LOG_FILE)
 end
 NoBrainer.sync_indexes

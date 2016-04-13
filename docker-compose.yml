@@ -1,12 +1,35 @@
-site:
+app:
   build: .
-  command: shotgun --server=thin -o 0.0.0.0
-  environment:
-    - RETHINKDB_URL=rethinkdb://database/atom
   ports:
     - "80:9393"
   volumes:
     - .:/site
+
+site:
+  extends: app
+  command: shotgun --server=thin -o 0.0.0.0
+  environment:
+    - RETHINKDB_DB=atom_development
+    - RETHINKDB_HOST=database
+  links:
+    - database
+
+test:
+  extends: app
+  command: rake spec
+  environment:
+    - RACK_ENV=test
+    - RETHINKDB_DB=atom_test
+    - RETHINKDB_HOST=database
+  links:
+    - database
+
+production:
+  extends: app
+  command: thin start -p 9393 -e production
+  environment:
+    - RETHINKDB_DB=atom
+    - RETHINKDB_HOST=database
   links:
     - database
 
