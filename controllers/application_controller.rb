@@ -8,10 +8,8 @@ class ApplicationController < Sinatra::Base
   register Sinatra::Partial
   set :partial_template_engine, :erb
   set :views, File.join(File.dirname(__FILE__), '../views')
-
-  register Sinatra::AssetPipeline
   set :assets_prefix, %w(../assets ../assets/javascripts/bower_components)
-  set :assets_precompile, %w(*.coffee *.scss *.png *.jpg *.svg *.eot *.ttf *.woff *.woff2)
+  register Sinatra::AssetPipeline
 
   configure do
     enable :logging
@@ -25,5 +23,11 @@ class ApplicationController < Sinatra::Base
 
   get '/' do
     erb :index, locals: { top_categories: Category.top }
+  end
+
+  get "#{Sprockets::Helpers.prefix}/*" do |path|
+    env_sprockets = request.env.dup
+    env_sprockets['PATH_INFO'] = path
+    settings.sprockets.call env_sprockets
   end
 end
