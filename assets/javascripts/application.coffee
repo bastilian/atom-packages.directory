@@ -1,15 +1,18 @@
+#= require lib/utilities
 #= require collections/categories
-
-@extend = (object, properties) ->
-  for key, val of properties
-    object[key] = val
-  object
+#= require views/category-navigator-view
 
 class AtomPackageAdmin
+  bar: el('div', 'admin-bar')
   constructor: ->
+    @render()
+
     @categories = new Categories()
-    @categories.fetch().then (data) ->
-      console.log data
+    @categories.fetch().then (data) =>
+      new CategoryNavigatorView(data, @)
 
+  render: ->
+    prepend(@bar, document.body)
 
-new AtomPackageAdmin()
+@ready ->
+  new AtomPackageAdmin()

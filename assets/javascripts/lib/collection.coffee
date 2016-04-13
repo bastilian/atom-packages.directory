@@ -11,11 +11,13 @@ class @Collection
     json.forEach (model) =>
       @data.push new @model(model)
 
+    @data
+
   fetch: ->
     return fetch(@url)
       .then (response) ->
         response.json()
       .then (json) =>
         @parseData(json)
-      .then =>
-        @
+      .then (data) ->
+        data
