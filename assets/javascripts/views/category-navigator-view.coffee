@@ -13,7 +13,7 @@ class @CategoryNavigatorView
 
   render: ->
     @el.textContent = 'Go to: '
-    @categories.forEach (category) ->
+    @categories.forEach (category) =>
       append(@categoryElement(category), @select)
 
     append(@select, @el)
