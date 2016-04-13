@@ -52,4 +52,16 @@ describe Category, type: :model do
       expect(sub_category.reload.parent_category).to eq(subject)
     end
   end
+
+  describe '#decorate_with' do
+    it 'sets the decorator class' do
+      subject.class.send(:decorate_with, 'NewDecorator')
+      expect(subject.class.decorator).to eq('NewDecorator')
+    end
+
+    it 'defaults to class + Decorator' do
+      subject.class.send(:decorate_with, nil)
+      expect(subject.class.decorator).to eq(CategoryDecorator)
+    end
+  end
 end
