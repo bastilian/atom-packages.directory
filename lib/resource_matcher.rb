@@ -6,7 +6,7 @@ class ResourceMatcher
   def initialize
     @captures = Match.new([])
     @models   = Object.constants.select do |object|
-      (Object.const_get(object).try(:ancestors) || []).include?(NoBrainer::Document)
+      (Object.const_get(object).try(:ancestors) || []).include?(Resource)
     end
   end
 
