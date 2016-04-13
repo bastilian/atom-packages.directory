@@ -31,12 +31,14 @@ class ResourcesController < ApplicationController
     resource_object = Object.const_get(resource)
     resource = resource_object.create(JSON.parse(request.body.string))
 
-    resource.to_json
+    respond_to do |format|
+      format.json { resource.to_json }
+    end
   end
 
   put ResourceMatcher.new do |resource, id|
     resource_object = Object.const_get(resource)
-    resource = resource_object.find?(id)
+    resource = resource_object.where(resource_object.identifier => id).first
 
     if resource
       resource.update(JSON.parse(request.body.string))
@@ -49,7 +51,8 @@ class ResourcesController < ApplicationController
 
   delete ResourceMatcher.new do |resource, id|
     resource_object = Object.const_get(resource)
-    resource = resource_object.find?(id)
+    resource = resource_object.where(resource_object.identifier => id).first
+
     if resource
       resource.destroy
       status 200
