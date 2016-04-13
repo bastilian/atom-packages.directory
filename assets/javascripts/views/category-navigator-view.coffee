@@ -11,6 +11,8 @@ class @CategoryNavigatorView
     elm = el('option')
     elm.textContent = category.name
 
+    elm
+
   render: ->
     @el.textContent = 'Go to: '
     @categories.forEach (category) =>
