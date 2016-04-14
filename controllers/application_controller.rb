@@ -29,10 +29,6 @@ class ApplicationController < Sinatra::Base
     end
   end
 
-  before do
-    NoBrainer.sync_schema
-  end
-
   get '/' do
     erb :index, locals: { top_categories: Category.top }
   end
