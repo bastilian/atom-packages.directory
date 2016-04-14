@@ -131,6 +131,7 @@ DEPENDENCIES
   faker
   faraday
   kramdown
+  multi_json
   nobrainer
   pry
   rack-test

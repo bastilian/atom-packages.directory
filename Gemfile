@@ -4,6 +4,7 @@ source 'https://rubygems.org'
 gem 'sinatra'
 gem 'sinatra-partial'
 gem 'sinatra-contrib', require: false
+gem 'multi_json'
 
 # Asset compilation
 gem 'coffee-script'
