@@ -36,7 +36,7 @@ describe ResourcesController, type: :controller do
   describe '# PUT /resource/id' do
     it 'updates a resource' do
       new_name = Faker::Name.name
-      put "/package/#{resource.id}", { name: new_name }.to_json
+      put "/package/#{resource.permalink}", { name: new_name }.to_json
       expect(resource.reload.name).to eq(new_name)
     end
   end
@@ -44,7 +44,7 @@ describe ResourcesController, type: :controller do
   describe '# DELETE /resource/id' do
     it 'destroys a resource' do
       expect do
-        delete "/package/#{resource.id}"
+        delete "/package/#{resource.permalink}"
       end.to change(Package, :count)
     end
 
