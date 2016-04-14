@@ -1,5 +1,5 @@
 require 'active_support/inflections'
-require 'json'
+require 'multi_json'
 require 'sinatra/respond_with'
 require 'controllers/application_controller'
 require 'lib/resource_matcher'
@@ -29,7 +29,7 @@ class ResourcesController < ApplicationController
 
   post ResourceMatcher.new do |resource, _|
     resource_object = Object.const_get(resource)
-    resource = resource_object.create(JSON.parse(request.body.string))
+    resource = resource_object.create(::MultiJson.decode(request.body))
 
     respond_to do |format|
       format.json { resource.to_json }
@@ -39,9 +39,10 @@ class ResourcesController < ApplicationController
   put ResourceMatcher.new do |resource, id|
     resource_object = Object.const_get(resource)
     resource = resource_object.where(resource_object.identifier => id).first
-
+    update_hash = MultiJson.decode(request.body)
+    logger.info resource
     if resource
-      resource.update(JSON.parse(request.body.string))
+      resource.update!(update_hash)
 
       status 200
     else
