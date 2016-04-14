@@ -1,29 +1,25 @@
-class @CategoryNavigatorView
-  el: el('div', 'category-navigator')
-  select: el('select')
-  constructor: (categories, application) ->
-    @categories = categories
-    @application = application
+#= require collection-select-view
 
-    observe @select, 'change', (event) ->
-      select_elm = event.target
-      location.href = select_elm.options[select_elm.selectedIndex]
-                                  .getAttribute('data-url')
+class @CategoryNavigatorView
+  element: el('div', 'category-navigator')
+
+  constructor: (application) ->
+    @application = application
+    @categories = @application.categories
+    @categorySelect = new CollectionSelectView(@categories)
 
     @render()
 
-  categoryElement: (category) ->
-    elm = el('option')
-    elm.setAttribute 'value', category.id
-    elm.setAttribute 'data-url', '/category/' + category.permalink
-    elm.textContent = category.name
 
-    elm
+  observe: ->
+    @categorySelect.on 'change', (event) =>
+      id = @categorySelect.value()
+      category = @categories.find(id)
+      location.href = '/category/' + category.permalink
 
   render: ->
-    @el.textContent = 'Go to: '
-    @categories.forEach (category) =>
-      append(@categoryElement(category), @select)
+    @element.textContent = 'Go to: '
+    append(@categorySelect.selectElm, @element)
+    append(@element, @application.bar)
 
-    append(@select, @el)
-    append(@el, @application.bar)
+    @observe()

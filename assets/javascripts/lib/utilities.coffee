@@ -1,3 +1,5 @@
+@find = (selector) ->
+  return document.querySelectorAll(selector)
 
 @extend = (object, properties) ->
   for key, val of properties
@@ -7,7 +9,9 @@
 @el = (tag, css_class) ->
   el = document.createElement(tag)
   if css_class
-    addClass(el, css_class)
+    css_class.split(' ').forEach (className) ->
+      addClass(el, className)
+
   el
 
 @prepend = (el, parent) ->
@@ -29,6 +33,24 @@
     el.className = el.className.replace(
       new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'),
       ' ')
+
+@removeClasses = (el, classNames) ->
+  classNames.split(' ').forEach (className) ->
+    removeClass(el, className)
+
+@toggleClass = (el, className) ->
+  if el.classList
+    el.classList.toggle(className)
+  else
+    classes = el.className.split(' ')
+    existingIndex = classes.indexOf(className)
+
+    if existingIndex >= 0
+      classes.splice(existingIndex, 1)
+    else
+      classes.push(className)
+
+    el.className = classes.join(' ')
 
 @empty = (el) ->
   while el.hasChildNodes()

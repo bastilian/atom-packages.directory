@@ -1,7 +1,40 @@
+$text-color: #66595c;
+
 .atom-package-admin {
   left: 15%;
   padding: .5em 0;
   position: fixed;
   width: 70%;
   z-index: 2;
+  text-align: right;
+}
+
+.category-admin {
+  display: inline-block;
+  font-size: .6em;
+  font-weight: normal;
+  color: $text-color;
+
+  line-height: 1.5em;
+  height: 1.5em;
+
+  form {
+    display: inline-block;
+    overflow: hidden;
+    width: 0;
+    transition: all 500ms ease-in;
+    height: 1.5em;
+  }
+
+  &.subcategory form,
+  &.merge form {
+    transition: all 500ms ease-in;
+    width: 350px;
+  }
+
+  .octicon-file-submodule,
+  .octicon-git-merge {
+    font-size: 1.4em;
+    margin-right: .2em;
+  }
 }
