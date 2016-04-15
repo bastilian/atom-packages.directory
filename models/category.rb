@@ -53,6 +53,11 @@ class Category
       .where(:sub_categories_count.gt => 0)
   }
 
+  scope :not_so_top, lambda {
+    where(:parent_category.undefined => true)
+      .where(sub_categories_count: 0)
+  }
+
   def update_counts
     update(
       packages_count: packages.count,

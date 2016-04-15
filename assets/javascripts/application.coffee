@@ -27,7 +27,6 @@ class AtomPackageAdmin
   fetchCategories: ->
     @categories = new Categories()
     @categories.fetch().then (data) =>
-      @navigator = new CategoryNavigatorView(@)
       @setMainView()
 
   render: ->

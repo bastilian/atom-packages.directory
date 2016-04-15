@@ -30,7 +30,7 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/' do
-    erb :index, locals: { top_categories: Category.top }
+    erb :index, locals: { top_categories: Category.top, not_so_top_categories: Category.not_so_top }
   end
 
   get "#{Sprockets::Helpers.prefix}/*" do |path|
