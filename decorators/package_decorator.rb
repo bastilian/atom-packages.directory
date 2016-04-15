@@ -1,6 +1,10 @@
 class PackageDecorator < Decorator
   def readme_html
-    markdown(readme)
+    if readme
+      markdown(readme)
+    else
+      markdown("_No README_")
+    end
   end
 
   def humanized_name
