@@ -25,7 +25,7 @@ module Packages
       response = client.get do |req|
         req.url '/api/packages', (page > 1 ? { page: page } : {})
       end
-      save(json: response.body.force_encoding('utf-8'), page: page)
+      save(json: response.body, page: page)
       download(page: page.next) unless page == max_pages
     end
 

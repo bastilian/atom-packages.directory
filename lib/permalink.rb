@@ -1,7 +1,7 @@
 module Permalink
   def uniq_permalink_from(str)
     return if read_attribute(:permalink)
-    str.strip!
+    str = CGI.escape str.strip
     new_permalink = permalink_from(str)
     count = self.class.where(:permalink.eq => /^#{new_permalink}/).count
     new_permalink = next_permalink(new_permalink, count) if count > 0
@@ -18,7 +18,9 @@ module Permalink
 
   def permalink_from(str)
     return if str.blank?
-    n = str.mb_chars.downcase.to_s.strip
+    n = str.mb_chars.to_s
+    n.gsub!(/\+/,             'plus')
+    n.gsub!(/\#/,              'sharp')
     n.gsub!(/\d/) { |number| in_words(number.to_i) }
     n.gsub!(/[àáâãäåāă]/,     'a')
     n.gsub!(/æ/,              'ae')
@@ -44,12 +46,11 @@ module Permalink
     n.gsub!(/[ýÿŷ]/,          'y')
     n.gsub!(/[žżź]/,          'z')
     n.gsub!(/\s+/,            '-')
-    n.gsub!(/[^\sa-z0-9_-]/,  '')
     n.gsub!(/-{2,}/,          '-')
     n.gsub!(/^-/,             '')
     n.gsub!(/-$/,             '')
-    n.gsub!(/\+/,             'plus')
-    n.parameterize
+
+    n.downcase
   end
 
   def in_words(int)

@@ -10,7 +10,7 @@ class Category
 
   field :name,
         index: true,
-        uniq: true,
+        uniq: { scope: :permalink },
         required: true
 
   field :description

@@ -21,8 +21,8 @@ module Packages
       package.keywords.each do |keyword|
         next if keyword.blank?
         category_name = keyword.capitalize
+        puts "Categorising #{package.name} as #{category_name}"
         category = Category.where(permalink: permalink_from(keyword)).first_or_create(name: category_name)
-        cats = Category.where(name: category_name).all
         category.save!
         package.categorise(category)
       end

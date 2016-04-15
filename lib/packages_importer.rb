@@ -21,7 +21,7 @@ module Packages
 
     def import_file(file)
       begin
-        packages = JSON.parse(File.read(file, external_encoding: 'iso-8859-1', internal_encoding: 'utf-8'))
+        packages = JSON.parse(File.read(file))
         puts "#{packages.length} packages"
       rescue
         puts 'Failed'
