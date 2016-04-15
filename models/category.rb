@@ -40,6 +40,10 @@ class Category
     uniq_permalink_from(read_attribute(:name))
   end
 
+  default_scope do
+    order_by(:name)
+  end
+
   after_save do
     parent_category.update_counts if parent_category
   end
