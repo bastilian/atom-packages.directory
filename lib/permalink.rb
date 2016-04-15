@@ -20,7 +20,8 @@ module Permalink
     return if str.blank?
     n = str.mb_chars.to_s
     n.gsub!(/\+/,             'plus')
-    n.gsub!(/\#/,              'sharp')
+    n.gsub!(/\#/,             'sharp')
+    n.gsub!(/[\/\\]/,         '-')
     n.gsub!(/\d/) { |number| in_words(number.to_i) }
     n.gsub!(/[àáâãäåāă]/,     'a')
     n.gsub!(/æ/,              'ae')
