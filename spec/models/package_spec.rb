@@ -37,6 +37,14 @@ describe Package, type: :model do
       end
     end
 
+    context 'name contains an emoji' do
+      subject { FactoryGirl.create(:package, name: '♥️') }
+
+      it 'will be replaced by the word in the permalink' do
+        expect(subject.permalink).to eq('♥️')
+      end
+    end
+
     context 'with a literal number created from a name' do
       subject { FactoryGirl.create(:package, name: 'CSS 3') }
       before do
