@@ -31,13 +31,9 @@ module Packages
       packages.each do |package|
         next unless package && Package.where(name: package['name']).count == 0
         puts "Importing project: #{package['name']}"
-        save_package(package)
+        package = Package.from_data_json(package)
+        package.save
       end
-    end
-
-    def save_package(package)
-      pkg = Package.from_data_json(package)
-      pkg.save!
     end
 
     def import
