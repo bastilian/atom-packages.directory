@@ -14,7 +14,7 @@ module RSpecMixin
   end
 
   def post_json(uri, json)
-    post(uri, json, { "CONTENT_TYPE" => "application/json" })
+    post(uri, json, { 'CONTENT_TYPE' => 'application/json' })
   end
 end
 
@@ -36,3 +36,5 @@ RSpec.configure do |config|
     NoBrainer.purge!
   end
 end
+
+def puts(*_); end
