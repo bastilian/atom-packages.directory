@@ -30,11 +30,16 @@ class Category
         required: true,
         default: 0
 
-  has_many :package_categorisations
+  has_many :package_categorisations, dependent: :destroy
   has_many :packages, through: :package_categorisations
 
-  belongs_to :parent_category, class_name: Category, index: true
-  has_many :sub_categories, class_name: Category, foreign_key: :parent_category_id
+  belongs_to :parent_category,
+             class_name: Category,
+             index: true
+  has_many :sub_categories,
+           class_name: Category,
+           foreign_key: :parent_category_id,
+           scope: -> { order_by(packages_count: :desc) }
 
   before_validation do
     uniq_permalink_from(read_attribute(:name))
@@ -63,6 +68,13 @@ class Category
       packages_count: packages.count,
       sub_categories_count: sub_categories.count
     )
+  end
+
+  def parents
+    return unless parent_category
+    parent_categories = [parent_category]
+    parent_categories << parent_category.parents
+    parent_categories.flatten.compact
   end
 
   def merge_id=(id)
