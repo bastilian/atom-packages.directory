@@ -44,7 +44,7 @@ class Category
            scope: -> { order_by(packages_count: :desc) }
 
   before_validation do
-    uniq_permalink_from(read_attribute(:name))
+    uniq_permalink_from(parent_category ? "#{parent_category.name} #{name}" : name)
   end
 
   default_scope do
