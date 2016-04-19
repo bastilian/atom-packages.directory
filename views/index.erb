@@ -7,7 +7,7 @@
   </header>
   <div class="category-subcategories">
     <ul>
-      <% category.sub_categories.each do |category| %>
+      <% category.sub_categories.limit(21).each do |category| %>
         <li>
           <a href="/category/<%= category.permalink %>">
             <%= category.name %>
