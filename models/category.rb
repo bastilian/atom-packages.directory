@@ -1,4 +1,5 @@
 require 'lib/resource'
+require 'decorators/category_decorator'
 
 # A Category can have packages associated via PackageCateorisations and through keywords
 class Category
@@ -7,6 +8,7 @@ class Category
   include Permalink
 
   identify_by :permalink
+  decorate_with CategoryDecorator
 
   field :name,
         index: true,
