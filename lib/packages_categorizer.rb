@@ -21,7 +21,7 @@ module Packages
       puts "Working on batch ##{batch}"
 
       Package.limit(options[:batch_size]).skip(options[:batch_size] * (batch - 1)).each do |package|
-        categorise_package(package)
+        self.class.categorise_package(package)
       end
 
       categorise(batch: batch + 1) unless options[:batch_size] * batch >= package_count
@@ -29,7 +29,6 @@ module Packages
 
     def start
       categorise
-      # Cleanup: Remove categories only having one package
       puts "Categorised #{self.class.categorised} packages. (Uncategorised: #{self.class.uncategorised})"
     end
 
