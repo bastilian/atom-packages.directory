@@ -67,7 +67,7 @@ class Category
 
   def update_counts
     update(
-      packages_count: packages.count,
+      packages_count: packages.count + sub_categories.collect(&:packages_count).inject { |a, e| a + e }.to_i,
       sub_categories_count: sub_categories.count
     )
   end
