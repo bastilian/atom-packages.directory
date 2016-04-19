@@ -1,17 +1,18 @@
 <section class="package-list">
   <% packages.each do |package| %>
-  <% package = PackageDecorator.new(package) %>
+  <% package = package.decorated %>
   <div class="package">
     <strong>
       <a href="/package/<%= package.permalink %>">
         <%= package.humanized_name %>
       </a>
     </strong>
-
+    <% if package.readme_images[0] %>
+      <img src="<%= package.readme_images[0] %>" alt="" />
+    <% end %>
     <div class="package-description">
-      <%= markdown(package.description) %>
+      <%= package.description_html %>
     </div>
-
 
     <div class="package-meta">
       <span>

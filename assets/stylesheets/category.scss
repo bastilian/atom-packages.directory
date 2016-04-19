@@ -4,6 +4,7 @@
     padding: 0;
   }
 }
+
 .category-subcategories {
   font-size: .9em;
   padding: .2em 0 1em;
@@ -12,9 +13,20 @@
     display: inline-block;
     margin-right: .2em;
     text-align: center;
+    width: 20%;
+    margin: 0 2.125% 2em;
+
+    img {
+      display: block;
+      width: 60%;
+      margin: .5em 20%;
+    }
   }
 
   a {
-    font-weight: normal;
+    .packages_count {
+      font-weight: normal;
+      font-size: .9em;
+    }
   }
 }
