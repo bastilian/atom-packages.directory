@@ -7,6 +7,14 @@ class PackageDecorator < Decorator
     end
   end
 
+  def readme_images
+    unless readme.blank?
+      readme.scan(/!\[.*\]\((.+\.+\S{1,5})\)$/).to_a.flatten
+    else
+      []
+    end
+  end
+
   def humanized_name
     string = name
     string.gsub!(/^(language|atom)-/, '')
