@@ -1,9 +1,17 @@
 class PackageDecorator < Decorator
+  def description_html
+    if !description.blank?
+      markdown(description)
+    else
+      markdown('_No description_')
+    end
+  end
+
   def readme_html
-    if readme
+    if !readme.blank?
       markdown(readme)
     else
-      markdown("_No README_")
+      markdown('_No README_')
     end
   end
 
