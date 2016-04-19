@@ -24,7 +24,7 @@ class @CategoryView
       addClass(@element, 'changed')
 
     observe @mergeButton, 'click', =>
-      @modeText.textContent = "Merge category with: "
+      @modeText.textContent = "Merge category in: "
       @setMode('merge')
 
     observe @subCategoryButton, 'click', =>
