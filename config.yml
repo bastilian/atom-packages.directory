@@ -1,0 +1,38 @@
+base_categories:
+  Languages:
+    Haml:
+    JavaScript:
+      Backbone:
+      Angular:
+      Ember:
+      Polymer:
+      Node:
+    Ruby:
+      Ruby on Rails:
+      Rspec:
+    Python:
+      Django:
+  Themes:
+    Syntax:
+      Dark:
+      Colorful:
+      Light:
+    UI:
+      Dark:
+      Colorful:
+      Light:
+  Tools:
+    Testing:
+    Linter:
+    Git:
+      GitHub:
+      BitBucket:
+    Blogging:
+    Autocomplete:
+    Vim:
+    Time Tracking:
+    Terminal:
+    Tabs:
+    Documentation:
+    Navigation:
+    Tree View:
