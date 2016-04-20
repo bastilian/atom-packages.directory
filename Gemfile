@@ -8,7 +8,7 @@ gem 'multi_json'
 
 # Asset compilation
 gem 'coffee-script'
-gem 'sass'
+gem 'sass', require: 'sass'
 gem 'compass'
 gem 'sprockets-sass'
 gem 'sprockets-helpers'
@@ -27,6 +27,7 @@ gem 'kramdown'
 gem 'puma'
 
 gem 'rake'
+gem 'foreman'
 
 group :development, :test do
   # Application reloader

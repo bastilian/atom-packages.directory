@@ -1,13 +1,12 @@
 app:
   build: .
   ports:
-    - "80:9393"
+    - "80:80"
   volumes:
     - .:/site
 
 site:
   extends: app
-  command: shotgun --server=puma -o 0.0.0.0
   environment:
     - RETHINKDB_DB=atom_development
     - RETHINKDB_HOST=database
@@ -26,7 +25,6 @@ test:
 
 production:
   extends: app
-  command: thin start -p 9393 -e production
   environment:
     - RETHINKDB_DB=atom
     - RETHINKDB_HOST=database
