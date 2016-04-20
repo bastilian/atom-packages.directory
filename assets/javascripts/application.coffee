@@ -1,4 +1,4 @@
-#= require lodash/dist/lodash
+#= require lodash
 #= require lib/utilities
 #= require collections/categories
 #= require views/category-navigator-view

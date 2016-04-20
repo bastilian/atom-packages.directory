@@ -18,7 +18,8 @@
   ],
   "dependencies": {
     "fetch": "^0.11.0",
-    "lodash": "^3.10.1",
-    "lodash-inflection": "^1.3.2"
+    "lodash-inflection": "^1.3.2",
+    "octicons": "^3.5.0",
+    "devicons": "^1.8.0"
   }
 }
