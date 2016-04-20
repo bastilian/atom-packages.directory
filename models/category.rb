@@ -12,9 +12,7 @@ class Category
 
   field :name,
         index: true,
-        uniq: {
-          scope: :parent_category_id
-        },
+        uniq: true,
         required: true
 
   field :description

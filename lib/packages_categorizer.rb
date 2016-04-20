@@ -27,7 +27,7 @@ module Packages
       categories.each do |category|
         name = category[0].dup
         sub_categories = category[1]
-        new_category = Category.where(name: name, parent_category: parent_category).first_or_create
+        new_category = Category.where(name: name).first_or_create!(parent_category: parent_category)
 
         if sub_categories
           build_category_tree(categories: category[1], parent_category: new_category)
@@ -43,7 +43,7 @@ module Packages
       puts "Working on batch ##{batch}"
 
       Package.limit(options[:batch_size]).skip(options[:batch_size] * (batch - 1)).each do |package|
-        self.class.categorise_package(package)
+        categorise_package(package)
       end
 
       categorise(batch: batch + 1) unless options[:batch_size] * batch >= package_count
@@ -72,18 +72,18 @@ module Packages
     end
 
     def category(category_name)
-      Category.where(name: category_name.capitalize).first_or_create
+      Category.where(name: category_name.capitalize).first_or_create!
     end
 
     def get_language(package)
-      return unless package.permalink =~ /^language-/
-      language_name = package.permalink.gsub(/^language-/, '')
-      language = Category.where(permalink: 'languages-' + language_name).first
+      return unless package.name =~ /^language-/
+      language_name = package.name.gsub(/^language-/, '').capitalize
+      language = Category.where(name: language_name).first
 
       unless language
         puts "Creating Language category for #{language_name}"
-        language = Category.create(name: language_name.tr('-', ' ').capitalize,
-                                   parent_category: category(permalink: 'languages'))
+        language = Category.create(name: language_name,
+                                   parent_category: category('languages'))
       end
 
       language
@@ -91,8 +91,8 @@ module Packages
 
     def extract_categories_from_name(package)
       package.name.split('-').map do |name_part|
-        category(name_part)
-      end
+        Category.where(name: name_part.capitalize).first
+      end.compact
     end
 
     def remove_parents(categories)
