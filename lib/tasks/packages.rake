@@ -20,4 +20,10 @@ namespace :packages do
     categorizer = Packages::Categorizer.new
     categorizer.start
   end
+
+  desc 'Categorise packages while they are added or updated'
+  task :categorise_live do
+    categorizer = Packages::Categorizer.new
+    categorizer.live
+  end
 end

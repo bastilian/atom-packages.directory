@@ -24,7 +24,7 @@ module Packages
       categories.each do |category|
         name = category[0].dup
         sub_categories = category[1]
-        new_category = Category.create(name: name, parent_category: parent_category)
+        new_category = Category.where(name: name, parent_category: parent_category).first_or_create
 
         if sub_categories
           build_category_tree(categories: category[1], parent_category: new_category)
@@ -44,6 +44,14 @@ module Packages
       end
 
       categorise(batch: batch + 1) unless options[:batch_size] * batch >= package_count
+    end
+
+    def live
+      Package.all.raw.changes.each do |change|
+        if change['new_val']['id']
+          self.class.categorise_package(Package.find(change['new_val']['id']))
+        end
+      end
     end
 
     def start
@@ -78,12 +86,12 @@ module Packages
       def get_language(package)
         return unless package.permalink =~ /^language-/
         language_name = package.permalink.gsub(/^language-/, '')
-        language = Category.where(permalink: 'languages-' + language_name)
-                           .first_or_create(name: language_name.tr('-', ' ').capitalize)
+        language = Category.where(permalink: 'languages-' + language_name).first
 
-        unless language.parent_category
-          language.parent_category = category(permalink: 'languages')
-          language.save
+        unless language
+          puts "Creating Language category for #{language_name}"
+          language = Category.create(name: language_name.tr('-', ' ').capitalize,
+                                     parent_category: category(permalink: 'languages'))
         end
 
         language

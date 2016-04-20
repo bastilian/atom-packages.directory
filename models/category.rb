@@ -12,7 +12,9 @@ class Category
 
   field :name,
         index: true,
-        uniq: { scope: :permalink },
+        uniq: {
+          scope: :parent_category_id
+        },
         required: true
 
   field :description
