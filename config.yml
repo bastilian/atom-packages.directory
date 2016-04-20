@@ -1,3 +1,10 @@
+keywords:
+  blacklist:
+    - atom
+  aliases:
+    theme: themes
+    ui: themes-ui
+    syntax: themes-syntax
 base_categories:
   Languages:
     Haml:
