@@ -72,7 +72,7 @@ module Packages
     end
 
     def category(category_name)
-      Category.where(name: category_name.capitalize).first
+      Category.where(name: category_name.capitalize).first_or_create
     end
 
     def get_language(package)
@@ -91,7 +91,7 @@ module Packages
 
     def extract_categories_from_name(package)
       package.name.split('-').map do |name_part|
-        category(name: name_part)
+        category(name_part)
       end
     end
 
