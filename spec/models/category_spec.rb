@@ -3,6 +3,17 @@ require 'spec_helper'
 describe Category, type: :model do
   subject { FactoryGirl.create(:category) }
 
+  describe 'permalink' do
+    context 'when a parent_category' do
+      let(:parent) { FactoryGirl.create(:category) }
+      subject { FactoryGirl.create(:category, parent_category: parent) }
+
+      it 'will be added to the permalink' do
+        expect(subject.permalink).to match(/^#{parent.permalink}/)
+      end
+    end
+  end
+
   describe '#update_counts' do
     context 'when a package is categorised' do
       it 'is called and updates the packages count' do
