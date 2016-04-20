@@ -67,33 +67,12 @@ module Packages
       return unless package.keywords
       keywords = package.keywords.compact.reject(&:empty?)
       keywords.map do |keyword|
-        keyword = alias_for(keyword)
-        category_from_keyword(keyword)
+        category(keyword)
       end
     end
 
-    def category_from_keyword(keyword)
-      keyword_alias = alias_for(keyword)
-      if keyword_alias
-        category(permalink: keyword_alias)
-      else
-        category_name = keyword.capitalize
-        permalink = permalink_from(keyword)
-        category(permalink: permalink, category_name: category_name)
-      end
-    end
-
-    def alias_for(keyword)
-      config['keywords']['aliases'][keyword] || keyword
-    end
-
-    def category(permalink:, category_name: nil)
-      criteria = Category.where(permalink: permalink)
-      if category_name
-        criteria.first_or_create(name: category_name)
-      else
-        criteria.first
-      end
+    def category(category_name)
+      Category.where(name: category_name.capitalize).first
     end
 
     def get_language(package)
@@ -112,16 +91,13 @@ module Packages
 
     def extract_categories_from_name(package)
       package.name.split('-').map do |name_part|
-        name_part = alias_for(name_part)
-        category(permalink: permalink_from(name_part))
+        category(name: name_part)
       end
     end
 
     def remove_parents(categories)
       parents = categories.collect(&:parents).flatten.compact.uniq
-      if parents.length > 0
-        puts "Removing #{parents.collect(&:name).join(',')}"
-      end
+      puts "Removing #{parents.collect(&:name).join(',')}" if parents.length > 0
       categories - parents
     end
 
