@@ -1,37 +1,47 @@
-app:
-  build: .
-  ports:
-    - "80:80"
-  volumes:
-    - .:/site
+version: '2'
+services:
+  app:
+    build: .
+    ports:
+      - "80:80"
+    volumes:
+      - .:/site
 
-site:
-  extends: app
-  environment:
-    - RETHINKDB_DB=atom_development
-    - RETHINKDB_HOST=database
-  links:
-    - database
+  site:
+    extends: app
+    environment:
+      - RETHINKDB_DB=atom_development
+      - RETHINKDB_HOST=database
+    links:
+      - database
+      - replica
 
-test:
-  extends: app
-  command: rake spec
-  environment:
-    - RACK_ENV=test
-    - RETHINKDB_DB=atom_test
-    - RETHINKDB_HOST=database
-  links:
-    - database
+  test:
+    extends: app
+    command: rake spec
+    environment:
+      - RACK_ENV=test
+      - RETHINKDB_DB=atom_test
+      - RETHINKDB_HOST=database
+    links:
+      - database
 
-production:
-  extends: app
-  environment:
-    - RETHINKDB_DB=atom
-    - RETHINKDB_HOST=database
-  links:
-    - database
+  production:
+    extends: app
+    environment:
+      - RETHINKDB_DB=atom
+      - RETHINKDB_HOST=database
+    links:
+      - database
 
-database:
-  image: rethinkdb:latest
-  ports:
-    - "8080:8080"
+  database:
+    depends_on:
+      - replica
+    image: rethinkdb:latest
+    command: rethinkdb --bind all
+    ports:
+      - "8080:8080"
+
+  replica:
+    image: rethinkdb:latest
+    command: rethinkdb --join database:29015 --bind all
