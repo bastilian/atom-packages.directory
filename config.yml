@@ -5,6 +5,7 @@ keywords:
     theme: themes
     ui: themes-ui
     syntax: themes-syntax
+    linter: tools-linter
 base_categories:
   Languages:
     Haml:
