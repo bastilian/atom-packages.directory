@@ -52,6 +52,12 @@ class Package
 
   scope :top, -> { limit(10) }
 
+  scope :categorised do
+    join(:package_categorisations).each do |id|
+      id
+    end
+  end
+
   def categorise(category)
     return if categories.include?(category)
     PackageCategorisation.create!(category: category, package: self)
