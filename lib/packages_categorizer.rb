@@ -78,7 +78,8 @@ module Packages
       def get_language(package)
         return unless package.permalink =~ /^language-/
         language_name = package.permalink.gsub(/^language-/, '')
-        language = category(permalink: language_name, category_name: language_name.tr('-', ' ').capitalize)
+        language = Category.where(permalink: 'languages-' + language_name)
+                           .first_or_create(name: language_name.tr('-', ' ').capitalize)
 
         unless language.parent_category
           language.parent_category = category(permalink: 'languages')
