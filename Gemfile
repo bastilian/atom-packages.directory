@@ -24,7 +24,7 @@ gem 'faraday'
 gem 'kramdown'
 
 # Server
-gem 'thin'
+gem 'puma'
 
 gem 'rake'
 

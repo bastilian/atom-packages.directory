@@ -7,7 +7,7 @@ app:
 
 site:
   extends: app
-  command: shotgun --server=thin -o 0.0.0.0
+  command: shotgun --server=puma -o 0.0.0.0
   environment:
     - RETHINKDB_DB=atom_development
     - RETHINKDB_HOST=database
