@@ -27,7 +27,8 @@ module Packages
       categories.each do |category|
         name = category[0].dup
         sub_categories = category[1]
-        new_category = Category.where(name: name).first_or_create!(parent_category: parent_category)
+        new_category = Category.where(permalink: permalink_from(name))
+                               .first_or_create!(name: name, parent_category: parent_category)
 
         if sub_categories
           build_category_tree(categories: category[1], parent_category: new_category)
@@ -65,25 +66,27 @@ module Packages
 
     def extract_keywords(package)
       return unless package.keywords
-      keywords = package.keywords.compact.reject(&:empty?)
+      keywords = package.keywords.compact.reject(&:empty?).map{ |w| w.tr('-', ' ') }.uniq
+
       keywords.map do |keyword|
         category(keyword)
       end
     end
 
-    def category(category_name)
-      Category.where(name: category_name.capitalize).first_or_create!
+    def category(keyword)
+      permalink = permalink_from(keyword)
+      Category.where(permalink: permalink).first_or_create(name: keyword.capitalize)
     end
 
     def get_language(package)
       return unless package.name =~ /^language-/
-      language_name = package.name.gsub(/^language-/, '').capitalize
-      language = Category.where(name: language_name).first
+      language_name = package.name.gsub(/^language-/, '')
+      language = Category.where(permalink: "languages-#{language_name}").first
 
       unless language
         puts "Creating Language category for #{language_name}"
         language = Category.create(name: language_name,
-                                   parent_category: category('languages'))
+                                   parent_category: category('Languages'))
       end
 
       language
@@ -91,7 +94,7 @@ module Packages
 
     def extract_categories_from_name(package)
       package.name.split('-').map do |name_part|
-        Category.where(name: name_part.capitalize).first
+        Category.where(permalink: permalink_from(name_part))
       end.compact
     end
 
@@ -109,6 +112,7 @@ module Packages
     end
 
     def categorise_package(package)
+      puts "Extracting categories for #{package.name}"
       categories = get_categories(package)
 
       if !categories.empty?

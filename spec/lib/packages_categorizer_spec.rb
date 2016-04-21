@@ -29,7 +29,7 @@ describe Packages::Categorizer do
 
     context 'when a category for a keyword exists' do
       let(:keyword)  { Faker::Lorem.word }
-      let(:category) { FactoryGirl.create(:category, name: keyword.capitalize) }
+      let(:category) { FactoryGirl.create(:category, name: keyword) }
 
       before do
         category.save
@@ -91,6 +91,58 @@ describe Packages::Categorizer do
         end.to change(PackageCategorisation, :count).by(package.keywords.size + 1)
       end
     end
+
+    context 'when a package has duplicate keywords' do
+      let(:keywords) { %w(Url-encode Url-decode Url-encode Url-decode) }
+
+      before do
+        package.update(keywords: keywords)
+      end
+
+      it 'removes the duplicates' do
+        expect do
+          subject.categorise_package(package)
+        end.to change(Category, :count).by(package.keywords.size / 2)
+      end
+    end
+
+    context 'when a package has keywords with dashes and not' do
+      let(:keywords) { ['Url-encode', 'Url-decode', 'Url-encode', 'Url-decode', 'Url encode', 'Url decode'] }
+
+      before do
+        package.update(keywords: keywords)
+      end
+
+      it 'removes the dashes and possible resulting duplicates' do
+        expect do
+          subject.categorise_package(package)
+        end.to change(Category, :count).by(package.reload.keywords.size / 3)
+      end
+    end
+
+    context 'when two packages share keywords' do
+      let(:keywords) { %w(Encoding Url-encoding Url-encode Url-decode) }
+      let(:second_package) { FactoryGirl.create(:package, keywords: keywords) }
+
+      before do
+        package.update(keywords: keywords)
+        second_package.save
+      end
+
+      it 'should not fail and assign them' do
+        expect do
+          subject.categorise_package(package)
+          subject.categorise_package(second_package)
+        end.to change(PackageCategorisation, :count).by(package.keywords.size * 2)
+      end
+
+      it 'does not create duplicate categories' do
+        expect do
+          subject.categorise_package(package)
+          subject.categorise_package(second_package)
+        end.to change(Category, :count).by(package.keywords.size)
+      end
+    end
   end
 
   describe '#package_count' do
@@ -126,7 +178,7 @@ describe Packages::Categorizer do
       let(:package) { FactoryGirl.create(:package, name: 'language-LANG') }
 
       it 'returns a category for the language' do
-        expect(subject.get_language(package).name).to eq('Lang')
+        expect(subject.get_language(package).name).to eq('LANG')
       end
     end
 
