@@ -1,6 +1,20 @@
 require 'spec_helper'
 require 'lib/packages_categorizer'
 
+Hash.class_eval %Q{
+   def nested_keys
+    global_keys = []
+    keys.each do |key|
+      if self[key].is_a? Hash
+        global_keys +=  self[key].nested_keys << key
+      else
+        global_keys << key
+      end
+    end
+    return global_keys
+   end
+}
+
 describe Packages::Categorizer do
   subject { Packages::Categorizer.new }
   let(:package) { FactoryGirl.create(:package) }
@@ -25,6 +39,37 @@ describe Packages::Categorizer do
       expect do
         subject.categorise_package(package)
       end.to change(PackageCategorisation, :count).by(package.keywords.size)
+    end
+
+    describe '#build_category_tree' do
+      let(:configuration) do
+        {
+          'base_categories' => {
+            'Languages' => {
+              'Haml' => {},
+              'JavaScript' => {
+                'Backbone' => {}
+              },
+              'Ruby' => {
+                'Ruby on Rails' => {},
+                'Rspec' => {}
+              }
+            }
+          }
+        }
+      end
+
+      before do
+        Category.all.destroy_all
+        allow(subject).to receive(:config).and_return(configuration)
+      end
+
+      it 'creates categories based on base_categories in config' do
+        categories = configuration['base_categories'].nested_keys
+        expect do
+          subject.build_category_tree
+        end.to change(Category, :count).by(categories.size)
+      end
     end
 
     context 'when a category for a keyword exists' do
