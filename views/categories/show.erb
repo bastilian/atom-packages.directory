@@ -2,12 +2,19 @@
   <%= category.name %>
 </h1>
 
+<% if category.sub_categories %>
+    <% category.sub_categories.each do |category| %>
+        <a href="#<%= category.permalink %>">
+          <%= category.name %> |
+        </a>
+    <% end %>
+<% end %>
+
 <%= partial :_package_list, locals: { packages: category.packages } %>
 
 <% if category.sub_categories %>
-
   <% category.sub_categories.each do |category| %>
-    <h2>
+    <h2 id="<%= category.permalink %>">
       <a href="/category/<%= category.permalink %>">
         <%= category.name %>
       </a>
@@ -15,5 +22,6 @@
 
     <%= partial :_package_list, locals: {packages: category.packages[0..5]} %>
   <% end %>
-
 <% end %>
+
+More keyword: <%= category.packages.collect(&:keywords).compact.flatten.each(&:downcase).sort.uniq.join(', ') %>
