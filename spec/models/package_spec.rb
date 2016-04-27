@@ -1,27 +1,13 @@
 require 'spec_helper'
 
 describe Package, type: :model do
-  subject { FactoryGirl.create(:package) }
-  let(:category) { FactoryGirl.create(:category) }
+  let(:category) { FactoryGirl.create(:category, keywords: Faker::Lorem.words) }
+  subject { FactoryGirl.create(:package, keywords: []) }
 
-  describe '#categorise' do
-    it 'adds a category to categories' do
-      expect do
-        subject.categorise(category)
-      end.to change(PackageCategorisation, :count).by(1)
-    end
-  end
-
-  describe '#uncategorise' do
-    before do
-      subject.categorise(category)
-    end
-
-    it 'removes a category from categories' do
-      expect do
-        subject.uncategorise(category)
-      end.to change(PackageCategorisation, :count).by(-1)
-    end
+  it 'calls update_counts on categories matching keywords' do
+    expect(category.packages_count).to be(0)
+    subject.update(keywords: subject.keywords << category.keywords.sample)
+    expect(category.reload.packages_count).to eq(1)
   end
 
   describe 'permalink' do

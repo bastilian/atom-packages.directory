@@ -32,18 +32,22 @@ class Package
         uniq: true
 
   field :keywords,
-        index: true
+        index: true,
+        type: Array
 
   field :readme
   field :repository
   field :releases
   field :versions
 
-  has_many :package_categorisations, dependent: :destroy
-  has_many :categories, through: :package_categorisations
-
   before_validation do
     uniq_permalink_from(read_attribute(:name))
+  end
+
+  after_save :update_counts
+
+  def update_counts
+    categories.each(&:update_counts)
   end
 
   default_scope do
@@ -52,19 +56,9 @@ class Package
 
   scope :top, -> { limit(10) }
 
-  scope :categorised do
-    join(:package_categorisations).each do |id|
-      id
-    end
-  end
-
-  def categorise(category)
-    return if categories.include?(category)
-    PackageCategorisation.create!(category: category, package: self)
-  end
-
-  def uncategorise(category)
-    PackageCategorisation.where(category: category, package: self).first.destroy
+  def categories
+    return [] unless keywords
+    Category.where(_or: keywords.map { |keyword| { :keywords.include => keyword } })
   end
 
   class << self

@@ -5,22 +5,13 @@ require 'rack/test'
 
 ENV['RACK_ENV'] = 'test'
 ENV['RETHINKDB_URL'] = 'rethinkdb://database/atom_test'
+
 require 'lib/environment'
-
-module RSpecMixin
-  include Rack::Test::Methods
-  def app
-    described_class
-  end
-
-  def post_json(uri, json)
-    post(uri, json, { 'CONTENT_TYPE' => 'application/json' })
-  end
-end
+require 'support/controller_mixins'
 
 RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
-  config.include RSpecMixin, type: :controller
+  config.include ControllerMixins, type: :controller
 
   config.before(:suite) do
     FactoryGirl.find_definitions

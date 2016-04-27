@@ -1,6 +1,6 @@
 require 'lib/packages_downloader'
 require 'lib/packages_importer'
-require 'lib/packages_categorizer'
+require 'lib/categories_creator'
 
 namespace :packages do
   desc 'Download latest package data from api.atom.io'
@@ -14,16 +14,11 @@ namespace :packages do
     importer = Packages::Importer.new
     importer.start
   end
+end
 
-  desc 'Categorise packages'
-  task :categorise do
-    categorizer = Packages::Categorizer.new
-    categorizer.start
-  end
-
-  desc 'Categorise packages while they are added or updated'
-  task :categorise_live do
-    categorizer = Packages::Categorizer.new
-    categorizer.live
+namespace :categories do
+  desc 'Create categories based on configuration'
+  task :create do
+    Categories::Creator.new
   end
 end
