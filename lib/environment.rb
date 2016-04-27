@@ -15,5 +15,8 @@ NoBrainer.configure do |config|
   config.app_name = 'atom_packages'
   config.rethinkdb_urls = ["rethinkdb://#{ENV['RETHINKDB_HOST']}/#{ENV['RETHINKDB_DB']}"]
   config.logger = Logger.new(LOG_FILE)
+  config.per_thread_connection = true
 end
+
+NoBrainer.sync_schema
 NoBrainer.sync_indexes
