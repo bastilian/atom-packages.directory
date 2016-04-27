@@ -3,18 +3,60 @@ keywords:
     - atom
 base_categories:
   Languages:
+    keywords:
+      - language
+    C:
+    C#:
+    C++:
+    CoffeeScript:
+    Elm:
     Haml:
+    HTML & CSS:
+      keywords:
+        - html5
+      CSS:
+        Sass:
+        Scss:
+        Less:
+    Haskell:
+    Go:
     JavaScript:
+      keywords:
+        - es5
+        - es6
+        - es7
       Backbone:
       Angular:
+        keywords:
+          - angularjs
       Ember:
       Polymer:
-      Node:
+      Node.js:
+        keywords:
+          - node
+          - nodejs
+          - npm
+      JSON:
+      JQuery:
+    Java:
+    Markdown:
+    Text:
+    Objective-C:
+    PHP:
+      Symfony2:
     Ruby:
       Ruby on Rails:
       Rspec:
+      Volt:
+    Swift:
+    SQL:
+      keywords:
+        - mysql
+        - postgres
     Python:
       Django:
+    XML:
+    Yaml:
   Themes:
     Syntax:
       Dark:
@@ -25,13 +67,25 @@ base_categories:
       Colorful:
       Light:
   Tools:
-    Testing:
+    Building:
+      keywords:
+        - gulp
+        - grunt
+        - rake
+        - make
     Linter:
+    Testing:
+      keywords:
+        - rspec
+        - testing
     Git:
       GitHub:
       BitBucket:
     Blogging:
     Autocomplete:
+      keywords:
+        - autocompletion
+        - autocomplete-plus
     Vim:
     Time Tracking:
     Terminal:
