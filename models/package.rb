@@ -41,6 +41,7 @@ class Package
   field :versions
 
   before_validation do
+    downcase_keywords
     uniq_permalink_from(read_attribute(:name))
   end
 
@@ -48,6 +49,10 @@ class Package
 
   def update_counts
     categories.each(&:update_counts)
+  end
+
+  def downcase_keywords
+    self.keywords = keywords.each(&:downcase!) if keywords
   end
 
   default_scope do
