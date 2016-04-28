@@ -5,32 +5,84 @@ base_categories:
   Languages:
     keywords:
       - language
+      - grammar
+      - snippets
+    Assembler:
     C:
     C#:
+      keywords:
+        - c-sharp
+        - csharp
+      .Net:
+        keywords:
+          - asp
+          - asp.net
     C++:
+      keywords:
+        - cpp
+    Clojure:
+      keywords:
+        - clojurescript
     CoffeeScript:
+      keywords:
+        - coffee
+    Dart:
+      keywords:
+        - dartlang
     Elm:
+    Elixir:
+      Pheonix:
+    Erlang:
     Haml:
     HTML & CSS:
       keywords:
         - html5
+        - html
       CSS:
+        PostCSS:
         Sass:
         Scss:
         Less:
+        Bootstrap:
     Haskell:
+      keywords:
+        - ide-haskell
+    Latex:
+      keywords:
+        - tex
+    Shell:
+      keywords:
+        - sh
+        - bash
+        - zsh
     Go:
+      keywords:
+        - golang
     JavaScript:
       keywords:
         - es5
         - es6
         - es7
+        - es2015
+        - js
+      Meteor:
+        keywords:
+          - meteorjs
       Backbone:
+      D3:
+        keywords:
+          - d3js
       Angular:
         keywords:
           - angularjs
+          - angular2
       Ember:
+        keywords:
+          - ember.js
+          - emberjs
       Polymer:
+        keywords:
+          - polymer.js
       Node.js:
         keywords:
           - node
@@ -38,16 +90,39 @@ base_categories:
           - npm
       JSON:
       JQuery:
+      Vue:
+        keywords:
+          - vuejs
+    Haxe:
+    TypeScript:
+    Processing:
     Java:
+      Android:
     Markdown:
+      keywords:
+        - md
+        - gfm
     Text:
     Objective-C:
     PHP:
+      keywords:
+        - composer
+      Cake:
+        keywords:
+          - cakephp
       Symfony2:
+      Yii:
+        keywords:
+          - yii framework
+          - yii2
+          - yii framework 2
     Ruby:
       Ruby on Rails:
+        keywords:
+          - rails
       Rspec:
       Volt:
+    Rust:
     Swift:
     SQL:
       keywords:
@@ -57,39 +132,193 @@ base_categories:
       Django:
     XML:
     Yaml:
+    D:
+      keywords:
+        - dlang
+    Crystal:
+    Lua:
+    Mustache:
+    Handlebars:
+    Perl:
+    Scala:
+    React:
+      keywords:
+        - react-native
+        - jsx
+    Arduino:
+    F#:
+    Lisp:
+    Make:
+      keywords:
+        - makefile
   Themes:
+    keywords:
+      - theme
     Syntax:
       Dark:
       Colorful:
+        keywords:
+          - virbant
+          - color
       Light:
+      Adaptive:
     UI:
       Dark:
       Colorful:
+        keywords:
+          - virbant
+          - color
       Light:
+      Adaptive:
+      Flat:
   Tools:
-    Building:
+    Hyperclick:
+    Messaging:
       keywords:
+        - message
+        - messages
+        - chat
+    Music:
+      keywords:
+        - spotify
+    Statusbar:
+    Clipboard:
+    Convert:
+    Environment:
+      keywords:
+        - env
+        - editorconfig
+    Build & Compile:
+      keywords:
+        - building
         - gulp
         - grunt
         - rake
         - make
+        - runner
+        - build
+        - builder
+        - compile
+        - run
+        - watch
+        - watcher
+        - execute
+        - command
+        - script
+        - exec
+        - compiler
     Linter:
+      keywords:
+        - code-style
+        - lint
+        - linting
+        - validate
     Testing:
       keywords:
+        - test
+        - tester
         - rspec
         - testing
-    Git:
-      GitHub:
-      BitBucket:
-    Blogging:
+    Debugging:
+      keywords:
+        - debug
+        - debugger
+    Version Control:
+      keywords:
+        - subversion
+        - svn
+        - mercurial
+        - hg
+        - vcs
+        - diff
+      Git:
+        keywords:
+          - git-flow
+        GitHub:
+        BitBucket:
+    Blogging & Writing:
+      keywords:
+        - blogging
+        - blog
+        - writing
     Autocomplete:
       keywords:
         - autocompletion
         - autocomplete-plus
     Vim:
     Time Tracking:
+      keywords:
+        - time management
+        - time tracker
     Terminal:
     Tabs:
+    Installer:
+    Beautify:
+      keywords:
+        - beautifier
+        - formatter
+        - formating
+        - align
+        - tidy
+        - prettify
+        - format
+        - clean
     Documentation:
+      keywords:
+        - docs
+    Productivity:
+      keywords:
+        - todo
+        - to do
+        - todos
+        - tasks
+      Zen:
+        keywords:
+          - focus
+      Note:
+        keywords:
+          - notetaking
+    Pair Programming:
+      keywords:
+        - pair
+    Remote:
+      keywords:
+        - ssh
+        - ftp
+        - sftp
+        - scp
+        - rsync
+    Preview:
+      keywords:
+        - preview-plus
+        - viewer
+        - image
+        - browser
+    Refactoring:
+      keywords:
+        - refactor
+    Project Management:
+      keywords:
+        - project
+        - projects
     Navigation:
-    Tree View:
+      keywords:
+        - navigator
+        - jump
+        - file
+      History:
+      Bookmarks:
+        keywords:
+          - bookmark
+      Toolbar:
+        keywords:
+          - tool-bar
+      Tree View:
+        keywords:
+          - tree-view
+          - treeview
+      Symbols:
+        keywords:
+          - symbol
+          - ctags
+          - tag
