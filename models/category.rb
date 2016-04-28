@@ -98,7 +98,7 @@ class Category
   end
 
   def child_keywords
-    (sub_categories || []).collect { |c| [c.name.downcase, c.keywords] }.flatten
+    (sub_categories || []).collect { |c| [c.name.downcase, c.keywords, c.child_keywords] }.flatten
   end
 
   def self.keywords
