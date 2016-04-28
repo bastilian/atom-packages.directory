@@ -102,4 +102,8 @@ class Package
       new_versions
     end
   end
+
+  def self.keywords
+    all.collect(&:keywords).flatten.compact.each(&:downcase).uniq
+  end
 end

@@ -106,4 +106,8 @@ class Category
   def child_keywords
     (sub_categories || []).collect { |c| [c.name.downcase, c.keywords] }.flatten
   end
+
+  def self.keywords
+    all.collect(&:own_keywords).flatten
+  end
 end
