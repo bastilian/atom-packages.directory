@@ -23,6 +23,7 @@ base_categories:
     Clojure:
       keywords:
         - clojurescript
+        - nrepl
     CoffeeScript:
       keywords:
         - coffee
