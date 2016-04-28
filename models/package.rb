@@ -87,8 +87,8 @@ class Package
 
     def extract_keywords(versions)
       versions.values.collect do |version_hash|
-        return version_hash['keywords']
-      end
+        return version_hash['keywords'] if version_hash['keywords']
+      end.flatten.compact
     end
 
     def extract_versions(versions)
