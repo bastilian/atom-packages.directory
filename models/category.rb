@@ -28,11 +28,6 @@ class Category
         index: true,
         type: Array
 
-  field :packages_count,
-        index: true,
-        required: true,
-        default: 0
-
   field :sub_categories_count,
         index: true,
         required: true,
@@ -43,8 +38,7 @@ class Category
              index: true
   has_many :sub_categories,
            class_name: Category,
-           foreign_key: :parent_category_id,
-           scope: -> { order_by(packages_count: :desc) }
+           foreign_key: :parent_category_id
 
   before_validation do
     uniq_permalink_from(parent_category ? "#{parent_category.name} #{name}" : name)
@@ -52,10 +46,6 @@ class Category
 
   default_scope do
     order_by(:name)
-  end
-
-  after_save do
-    parent_category.update_counts if parent_category
   end
 
   scope :top, lambda {
@@ -70,9 +60,12 @@ class Category
 
   def update_counts
     update(
-      packages_count: (packages + sub_categories.collect(&:packages)).uniq.size,
       sub_categories_count: sub_categories.count
     )
+  end
+
+  def packages_count
+    Package.where(_or: (own_keywords + child_keywords).map { |keyword| :keywords.include(keyword) }).uniq.count
   end
 
   def parents
