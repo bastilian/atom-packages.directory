@@ -1,2 +1,2 @@
 web: nginx -c /site/nginx.conf
-application: shotgun -s puma
+application: bundle exec puma -p 5100
