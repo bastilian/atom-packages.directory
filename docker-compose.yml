@@ -9,6 +9,7 @@ services:
 
   site:
     extends: app
+    command: bundle exec foreman start
     environment:
       - RETHINKDB_DB=atom_development
       - RETHINKDB_HOST=database
