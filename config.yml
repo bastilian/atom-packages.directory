@@ -264,6 +264,8 @@ base_categories:
         - prettify
         - format
         - clean
+        - indentation
+        - indent
     Documentation:
       keywords:
         - docs
