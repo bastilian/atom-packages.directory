@@ -63,7 +63,7 @@ class Package
 
   def categories
     return [] unless keywords
-    Category.where(_or: keywords.map { |keyword| { :keywords.include => keyword } })
+    Category.where(_or: keywords.map { |keyword| { :keywords.any => keyword } })
   end
 
   class << self

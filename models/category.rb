@@ -65,7 +65,7 @@ class Category
   end
 
   def packages_count
-    Package.where(_or: (own_keywords + child_keywords).map { |keyword| :keywords.include(keyword) }).uniq.count
+    Package.where(_or: (own_keywords + child_keywords).map { |keyword| :keywords.any(keyword) }).uniq.count
   end
 
   def parents
@@ -77,7 +77,7 @@ class Category
 
   def packages
     return [] unless all_keywords
-    Package.where(_or: own_keywords.map { |keyword| :keywords.include(keyword) } +
+    Package.where(_or: own_keywords.map { |keyword| :keywords.any(keyword) } +
                        own_keywords.map { |keyword| { :name.eq => /\s+#{keyword}\s*/ } },
                   and: (child_keywords + sibling_keywords).map { |keyword| :keywords.not.include(keyword) })
   end
