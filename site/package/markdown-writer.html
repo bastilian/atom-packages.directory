@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>Markdown Writer</h1>
+<h1 id="markdown-writer-for-atom">Markdown-Writer for Atom</h1>
+
+<p><a href="https://travis-ci.org/zhuochun/md-writer"><img src="https://travis-ci.org/zhuochun/md-writer.svg" alt="Travis Build Status" /></a>
+<a href="https://ci.appveyor.com/project/zhuochun/md-writer"><img src="https://ci.appveyor.com/api/projects/status/fv1unuiac1umt44f?svg=true" alt="Appveyor Build status" /></a>
+<a href="https://atom.io/packages/markdown-writer"><img src="https://img.shields.io/apm/v/markdown-writer.svg" alt="Apm Version" /></a>
+<a href="https://atom.io/packages/markdown-writer"><img src="https://img.shields.io/apm/dm/markdown-writer.svg" alt="Apm Downloads" /></a></p>
+
+<p>Adds tons of features to make <a href="https://atom.io/">Atom</a> an even better Markdown editor!</p>
+
+<p>Works great with static blogging as well. Try it with <a href="http://jekyllrb.com/">Jekyll</a>, <a href="http://octopress.org/">Octopress</a>, <a href="http://hexo.io/">Hexo</a> and any of your favorite static blog engines.</p>
+
+<p><img src="http://i.imgur.com/s9ekMns.gif" alt="Insert Image" /></p>
+
+<p>More GIFs Here: <a href="http://i.imgur.com/BwntxhB.gif">Create New Post</a>, <a href="http://i.imgur.com/L67TqyF.gif">Insert Reference Link</a>, <a href="http://i.imgur.com/TglzeJV.gif">Remove Reference Link</a>.</p>
+
+<h2 id="notice">Notice</h2>
+
+<blockquote>
+  <p>From version <code>1.5.0</code>, default keymaps that come with this package are removed (except <code>enter</code>/<code>tab</code>).</p>
+
+  <p>You can execute command <code>Markdown Writer: Create Default keymaps</code> to append the original list of keymaps to your keymap config file, then modify them based on your needs. Refer to <a href="https://github.com/zhuochun/md-writer/wiki/Settings-for-Keymaps" title="Settings for Keymaps">wiki</a>.</p>
+</blockquote>
+
+<h2 id="features">Features</h2>
+
+<h3 id="blogging">Blogging</h3>
+
+<ul>
+  <li><strong>Create new post</strong> with front matters (<a href="https://github.com/zhuochun/md-writer/wiki/Quick-Start" title="Markdown-Writer Setup Guide">setup required</a>).</li>
+  <li><strong>Create new draft</strong> with front matters (<a href="https://github.com/zhuochun/md-writer/wiki/Quick-Start" title="Markdown-Writer Setup Guide">setup required</a>).</li>
+  <li><strong>Publish draft</strong> moves a draft to post’s directory with front matters (<code>date</code>, <code>published</code>) updated.</li>
+  <li><strong>Manage tags and categories</strong> in front matters (<a href="https://github.com/zhuochun/md-writer/wiki/Settings-for-Front-Matters" title="Setup Tags/Categories/Posts">setup required</a>).</li>
+  <li>
+    <p><strong>Site specific settings</strong> (<a href="https://github.com/zhuochun/md-writer/wiki/Settings#project-specific-settings" title="Project Specific Settings">view setup</a>).</p>
+
+  </li>
+</ul>
+
+<h3 id="general">General</h3>
+
+<ul>
+  <li><strong>Continue lists</strong> when you press <code>enter</code>.</li>
+  <li><strong>Insert link</strong> (<code>shift-cmd-k</code>) and <strong>automatically link to the text next time</strong>.
+    <ul>
+      <li>Insert inline link.</li>
+      <li>Insert reference link with title. <em>Use <code>-</code> in title field to create an empty title reference link.</em></li>
+      <li>Remove link (and its reference) after URL is deleted.</li>
+      <li>Search published posts by title in your blog.</li>
+    </ul>
+  </li>
+  <li><strong>Insert image</strong> (<code>shift-cmd-i</code>), auto-detect image height/width, and optionally copy images to your site’s images directory.</li>
+  <li><strong>Insert table</strong> (<code>markdown-writer:insert-table</code>), and a shortcut to <strong>jump to next table cell</strong> (<code>cmd-j cmd-t</code>).</li>
+  <li><strong>Format table</strong> (<code>markdown-writer:format-table</code>) with table alignments.</li>
+  <li><strong>Toggle headings</strong>: <code>ctrl-alt-[1-5]</code> to switch among <code>H1</code> to <code>H5</code>.</li>
+  <li><strong>Toggle text styles</strong> (<a href="https://github.com/zhuochun/md-writer/wiki/Settings" title="Settings">customization supported</a>):
+    <ul>
+      <li><code>code</code> (<code>cmd-'</code>)</li>
+      <li><strong>bold</strong> (<code>cmd-b</code>)</li>
+      <li><em>italic</em> (<code>cmd-i</code>)</li>
+      <li>~~strike through~~ (<code>cmd-h</code>)</li>
+      <li><code>'''code block'''</code> (<code>shift-cmd-"</code>)</li>
+      <li><code>&lt;kbd&gt;key&lt;/kbd&gt;</code> (<code>cmd + k</code>)</li>
+      <li><code>- unordered list</code> (<code>shift-cmd-U</code>)</li>
+      <li><code>0. ordered list</code> (<code>shift-cmd-O</code>)</li>
+      <li><code>&gt; blockquote</code> (<code>shift-cmd-&gt;</code>)</li>
+      <li><code>- [ ] task list</code> (<code>markdown-writer:toggle-task</code>)</li>
+    </ul>
+  </li>
+  <li><strong>Jumping commands</strong>:
+    <ul>
+      <li>Jump to previous heading (<code>cmd-j cmd-p</code>)</li>
+      <li>Jump to next heading (<code>cmd-j cmd-n</code>)</li>
+      <li>Jump to next table cell (<code>cmd-j cmd-t</code>)</li>
+      <li>Jump to reference marker/definition (<code>cmd-j cmd-d</code>)</li>
+    </ul>
+  </li>
+  <li><strong>Markdown cheat sheet</strong> (<code>markdown-writer:open-cheat-sheet</code>).</li>
+  <li><strong>Correct order list numbers</strong> (<code>markdown-writer:correct-order-list-numbers</code>).</li>
+</ul>
+
+<p>You can find and trigger all features in:</p>
+
+<ul>
+  <li>Open Command Palette (<code>shift-cmd-P</code>), enter <code>Markdown Writer</code></li>
+  <li>Or, go to menubar <code>Packages -&gt; Markdown Writer</code>.</li>
+</ul>
+
+<h2 id="installation">Installation</h2>
+
+<ul>
+  <li>In Atom, go to Settings (<code>cmd-,</code>) -&gt; Install -&gt; Search <code>Markdown Writer</code>.</li>
+  <li>Or, run <code>apm install markdown-writer</code>.</li>
+</ul>
+
+<blockquote>
+  <p>If you saw errors after this plugin updated, please try restart Atom to allow it reloads the updated code.</p>
+</blockquote>
+
+<h2 id="setup">Setup</h2>
+
+<p>Go to Settings (<code>cmd-,</code>) -&gt; Packages -&gt; <code>Markdown-Writer</code> -&gt; Settings.</p>
+
+<blockquote>
+  <p>If you do not see any settings (due to a <a href="https://github.com/atom/settings-view/issues/356" title="Viewing a package's settings should activate it">Atom’s bug</a>), please activate Markdown-Writer using command (e.g. <code>Open Cheat Sheet</code>). Close and reopen the Settings page.</p>
+</blockquote>
+
+<p>To <strong>manage tags/categories in front matter</strong>, please <a href="https://github.com/zhuochun/md-writer/wiki/Settings-for-Front-Matters" title="Settings for Front Matters">follow this setup</a>.</p>
+
+<p>To <strong>manage all configurations (e.g. project specific settings, change italic text styles)</strong>, refer to <a href="https://github.com/zhuochun/md-writer/wiki/Settings" title="Settings">this wiki document</a>.</p>
+
+<h2 id="project">Project</h2>
+
+<ul>
+  <li>View <a href="https://github.com/zhuochun/md-writer/blob/master/CHANGELOG.md">CHANGELOG</a> :notebook_with_decorative_cover:</li>
+  <li>Bugs, suggestions or feature requests, <a href="https://github.com/zhuochun/md-writer/issues">open an issue</a> :octocat:</li>
+  <li>Contribute to project, <a href="https://github.com/zhuochun/md-writer/wiki/Contribute">view guide</a> :sparkles:</li>
+  <li>License in <a href="https://github.com/zhuochun/md-writer/blob/master/LICENSE.md">MIT</a> :unlock:</li>
+  <li>Shipped by <a href="https://github.com/zhuochun">Zhuochun</a> :sunny: and <a href="https://github.com/zhuochun/md-writer/graphs/contributors">contributors</a> :clap:</li>
+  <li>
+    <p>Star <a href="https://github.com/zhuochun/md-writer">GitHub repo</a> and <a href="https://atom.io/packages/markdown-writer">Atom package</a> to support us :+1:</p>
+
+  </li>
+</ul>
+
+markdown,jekyll,octopress,hexo,writing,blogging
+    </section>
+    <footer>
+      <p>
+        Made with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a>
+      </p>
+      <p>
+        <small>Last updated: 2016-04-29</small>
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+  </body>
+</html>

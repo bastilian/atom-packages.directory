@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>Typescript</h1>
+<h1 id="atom-typescript">Atom TypeScript</h1>
+
+<p><a href="https://gitter.im/TypeStrong/atom-typescript?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge&amp;utm_content=badge"><img src="https://badges.gitter.im/Join%20Chat.svg" alt="Join the chat at https://gitter.im/TypeStrong/atom-typescript" /></a></p>
+
+<p>JavaScript developers can now just open a <code>.ts</code> file and start hacking away like they are used to. No <code>grunt</code> no <code>Visual Studio</code>. Just pure coding.</p>
+
+<h2 id="installation">Installation</h2>
+
+<ol>
+  <li>Install <a href="https://atom.io">atom</a>.</li>
+  <li><code>apm install atom-typescript</code> (<code>apm</code> needs <code>git</code> in your path)</li>
+  <li>Fire up atom. Open a TypeScript file. Potentially wait for further installs (just <code>apm install linter</code> if its not there already).</li>
+</ol>
+
+<p><strong>Additional Notes</strong>: <a href="https://github.com/TypeStrong/atom-typescript/blob/master/docs/packages.md">Some packages we love</a>.</p>
+
+<h2 id="reviews">Reviews</h2>
+<p><em>Featured on the TypeScript home page under tools http://www.typescriptlang.org/</em> and <a href="https://twitter.com/schwarty/status/593858817894404096">demoed by <strong>Anders Hejlsberg</strong></a>.</p>
+
+<p>“I was shocked at how good it felt to poke around on the compiler with it.” <a href="https://twitter.com/jntrnr">Jonathan Turner</a><br />
+“And guess what, it worked perfectly. Like everything else! Faster than Visual Studio!” <a href="http://stackoverflow.com/users/27423/daniel-earwicker">Daniel Earwicker</a><br />
+“It’s a thing of beauty - they had me at ‘<em>Type information on hover</em>’. Discovering  <code>tsconfig.json</code> support as well was just an enormous bonus.” <a href="https://twitter.com/johnny_reilly">John Reilly</a><br />
+“This may be your best option for editing TypeScript at the moment - very nice!” <a href="https://twitter.com/mindplaydk">Rasmus Schultz</a></p>
+
+<p><a href="https://github.com/TypeStrong/atom-typescript/issues/66"><em>Add yours!</em></a></p>
+
+<h1 id="features">Features</h1>
+<ul>
+  <li>Autocomplete</li>
+  <li>Live error analysis</li>
+  <li>Type information on hover</li>
+  <li>Compile on save</li>
+  <li>Project Context Support (<code>tsconfig.json</code>)</li>
+  <li>Project Build Support</li>
+  <li><code>package.json</code> Support</li>
+  <li>React Support</li>
+  <li>Format code (configurable to be on save)</li>
+  <li>Goto Declaration</li>
+  <li>Find References</li>
+  <li>Block comment and uncomment</li>
+  <li>Goto history (goto next/previous error in open files, goto next/previous build)</li>
+  <li>Auto indent for new lines</li>
+  <li>TypeScript context menu</li>
+  <li>Symbols in Project</li>
+  <li>Symbols in File</li>
+  <li>Semantic View</li>
+  <li>Rename refactoring</li>
+  <li>Quick Fix</li>
+  <li>Toggle Breakpoint</li>
+  <li>Common Snippets</li>
+  <li><code>import</code> / <code>/// &lt;reference</code> relative path resolution</li>
+  <li>Output Toggle</li>
+  <li>AST visualizer</li>
+  <li>Dependency View</li>
+  <li>Sync</li>
+</ul>
+
+<h1 id="faq">FAQ</h1>
+<p>Located online : https://github.com/TypeStrong/atom-typescript/blob/master/docs/faq.md</p>
+
+<hr />
+
+<h1 id="feature-details">Feature Details</h1>
+<p>## Auto Complete
+Internally using AutoComplete+. Just start typing and hints will show up. Or you can explicitly trigger it using <code>ctrl+space</code> or <code>cmd+space</code>. Press <code>tab</code> to make a selection.</p>
+
+<p><img src="https://raw.githubusercontent.com/TypeStrong/atom-typescript-examples/master/screens/fastErrorCheckingAndAutoComplete2.gif" alt="" /></p>
+
+<h2 id="type-information-on-hover">Type information on hover</h2>
+<p>Just hover</p>
+
+<p><img src="https://raw.githubusercontent.com/TypeStrong/atom-typescript/master/docs/screens/hover.png" alt="you definitely get the point" /></p>
+
+<h2 id="compile-on-save">Compile on save</h2>
+<p>TypeScript files will be compiled on save automatically. Different notifications are given if <code>emit</code> was successful or not. If you need to disable this feature, add <code>"compileOnSave": false</code> in your <a href="https://github.com/TypeStrong/atom-typescript/blob/master/docs/tsconfig.md#compileonsave"><code>tsconfig.json</code></a>.</p>
+
+<p><img src="https://raw.githubusercontent.com/TypeStrong/atom-typescript/master/docs/screens/compile%20success.png" alt="" /></p>
+
+<p><img src="https://raw.githubusercontent.com/TypeStrong/atom-typescript/master/docs/screens/compile%20error.png" alt="" /></p>
+
+<p><img src="https://raw.githubusercontent.com/TypeStrong/atom-typescript/master/docs/screens/emit%20error.png" alt="" /></p>
+
+<h2 id="project-support">Project Support</h2>
+<p>Supported via <a href="https://github.com/TypeStrong/atom-typescript/blob/master/docs/tsconfig.md"><code>tsconfig.json</code></a> which is going to be the defacto Project file format for the next versions of TypeScript.</p>
+
+<p>It also supports <code>filesGlob</code> which will expand <code>files</code> for you based on <code>minmatch|glob|regex</code> (similar to grunt).</p>
+
+<p><img src="https://raw.githubusercontent.com/TypeStrong/atom-typescript/master/docs/screens/proj.png" alt="" /></p>
+
+<h3 id="project-build-support">Project Build Support</h3>
+<p>Shortcut: <code>F6</code>. If there are any errors they are shown as well.</p>
+
+<p><img src="https://raw.githubusercontent.com/TypeStrong/atom-typescript/master/docs/screens/build%20success.png" alt="" /></p>
+
+<p><img src="https://raw.githubusercontent.com/TypeStrong/atom-typescript/master/docs/screens/build%20errors.png" alt="" /></p>
+
+<h2 id="npm-module-support">NPM Module Support</h2>
+<p>We have a sample NPM module : https://github.com/basarat/ts-npm-module  (trick : in tsconfig have <code>"declaration" : true</code> an in package.json have a <code>typings</code> field pointing to the <code>main</code> file) and its usage is demoed in https://github.com/basarat/ts-npm-module-consume.</p>
+
+<h2 id="react-support">React Support</h2>
+
+<h3 id="configuration-tips">Configuration tips</h3>
+
+<p>Covered here : http://basarat.gitbooks.io/typescript/content/docs/jsx/tsx.html</p>
+
+<h3 id="html-to-tsx">Html to TSX</h3>
+
+<p><img src="https://raw.githubusercontent.com/TypeStrong/atom-typescript-examples/master/screens/htmltotsx.gif" alt="" /></p>
+
+<h2 id="format-code">Format Code</h2>
+<p>Shortcut : <code>ctrl+alt+l</code> or <code>cmd+alt+l</code>. Will format just the selection if you have something selected otherwise it will format the entire file.</p>
+
+<p>Format on save is covered <a href="https://github.com/TypeStrong/atom-typescript/blob/master/docs/tsconfig.md#formatOnSave">here</a></p>
+
+<h2 id="go-to-declaration">Go to Declaration</h2>
+<p>Shortcut : <code>F12</code>. Will open the <em>first</em> declaration of the said item for now. (Note: some people call it Go to Definition)</p>
+
+<h2 id="find-references">Find References</h2>
+<p>Shortcut <code>shift+F12</code>. Also called <em>find usages</em>.</p>
+
+<p><img src="https://raw.githubusercontent.com/TypeStrong/atom-typescript-examples/master/screens/findReferences.png" alt="" /></p>
+
+<h2 id="block-comment-and-uncomment">Block Comment and Uncomment</h2>
+<p><code>ctrl+/</code> or <code>cmd+/</code>. Does a block comment / uncomment of code.</p>
+
+<h2 id="go-to-next--go-to-previous">Go to Next / Go to Previous</h2>
+<p><code>f8</code> and <code>shift+f8</code> respectively. This will go to next/previous <em>errors in open files</em> OR <em>build error</em> OR <em>references</em> based on which tab you have selected.</p>
+
+<h2 id="context-menu">Context menu</h2>
+<p>Quickly toggle the TypeScript panel OR select active TypeScript panel tab and other stuff using the context menu. <code>ctrl+;</code> or <code>cmd+;</code>.</p>
+
+<h2 id="symbols-view">Symbols View</h2>
+<p>Integrates with atom’s symbols view (<code>ctrl+r</code> or <code>cmd+r</code>) to provide you with a list of searchable symbols in the current file.</p>
+
+<p><img src="https://raw.githubusercontent.com/TypeStrong/atom-typescript-examples/master/screens/symbolsView.gif" alt="" /></p>
+
+<h2 id="semantic-view">Semantic View</h2>
+<p>A bird’s eye view of the current file. Use command <code>toggle semantic view</code>. The view updates while you edit the code. You can also click to jump to any portion of the file.</p>
+
+<p><img src="https://raw.githubusercontent.com/TypeStrong/atom-typescript-examples/master/screens/semanticView.png" alt="" /></p>
+
+<h2 id="project-symbols-view">Project Symbols View</h2>
+<p>Also called Go To Type in other IDEs. Integrates with atom’s project level symbols (<code>ctrl+shift+r</code> or <code>cmd+shift+r</code>) to provide you with a list of searchable symbols in the <em>entire typescript project</em>.</p>
+
+<p><img src="https://raw.githubusercontent.com/TypeStrong/atom-typescript-examples/master/screens/projectSymbolView.png" alt="" /></p>
+
+<h2 id="refactoring">Refactoring</h2>
+
+<h3 id="rename">Rename</h3>
+<p><code>f2</code> to initiate rename. <code>enter</code> to commit and <code>esc</code> to cancel.
+<img src="https://raw.githubusercontent.com/TypeStrong/atom-typescript/master/docs/screens/renameRefactoring.png" alt="" /></p>
+
+<h2 id="quick-fix">Quick Fix</h2>
+<p>Press the <code>TypeScript: Quick Fix</code> shortcut <code>alt+enter</code> at an error location to trigger quick fixes. Select the quick fix you want and press <code>enter</code> to commit e.g</p>
+
+<h3 id="add-class-members">Add class members</h3>
+<p><img src="https://raw.githubusercontent.com/TypeStrong/atom-typescript-examples/master/screens/addClassMember.gif" alt="" /></p>
+
+<h3 id="more-quick-fixes">More Quick fixes</h3>
+<p>We are actively adding quick fixes so <a href="https://github.com/TypeStrong/atom-typescript/blob/master/docs/quickfix.md"><strong>go here for an up to date list</strong></a>.</p>
+
+<h2 id="toggle-breakpoint">Toggle Breakpoint</h2>
+<p>Use command <code>TypeScript: Toggle Breakpoint</code> shortcut <code>f9</code>:</p>
+
+<p><img src="https://raw.githubusercontent.com/TypeStrong/atom-typescript-examples/master/screens/toggleBreakpoint.gif" alt="" /></p>
+
+<h2 id="tsconfig-validation">tsconfig validation</h2>
+<p>We will validate it and help you to fix it :)
+<img src="https://raw.githubusercontent.com/TypeStrong/atom-typescript-examples/master/errorcases/invalidProjectOptions/invalidProjectOptions.gif" alt="" /></p>
+
+<h2 id="snippets">Snippets</h2>
+<p>### Relative Paths
+Relative paths have traditionally been a pain, not anymore. Use <code>import</code> or <code>ref</code> and press <code>tab</code> to trigger snippet.</p>
+
+<p><code>ref</code></p>
+
+<p><img src="https://raw.githubusercontent.com/TypeStrong/atom-typescript-examples/master/screens/ref%20snippet.gif" alt="" /></p>
+
+<p><code>import</code></p>
+
+<p><img src="https://raw.githubusercontent.com/TypeStrong/atom-typescript-examples/master/screens/import%20snippet.gif" alt="" /></p>
+
+<p>Note that within the path string you get autocomplete (<code>ctrl+space</code>/<code>cmd+space</code>) for all the files in the project by filename (works for both <code>ref</code> and <code>import</code>).</p>
+
+<p><img src="https://raw.githubusercontent.com/TypeStrong/atom-typescript-examples/master/screens/pathChange.gif" alt="" /></p>
+
+<h2 id="output-toggle">Output Toggle</h2>
+<p><code>ctrl+shift+m</code> to toggle the output co<strong>m</strong>piled JS file for a give TypeScript file. The keyboard shortcut is consistent with atom’s markdown preview.</p>
+
+<p><img src="https://raw.githubusercontent.com/TypeStrong/atom-typescript-examples/master/screens/outputToggle.gif" alt="" /></p>
+
+<h2 id="ast-visualizer">AST Visualizer</h2>
+<p>Command : <code>Typescript: Ast</code>. Useful when authoring new features.
+<img src="https://raw.githubusercontent.com/TypeStrong/atom-typescript-examples/master/screens/astVisualizer.gif" alt="" /></p>
+
+<p>Also command : <code>TypeScript: Ast Full</code> that includes the <code>trivia</code> (punctuation, comments etc. received from <code>ts.Node.getChildren()</code>) as well.
+<img src="https://raw.githubusercontent.com/TypeStrong/atom-typescript-examples/master/screens/astFull.png" alt="" /></p>
+
+<h2 id="dependency-view">Dependency View</h2>
+<p>Command : <code>Typescript: Dependency View</code>. A dependency viewer for insight into the project if you use external modules. You can zoom, pan, drag points around and hover over nodes. (<a href="https://github.com/TypeStrong/atom-typescript/blob/master/docs/dependency-view.md">more details</a>)
+<img src="https://raw.githubusercontent.com/TypeStrong/atom-typescript-examples/master/screens/dependencyView/teaser.png" alt="" /></p>
+
+<h2 id="sync">Sync</h2>
+<p>We try to keep as much of the stuff in sync while you edit code. However <em>in dire circumstances</em>:</p>
+
+<ul>
+  <li>a soft sync is done when you save a file <code>ctrl+s</code> and we will completely reprocess the <em>active</em> file. This might not fix stuff if the error is because of <em>some other file on the file system</em>.</li>
+  <li><code>ctrl+'</code> or <code>cmd+'</code> : If you deleted files in the background or renamed them or jumped git branches or <em>something weird just happened</em> then sync. No need to restart your IDE :).</li>
+</ul>
+
+<p><img src="https://raw.githubusercontent.com/TypeStrong/atom-typescript-examples/master/screens/sync.gif" alt="" /></p>
+
+<h2 id="contributing">Contributing</h2>
+
+<p>Look at <a href="https://github.com/TypeStrong/atom-typescript/blob/master/CONTRIBUTING.md">CONTRIBUTING.md</a> for curiosity. We work hard to keep the code as approachable as possible and are highly keen on helping you help us.</p>
+
+<h2 id="changelog">Changelog</h2>
+<p>Breaking changes <a href="https://github.com/TypeStrong/atom-typescript/blob/master/docs/CHANGELOG.md">available online</a>.</p>
+
+typescript,javascript,html
+    </section>
+    <footer>
+      <p>
+        Made with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a>
+      </p>
+      <p>
+        <small>Last updated: 2016-04-29</small>
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+  </body>
+</html>

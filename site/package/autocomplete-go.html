@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>Autocomplete Go</h1>
+<h1 id="autocomplete-go-build-statushttpstravis-ciorgjoefitzgeraldautocomplete-gosvgbranchmasterhttpstravis-ciorgjoefitzgeraldautocomplete-go-build-statushttpsciappveyorcomapiprojectsstatus8oveg440vyy4oofqbranchmastersvgtruehttpsciappveyorcomprojectjoefitzgeraldautocomplete-gobranchmaster"><code>autocomplete-go</code> <a href="https://travis-ci.org/joefitzgerald/autocomplete-go"><img src="https://travis-ci.org/joefitzgerald/autocomplete-go.svg?branch=master" alt="Build Status" /></a> <a href="https://ci.appveyor.com/project/joefitzgerald/autocomplete-go/branch/master"><img src="https://ci.appveyor.com/api/projects/status/8oveg440vyy4oofq/branch/master?svg=true" alt="Build status" /></a></h1>
+
+<p>An <a href="https://github.com/atom/autocomplete-plus"><code>autocomplete-plus</code></a> provider for
+the <a href="https://golang.org"><code>go</code></a> language that uses <a href="https://github.com/nsf/gocode"><code>gocode</code></a> to provide suggestions.</p>
+
+<h3 id="prerequisites">Prerequisites</h3>
+
+<p>This package requires the following packages to be installed:</p>
+
+<ul>
+  <li><a href="https://atom.io/packages/environment"><code>environment</code></a></li>
+  <li><a href="https://atom.io/packages/go-config"><code>go-config</code></a></li>
+</ul>
+
+<p>Additionally, you should have <a href="https://github.com/nsf/gocode"><code>gocode</code></a> installed and available on your path:</p>
+
+<blockquote>
+  <p><code>go get -u github.com/nsf/gocode</code></p>
+</blockquote>
+
+<p>If you have the <a href="https://atom.io/packages/go-get"><code>go-get</code></a> package installed, this package will prompt you to get gocode (if it is missing) or update gocode (if it is out of date).</p>
+
+<h3 id="faq">FAQ</h3>
+
+<blockquote>
+  <p>I am not getting suggestions I expect!</p>
+</blockquote>
+
+<p><code>gocode</code> uses the output from <code>go install</code> to provide its suggestions. You have a few options to ensure you always get up-to-date suggestions:</p>
+
+<ul>
+  <li>Always run <code>go install ./...</code> in your package when you make a change</li>
+  <li>Run <code>gocode set autobuild true</code> to have <code>gocode</code> attempt to run <code>go install ./...</code> for you</li>
+  <li>Configure a package (like <a href="https://atom.io/packages/build">build</a>) to run your build command on every save</li>
+</ul>
+
+<h3 id="configuration">Configuration</h3>
+
+<ul>
+  <li><code>scopeBlacklist</code>: Suggestions will not be shown when the cursor is inside the specified comma-delimited scope(s) (default: <code>.source.go .comment</code>)</li>
+  <li><code>suppressBuiltinAutocompleteProvider</code>: Suppress the provider built-in to the autocomplete-plus package when editing .go files (default: <code>true</code>)</li>
+  <li><code>suppressActivationForCharacters</code>: Suggestions will not be provided when you type one of the specified characters (default: <code>comma, newline, space, tab, /, \, (, ), ", ', :,
+;, &lt;, &gt;, ~, !, @, #, $, %, ^, &amp;, *, |, +,
+=, [, ], {, }, `, ~, ?, -</code>)</li>
+</ul>
+
+go,golang,gocode,autocomplete,autocomplete-plus
+    </section>
+    <footer>
+      <p>
+        Made with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a>
+      </p>
+      <p>
+        <small>Last updated: 2016-04-29</small>
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+  </body>
+</html>

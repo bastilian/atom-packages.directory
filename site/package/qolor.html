@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>Qolor</h1>
+<h1 id="qolor">Qolor</h1>
+
+<p>An atom package to color your queries!</p>
+
+<p>Qolor applies semantic highlighting to your SQL queries by matching tables to
+their aliases.</p>
+
+<p><img src="https://raw.githubusercontent.com/DavidLGoldberg/qolor/master/_images/qolor.png" alt="Qolor in action!" title="Qolor - Semantic highlighting for SQL" /></p>
+
+<p>All colors of tables are deterministic and based on their name.
+They will be the same on any Atom editor anywhere!</p>
+
+<p>Qolor has a few outstanding issues but it’s usable and I want to launch it in
+the spirit of MVP.
+I say it’s usable because it doesn’t throw errors or pop up the inspector.
+If you see it doing this please report ASAP.
+Please feel free to create issues of broken coloring cases with screen shots
+or text samples (remember to check out the TODO below and the open
+<a href="https://github.com/DavidLGoldberg/qolor/issues">issues</a>).</p>
+
+<h2 id="installation">Installation</h2>
+
+<pre><code>apm install qolor
+</code></pre>
+
+<h2 id="settings">Settings</h2>
+
+<p>Two stylistic flavors.  Underline (default) or a border box.
+The border box is more of a placeholder for now.
+I only built it to facilitate pull requests etc.</p>
+
+<h2 id="optional-keymap-to-toggle">Optional Keymap To Toggle</h2>
+
+<p>Go to Atom -&gt; Open Your Keymap and enter the following:</p>
+
+<pre><code>'atom-workspace':
+  'ctrl-alt-q': 'qolor:toggle'
+
+# Careful, don't override your existing 'atom-workspace'!
+</code></pre>
+
+<h2 id="prior-art--related-works">Prior Art / Related Works</h2>
+
+<p>I got the idea for Qolor while working with a large query.
+We all play a frustrating game of connect the dots while mentally parsing (“grokking”) aliases to their tables.  Colors can help you hunt down the aliases.</p>
+
+<p>Later a friend pointed out that a lot of related work in the area of
+“semantic highligting” already exists!
+Although, I have yet to find one that does this semantic highlighting for SQL in this table to alias manner.
+Let me know if it does!</p>
+
+<p>Here are some of the related links:</p>
+
+<ul>
+  <li><a href="https://medium.com/programming-ideas-tutorial-and-experience/coding-in-color-3a6db2743a1e">Coding in Color</a></li>
+  <li><a href="http://zwabel.wordpress.com/2009/01/08/c-ide-evolution-from-syntax-highlighting-to-semantic-highlighting/">Semantic Highlighting in KDevelop</a></li>
+  <li><a href="https://github.com/vprimachenko/Sublime-Colorcoder">Sublime-Colorcoder</a></li>
+  <li><a href="https://github.com/equiet/recognizer">recognizer (Brackets)</a></li>
+  <li><a href="https://github.com/kolinkrewinkel/Polychromatic">Polychromatic (Xcode)</a></li>
+  <li><a href="https://atom.io/packages/language-javascript-semantic">language-javascript-semantic (Atom)</a></li>
+</ul>
+
+<h2 id="how-it-works">How it works</h2>
+
+<p>Qolor uses the <a href="https://github.com/atom/language-sql">language-sql</a>
+grammar built into Atom (actually it evolved from textmate/sublime).
+The code performs a double pass.
+First pass for the table names and second pass for the aliases.</p>
+
+<p>I don’t know of any SQL parsers in node usable for this project.</p>
+
+<p>The code is ugly.  <code>language-sql</code> suffices for syntax coloring, but it’s tokens
+aren’t always accurate. I try to make a layer of rules on top.</p>
+
+<p>It should work for most cases, but please report any issues.</p>
+
+<p>Your performance should be unaffected because qolor utilizes the debounced api
+for observing the grammar and because well, computers are fast.</p>
+
+<h2 id="todo">TODO</h2>
+
+<ul>
+  <li>
+    <p>[BUG] Table and aliases with numbers see this <a href="https://github.com/atom/language-sql/issues/30">issue</a>.
+This was working and will probably be fixed, so not going to make a workaround.</p>
+  </li>
+  <li>
+    <p>[BUG] Cartesian products / cross joins don’t work.
+They are particularly troublesome without aliases.  This is due to existing
+limitations in the <code>language-sql</code> grammar.  I have an idea of how to address
+this but prefer to see if anyone has a suggestion of how to integrate
+a real parser.</p>
+  </li>
+  <li>
+    <p>Custom styling of underline / border.</p>
+  </li>
+  <li>
+    <p>Better handling of colors.  Possibly hue blending etc.  Leverage theme
+information.  I still want these to be deterministic but for example,
+perhaps a marginal shift of the colors to play nicely with the themes.
+Pull requests?</p>
+  </li>
+  <li>
+    <p>Jump to and from matching tables and aliases under cursor.</p>
+  </li>
+  <li>
+    <p>List number of references in the status bar.</p>
+  </li>
+  <li>
+    <p>Add qolor to the minimap.</p>
+  </li>
+  <li>
+    <p>Stats report of all tables or projected fields.
+Maybe visual like a minimap?  Query execution plans etc.</p>
+  </li>
+  <li>
+    <p>Some treatment of matching or applicable fields names?</p>
+  </li>
+</ul>
+
+<h2 id="my-other-atom-package-">My other Atom package :)</h2>
+
+<ul>
+  <li><a href="https://atom.io/packages/jumpy">Jumpy</a></li>
+</ul>
+
+sql,query,semantic,highlight,color,tables,joins,syntax
+    </section>
+    <footer>
+      <p>
+        Made with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a>
+      </p>
+      <p>
+        <small>Last updated: 2016-04-29</small>
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+  </body>
+</html>

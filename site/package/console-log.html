@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>Console Log</h1>
+<p><a href="https://travis-ci.org/vishysank/console-log-atom"><img src="https://travis-ci.org/vishysank/console-log-atom.svg?branch=master&amp;style=flat-square" alt="Build Status" /></a>
+<a href="https://atom.io/packages/console-log"><img src="https://img.shields.io/apm/l/console-log.svg?style=flat-square" alt="apm" /></a>
+<a href="https://atom.io/packages/console-log"><img src="https://img.shields.io/apm/v/console-log.svg?style=flat-square" alt="apm" /></a>
+<a href="https://atom.io/packages/console-log"><img src="https://img.shields.io/apm/dm/console-log.svg?style=flat-square" alt="apm" /></a>
+# console-log package</p>
+
+<p>console-log is a simple  and smart helper function that makes logging and debugging easy.</p>
+
+<h2 id="features-click-for-demo">Features (click for demo)</h2>
+<p>### Basic Logging
+* <code>ctrl-l</code> (OSX) or <code>ctrl-alt-l</code> (Linux/Windows) - <a href="https://raw.githubusercontent.com/vishysank/console-log-atom/master/assets/console-log-demo.gif">Generates a console.log with identifier if text/variable is selected, and empty console.log if no text is selected.</a>
+* <code>ctrl-o</code> (OSX) or <code>ctrl-alt-o</code> (Linux/Windows) - <a href="https://raw.githubusercontent.com/vishysank/console-log-atom/master/assets/console-log-stringify-demo.gif">Generates a console.log with text/variable within a JSON.stringify method.</a></p>
+
+<h3 id="smart-object-logging-incremental-improvements-in-works">Smart Object Logging (Incremental improvements in works)</h3>
+<ul>
+  <li><a href="https://raw.githubusercontent.com/vishysank/console-log-atom/master/assets/console-log-object-demo.gif">If selected text is the variable being defined to create an object, places console.log after object has been created to prevent any code breaks.</a></li>
+</ul>
+
+<h3 id="smart-function-logging-early-release-still-in-works">Smart Function Logging (Early release still in works)</h3>
+<ul>
+  <li><a href="https://raw.githubusercontent.com/vishysank/console-log-atom/master/assets/console-log-function-demo.gif">If function name is selected, places console.log after function has been created. If param is selected, places the console.log statement within the param</a></li>
+</ul>
+
+<h3 id="logging-cleanup">Logging Cleanup</h3>
+<ul>
+  <li><code>ctrl-shift-D</code> - <a href="https://raw.githubusercontent.com/vishysank/console-log-atom/master/assets/deconsoler-demo.gif">clean out all the lines that contain console.log statements in the file.</a></li>
+</ul>
+
+<h3 id="identifier-styling-chrome-dev-tools-only">Identifier Styling (Chrome Dev Tools only)</h3>
+<p><strong>Note:- This functionality will only work for selected text</strong>
+* <code>ctrl-alt-c</code> (plain insert) or <code>ctrl-alt-s</code> (JSON.stringify insert) - <a href="https://raw.githubusercontent.com/vishysank/console-log-atom/master/assets/styling-demo.png">For logging in the chrome dev tools console, you can choose to enable text styling for the identifier</a></p>
+
+<h2 id="installation">Installation</h2>
+<p>You can install this package from the CLI or from the Editor.
+* CLI - <code>apm install console-log</code>
+* Editor - <code>Atom &gt; Preferences &gt; Install &gt; Search for console-log in Packages</code></p>
+
+<h2 id="configurations">Configurations</h2>
+
+<ul>
+  <li><strong>Include semi-colons :</strong> Choose whether you want to include semi-colons at end of console.log function. Depending on the linting standard you use, you can choose to include semicolons. <strong>Defaults to no semi-colons</strong></li>
+  <li><strong>Define Identifier case :</strong> Choose whether to retain case of selected text when creating identifier. <strong>Defaults to creating an identifier in capital case of selected text</strong></li>
+  <li><strong>Include background style for identifier:</strong> For logging in the chrome dev tools console, you can choose to enable background styling for the identifier <strong>defaults to none</strong></li>
+  <li><strong>Include text style for identifier:</strong> For logging in the chrome dev tools console, you can choose to enable text styling for the identifier <strong>defaults to none</strong></li>
+</ul>
+
+<h2 id="languages-supported">Languages Supported</h2>
+<ul>
+  <li>Javascript</li>
+</ul>
+
+<h2 id="coming-soon-">Coming soon !</h2>
+<ul>
+  <li>Smart console.log functionality for functions</li>
+  <li><strong>code contributions are welcome.</strong></li>
+</ul>
+
+<h2 id="help-me-help-you-">Help me help you !</h2>
+
+<p>If you see any bugs in this package or if you have any additional features that you would like, please add an issue to this repo and I will look to resolve it.</p>
+
+console.log,console,console-log,debugging,debug,json.stringify,json stringify,deconsoler,clean console.log,clean logging,remove logging,remove console.log
+    </section>
+    <footer>
+      <p>
+        Made with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a>
+      </p>
+      <p>
+        <small>Last updated: 2016-04-29</small>
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+  </body>
+</html>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>Mdtoc</h1>
+<h1 id="atom-mdtoc-a-markdown-toc-package-for-atom">atom-mdtoc: A Markdown TOC package for Atom</h1>
+
+<p>Generate a markdown TOC (table of contents) in <a href="https://atom.io/">atom editor</a> using <a href="https://github.com/jonschlinkert/markdown-toc">Markdown-TOC</a> and <a href="https://github.com/jonschlinkert/remarkable">Remarkable</a>.</p>
+
+<p><img src="https://raw.githubusercontent.com/mcpride/atom-mdtoc/master/screenshot.gif" alt="screenshot" /></p>
+
+<h1 id="table-of-contents">Table Of Contents</h1>
+
+<!-- MDTOC maxdepth:6 firsth1:0 numbering:1 flatten:0 bullets:0 updateOnSave:0 -->
+
+<ol>
+  <li><a href="#installation">Installation</a></li>
+  <li><a href="#features">Features</a> <br />
+ 2.1. <a href="#example-this-table-of-contents">Example (this Table Of Contents)</a></li>
+  <li><a href="#contributing">Contributing</a></li>
+  <li><a href="#author">Author</a></li>
+  <li><a href="#license">License</a></li>
+  <li><a href="#repeated-heading-example">Repeated heading example</a> <br />
+ 6.1. <a href="#heading">Heading</a> <br />
+  6.1.1. <a href="#sub-heading">Sub-heading</a> <br />
+   6.1.1.1. <a href="#sub-sub-heading">Sub-sub-heading</a> <br />
+ 6.2. <a href="#heading-1">Heading</a> <br />
+  6.2.1. <a href="#sub-heading-1">Sub-heading</a> <br />
+   6.2.1.1. <a href="#sub-sub-heading-1">Sub-sub-heading</a> <br />
+ 6.3. <a href="#heading-2">Heading</a> <br />
+  6.3.1. <a href="#sub-heading-2">Sub-heading</a> <br />
+   6.3.1.1. <a href="#sub-sub-heading-2">Sub-sub-heading</a></li>
+</ol>
+
+<!-- /MDTOC -->
+
+<h2 id="installation">Installation</h2>
+
+<p><code>
+apm install atom-mdtoc
+</code></p>
+
+<h2 id="features">Features</h2>
+
+<ul>
+  <li>Auto linking via anchor tags</li>
+  <li>Depth control e.g. <code>maxDepth:6</code></li>
+  <li>Refresh list on save with <code>updateOnSave:1</code> (disable with <code>updateOnSave:0</code>)</li>
+  <li>Exclude the first h1-level heading in a file with <code>firsth1:0</code> (include with <code>firsth1:1</code>)</li>
+  <li>Use spaces instead of bullets with <code>bullets:0</code> (use bullets with <code>bullets:1</code>)</li>
+  <li>Use a flatten list instead of a tree  with <code>flatten:1</code> (use tree with <code>flatten:0</code>)</li>
+  <li>Header numbering with <code>numbering:1</code> (disable with <code>numbering:0</code>)</li>
+  <li>Works with <a href="#repeated-heading-example">repeated headings</a> (see also this <a href="#table-of-contents">Table Of Contents</a>)</li>
+</ul>
+
+<h3 id="example-this-table-of-contents">Example (this Table Of Contents)</h3>
+
+<p>```
+  <!-- MDTOC maxdepth:6 firsth1:0 numbering:1 flatten:0 bullets:1 updateOnSave:0 --></p>
+
+<ul>
+  <li>
+    <ol>
+      <li><a href="#installation">Installation</a></li>
+    </ol>
+  </li>
+  <li>
+    <ol>
+      <li><a href="#features">Features</a>
+        <ul>
+          <li>2.1. <a href="#example-this-table-of-contents">Example (this Table Of Contents)</a></li>
+        </ul>
+      </li>
+    </ol>
+  </li>
+  <li>
+    <ol>
+      <li><a href="#contributing">Contributing</a></li>
+    </ol>
+  </li>
+  <li>
+    <ol>
+      <li><a href="#author">Author</a></li>
+    </ol>
+  </li>
+  <li>
+    <ol>
+      <li><a href="#license">License</a></li>
+    </ol>
+  </li>
+  <li>
+    <ol>
+      <li><a href="#repeated-heading-example">Repeated heading example</a>
+        <ul>
+          <li>6.1. <a href="#heading">Heading</a></li>
+          <li>6.1.1. <a href="#sub-heading">Sub-heading</a>
+            <ul>
+              <li>6.1.1.1. <a href="#sub-sub-heading">Sub-sub-heading</a></li>
+            </ul>
+          </li>
+          <li>6.2. <a href="#heading-1">Heading</a></li>
+          <li>6.2.1. <a href="#sub-heading-1">Sub-heading</a>
+            <ul>
+              <li>6.2.1.1. <a href="#sub-sub-heading-1">Sub-sub-heading</a></li>
+            </ul>
+          </li>
+          <li>6.3. <a href="#heading-2">Heading</a></li>
+          <li>6.3.1. <a href="#sub-heading-2">Sub-heading</a>
+            <ul>
+              <li>6.3.1.1. <a href="#sub-sub-heading-2">Sub-sub-heading</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ol>
+  </li>
+</ul>
+
+<p><!-- /MDTOC -->
+```</p>
+
+<h2 id="contributing">Contributing</h2>
+
+<p>Pull requests and stars are always welcome. For bugs and feature requests, please create an issue.</p>
+
+<h2 id="author">Author</h2>
+
+<p><strong>Marco Stolze</strong></p>
+
+<ul>
+  <li><a href="https://github.com/mcpride">github/mcpride</a></li>
+</ul>
+
+<h2 id="license">License</h2>
+
+<p>Copyright © 2016 <a href="https://github.com/mcpride">Marco Stolze</a>. Released under the <a href="LICENSE.md">MIT license</a>.</p>
+
+<h2 id="repeated-heading-example">Repeated heading example</h2>
+
+<h3 id="heading">Heading</h3>
+
+<p>This is a heading</p>
+
+<h4 id="sub-heading">Sub-heading</h4>
+
+<p>This is an sub heading</p>
+
+<h5 id="sub-sub-heading">Sub-sub-heading</h5>
+
+<p>This is a sub sub heading</p>
+
+<h3 id="heading-1">Heading</h3>
+
+<p>This is a heading</p>
+
+<h4 id="sub-heading-1">Sub-heading</h4>
+
+<p>This is a sub heading</p>
+
+<h5 id="sub-sub-heading-1">Sub-sub-heading</h5>
+
+<p>This is a sub sub heading</p>
+
+<h3 id="heading-2">Heading</h3>
+
+<p>This is a heading</p>
+
+<h4 id="sub-heading-2">Sub-heading</h4>
+
+<p>This is a sub heading</p>
+
+<h5 id="sub-sub-heading-2">Sub-sub-heading</h5>
+
+<p>This is a sub sub heading</p>
+
+markdown,toc,atom
+    </section>
+    <footer>
+      <p>
+        Made with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a>
+      </p>
+      <p>
+        <small>Last updated: 2016-04-29</small>
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+  </body>
+</html>

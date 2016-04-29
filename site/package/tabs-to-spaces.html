@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>Tabs To Spaces</h1>
+<h1 id="tabs-to-spaces">Tabs to Spaces</h1>
+
+<p><a href="https://travis-ci.org/lee-dohm/tabs-to-spaces"><img src="https://img.shields.io/travis/lee-dohm/tabs-to-spaces.svg" alt="Build Status" /></a>
+<a href="https://atom.io/packages/tabs-to-spaces"><img src="https://img.shields.io/apm/v/tabs-to-spaces.svg" alt="Package Version" /></a>
+<a href="https://atom.io/packages/tabs-to-spaces"><img src="https://img.shields.io/apm/dm/tabs-to-spaces.svg" alt="Package Downloads" /></a>
+<a href="https://david-dm.org/lee-dohm/tabs-to-spaces"><img src="https://img.shields.io/david/lee-dohm/tabs-to-spaces.svg" alt="Dependency Status" /></a></p>
+
+<p>An Atom package for converting leading whitespace to either all spaces or all tabs.</p>
+
+<h2 id="usage">Usage</h2>
+
+<p>It can convert any form of leading whitespace to either all spaces (Untabify) or the maximum number of tabs and minimum number of spaces with tabs up front (Tabify) to fill the same space. It can also convert all tabs in a document to spaces (Untabify All).</p>
+
+<p>It will also, with configuration, convert to your preferred method of leading whitespace on save.</p>
+
+<h3 id="commands">Commands</h3>
+
+<ul>
+  <li><code>tabs-to-spaces:tabify</code> — Converts leading whitespace to tabs</li>
+  <li><code>tabs-to-spaces:untabify</code> — Converts leading whitespace to spaces</li>
+  <li><code>tabs-to-spaces:untabify-all</code> — Converts all whitespace on a line to spaces</li>
+</ul>
+
+<h3 id="configuration">Configuration</h3>
+
+<p>Tabs to Spaces uses the following configuration values:</p>
+
+<ul>
+  <li><code>editor.tabLength</code> — sets the number of space characters a tab character is equivalent to</li>
+  <li><code>tabs-to-spaces.onSave</code> — if set to either <code>tabify</code> or <code>untabify</code> it performs that operation on save. :rotating_light: <strong>Warning:</strong> :rotating_light: Setting this to anything other than <code>none</code> can <strong>significantly</strong> impact performance when saving large files.</li>
+</ul>
+
+<p>The package also supports language-specific configuration for the <code>onSave</code> setting. For example, the following configuration will tabify all file types on save except for JavaScript files:</p>
+
+<p><code>coffee
+'*':
+  'tabs-to-spaces':
+    'onSave': 'tabify'
+'.source.js':
+  'tabs-to-spaces':
+    'onSave': 'none'
+</code></p>
+
+<p>No matter what <code>tabs-to-spaces.onSave</code> settings you configure, your <code>config.cson</code> will not be automatically tabified or untabified.</p>
+
+<h3 id="keybindings">Keybindings</h3>
+
+<p>Keybindings have not been set for this package. They can easily be added by referencing the commands listed above.</p>
+
+<h2 id="copyright">Copyright</h2>
+
+<p>Copyright © 2014-2016 by <a href="http://www.lee-dohm.com">Lee Dohm</a> and <a href="http://www.liftedstudios.com">Lifted Studios</a>. See <a href="https://github.com/lee-dohm/tabs-to-spaces/blob/master/LICENSE.md">LICENSE</a> for details.</p>
+
+convert,indentation,spaces,tabs
+    </section>
+    <footer>
+      <p>
+        Made with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a>
+      </p>
+      <p>
+        <small>Last updated: 2016-04-29</small>
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+  </body>
+</html>

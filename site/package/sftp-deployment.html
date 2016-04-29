@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>Sftp Deployment</h1>
+<p><a href="https://travis-ci.org/amoussard/sftp-deployment"><img src="https://travis-ci.org/amoussard/sftp-deployment.svg?branch=evol%2F3-upload-selection" alt="Build Status" /></a>
+<a href="https://coveralls.io/r/amoussard/sftp-deployment"><img src="https://img.shields.io/coveralls/amoussard/sftp-deployment.svg" alt="Coverage Status" /></a></p>
+
+<h1 id="sftp-deployment-for-atomio">SFTP-Deployment for Atom.io</h1>
+
+<p>Spend less time managing file transfers and more time coding. FTP and SFTP support for Atom.io to send and receive files directly in your server.</p>
+
+<p>SFTP-Deployment is a package for Atom.io using <a href="https://github.com/mscdex/ssh2">SSH2 client</a> and <a href="https://github.com/mscdex/node-ftp">Node FTP</a> modules written in pure Javascript for <a href="http://nodejs.org/">node.js</a>.</p>
+
+<p><img src="https://atom.io/assets/packages-d6c259ff67b995961012620be1e26678.gif" alt="SFTP-deployment" title="SFTP-deployment" /></p>
+
+<h2 id="features">Features</h2>
+
+<h3 id="workflows">Workflows</h3>
+<ul>
+  <li>Upload/Download current file</li>
+  <li>Upload open files (tabs)</li>
+  <li>Upload/Download selection from Tree View</li>
+</ul>
+
+<h3 id="compatibility">Compatibility</h3>
+<ul>
+  <li>Supports FTP and SFTP servers</li>
+  <li>Password SSH support</li>
+  <li>Works on Windows, OS X and Linux</li>
+</ul>
+
+<h3 id="integration">Integration</h3>
+<ul>
+  <li>Menu entries and command palette control</li>
+  <li>File-based configuration (JSON)</li>
+  <li>Colorized output panel with options for automatic hiding</li>
+</ul>
+
+<h2 id="installation">Installation</h2>
+
+<ol>
+  <li>Search <code>sftp</code> or <code>ftp</code> in the atom package manager</li>
+  <li>Since the installation is successful, you can generate the configuration file with the command
+    <ul>
+      <li><code>cmd-shift-p</code> and search <code>mapToRemote</code></li>
+      <li>Packages menu -&gt; FTP/SFTP -&gt; Map to Remote…</li>
+      <li>Create your own</li>
+    </ul>
+  </li>
+  <li>Set your ftp/sftp configuration in this file</li>
+  <li>Use it!</li>
+</ol>
+
+<p>The configuration file <strong>MUST</strong> always be in the root directory of your project.</p>
+
+<h3 id="example-of-configuration-file">Example of configuration file:</h3>
+
+<h4 id="sftp-with-userpassword-">SFTP with user/password :</h4>
+<p><code>
+{
+    "type": "sftp",
+    "host": "example.com",
+    "user": "username",
+    "password": "password",
+    "port": "22",
+    "remotePath": "/example/path"
+}
+</code></p>
+
+<h4 id="sftp-protocol-with-private-key-">SFTP protocol with private key :</h4>
+<p><code>
+{
+    "type": "sftp",
+    "host": "example.com",
+    "user": "username",
+    "port": "22",
+    "remotePath": "/example/path",
+    "sshKeyFile": "~/.ssh/id_rsa",
+    "passphrase": "your_passphrase"
+}
+</code>
+The passphrase is optional, only if your key require it.</p>
+
+<h4 id="ftp-protocol-">FTP protocol :</h4>
+<p><code>
+{
+  "type": "ftp",
+  "host": "example.com",
+  "user": "username",
+  "password": "password",
+  "port": "21",
+  "remotePath": "/example/path"
+}
+</code></p>
+
+<h2 id="next-versions">Next Versions</h2>
+
+<h3 id="workflows-1">Workflows</h3>
+<ul>
+  <li>Upload just the changes since your last commit</li>
+  <li>See upload/download progress</li>
+  <li>Synchronize in both directions</li>
+</ul>
+
+<h3 id="integration-1">Integration</h3>
+<ul>
+  <li>Keyboard shortcuts</li>
+  <li>Secure password and passphrase entry</li>
+</ul>
+
+<h2 id="versions">Versions</h2>
+<ul>
+  <li><code>1.0.1</code>
+    <ul>
+      <li>Fix after Atom update</li>
+    </ul>
+  </li>
+  <li><code>1.0.0</code>
+    <ul>
+      <li>Full refactoring of the package</li>
+      <li>Improve stability</li>
+      <li>Best error management</li>
+      <li>Upload on save</li>
+      <li>Upload/Download selection of files and directories in tree-view</li>
+    </ul>
+  </li>
+  <li><code>0.4.0</code>
+    <ul>
+      <li>Upload/Download of folders</li>
+      <li>Refactoring of code</li>
+    </ul>
+  </li>
+  <li><code>0.3.0</code>
+    <ul>
+      <li>Refactoring of the code</li>
+      <li>Notifications/message system</li>
+      <li>FTP support</li>
+      <li>ST3 package syntax support</li>
+      <li>bugfix</li>
+    </ul>
+  </li>
+  <li><code>0.1.0</code> Build the first atom package</li>
+</ul>
+
+atom,package,sftp,ftp,remote,deployment
+    </section>
+    <footer>
+      <p>
+        Made with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a>
+      </p>
+      <p>
+        <small>Last updated: 2016-04-29</small>
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+  </body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>Server Script</h1>
+<h1 id="server-script">server-script</h1>
+
+<p><em>Atom editor package to sync files and/or run a script on the server</em></p>
+
+<p><img src="https://cloud.githubusercontent.com/assets/811455/13936809/970eaf56-ef7d-11e5-858b-589a63b23419.gif" alt="server-script" /></p>
+
+<h3 id="sync-files-optional">Sync files (Optional)</h3>
+
+<p>You can sync local changed files to a server by using an Atom command and/or sync on every save.</p>
+
+<h3 id="run-script-on-server-optional">Run script on server (Optional)</h3>
+
+<p>Write and edit a script on the local machine with Atom and then run the script on a server using an Atom command and/or run it on every save. You will be able to move existing server scripts to a local project folder and then run them on any server without putting the script on the server.</p>
+
+<h3 id="install">Install</h3>
+
+<p>Run <code>apm install server-script</code> on the command line or use the settings page.</p>
+
+<p><strong>There is no need to install anything on the server.</strong></p>
+
+<p>Your local machine must have <code>rsync</code> installed.
+Your local machine and the server must have <code>ssh</code> running. Test that SSH works by executing <code>ssh myUser@myServer.com ls</code> on the command line.  If you need a password to access the server use <code>ssh myUser:myPwd@myServer.com ls</code>.</p>
+
+<h3 id="usage">Usage</h3>
+
+<ul>
+  <li>Load a project</li>
+  <li>Run the Atom command <code>server-script:run</code>.  The keybinding <code>ctrl-alt-shift-R</code> is provided as a default.</li>
+  <li>A notification will pop up to tell you the folder <code>.server-script</code> was created in the root of your project. Note that each project will have its own folder.</li>
+  <li>At this point nothing will happen on execution of the <code>server-script:run</code> command or when saving. You must set up the config file first.</li>
+  <li>After configuring, the server-script will be immediately active. Note that all server operations are run in the background.  So even though the commands in the console may appear slow nothing is blocking.  You may go back to editing with no delay.</li>
+  <li>Any changes to the configuration are immediately applied.</li>
+</ul>
+
+<h3 id="contents-of-the-server-script-folder">Contents Of The <code>.server-script</code> Folder</h3>
+
+<ul>
+  <li>
+    <p><code>.gitignore</code>: This is a local version of a <code>.gitignore</code> file.  It contains one entry to block the commit of the file <code>secrets.cson</code> which contains sensitive login information.</p>
+  </li>
+  <li>
+    <p><code>secrets.cson</code>: Server login information. This doesn’t need to be set up if you are using SSH key files and the local user is the same as the user on the server.  See the file for instructions.</p>
+  </li>
+  <li>
+    <p><code>setup.cson</code>: General configuation for the server connection and options.</p>
+  </li>
+  <li>
+    <p><code>build.sh</code>: A script file to run on the server. Initially this script just contains an <code>echo</code> command so that this package can be easily tested.  Later you can put your own build script in.  Or you can rename or replace this file and put its name in the config file.</p>
+  </li>
+</ul>
+
+<h3 id="config-file-setup-setupcson">Config File Setup (<code>setup.cson</code>)</h3>
+
+<ul>
+  <li><strong>server</strong>:
+    <ul>
+      <li><strong>location</strong>: Server address such as <code>example.com</code> or <code>192.168.0.1</code></li>
+      <li><strong>projectRoot</strong>: Path on server to the project root such as <code>~/my-app</code></li>
+    </ul>
+  </li>
+  <li><strong>options</strong>:
+    <ul>
+      <li><strong>syncChangedFiles</strong>: On every server-script run command and/or when saving, sync local project directory with remote.  Default is <code>no</code></li>
+      <li><strong>scriptOnRun</strong>:  A script to run on the server when <code>server-script:run</code> is executed. If this is blank then nothing is run.  Default is <code>build.sh</code>.</li>
+      <li><strong>scriptOnSave</strong>:  A script to run on the server on every file save. If this is blank then nothing is run on save.  Default is blank.</li>
+      <li><strong>useGitignore</strong>: Enable to avoid syncing files to the server that are ignored in the <code>.gitignore</code> file.  Default is <code>yes</code>.</li>
+      <li><strong>logToConsole</strong>: When enabled, all commands are logged to the dev console in Atom. Also the stdout and stderr of the script run on the server is shown.  Default is <code>yes</code>.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="license---mit">License - MIT</h3>
+<p>Server-script is copyright by Mark Hahn using the MIT license.</p>
+
+atom,editor,sync,script,remote,build,save
+    </section>
+    <footer>
+      <p>
+        Made with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a>
+      </p>
+      <p>
+        <small>Last updated: 2016-04-29</small>
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+  </body>
+</html>

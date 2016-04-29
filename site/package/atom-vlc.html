@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>Vlc</h1>
+<h1 id="atom-vlc">Atom VLC</h1>
+
+<p>A bottom panel to control VLC media player from Atom</p>
+
+<p><img src="https://github.com/renatoalencar/atom-vlc/raw/master/atom-vlc-screenshot.png" alt="Screenshot" /></p>
+
+<h2 id="installation">Installation</h2>
+
+<p>Atom VLC is available at <code>apm</code> index, install from Atom
+interface or using <code>apm</code> command.</p>
+
+<p><code>bash
+$ apm install atom-vlc
+</code></p>
+
+<p>Or Settings ➔ Install ➔ Search for <code>atom-vlc</code></p>
+
+<h2 id="features">Features</h2>
+
+<ul>
+  <li>Shows playing song info (title, artist, album)</li>
+  <li>Shows playing song artwork</li>
+  <li>Allows forward, backward, play/pause and stop</li>
+  <li>Compact and full mode</li>
+</ul>
+
+<h2 id="configuration">Configuration</h2>
+
+<p>Atom VLC uses VLC’s Lua HTTP interface to control VLC. So
+you need to configure VLC in order to accept connections
+from Atom and Atom VLC too.</p>
+
+<h3 id="vlc">VLC</h3>
+
+<p>VLC’s Lua HTTP interface only works when it’s set a
+password to access the interface. So go to Tools ➔
+Preferences. Bellow <code>Show settings</code> area toggle <code>All</code> then
+go to <code>Interface</code> ➔ <code>Main interfaces</code> ➔ <code>Lua</code>, bellow <strong>Lua HTTP</strong> set
+a password.</p>
+
+<p>After that go to View ➔ Add interface ➔ Web.</p>
+
+<p><img src="https://github.com/renatoalencar/atom-vlc/raw/master/vlc-preferences.png" alt="VLC Preferences" /></p>
+
+<h3 id="atom-vlc-1">Atom VLC</h3>
+
+<p>Only <code>Password</code> setting is required, the others can work
+by default.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Setting</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Password</td>
+      <td><code>string</code></td>
+      <td>The password at VLC Interface</td>
+    </tr>
+    <tr>
+      <td>Host</td>
+      <td><code>string</code></td>
+      <td>The IP address or hostname of the host running VLC</td>
+    </tr>
+    <tr>
+      <td>Compact mode</td>
+      <td><code>boolean</code></td>
+      <td>Show the panel compact</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="developers">Developers</h2>
+
+<h3 id="run-from-git-repository">Run from git repository</h3>
+
+<p>You only have to clone the repository, install dependencies
+and link to a directory in the Atom’s package directory.</p>
+
+<p><code>bash
+$ git clone https:/github.com/renatoalencar/atom-vlc
+$ cd atom-vlc
+$ npm install
+$ cd ..
+$ ln -s atom-vlc ~/.atom/packages
+</code></p>
+
+<h3 id="dependencies">Dependencies</h3>
+
+<ul>
+  <li>atom-space-pen-views</li>
+  <li>font-awesome</li>
+</ul>
+
+<h2 id="license">License</h2>
+
+<p><a href="./LICENSE.md">MIT</a></p>
+
+vlc,music
+    </section>
+    <footer>
+      <p>
+        Made with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a>
+      </p>
+      <p>
+        <small>Last updated: 2016-04-29</small>
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+  </body>
+</html>

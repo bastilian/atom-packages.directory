@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>Dicom Dump</h1>
+<h1 id="dicom-viewer-for-atomhttpatomio">DICOM viewer for <a href="http://atom.io">Atom</a></h1>
+
+<h2 id="overview">Overview</h2>
+
+<p>This package provides a point-and-click interface for exploring the content of <a href="http://dicom.nema.org/">DICOM</a> files. At the moment, the functionality provided is allowing to run <a href="http://dicom.offis.de/dcmtk.php.en">DCMTK</a> command-line tools <a href="http://support.dcmtk.org/docs/dcmdump.html">dcmdump</a> and <a href="http://support.dcmtk.org/docs/dsrdump.html">dsrdump</a>.</p>
+
+<p>By using this Atom package instead of running the DCMTK tools in the command
+line, you can:</p>
+
+<ul>
+  <li>conveniently copy content to the clipboard</li>
+  <li>do folding of the indented sections of the dump</li>
+  <li>search for content of interest</li>
+  <li>add a lot more features using powerful Atom engine ;)</li>
+</ul>
+
+<h2 id="usage">Usage</h2>
+
+<ol>
+  <li>Install the package from Atom &gt; Settings &gt; Install</li>
+  <li>Download and install DCMTK binaries for your system from
+http://dicom.offis.de/dcmtk.php.en (HINT: binaries of DCMTK command line tools are build and packaged with 3D Slicer (http://slicer.org) - you can install Slicer and point atom-dicom-dump to the subdirectory of 3D Slicer installation where dcmdump is located! For example, on Mac OS X it is /Applications/Slicer.app/Contents/bin)</li>
+  <li>Set the location of the DCMTK executables in the dicom-dump settings</li>
+  <li>After opening a DICOM file in Atom, use context meny to invoke dcmdump or
+dsrdump tools.</li>
+</ol>
+
+<h2 id="status">Status</h2>
+
+<p>This package is work in progress. Contributions from the community in the form of encouragements, comments, feature requests, bug repots and pull requests are very welcome!</p>
+
+<h2 id="acknowledgment">Acknowledgment</h2>
+
+<p>This package is being developed by <a href="https://github.com/fedorov">Andrey Fedorov</a> as part of the <a href="http://qiicr.org">QIICR</a> project activities. QIICR is supported by NIH National Cancer Institute, award U24 CA180918. Please contact Andrey, join <a href="https://plus.google.com/b/103730364707811819340/+QiicrOrg">QIICR community on Google+</a>, or submit an issue on the issue tracker!</p>
+
+<h2 id="demo">Demo</h2>
+
+<p><img src="https://raw.githubusercontent.com/QIICR/atom-dicom-dump/master/screenshots/demo.gif" alt="Screenshot" /></p>
+
+dicom,dcmtk,viewer
+    </section>
+    <footer>
+      <p>
+        Made with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a>
+      </p>
+      <p>
+        <small>Last updated: 2016-04-29</small>
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+  </body>
+</html>

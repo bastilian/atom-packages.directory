@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>Punchclock</h1>
+<h1 id="punchclock">Punchclock</h1>
+
+<p>Punchclock allows you to track time spent on projects, and provides (or rather will provide) ways to view the data in different ways as well as the ability to export and integrate this data with external endpoints.</p>
+
+<h5 id="default-status-bar-view">Default Status Bar View</h5>
+
+<p><img src="https://github.com/queenp/punchclock/raw/master/docs/assets/images/timekeeper-status-bar-view.png" alt="Punchclock" /></p>
+
+<h5 id="active--tracking-time">Active &amp; Tracking Time</h5>
+
+<p><img src="https://github.com/queenp/punchclock/raw/master/docs/assets/images/timekeeper-status-bar-view-active.png" alt="Punchclock Active" /></p>
+
+<h5 id="paused-state">Paused State</h5>
+
+<p><img src="https://github.com/queenp/punchclock/raw/master/docs/assets/images/timekeeper-status-bar-view-paused.png" alt="Punchclock Paused" /></p>
+
+<p>As of 0.6.1, Punchclock  has basic support for loading/unloading projects from Atom. The project is defined by the FIRST project path given (for lack of a clearer definition of what a project is in Atom for now).</p>
+
+<blockquote>
+  <p><em>Although every effort is made to keep things as stable as possible, please do note that the package is under constant development so there might be occasional bugs. If you run across any issues, please <a href="https://github.com/queenp/punchclock/issues/new">add an issue</a> with the details.</em></p>
+</blockquote>
+
+<h2 id="installation">Installation</h2>
+
+<h3 id="command-line">Command Line</h3>
+
+<p><code>bash
+apm install punchclock
+</code></p>
+
+<h3 id="atom">Atom</h3>
+
+<p><code>
+Command Palette ➔ Settings View: Install Packages ➔ Punchclock
+</code></p>
+
+<h2 id="features">Features</h2>
+
+<p>Punchclock currently supports the core basic functionality of being able to track time spent on projects, and persists this data to its internal data store, as well as basic reporting.</p>
+
+<p>Reposting, external services integration &amp; other features are currently in development and will be released gradually.</p>
+
+<h3 id="current-features">Current Features</h3>
+
+<ul>
+  <li>[x] Displays timer in the status bar with the time being tracked, with occasional status messages</li>
+  <li>[x] Saves tracked time data (to be used with features currently under development)</li>
+  <li>[x] Automatically handle saving of time tracking data from previous session, even if the <code>Finish</code> command was not issued manually before exiting from Atom</li>
+  <li>[x] Tracks when Atom is out of focus and collects that data, so that it can be factored in for better reporting</li>
+  <li>[x] Configuration setting to auto enable time tracking on all projects on load (Per-project configuration coming soon!!). <strong>Defaults to FALSE/DISABLED</strong>, enable it in your settings to activate the feature</li>
+  <li>[x] Preliminary &amp; basic Dashboard UI available now (not very useful, but it is a start :smile:)</li>
+</ul>
+
+<h2 id="commands">Commands</h2>
+
+<p><strong><em>Start</em></strong></p>
+
+<p><code>
+ctrl-cmd-s
+</code></p>
+
+<blockquote>
+  <p>Starts tracking time on this project</p>
+
+  <p><em>Issuing this command when time tracking is paused, will continue from where it left off</em></p>
+</blockquote>
+
+<p><strong><em>Pause</em></strong></p>
+
+<p><code>
+ctrl-cmd-p
+</code></p>
+
+<blockquote>
+  <p>Pause time tracking temporarily without loosing already tracked time</p>
+
+  <p><em>Issuing this command when time tracking is paused, will continue from where it left off</em></p>
+</blockquote>
+
+<p><strong><em>Finish</em></strong></p>
+
+<p><code>
+ctrl-cmd-f
+</code></p>
+
+<blockquote>
+  <p>Stops tracking time, and saves the tracked time data</p>
+</blockquote>
+
+<p><strong><em>Reset</em></strong></p>
+
+<p><code>
+ctrl-cmd-r
+</code></p>
+
+<blockquote>
+  <p>Discards current tracked time data (not saved), and starts fresh again</p>
+</blockquote>
+
+<p><strong><em>Abort</em></strong></p>
+
+<p><code>
+ctrl-cmd-a
+</code></p>
+
+<blockquote>
+  <p>Stop tracking time, and discard the tracked time up to this point</p>
+
+  <p><strong>Action is permanent and tracked time data will be lost forever prior to save!</strong></p>
+</blockquote>
+
+<p><strong><em>Dashboard</em></strong></p>
+
+<p><code>
+ctrl-cmd-d
+</code></p>
+
+<blockquote>
+  <p>Displays the Punchclock UI interfaces - only the Dashboard (basic version) available at this point</p>
+</blockquote>
+
+<h2 id="feedback--issues">Feedback &amp; Issues</h2>
+
+<p>Any feedback is appreciated!</p>
+
+<p>There are a number of features that are under development, but if there are specific features you would like to see added, please <a href="https://github.com/queenp/punchclock/issues/new">add an issue</a> and tag it as “feature”.</p>
+
+<p>If you encounter any bugs or cannot get something working, please check the current <a href="https://github.com/queenp/punchclock/issues">open issues</a> to see if it has already been raised, before adding a new issue with the problem you are facing.</p>
+
+<p>I work on this project in my spare time so unfortunately I can make absolutely no guarantees about fixes.</p>
+
+punchclock,timekeeper,time tracking,time tracker,time management
+    </section>
+    <footer>
+      <p>
+        Made with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a>
+      </p>
+      <p>
+        <small>Last updated: 2016-04-29</small>
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+  </body>
+</html>

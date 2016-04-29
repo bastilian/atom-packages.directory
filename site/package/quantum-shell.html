@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>Quantum Shell</h1>
+<h1 id="quantum-shell-for-githubs-atom">Quantum Shell for Github’s Atom!</h1>
+<p>A command line interface built directly into Atom! This package is largely inspired by (but not a direct fork of) <a href="http://github.com/thedaniel/terminal-panel">terminal-panel</a>. The goal of this project is to provide users with a simple, yet powerful tool, that no self-proclaimed ‘Hackable’ editor should be without. It is 1.0 ready and should make the transition in June seamlessly. Currently, this package should run as expected on Atom &gt;=1.0.12 with any UNIX like operating system. Windows is now fully supported and shouldn’t suffer any limitations that aren’t also present on other platforms. To get started just search for and download <code>quantum-shell</code> in the Atom package manager, or at the command line type <code>apm install quantum-shell</code> and press <code>ctrl-shift-q</code> to get started. Happy Hacking!</p>
+
+<h2 id="features">Features</h2>
+
+<h3 id="multiple-terminals-as-of-v-060">Multiple Terminals, as of v-0.6.0!</h3>
+<p>You can now run as many terminals as you would like side by side. Each will have its own unique history, aliases, environment and even underlying shell program! To run different shells next to one another, simply navigate to <code>Settings&gt;Packages&gt;quantum-shell&gt;ShellName</code> and change the default. Now every <em>new</em> terminal you create will use that shell program until you destroy it. Even if you close Atom all the way down and restart it, you’re settings will be preserved and you can continue to simultaneously run as many different shells as you would like!</p>
+
+<h3 id="full-history-support-just-like-youre-used-to-in-bash">Full <code>history</code> support just like you’re used to in bash</h3>
+<p>Just use the <code>up</code> and <code>down</code> arrow keys when the input field is focused to quickly navigate through your history, or use the <code>history</code> builtin to view a list of your past commands. A configuration option for limiting the number of commands to record can now be found under <code>Settings&gt;Packages&gt;quantum-shell&gt;MaxHistory</code>. The default is 100.</p>
+
+<h3 id="rotating-tab-completion">Rotating Tab Completion</h3>
+<p>At the request of user <a href="http://github.com/clebrun">@clebrun</a>, I have added a rotating tab completion feature! The way it works is simple. If you have not yet pressed the space-bar, pressing the <code>tab</code> key will cause <code>quantum-shell</code> to rotate through all of the program names referenced in your $PATH variable (including <code>quantum-shell</code> builtins) that match what you have already typed. If you have pressed the space-bar (meaning that you are working on typing word number two or higher), pressing the <code>tab</code> key will rotate through all of the file names along the relative path you have typed. This is a very exciting new feature, so please feel free to share any comments and/or bugs that you might discover!</p>
+
+<h3 id="customizable-prompt-string">Customizable Prompt String</h3>
+<p>The prompt string is one of the defining features of any good shell program, and up until now   <code>quantum-shell</code>’s has been rather bland, and hard-coded into the program. But that is no more! From now on, anyone using <code>quantum-shell</code> can customize their own prompt string under <code>Settings&gt;Packages&gt;quantum-shell&gt;PromptString</code>. Not only that, but I’ve included semantics for several special escape characters as outlined below:
+* <code>\!</code> - the current history number of this command
+* <code>\@</code> - current time in 12-hour <code>HH:MM {am,pm}</code> format
+* <code>\#</code> - the current command number of this command
+* <code>\$</code> - a <code>#</code> if superuser, <code>$</code> otherwise
+* <code>\A</code> - current time in 24-hour <code>HH:MM {am,pm}</code> format
+* <code>\d</code> - current date in <code>Weekday Month Date</code> format
+* <code>\h</code> - the current hostname up to the first <code>.</code>
+* <code>\H</code> - the current hostname
+* <code>\s</code> - the shell program used to run all non-builtin commands
+* <code>\t</code> - current time in 24-hour <code>HH:MM:SS</code> format
+* <code>\T</code> - current time in 12-hour <code>HH:MM:SS</code> format
+* <code>\u</code> - the user’s preferred username
+* <code>\v</code> - the current version of <code>quantum-shell</code> in <code>X.Y</code> format
+* <code>\V</code> - the current version of <code>quantum-shell</code> in <code>X.Y.Z</code> format
+* <code>\w</code> - the full path of the current working directory
+* <code>\W</code> - the basename only of the current working directory
+* <code>\\</code> - a literal backslash</p>
+
+<p>Feel free to combine these in any way you see fit, and make <code>quantum-shell</code> truly your own!</p>
+
+<h3 id="full-alias-and-unalias-support">Full <code>alias</code> and <code>unalias</code> support</h3>
+<p>For the sake of simplicity of implementation, the syntax is a little different in quantum-shell than other shells. It is:
+<code>
+alias &lt;key&gt; = &lt;expansion&gt;
+</code>
+There are a few things to know about this syntax. First, you can only define one alias at a time. Second, the <code>key</code> must be a single word, containing absolutely no whitespace. Third, the <code>=</code> must have whitespace on either side of it (i.e. not touching anything). And finally, all of the words to the left of the <code>=</code> will be concatenated together and seperated by a single <code>space</code>. Whenever quantum-shell detects the <code>key</code> in an input command, it will be replaced with <code>expansion</code>, unless the key is contained within single <code>''</code> or  double <code>""</code> quotes. A common and useful example would be
+<code>
+alias ll = ls -l
+</code>
+Aliases are serialized, so you should only ever have to type them out once. Even if you completely close Atom down, they should still be there when you return.</p>
+
+<h3 id="a-custom-atom-builtin">A custom <code>atom</code> builtin</h3>
+<p>Using the standard <code>atom</code> command line tool is a bit redundant, since you’re obviously already running <code>atom</code>! For that reason I’ve provided a custom override for the <code>atom</code> command that will allow you to simulate any registered event being dispatched wherever you want. The syntax is pretty simple, there are two options:
+<code>
+atom &lt;command&gt;
+</code>
+or
+<code>
+atom &lt;selector&gt; &lt;command&gt;
+</code>
+<code>&lt;command&gt;</code> is the (non-humanized) command you would like to dispatch. The optional <code>&lt;selector&gt;</code> is where you would like the command to be dispatched. It defaults to the <code>&lt;atom-workspace&gt;</code> tag, since that’s what you’ll probably want to target most often anyway.</p>
+
+<p>As an example, imagine you want to toggle full-screen mode, but you just can’t remember what that darn key-binding is. The solution is quite simple; just pull up <code>quantum-shell</code>, type <code>atom window:toggle-full-screen</code> and <em>volia!</em> you’re now in full-screen mode.</p>
+
+<p>However, if that seems like a lot to type (probably because it is), try combining the <code>atom</code> builtin with the <code>alias</code> builtin. Something like:
+<code>
+alias tfs = atom window:toggle-full-screen
+</code>
+Then whenever you want to activate that command just type a simple <code>tfs</code> into the command line and let <code>quantum-shell</code> do the rest!</p>
+
+<p>If you’re thinking to yourself, “Wow, this is an incredibly powerful alternative to memorizing <em>all</em> of those keybindings…”, then I’d say you and I think a lot alike, my friend :wink:</p>
+
+<h3 id="looks-good-in-any-theme">Looks Good in any Theme!</h3>
+<p><img src="https://raw.githubusercontent.com/sedabull/quantum-shell/master/resources/quantum-shell-light.png" alt="light" /></p>
+
+<p><img src="https://raw.githubusercontent.com/sedabull/quantum-shell/master/resources/quantum-shell-dark.png" alt="dark" /></p>
+
+terminal,tab-completion,windows support,alias,prompt string,history,command line
+    </section>
+    <footer>
+      <p>
+        Made with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a>
+      </p>
+      <p>
+        <small>Last updated: 2016-04-29</small>
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+  </body>
+</html>

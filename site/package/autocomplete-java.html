@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>Autocomplete Java</h1>
+<h1 id="autocomplete-java-number-of-downloadshttpsimgshieldsioapmdmautocomplete-javasvgstyleflat-square">autocomplete-java <img src="https://img.shields.io/apm/dm/autocomplete-java.svg?style=flat-square" alt="Number of downloads" /></h1>
+
+<p>Java autocomplete-plus provider for Atom editor. Current features:</p>
+
+<ul>
+  <li>Complete package and class names</li>
+  <li>Import classes automatically</li>
+  <li>Organize imports alphabetically</li>
+  <li>Fold imports</li>
+  <li>Examine constructors, methods and properties of a class or instance and use them as snippets</li>
+  <li>Crude class resolution for variables and method return values (still a quick hack)</li>
+  <li>Predictive suggestions</li>
+</ul>
+
+<p>Some planned future features:</p>
+
+<ul>
+  <li><a href="https://github.com/keskiju/autocomplete-java/issues/8">Improved class resolution</a></li>
+  <li><a href="https://github.com/keskiju/autocomplete-java/issues/5">Include parameter names in method suggestions</a></li>
+  <li><a href="https://github.com/keskiju/autocomplete-java/issues/14">Unit tests, refactoring, make package extensible</a></li>
+  <li><a href="https://github.com/keskiju/autocomplete-java/issues/13">Optimize class loading</a></li>
+  <li><a href="https://github.com/keskiju/autocomplete-java/issues/19">Watch changed classes</a></li>
+  <li><a href="https://github.com/keskiju/autocomplete-java/issues/3">Autocomplete implementations of getter and setter methods</a></li>
+  <li><a href="https://github.com/keskiju/autocomplete-java/issues/4">Autocomplete implementations of overriding methods</a></li>
+  <li><a href="https://github.com/keskiju/autocomplete-java/issues/27">Grouping imports by sun/google conventions</a></li>
+  <li>… See all open issues at <a href="https://github.com/keskiju/autocomplete-java/issues">GitHub issues</a></li>
+</ul>
+
+<p>Official page for package at atom.io: <a href="https://atom.io/packages/autocomplete-java">autocomplete-java</a></p>
+
+<h2 id="preview">Preview</h2>
+
+<p><img src="https://raw.github.com/keskiju/autocomplete-java/master/screenshot.gif" alt="Screenshot" /></p>
+
+<h2 id="usage">Usage</h2>
+
+<p>Configure <a href="https://en.wikipedia.org/wiki/Classpath_%28Java%29">classpath</a> via a .classpath file. A simple project would typically contain a single .classpath file that is placed at the root directory of the project. A large project would contain a separate .classpath file for each module. An example of .classpath file contents:</p>
+
+<pre><code>./classes:./lib/*:../api/classes
+</code></pre>
+
+<p>There is an example of multimodule classpath setup on <a href="https://github.com/AtomLinter/linter-javac/wiki/classpathFilename#multiple-classpaths">linter-javac Wiki</a>.</p>
+
+<p>You can alter the default .classpath filename and other autocomplete behavior with package settings.</p>
+
+<p>NOTE:
+* The package requires that either <a href="http://javarevisited.blogspot.fi/2012/02/how-to-set-javahome-environment-in.html">JAVA_HOME</a> environment variable is set or JDK tools (javap, jar) are found in path. Alternatively you can set JAVA_HOME in package settings.
+* The package requires compiled classes to function, but it does not compile classes from source. Use other tools for compiling.
+* If you want autocomplete to show method argument names, compile your classes with the -parameters switch of Javac.
+* If you compile classes manually, disable the ‘refresh class on save’ setting and run ‘refresh project’ manually after compilation (ctrl-alt-shift-R). Also try to avoid running refresh command and your build scripts at the same time.
+* <strong>Scanning all classes in classpath is still unoptimized. It might take a few minutes until autocomplete fully kicks in after opening a project, so please be patient.</strong>
+* <strong>Class resolution for variables and method return values is still a quick hack and it will be improved in the future. If the package fails to resolve class automatically, you can still examine methods with a class name if you know the class yourself (e.g. ArrayList.con…).</strong></p>
+
+<h2 id="tips">Tips</h2>
+
+<p>At first, compile all your classes using your favorite build tool, and start your app. While editing java source files, lint and compile changed classes automatically with <a href="https://atom.io/packages/linter-javac">linter-javac</a>, and the autocomplete-java package will refresh changed classes automatically on save. You can also reload changed classes automatically in JVM with <a href="https://github.com/spring-projects/spring-loaded">spring-loaded</a> or some other JVM agent. This way you can develop your app while the app is running.</p>
+
+<p>NOTE: Current version of linter-javac performs bad in case of slow hard drive and large amount of classes to be linted. If you experience freezing during file save, consider disabling linter-javac, at least for now.</p>
+
+<p>NOTE: Error in one class may prevent compilation of multiple classes. Therefore once you fix an error, multiple classes might be recompiled at once. So sometimes you might have to run ‘project refresh’ manually after you fix an error (ctrl-alt-shift-R). See issue <a href="https://github.com/keskiju/autocomplete-java/issues/19">#19</a>.</p>
+
+<h2 id="contribute">Contribute</h2>
+
+<p>Contributions are welcome. Please comment on <a href="https://github.com/keskiju/autocomplete-java/issues">issues</a> you would like to contribute to, or add feature requests of your own.</p>
+
+java,autocomplete-plus,autocomplete,import
+    </section>
+    <footer>
+      <p>
+        Made with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a>
+      </p>
+      <p>
+        <small>Last updated: 2016-04-29</small>
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+  </body>
+</html>

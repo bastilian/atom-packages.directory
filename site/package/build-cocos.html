@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>Build Cocos</h1>
+<h1 id="cocos-build-for-atom">Cocos build for Atom</h1>
+
+<p>Runs cocos2d-x tasks like <strong>build</strong>, <strong>deploy</strong>, <strong>run</strong>, and <strong>release</strong> in the <code>Atom</code> editor.
+And captures build and runtime errors.</p>
+
+<p>This package requires <a href="https://atom.io/packages/build">atom-build</a> and <a href="https://github.com/cocos2d/cocos2d-console">cocos-console</a> to be installed.</p>
+
+<h2 id="how-it-works">How It Works</h2>
+
+<p>A project are consider as a cocos2d-x project if there is a <code>.cocos-project.json</code>
+at project root. And it takes <code>project_type</code> key in this file for the project
+type (<strong>cpp</strong>|<strong>lua</strong>|<strong>js</strong>).</p>
+
+<p>For <code>Run simulator without build</code> tasks, it find simulator executable name in:</p>
+
+<ul>
+  <li><code>init_cfg.name</code> in <code>config.json</code> for <strong>lua</strong> projects</li>
+  <li><code>name</code> in <code>manifest.webapp</code> for <strong>js</strong> projects.</li>
+</ul>
+
+<p>and runs debug build executables create by <code>cocos compile -p mac|win32</code> as simulator.</p>
+
+<p>Do make sure the above config are correct for your project and
+<code>cocos compile -p mac|win32</code> commands works well.</p>
+
+<h2 id="features">Features</h2>
+
+<h3 id="add-build-targets-for-cocos2d-x-projects">Add Build Targets for Cocos2d-x Projects</h3>
+
+<p>Supports run <strong>build</strong>, <strong>deploy</strong>, <strong>run</strong>, and <strong>release</strong> tasks inside <code>Atom</code>.</p>
+
+<p>Build targets for a Lua project:</p>
+
+<p><img src="https://raw.githubusercontent.com/xpol/build-cocos/master/images/targets.png" alt="Targets" /></p>
+
+<h3 id="captures-build-and-runtime-errors">Captures Build and Runtime Errors</h3>
+
+<ul>
+  <li>Captures build errors and Lua script runtime errors.</li>
+  <li>Provides error link to source code.</li>
+</ul>
+
+<p>Cpp build errors:</p>
+
+<p><img src="https://raw.githubusercontent.com/xpol/build-cocos/master/images/cpp-errors.png" alt="Cpp Errors" /></p>
+
+<p>Lua runtime errors:</p>
+
+<p><img src="https://raw.githubusercontent.com/xpol/build-cocos/master/images/lua-errors.png" alt="Lua Errors" /></p>
+
+<h3 id="support-additional-configure-in-cocos-projectjson">Support Additional Configure in .cocos-project.json</h3>
+
+<p>Additional key for <code>.cocos-project.json</code>:</p>
+
+<ul>
+  <li><code>androidABI</code>: Set <code>APP_ABI</code> for Android build, multiple abi can be set like <code>armeabi-v7a:x86</code>. Default <code>armeabi</code>.</li>
+  <li><code>androidStudio</code>: Set <code>true</code> to build Android Studio project in <code>proj.android-studio</code> rather than <code>proj.android</code>. Default <code>false</code>.</li>
+  <li><code>iosCodeSignIdentity</code>: iOS code sign identity used to run <code>iOS: Release</code> target. eg. <code>iPhone Distribution: xxx... (XXXXXXXXXX)</code>.</li>
+  <li><code>luaEncrypt</code>: Set <code>false</code> to disable encryption of Lua scripts when run <code>Release</code> targets. Default <code>true</code>.</li>
+  <li><code>luaEncryptKey</code>: The key used to encrypt Lua scripts when run <code>Release</code> targets. Default <code>2dxLua</code>.</li>
+  <li><code>luaEncryptSign</code>: File signature for encrypted Lua script files when run <code>Release</code> targets. Default <code>XXTEA</code></li>
+</ul>
+
+<h2 id="setup">Setup</h2>
+
+<ol>
+  <li>Install <a href="https://atom.io/packages/build">atom-build</a> and this <a href="https://atom.io/packages/build-cocos">atom-build-cocos</a> package <code>apm install build build-cocos</code>.</li>
+  <li>To setup cocos path you have two options either:
+    <ul>
+      <li>In Atom -&gt; Preferences… -&gt; Packages -&gt; build-cocos -&gt; Settings -&gt; Set the <code>Global cocos console path</code>. eg: <code>/Users/xpol/Workspace/cocos2d-x/tools/cocos2d-console</code>.</li>
+      <li>Have a project local copy of cocos-console in you project in <code>framewroks/cocos2d-x/tools/cocos2d-console</code>.</li>
+    </ul>
+  </li>
+  <li>For Lua project
+    <ul>
+      <li>You need <a href="https://github.com/xpol/cocos2d-console">master branch of my fork of <code>cocos-console</code></a> (up vote this <a href="https://github.com/cocos2d/cocos2d-console/pull/320">pending pull request</a> to make it official) to run simulator and captures the runtime Lua errors.</li>
+      <li>Set Lua package path to have <code>src/?.lua;</code> rather than add <code>src/</code> to FileUtils’ search path, see example <code>main.lua</code>.</li>
+      <li>Make a <code>xpcall</code> to your main function and call <code>os.exit(1)</code> in error handler. see example <code>main.lua</code>.</li>
+    </ul>
+  </li>
+  <li>After that, in Atom open you project root directory which contains <code>.cocos-project.json</code>, run <code>cmd-alt-t</code> / <code>ctrl-alt-t</code> / <code>f7</code> to displays the available build targets.</li>
+  <li>Set <code>.cocos-project.json</code>:
+    <ul>
+      <li>Set <code>iosCodeSignIdentity</code> if you needs build iOS release ipa.</li>
+      <li>For <strong>lua</strong> projects, set <code>luaEncrypt</code> <code>luaEncryptKey</code> and <code>luaEncryptSign</code> to enable encryption for Lua scripts.</li>
+      <li>Android projects, set <code>androidStudio</code> if you want build in project in <code>proj.android-studio</code>.</li>
+    </ul>
+  </li>
+</ol>
+
+<p><strong>Examples</strong></p>
+
+<p><code>src/main.lua</code></p>
+
+<p>```lua
+package.path = ‘src/?.lua;src/packages/?.lua’
+local fu = cc.FileUtils:getInstance()
+fu:setPopupNotify(false)
+fu:addSearchPath(“res/”) – only add ‘res/’ for cocos search path, do not add ‘src/’.</p>
+
+<p>local function main()
+	– your code here…
+end</p>
+
+<p>local traceback = <strong>G__TRACKBACK</strong></p>
+
+<p>function <strong>G__TRACKBACK</strong>(msg)
+  traceback(msg)
+  os.exit(1) – exit on error so that the error will be parsed by atom-build.
+end</p>
+
+<p>xpcall(main, <strong>G__TRACKBACK</strong>)</p>
+
+<p>```</p>
+
+<h2 id="contribute">Contribute</h2>
+
+<p>Ideas, bugs and pull requests please go to GitHub <a href="https://github.com/xpol/atom-build-cocos">xpol/atom-build-cocos</a>.</p>
+
+
+build,compile,run,cocos2d-x,c++,lua,javascript,productivity
+    </section>
+    <footer>
+      <p>
+        Made with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a>
+      </p>
+      <p>
+        <small>Last updated: 2016-04-29</small>
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+  </body>
+</html>

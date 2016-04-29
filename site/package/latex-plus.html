@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>Latex Plus</h1>
+<h1 id="latex-plus">LaTeX-Plus</h1>
+
+<p><a href="https://atom.io/packages/latex-plus"><img src="https://img.shields.io/apm/dm/latex-plus.svg?style=flat-square" alt="Plugin installs!" /></a>
+<a href="https://atom.io/packages/latex-plus"><img src="https://img.shields.io/apm/v/latex-plus.svg?style=flat-square" alt="Package version!" /></a></p>
+
+<p>LaTeX for Atom.</p>
+
+<h2 id="status">Status</h2>
+<p>This package is a beta release. For the newest features install the <code>develop</code> branch:
+<code>bash
+mkdir ~/repos
+cd ~/repos
+git clone https://github.com/andrewrynhard/atom-latex-plus.git
+cd atom-latex-plus
+apm install
+apm link
+</code></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Master Branch</th>
+      <th style="text-align: left">Develop Branch</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><a href="https://travis-ci.org/andrewrynhard/atom-latex-plus"><img src="https://travis-ci.org/andrewrynhard/atom-latex-plus.svg?branch=master" alt="Build Status" /></a></td>
+      <td style="text-align: left"><a href="https://travis-ci.org/andrewrynhard/atom-latex-plus"><img src="https://travis-ci.org/andrewrynhard/atom-latex-plus.svg?branch=develop" alt="Build Status" /></a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="about">About</h2>
+<p>A <code>latexmk</code> wrapper developed for <a href="https://atom.io">Atom</a>.
+#### Features
+  * Project management
+  * Error detection
+  * TEXINPUTS</p>
+
+<h2 id="usage">Usage</h2>
+<p>#### Quick Start
+  1. Ensure a latex distribution is installed, and that latexmk in your <code>PATH</code>.
+  2. Configure <code>TeX Bin</code> in the package settings to the location of your latex distribution’s installation location.
+  3. Open a tex file within the directory containing your LaTeX project.
+  4. <code>edit</code> your project’s configuration file.</p>
+
+<h4 id="project-configuration">Project Configuration</h4>
+<p>LaTeX-Plus keeps metadata on projects using a <code>JSON</code> formatted file that is
+easily configurable. Simply invoke the <code>edit</code> command to customize to your
+liking.</p>
+
+<h6 id="default-settings">Default Settings</h6>
+<ul>
+  <li><code>title: LaTeX-Plus Project</code></li>
+  <li><code>root: main.tex</code></li>
+  <li><code>program: pdflatex</code></li>
+  <li><code>output: .latex</code></li>
+</ul>
+
+<h6 id="caveat">Caveat</h6>
+<p>Due to the beta status of this package, project configuration files will be overwritten upon upgrading. Once the project configuration API has stablized a more permanent solution will exist.</p>
+
+<h4 id="keymaps">Keymaps</h4>
+
+<h6 id="os-x">OS X</h6>
+<ul>
+  <li>compile and sync project: <code>cmd-;</code></li>
+  <li>compile project: <code>alt-cmd-:</code></li>
+  <li>sync project: <code>alt-cmd-;</code></li>
+  <li>edit project: <code>cmd-'</code></li>
+  <li>clean project: <code>alt-cmd-'</code></li>
+</ul>
+
+<h6 id="linux-and-windows">Linux and Windows</h6>
+<ul>
+  <li>compile and sync project: <code>ctrl-;</code></li>
+  <li>compile project: <code>alt-ctrl-:</code></li>
+  <li>sync project <code>ctrl-alt-;</code></li>
+  <li>edit project: <code>ctrl-'</code></li>
+  <li>clean project: <code>ctrl-alt-'</code></li>
+</ul>
+
+<h2 id="screencasts">Screencasts</h2>
+<p>#### Compiling:
+<img src="https://raw.githubusercontent.com/andrewrynhard/atom-latex-plus/resources/gif/compile.gif" alt="screencast" /></p>
+
+<h4 id="error-detection">Error Detection:</h4>
+<p><img src="https://raw.githubusercontent.com/andrewrynhard/atom-latex-plus/resources/gif/errors.gif" alt="screencast" /></p>
+
+tex,latex,pdflatex,xelatex,lualatex,texlive,miktex
+    </section>
+    <footer>
+      <p>
+        Made with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a>
+      </p>
+      <p>
+        <small>Last updated: 2016-04-29</small>
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+  </body>
+</html>

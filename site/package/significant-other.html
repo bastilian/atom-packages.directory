@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>Significant Other</h1>
+<h1 id="significant-other-an-atom-package">Significant Other: An Atom Package</h1>
+
+<p>Provides a command to quickly switch between a source code file and its corresponding test file, and vice versa. Works with <a href="#supported-project-structures">most project structures</a>.</p>
+
+<p><img src="https://cloud.githubusercontent.com/assets/2988/11921768/6825b086-a75c-11e5-87c3-5bbe899dce75.gif" alt="demo" /></p>
+
+<h2 id="supported-project-structures">Supported project structures</h2>
+
+<p>Significant Other is intended to work automatically with popular project structures. It works with the project structure used in Rails projects, in Atom packages, in Ruby gems, and it will hopefully work for your project as well. To provide its functionality, Significant Other makes a few assumptions (listed below) about your project’s conventions.</p>
+
+<p>Significant Other assumes that:</p>
+
+<ul>
+  <li>You want to toggle between a source file and <em>the</em> corresponding test file, or vice versa.</li>
+  <li>The source file and the test file <em>start</em> with the same name. The test file <em>may</em> include a suffix of <code>_test</code>, <code>_spec</code>, or <code>-spec</code>. For example, you can toggle between:
+    <ul>
+      <li><code>lib/profile.coffee</code> and <code>spec/profile.coffee</code></li>
+      <li><code>app/models/profile.rb</code> and <code>test/models/profile_test.rb</code></li>
+      <li><code>src/profile.js</code> and <code>src/profile_spec.js</code></li>
+      <li><code>profile.js</code> and <code>profile-spec.js</code></li>
+    </ul>
+  </li>
+  <li>The source file and the test file have the same file extension. (I may consider removing this assumption at some point.)</li>
+</ul>
+
+<p>If your project follows a well-defined, widely-used project structure that doesn’t satisfy the assumptions above, please <a href="https://github.com/jasonrudolph/significant-other/issues/new">let me know about it</a> so that I can consider enhancing the package to support that project structure.</p>
+
+<h2 id="installation">Installation</h2>
+
+<p>Using <code>apm</code>:</p>
+
+<p><code>
+apm install significant-other
+</code></p>
+
+<p>Or search for <code>significant-other</code> in the Atom Settings UI.</p>
+
+<h2 id="bring-your-own-keymap">Bring your own keymap</h2>
+
+<p>You may want to use a keyboard shortcut for switching between source files and test files. This package does not provide a keyboard shortcut by default, but you can easily <a href="https://atom.io/docs/v1.3.2/using-atom-basic-customization#customizing-key-bindings">define your own</a>. For example, if you wanted to use <code>Control-.</code>, you’d add the following mapping to your <code>~/.atom/keymap.cson</code> file:</p>
+
+<p><code>cson
+'atom-workspace atom-text-editor:not(.mini)':
+  'ctrl-.': 'significant-other:toggle'
+</code></p>
+
+<h2 id="todo">TODO</h2>
+
+<ul>
+  <li>[ ] Release 0.1.0</li>
+  <li>[ ] Cache the last <em>n</em> matches for faster toggling</li>
+  <li>[ ] Support projects that have multiple root directories <a href="https://github.com/jasonrudolph/significant-other/blob/73cdeca7ced2f8ae7140fa492a88455dc665c783/lib/matchmaker.coffee#L103">[code]</a></li>
+  <li>[ ] Consider providing option to open the current file’s significant other in a split pane</li>
+  <li>[ ] Consider exposing the <a href="https://github.com/jasonrudolph/significant-other/blob/e6abd32868203726dcc43b3542b73804e1b2515e/lib/matchmaker.coffee#L169">list of test/spec suffixes</a> as a <a href="https://atom.io/docs/v1.3.2/behind-atom-configuration-api">configuration option</a></li>
+  <li>[ ] Consider <a href="https://github.com/jasonrudolph/significant-other/blob/9f64d09a0012ff39737251f1e76e34c4ccb26fdb/lib/matchmaker.coffee#L92-L98">excluding some directories from the search for better performance</a></li>
+  <li>[ ] Set up CI</li>
+</ul>
+
+
+spec,tdd,test,testing
+    </section>
+    <footer>
+      <p>
+        Made with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a>
+      </p>
+      <p>
+        <small>Last updated: 2016-04-29</small>
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+  </body>
+</html>

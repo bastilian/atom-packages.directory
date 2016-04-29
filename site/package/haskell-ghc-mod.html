@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>Haskell Ghc Mod</h1>
+<h1 id="haskell-ghc-mod-atom-package">haskell-ghc-mod atom package</h1>
+
+<p>This package is primarily intended as backend for <a href="https://atom.io/packages/ide-haskell">ide-haskell</a>.</p>
+
+<p>Haskell ghc-mod opens pipe to ghc-modi and queries types, info and checks
+for errors. It uses temporary files to feed them into ghc-mod (since it does
+not read from stdin)</p>
+
+<p>If ghc-mod/ghc-modi is not in your PATH, set full path to those in config.</p>
+
+<h2 id="dependencies">Dependencies</h2>
+
+<p>NOTE: when using with stack, see https://github.com/atom-haskell/haskell-ghc-mod/wiki/Using-with-stack</p>
+
+<p>You need to have <code>ghc-mod</code>, <code>ghc-modi</code> (part of ghc-mod) and <code>hlint</code> executables
+installed on your system. <code>ghc-mod</code> needs to be able to find <code>hlint</code> (eiter add <code>hlint</code> directory to PATH, or install both in the same cabal sandbox).</p>
+
+<p>Supported <code>ghc-mod</code> versions are 5.4.x. and up. Versions from 4.1 to 5.2 might work, but are deprecated. 5.3 is not supported.</p>
+
+<p>Quick setup is as follows:</p>
+
+<p><code>
+$ cabal update
+$ cabal install ghc-mod
+</code></p>
+
+<p>After this process finishes, you’ll have <code>ghc-mod</code>, <code>ghc-modi</code> and <code>hlint</code> available in <code>$HOME/.cabal/bin/</code> directory.</p>
+
+<p>Please note, that for ghc&gt;=7.10 and/or cabal&gt;=1.22, you need ghc-mod&gt;=5.3.0.0. ghc-mod versions before 5.3.0.0 won’t work.</p>
+
+<p>User interface is provided by <a href="https://atom.io/packages/ide-haskell">ide-haskell</a></p>
+
+<h2 id="atom-linter-package-support">Atom Linter package support</h2>
+
+<p>haskell-ghc-mod can use <a href="https://atom.io/packages/linter">linter</a> package instead of ide-haskell to show check and lint results. You still need ide-haskell for type/info tooltips though.</p>
+
+<p>To use linter, enable ‘Use Linter’ option in haskell-ghc-mod settings. Bear in mind, that it will disable ide-haskell markers for check/lint results. As of now, no additional checks are preformed, so if linter package is not installed or disabled, you won’t see check/lint results at all.</p>
+
+<h2 id="installation">Installation</h2>
+
+<p><code>
+$ apm install language-haskell haskell-ghc-mod ide-haskell autocomplete-haskell
+</code></p>
+
+<h2 id="configuration">Configuration</h2>
+
+<p>NOTE: when using with stack, see https://github.com/atom-haskell/haskell-ghc-mod/wiki/Using-with-stack</p>
+
+<p>Only configuration options you will likely need to set are <code>ghcModPath</code> and,
+for ghc-mod&lt;5.4.0.0, <code>ghcModiPath</code>. Both need to be set to full path to <code>ghc-mod</code> and <code>ghc-modi</code> programs respectively, if those are not in your PATH.</p>
+
+<p>Note, that ghc-mod&gt;=5.4.0.0 doesn’t use <code>ghcModiPath</code> setting (instead running
+ghc-mod in interactive mode directly).</p>
+
+<p>There can be some problems with ghc-modi upstream, most notably, it does not
+work on paths with whitespace. If you experience problems, try disabling
+<code>ghc-modi</code> by setting <code>enableGhcModi</code> to <code>false</code> (or uncheck tick in settings).
+This will be slower, but may work better on some configurations.</p>
+
+<p>If you are on OSX, or have ghc installed with non-standard prefix, you may also
+consider adding path to directory containing ghc/ghci executable to
+<code>additionalPathDirectories</code> configuration option. It is a comma-separated list
+of directories that will be added to your search path when invoking ghc-mod.
+For example, if you have ghc installed to <code>/usr/local</code>, then you would add
+<code>/usr/local/bin</code> to <code>additionalPathDirectories</code>.</p>
+
+<p>On OSX, if you start Atom from Finder or with desktop icon, it doesn’t inherit
+environment variables specified in your user shell (in <code>.profile</code>, <code>.bashrc</code>,
+etc). You can copy <code>PATH</code> settings from your shell to
+<code>additionalPathDirectories</code>, if you’d like to run Atom in this way.</p>
+
+<h2 id="keybindings">Keybindings</h2>
+
+<p>Haskell-ghc-mod comes with little pre-specified keybindings, so you will need to specify your own, if you want those.</p>
+
+<p>You can edit Atom keybindings by opening ‘Edit → Open Your Keymap’. Here is a template for all commands, provided by haskell-ghc-mod:</p>
+
+<p>```cson
+‘atom-text-editor[data-grammar~=”haskell”]’:
+  ‘’: ‘haskell-ghc-mod:check-file’
+  ‘’: ‘haskell-ghc-mod:lint-file’
+  ‘ctrl-alt-t’: ‘haskell-ghc-mod:show-type’ #this is an example binding
+  ‘ctrl-alt-i’: ‘haskell-ghc-mod:show-info’ #this is an example binding
+  ‘ctrl-alt-T’: ‘haskell-ghc-mod:insert-type’ #this is an example binding
+  ‘’: ‘haskell-ghc-mod:case-split’
+  ‘’: ‘haskell-ghc-mod:show-info-fallback-to-type’
+  ‘’: ‘haskell-ghc-mod:insert-import’
+  ‘’: ‘haskell-ghc-mod:go-to-declaration’</p>
+
+<p>‘atom-workspace’:
+  ‘’: ‘haskell-ghc-mod:shutdown-backend’
+```</p>
+
+<h2 id="service-hub-api">Service-hub API</h2>
+
+<p>Since 1.0.0, haskell-ghc-mod provides <code>haskell-completion-backend</code> service.</p>
+
+<p><strong>NOTE</strong>: Prior to 1.0.0, ide-backend service was provided. It has been scrapped in favor of ide-haskell’s UPI.</p>
+
+<p>You can find description in <a href="https://github.com/atom-haskell/haskell-ghc-mod/blob/master/lib/completion-backend/completion-backend.coffee">completion-backend.coffee</a></p>
+
+
+ide-haskell,ide,haskell,ghc-mod,backend
+    </section>
+    <footer>
+      <p>
+        Made with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a>
+      </p>
+      <p>
+        <small>Last updated: 2016-04-29</small>
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+  </body>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>Modal File Manager</h1>
+<h1 id="modal-file-manager-package">modal-file-manager package</h1>
+
+<p>A file browser in modal Panel.</p>
+
+<p><img src="https://raw.githubusercontent.com/mulian/modal-file-manager/master/preview.png" alt="A screenshot of modal file manager v0.1.0" /></p>
+
+<h2 id="install--open">Install &amp; Open</h2>
+<ol>
+  <li>Install
+    <ul>
+      <li>Atom: Preferences -&gt; install -&gt; search “modal file manager” -&gt; install</li>
+      <li>Terminal: <code>apm install modal-file-manager</code></li>
+    </ul>
+  </li>
+  <li>Open
+    <ul>
+      <li>Shortcut: Mac [CMD+SHIFT+M] or Win/Linux [ALT-SHIFT-M]</li>
+      <li>Menu Bar: Packages -&gt; Modal File Manager -&gt; Show</li>
+      <li>Command: [CMD/CTRL-SHIFT-P] -&gt; type ‘modal file manager toggle’ -&gt; comfirm</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="navigate">Navigate</h2>
+<ul>
+  <li>arrow key ← (LEFT ARROW) to show parent directory</li>
+  <li>arrow key → (RIGHT ARROW) to show sub directory from selected directory</li>
+  <li>type character to search the current folder</li>
+  <li>comfirm = press enter</li>
+</ul>
+
+<h2 id="settings">Settings</h2>
+<ul>
+  <li>Open First Project Path
+    <ul>
+      <li>If is checked, your first Project Path will open on Open Modal File Manager</li>
+    </ul>
+  </li>
+  <li>Default Open Path
+    <ul>
+      <li>If Open First Project Path is unchecked or you are not in any project</li>
+      <li>Choose your static default path</li>
+    </ul>
+  </li>
+  <li>Open With
+    <ul>
+      <li>atom: will open every comfirmed (enter) file/folder with atom</li>
+      <li>open: will open with terminal statement <code>open &lt;pathToFileOrDir&gt;</code> (works only with mac)</li>
+    </ul>
+  </li>
+  <li>Open Directory
+    <ul>
+      <li>if you also want to comfirm Directorys</li>
+    </ul>
+  </li>
+  <li>Deep
+    <ul>
+      <li>Collect the (default:) first(1) sub-directorys in modal Panel.</li>
+      <li>Turn it of with value 0</li>
+    </ul>
+  </li>
+  <li>Show Hidden files/folders
+    <ul>
+      <li>checked: show hidden unix files/folders (.-prefix)</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="use-the-modal-file-manager-as-lib">Use the Modal File Manager as lib</h2>
+<p>You could use this File Manager as lib for Packages like
+<code>coffeescript
+  atom.pickDirectory (path) -&gt;
+    console.log path
+</code></p>
+
+<h3 id="use-steps">Use Steps</h3>
+<ol>
+  <li>add following to your package.json in dependencies:
+<code>coffeescript
+ "modal-file-manager": "git+https://github.com/mulian/modal-file-manager.git"
+</code></li>
+  <li>in your Project root: <code>npm update</code></li>
+  <li>Use the ModalFileManagerView:
+```coffeescript
+{ModalFileManagerView} = require ‘modal-file-manager’
+modalFileManagerView = new ModalFileManagerView
+  deep: 0 #see Settings
+  filterDir : false
+  filterFile : true
+  showHidden : false</li>
+</ol>
+
+<h1 id="change-options">change options:</h1>
+<p>modalFileManagerView.setOptions
+  deep: 1</p>
+
+<p>modalFileManagerView.open “/”, (file) -&gt;
+  console.log “selected file-/folder name: #{file.getBaseName()}”
+```</p>
+
+<h4 id="comfirmation-filter-example">Comfirmation Filter example</h4>
+<p><code>coffeescript
+@modalFileManagerView.setOptions
+  filterDir = false
+  filterFile = true
+</code></p>
+
+<h4 id="regular-expression">Regular Expression</h4>
+<p>for example:
+<code>coffeescript
+@modalFileManagerView.setOptions
+  filterDir = /.app$/
+</code>
+Restrict the comfirmation to comfirm only Folder with Foldername.app (usefull for mac os apps)
+(same with .file)</p>
+
+<h4 id="other">Other</h4>
+<p>Please let me know, if you use this Project as lib.</p>
+
+file,dir,browser,modal,jump
+    </section>
+    <footer>
+      <p>
+        Made with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a>
+      </p>
+      <p>
+        <small>Last updated: 2016-04-29</small>
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+  </body>
+</html>

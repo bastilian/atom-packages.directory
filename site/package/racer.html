@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>Racer</h1>
+<h1 id="racerhttpsatomiopackagesracer"><a href="https://atom.io/packages/racer">Racer</a></h1>
+
+<blockquote>
+  <p>Providing intelligent code completion and “find definition” for Rust via <a href="https://github.com/phildawes/racer">Racer</a>.</p>
+</blockquote>
+
+<p><img src="https://cloud.githubusercontent.com/assets/1395968/2886329/0396e8a4-d4e2-11e3-9813-f6697a01d959.gif" alt="A screenshot of racer at work" /></p>
+
+<h2 id="installation">Installation</h2>
+
+<ol>
+  <li>Ensure you have the Atom package <a href="https://atom.io/packages/language-rust">language-rust</a> installed and active.</li>
+  <li>Ensure you have <a href="https://github.com/phildawes/racer">Racer</a> properly installed.</li>
+  <li>Ensure you have a copy of the <a href="http://www.rust-lang.org/install.html">rustc source code</a> extracted on your disk.</li>
+  <li>Install this package via Atom’s package manager:
+    <ul>
+      <li>go to <code>Preferences &gt; Packages</code>, search for <code>racer</code>, and install it</li>
+      <li><strong>OR</strong> use the command line <code>apm install racer</code>).</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="configuration">Configuration</h2>
+
+<p>go to <code>Preferences &gt; Packages</code>, search for <code>racer</code>, and click <code>Settings</code></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Display Name</th>
+      <th style="text-align: left">Description</th>
+      <th style="text-align: left">Required</th>
+      <th style="text-align: left">Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Path to the Racer executable</td>
+      <td style="text-align: left">Full path (including executable) of Racer’s binary (e.g. <code>/Users/me/racer/bin/racer</code> or <code>c:\racer\bin\racer.exe</code>)</td>
+      <td style="text-align: left"><code>YES</code></td>
+      <td style="text-align: left"><code>racer.racerBinPath</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Path to the Rust source code directory</td>
+      <td style="text-align: left">Should point to the rustc source directory (e.g. <code>/Users/me/code/rust/src/</code>)</td>
+      <td style="text-align: left"><code>YES</code></td>
+      <td style="text-align: left"><code>racer.rustSrcPath</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Autocomplete Scope Blacklist</td>
+      <td style="text-align: left">Scopes for which no suggestions will be made (e.g. <code>.source.go .comment</code>)</td>
+      <td style="text-align: left"><code>NO</code></td>
+      <td style="text-align: left"><code>racer.autocompleteBlacklist</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Show position for editor with definition</td>
+      <td style="text-align: left">Can be <code>Right</code> or <code>New</code>. If <code>Right</code> is selected and your view is vertically split, the item will be open in the rightmost pane of the current active pane’s row.</td>
+      <td style="text-align: left"><code>NO</code></td>
+      <td style="text-align: left"><code>racer.show</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="usage">Usage</h2>
+
+<p>Just type some code in a <code>.rs</code> file, and racer will automatically show you some suggestions (using the autocomplete+ package provided by Atom).</p>
+
+<p>You can also <code>find definition</code> of your current element by pushing the <code>F3</code> key.</p>
+
+<h2 id="faq">FAQ:</h2>
+<p>### Racer doesn’t work, or I see plugin errors when I type:
+Your configuration is probably wrong:
+* The path to Racer has to point to the <em>Racer binary executable</em> (this is <strong>NOT a directory</strong> we request here).
+* The Rustc source has to point to the <em>base directory of the source code</em>.
+* The Atom package <em>language-rust</em> is installed and active.</p>
+
+<h3 id="my-project-tree-tree-view-flickers">My project tree (tree-view) flickers:</h3>
+<p>We use temporary files to communicate with racer and need to place them along with your source files.</p>
+
+<p>We shaped them as <code>._racertmpXXXXX</code> because the <code>._*</code> files are ignored by default by Atom.</p>
+
+<p>Change your configuration so that the <code>tree-view</code> package follows Atom ignore rules!
+* Open <code>Settings &gt; Packages</code>
+* Search the core package called <code>tree-view</code>, click <code>Settings</code>
+* Check the box called <code>Hide Ignored Names</code></p>
+
+<p>Note: by the way, you can control what is ignored in the main Atom settings top panel.
+* Open <code>Settings &gt; Settings</code> (the first tab)
+* Search the “core settings” section for the <code>Ignored Names</code> field
+* check that it’s either empty (default), or contains <code>._*</code>, or add yourself a <code>._racertmp*</code> entry if you already changed the settings.</p>
+
+<h3 id="why-do-you-constantly-put-and-remove-temporary-files-in-my-project">Why do you constantly put (and remove) temporary files in my project:</h3>
+<p>We use temporary files to communicate with racer and need to place them along with your source files so that racer:
+* locates your project,
+* provides completion for your whole projects code,
+* locates your cargo file if it exists and use it to provide completion for your dependencies.</p>
+
+rust,racer,autocomplete,autocomplete-plus
+    </section>
+    <footer>
+      <p>
+        Made with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a>
+      </p>
+      <p>
+        <small>Last updated: 2016-04-29</small>
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+  </body>
+</html>

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>Mcduino</h1>
+<h1 id="mcduino-arduino-package-for-atom">MCduino Arduino Package for Atom</h1>
+<p>Arduino 1.0.x support in <a href="http://atom.io">Atom</a>.</p>
+
+<p>Based on <a href="http://inotool.org">Inotool</a></p>
+
+<ul>
+  <li>More information at
+    <ul>
+      <li><a href="https://atom.io/packages/mcduino">Atom Packages</a></li>
+      <li><a href="https://github.com/marcelocorreia/mcduino">Github</a></li>
+    </ul>
+  </li>
+</ul>
+
+<p>Originally derived from Kyle Lacy’s <a href="https://github.com/kylewlacy/run-command">run-command</a>.</p>
+
+<p>Optional Toolbar powered by https://github.com/suda/tool-bar</p>
+
+<h3 id="currently-for-arduino-10x-only-and-unix-based-systems">Currently for Arduino 1.0.x only and Unix based systems</h3>
+<ul>
+  <li>MacOS (Tested on 10.10.14)</li>
+  <li>Linux (Tested on Debian 8.1)</li>
+  <li>FreeBSD (Not tested)</li>
+  <li>OpenBSD (Not tested)</li>
+</ul>
+
+<h2 id="screenshothttpsrawgithubusercontentcommarcelocorreiamcduinomasterscreenshotsmcduino-screenshotpng"><img src="https://raw.githubusercontent.com/marcelocorreia/mcduino/master/screenshots/mcduino-screenshot.png" alt="Screenshot" /></h2>
+
+<h1 id="roadmap">ROADMAP</h1>
+<ul>
+  <li>~~Read boards from Arduino’s boards.txt~~</li>
+  <li>Improve test coverage</li>
+  <li>Read serial ports from OS</li>
+  <li>~~Add compiler flags settings~~</li>
+  <li>Linux support</li>
+  <li>Support for Arduino 1.6.x</li>
+</ul>
+
+<h1 id="resources--docs">Resources &amp; Docs</h1>
+
+<h3 id="dependencies">Dependencies</h3>
+<ul>
+  <li><a href="http://arduino.cc">Arduino IDE 1.0.x</a></li>
+  <li><a href="https://www.python.org">Python</a></li>
+  <li><a href="http://inotool.org">Inotool</a></li>
+  <li><a href="https://github.com/suda/tool-bar">Suda tool-bar</a> (optional)</li>
+</ul>
+
+<h2 id="installing-mcduino">Installing MCduino</h2>
+<ul>
+  <li>Install Arduino and Inotool (Instructions below)</li>
+</ul>
+
+<h3 id="download-arduino-100">Download Arduino 1.0.0</h3>
+<ul>
+  <li><a href="http://arduino.cc/download.php?f=/arduino-1.6.3-macosx.zip">MacOS</a></li>
+  <li><a href="http://arduino.cc/download.php?f=/arduino-1.6.3-linux64.tar.xz">Linux64</a></li>
+  <li><a href="http://arduino.cc/download.php?f=/arduino-1.6.3-linux32.tar.xz">Linux32</a></li>
+</ul>
+
+<hr />
+<p>## Installing Arduino
+<img src="https://store.arduino.cc/includes/images/stickers_logo_text.png" alt="Arduino logo" />
+###MacOS
+1. Download arduino. (<a href="http://arduino.cc/download.php?f=/arduino-1.6.3-macosx.zip">MacOS</a> |  <a href="http://arduino.cc/download.php?f=/arduino-1.6.3-linux64.tar.xz">Linux64</a> | <a href="http://arduino.cc/download.php?f=/arduino-1.6.3-linux32.tar.xz">Linux32</a>)
+2. Copy the Arduino application into the Applications folder (or elsewhere on your computer)</p>
+
+<p>If you’re using an Arduino Uno or Mega 2560, you don’t have any drivers to install. Skip ahead to the next step.
+If you’re using an older board (Duemilanove, Diecimila, or any board with an FTDI driver chip.</p>
+
+<p>You will need to install the drivers for the FTDI chip on the board. You need to download the latest version of the drivers from the <a href="http://www.ftdichip.com/Drivers/VCP.htm">FTDI website</a>. One downloaded, double click the package, and follow the instructions in the installer. You’ll need to restart your computer after installing the drivers.</p>
+
+<hr />
+
+<h3 id="linux">Linux</h3>
+<p>Installing Arduino on Linux, for more detailed instructions, pick your distribution:</p>
+
+<p><a href="http://playground.arduino.cc/Linux/ArchLinux">ArchLinux</a></p>
+
+<p><a href="http://playground.arduino.cc/Linux/CentOS6">CentOS</a></p>
+
+<p><a href="http://playground.arduino.cc/Linux/Debian">Debian</a></p>
+
+<p><a href="http://playground.arduino.cc/Linux/Fedora">Fedora</a></p>
+
+<p><a href="http://playground.arduino.cc/Linux/Gentoo">Gentoo</a></p>
+
+<p><a href="http://playground.arduino.cc/Linux/Mageia">Mageia</a></p>
+
+<p><a href="http://playground.arduino.cc/Linux/MEPIS">MEPIS</a></p>
+
+<p><a href="http://playground.arduino.cc/Linux/Mint">Mint</a></p>
+
+<p><a href="http://playground.arduino.cc/Linux/OpenSUSE">openSUSE</a></p>
+
+<p><a href="http://playground.arduino.cc/Linux/Puppy">Puppy</a></p>
+
+<p><a href="http://playground.arduino.cc/Linux/Pussy">Pussy</a></p>
+
+<p><a href="http://playground.arduino.cc/Linux/Slackware">Slackware</a></p>
+
+<p><a href="http://playground.arduino.cc/Linux/Ubuntu">Ubuntu</a></p>
+
+<p><a href="http://playground.arduino.cc/Linux/Xandros">Xandros</a></p>
+
+<p><a href="http://playground.arduino.cc/Linux/All">All “the hard way”</a></p>
+
+<hr />
+
+<h2 id="inotool-resources-and-install-guide">Inotool Resources and Install Guide</h2>
+<p><img src="http://inotool.org/_static/logo.png" alt="Inotool logo" /></p>
+
+<h3 id="ino">Ino</h3>
+
+<p>Ino is a command line toolkit for working with Arduino hardware</p>
+
+<p>It allows you to:</p>
+
+<p>Quickly create new projects
+Build a firmware from multiple source files and libraries
+Upload the firmware to a device
+Perform serial communication with a device (aka serial monitor)
+Ino may replace Arduino IDE UI if you prefer to work with command line and an editor of your choice or if you want to integrate Arduino build process to 3-rd party IDE.</p>
+
+<p>Ino is based on make to perform builds. However Makefiles are generated automatically and you’ll never see them if you don’t want to.</p>
+
+<p>Features</p>
+
+<p>Simple. No build scripts are necessary.
+Out-of-source builds. Directories with source files are not cluttered with intermediate object files.
+Support for *.ino and *.pde sketches as well as raw *.c and *.cpp.
+Support for Arduino Software versions 1.x as well as 0.x.
+Automatic dependency tracking. Referred libraries are automatically included in the build process. Changes in *.h files lead to recompilation of sources which include them.
+Pretty colorful output.
+Support for all boards that are supported by Arduino IDE.
+Fast. Discovered tool paths and other stuff is cached across runs. If nothing has changed, nothing is build.
+Flexible. Support for simple ini-style config files to setup machine-specific info like used Arduino model, Arduino distribution path, etc just once.</p>
+
+<h3 id="installation">Installation</h3>
+<p>From source:
+- <a href="http://pypi.python.org/pypi/ino/#downloads">Download latest source tarball</a>
+- Or clone it from GitHub: git clone git://github.com/amperka/ino.git
+- Do make install to perform installation under /usr/local
+- Or see INSTALL for instructions on changing destination directory</p>
+
+<p>With Python setup tools:
+- Either pip install ino
+- Or easy_install ino</p>
+
+<h3 id="requirements">Requirements</h3>
+<ul>
+  <li>Python 2.6+</li>
+  <li>Arduino IDE distribution</li>
+</ul>
+
+<h3 id="limitations">Limitations</h3>
+<p>As for current version, ino works only in Linux and MacOS. However it was created with other OS users in mind, so it will eventually get full cross-platform support. Help from Windows-developers is much appreciated.</p>
+
+<h3 id="getting-help">Getting Help</h3>
+<ul>
+  <li>Take a look at <a href="http://inotool.org/quickstart">Quick start tutorial</a>.</li>
+  <li>Run ino –help.</li>
+  <li>Post <a href="http://github.com/amperka/ino/issues">issues to GitHub</a>.</li>
+</ul>
+
+<hr />
+<p>#Compiler Extra Options &amp; Flags</p>
+
+<p>```
+–make MAKE           Specifies the make tool to use. If a full path is not
+                      given, searches in Arduino directories before PATH.
+                      Default: “make”.</p>
+
+<p>–cc COMPILER         Specifies the compiler used for C files. If a full
+                      path is not given, searches in Arduino directories
+                      before PATH. Default: “avr-gcc”.</p>
+
+<p>–cxx COMPILER        Specifies the compiler used for C++ files. If a full
+                      path is not given, searches in Arduino directories
+                      before PATH. Default: “avr-g++”.</p>
+
+<p>–ar AR               Specifies the AR tool to use. If a full path is not
+                      given, searches in Arduino directories before PATH.
+                      Default: “avr-ar”.</p>
+
+<p>–objcopy OBJCOPY     Specifies the OBJCOPY to use. If a full path is not
+                      given, searches in Arduino directories before PATH.
+                      Default: “avr-objcopy”.</p>
+
+<p>-f FLAGS, –cppflags FLAGS
+                      Flags that will be passed to the compiler. Note that
+                      multiple (space-separated) flags must be surrounded by
+                      quotes, e.g. `–cppflags=”-DC1 -DC2”’ specifies flags
+                      to define the constants C1 and C2. Default:
+                      “-ffunction-sections -fdata-sections -g -Os -w”.</p>
+
+<p>–cflags FLAGS        Like –cppflags, but the flags specified are only
+                      passed to compilations of C source files. Default: “”.</p>
+
+<p>–cxxflags FLAGS      Like –cppflags, but the flags specified are only
+                      passed to compilations of C++ source files. Default:
+                      “-fno-exceptions”.</p>
+
+<p>–ldflags FLAGS       Like –cppflags, but the flags specified are only
+                      passed during the linking stage. Note these flags
+                      should be specified as if <code>ld' were being invoked
+                      directly (i.e. the </code>-Wl,’ prefix should be omitted).
+                      Default: “-Os –gc-sections”.
+```</p>
+
+arduino,mcduino,avr,c++
+    </section>
+    <footer>
+      <p>
+        Made with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a>
+      </p>
+      <p>
+        <small>Last updated: 2016-04-29</small>
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+  </body>
+</html>

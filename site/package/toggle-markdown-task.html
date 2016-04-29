@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>Toggle Markdown Task</h1>
+<h1 id="toggle-markdown-task-an-atom-package">Toggle Markdown Task: An Atom Package</h1>
+
+<p>Provides a command to toggle completion of <a href="https://help.github.com/articles/writing-on-github/#task-lists">tasks in GitHub-flavored Markdown</a> files.</p>
+
+<p><img src="https://cloud.githubusercontent.com/assets/2988/9983485/94a87090-5fcb-11e5-9ce6-41d7e9382ade.gif" alt="demo" /></p>
+
+<h2 id="installation">Installation</h2>
+
+<p>Using <code>apm</code>:</p>
+
+<p><code>
+apm install toggle-markdown-task
+</code></p>
+
+<p>Or search for <code>toggle-markdown-task</code> in the Atom Settings UI.</p>
+
+<h2 id="bring-your-own-keymap">Bring your own keymap</h2>
+
+<p>To get the most out of this package, you’ll want to use a keyboard shortcut for toggling Markdown tasks. This package does not provide a keyboard shortcut by default, but you can easily <a href="https://atom.io/docs/v1.0.15/using-atom-basic-customization#customizing-key-bindings">define your own</a>. For example, if you wanted to use <code>Control-D</code> (as shown in the demo above), you’d add the following mapping to your <code>~/.atom/keymap.cson</code> file:</p>
+
+<p><code>cson
+'atom-workspace atom-text-editor:not(.mini)':
+  'ctrl-d': 'toggle-markdown-task:toggle'
+</code></p>
+
+<h2 id="todo">TODO</h2>
+
+<ul>
+  <li>[ ] Set up CI</li>
+</ul>
+
+
+gfm,list,markdown,task,todo
+    </section>
+    <footer>
+      <p>
+        Made with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a>
+      </p>
+      <p>
+        <small>Last updated: 2016-04-29</small>
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+  </body>
+</html>

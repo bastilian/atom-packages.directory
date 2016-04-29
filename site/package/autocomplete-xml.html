@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>Autocomplete Xml</h1>
+<h1 id="autocomplete-xml-atom-package">Autocomplete XML Atom Package</h1>
+
+<p><img src="https://img.shields.io/apm/dm/autocomplete-xml.svg" alt="Downloads" />
+<img src="https://img.shields.io/apm/v/autocomplete-xml.svg" alt="Version" />
+<img src="https://img.shields.io/apm/l/autocomplete-xml.svg" alt="License" />
+<img src="https://david-dm.org/pleonex/atom-autocomplete-xml.svg" alt="Dependencies" /></p>
+
+<p>XML tag autocompletion for Atom text editor!</p>
+
+<p><img src="https://raw.githubusercontent.com/pleonex/atom-autocomplete-xml/master/demo.gif" alt="Demo" /></p>
+
+<p><strong>NOTE:</strong> The autocompletation feature is only available when:
+* The XSD file follows the W3C standard. That is, the XSD root element must contain the attribute: <code>xmlns:xs="http://www.w3.org/2001/XMLSchema"</code>.
+* The XML file to autocomplete ask for validation. That is, the root element must contain the attribute: <code>xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"</code>.</p>
+
+<h1 id="features">Features</h1>
+<ul>
+  <li>Read XSD files from HTTP, HTTPS or local URI.</li>
+  <li>Show autocompletation for tags and attributes with documentation if available.</li>
+</ul>
+
+<h1 id="code-structure">Code structure</h1>
+<p>The package code is inside the <em>lib</em> folder.</p>
+
+<ul>
+  <li><em>lib</em>
+    <ul>
+      <li><strong>main.coffee</strong>: Main package file. It handles package things like calling the provider and settings.</li>
+      <li><strong>provider.coffee</strong>: Detects the type of suggestion needed (e.g.: tag, attribute, …) and ask for suggestions of that type. It handles everything related with the editor.</li>
+      <li><strong>xsd.coffee</strong>: Manage the XSD types. Create suggestions. It handles suggestion creation.</li>
+      <li><strong>xsdParser.coffee</strong>: Download and parse a XSD file and build the types. It handles XSD parsing.</li>
+      <li><strong>xpath-statusbar-view.coffee</strong>: Show the current XPath in the StatusBar.</li>
+    </ul>
+  </li>
+</ul>
+
+xml,xsd,autocomplete
+    </section>
+    <footer>
+      <p>
+        Made with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a>
+      </p>
+      <p>
+        <small>Last updated: 2016-04-29</small>
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+  </body>
+</html>

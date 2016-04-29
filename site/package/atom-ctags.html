@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>Ctags</h1>
+<h1 id="atom-ctags-package">Atom Ctags Package</h1>
+
+<p>This package uses：
+<a href="http://ctags.sourceforge.net">ctags</a>,
+<a href="https://github.com/atom/autocomplete-plus">autocomplete-plus</a>
+and fork from <a href="https://github.com/atom/symbols-view">symbols-view</a></p>
+
+<h1 id="features">Features</h1>
+<ul>
+  <li><strong>AutoComplete with ctags</strong></li>
+  <li><strong>Auto Update the file’s tags data when saved</strong></li>
+  <li>go-to-declaration and return-from-declaration</li>
+  <li>toggle-file-symbols</li>
+  <li>toggle-project-symbols</li>
+  <li>“Rebuild Ctags” in context-menu</li>
+  <li>“Auto Build Tags When Active” setting, default: false</li>
+  <li>‘extraTagFiles’ setting, add specified tagFiles.(Make sure you tag file generate with –fields=+KSn)</li>
+  <li>‘cmdArgs’ setting, add specified ctag command args like: –exclude=lib –exclude=*.js</li>
+  <li>‘buildTimeout’ setting, specified ctag command execute timeout</li>
+</ul>
+
+<p><img src="https://cloud.githubusercontent.com/assets/704762/3483867/e0bac2ee-0397-11e4-89c1-70689f6b8ff3.gif" alt="atom-ctags" /></p>
+
+<h1 id="install">Install</h1>
+<p><strong>You can install atom-ctags using the Preferences pane.</strong>
+And please Make sure that <a href="https://github.com/saschagehlich/autocomplete-plus">autocomplete-plus</a> already installed.</p>
+
+<h1 id="todo">TODO</h1>
+<ul>
+  <li>Merge <a href="https://atom.io/packages/symbols-tree-view">symbols-tree-view</a></li>
+  <li>~~Submit to atom package center~~</li>
+  <li>~~Modify package name~~</li>
+  <li>Performance optimization</li>
+  <li>Disk file cache</li>
+  <li>Release memory when deactivate</li>
+  <li>Appearance improve</li>
+  <li>Writing Tests</li>
+  <li>Auto check package of autocomplete-plus installed</li>
+  <li>~~Auto disable package of symbols-view~~</li>
+  <li>~~use Activation Events to speed up load time~~</li>
+  <li>~~use ctags command args -R~~</li>
+</ul>
+
+<h1 id="changelog">Changelog</h1>
+<ul>
+  <li>timeout default 10 s</li>
+  <li>go-to-declaration support column</li>
+  <li>Optimization for duplicate results <a href="https://github.com/yongkangchen/atom-ctags/issues/3">#3</a></li>
+  <li><a href="https://github.com/yongkangchen/atom-ctags/commit/784160320309212d0acf865092133ba55980c605">speed tag parse by use ctag command param to parse line number instead of fs-plus</a></li>
+  <li><a href="https://github.com/yongkangchen/atom-ctags/commit/4e4df478c2a00b83143e1887a8b6fd6c5067ce95"><code>use -R instead of (fs-plus).traverseTreeSync</code> and <code>search tag limit max</code></a></li>
+</ul>
+
+<h1 id="make-a-donation-via-paypal-make-a-donation-via-paypalhttpswwwpaypalobjectscomenusibtnbtndonatesmgif">Make a donation via Paypal <img src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" alt="Make a donation via Paypal" /></h1>
+<p>Click ‘Send Money’ after login PayPal, and my PayPal account is: lx1988cyk#gmail.com</p>
+
+autocomplete,ctags
+    </section>
+    <footer>
+      <p>
+        Made with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a>
+      </p>
+      <p>
+        <small>Last updated: 2016-04-29</small>
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+  </body>
+</html>

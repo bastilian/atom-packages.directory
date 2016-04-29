@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>Python Tools</h1>
+<h1 id="python-tools">Python Tools</h1>
+
+<p><a href="https://travis-ci.org/MichaelAquilina/python-tools"><img src="https://travis-ci.org/MichaelAquilina/python-tools.svg?branch=master" alt="Build Status" /></a>
+<a href="https://ci.appveyor.com/project/MichaelAquilina/python-tools"><img src="https://ci.appveyor.com/api/projects/status/jnu90b2bgqar87es/branch/master?svg=true" alt="Build Status Windows" /></a></p>
+
+<p>Some handy tools to make developing Python code in Atom even more enjoyable.</p>
+
+<p>Goes along really nicely with the <a href="https://atom.io/packages/autocomplete-python">autocomplete-python</a> package to provide a full Python IDE experience in Atom.</p>
+
+<h2 id="details">Details</h2>
+
+<p>This package uses <a href="https://pypi.python.org/pypi/jedi">Jedi</a> in addition to other custom code to provide numerous pieces of functionality to make you more productive:</p>
+
+<h3 id="show-usages">Show Usages</h3>
+<p>Default shortcut: <code>ctrl+alt+u</code></p>
+
+<p><img src="http://i.imgur.com/coOlBn7.gif?1" alt="demo" /></p>
+
+<p>Select the usages of a specific symbol in your file.</p>
+
+<p>This is particularly handy for quickly refactoring/renaming variables and other symbols within your code.</p>
+
+<p>Currently only supports detection of symbols within the same file. This will be extended to support usages outside the current file in the future.</p>
+
+<h3 id="goto-definition">Goto Definition</h3>
+<p>Default shortcut: <code>ctrl+alt+g</code></p>
+
+<p><img src="http://i.imgur.com/iXHY7HE.gif?1" alt="demo" /></p>
+
+<p>Go to to the original definition of the symbol under the cursor. This will open the corresponding file if it is not already open.</p>
+
+<p>Files which form part of the standard library / are installed as third party modules are still opened, which is a really nice way of analysing and understanding behavior of code.</p>
+
+<h3 id="select-string-contents">Select String Contents</h3>
+<p>Default shortcut: <code>ctrl+alt+e</code></p>
+
+<p><img src="http://i.imgur.com/tUeduTK.gif?1" alt="demo" /></p>
+
+<p>Select the entire contents of the string currently being selected.</p>
+
+<p>Works with single line as well as block strings.</p>
+
+<h4 id="more-tools-to-come">More tools to come?</h4>
+<p>Ideas and feature requests are welcome. Some ideas of potential features to be added:
+* Swap string delimiters between ‘ and “
+* Show usages and provide the ability to rename across multiple files
+* Select entire symbols</p>
+
+<h2 id="windows-support">Windows Support</h2>
+<p>Windows should work, however I do not have access to a Windows machine and cannot therefore test out releases.</p>
+
+<p>I have builds being tested on appveyor which should prevent any obvious errors from causing breakages. I have now also setup a virtual machine to test changes, but a lot of the issues that I would catch through normal day to day usage will not be found and I’ll have to rely to the community to make me aware of them.</p>
+
+<p>If you have any issue running this package on windows then please open an <a href="https://github.com/michaelaquilina/python-tools/issues">Issue</a>.</p>
+
+<p>Common Problem: “python-tools was unable to find your machine’s python executable”
+* Make sure python is installed on your machine (jedi is used internally which runs off python)
+* Make sure your python executable is added to your PATH environment variable</p>
+
+<h2 id="work-in-progress">Work In Progress</h2>
+
+<p>This Atom package is very much a Work In Progress and is far from currently being perfect! There are a lot of things I will be looking to improve.</p>
+
+<p>If you find anything which does not seem like expected behavior or have any suggestions, feel free to open an <a href="https://github.com/michaelaquilina/python-tools/issues">Issue</a> on my Github page.</p>
+
+python,refactor,jedi,tools
+    </section>
+    <footer>
+      <p>
+        Made with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a>
+      </p>
+      <p>
+        <small>Last updated: 2016-04-29</small>
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+  </body>
+</html>

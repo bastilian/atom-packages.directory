@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>Project Manager</h1>
+<h1 id="project-manager">Project Manager</h1>
+<p><a href="https://travis-ci.org/danielbrodin/atom-project-manager/"><img src="https://travis-ci.org/danielbrodin/atom-project-manager.svg?branch=master" alt="Build status" /></a>
+<a href="https://atom.io/packages/project-manager"><img src="https://img.shields.io/apm/dm/project-manager.svg" alt="apm" /></a>
+<a href=""><img src="https://img.shields.io/apm/v/project-manager.svg" alt="apm" /></a></p>
+
+<p><img src="https://raw.github.com/danielbrodin/atom-project-manager/master/project-manager.gif" alt="Project Manager" /></p>
+
+<p>Get easy access to all your projects and manage them with project specific settings and options.</p>
+
+<h2 id="install">Install</h2>
+<p><code>
+$ apm install project-manager
+</code>
+or open Atom and go to Preferences &gt; Install and search for <code>project-manager</code></p>
+
+<h2 id="use">Use</h2>
+<p>### List Projects
+<code>ctrl-cmd-p</code> (mac) / <code>alt-shift-P</code> (win &amp; linux) or <code>Project Manager: List Projects</code> in the Command Palette.</p>
+
+<p>You can filter projects by <code>title</code>, <code>group</code> and <code>template</code>.
+<code>group: atom</code> would list all projects with the group <code>atom</code>. Default is <code>title</code></p>
+
+<h3 id="save-project">Save Project</h3>
+<p><code>Project Manager: Save Project</code> in the Command Palette and write the title you want to save the project as.</p>
+
+<h3 id="edit-projects">Edit Projects</h3>
+<p>All projects are saved in a <code>.cson</code> file which you can easily reach by searching for <code>Project Manager: Edit Projects</code> in the Command Palette.</p>
+
+<h2 id="project-settings">Project Settings</h2>
+
+<p>setting    | Type      | Description                                                                                                                                           | Default             <br />
+———–|———–|——————————————————————————————————————————————————-|———————–
+<code>title</code>    | <code>string</code>  | Projects title. Used in the projects list                                                                                                | <code>''</code>                <br />
+<code>paths</code>    | <code>array</code>   | The folders that will open in the tree view. First path is the main one that counts as the project.                                                   | <code>[]</code>                <br />
+<code>settings</code> | <code>Object</code>  | Enables you to set project specific settings. Everything that goes in the <code>config.cson</code> file can go here. It also supports scoped settings.           | <code>{}</code>                <br />
+<code>icon</code>     | <code>string</code>  | Icon that shows in the projects list. It’s class-based so can either be a class already provided by Atom like <code>icon-squirell</code> or a class of your own. | <code>'icon-chevron-right'</code>
+<code>devMode</code>  | <code>boolean</code> | <code>true</code> if project should open in dev mode                                                                                                             | <code>false</code>             <br />
+<code>group</code>    | <code>string</code>  | Adds a group to the projects list that can be used to group and filter projects                                                                       | <code>null</code>              <br />
+<code>template</code> | <code>string</code>  | If you add a project in the <code>projects.cson</code> file without <code>paths</code> it will count as a template. This way you can easily share settings between projects | <code>null</code>              <br />
+### Local settings file
+All these settings can be added to a <code>project.cson</code> file in the root folder of the project. It follows the below example, but without the project key.</p>
+
+<h3 id="example">Example</h3>
+<p>```
+projectmanager:
+  title: ‘Project Manager’
+  devMode: true
+  group: ‘Atom’
+  template: ‘coffeescript-template’
+  paths: [
+    ‘/path/to/project-manager’
+  ]
+  settings:
+    ‘*’:
+      ‘editor.tabLength’: 4</p>
+
+<p>‘coffeescript-template’:
+  icon: ‘icon-coffeescript’
+  settings:
+    ‘.source.coffee’:
+      ‘editor.tabLength’: 2
+      ‘editor.preferredLineLength’: 80
+```</p>
+
+<h2 id="package-settings">Package Settings</h2>
+<p>Name                          | Setting                                       | Default     | Description                                                                                                                                    <br />
+——————————|———————————————–|————-|————
+Show Path                     | <code>project-manager.showPath</code>                    | <code>true</code>      | Shows each projects paths in the projects list                                                                                                 <br />
+Environment Specific Projects | <code>project-manager.environmentSpecificProjects</code> | <code>false</code>     | If you share your <code>.atom</code> folder between computers but don’t use the same projects. Will create a <code>projects.[hostname].cson</code> for each environment
+Sort By                       | <code>project-manager.sortBy</code>                      | <code>'default'</code> | Will sort the projects list by selected option. Default sorting is the order in which the are                                                  <br />
+Close Current                 | <code>project-manager.closeCurrent</code>                | <code>false</code>     | Closes the current window before opening a new project.</p>
+
+<h2 id="api">API</h2>
+<p>The project manager provides a service that you can use in your own Atom packages. To use it, include <code>project-manager</code> in the <code>consumedServices</code> section of your package.json.</p>
+
+<p><code>
+"consumedServices": {
+    "project-manager": {
+      "versions": {
+        "^2.2.1": "consumeProjectManager"
+      }
+    }
+  }
+</code>
+Then in your package’s main module, call methods on the service
+```
+module.exports =
+  doSomethingWithTheCurrentProject: (project) -&gt;</p>
+
+<p>consumeProjectManager: (PM) -&gt;
+    PM.projects.getCurrent (project) =&gt;
+      if project
+        @doSomethingWithTheCurrentProject(project)
+```</p>
+
+<h3 id="methods">Methods</h3>
+<p>#### <code>{Projects}</code>
+- <code>::getAll</code>
+  - <code>{Function} callback</code> - Callback that receives an <code>Array</code> of <code>{Project}</code>’s
+- <code>::getCurrent</code>
+  - <code>{Function} callback</code> - Callback that receives the current <code>{Project}</code> or <code>false</code> if there is none active
+- <code>::onUpdate</code>
+  - <code>{Function} callback</code> - Will be called each time a project have been updated</p>
+
+<h4 id="project"><code>{Project}</code></h4>
+<ul>
+  <li><code>{props}</code> - Contains all properties of the project like <code>title</code>, <code>paths</code> and <code>settings</code></li>
+  <li><code>::open</code> - Will open the project</li>
+  <li><code>::isCurrent</code> - Returns <code>true</code> if it’s the current project</li>
+  <li><code>::onUpdate</code>
+    <ul>
+      <li><code>{Function} callback</code> - Will be called when the project have been updated</li>
+    </ul>
+  </li>
+  <li><code>::set</code> - Will set the property on the project
+    <ul>
+      <li><code>{String} key</code></li>
+      <li><code>{Mixed} value</code></li>
+    </ul>
+  </li>
+  <li><code>::unset</code> - Will remove the property from the project
+    <ul>
+      <li><code>{String} key</code></li>
+    </ul>
+  </li>
+</ul>
+
+<p>Please let me know if you make something out of it :)</p>
+
+<h2 id="contribute">Contribute</h2>
+<p>If you would like to contribute to the project manager, be it new features or bugs,
+please do the following:</p>
+
+<ol>
+  <li>Fork the repository</li>
+  <li>Create a new topic branch off the master branch that describe what it does</li>
+  <li>Commit and push the branch</li>
+  <li>Make a pull request describing what you have done</li>
+  <li>Now it will hopefully get merged :)</li>
+</ol>
+
+<p>All PR’s should:
+- Pass the <a href="https://atom.io/packages/linter-jscs">jscs</a> linter
+- Pass the <a href="https://atom.io/packages/linter-jshint">jshint</a> linter
+- Add a test when it makes sense, which should be most of the time</p>
+
+<hr />
+
+<p><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&amp;business=DR4XQWAZV6M2A&amp;lc=SE&amp;item_name=Project%20Manager&amp;item_number=atom%2dproject%2dmanager&amp;currency_code=EUR&amp;bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted"><img src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" alt="Paypal Donations" /></a> a :beer: if you enjoy using the <a href="https://github.com/danielbrodin/atom-project-manager">project manager</a> :)</p>
+
+project,manager,settings,workflow,productivity
+    </section>
+    <footer>
+      <p>
+        Made with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a>
+      </p>
+      <p>
+        <small>Last updated: 2016-04-29</small>
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+  </body>
+</html>

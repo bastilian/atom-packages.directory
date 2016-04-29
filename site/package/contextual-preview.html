@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>Contextual Preview</h1>
+<h1 id="contextual-preview">Contextual Preview</h1>
+<p>Automatically delegate which preview package to activate based on the active <a href="https://atom.io/docs/latest/using-atom-grammar">grammar</a> of the current file.</p>
+
+<h2 id="behaviour">Behaviour</h2>
+<p>This package delegates preview events according to the following table.<a href="#">*</a></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">Type</th>
+      <th style="text-align: center">Grammar/scope</th>
+      <th style="text-align: center">Preview package</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">Markdown</td>
+      <td style="text-align: center">source.gfm</td>
+      <td style="text-align: center"><a href="https://atom.io/packages/markdown-preview">markdown-preview</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: center">HTML</td>
+      <td style="text-align: center">text.html.basic</td>
+      <td style="text-align: center"><a href="https://atom.io/packages/atom-html-preview">atom-html-preview</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><strong>*</strong></td>
+      <td style="text-align: center"><strong>*</strong></td>
+      <td style="text-align: center"><a href="https://atom.io/packages/source-preview">source-preview</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>* Currently therefore, this means that <code>apm install html-preview source-preview</code> is required. Configuration options will be added in future.</p>
+
+preview,context
+    </section>
+    <footer>
+      <p>
+        Made with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a>
+      </p>
+      <p>
+        <small>Last updated: 2016-04-29</small>
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+  </body>
+</html>

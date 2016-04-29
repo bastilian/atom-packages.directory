@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>Commander</h1>
+<h1 id="atom-commander">Atom Commander</h1>
+
+<p>Dual-pane file manager for Atom.</p>
+
+<p>Highlights:
+- Navigate the file system from within Atom.
+- Bookmark files and folders for quick access.
+- Create multiple folder tabs.
+- Compare files side-by-side.
+- Open a terminal at the current folder.
+- Browse and edit files via FTP and SFTP.
+  - Keep multiple files cached until you’re ready to upload them.
+  - Compare a cached file with its remote counterpart before uploading it.</p>
+
+<p>See the <a href="https://github.com/morassman/atom-commander/blob/master/CHANGELOG.md">changelog</a> for the latest improvements.</p>
+
+<p>After installing Atom Commander, press <code>F9</code> or choose <code>Atom Commander: Toggle Focus</code> from the Command Palette to show the panel and focus it. The panel can be hidden with <code>F10</code> or <code>Atom Commander: Toggle Visible</code>.</p>
+
+<p><img src="https://github.com/morassman/atom-commander/blob/master/resources/panel.png?raw=true" alt="Screenshot" /></p>
+
+<h2 id="buttons">Buttons</h2>
+<p>Button|Action
+—|—
+<code>F2 Rename</code>|Rename the highlighted file or folder.
+<code>F3 Add Project</code>|Add the highlighted or selected folders as project folders to the workspace. If a folder isn’t highlighted nor any folders selected then the folder currently being shown will be added.
+<code>F4 New File</code>|Create a new file in the selected pane’s folder and opens it for editing.
+<code>F5 Copy</code>|Copy the selected files to the other pane.
+<code>F6 Move</code>|Move the selected files to the other pane.
+<code>F7 New Folder</code>|Create a new folder in the current pane.
+<code>F8 Delete</code>|Delete the selected files in the current pane.
+<code>F9 Focus</code>|Toggle focus between the panel and the editor.
+<code>F10 Hide</code>|Toggle visibility.</p>
+
+<h2 id="alternative-buttons">Alternative Buttons</h2>
+<p>Hold down <code>Shift</code> to see the alternative buttons.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Button</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>Shift-F3 Remove Project</code></td>
+      <td>Remove the highlighted or selected project folders from the workspace. If a folder isn’t highlighted nor any folders selected then the folder currently being shown will be removed.</td>
+    </tr>
+    <tr>
+      <td><code>Shift-F5 Duplicate</code></td>
+      <td>Duplicate the highlighted file or folder.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="keys">Keys</h2>
+<p>Use the arrow keys, page-up, page-down, home and end to navigate.</p>
+
+<p>The following are special keys:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>Alt</code></td>
+      <td>Open the quick menu.</td>
+    </tr>
+    <tr>
+      <td><code>Shift</code></td>
+      <td>Show alternative buttons.</td>
+    </tr>
+    <tr>
+      <td><code>Left</code></td>
+      <td>Highlight the first item.</td>
+    </tr>
+    <tr>
+      <td><code>Right</code></td>
+      <td>Highlight the last item.</td>
+    </tr>
+    <tr>
+      <td><code>Space</code></td>
+      <td>Select the highlighted item.</td>
+    </tr>
+    <tr>
+      <td><code>Backspace</code></td>
+      <td>Navigate to the parent folder.</td>
+    </tr>
+    <tr>
+      <td><code>Tab</code></td>
+      <td>Switch to the other pane.</td>
+    </tr>
+    <tr>
+      <td><code>Ctrl-Tab</code></td>
+      <td>Show the same folder in the other pane.</td>
+    </tr>
+    <tr>
+      <td><code>Enter</code></td>
+      <td>Open highlighted item. If it’s a file then it will be opened in the editor.</td>
+    </tr>
+    <tr>
+      <td><code>Ctrl-Enter</code> <code>Cmd-Enter</code></td>
+      <td>Open highlighted item with OS’s default application. If it’s a folder then it will be shown in the OS’s file manager.</td>
+    </tr>
+    <tr>
+      <td><code>Ctrl-T</code> <code>Cmd-T</code></td>
+      <td>Open highlighted item in a new tab.</td>
+    </tr>
+    <tr>
+      <td><code>Ctrl-R</code> <code>Cmd-R</code></td>
+      <td>Remove current tab.</td>
+    </tr>
+    <tr>
+      <td><code>Ctrl-Left</code> `Cmd-Left</td>
+      <td>Select previous tab.</td>
+    </tr>
+    <tr>
+      <td><code>Ctrl-Right</code> <code>Cmd-Right</code></td>
+      <td>Select next tab.</td>
+    </tr>
+    <tr>
+      <td><code>Ctrl-Shift-Left</code> <code>Cmd-Shift-Left</code></td>
+      <td>Shift current tab left.</td>
+    </tr>
+    <tr>
+      <td><code>Ctrl-Shift-Right</code> <code>Cmd-Shift-Right</code></td>
+      <td>Shift current tab right.</td>
+    </tr>
+    <tr>
+      <td><code>+</code></td>
+      <td>Open dialog to add items to selection.</td>
+    </tr>
+    <tr>
+      <td><code>-</code></td>
+      <td>Open dialog to remove items from selection.</td>
+    </tr>
+    <tr>
+      <td><code>*</code></td>
+      <td>Invert selection.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="search">Search</h2>
+<p>A file or folder can be quickly found by simply starting to type parts of its name. The one that matches the input the best will be highlighted.</p>
+
+<p><img src="https://github.com/morassman/atom-commander/blob/master/resources/search.png?raw=true" alt="Screenshot" /></p>
+
+<h2 id="menus">Menus</h2>
+<p>There are two types of menus available: A context menu and a quick menu.</p>
+
+<h3 id="context-menu">Context Menu</h3>
+<p>The context menu can be opened from anywhere on the panel.</p>
+
+<p><img src="https://github.com/morassman/atom-commander/blob/master/resources/context_menu.png?raw=true" alt="Screenshot" /></p>
+
+<h3 id="quick-menu">Quick Menu</h3>
+<p>The menu is opened by holding down the <code>Alt</code> key. Releasing the key will close the menu again.</p>
+
+<p><img src="https://github.com/morassman/atom-commander/blob/master/resources/quick_menu.png?raw=true" alt="Screenshot" /></p>
+
+<p>The menus are shown at the top of the panel in the form of buttons. Each button is numbered. Pressing the corresponding number will open that menu. Since these are buttons they can be clicked on as well.</p>
+
+<p>Entering a menu will show its items and potential sub menus. These are also numbered. There is also an extra button on the left to return to the parent menu. The keys <code>0</code>, <code>Escape</code> and <code>Shift</code> are all valid keys for returning to the parent menu.</p>
+
+<p>When the menu is closed and opened again it will start on the root menu.</p>
+
+<h3 id="available-menus">Available Menus</h3>
+<ol>
+  <li><strong>Select</strong></li>
+  <li><strong>All</strong> : Select everything.</li>
+  <li><strong>None</strong> : Deselect everything.</li>
+  <li><strong>Add</strong> : Select items with a pattern.</li>
+  <li><strong>Remove</strong> : Deselect items with a pattern.</li>
+  <li><strong>Invert</strong> : Invert the selection.</li>
+  <li><strong>Folders</strong> : Add folders to selection.</li>
+  <li><strong>Files</strong> : Add files to selection.</li>
+  <li><strong>Go</strong></li>
+  <li><strong>Project</strong> : Go to the project folder.</li>
+  <li><strong>Editor</strong> : Go to the file that is active in the editor.</li>
+  <li><strong>Drive</strong> : Go to a specific drive.</li>
+  <li><strong>Root</strong> : Go to the root folder.</li>
+  <li><strong>Home</strong> : Go to your user folder.</li>
+  <li><strong>Bookmarks</strong></li>
+  <li><strong>Add</strong> : Add a bookmark.</li>
+  <li><strong>Remove</strong> : Remove bookmarks.</li>
+  <li><strong>Open</strong> : Open a bookmark.</li>
+  <li><strong>Servers</strong></li>
+  <li><strong>Add</strong> : Add an FTP or SFTP server.</li>
+  <li><strong>Remove</strong> : Remove a server.</li>
+  <li><strong>Open</strong> : Open the initial folder of a server.</li>
+  <li><strong>Close</strong> : Close the connection to a server.</li>
+  <li><strong>Cache</strong> : View and sync the cache associated with a server.</li>
+  <li><strong>Open</strong></li>
+  <li><strong>Terminal</strong> : Open a terminal in the current folder.</li>
+  <li><strong>File Manager</strong> : Show the highlighted item in the OS’s file manager.</li>
+  <li><strong>System</strong> : Open highlighted item with OS’s default application. If it’s a folder then it will be shown in the OS’s file manager.</li>
+  <li><strong>View</strong></li>
+  <li><strong>Refresh</strong> : Reloads the content of the current folder. Local folders automatically refresh, but remote folders do not.</li>
+  <li><strong>Mirror</strong> : Show the same folder in the other pane as the focused one.</li>
+  <li><strong>Swap</strong> : Swap the two folders.</li>
+  <li><strong>Compare</strong></li>
+  <li><strong>Folders</strong> : Select the differences between the two folders.</li>
+  <li><strong>Files</strong> : Show the difference between the left and right highlighted files.</li>
+</ol>
+
+<h2 id="bookmarks">Bookmarks</h2>
+<p>Bookmarks allow for quick navigation to both files and folders.</p>
+
+<h3 id="adding-bookmarks">Adding Bookmarks</h3>
+<p>Bookmarks can be added from either the menu in Atom Commander or by choosing <code>Atom Commander: Add Bookmark</code> from the Command Palette. If the menu is used then the a bookmark will be added for the item that is currently highlighted. If the Command Palette is used and the editor has focus then a bookmark will be added for the file currently being edited.</p>
+
+<p>When a bookmark is added a name for it can be entered. This is optional and may be left empty.</p>
+
+<h3 id="opening-bookmarks">Opening Bookmarks</h3>
+<p>The list of bookmarks can be opened from either the menu in Atom Commander or by choosing <code>Atom Commander: Open Bookmark</code> from the Command Palette. The list can be filtered on both the name and path. When a bookmark for a file is opened the file will be opened in the editor and it will be shown in Atom Commander. If the bookmark is for a folder then the folder will be shown.</p>
+
+<h3 id="removing-bookmarks">Removing Bookmarks</h3>
+<p>The list of bookmarks can be opened from either the menu in Atom Commander or by choosing <code>Atom Commander: Remove Bookmark</code> from the Command Palette. Each bookmark that is selected will be removed. The list will remain open until it is cancelled by pressing the <code>Escape</code> key.</p>
+
+<h2 id="folder-tabs">Folder Tabs</h2>
+<p>Multiple folder tabs can be added to each of the panels.</p>
+
+<p><img src="https://github.com/morassman/atom-commander/blob/master/resources/tabs.png?raw=true" alt="Screenshot" /></p>
+
+<h3 id="adding-tabs">Adding Tabs</h3>
+<p>A new tab can be added by pressing <code>Ctrl-T</code> or <code>Cmd-T</code>. If a folder is highlighted then that folder will be opened in the new tab. Otherwise the current folder will be opened instead.</p>
+
+<h3 id="removing-tabs">Removing Tabs</h3>
+<p>The current tab can be removed by pressing <code>Ctrl-R</code> or <code>Cmd-R</code>.</p>
+
+<h3 id="navigating-tabs">Navigating Tabs</h3>
+<p>The previous tab can be selected by pressing <code>Ctrl-Left</code> or <code>Cmd-Left</code> whereas the next tab is selected with <code>Ctrl-Right</code> or <code>Cmd-Right</code>.</p>
+
+<h3 id="sorting-tabs">Sorting Tabs</h3>
+<p>Pressing <code>Ctrl-Shift-Left</code> or <code>Cmd-Shift-Left</code> will shift the current tab to the left whereas <code>Ctrl-Shift-Right</code> or <code>Cmd-Shift-Right</code> will shift it to the right. If the end is reached the tab will wrap to the other side.</p>
+
+<h2 id="servers">Servers</h2>
+<p>Files can be accessed remotely via FTP and SFTP.</p>
+
+<h3 id="adding-servers">Adding Servers</h3>
+<p>Servers can be added by choosing <code>Add</code> from the <code>Servers</code> menu or <code>Atom Commander: Add Server</code> from the Command Palette.</p>
+
+<p><img src="https://github.com/morassman/atom-commander/blob/master/resources/add_server.png?raw=true" alt="Screenshot" /></p>
+
+<p>If <code>Remember Password</code> is checked then the password will be persisted along with the username. A weak encryption will be applied to the password.</p>
+
+<p>It is advisable to test the connection before accepting the configuration to ensure that everything is correct.</p>
+
+<h3 id="removing-servers">Removing Servers</h3>
+<p>Servers can be removed by choosing <code>Remove</code> from the <code>Servers</code> menu or <code>Atom Commander: Remove Server</code> from the Command Palette. When a server is removed all the bookmarks associated with it are removed as well. The cache is also cleared and any file transfers will be stopped. You will, however, be prompted if files are still in the cache or being transferred.</p>
+
+<h3 id="cache">Cache</h3>
+<p>All remote files that are viewed or edited are cached on the local file system. Each server has its own cache associated with it. The cache for a server can be viewed by choosing <code>Cache</code> from the <code>Servers</code> menu or <code>Atom Commander: Open Cache</code> from the Command Palette.</p>
+
+<p>Doing so will open a view that lists all the files in the cache. From here files can be uploaded, downloaded, compared and removed.</p>
+
+<p><img src="https://github.com/morassman/atom-commander/blob/master/resources/cache.png?raw=true" alt="Screenshot" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Button</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Open</td>
+      <td>Opens the cached file.</td>
+    </tr>
+    <tr>
+      <td>Compare</td>
+      <td>Compares the cached file side-by-side with the one on the server.</td>
+    </tr>
+    <tr>
+      <td>Upload</td>
+      <td>Uploads the cached file to the server.</td>
+    </tr>
+    <tr>
+      <td>Download</td>
+      <td>Replaces the cached file with the one on the server.</td>
+    </tr>
+    <tr>
+      <td>Remove</td>
+      <td>Removes the file from the cache.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Multiple files can be uploaded, downloaded or removed by using the buttons at the top.</p>
+
+<p>The list doesn’t automatically update when files are added to the cache, but the <code>Refresh</code> button can be pressed to repopulate the list.</p>
+
+<h3 id="settings">Settings</h3>
+<p>The following settings are applicable to cached files:</p>
+
+<p><img src="https://github.com/morassman/atom-commander/blob/master/resources/settings.png?raw=true" alt="Screenshot" /></p>
+
+<h4 id="remove-on-close">Remove On Close</h4>
+<p>If this is selected then files will be removed from the cache when the file is closed. If the file was modified, but not uploaded then it will <strong>not</strong> be removed. This will be the case either if the upload failed or if <code>Upload On Save</code> is not selected. This is to ensure that changes are not lost. This is enabled by default.</p>
+
+<h4 id="upload-on-save">Upload On Save</h4>
+<p>If this is selected then files will be automatically uploaded to the server when they are saved. This is enabled by default. The file will remain in the cache if it couldn’t be uploaded.</p>
+
+<h3 id="editing-remote-files">Editing Remote Files</h3>
+<p>If the <code>Upload On Save</code> setting is enabled then the file will automatically be uploaded each time it is saved. However, if it isn’t enabled, then one will need to upload cached files via the cache view. A quick way to upload the file currently being edited is to select <code>Atom Commander: Upload File</code> from the Command Palette. Doing so copies the cached file to the server. The file is therefore first saved to the cache before it is uploaded.</p>
+
+<p>Similarly one can download the file from the server by choosing <code>Atom Commander: Download File</code> from the Command Palette. This replaces the cached file with the one that was downloaded.</p>
+
+<p>It is also possible to quickly compare the file being edited with the one on the server by choosing <code>Atom Commander: Compare With Server</code>. This operation doesn’t require the cached file to be saved first. The content of the editor is used directly.</p>
+
+<h2 id="compare">Compare</h2>
+<p>### Folders
+When the left and right folders are compared then everything that is in the one, but not in the other will be selected. This will replace the current selection.
+### Files
+Performing this action will open a side-by-side view that will compare the file highlighted on the left with the one highlighted on the right.</p>
+
+<p><img src="https://github.com/morassman/atom-commander/blob/master/resources/diff.png?raw=true" alt="Screenshot" /></p>
+
+<p>Lines that have been added are highlighted on the left whereas lines that have been removed are highlighted on the right. The remaining lines are those that the files have in common. Clicking on a common section will highlight it and its counterpart on the other side.</p>
+
+<p>The files are currently not being monitored for changes. If either of the files change then the comparison will have to be done again.</p>
+
+<h2 id="columns">Columns</h2>
+<p>The size and modified date columns can be toggled from the context menu.</p>
+
+<p><img src="https://github.com/morassman/atom-commander/blob/master/resources/columns.png?raw=true" alt="Screenshot" /></p>
+
+<h2 id="todo">Todo</h2>
+<ul>
+  <li>Visual feedback for file system operations.</li>
+</ul>
+
+file,directory,folder,ftp,sftp,manager,commander,diff,browser,bookmark
+    </section>
+    <footer>
+      <p>
+        Made with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a>
+      </p>
+      <p>
+        <small>Last updated: 2016-04-29</small>
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+  </body>
+</html>

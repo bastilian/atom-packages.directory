@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>Php Fmt</h1>
+<h1 id="php-fmthttpsgithubcomdericofilhophptools-support-for-atom"><a href="https://github.com/dericofilho/php.tools">php-fmt</a> support for Atom</h1>
+
+<p>php.fmt, php.tools and php.oracle aim to help PHP development.</p>
+
+<h3 id="installation">Installation</h3>
+
+<h4 id="requirements">Requirements</h4>
+<ul>
+  <li><strong>You must have a running copy of PHP on the machine you are running Atom</strong></li>
+  <li><strong>You must have a copy of fmt.phar on the machine you are running Atom</strong></li>
+</ul>
+
+<p>Plugin runs with PHP 5.6 or newer installed in the machine running the plugin.</p>
+
+<p>There is a backwards compatible mode with PHP 5.5 - however not all improvements will be available in this mode.</p>
+
+<p><strong>The following features are available through command palette (<code>ctrl+shift+P</code> or <code>cmd+shift+P</code>) :</strong></p>
+
+<ul>
+  <li>phpfmt: format now</li>
+  <li>phpfmt: disable space around exclamation mark - Laravel Only</li>
+  <li>phpfmt: indentation with spaces</li>
+  <li>phpfmt: toggle additional transformations</li>
+  <li>phpfmt: toggle excluded transformations</li>
+  <li>phpfmt: toggle skip execution when .php.tools.ini is missing</li>
+  <li>phpfmt: toggle auto align</li>
+  <li>phpfmt: toggle autocomplete</li>
+  <li>phpfmt: toggle CakePHP style (experimental)</li>
+  <li>phpfmt: toggle dependency autoimport</li>
+  <li>phpfmt: toggle format on save</li>
+  <li>phpfmt: toggle Laravel style (deprecated)</li>
+  <li>phpfmt: toggle php.vet</li>
+  <li>phpfmt: toggle PSR1 - Class and Methods names</li>
+  <li>phpfmt: toggle PSR1</li>
+  <li>phpfmt: toggle PSR2</li>
+  <li>phpfmt: toggle smart linebreak after open curly</li>
+  <li>phpfmt: toggle visibility order</li>
+  <li>phpfmt: toggle yoda mode</li>
+  <li>phpfmt: analyse this</li>
+  <li>phpfmt: build autocomplete database</li>
+  <li>phpfmt: getter and setter (camelCase)</li>
+  <li>phpfmt: getter and setter (Go)</li>
+  <li>phpfmt: getter and setter (snake_case)</li>
+  <li>phpfmt: generate PHPDoc block</li>
+  <li>phpfmt: look for .php.tools.ini</li>
+  <li>phpfmt: order method within classes</li>
+  <li>phpfmt: refactor</li>
+  <li>phpfmt: toggle PHP 5.5 compatibility mode</li>
+  <li>phpfmt: troubleshoot information</li>
+</ul>
+
+<h3 id="currently-supported-transformations">Currently Supported Transformations:</h3>
+
+<ul>
+  <li>AddMissingParentheses             Add extra parentheses in new instantiations.</li>
+  <li>AliasToMaster                     Replace function aliases to their masters - only basic syntax alias.</li>
+  <li>AlignDoubleArrow                  Vertically align T_DOUBLE_ARROW (=&gt;).</li>
+  <li>AlignDoubleSlashComments          Vertically align “//” comments.</li>
+  <li>AlignEquals                       Vertically align “=”.</li>
+  <li>AlignGroupDoubleArrow             Vertically align T_DOUBLE_ARROW (=&gt;) by line groups.</li>
+  <li>AlignPHPCode                      Align PHP code within HTML block.</li>
+  <li>AlignTypehint                     Vertically align “//” comments.</li>
+  <li>AllmanStyleBraces                 Transform all curly braces into Allman-style.</li>
+  <li>AutoPreincrement                  Automatically convert postincrement to preincrement.</li>
+  <li>AutoSemicolon                     Add semicolons in statements ends.</li>
+  <li>CakePHPStyle                      Applies CakePHP Coding Style</li>
+  <li>ClassToSelf                       “self” is preferred within class, trait or interface.</li>
+  <li>ClassToStatic                     “static” is preferred within class, trait or interface.</li>
+  <li>ConvertOpenTagWithEcho            Convert from “&lt;?=” to “&lt;?php echo “.</li>
+  <li>DocBlockToComment                 Replace docblocks with regular comments when used in non structural elements.</li>
+  <li>DoubleToSingleQuote               Convert from double to single quotes.</li>
+  <li>EncapsulateNamespaces             Encapsulate namespaces with curly braces</li>
+  <li>GeneratePHPDoc                    Automatically generates PHPDoc blocks</li>
+  <li>IndentTernaryConditions           Applies indentation to ternary conditions.</li>
+  <li>JoinToImplode                     Replace implode() alias (join() -&gt; implode()).</li>
+  <li>LeftWordWrap                      Word wrap at 80 columns - left justify.</li>
+  <li>LongArray                         Convert short to long arrays.</li>
+  <li>MergeElseIf                       Merge if with else.</li>
+  <li>MergeNamespaceWithOpenTag         Ensure there is no more than one linebreak before namespace</li>
+  <li>MildAutoPreincrement              Automatically convert postincrement to preincrement. (Deprecated pass. Use AutoPreincrement instead).</li>
+  <li>OrderMethod                       Sort methods within class in alphabetic order.</li>
+  <li>OrderMethodAndVisibility          Sort methods within class in alphabetic and visibility order .</li>
+  <li>PrettyPrintDocBlocks              Prettify Doc Blocks</li>
+  <li>PSR2EmptyFunction                 Merges in the same line of function header the body of empty functions.</li>
+  <li>PSR2MultilineFunctionParams       Break function parameters into multiple lines.</li>
+  <li>ReindentSwitchBlocks              Reindent one level deeper the content of switch blocks.</li>
+  <li>RemoveUseLeadingSlash             Remove leading slash in T_USE imports.</li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>ReplaceBooleanAndOr               Convert from “and”/”or” to “&amp;&amp;”/”</td>
+          <td> </td>
+          <td>”. Danger! This pass leads to behavior change.</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>ReplaceIsNull                     Replace is_null($a) with null === $a.</li>
+  <li>ReturnNull                        Simplify empty returns.</li>
+  <li>ShortArray                        Convert old array into new array. (array() -&gt; [])</li>
+  <li>SmartLnAfterCurlyOpen             Add line break when implicit curly block is added.</li>
+  <li>SpaceAroundControlStructures      Add space around control structures.</li>
+  <li>SpaceBetweenMethods               Put space between methods.</li>
+  <li>StrictBehavior                    Activate strict option in array_search, base64_decode, in_array, array_keys, mb_detect_encoding. Danger! This pass leads to behavior change.</li>
+  <li>StrictComparison                  All comparisons are converted to strict. Danger! This pass leads to behavior change.</li>
+  <li>StripExtraCommaInArray            Remove trailing commas within array blocks</li>
+  <li>StripNewlineAfterClassOpen        Strip empty lines after class opening curly brace.</li>
+  <li>StripNewlineAfterCurlyOpen        Strip empty lines after opening curly brace.</li>
+  <li>StripSpaces                       Remove all empty spaces</li>
+  <li>StripSpaceWithinControlStructures Strip empty lines within control structures.</li>
+  <li>TightConcat                       Ensure string concatenation does not have spaces, except when close to numbers.</li>
+  <li>UpgradeToPreg                     Upgrade ereg_* calls to preg_*</li>
+  <li>WordWrap                          Word wrap at 80 columns.</li>
+  <li>WrongConstructorName              Update old constructor names into new ones. http://php.net/manual/en/language.oop5.decon.php</li>
+  <li>YodaComparisons                   Execute Yoda Comparisons.</li>
+</ul>
+
+<h3 id="what-does-it-do">What does it do?</h3>
+
+<table>
+<tr>
+<td>Before</td>
+<td>After</td>
+</tr>
+<tr>
+<td>
+<pre><code>&lt;?php
+for($i = 0; $i &lt; 10; $i++)
+{
+if($i%2==0)
+echo "Flipflop";
+}
+</code></pre>
+</td>
+<td>
+<pre><code>&lt;?php
+for ($i = 0; $i &lt; 10; $i++) {
+	if ($i%2 == 0) {
+		echo "Flipflop";
+	}
+}
+</code></pre>
+</td>
+</tr>
+<tr>
+<td>
+<pre><code>&lt;?php
+$a = 10;
+$otherVar = 20;
+$third = 30;
+</code></pre>
+</td>
+<td>
+<pre><code>&lt;?php
+$a        = 10;
+$otherVar = 20;
+$third    = 30;
+</code></pre>
+<i>This can be enabled with the option "enable_auto_align"</i>
+</td>
+</tr>
+<tr>
+<td>
+<pre><code>&lt;?php
+namespace NS\Something;
+use \OtherNS\C;
+use \OtherNS\B;
+use \OtherNS\A;
+use \OtherNS\D;
+
+$a = new A();
+$b = new C();
+$d = new D();
+</code></pre>
+</td>
+<td>
+<pre><code>&lt;?php
+namespace NS\Something;
+
+use \OtherNS\A;
+use \OtherNS\C;
+use \OtherNS\D;
+
+$a = new A();
+$b = new C();
+$d = new D();
+</code></pre>
+<i>note how it sorts the use clauses, and removes unused ones</i>
+</td>
+</tr>
+</table>
+
+<h3 id="what-does-it-do---psr-version">What does it do? - PSR version</h3>
+
+<table>
+<tr>
+<td>Before</td>
+<td>After</td>
+</tr>
+<tr>
+<td>
+<pre><code>&lt;?php
+for($i = 0; $i &lt; 10; $i++)
+{
+if($i%2==0)
+echo "Flipflop";
+}
+</code></pre>
+</td>
+<td>
+<pre><code>&lt;?php
+for ($i = 0; $i &lt; 10; $i++) {
+    if ($i%2 == 0) {
+        echo "Flipflop";
+    }
+}
+</code></pre>
+<i>Note the identation of 4 spaces.</i>
+</td>
+</tr>
+<tr>
+<td>
+<pre><code>&lt;?php
+class A {
+function a(){
+return 10;
+}
+}
+</code></pre>
+</td>
+<td>
+<pre><code>&lt;?php
+class A
+{
+    public function a()
+    {
+        return 10;
+    }
+}
+</code></pre>
+<i>Note the braces position, and the visibility adjustment in the method a().</i>
+</td>
+</tr>
+<tr>
+<td>
+<pre><code>&lt;?php
+namespace NS\Something;
+use \OtherNS\C;
+use \OtherNS\B;
+use \OtherNS\A;
+use \OtherNS\D;
+
+$a = new A();
+$b = new C();
+$d = new D();
+</code></pre>
+</td>
+<td>
+<pre><code>&lt;?php
+namespace NS\Something;
+
+use \OtherNS\A;
+use \OtherNS\C;
+use \OtherNS\D;
+
+$a = new A();
+$b = new C();
+$d = new D();
+</code></pre>
+<i>note how it sorts the use clauses, and removes unused ones</i>
+</td>
+</tr>
+</table>
+
+<h3 id="troubleshooting">Troubleshooting</h3>
+<ul>
+  <li>Be sure you can run PHP from the command line.</li>
+  <li>If you are a MAMP user, please use the MAMP’s PHP binary to execute the plugin. This issue might be handy to help you configure the plugin: https://github.com/dericofilho/sublime-phpfmt/issues/109</li>
+</ul>
+
+<h3 id="acknowledgements">Acknowledgements</h3>
+<ul>
+  <li>GoSublime - for the method to update the formatted buffer</li>
+  <li>Google’s diff match patch - http://code.google.com/p/google-diff-match-patch/</li>
+</ul>
+
+phpfmt,php,formater,fixer,formatter,pretty printer,phpfmt,php.tools,psr1,psr2,psr
+    </section>
+    <footer>
+      <p>
+        Made with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a>
+      </p>
+      <p>
+        <small>Last updated: 2016-04-29</small>
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+  </body>
+</html>

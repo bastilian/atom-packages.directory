@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>Htmltidy</h1>
+<h1 id="atom-htmltidy">atom-htmltidy</h1>
+
+<p>Lint and Format HTML using <a href="http://www.htacg.org/tidy-html5/">Tidy-HTML5</a></p>
+
+<h2 id="install">Install</h2>
+
+<p><code>
+$ apm install atom-htmltidy
+</code></p>
+
+<p>Or, Settings → Install → Search for <code>atom-htmltidy</code></p>
+
+<h2 id="usage">Usage</h2>
+
+<p>use Keybinding <code>ctrl-alt-1</code></p>
+
+<p>There’s a <code>format on save</code> option in the settings to activate format on save for html files.</p>
+
+<p>Open the Command Palette and type <code>atom-htmltidy</code>.</p>
+
+<h2 id="settings">Settings</h2>
+<ul>
+  <li><strong>default options</strong>:
+if no tidy html 5 options file is found, this options will be used
+<em>default: none</em></li>
+  <li><strong>dynamic new-blocklevel-tags</strong>:
+all tags with an - in the tag name are added to the tidy html 5 option new-blocklevel-tags, e.g. angular js bootstrap ‘uib-alert’
+<em>default: disabled</em></li>
+  <li><strong>dynamic show-body-only</strong>:
+the html tidy 5 option is set to true, if a body tag exists
+<em>default: disabled</em></li>
+  <li><strong>enable linter</strong>:
+lint files with html tidy
+<em>default: enabled</em></li>
+  <li><strong>enable file search</strong>:
+the options for tidy html 5 is loaded from a json file
+<em>default: enabled</em></li>
+  <li><strong>filename of tidy html 5 options</strong>:
+name of the tidy html 5 options file
+<em>default: .htmltidy</em></li>
+  <li><strong>format on save</strong>:
+auto format html document on save
+<em>default: enabled</em></li>
+  <li><strong>grammer scopes</strong>:
+array of grammar scopes on which formatting and linting gets activated
+<em>default: angular, basic, erb, gohtml, jsp, mustache, handlebars, ruby, php</em></li>
+  <li><strong>path to tidy executable</strong>:
+the package has a builtin version of tidy html 5 (v5.1.25). if you want to use a newer version, this is your setting.
+<em>default: none</em></li>
+  <li><strong>show errors</strong>:
+automatically set show-errors to 6 if no option is provided
+<em>default: enabled</em></li>
+  <li><strong>warn on tag count change</strong>:
+if the tag count change during formatting, a warn notification gets displayed. tidy html 5 automatically delete or add html tags. it is a feature.
+<em>default: disabled</em></li>
+</ul>
+
+<p>Please provide tidy html 5 options. I don’t recommend using empty options. I use this options in an angularjs project.
+```
+{</p>
+
+<pre><code>"markup" : true,
+"output-xml" : false,
+"input-xml" : true,
+"show-warnings" : true,
+"numeric-entities" : false,
+"quote-marks" : false,
+"quote-nbsp" : true,
+"quote-ampersand" : false,
+"break-before-br" : false,
+"preserve-entities" : true,
+"uppercase-tags" : false,
+"uppercase-attributes" : false,
+"indent" : "auto",
+"indent-with-tabs" : false,
+"indent-attributes" : true,
+"sort-attributes" : "alpha",
+"wrap" : 200 }
+</code></pre>
+
+<p>```</p>
+
+<p>A full list of available Options: <a href="http://api.html-tidy.org/tidy/quickref_5.1.25.html">Tidy-HTML5</a></p>
+
+<h2 id="license">License</h2>
+
+<p>MIT © Andreas Weber</p>
+
+<h2 id="credits">Credits</h2>
+<ul>
+  <li><a href="http://www.htacg.org/tidy-html5/">Tidy-HTML5</a></li>
+  <li><a href="http://tidy.sourceforge.net/">HTML Tidy Library Project</a></li>
+</ul>
+
+html,format,beautify,linter,prettify,style,tidy
+    </section>
+    <footer>
+      <p>
+        Made with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a>
+      </p>
+      <p>
+        <small>Last updated: 2016-04-29</small>
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+  </body>
+</html>

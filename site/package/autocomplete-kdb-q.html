@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>Autocomplete Kdb Q</h1>
+<h1 id="autocomplete-kdb-q-package">autocomplete-kdb-q package</h1>
+
+<p>Autocomplete, QDoc and linter (error checking) provider for KDB+ Q</p>
+
+<h2 id="installation">Installation</h2>
+
+<p>autocomplete-kdb-q requires:
+* <code>language-kdb-q</code> package for grammar.
+* <code>autocomplete-plus</code> package for autocomplete support.
+* <code>linter</code> package for error notifications.</p>
+
+<p>Install them as usual via apm or install page in the settings view.</p>
+
+<p>The last two packages are tremendously useful themselves and can be used with many other languages.</p>
+
+<h2 id="status">Status</h2>
+
+<p>Available features:
+* Processes all open files and projects for symbols/definitions/documentation.
+* Updates automatically when new files are opened or opened files are closed/changed.
+* Provides correct autocomplete for Q names.
+* Provides via <code>linter</code> information about errors in indentation and unmatched brackets.
+* Shows short comments for names in the autocomplete window if they are available.
+* Provides reference view for symbols via <kbd>ctrl+shift+r</kbd> or context menu.
+* Provides go-to-definition for symbols via <kbd>ctrl+alt+d</kbd> or context menu.
+* Provides QDoc support for user defined functions.
+* Shows help for system and user functions via <kbd>F1</kbd> or context menu.</p>
+
+<h3 id="autocomplete">Autocomplete</h3>
+
+<p>Example below shows what info is saved by autocomplete and how it is used.</p>
+
+<dl>
+  <dt>```</dt>
+  <dt>/ This comment will be shown for .im.global</dt>
+  <dt>.im.global:100h / globals are names that start with .</dt>
+  <dt>if[1b; global: 100] / or names defined outside any function.</dt>
+  <dt>`imglobaltoo set 100 / or symbols with set</dt>
+  <dt>fn:{[a]  / a is local</dt>
+  <dt>  b: 100; / local too</dt>
+  <dt>  c:: 100; / global</dt>
+  <dt>  d[10]:: 100 / parser is clever enough to understand that d is a global</dt>
+  <dd><code>end / </code>end is remembered too
+ }
+\d .my
+var: 100 / autocomplete understands this and remembers var as file local and .my.var as global
+\d .
+```</dd>
+</dl>
+
+<p>Autocomplete determines for each name or symbol the following properties:
+* It is global, local or local with the file scope (if defined within \d ns). Symbols are all global.
+* Range for each occurence. Globals are provided in every file, file locals only in the file of origin and locals only in the code block where they were used. The code block consists of indented lines with an unindented line as the first line.
+* It is an assignment or not. This info is used in go-to-definition.
+* Any comment before the code block is attached to the first name after it.</p>
+
+<h3 id="error-reporting">Error reporting</h3>
+
+<p>Currently only indentation errors and bracket mismatches are reported.</p>
+
+<h3 id="references-and-definitions">References and definitions</h3>
+
+<p>You can open the reference view for any symbol or name. Put the cursor on it and select from the context menu <code>KDB-Q/Find references</code> or press <kbd>ctrl+shift+r</kbd>. The reference panel will appear, you can select any row or close it with the close button.</p>
+
+<p>You can jump to the definition (assignment) of any name. Put the cursor on it and select from the context menu <code>KDB-Q/Find definition</code> or press <kbd>ctrl+alt+d</kbd>. If there are several definitions do this several times. After the last definition you will return to the original place.</p>
+
+<h3 id="qdoc-support">QDoc support</h3>
+
+<p>QDoc is implemented along JavaDoc and is compatible with the already existing QDoc schemas. All standard functions and .Q/.z functions are already documented.</p>
+
+<p>All tags are mutiline except @name, @file, @see, @noautocomplete and @module. @module and @file are not supported atm. All QDoc lines should start with /, all
+lines with more than one / are ignored allowing you to add private comments. The Q function or variable name should be on the next line after
+the comment block. Note that QDoc doesn’t need the code to be correct.</p>
+
+<p>The following tags are supported:
+* @name Name - Alternative name for the QDoc entry.
+* @desc text - Any html.
+* @param Name TypeExpr text - Parameter ‘Name’ with type defined in ‘TypeExpr’, text can be any html.
+* @key Name TypeExpr text - Key of a dictionary, should follow @param.
+* @column Name TypeExpr text - Column of a table, should follow @param.
+* @returns TypeExpr text - Description of the returned value.
+* @throws Name text - Description of a possible exception. If there are several throws it is better to group them together.
+* @example code - Any Q code, it will be shown as if in the editor itself (editor is not used though).
+* @see name1 name2 … - List of QDoc names, links will be added.
+* @link as {@link link} or {@link Some descr|link} where link is either a foreign http(s) link or a QDoc name. It can be used inside @desc.
+* @noautocomplete - suppress autocomplete for the current name. It can be used in general help articles.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>TypeExpr is type or (type name) or (type 1</td>
+      <td>type 2).</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Example:
+<code>
+/ The verb xkey sets the primary keys in a table.
+/ The left argument is a symbol list of column names, which must belong to the table.
+/ The right argument is a table. If passed by reference, it is updated. If passed by value, a new table is returned.
+/ @param x (symbol|symbol list) Columns.
+/ @param y (symbol|table)  Table to be keyed.
+/ @returns (symbol|table) Table is keyed, what is returned depends on the second argument.
+/ @example `sym xkey `trade
+/ @see cols xcol xcols
+xkey
+</code></p>
+
+<p>If you press <kbd>F1</kbd> on xkey you’ll see this:
+<img src="./resources/keyhelp.png" alt="help" /></p>
+
+<p>Note that QDoc also adds a link to the definition and allows you to request all references to the displayed name.</p>
+
+<h2 id="settings">settings</h2>
+
+<p>Autocomplete looks for <code>.autocomplete-kdb-q.json</code> file in each project directory. This file can contain some settings:
+* includePaths - list of paths (relative or absolute) to include into this project.
+* ignorePaths - list of paths (relative or absolute) to ignore.
+* ignoreRoot - ignore all files or dirs in the project’s root directory.
+* ignoreNames - ignore these names (like “.svn”).
+* cache - path (relative or absolute) where to save cached data to reduce the start time in large projects.</p>
+
+<p>Example:
+<code>
+{
+  "ignorePaths": ["node_modules"],
+  "includePaths": ["C:\\somepath\\test.q","C:\\somedir"],
+  "ignoreNames": ["a2014.q",".git"],
+  "cache": ".cache"
+}
+</code></p>
+
+kdb,q,autocomplete-plus,autocomplete
+    </section>
+    <footer>
+      <p>
+        Made with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a>
+      </p>
+      <p>
+        <small>Last updated: 2016-04-29</small>
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+  </body>
+</html>

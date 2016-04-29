@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>Linter Gcc</h1>
+<h1 id="linter-gcc">linter-gcc</h1>
+<p><a href="https://travis-ci.org/hebaishi/linter-gcc"><img src="https://img.shields.io/travis/hebaishi/linter-gcc.svg?style=flat-square" alt="Travis" /></a> <a href="https://atom.io/packages/linter-gcc"><img src="https://img.shields.io/apm/dm/linter-gcc.svg?style=flat-square" alt="apm" /></a>
+<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=44GUEE2BT7XVG"><img src="https://www.paypalobjects.com/en_GB/i/btn/btn_donate_SM.gif" alt="Paypal" /></a></p>
+
+<p>Linter plugin for <a href="https://github.com/AtomLinter/Linter">Linter</a>, provides an interface to gcc/g++.</p>
+
+<p>Used with files with grammar “C”, “C++” and <a href="https://atom.io/packages/language-cpp14">“C++14”</a>.</p>
+
+<p>Now with linting <strong>on-the-fly</strong>! This is a new feature so please open an issue if you encounter any problems.</p>
+
+<h2 id="linter-in-action">Linter in action!</h2>
+
+<p><img src="https://raw.githubusercontent.com/hebaishi/images/master/lintergcc_onthefly.gif" alt="linter-gcc screenshot" /></p>
+
+<h2 id="fileproject-specific-settings">File/Project-Specific settings</h2>
+
+<p>Assuming you have the a file called <code>sample.cpp</code> open, linter-gcc performs the following actions:</p>
+
+<ol>
+  <li>Looks for file called <code>sample.cpp.gcc-flags.json</code> in the same directory as your source file (file-specific settings)</li>
+  <li>Looks for a file called <code>.gcc-flags.json</code> in every subdirectory from the current up to your project root (subdirectory/project-specific settings)</li>
+  <li>If no <code>.gcc-flags.json</code> is found, the settings in your configuration page are used.</li>
+</ol>
+
+<p>The package takes its settings from the first configuration file that is found.</p>
+
+<p>You can specify your settings in <code>.gcc-flags.json</code>, at any level (file/subdirectory/project) using the following syntax:</p>
+
+<p><code>json
+{
+  "execPath": "/usr/bin/g++",
+  "gccDefaultCFlags": "-Wall",
+  "gccDefaultCppFlags": "-Wall -std=c++11",
+  "gccErrorLimit": 15,
+  "gccIncludePaths": ".,./include,./path",
+  "gccSuppressWarnings": true
+}
+</code></p>
+
+<p>Note that the include paths need to be separated by commas. If this file is present, it will replace the settings you specified in the settings window. Relative paths (starting with <code>.</code> or <code>..</code>) are expanded with respect to the root folder. Both <code>execPath</code> and <code>gccIncludePaths</code> are expanded.</p>
+
+<p>In order to avoid unwanted behavior associated with having multiple projects open, only the paths within the first project are used, and the package limits its search to 30 levels when looking for a configuration file. You can work with multiple projects, as long as each is open in a separate window. Additionally, within each project, you may have as many file/directory-specific configuration files as you wish.</p>
+
+<h3 id="usage-notes">Usage notes:</h3>
+<ul>
+  <li>Add <code>-fsyntax-only</code> to your C/C++ compilation flags to prevent the generation of <code>.gch</code> files when linting headers</li>
+  <li>Add <code>-c</code> to your flags to avoid linking errors.</li>
+</ul>
+
+<h3 id="plugin-installation">Plugin installation</h3>
+<p>Press ctrl and ‘,’ or cmd and ‘,’ , click on ‘Packages’, search ‘linter gcc’, or:
+<code>
+$ apm install linter-gcc
+</code>
+### Reporting Issues</p>
+
+<p>Please read the <a href="https://github.com/hebaishi/linter-gcc/wiki/">Wiki</a> before reporting any issues.</p>
+
+lint,linter,c,c++,gcc,g++,error
+    </section>
+    <footer>
+      <p>
+        Made with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a>
+      </p>
+      <p>
+        <small>Last updated: 2016-04-29</small>
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+  </body>
+</html>

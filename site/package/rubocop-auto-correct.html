@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>Rubocop Auto Correct</h1>
+<h1 id="rubocop-auto-correct-package-build-statushttpstravis-ciorgtomoyarubocop-auto-correctsvgbranchmasterhttpstravis-ciorgtomoyarubocop-auto-correct">rubocop-auto-correct package <a href="https://travis-ci.org/tomoya/rubocop-auto-correct"><img src="https://travis-ci.org/tomoya/rubocop-auto-correct.svg?branch=master" alt="Build Status" /></a></h1>
+
+<p>Auto-correct ruby source code by using rubocop in Atom.</p>
+
+<p><img src="https://cloud.githubusercontent.com/assets/18009/8393555/a35f1530-1d4f-11e5-9a5f-089927e54f38.gif" alt="rubocop-auto-correct:current-file" /></p>
+
+<h2 id="prerequisites">Prerequisites</h2>
+
+<p>You have <a href="https://github.com/bbatsov/rubocop">rubocop</a> installed.</p>
+
+<pre><code>$ gem install rubocop
+</code></pre>
+
+<h2 id="usage">Usage</h2>
+
+<ol>
+  <li>Run <code>Rubocop Auto Correct: Current File</code> from Command Palette</li>
+  <li>Select <code>Rubocop Auto-correct</code> in Context menu</li>
+  <li>Select [Packages] -&gt; [Rubocop Auto-correct] -&gt; [Current File] in menu bar</li>
+</ol>
+
+<h3 id="commands">Commands</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>RUbocop Auto Correct: Current File</code></td>
+      <td>Run rubocop auto-correct to current file</td>
+    </tr>
+    <tr>
+      <td><code>RUbocop Auto Correct: Toggle Notification</code></td>
+      <td>Toggle notification option</td>
+    </tr>
+    <tr>
+      <td><code>RUbocop Auto Correct: Toggle Auto Run</code></td>
+      <td>Toggle auto run option</td>
+    </tr>
+    <tr>
+      <td><code>RUbocop Auto Correct: Toggle Debug Mode</code></td>
+      <td>Toggle debug-mode option</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="keymap-example">Keymap example</h2>
+
+<p>This package does not provide default keymap.</p>
+
+<p>If you want to use the commands from keybinding, please set up <code>~/.atom/keymap.cson</code> following the below:</p>
+
+<p><code>coffee
+'atom-text-editor[data-grammar~="ruby"]':
+  'alt-r': 'rubocop-auto-correct:current-file'
+</code></p>
+
+<h2 id="settings">Settings</h2>
+
+<p><img src="https://cloud.githubusercontent.com/assets/18009/12009029/a5a30586-aca1-11e5-9bf8-883418341057.png" alt="rubocop-auto-correct setting panel" /></p>
+
+<h3 id="auto-run">Auto Run</h3>
+
+<p>This package supports auto-run. When checked, it runs Rubocop auto correct. But, <strong>it does not run automatically unless you activate this package</strong>.</p>
+
+<p>You can activate it by running manually <code>Rubocop Auto Correct: Current File</code> once at Atom window.</p>
+
+<ul>
+  <li>default value is <code>false</code></li>
+</ul>
+
+<p>You can enable/disable this option by <code>Rubocop Auto Correct: Toggle Auto Run</code> command at any time.</p>
+
+<h3 id="correct-file">Correct File</h3>
+
+<p>You can correct a file directly if you enable this option. You do not need to save file after correcting it.</p>
+
+<ul>
+  <li>default value is <code>false</code></li>
+</ul>
+
+<p>I recommend you to enable <code>Auto Run</code> &amp; <code>Correct File</code> options. Then, all files are corrected automatically.</p>
+
+<h3 id="notification">Notification</h3>
+
+<p>When this option is disabled, you do not receive any notifications even thought a file is corrected.</p>
+
+<ul>
+  <li>default value is <code>true</code></li>
+</ul>
+
+<p>You can enable/disable this option by <code>Rubocop Auto Correct: Toggle Notification</code> command at any time.</p>
+
+<h3 id="rubocop-command-path">Rubocop Command Path</h3>
+
+<p>If you already installed rubocop, please check package setting at <code>Rubocop Command Path</code>. For example <code>~/.rbenv/shims/rubocop</code>.</p>
+
+<p>If you want to set arguments, please set arguments with command at here. For example <code>rubocop --format simple</code></p>
+
+<ul>
+  <li>default value is <code>rubocop</code></li>
+</ul>
+
+<h3 id="debug-mode">Debug Mode</h3>
+
+<p>When this option is disabled, you can get log on console.</p>
+
+<ul>
+  <li>default value is <code>false</code></li>
+</ul>
+
+<p>You can enable/disable this option by <code>Rubocop Auto Correct: Toggle Debug Mode</code> command at any time.</p>
+
+<h2 id="contributing">Contributing</h2>
+
+<ol>
+  <li>Fork it ( https://github.com/tomoya/rubocop-auto-correct/fork )</li>
+  <li>Create your feature branch (<code>git checkout -b my-new-feature</code>)</li>
+  <li>Commit your changes (<code>git commit -am 'Add some feature'</code>)</li>
+  <li>Push to the branch (<code>git push origin my-new-feature</code>)</li>
+  <li>Create a new Pull Request</li>
+</ol>
+
+ruby,rubocop,refactoring
+    </section>
+    <footer>
+      <p>
+        Made with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a>
+      </p>
+      <p>
+        <small>Last updated: 2016-04-29</small>
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+  </body>
+</html>

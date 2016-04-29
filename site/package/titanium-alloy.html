@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>Titanium Alloy</h1>
+<h1 id="all-in-one-package-for-titanium-alloy">All-in-One package for Titanium Alloy</h1>
+<p>This is a Atom package for <a href="https://github.com/appcelerator/alloy">Titanium Alloy</a></p>
+
+<p><code>
+$ apm install titanium-alloy
+</code></p>
+
+<blockquote>
+  <p><strong>Conflict &amp; Requires Notice</strong><br />
+- Requires
+  - <a href="https://atom.io/packages/hyperclick">Hyperclick</a> package for Jump to definition <br />
+  (Now It will be installed automatically.  After relaunch atom, Hyperclick works. Thanks @HazemKhaled #16)
+- Conflict
+  - If you using other tss grammar package, such as language-tss. It makes this package doesn’t work.</p>
+</blockquote>
+
+<h2 id="features">Features</h2>
+<p>This Documentation will be updated. :)</p>
+
+<h3 id="autocomplete">Autocomplete</h3>
+<ul>
+  <li>XML Autocomplete : tagName, property names of current Tag, values of current property
+    <ul>
+      <li>id and class name completion baseon related tss file and <code>app.tss</code> file.</li>
+    </ul>
+  </li>
+  <li>TSS autocomplete : tagName, property names, values of current property
+  <img src="https://github.com/yomybaby/atom-titanium/raw/master/screenshot_autocomplete_2.gif" alt="autocomplete" /></li>
+</ul>
+
+<h3 id="jump-to-definition">Jump to definition</h3>
+<p>This feature is a <a href="https://atom.io/packages/hyperclick">hyperclick</a> provider.   <a href="https://atom.io/packages/hyperclick">hyperclick</a> package required.</p>
+
+<ul>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>jump to tss definition from xml [class</td>
+          <td>id</td>
+          <td>tag] name</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>jump to event handler definition from xml <code>onEventName</code> property.</li>
+</ul>
+
+<p><img src="https://github.com/yomybaby/atom-titanium/raw/master/screenshot2_jumpto.gif" alt="jump-to-definition" /></p>
+
+<p>Hyperclick is triggered by two events:
+- <code>&lt;cmd&gt;</code> or <code>&lt;cmd-mousemove&gt;</code> underlines clickable text under the mouse.
+- <code>&lt;cmd-mousedown&gt;</code> performs the action associated with the clickable text.
+- <code>&lt;cmd-alt-enter&gt;</code> performs the action on the text under the cursor.</p>
+
+<h3 id="open-related-file-depend-on-current-focused-file">Open related file depend on current focused file</h3>
+<p>Key Bindings | Command Desc
+———– | ————
+<code>ctrl-alt-a</code> | Open all relative files
+<code>ctrl-alt-v</code> | Open view
+<code>ctrl-alt-s</code> | Open style
+<code>ctrl-alt-c</code> | Open controller</p>
+
+<p>On package setting, there is an option to change layout of “Open All related files” command. (2 columns or 3columns)</p>
+
+<h3 id="tss-sytax-highlight">TSS Sytax Highlight</h3>
+<p>refer to language-css and language-json, language-tss<br />
+<img src="https://github.com/yomybaby/atom-titanium/raw/master/screenshot1.gif" alt="tss-highlight" /><br />
+This hightlight use css color your current theme. So tss file looks like css file.</p>
+
+<h2 id="reference">Reference</h2>
+<ul>
+  <li><a href="https://github.com/atom/autocomplete-css">Autocomplete css</a></li>
+  <li>Jump to definition by clicking
+    <ul>
+      <li><a href="https://github.com/js-padavan/atom-css-class-checker">css package</a></li>
+      <li><a href="https://atom.io/packages/hyperclick">hyperclick</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="release-note">Release note</h2>
+<p>See <a href="https://github.com/yomybaby/atom-titanium/releases">github repo release page</a>.</p>
+
+<h2 id="contribution">Contribution?</h2>
+<ul>
+  <li>Any issue, sugestion, PR makes me happy.</li>
+</ul>
+
+<p><a href="https://github.com/igrigorik/ga-beacon"><img src="https://ga-beacon.appspot.com/UA-67056753-1/atom-titanium/readme" alt="Analytics" /></a></p>
+
+titanium,alloy,jump-to-definition,autocomplete
+    </section>
+    <footer>
+      <p>
+        Made with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a>
+      </p>
+      <p>
+        <small>Last updated: 2016-04-29</small>
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+  </body>
+</html>

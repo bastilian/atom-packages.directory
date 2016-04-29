@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>R Exec</h1>
+<h1 id="r-exec">r-exec</h1>
+
+<p>Send R code from Atom to be executed in R.app, Terminal, iTerm, or a web browser running RStudio Server on Mac OS X.  The current selection is sent or in the case of no selection the current line is sent.</p>
+
+<h2 id="installation">Installation</h2>
+
+<p><code>apm install r-exec</code></p>
+
+<p>or</p>
+
+<p>Search for <code>r-exec</code> within package search in the Settings View.</p>
+
+<h2 id="configuration">Configuration</h2>
+
+<h3 id="keybindings">Keybindings</h3>
+
+<p>While <code>cmd-enter</code> is bound to sending code in the package, it is also annoyingly bound to entering a new line by default in atom.
+In order to make it work, you must add the following binding in <code>~/.atom/keymap.cson</code>:</p>
+
+<p><code>javascript
+'atom-workspace atom-text-editor:not([mini])':
+  'cmd-enter': 'r-exec:send-command'
+</code></p>
+
+<h3 id="behavior">Behavior</h3>
+
+<p>All configuration can be done in the settings panel. Alternatively, you can edit your configuration file as noted below.</p>
+
+<p>In your global configuration file (<code>~/.atom/init.coffee</code>), you may set the following variables:</p>
+
+<ul>
+  <li><code>r-exec.whichApp</code> which R application to use. Valid applications are:
+    <ul>
+      <li><code>R.app</code>: the default (the R GUI)</li>
+      <li><code>iTerm</code> or <code>Terminal</code>: Assumes the currently active terminal has R running</li>
+      <li><code>Safari</code> or <code>Google Chrome</code>: assumes the currently active tab has an active RStudio session running, with the console active</li>
+    </ul>
+  </li>
+  <li><code>r-exec.advancePosition</code>
+    <ul>
+      <li>if <code>true</code>, go to the next line/paragraph after running the current line/paragraph</li>
+      <li>if <code>false</code>, leave the cursor where it currently is</li>
+    </ul>
+  </li>
+  <li><code>r-exec.focusWindow</code>
+    <ul>
+      <li>if <code>true</code>, focus the window before sending code</li>
+      <li>if <code>false</code>, send the code in the background and stay focused on Atom. This is not possible when sending code to a browser</li>
+    </ul>
+  </li>
+  <li><code>r-exec.notifications</code>
+    <ul>
+      <li>if <code>true</code>, notifications via <code>NotificationManager</code> when a paragraph or function is not identified</li>
+    </ul>
+  </li>
+</ul>
+
+<p>The default configuration looks like this:</p>
+
+<p><code>javascript
+atom.config.set('r-exec.whichApp', 'R.app')
+atom.config.set('r-exec.advancePosition', false)
+atom.config.set('r-exec.focusWindow', true)
+atom.config.set('r-exec.notifications', true)
+</code></p>
+
+<h2 id="usage">Usage</h2>
+
+<ul>
+  <li><code>cmd-enter</code>: send code to configured application (<code>r-exec:whichApp</code>).</li>
+  <li><code>shift-cmd-e</code>: change to current working directory of current file.</li>
+  <li><code>shift-cmd-k</code>: send code between a knitr block (currently only RMarkdown supported).</li>
+  <li><code>shift-cmd-u</code>: send function under current cursor. Currently, only functions that begin of the first column in and on the first column of a line are sent. An example:
+<code>r
+myFunction &lt;- function(x) {
+# my code goes here
+}
+</code></li>
+  <li><code>shift-cmd-m</code>: send paragraph under current cursor. A paragraph is a region enclosed by whitespace.</li>
+</ul>
+
+<h2 id="notes">Notes</h2>
+
+<p>This is very much in an <strong>alpha</strong> state and is a quick hobby project.  It is currently Mac-only because these things are easy to do with AppleScript.  Any help on the Windows or Linux side would be great.</p>
+
+<p>In the RStudio Server case, the solution is pretty clunky - the code is sent to the clipboard and then a paste command is sent to Safari.  But it works.</p>
+
+<h2 id="todo">TODO</h2>
+
+<ul>
+  <li>Make the choice of which R.app to send the code to configurable, based on a project-level configuration variable (sometimes multiple copies of R.app are made so that multiple R GUIs can be running simultaneously for different projects).</li>
+  <li>In RStudio Server case, make sure active window really is RStudio Server before pasting, maybe by checking the  <a href="http://www.alfredforum.com/topic/2013-how-to-get-frontmost-tab's-url-and-title-of-various-browsers/">title</a>.</li>
+  <li>Error reporting.</li>
+  <li>Support for Windows and Linux.</li>
+</ul>
+
+r,rstats,code,run,runner
+    </section>
+    <footer>
+      <p>
+        Made with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a>
+      </p>
+      <p>
+        <small>Last updated: 2016-04-29</small>
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+  </body>
+</html>

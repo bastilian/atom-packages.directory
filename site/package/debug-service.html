@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>Debug Service</h1>
+<h1 id="debug-service">Debug service</h1>
+
+<p>provides a debugger as a service for other atom packages.</p>
+
+<p><img src="https://cloud.githubusercontent.com/assets/1881921/8181891/0c83fbae-142a-11e5-9436-6148fe26d6c2.png" alt="debug service" /></p>
+
+<h4 id="only-works-in-dev-mode">Only works in dev mode!</h4>
+
+<h2 id="usage">Usage</h2>
+
+<p>package.json
+<code>json
+{
+  "otherStuff": "otherData",
+  "consumedServices": {
+    "debug": {
+      "versions": {
+        "^0.0.1": "consumeDebug"
+      }
+    }
+  }
+}
+</code></p>
+
+<p>your package:
+```coffee
+  # in your package declaration
+  # so debugging is invisible to users and you can disable debugging on single packages
+  config:
+    debug:
+      type: “integer”
+      default: 0
+      minimum: 0
+  #in main module
+  consumeDebug: (debugSetup) =&gt;
+    debug = debugSetup(pkg: “yourPackageName”, nsp: “someNamespace”)</p>
+
+<pre><code># if in dev mode, and debug variable in config of your package is at least 2
+# will print "yourPackageName.someNamespace: debug service consumed"
+debug "debug service consumed", 2
+
+# the level is optional, this will work also:
+debug "somethingSomething"
+
+# you can defer nsp setting for later
+debugCreator = debugSetup(pkg: "yourPackageName")
+debugNSP1 = debugCreator("NSP1")
+debugNSP2 = debugCreator("NSP2") ```
+</code></pre>
+
+<h2 id="license">License</h2>
+<p>Copyright (c) 2015 Paul Pflugradt
+Licensed under the MIT license.</p>
+
+atom,debug,service
+    </section>
+    <footer>
+      <p>
+        Made with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a>
+      </p>
+      <p>
+        <small>Last updated: 2016-04-29</small>
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+  </body>
+</html>

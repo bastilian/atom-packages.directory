@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>Format Lua</h1>
+<h1 id="atom-format-lua-package">atom-format-lua package</h1>
+<hr />
+
+<p><a href="https://gitter.im/mingjunyang/atom-format-lua?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge&amp;utm_content=badge"><img src="https://badges.gitter.im/mingjunyang/atom-format-lua.svg" alt="Join the chat at https://gitter.im/mingjunyang/atom-format-lua" /></a>
+本项目来自主要代码来自 <a href="https://github.com/denglf/FormatLua">FormatLua</a>，经过该项目作者同意使用MIT协议使用到atom package。</p>
+
+<h3 id="need-lua51-on-your-paththe-formatterlua-did-not-work-on-lua52-">need lua5.1 on your PATH,the formatter.lua did not work on lua5.2 .</h3>
+
+<p>on linux system , you can use command <code>which lua5.1</code> ,if result like <code>/usr/bin/lua5.1</code>,it’s can work.
+###</p>
+
+<h6 id="rewrite-atom-format-luacoffee-as-libatom-format-luajs">2016-01-23 rewrite atom-format-lua.coffee as lib/atom-format-lua.js</h6>
+
+<h6 id="add-lua51-path-in-configcson">2015-10-07 add lua5.1 path in config.cson</h6>
+
+<p>you should be set this value in <code>config.cson</code>
+<code>cson
+   "atom-format-lua":
+     lua51: "/usr/bin/lua5.1"
+</code>
+if windows7/8/10.I haven’t windows system,so I don’t know where is lua5.1, maybe the  path like <code>C:\\xx\\xx\\lua5.1.exe</code>
+<code>cson
+   "atom-format-lua":
+     lua51: "c:\program file\lua\bin\lua5.1.exe"
+</code></p>
+
+<h6 id="fix-didnot-work">2015-08-27 fix didnot work</h6>
+<p>It’s my error.
+在设置 formatter.lua 工作环境变量的时候取值如下，之前测试的时候没有发现问题,因为我就是在<code>atom-format-lua</code>包里测试的，能正常的工作。
+<code>coffescript
+wkspc=path.resolve('./luacode')
+</code>
+但是后来发现，换到其他的工作目录之后，上面方式取到的路径是当前工作目录的路径，所以这个插件使用的时候是报错的，在这之前完全没有正常工作。</p>
+
+<h6 id="alpha-010">2015-08-22 alpha 0.1.0</h6>
+<ol>
+  <li>初步完成了原型功能，非常粗糙，这是第一次写coffescript，很多问题还要继续处理，写了一半才发现可以直接写JavaScript。</li>
+  <li>没有信息提示，没有错误提示，没有状态栏提示。</li>
+  <li>代码看上去不美观，代码逻辑层次也不清晰。</li>
+  <li>没有写配置信息到atom的配置文件。</li>
+  <li>没有autosave。</li>
+  <li>没有写测试代码。</li>
+  <li>没有在window和mac下测试运行，仅仅在openSUSE13.2中测试。</li>
+  <li>没有英文文档。</li>
+  <li>keymap可能会冲突，还不会配置。</li>
+</ol>
+
+lua,format
+    </section>
+    <footer>
+      <p>
+        Made with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a>
+      </p>
+      <p>
+        <small>Last updated: 2016-04-29</small>
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+  </body>
+</html>

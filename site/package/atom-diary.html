@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>Diary</h1>
+<h1 id="atom-diary-package">atom-diary package</h1>
+
+<p>Keep a diary in atom using markup like <a href="http://asciidoc.org/">Asciidoc</a> or <a href="https://daringfireball.net/projects/markdown/">Markdown</a>.</p>
+
+<p>This addon allows you to keep a diary in atom - how great is that?  It has a nice three month calendar view for easy navigation to past entries and organizes your diary files in monthly files.</p>
+
+<ul>
+  <li>Add an entry for today: <code>Ctrl-Alt-E</code></li>
+  <li>Open calendar view: <code>Ctrl-Shift-E</code></li>
+</ul>
+
+<p>This addon is inspired by my Emacs module <a href="http://meta-x.de/software/diary-private.el">diary-private.el</a></p>
+
+<p>You might want to install the <a href="https://atom.io/packages/asciidoctor-preview">Asciidoctor preview package for Atom</a> for previewing your diary files.</p>
+
+<h2 id="features">Features</h2>
+
+<p><img src="https://raw.githubusercontent.com/sluedecke/atom-diary/master/screenshot.png" alt="Screenshot of atom-diary" /></p>
+
+<ul>
+  <li><code>Ctrl-Alt-E</code>: Creates month based Asciidoc or Markdown files for diaries</li>
+  <li><code>Ctrl-Shift-E</code>: Opens three month calendar view, days with entries are clickable</li>
+  <li>Calendar view allows to navigate back and forth between months and years</li>
+  <li>User can set a language for the diary files different from the system language</li>
+  <li>User can create a printable version of the full diary (Asciidoc only at the moment)</li>
+</ul>
+
+<h2 id="todo-items">TODO items</h2>
+
+<h3 id="major-features">Major features</h3>
+
+<ol>
+  <li>[IN PROGRESS] Make diary printable
+    <ul>
+      <li>[DONE] create meta Asciidoc files to create a printable diary</li>
+      <li>create meta Markdown files to create a printable diary</li>
+      <li>Calendar View
+        <ul>
+          <li>Create new entries by right-clicking on a day</li>
+          <li>add year selector (click on a year number to open selector, shall navigate to the selected year and the current month)</li>
+        </ul>
+      </li>
+      <li>Make diary manageable
+        <ul>
+          <li>Add command to open diary basedir as a project with own tree-view, probably integrate with <a href="https://atom.io/packages/project-manager">project-manager</a></li>
+          <li>add sorting and other cleanup routines</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ol>
+
+<h3 id="minor-features">Minor features</h3>
+
+<ul>
+  <li>expand on ~/ and $HOME in baseDir configuration</li>
+  <li>Improve markup support by using file templates</li>
+  <li>watch for changes on diary files even when they are changed by atom outside atom-diary</li>
+  <li>add some simple caching in calendar-lib::getDays which is based on file modification times</li>
+</ul>
+
+diary,asciidoc,asciidoctor,markdown
+    </section>
+    <footer>
+      <p>
+        Made with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a>
+      </p>
+      <p>
+        <small>Last updated: 2016-04-29</small>
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+  </body>
+</html>

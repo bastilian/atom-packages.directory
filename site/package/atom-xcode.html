@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>Xcode</h1>
+<h1 id="atom-xcode">atom-xcode</h1>
+
+<blockquote>
+  <p>Native iOS developers have amazing Xcode - let’s bridge the gap and make Atom our to go choice</p>
+</blockquote>
+
+<h3 id="instalation">Instalation</h3>
+
+<p><code>bash
+$ apm install atom-xcode
+</code>
+### Guide</p>
+
+<p>After successful installation, open up your react-native project and check the bottom section (just where the atom-linter is located). Clicking the device name will open up another view allowing you to choose the device to run the app on.</p>
+
+<p><img height="35px" src="https://cloud.githubusercontent.com/assets/2464966/13157360/baa25440-d687-11e5-930e-6da03e1c02fe.png" /></p>
+
+<p>The terminal will automatically disappear when CLI finishes without issues, otherwise it stays opened and will highlight the error. You can close it with “ESC” key.</p>
+
+<h3 id="roadmap">Roadmap</h3>
+
+<p>The current version is a proof of concept to demonstrate we can really hack Atom to fit our needs in less than a day. Below is the list of features I’ve been thinking about implementing so far.</p>
+
+<ul>
+  <li>[ ] Add ability to select build targets</li>
+  <li>[ ] Add <code>Xcode</code> menu item with all options available</li>
+  <li>[ ] Add build command</li>
+  <li>[ ] Improve terminal colors</li>
+  <li>[ ] Improve project detection and support Android as well</li>
+  <li>[ ] Add settings and make this configureable</li>
+  <li>[ ] Decouple from RN cli and ideally ship with own library</li>
+  <li>[ ] Support multiple projects opened in Atom (for now we take the first one)</li>
+</ul>
+
+<p>Please feel free to submit your ideas by making a new issue.</p>
+
+<h3 id="faq">FAQ</h3>
+
+<h4 id="command-finishes-wo-errors-but-no-simulator-has-started">Command finishes w/o errors, but no Simulator has started</h4>
+
+<p>Try choosing different device. This error will be gone when either https://github.com/facebook/react-native/pull/5978 gets merged, or when we move the <code>run-ios</code> into this package (or <code>rnpm</code>, who knows)</p>
+
+react-native,xcode,ios,rnpm
+    </section>
+    <footer>
+      <p>
+        Made with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a>
+      </p>
+      <p>
+        <small>Last updated: 2016-04-29</small>
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+  </body>
+</html>

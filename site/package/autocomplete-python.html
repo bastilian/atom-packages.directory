@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>Autocomplete Python</h1>
+<h1 id="python-autocomplete-package-build-statushttpstravis-ciorgsadovnychyiautocomplete-pythonsvgbranchmasterhttpstravis-ciorgsadovnychyiautocomplete-python">Python Autocomplete Package <a href="https://travis-ci.org/sadovnychyi/autocomplete-python"><img src="https://travis-ci.org/sadovnychyi/autocomplete-python.svg?branch=master" alt="Build Status" /></a></h1>
+
+<p>Python packages, variables, methods and functions with their arguments autocompletion in <a href="http://atom.io">Atom</a> powered by <a href="https://github.com/davidhalter/jedi">Jedi</a>.</p>
+
+<p>See <a href="https://github.com/sadovnychyi/autocomplete-python/releases">releases</a> for release notes.</p>
+
+<p><img src="https://cloud.githubusercontent.com/assets/193864/12288427/61fe2114-ba0f-11e5-9832-98869180d87f.gif" alt="Demo" /></p>
+
+<h1 id="features">Features</h1>
+
+<ul>
+  <li>Works with :apple: Mac OSX, :penguin: Linux and :checkered_flag: Windows</li>
+  <li>Works with both :snake: Python 2 and 3</li>
+  <li>Automatic lookup of virtual environments inside of your projects</li>
+  <li>Configurable additional packages to include for completions</li>
+  <li>Prints first N characters of statement value while completing variables</li>
+  <li>Prints function arguments while completing functions</li>
+  <li>Go-to-definition functionality, by default on <code>Alt+Cmd+G</code>/<code>Ctrl+Alt+G</code>. Thanks to <a href="https://github.com/patrys">@patrys</a> for idea and implementation.</li>
+  <li>Method override functionality. Available as <code>override-method</code> command. Thanks to <a href="https://github.com/pchomik">@pchomik</a> for idea and help.</li>
+  <li>
+    <p>If you have <a href="https://atom.io/packages/hyperclick">Hyperclick</a> installed – you can click on anything to go-to-definition
+<img src="https://cloud.githubusercontent.com/assets/193864/10814177/17fb8bce-7e5f-11e5-8285-6b0100b3a0f8.gif" alt="sample" /></p>
+  </li>
+  <li>
+    <p>Show usages of selected object
+<img src="https://cloud.githubusercontent.com/assets/193864/12263525/aff07ad4-b96a-11e5-949e-598e943b0190.gif" alt="sample" /></p>
+  </li>
+  <li>Rename across multiple files. It will not touch files outside of your project, but it will change VCS ignored files. I’m not responsible for any broken projects without VCS because of this.
+<img src="https://cloud.githubusercontent.com/assets/193864/12288191/f448b55a-ba0c-11e5-81d7-31289ef5dbba.gif" alt="sample" /></li>
+</ul>
+
+<h1 id="configuration">Configuration</h1>
+
+<ul>
+  <li>If using a <a href="https://virtualenv.pypa.io/en/latest/">virtualenv</a> with third-party packages, everything should “just work”, but if it’s not – use the <code>Python Executable Paths</code> and/or <code>Extra Paths For Packages</code> configuration options to specify the virtualenv’s site-packages. Or launch Atom from the <a href="https://virtualenv.pypa.io/en/latest/userguide.html#activate-script">activated virtualenv</a> to get completion for your third-party packages</li>
+  <li>Be sure to check package settings and adjust them. Please read them carefully before creating any new issues
+    <ul>
+      <li>Set path to python executable if package cannot find it automatically</li>
+      <li>Set extra path if package cannot autocomplete external python libraries</li>
+      <li>Select one of autocomplete function parameters if you want function arguments to be completed</li>
+    </ul>
+
+    <p><img src="https://cloud.githubusercontent.com/assets/193864/11631369/aafb34b4-9d3c-11e5-9a06-e8712a21474e.png" alt="image" /></p>
+  </li>
+</ul>
+
+<h1 id="common-problems">Common problems</h1>
+
+<ul>
+  <li>“Error: spawn UNKNOWN” on Windows
+    <ul>
+      <li>Solution: Find your python executable and uncheck the “Run this program as an administrator”. See issue <a href="https://github.com/sadovnychyi/autocomplete-python/issues/22">#22</a></li>
+    </ul>
+  </li>
+  <li>You have a separated folder for virtualenvs (e.g. by using <code>virtualenvwrapper</code>) and all your virtualenvs are stored in e.g. <code>~/.virtualenvs/</code>
+    <ul>
+      <li>Create symlink to venv from your project root
+        <ul>
+          <li>OR</li>
+        </ul>
+      </li>
+      <li>Add virtualenv folder as additional project root
+        <ul>
+          <li>OR</li>
+        </ul>
+      </li>
+      <li>Use a virtualenv with the same name as the folder name of your project and use $PROJECT_NAME variable to set path to python executable.
+You can use same variable to set extra paths as well. For example:
+<code>
+/Users/name/.virtualenvs/$PROJECT_NAME/bin/python3.4
+</code></li>
+      <li>See issue <a href="https://github.com/sadovnychyi/autocomplete-python/issues/143">#143</a></li>
+    </ul>
+  </li>
+  <li>No argument completion after I type left parenthesis character
+    <ul>
+      <li>Likely this is because you have non standard keyboard layout.
+Try to install the keyboard-localization package from: https://atom.io/packages/keyboard-localization
+and use keymap generator to check what unicode character being generated after you type <code>(</code>.
+Currently we trigger argument completion only on <code>U+0028</code>, <code>U+0038</code> and <code>U+0039</code>.</li>
+    </ul>
+  </li>
+</ul>
+
+python,autocomplete,jedi
+    </section>
+    <footer>
+      <p>
+        Made with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a>
+      </p>
+      <p>
+        <small>Last updated: 2016-04-29</small>
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+  </body>
+</html>

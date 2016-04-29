@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>Video Game Name Generator</h1>
+<h1 id="atom-video-game-name-generator-package">atom-video-game-name-generator package</h1>
+
+<p><img src="https://raw.githubusercontent.com/lewismoten/atom-video-game-name-generator/master/assets/the-video-game-generator.png" alt="The Video Game Generator" /></p>
+
+<p>This is a port of <a href="http://videogamena.me">The Video Game Name Generator</a> (VGNG). This package allows you to generate random video game names in your text editor. This is great for test data and data entry. A few examples:</p>
+
+<ul>
+  <li>Stoic Death Carnage</li>
+  <li>Retro UFO Soldier</li>
+  <li>Wild Graveyard Revolution</li>
+  <li>Masters of the Karaoke - Gold Edition</li>
+  <li>Advanced Fighter Ransom</li>
+</ul>
+
+<p>Commands are accessible under the packages menu for VGNG and the context menu, as well as some key bindings and commands.</p>
+
+<p><img src="https://raw.githubusercontent.com/lewismoten/atom-video-game-name-generator/master/assets/demo.gif" alt="A screenshot of the video game name generator in action" /></p>
+
+<h2 id="commands">Commands</h2>
+
+<ul>
+  <li><code>atom-video-game-name-generator:generateSimilar</code> Generate and allow similar terms (e.g. Nighttime Night Nightmare)</li>
+  <li><code>atom-video-game-name-generator:generate</code> Generate and don’t allow similar terms (e.g. Nighttime Night Nightmare)</li>
+</ul>
+
+<h2 id="key-maps">Key maps</h2>
+
+<ul>
+  <li><code>cmd</code>-<code>shift</code>-<code>v</code>: <code>atom-video-game-name-generator:generate</code></li>
+  <li><code>cmd</code>-<code>alt</code>-<code>v</code>: <code>atom-video-game-name-generator:generateSimilar</code></li>
+</ul>
+
+<h2 id="menus">menus</h2>
+
+<ul>
+  <li><code>Package</code>&gt;<code>VGNG</code>&gt;<code>Generate</code>: <code>atom-video-game-name-generator:generateSimilar</code></li>
+  <li><code>Package</code>&gt;<code>VGNG</code>&gt;<code>Generate w/o similar terms</code>: <code>atom-video-game-name-generator:generate</code></li>
+</ul>
+
+<h2 id="context-menus">context menus</h2>
+
+<ul>
+  <li><code>VGNG</code>&gt;<code>Generate</code>: <code>atom-video-game-name-generator:generateSimilar</code></li>
+  <li><code>VGNG</code>&gt;<code>Generate w/o similar terms</code>: <code>atom-video-game-name-generator:generate</code></li>
+</ul>
+
+<h2 id="license">License</h2>
+
+<p>License / Authorization of use from the original authors (Edward Younskevicius)
+website:</p>
+
+<p><code>
+If you'd like to use the VGNG on your website, feel free! If you want to make
+your own version (or make a better one for me ;) ), the wordlist is called
+video_game_names.txt, and the syntax should be simple enough to figure out
+(three wordlists separated by dashes, with dupe protection listed after the
+"^" and separated by pipes "|".) I only ask that, if you copy the VGNG for
+your site, please don't use it for any profit-generating purpose (charging
+for it or selling ads), and include a link back to this site.
+</code></p>
+
+<p>http://videogamena.me/about.html</p>
+
+generator,random,video game,names,arcade,games,retro,data entry,testing
+    </section>
+    <footer>
+      <p>
+        Made with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a>
+      </p>
+      <p>
+        <small>Last updated: 2016-04-29</small>
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+  </body>
+</html>

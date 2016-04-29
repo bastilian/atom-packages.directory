@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>Go Plus</h1>
+<h1 id="go-plushttpsatomiopackagesgo-plus-build-statushttpstravis-ciorgjoefitzgeraldgo-plussvgbranchmasterhttpstravis-ciorgjoefitzgeraldgo-plus-build-statushttpsciappveyorcomapiprojectsstatusd0cekvaprt9wo1etbranchmastersvgtruehttpsciappveyorcomprojectjoefitzgeraldgo-plusbranchmaster-slackhttpsimgshieldsiobadgeatomslack-23go--plus-bluesvgstyleflathttpsatom-slackherokuappcom-slackhttpsimgshieldsiobadgegophersslack-23go--plus-bluesvgstyleflathttpsgophersinviteherokuappcom"><a href="https://atom.io/packages/go-plus">go-plus</a> <a href="https://travis-ci.org/joefitzgerald/go-plus"><img src="https://travis-ci.org/joefitzgerald/go-plus.svg?branch=master" alt="Build Status" /></a> <a href="https://ci.appveyor.com/project/joefitzgerald/go-plus/branch/master"><img src="https://ci.appveyor.com/api/projects/status/d0cekvaprt9wo1et/branch/master?svg=true" alt="Build status" /></a> <a href="https://atom-slack.herokuapp.com"><img src="https://img.shields.io/badge/atom_slack-%23go--plus-blue.svg?style=flat" alt="Slack" /></a> <a href="https://gophersinvite.herokuapp.com"><img src="https://img.shields.io/badge/gophers_slack-%23go--plus-blue.svg?style=flat" alt="Slack" /></a></h1>
+
+<blockquote>
+  <p>An Improved <a href="https://www.golang.org">Go</a> Experience For The <a href="https://atom.io">Atom Editor</a></p>
+</blockquote>
+
+<ul>
+  <li>Github: https://github.com/joefitzgerald/go-plus</li>
+  <li>Atom: https://atom.io/packages/go-plus</li>
+</ul>
+
+<h2 id="overview">Overview</h2>
+
+<p>This package adds extra functionality to Atom for the go language by installing the following packages:</p>
+
+<ul>
+  <li><a href="https://atom.io/packages/autocomplete-go">autocomplete-go</a>: Autocomplete using <code>gocode</code></li>
+  <li><a href="https://atom.io/packages/gofmt">gofmt</a>: Formatting source using <code>gofmt</code>, <code>goimports</code>, or <code>goreturns</code></li>
+  <li><a href="https://atom.io/packages/builder-go">builder-go</a>: Run <code>go install .</code> and <code>go test -c -o {tempdir} .</code> to verify your code can compile and to keep gocode suggestions up to date</li>
+  <li><a href="https://atom.io/packages/gometalinter-linter">gometalinter-linter</a>: Run a variety of linters (e.g. <code>golint</code>, <code>vet</code>, <code>gotype</code>, etc.) against your code</li>
+  <li><a href="https://atom.io/packages/navigator-godef">navigator-godef</a>: Go to definition using <code>godef</code></li>
+  <li><a href="https://atom.io/packages/tester-go">tester-go</a>: Display test coverage using <code>go test -coverprofile</code></li>
+  <li><a href="https://atom.io/packages/gorename">gorename</a>: Rename the symbol under your cursor using <code>gorename</code></li>
+</ul>
+
+<h2 id="platforms">Platforms</h2>
+
+<p>The package has CI for OS X, Windows and Ubuntu.</p>
+
+<h2 id="detection-of-your-go-installation">Detection Of Your Go Installation</h2>
+
+<p>This package relies on <a href="https://atom.io/packages/go-config">go-config</a> to detect your go installation(s), your <code>GOPATH</code>, and the location of your installed tools.</p>
+
+<h2 id="installing-missing-tools">Installing Missing Tools</h2>
+
+<p>If you are missing any required tools, you may be prompted by <a href="https://atom.io/packages/go-get">go-get</a> to install them. You can also manually install the required tools in your terminal.</p>
+
+<h2 id="having-issues">Having Issues?</h2>
+
+<p><code>go-plus</code> has evolved over time, and is now a collection of curated single-purpose packages. If you are having issues, please file an issue at the relevant repository:</p>
+
+<ul>
+  <li><a href="https://github.com/joefitzgerald/go-config"><code>runtime detection</code></a>: <a href="https://github.com/joefitzgerald/go-config/issues/new">create issue</a></li>
+  <li><a href="https://github.com/joefitzgerald/autocomplete-go"><code>autocompletion / gocode</code></a>: <a href="https://github.com/joefitzgerald/autocomplete-go/issues/new">create issue</a></li>
+  <li><a href="https://github.com/joefitzgerald/builder-go"><code>building</code></a>: <a href="https://github.com/joefitzgerald/builder-go/issues/new">create issue</a></li>
+  <li><a href="https://github.com/joefitzgerald/gometalinter-linter"><code>linting / gometalinter</code></a>: <a href="https://github.com/joefitzgerald/gometalinter-linter/issues/new">create issue</a></li>
+  <li><a href="https://github.com/joefitzgerald/gofmt"><code>gofmt / goimports / goreturns</code></a>: <a href="https://github.com/joefitzgerald/gofmt/issues/new">create issue</a></li>
+  <li><a href="https://github.com/joefitzgerald/navigator-godef"><code>go to definition / godef</code></a>: <a href="https://github.com/joefitzgerald/navigator-godef/issues/new">create issue</a></li>
+  <li><a href="https://github.com/joefitzgerald/tester-go/issues/new"><code>test coverage</code></a></li>
+  <li><a href="https://github.com/zmb3/gorename"><code>gorename</code></a>: <a href="https://github.com/zmb3/gorename/issues/new">create issue</a></li>
+</ul>
+
+<h2 id="contributors">Contributors</h2>
+<p>A list of contributors can be found at https://github.com/joefitzgerald/go-plus/graphs/contributors. Joe Fitzgerald (<a href="https://github.com/joefitzgerald">@joefitzgerald</a>) is the maintainer of this project.</p>
+
+<h2 id="contributing">Contributing</h2>
+
+<p>Contributions are greatly appreciated. Please fork this repository, make your
+changes, and open a pull request. See <a href="https://github.com/joefitzgerald/go-plus/wiki/Contributing">Contributing</a> for detailed instructions.</p>
+
+go,golang,autocomplete,gofmt,gocode,format,fmt,godef,goimports,gorename,goreturns,lint,vet,gometalinter
+    </section>
+    <footer>
+      <p>
+        Made with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a>
+      </p>
+      <p>
+        <small>Last updated: 2016-04-29</small>
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+  </body>
+</html>

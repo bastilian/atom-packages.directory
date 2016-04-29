@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>Process Palette</h1>
+<h1 id="process-palette">Process Palette</h1>
+<p>With Process Palette you can add custom entries to the command palette to run any command that you typically would from a terminal. This prevents you from having to switch to a terminal each time you need to run something and is especially useful for commands that you use regularly.</p>
+
+<p>See the <a href="https://github.com/morassman/process-palette/blob/master/CHANGELOG.md">changelog</a> for the latest improvements.</p>
+
+<h2 id="quick-start">Quick Start</h2>
+<p>Install Process Palette and then either generate or download a configuration file.</p>
+
+<h3 id="generate-configuration">Generate Configuration</h3>
+<ol>
+  <li>Open the Process Palette panel by choosing <code>Packages|Process Palette|Toggle</code> from the menu or <code>Process Palette: Toggle</code> from the command palette. The following panel will appear:
+<img src="https://github.com/morassman/process-palette/blob/master/resources/help.png?raw=true" alt="Screenshot" /></li>
+  <li>Create a global configuration or a project specific configuration with the respective <code>Do it!</code> buttons. If a project specific configuration is created and more than one project is open then one can be chosen from the dialog box that will appear.</li>
+  <li>Either of the <code>Do it!</code> buttons will create an example configuration file and open it in the graphical editor.</li>
+  <li>Configuration files can be edited graphically by choosing <code>Packages|Process Palette|Edit Configuration</code> from the menu or <code>Process Palette: Edit Configuration</code> from the command palette. Closing the editor will automatically reload the configuration. The <code>process-palette.json</code> file can also be edited directly, but then it needs to be reloaded by running <code>Process Palette: Reload Configuration</code>.</li>
+</ol>
+
+<h3 id="download-configuration">Download Configuration</h3>
+<ol>
+  <li>Download the example <a href="https://github.com/morassman/process-palette/blob/master/examples/process-palette.json" title="process-palette.json">process-palette.json</a> configuration file and place it in the root of your project folder.</li>
+  <li>Load the new configuration file by choosing <code>Packages|Process Palette|Reload Configuration</code> from the menu or <code>Process Palette: Reload Configuration</code> from the command palette.</li>
+</ol>
+
+<p>These example configurations define a command that will echo a message to standard output. It can be run by choosing <code>Process Palette: Echo Example</code> from the command palette. This will open the Process Palette panel and show the output. The panel can also be opened directly by pressing <code>Ctrl-Alt-P</code> or running <code>Process Palette: Toggle</code> from the command palette.</p>
+
+<p>It also contains an example called <code>Stream Example</code> to show the direct stream ability. When streaming is enabled the output is written directly to the target without being formatted.</p>
+
+<h3 id="next-steps">Next Steps</h3>
+<ol>
+  <li>Play with the graphical editor or poke around in the configuration file a bit. Just remember to run the <code>Process Palette: Reload Configuration</code> command after making changes.</li>
+  <li>Read the rest of this document. Especially the <strong>Properties</strong> and <strong>Variables</strong> sections for extra flexibility.</li>
+</ol>
+
+<h2 id="graphical-editor">Graphical Editor</h2>
+<p>The graphical editor makes it easier to edit the configuration files. It can be used by choosing <code>Process Palette: Edit Configuration</code> from the command palette. A dialog will pop up from where you can choose to edit either the global configuration or a project specific configuration. The following is a screenshot of the graphical editor.</p>
+
+<p><img src="https://github.com/morassman/process-palette/blob/master/resources/editor.png?raw=true" alt="Screenshot" /></p>
+
+<p>The commands are listed on the left. Selecting one will show its details on the right. Pressing the <code>Edit Patterns</code> button allows you to define custom patterns for recognizing file paths and line numbers when writing output to the panel, although the default built-in pattern ought to be sufficient in most cases.</p>
+
+<p>The configuration file will be saved and automatically reloaded when closed.</p>
+
+<h2 id="configuration-files">Configuration Files</h2>
+<p>The configuration files can also be edited by hand. The remainder of the document will describe how to do this.</p>
+
+<p>Commands are specified with a configuration file in JSON format. The name of the file must be <code>process-palette.json</code> and should be in the root of your project folder. If you have multiple project folders, each with its own configuration file, then their configurations will be merged.</p>
+
+<p>A <code>process-palette.json</code> file can also be placed in your <code>~/.atom</code> folder. If that is the case then it will be loaded first and any project specific files will be loaded afterwards.</p>
+
+<h3 id="basic-example">Basic Example</h3>
+<p>A <code>process-palette.json</code> configuration file contains an array called <code>commands</code>. The following is an example of an empty array:
+<code>json
+{
+  "commands" : [
+  ]
+}
+</code>
+Each entry in the array is an object that describes one command. The most basic configuration simply specifies the command to run and associates it with an action. The following command will run <a href="https://ant.apache.org/">Ant</a> without any arguments:
+<code>json
+{
+  "commands" : [
+    {
+      "command" : "ant",
+      "action"  : "Ant default"
+    }
+  ]
+}
+</code></p>
+
+<p><strong>Tip!</strong> :
+All <code>process-palette.json</code> configuration files can be reloaded by running the <code>Process Palette: Reload Configuration</code> command. It can be found in the <code>Command Palette</code> or in the <code>Packages|Process Palette</code> menu. There is also a reload button in the top right of the Process Palette panel.</p>
+
+<p>The new command will cause an entry to be added to the command palette called <code>Process Palette: Ant default</code>.</p>
+
+<p><img src="https://github.com/morassman/process-palette/blob/master/resources/command-palette-basic.png?raw=true" alt="Screenshot" /></p>
+
+<p>The working directory used when running a command is by default the project path, but it can also be configured. More on this in the Advanced Configuration section.</p>
+
+<p>Command line arguments can also be specified in the form of an array of strings. The following example adds another command that causes the <code>clean</code> target to be executed by means of an argument:
+<code>json
+{
+  "commands" : [
+    {
+      "action"  : "Ant default",
+      "command" : "ant"
+    },
+    {
+      "action"  : "Ant clean artifacts",
+      "command" : "ant clean"
+    }
+  ]
+}
+</code></p>
+
+<p>Reloading the configuration will cause the command palette to now have two new entries:
+- Process Palette: Ant default
+- Process Palette: Ant clean artifacts</p>
+
+<p>The namespace used for all commands is by default <code>Process Palette</code>. This is also configurable. One must just be careful to not override commands in existing packages.</p>
+
+<p>Let’s modify the previous two commands to use a namespace call <code>Ant</code>:
+<code>json
+{
+  "commands" : [
+    {
+      "namespace" : "Ant",
+      "action"    : "Default",
+      "command"   : "ant"
+    },
+    {
+      "namespace" : "Ant",
+      "action"    : "Clean artifacts",
+      "command"   : "ant clean",
+    }
+  ]
+}
+</code>
+After reloading the configuration file the entries will be:
+- Ant: Default
+- Ant: Clean artifacts</p>
+
+<h3 id="shortcut-keys">Shortcut Keys</h3>
+<p>Custom shortcut keys can also be associated with commands by adding a <code>keystroke</code> entry. Let’s add the keystroke <code>Ctrl-Alt-A</code> to the <code>Ant: Default</code> command:
+<code>json
+{
+  "namespace" : "Ant",
+  "action"    : "Default",
+  "command"   : "ant",
+  "keystroke"  : "ctrl-alt-a"
+}
+</code></p>
+
+<p><img src="https://github.com/morassman/process-palette/blob/master/resources/command-palette-keystroke.png?raw=true" alt="Screenshot" /></p>
+
+<p>After reloading the configuration the <code>Ant: Default</code> command can be run by pressing <code>Ctrl-Alt-A</code>.</p>
+
+<h2 id="user-interface">User Interface</h2>
+<p>### Process Palette Panel
+Process Palette has a small panel that lists all the commands that are configured. It can be toggled by pressing <code>Ctrl-Alt-P</code> or from the menu <code>Packages|Process Palette|Toggle</code>.
+From here one can see all the commands and also run them.</p>
+
+<p><img src="https://github.com/morassman/process-palette/blob/master/resources/panel-basic.png?raw=true" alt="Screenshot" /></p>
+
+<p>Pressing the down arrow in the top right corner will hide the panel.</p>
+
+<h3 id="process-instances">Process Instances</h3>
+<p>Multiple instances of a process can run at a time. The process ID of each instance is shown on the right in the form of a button. Pressing the button will show that process’ output. The process can be manually terminated by pressing the square stop button next to the process ID.</p>
+
+<h3 id="process-output-panel">Process Output Panel</h3>
+<p>If the command is configured to output to the Process Palette panel then clicking on the process ID button will cause the panel to switch to showing the output of that process.</p>
+
+<p><img src="https://github.com/morassman/process-palette/blob/master/resources/panel-output-basic.png?raw=true" alt="Screenshot" /></p>
+
+<p>The other process instances will still be shown, but the selected one will be highlighted.</p>
+
+<p>Scroll lock can be toggled with the lock button. Scroll lock will also enable when one starts to scroll or clicks on the output. It will automatically disable when one scrolls to the bottom.</p>
+
+<p>The output can be cleared by pressing the trash can button.</p>
+
+<p>From here one can return to the list by pressing the button in the top left corner.</p>
+
+<h3 id="notifications">Notifications</h3>
+<p>Each time a process is executed a message will be shown in the top right hand corner. A successful execution with an exit status code of 0 will show a success message. Anything other than 0 will show a warning. What these messages display can be configured or even disabled completely as will be seen in the Advanced Configuration section.</p>
+
+<h2 id="advanced-configuration">Advanced Configuration</h2>
+<p>The <code>namespace</code>, <code>action</code>, <code>command</code> and <code>keystroke</code> aren’t the only properties that can be configured. Of these only the <code>action</code> and <code>command</code> are required. The rest are optional and have default values.</p>
+
+<p>Many of the properties can be parameterized with variables from the environment. The following two sections describe the configurable properties and also the variables that can be used to parameterize them.</p>
+
+<h3 id="properties">Properties</h3>
+<p>Property|Description|Default
+—|—|—
+namespace|The namespace under which the command is categorized. This forms part of its identity in the Command Palette.|”Process Palette”
+action (required)|The name of the action. This, together with the namespace, gives the command a unique identifier in the Command Palette.|null
+command (required)|A string with the name and arguments of the command to execute.|null
+arguments|An array of strings to pass as arguments to the command. Since v0.4.10 arguments can be added directly to the <code>command</code> property’s value, however this approach can still be used.|[ ]
+cwd|The working directory from which to execute the command. It doesn’t have a default value, but one is automatically determined when the command is executed. If projects are open then the first project’s folder is used. If there aren’t any projects open then the folder of the <code>process-palette.json</code> file is used.|null
+keystroke|A string describing the shortcut to associate with this command. It can be any combination of <code>ctrl</code>, <code>alt</code>, <code>shift</code> and <code>cmd</code> followed by another key separated with <code>-</code> characters.|null
+env|A map of environment variables. These will be made available in addition to the ones that are already defined in <code>process.env</code>|{ }
+patterns|Array of pattern names to match.|[“default”]
+inputDialogs|Input dialogs to open in order to get input from the user which can then be used with variables.|[]</p>
+
+<p>The following properties relate to the output produced by the process. The output can be redirected to a particular target. It can also be formatted depending on whether the process executed successfully or not. Giving any of the <code>xxxOutput</code> properties a value of <code>null</code> will prevent that output from being shown.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>outputTarget</td>
+      <td>Where the output produced by the process should be directed to. It can have one of the following  values: “panel”, “editor”, “clipboard”, “console” or “void”. If the value is overridden with <code>null</code> then it will default to “void”. More on this below.</td>
+      <td>“panel”</td>
+    </tr>
+    <tr>
+      <td>successOutput</td>
+      <td>The format of the output when the process returned with an exit status of 0.</td>
+      <td>“{stdout}”</td>
+    </tr>
+    <tr>
+      <td>errorOutput</td>
+      <td>The format of the output when the process returned with a non-0 exit status.</td>
+      <td>“{stdout}\n{stderr}”</td>
+    </tr>
+    <tr>
+      <td>fatalOutput</td>
+      <td>The format of the output when the command could not be executed at all.</td>
+      <td>“Failed to execute : {fullCommand}\n{stdout}\n{stderr}”</td>
+    </tr>
+    <tr>
+      <td>stream</td>
+      <td>Indicate whether the output should be streamed. If this is false then the output will be formatted and sent to the target only after the process completes. If it is true then the output, both standard and error, will be streamed to the target without any formatting applied.</td>
+      <td>false</td>
+    </tr>
+    <tr>
+      <td>autoShowOutput</td>
+      <td>If the panel should automatically be made visible when the process produces output. At the moment this only applies when <code>outputTarget</code> is set to <code>panel</code>.</td>
+      <td>true</td>
+    </tr>
+    <tr>
+      <td>autoHideOutput</td>
+      <td>If the panel should automatically be hidden when the process terminates. It will only be hidden if the process completes successfully and also only if the output is being viewed at the time of completion. This only applies when <code>outputTarget</code> is set to <code>panel</code>.</td>
+      <td>false</td>
+    </tr>
+    <tr>
+      <td>scrollLockEnabled</td>
+      <td>If scroll lock should automatically be enabled. This only applies when <code>outputTarget</code> is set to <code>panel</code>.</td>
+      <td>false</td>
+    </tr>
+    <tr>
+      <td>maxCompleted</td>
+      <td>The maximum number of completed processes whose output to keep at a time. It is used to automatically discard the oldest completed process in order to prevent them from piling up. This property only applies when the <code>outputTarget</code> is set to <code>panel</code>. It can be disabled by setting the value to <code>null</code> in which case all panels will have to be discarded manually.</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>outputBufferSize</td>
+      <td>The maximum number of characters to accumulate from standard output and error. When the buffer size is reached the oldest output is discarded. This is not applied to the output target, but only to the output accumulated in the <code>stdout</code> and <code>stderr</code> variables. This limit can be disabled by setting it to <code>null</code>, but should be done with caution for long running processes.</td>
+      <td>80000</td>
+    </tr>
+    <tr>
+      <td>singular</td>
+      <td>Set to <code>true</code> to terminate the running process before running a new instance.</td>
+      <td>false</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The following properties relate to the messages shown after a command is executed. Giving any of the <code>xxxMessage</code> properties a value of <code>null</code> will prevent that message from being shown.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>successMessage</td>
+      <td>The format of the message when the process returned with an exit status of 0.</td>
+      <td>“Executed : {fullCommand}”</td>
+    </tr>
+    <tr>
+      <td>errorMessage</td>
+      <td>The format of the message when the process returned with a non-0 exit status.</td>
+      <td>“Executed : {fullCommand}\nReturned with code {exitStatus}\n{stderr}”</td>
+    </tr>
+    <tr>
+      <td>fatalMessage</td>
+      <td>The format of the message when the command could not be executed at all.</td>
+      <td>“Failed to execute : {fullCommand}\n{stdout}\n{stderr}”</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="output-targets">Output Targets</h3>
+<p>The <code>outputTarget</code> property specifies where the output produced by the process should be directed to. The following are valid targets:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Target</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>void</td>
+      <td>The output will not be captured at all.</td>
+    </tr>
+    <tr>
+      <td>panel</td>
+      <td>The output will be shown in Process Palette’s panel. Running a command that outputs to the panel will automatically open it if <code>autoShowOutput</code> is <code>true</code>.</td>
+    </tr>
+    <tr>
+      <td>clipboard</td>
+      <td>The output will be stored on the clipboard. Streaming to the clipboard is not supported. If <code>stream</code> is <code>true</code> when the output target is <code>clipboard</code> then streaming will be disabled.</td>
+    </tr>
+    <tr>
+      <td>editor</td>
+      <td>The output will be inserted into the open editor at the current cursor position. If an editor is not open the output is lost.</td>
+    </tr>
+    <tr>
+      <td>console</td>
+      <td>The output will be appended to the developer console.</td>
+    </tr>
+    <tr>
+      <td>file</td>
+      <td>The output will be written to a new file that will be opened in the Atom workspace.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The default value of <code>outputTarget</code> is “panel”. If it is overridden with <code>null</code> then it will default to “void”.</p>
+
+<h3 id="variables">Variables</h3>
+<p>Some of the properties can be parameterized with variables. Variables are added by enclosing the name of the variable in braces : <code>{</code> and <code>}</code>. The default values of some of the properties are already parameterized as can be seen in the tables above.</p>
+
+<p>There are two types of variables : input and output. Input variables are available before the process executes and output variables are available after it has executed.</p>
+
+<p>The following tables list the input and output variables:</p>
+
+<p><strong>Input</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Variable</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>clipboard</td>
+      <td>Text currently on clipboard.</td>
+    </tr>
+    <tr>
+      <td>fullCommand</td>
+      <td>The full command along with its arguments. Both the command and arguments will have their variables resolved.</td>
+    </tr>
+    <tr>
+      <td>configDirAbsPath</td>
+      <td>Absolute path of folder where the <code>process-palette.json</code> configuration file is that defines this command.</td>
+    </tr>
+    <tr>
+      <td>projectPath</td>
+      <td>If projects are open then the first project’s folder will be used. If there aren’t any projects open then the path of the folder containing the <code>process-palette.json</code> file is used.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Input from editor</strong></p>
+
+<p>The following input variables are only available if an editor is open. Their values default to an empty string otherwise.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Variable</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>fileExt</td>
+      <td>Extension of file.</td>
+    </tr>
+    <tr>
+      <td>fileName</td>
+      <td>Name of file without extension.</td>
+    </tr>
+    <tr>
+      <td>fileNameExt</td>
+      <td>Name of file with extension.</td>
+    </tr>
+    <tr>
+      <td>filePath</td>
+      <td>Path of file relative to project.</td>
+    </tr>
+    <tr>
+      <td>fileDirPath</td>
+      <td>Path of file’s directory relative to project.</td>
+    </tr>
+    <tr>
+      <td>fileAbsPath</td>
+      <td>Absolute path of file.</td>
+    </tr>
+    <tr>
+      <td>fileDirAbsPath</td>
+      <td>Absolute path of file’s directory.</td>
+    </tr>
+    <tr>
+      <td>selection</td>
+      <td>Currently selected text.</td>
+    </tr>
+    <tr>
+      <td>fileProjectPath</td>
+      <td>Absolute path of file’s project folder.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Input from user</strong></p>
+
+<p>The <code>inputDialogs</code> property is an array of objects, each defining an input dialog that will be opened in order to take input from the user. Every dialog must specify the <code>variableName</code> that can then be used just like any other variable. Dialogs can be customized with a different <code>message</code> and <code>initialInput</code>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>name (required)</td>
+      <td>Name of the variable that can then be used in other properties.</td>
+    </tr>
+    <tr>
+      <td>message</td>
+      <td>Message to display with the input dialog.</td>
+    </tr>
+    <tr>
+      <td>initialInput</td>
+      <td>Initial text in the input dialog.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Here is an example of one such dialog:</p>
+
+<p><code>json
+"inputDialogs" : [
+    {
+        "variableName": "userInput",
+        "message": "Foo?",
+        "initialInput": "Bar!"
+    }
+]
+</code></p>
+
+<p><img src="https://github.com/morassman/process-palette/blob/master/resources/input-dialog.png?raw=true" alt="Screenshot" /></p>
+
+<p><strong>Output</strong></p>
+
+<p>These variables are only available after the process has executed. They can therefore typically be used in the output and message related properties.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Variable</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>stdout</td>
+      <td>Standard output produced by the process.</td>
+    </tr>
+    <tr>
+      <td>stderr</td>
+      <td>Standard error output produced by the process.</td>
+    </tr>
+    <tr>
+      <td>exitStatus</td>
+      <td>Exit status code returned by the process.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="applying-variables-to-properties">Applying Variables To Properties</h3>
+<p>The table below shows which properties support input variables and/or output variables:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Input</th>
+      <th>Output</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>cwd</td>
+      <td>yes</td>
+      <td>no</td>
+    </tr>
+    <tr>
+      <td>env</td>
+      <td>yes</td>
+      <td>no</td>
+    </tr>
+    <tr>
+      <td>command</td>
+      <td>yes</td>
+      <td>no</td>
+    </tr>
+    <tr>
+      <td>arguments</td>
+      <td>yes</td>
+      <td>no</td>
+    </tr>
+    <tr>
+      <td>successOutput</td>
+      <td>yes</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>errorOutput</td>
+      <td>yes</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>fatalOutput</td>
+      <td>yes</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>successMessage</td>
+      <td>yes</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>errorMessage</td>
+      <td>yes</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>fatalMessage</td>
+      <td>yes</td>
+      <td>yes</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The <code>namespace</code>, <code>action</code> and <code>keystroke</code> properties do not support variables. The <code>env</code> property supports variables only in its values, for example :</p>
+
+<p><code>json
+"env" : {
+  "MYVAR" : "{fileName}"
+}
+</code></p>
+
+<p>A useful way of seeing the values of the variables is to add them to one of the output properties and then executing the command. For instance :</p>
+
+<p><code>json
+"successOutput" : "File path : {filePath}\nProject path : {projectPath}"
+</code></p>
+
+<p>will show the values of <code>filePath</code> and <code>projectPath</code> respectively.</p>
+
+<p>Another way is to simply <code>echo</code> them as shown in the <a href="https://github.com/morassman/process-palette/blob/master/examples/process-palette.json" title="process-palette.json">example</a>.</p>
+
+<p>Keep in mind that the <code>arguments</code> property is an array of strings. Adding variables to arguments should therefore be done as such:</p>
+
+<p><code>json
+"arguments" : ["{fileNameExt}", "{selection}"]
+</code></p>
+
+<h2 id="detect-paths-and-line-numbers">Detect Paths and Line Numbers</h2>
+<p>Commands that write to the output panel can be configured to detect file paths and optionally line numbers.</p>
+
+<p><img src="https://github.com/morassman/process-palette/blob/master/resources/pattern.png?raw=true" alt="Screenshot" /></p>
+
+<p>Detected paths will be underlined. Clicking it will open the file and if a line number is detected jump to it.</p>
+
+<p>All commands will detect file paths by default. If line numbers are required then additional configuration is necessary.</p>
+
+<h3 id="patterns">Patterns</h3>
+<p>Patterns are used to detect paths and line numbers. Process Palette has one built in pattern for detecting paths and all commands use this pattern by default.</p>
+
+<p>Custom patterns can be added to the configuration file. Commands can then be configured to detect any of these patterns. The following example shows two custom patterns. The one pattern (P1) detects a path followed by a <code>:</code> and then the line number, whereas the other (P2) has whitespace between the path and line number.</p>
+
+<p><code>json
+"patterns" : {
+  "P1" : {
+    "expression" : "(path):(line)"
+    },
+  "P2" : {
+    "expression" : "(path)\\s+(line)"
+  }
+},
+"commands" : [
+  {
+    "patterns" : ["P1", "P2"]
+  }
+]
+</code>
+Notice the following:
+- <code>patterns</code> is an object and is defined on the same level as <code>commands</code>.
+- Each pattern has a name. <code>P1</code> and <code>P2</code> in this case.
+- Each pattern has a JS regular expression called <code>expression</code>.
+- <code>(path)</code> and <code>(line)</code> are special placeholders. These are substituted with regular expressions for matching each respectively.
+- Everything around <code>(path)</code> and <code>(line)</code> should be valid regular expressions.</p>
+
+<p>With this configuration the command will be able to match <code>P1</code> and <code>P2</code> patterns. This overrides the default configuration that matches only paths. The built-in pattern for matching paths is called <code>default</code>. To match the default pattern as well, simply add it to the list:</p>
+
+<p><code>json
+"patterns" : ["P1", "P2", "default"]
+</code></p>
+
+<p><strong>Order matters!</strong>
+Patterns are evaluated in the order they are given. This means that if <code>default</code> was first in the list then it will be matched, but never any of the line numbers.</p>
+
+<p>To disable pattern matching simply set the value of <code>patterns</code> to <code>null</code>.</p>
+
+<h3 id="custom-path-expression">Custom Path Expression</h3>
+<p>In the previous example the <code>(path)</code> and <code>(line)</code> placeholders were used to quickly create an expression. In the background these are replaced with appropriate regular expressions. The <code>(path)</code> placeholder, in particular, will be replaced with an expression that is appropriate for the platform.</p>
+
+<p>It may be that the built in expression is not sufficient for detecting paths in your command’s output. If that is the case then you can overwrite it with your own. The following example shows how.</p>
+
+<p><code>json
+"patterns" : {
+  "P1" : {
+    "expression" : "(path):(line)",
+    "path" : "(?:\\/[\\w\\.\\-]+)+"
+  }
+}
+</code></p>
+
+<p>In this case the given expression for <code>path</code> will be used instead.</p>
+
+<p><strong>Important note about groups</strong><br />
+Groups are enclosed in round brackets. <code>path</code> and <code>line</code> each forms a group and in this order they are at index 1 and 2 respectively. In this example the <code>path</code> expression is being overwritten, but this expression defines a group of its own. What’s important to notice is the <code>?:</code> at the start of the group, which ensures that the group is not counted. The only groups that are allowed to be counted are for <code>path</code> and <code>line</code>, but neglecting to exclude other groups will interfere with their indexes.</p>
+
+<h2 id="known-issues">Known Issues</h2>
+<p>### Background Processes
+Process Palette considers its process to be completed only when all commands have finished executing. For instance, if a command is executed with an <code>&amp;</code> appended then Process Palette will continue to handle the output produced by it until the child process spawned by that command exits.</p>
+
+<p>This in itself is not a major problem. The issue is that Process Palette currently cannot kill child processes that are executed in this way. If the command executed with <code>&amp;</code> opens a window then closing the window will allow the parent process to complete, but if it doesn’t then one will have to kill the process by whatever means your OS allows.</p>
+
+run,execute,terminal,shell
+    </section>
+    <footer>
+      <p>
+        Made with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a>
+      </p>
+      <p>
+        <small>Last updated: 2016-04-29</small>
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+  </body>
+</html>

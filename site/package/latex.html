@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>Latex</h1>
+<h1 id="latex-package-build-statushttpstravis-ciorgthomasjoatom-latexsvgbranchmasterhttpstravis-ciorgthomasjoatom-latex">LaTeX package <a href="https://travis-ci.org/thomasjo/atom-latex"><img src="https://travis-ci.org/thomasjo/atom-latex.svg?branch=master" alt="Build Status" /></a></h1>
+<p>Compile LaTeX documents from within Atom.</p>
+
+<h2 id="installing">Installing</h2>
+<p>Use the Atom package manager and search for “latex”, or run <code>apm install latex</code>
+from the command line.</p>
+
+<h2 id="prerequisites">Prerequisites</h2>
+<p>### TeX distribution
+Since this package relies upon either <code>latexmk</code> or <code>texify</code>, a reasonably up to
+date and working TeX distribution is required. The only current officially
+supported distributions are <a href="https://www.tug.org/texlive/">TeX Live</a>, and
+<a href="http://miktex.org/">MiKTeX</a>. Although the latter is not as well tested and
+supported as TeX Live, hence using TeX Live is highly recommended.</p>
+
+<p>You need to ensure that the package can find your TeX distribution; to help the
+package find the distribution’s binaries, you need to configure the <em>TeX Path</em>
+configuration variable to point to the folder containing the binaries. This can
+be done either in the settings view, or directly in your <code>config.cson</code> file.</p>
+
+<h4 id="tex-live">TeX Live</h4>
+<p>If you’re using TeX Live and have installed to the default location then no
+further action should be required.</p>
+
+<h4 id="miktex">MiKTeX</h4>
+<p>If you’re using MikTeX and have installed to the default location then all you
+should need to do is change the <em>Builder</em> to <code>texify</code>. This can be done either
+in the settings view, or directly in your <code>config.cson</code> file.</p>
+
+<h2 id="usage">Usage</h2>
+<p>Invoke the <code>build</code> command by pressing the default keybind <code>ctrl-alt-b</code> while in
+a <code>.tex</code> file.</p>
+
+<h3 id="magic-comments">Magic comments</h3>
+<p>The package has support for the following Tex Magic comments
+- <code>% !TEX root = ../file.tex</code> Select root file
+- <code>% !TEX program = pdflatex</code> Select Latex Engine (pdflatex,lualatex,xelatex)</p>
+
+<h2 id="status">Status</h2>
+<p>Please note that this package is in a <strong>beta</strong> state. As an example, there’s no
+proper error and warning handling. Any and all help is greatly appreciated.</p>
+
+<h2 id="todo">TODO</h2>
+<p>Current wish list, in a semi-prioritized order.</p>
+
+<ul>
+  <li>[ ] Build output.
+    <ul>
+      <li>[x] Error handling.</li>
+      <li>[ ] Warnings, and other non-critical messages.</li>
+    </ul>
+  </li>
+  <li>[ ] Project management.
+    <ul>
+      <li>[ ] Setting to override the output directory.</li>
+      <li>[ ] Setting to override the builder.</li>
+    </ul>
+  </li>
+</ul>
+
+<p>If you see something that’s missing, or disagree with the prioritization,
+consider submitting a <a href="https://github.com/thomasjo/atom-latex/issues?labels=feature&amp;state=open">feature request</a>,
+and if you’re feeling super helpful, submit a pull request with an updated
+TODO list :sparkling_heart:</p>
+
+tex,latex,latexmk,texlive,miktex
+    </section>
+    <footer>
+      <p>
+        Made with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a>
+      </p>
+      <p>
+        <small>Last updated: 2016-04-29</small>
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+  </body>
+</html>

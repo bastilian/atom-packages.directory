@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>Development Server</h1>
+<h1 id="atom-development-server">Atom Development Server</h1>
+
+<p>https://github.com/joaoafrmartins/atom-development-server/</p>
+
+<p><img src="https://github.com/joaoafrmartins/atom-development-server/raw/master/screenshot.png" alt="A screenshot of your spankin' package" /></p>
+
+<h3 id="features">Features</h3>
+
+<h4 id="static-http-server">Static Http Server</h4>
+
+<ul>
+  <li>a static file http server</li>
+</ul>
+
+<h4 id="live-reload-server">Live Reload Server</h4>
+
+<ul>
+  <li>livereload html changes in the browser or the preview tab</li>
+</ul>
+
+<h4 id="terminal">Terminal</h4>
+
+<ul>
+  <li>
+    <p>execute a terminal session from inside atom editor</p>
+
+    <pre><code>Notes:
+
+    - If you start atom using a terminal window you migth have to close
+the terminal you used to launch atom
+
+    - If you clone the git repository and are having trouble with pty.js
+  try running apm install atom-development-server and copy pty.js
+  from the node_modules folder.
+
+[pty.js#83](https://github.com/chjj/pty.js/issues/83)
+</code></pre>
+  </li>
+</ul>
+
+<h4 id="browser-tabs">Browser Tabs</h4>
+
+<ul>
+  <li>html preview inside atom panes</li>
+</ul>
+
+<p>Note: the browser config section allows you to embed multiple iframes inside atom</p>
+
+<pre><code>    "browser": {
+      "tabs": [
+        {
+          "split": "right",
+          "title": "Preview",
+          "changeFocus": false,
+          "searchAllPanes": true,
+          "uri": "http://localhost:8080"
+        },
+        {
+          "split": "right",
+          "title": "Specs",
+          "changeFocus": false,
+          "searchAllPanes": true,
+          "uri": "http://localhost:8080/specs.html"
+        }
+      ]
+    }
+</code></pre>
+
+<h4 id="custom-shortcuts">Custom Shortcuts</h4>
+
+<ul>
+  <li>
+    <p>subscribe to events and execute custom actions</p>
+  </li>
+  <li>
+    <p>each action will be mapped to a button wich trigger the specified action</p>
+  </li>
+  <li>
+    <p>the action value should be a bash command (ex: npm run test)</p>
+  </li>
+  <li>
+    <p>you can subscribe to one or more atom core events:</p>
+
+    <p>Note: the autobuild option allows you to toggle the subscriptions on or off.</p>
+
+    <pre><code>"shortcuts": {
+  "subscriptions": {
+    "core:save": ["build"]
+  },
+  "actions": {
+    "build": "npm run build"
+  }
+}
+</code></pre>
+  </li>
+</ul>
+
+livereload,http,terminal,term,html,preview,shortcuts
+    </section>
+    <footer>
+      <p>
+        Made with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a>
+      </p>
+      <p>
+        <small>Last updated: 2016-04-29</small>
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+  </body>
+</html>

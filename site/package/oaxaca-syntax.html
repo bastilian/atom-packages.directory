@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>Oaxaca Syntax</h1>
+<h1 id="oaxaca-syntax-theme">Oaxaca syntax theme</h1>
+
+<p>A minimal syntax theme for Atom.</p>
+
+<p><strong>Current syntax support</strong>: CSS, HTML, Handlebars, Javascript,
+JSON, Less, Sass.</p>
+
+<p><img alt="JS syntax screenshot" src="https://www.dropbox.com/s/e67trvkqnluh4n0/screenshot.jpg?raw=1" style="width: 100%;" /></p>
+
+<p><strong>Screenshot</strong>: UI theme - <a href="https://github.com/atom/one-dark-ui">One Dark</a>.
+Font - <a href="https://github.com/adobe-fonts/source-code-pro">Source Code Pro</a>.</p>
+
+<hr />
+
+<h2 id="contributing">Contributing</h2>
+
+<p>Contributions are <strong>very</strong> welcome :star2:</p>
+
+<p>An Atom syntax theme is essentially just CSS.
+You will be writing in
+<a href="http://lesscss.org">Less (a CSS pre-processor)</a>, but the
+build process is already set up for you so it’s super easy.</p>
+
+<p>The only file you will need to touch is
+<a href="https://github.com/colinmeinke/oaxaca-syntax-theme/blob/master/styles/base.less">base.less</a> -
+take a look to see
+<a href="https://github.com/colinmeinke/oaxaca-syntax-theme/commit/8daae8057ab4f116000cfe59f9a58c4cccd6a924">just how easy it is to add new syntax highlighting</a>.</p>
+
+<h3 id="process">Process</h3>
+
+<ol>
+  <li><a href="https://help.github.com/articles/fork-a-repo">Fork</a> the
+<a href="https://github.com/colinmeinke/oaxaca-syntax-theme">Oaxaca syntax theme repository</a>.</li>
+  <li>Make your changes.</li>
+  <li><a href="https://help.github.com/articles/using-pull-requests">Make a pull request</a>.</li>
+  <li>Your pull request will then be reviewed, merged and
+released!</li>
+</ol>
+
+<h3 id="setting-up-atom-for-theme-development">Setting up Atom for theme development</h3>
+
+<p>Working on a theme locally is really easy in Atom. Follow the
+steps below and the theme will live reload as you work on it:</p>
+
+<ol>
+  <li>First, install Oaxaca syntax theme -
+<code>apm link /local/path/to/oaxaca-syntax-theme</code>.</li>
+  <li>Then enable <code>Oaxaca</code> as your <strong>syntax theme</strong> in Atom -
+<em>Atom &gt; Preferences &gt; Themes</em>.</li>
+  <li>Then open <code>/local/path/to/oaxaca-syntax-theme</code> in dev mode -
+<em>View &gt; Developer &gt; Open in dev mode</em>.</li>
+</ol>
+
+<p>Atom is built with web technologies and has Chrome dev tools
+baked in. This is exceptionally helpful for syntax development
+as it allows us to easily inspect an element within Atom and
+grab the associated classes. We can then target those classes
+in our CSS. The OSX shortcut to open dev tools in Atom is
+<code>⌘+⌥+i</code>. Then hit the magnifying glass icon to inspect
+elements.</p>
+
+<h3 id="committing">Committing</h3>
+
+<p>This repository uses <a href="https://commitizen.github.io/cz-cli">Commitizen</a>
+to guide you through the process of writing commit messages that follow
+<a href="https://github.com/angular/angular.js/blob/master/CONTRIBUTING.md#-git-commit-guidelines">Angular’s commit message conventions</a>.</p>
+
+<p>First, install Commitizen and dependencies with <code>npm install</code>.
+Then <code>git add</code> your changes and commit with <code>npm run commit</code>.
+You will then be prompted for various pieces of information
+about the changes you have made.</p>
+
+<p>Take a look at
+<a href="https://github.com/colinmeinke/oaxaca-syntax-theme/commits/master">the existing commits</a>
+if you’re a little unsure.</p>
+
+<p><strong>Thank you!</strong></p>
+
+css,es2015,html,handlebars,js,json,less,minimal,sass,syntax,theme
+    </section>
+    <footer>
+      <p>
+        Made with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a>
+      </p>
+      <p>
+        <small>Last updated: 2016-04-29</small>
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+  </body>
+</html>

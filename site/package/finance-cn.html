@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>Finance Cn</h1>
+<h1 id="finance-cn">Finance-cn</h1>
+
+<p>Simple plugin for checking your stock in Atom.io editor (Money 163 (網易財經) - China, Hong Kong and US markets).</p>
+
+<p><img src="https://raw.github.com/7kfpun/atom-finance-cn/master/screenshot.gif" alt="ScreenShot" /></p>
+
+<h2 id="installing">Installing</h2>
+
+<ol>
+  <li>Go to <code>Atom -&gt; Preferences...</code></li>
+  <li>Then select the <code>Install</code> tab</li>
+  <li>Enter <code>finance-cn</code> in the search box</li>
+</ol>
+
+<h4 id="using-apm">Using apm</h4>
+
+<p><code>sh
+$ apm install finance-cn
+</code></p>
+
+<h4 id="install-using-git">Install using Git</h4>
+
+<p>Alternatively, if you are a git user, you can install the package and keep up to date by cloning the repo directly into your <code>~/.atom/packages</code> directory.</p>
+
+<p><code>sh
+$ git clone https://github.com/7kfpun/atom-finance-cn.git ~/.atom/packages/finance-cn
+</code></p>
+
+<h4 id="download-manually">Download Manually</h4>
+
+<ol>
+  <li>Download the files using the <a href="https://github.com/7kfpun/atom-finance-cn/archive/master.zip">GitHub .zip download</a> option and unzip them</li>
+  <li>Move the files inside the folder to <code>~/.atom/packages/finance-cn</code></li>
+</ol>
+
+<h2 id="usage">Usage</h2>
+
+<p>Display your stock watchlist in status bar.</p>
+
+<h4 id="plugin-settings-page">Plugin settings page</h4>
+
+<p>To access the Finance-cn Settings:</p>
+
+<ol>
+  <li>Go to <code>Atom -&gt; Preferences...</code> or <code>cmd-,</code></li>
+  <li>In the <code>Filter Packages</code> type <code>finance-cn</code></li>
+</ol>
+
+<p><img src="https://raw.github.com/7kfpun/atom-finance-cn/master/settings.png" alt="Settings" /></p>
+
+<p>Finance-cn has 6 settings that can be edited:</p>
+
+<ol>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>Display</td>
+          <td>default: <code>right</code> (right, left)</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>Format</td>
+          <td>default: <code>&lt;span style="color:white"&gt;{name}&lt;/span&gt;({type}): {price} ({percent})</code></td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>Refresh</td>
+          <td>default: <code>30</code> (In seconds, if zero seconds only refreshes when open/close windows or trigger refresh)</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>Scroll</td>
+          <td>default: <code>left</code> (left, right, fixed)</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>Scroll Delay</td>
+          <td>default: <code>85</code></td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>Separator</td>
+          <td>default: `</td>
+          <td>`</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>Watchlist</td>
+          <td>default: <code>hkHSI,hkHSCEI,0000001,1399001,1399300,US_DOWJONES,US_NASDAQ,US_SP500</code></td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+</ol>
+
+<h4 id="commands">Commands</h4>
+
+<p>The following commands are available and are keyboard shortcuts.</p>
+
+<ul>
+  <li><code>finance-cn:toggle</code> - Toggle - <code>ctrl-alt-f</code> <code>ctrl-alt-c</code></li>
+  <li><code>finance-cn:refresh</code> - Refresh - <code>ctrl-alt-r</code> <code>ctrl-alt-c</code></li>
+</ul>
+
+<h2 id="financial-data-from-money-163-">Financial data from Money 163 (網易財經)</h2>
+
+<p>This plugin supports all exchanges and markets that Money 163 covers.</p>
+
+<ul>
+  <li>For Hong Kong stock exchange, ticker should start with “hk”
+    <ul>
+      <li>e.g. hkHSI, hkHSCEI, hk00005</li>
+    </ul>
+  </li>
+  <li>For Shanghai stock exchange, ticker should start with “0”
+    <ul>
+      <li>e.g. 0000001, 0601318</li>
+    </ul>
+  </li>
+  <li>For Shenzhen stock exchange, ticker should start with “1”
+    <ul>
+      <li>e.g. 1399001, 1002594</li>
+    </ul>
+  </li>
+  <li>For US markets, ticker should start with “US_”
+    <ul>
+      <li>e.g. US_DOWJONES, US_NASDAQ, US_SP500</li>
+    </ul>
+  </li>
+  <li>For others, please refer from Money 163</li>
+</ul>
+
+<h4 id="quoteproperty">QuoteProperty</h4>
+
+<pre><code>// Shanghai and Shenzhen stock exchange
+code
+percent
+high
+askvol3
+askvol2
+askvol5
+askvol4
+price
+open
+bid5
+bid4
+bid3
+bid2
+bid1
+low
+updown
+type
+bidvol1
+status
+bidvol3
+bidvol2
+symbol
+update
+bidvol5
+bidvol4
+volume
+askvol1
+ask5
+ask4
+ask1
+name
+ask3
+ask2
+arrow
+time
+yestclose
+turnover
+
+// Hong Kong stock exchange
+suspend
+share
+ask_volume
+datetime
+high
+open
+bid_volume
+percent
+low
+pe
+52low
+type
+price
+updown
+symbol
+market_capital
+schidesp
+volume
+lotsze4
+ask
+52high
+yestclose
+bid
+name
+time
+turnover
+
+// US markets
+yestclose
+type
+name
+updown
+symbol
+percent
+update
+52high
+high
+low
+time
+52low
+open
+price
+</code></pre>
+
+<h2 id="related-project">Related project</h2>
+
+<ul>
+  <li><a href="https://github.com/7kfpun/atom-finance">atom-finance</a>: Simple plugin for checking your stock in Atom.io editor (Yahoo Finance).</li>
+</ul>
+
+<h2 id="license">License</h2>
+
+<p>Released under the <a href="http://opensource.org/licenses/MIT">MIT License</a>.</p>
+
+china market,finance,financial,hong kong market,statusbar,stock,us market
+    </section>
+    <footer>
+      <p>
+        Made with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a>
+      </p>
+      <p>
+        <small>Last updated: 2016-04-29</small>
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+  </body>
+</html>

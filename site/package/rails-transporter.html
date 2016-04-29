@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>Rails Transporter</h1>
+<h1 id="rails-transporter-build-statushttpstravis-ciorghmatsudarails-transportersvgbranchmasterhttpstravis-ciorghmatsudarails-transporter">Rails Transporter <a href="https://travis-ci.org/hmatsuda/rails-transporter"><img src="https://travis-ci.org/hmatsuda/rails-transporter.svg?branch=master" alt="Build Status" /></a></h1>
+
+<p>This package provides commands to open file depending on file which is being opened by active editor.</p>
+
+<p><img src="http://cl.ly/image/43053A1J2b17/rails-transporter.gif" alt="screenshot" /></p>
+
+<h2 id="command-description">Command Description</h2>
+
+<h3 id="open-controller">open-controller</h3>
+<p>This command provides 2 features.</p>
+
+<h4 id="open-related-controller">Open related controller</h4>
+<p>It opens controller file from <code>model</code>, <code>view</code>, <code>controller-test</code>, <code>controller-spec</code> or <code>requests-spec</code>.</p>
+
+<p>e.g. When active editor is opening: 
+<code>app/models/user.rb</code>, <code>app/views/users/*.html.erb</code> or <code>spec/controllers/users_controller_spec.rb</code>,
+<code>open-controller</code> opens <code>app/controllers/users_controller.rb</code>.</p>
+
+<h4 id="open-controller-concern">Open controller concern</h4>
+<p>It opens concern file from controller.</p>
+
+<p>e.g. If active editor opens below file and cursor is on the <code>include</code> method,
+<code>ruby
+class BlogsController &lt; ApplicationController
+  include Blog::Taggable
+end
+</code>
+<code>open-controller</code> opens <code>app/controllers/concerns/blog/taggable.rb</code>.</p>
+
+<p>If no controller or concern found, show dialog to create new file.</p>
+
+<h3 id="open-model">open-model</h3>
+<p>This command provides 2 features.</p>
+
+<h4 id="open-related-model">Open related model</h4>
+<p>It opens related model file from <code>controller</code>, <code>view</code>, <code>model-test</code>, <code>model-spec</code> or <code>factory</code>.</p>
+
+<p>e.g. When active editor is opening: 
+<code>app/controllers/users_controller.rb</code>, <code>app/views/users/*.html.erb</code>, <code>spec/models/user_spec.rb</code> or <code>spec/factories/users.rb</code>,</p>
+
+<p><code>open-model</code> opens <code>app/models/user.rb</code>.</p>
+
+<h4 id="open-model-concern">Open model concern</h4>
+<p>It opens concern file from model.</p>
+
+<p>e.g. If active editor opens below file and cursor is on the <code>include</code> method,
+<code>ruby
+class Item &lt; ActiveRecord::Base
+  include Searchable
+end
+</code>
+<code>open-model</code> opens <code>app/models/concerns/searchable.rb</code>.</p>
+
+<p>If no model or concern found, show dialog to create new file.</p>
+
+<h3 id="open-view">open-view</h3>
+<p>It opens related view for action method of controller.</p>
+
+<p>When active editor is opening controller and cursor is inside action method, <code>open-view</code> opens the related view file.</p>
+
+<p>e.g. When you open a below controller,
+```ruby
+class UsersController &lt; ApplicationController
+  def index
+    @users = User.all
+  end</p>
+
+<p>def show
+    @user = User.find(params[:id])
+  end
+end
+```</p>
+
+<p>if cursor is inside <code>index</code> method, <code>open-view</code> opens <code>app/views/users/index.html.erb</code>
+else if cursor is inside <code>show</code> method, <code>open-view</code> opens <code>app/views/users/show.html.erb</code> else, do nothing.</p>
+
+<p>If no related view found, show dialog to create new file.</p>
+
+<p>If you want to change template engine like haml, override default setting in setting view.
+<img src="http://cl.ly/image/2m31390Z0Z34/Settings_-__Users_hakutoitoi__ghq_github_com_hmatsuda_rails-transporter_-_Atom.png" alt="View File Extension" /></p>
+
+<h3 id="open-view-finder">open-view-finder</h3>
+<p>It opens related view files of controller.</p>
+
+<p>e.g. When active editor is opening <code>app/controllers/blogs_controller.rb</code>, <code>open-view-finder</code> opens related view list.
+<img src="http://cl.ly/image/1t0A0D220S3C/blogs_controller_rb_-__Users_hakutoitoi__ghq_github_com_hmatsuda_rails-transporter_spec_fixtures_-_Atom.png" alt="" /></p>
+
+<h3 id="open-layout">open-layout</h3>
+<p>It opens related layout from <code>layout</code> method in controller.</p>
+
+<p>e.g. When active editor is opening controller, <code>open-layout</code> opens the related view layout file.
+This command provides 2 behavior to open layout file. When active editor is opening a below controller,
+```ruby
+class UsersController &lt; ApplicationController</p>
+
+<p>layout ‘user_dashboard’</p>
+
+<p>end
+```
+First, cursor is on the <code>layout</code> method, <code>open-layout</code> opens <code>app/views/layouts/user_dashboard.html.erb</code> if it exists.</p>
+
+<p>Second, when cursor isn’t on the <code>layout</code> method, it opens <code>app/views/layouts/users.html.erb</code> if it doesn’t exist, opens <code>app/views/layouts/application.html.erb</code>.</p>
+
+<p>The first behavior has a priority to apply.</p>
+
+<h3 id="open-helper">open-helper</h3>
+<p>It opens related helper from <code>controller</code>, <code>model</code>, <code>view</code>, <code>helper-test</code> or <code>helper-spec</code>.</p>
+
+<p>e.g. When active editor is opening:</p>
+
+<p><code>app/controllers/users_controller.rb</code>, <code>app/models/user.rb</code>, <code>app/views/users/*.html.erb</code> or <code>spec/helpers/users_helper_spec.rb</code>,</p>
+
+<p><code>open-helper</code> opens <code>app/helpers/users_helper.rb</code>.</p>
+
+<p>If no helper found, show dialog to create new file.</p>
+
+<h3 id="open-test">open-test</h3>
+<p>It opens related test from <code>controller</code>, <code>model</code>, <code>helper</code> or <code>factory</code>.</p>
+
+<p>e.g. When active editor is opening:</p>
+
+<p><code>app/controllers/users_controller.rb</code>, it opens <code>spec/controllers/users_controller_test.rb</code>.</p>
+
+<p><code>app/models/user.rb</code>, it opens <code>test/models/user_test.rb</code>.</p>
+
+<p><code>app/helpers/users_helper.rb</code>, it opens <code>test/helpers/users_helper_test.rb</code>.</p>
+
+<p>If no test found, show dialog to create new file.</p>
+
+<h3 id="open-spec">open-spec</h3>
+<p>It opens related spec from <code>controller</code>, <code>model</code>, <code>helper</code> or <code>factory</code>.</p>
+
+<p>e.g. When active editor is opening:</p>
+
+<p><code>app/controllers/users_controller.rb</code>, it opens <code>spec/controllers/users_controller_spec.rb</code>, feautres or requests spec.</p>
+
+<p><code>app/models/user.rb</code> or <code>spec/factories/users.rb</code>, it opens <code>spec/models/user_spec.rb</code>.</p>
+
+<p><code>app/helpers/users_helper.rb</code>, it opens <code>spec/helpers/users_helper_spec.rb</code>.</p>
+
+<p>If no spec found, show dialog to create new file.</p>
+
+<h3 id="open-partial-template">open-partial-template</h3>
+<p>It opens partial template from <code>render</code> method.</p>
+
+<p>e.g. When active editor is opening a below view file and cursor is on the <code>render</code> method,
+```ruby</p>
+<section id="contents">
+
+&lt;%= render 'sidebar' %&gt;
+
+</section>
+<p>```
+<code>open-partial-template</code> opens <code>app/views/users/_sidebar.html.erb</code>.</p>
+
+<p>If no related view found, show dialog to create new file.</p>
+
+<h3 id="open-asset">open-asset</h3>
+<p>It opens related asset file from view or asset file.</p>
+
+<p>e.g. 
+* When active editor is opening a below view,
+```html</p>
+<html>
+<html>
+<head>
+&lt;%= stylesheet_link_tag "user" %&gt;
+&lt;%= javascript_include_tag "user" %&gt;
+&lt;%= csrf_meta_tags %&gt;
+</head>
+<body>
+&lt;%= yield %&gt;
+</body>
+</html>
+```
+when cursor is on `javascript_include_tag` method, it opens `app/assets/javascripts/user.js`,
+when cursor is on `stylesheet_link_tag` method, it opens `app/assets/stylesheets/user.css`.
+
+* When it is opening a asset file as following and cursor is on the `require` method,
+```coffee
+//= require my_library
+```
+it opens javascript file if it exists.
+
+* When it is opening a asset file as following and cursor is on the `require_tree` or `require_directory` method,
+```coffee
+//= require_tree shared
+//= require_directory shared
+```
+it opens related asset file list
+
+![](http://cl.ly/image/1G2D240f1A0i/application01_js_-__Users_hakutoitoi__ghq_github_com_hmatsuda_rails-transporter_spec_fixtures_-_Atom.png)
+
+### open-mingration-finder
+It opens all of migration list.
+
+![](http://cl.ly/image/3y0F2D1H1w2F/application01_js_-__Users_hakutoitoi__ghq_github_com_hmatsuda_rails-transporter_spec_fixtures_-_Atom.png)
+
+### open-factory
+It opens related factory file from `model` or `model-spec`.
+
+e.g. When active editor is opening: 
+
+`app/models/user.rb`, or `spec/models/user_spec.rb`,
+
+`open-spec` opens `spec/factories/blogs.rb`.
+
+If no factory found, show dialog to create new file.
+
+## Default Keymaps
+Command | Keymap
+--------|-------
+open-controller|`ctrl-r c`
+open-view-finder|`ctrl-r v f`
+open-view|`ctrl-r v`
+open-layout|`ctrl-r l`
+open-model|`ctrl-r m`
+open-helper|`ctrl-r h`
+open-test|`ctrl-r t`
+open-spec|`ctrl-r s`
+open-partial-template|`ctrl-r p`
+open-asset|`ctrl-r a`
+open-migration-finder|`ctrl-r d m`
+open-factory|`ctrl-r f`
+
+## Configurations
+
+You can change these from the Settings menu.
+
+### `viewFileExtension`
+Extension of the view files.
+
+if it's value is `html.erb, html.haml, json.jbuilder`, `open-view` attempts to open following:
+
+```
+1. html.erb
+2. html.haml
+3. json.jbuilder
+```
+ 
+### `controllerSpecType`
+type of controller spec files. Use this to support [controller spec](https://www.relishapp.com/rspec/rspec-rails/v/3-2/docs/controller-specs), [request spec](https://www.relishapp.com/rspec/rspec-rails/v/3-2/docs/request-specs/request-spec) or [feature spec](https://www.relishapp.com/rspec/rspec-rails/v/3-2/docs/feature-specs).
+
+## Requirement
+* Ruby 1.9.3+
+* Rails 2.0.0+
+
+## Contributors
+* joseramonc
+* chibicode
+</html>
+
+rails,ruby on rails,ruby,rspec,minitest
+    </section>
+    <footer>
+      <p>
+        Made with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a>
+      </p>
+      <p>
+        <small>Last updated: 2016-04-29</small>
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+  </body>
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>Ember Cli Helper</h1>
+<h1 id="ember-cli-helper">Ember CLI Helper</h1>
+
+<p><a href="https://gitter.im/apprentus/atom-ember-cli-helper"><img src="https://badges.gitter.im/apprentus/atom-ember-cli-helper.png" alt="Gitter chat" /></a></p>
+
+<p><a href="https://github.com/stefanpenner/ember-cli">ember-cli</a> integration in Atom. Currently maintained by <a href="https://github.com/marius0">@marius0</a>, originally created by <a href="https://github.com/alexlafroscia/">@alexlafroscia</a>. Development sponsored by <a href="https://www.apprentus.com">Apprentus</a>.</p>
+
+<p>Feel free to open issues if you find something. Pull requests are more than welcome!</p>
+
+<p><img src="http://f.cl.ly/items/0C1A110I3w2G2P0k0Z1T/Screen%20Shot%202015-03-22%20at%205.34.37%20PM.png" alt="ember cli helper" /></p>
+
+<h2 id="keyboard-shortcuts">Keyboard shortcuts</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Keybinding</th>
+      <th style="text-align: left">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">ctrl+alt+e</td>
+      <td style="text-align: left">Toggle between the component/controller and the template</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ctrl+alt+r</td>
+      <td style="text-align: left">Toggle between the controller and the route</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ctrl+alt+enter</td>
+      <td style="text-align: left">Jump into templates. Press when cursor over {{forms/super-select …}} to open templates/components/forms/super-select.hbs</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="commands">Commands</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Command</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Server</td>
+      <td style="text-align: left">Runs <code>ember server</code> in the root folder of the project.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Test</td>
+      <td style="text-align: left">Runs <code>ember test</code> in the root folder of the project</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Generate</td>
+      <td style="text-align: left">Opens the panel to run a generator</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Exit</td>
+      <td style="text-align: left">Stops a currently running process</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Minimize</td>
+      <td style="text-align: left">Show and hide the output panel, without hiding everything else</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Close</td>
+      <td style="text-align: left">Hide the entire panel</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="generators">Generators</h2>
+
+<p>Running the generators through Atom is really easy.  When you first open the panel, it will bring up a list of file types to generate.  This list is based on the output of <code>ember g --help</code>, and therefore should include all future blueprints as well as those added by addons automatically. Once you select a type, you’ll be prompted to enter a name, and the output will appear in orange in the bottom panel.</p>
+
+<h2 id="help-its-broken">Help! It’s broken!</h2>
+
+<p>That might be the case! But first, check if specifying the path to the Ember and NPM packages fixes your problems.  It probably, hopefully will.  If it doesn’t, please file an issue so I can try fixing it!</p>
+
+<h2 id="settings">Settings</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Setting</th>
+      <th style="text-align: left">Purpose</th>
+      <th style="text-align: left">Default Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Generate Coffeescript</td>
+      <td style="text-align: left">Have all of the generators make CoffeeScript files instead of Javascript</td>
+      <td style="text-align: left"><code>false</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Path To Ember Executable</td>
+      <td style="text-align: left">Point the CLI helper to the Ember executable on your computer</td>
+      <td style="text-align: left"><code>/usr/local/bin/ember</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Path To <code>node</code> Executable</td>
+      <td style="text-align: left">Point the CLI helper to the <code>node</code> executable on your computer</td>
+      <td style="text-align: left"><code>/usr/local/bin/node</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="todo-list">Todo List</h2>
+
+<ul>
+  <li>[x] Open <code>ember-cli-helper</code> automatically if the package uses the Ember CLI</li>
+  <li>[ ] Differentiate a task’s button from the others when it is active</li>
+  <li>[ ] Use the editor’s theme to get colors for success and error in the command output</li>
+  <li>[ ] Give some sort of visual feedback about the running command when the panel is minimized</li>
+  <li>[x] Include a panel for running the file generators</li>
+  <li>[x] Add convenience shortcuts to switch between component and template (and route and …)</li>
+  <li>[x] Add option to enter components when clicking something over {{forms/super-select … }} –&gt; opens components/forms/super-select.js</li>
+</ul>
+
+<h2 id="troubleshooting">Troubleshooting</h2>
+
+<p>Some users have experienced problems running the commands when they openning their project through the <code>File &gt; Open</code> menu.  If this happens to you, try opening the project from the command line with the <code>atom</code> command see if that fixes the issue.</p>
+
+<hr />
+
+<p><strong>Very special thanks</strong> to <a href="https://github.com/alexlafroscia/">@alexlafroscia</a> for creating the original atom plugin!</p>
+
+<p><strong>Special thanks</strong> to <a href="https://github.com/nickclaw/">@nickclaw</a> and his
+<a href="https://github.com/nickclaw/atom-grunt-runner">atom-grunt-runner</a>
+package, which was <a href="https://github.com/alexlafroscia/">@alexlafroscia</a>’s inspiration for building this and a big help in putting it together.</p>
+
+<p><strong>Finally a big thank you</strong> to <a href="https://www.apprentus.com">Apprentus</a> for paying me to work on this! :)</p>
+
+ember,cli,task,runner,build,ember cli,run
+    </section>
+    <footer>
+      <p>
+        Made with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a>
+      </p>
+      <p>
+        <small>Last updated: 2016-04-29</small>
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+  </body>
+</html>

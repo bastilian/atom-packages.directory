@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>Sync</h1>
+<h1 id="atom-sync-package">atom-sync package</h1>
+
+<p>atom-sync is an Atom package to sync files bidirectionally between remote host and local over ssh+rsync. Inspired by <a href="http://wbond.net/sublime_packages/sftp">Sublime SFTP</a>.</p>
+
+<p><a href="http://github.com/badges/stability-badges"><img src="http://badges.github.io/stability-badges/dist/experimental.svg" alt="experimental" /></a><a href="https://travis-ci.org/dingjie/atom-sync"><img src="https://travis-ci.org/dingjie/atom-sync.svg?branch=master" alt="Build Status" /></a></p>
+
+<blockquote>
+  <p>This package is currently in early development and has only been tested on Mac. Please kindly <a href="http://atom.io/packages/atom-sync">try it out</a> and <a href="https://github.com/dingjie/atom-sync/issues/new">provide feedback</a>.</p>
+</blockquote>
+
+<p><img src="https://cloud.githubusercontent.com/assets/586262/8085519/2b63a7c4-0fc3-11e5-930a-685b09fe7af3.gif" alt="atom-sync" /></p>
+
+<h3 id="feature">Feature</h3>
+<ul>
+  <li>Sync over ssh+rsync — still <a href="http://www.sakana.fr/blog/2008/05/07/securing-automated-rsync-over-ssh/">secure</a>, but much <a href="http://stackoverflow.com/questions/20244585/what-is-the-difference-between-scp-and-rsync">faster</a>.</li>
+  <li><a href="http://blog.atom.io/2015/04/15/multi-folder-projects.html">Multi-Folder Projects</a> with different sync config files supported</li>
+  <li>Triggers conditionally run commands after successful uploading</li>
+</ul>
+
+<h3 id="prerequisite">Prerequisite</h3>
+<ul>
+  <li>Ensure you have <code>ssh</code> and <code>rsync</code> installed.</li>
+</ul>
+
+<h3 id="quick-start">Quick Start</h3>
+<ul>
+  <li>Open a project folder to sync in <a href="http://atom.io">Atom</a>.</li>
+  <li>Right click on the project folder and select <code>Sync</code> -&gt; <code>Edit Remote Config</code>.</li>
+  <li>Edit and save the config file.</li>
+  <li>Right click on the project folder and select <code>Sync</code> -&gt; <code>Sync Remote -&gt; Local</code>.</li>
+  <li>Watch water flows.</li>
+</ul>
+
+<h3 id="notice">Notice</h3>
+<ul>
+  <li>Password based login is not supported—at least yet, you have to <a href="https://www.linode.com/docs/security/use-public-key-authentication-with-ssh">assign your key file</a> and better host name in .ssh/config in advanced. Try to <a href="http://nerderati.com/2011/03/17/simplify-your-life-with-an-ssh-config-file/">Simplify Your Life With an SSH Config File</a>.</li>
+</ul>
+
+<h3 id="config-file-and-tutorial">Config File (and Tutorial)</h3>
+<blockquote>
+  <p>.sync-config.cson</p>
+</blockquote>
+
+<p>```
+remote:
+    host: “HOSTNAME”,       # server name or ip or ssh host abbr in .ssh/config
+    user: “USERNAME”,       # ssh username
+    path: “REMOTE_DIR”      # e.g. /home/someone/somewhere</p>
+
+<p>behaviour:
+    uploadOnSave: true      # Upload every time you save a file
+    syncDownOnOpen: true    # Download every time you open a file
+    forgetConsole: false    # Never show console panel even while syncing
+    autoHideConsole: true   # Hide console automatically after 1.5s
+    alwaysSyncAll: false    # Sync all files and folders under the project \
+                            # instead of syncing single file or folder
+option:
+    deleteFiles: true       # Delete files during syncing
+    autoHideDelay: 1500     # Time delay to hide console
+    exclude: [              # Excluding patterns
+        ‘.sync-config.cson’
+        ‘.git’
+        ‘node_modules’
+        ‘tmp’
+        ‘vendor’
+    ]
+    flags: ‘avzpur’         # Advanced option: rsync flags
+    shell: ‘ssh’
+trigger:                    # Triggers fire after uploading file successfully
+                            # which STARTS with following patterns</p>
+
+<pre><code>"*": "uptime"            # Wildcard trigger for any file uploaded
+
+"resources/scripts/coffee": [   # Any file under %PROJECT_ROOT%/resources/scripts/coffee \
+                                # being uploaded will fire this trigger
+
+    "echo Compile coffeescript to js ..."
+    "coffee -b --output js/ --compile coffee/"
+    "ls public/js/|xargs -I@ echo \\t@"       # You can also pipe commands but don't \
+                                              # forget to escape special characters
+]
+"resources/scripts/sass": [
+    "echo Compile sass to css ..."
+    "sass --update resources/scripts/sass:public/css"
+] ```
+</code></pre>
+
+<h3 id="introduction-to-trigger">Introduction to Trigger</h3>
+<p>#### Config ####
+<code>
+trigger:
+    "*": [
+        "echo \'&lt;span class=warning&gt;Every time you\\'ll see me&lt;/span&gt;\'"
+    ]
+    "coffee": [
+        "echo Compile coffeescript to js ..."
+        "mkdir -p js"
+        "coffee -b --output js/ --compile coffee/"
+        "ls js/|xargs -I@ echo \\t@"
+    ]
+    "sass/style.sass": [
+        "echo Compile sass to css ..."
+        "mkdir -p css"
+        "sass --update sass:css"
+    ]
+</code>
+#### Result ####
+<img src="https://cloud.githubusercontent.com/assets/586262/14584004/a2cf2872-0466-11e6-9908-5f035a8b4e46.gif" alt="trigger" /></p>
+
+<h3 id="keybindings">Keybindings</h3>
+<ul>
+  <li><code>ctrl</code>+<code>alt</code>+<code>l</code> (Windows/Linux) <code>cmd</code>+<code>alt</code>+<code>l</code> (Mac) Toggle log window</li>
+</ul>
+
+<h3 id="known-problems">Known Problems</h3>
+<ul>
+  <li>You have to <code>Sync Local -&gt; Remote</code> manually after renaming and deleting files.</li>
+</ul>
+
+<h3 id="roadmap">Roadmap</h3>
+<ul>
+  <li>Listen to events
+    <ul>
+      <li>Create folders</li>
+      <li>Rename files/folders</li>
+      <li>What about deleting?</li>
+    </ul>
+  </li>
+</ul>
+
+sync,ssh,rsync,remote
+    </section>
+    <footer>
+      <p>
+        Made with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a>
+      </p>
+      <p>
+        <small>Last updated: 2016-04-29</small>
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+  </body>
+</html>

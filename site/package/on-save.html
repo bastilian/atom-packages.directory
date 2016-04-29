@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>On Save</h1>
+<p align="center">
+  <br />
+  <br />
+  <img src="https://s3.amazonaws.com/on-save/on-save-logo-with-tagline.svg" alt="on-save: Run a shell command when you save a file" width="451" height="65" />
+  <br />
+</p>
+
+<h2 id="installation">Installation</h2>
+
+<p><code>
+apm install on-save
+</code></p>
+
+<h2 id="usage">Usage</h2>
+
+<p>Create an <code>.on-save.json</code> file at the root of you project.</p>
+
+<p>For example, if you want to babelify every <code>.js</code> file from <code>src</code> to <code>lib</code>:</p>
+
+<p><code>javascript
+[
+  {
+    "srcDir": "src",
+    "destDir": "lib",
+    "files": "**/*.js",
+    "command": "babel ${srcFile} --out-file ${destFile}"
+  }
+]
+</code></p>
+
+<p>In case your Babel CLI is local, maybe you would do something like this:</p>
+
+<p><code>javascript
+[
+  {
+    "srcDir": "src",
+    "destDir": "lib",
+    "files": "**/*.js",
+    "command": "./node_modules/.bin/babel ${srcFile} --out-file ${destFile}"
+  }
+]
+</code></p>
+
+<p>Finally, if you use <a href="https://github.com/creationix/nvm">nvm</a> for your Node installation you would probably need a package like <a href="https://atom.io/packages/000-project-shell-env">000-project-shell-env</a>.</p>
+
+<h2 id="configuration-file">Configuration file</h2>
+
+<p>To use <strong>on-save</strong>, create an <code>.on-save.json</code> file at the root of your project. The content should be an array containing objects with the following properties:</p>
+
+<ul>
+  <li><code>srcDir</code> <em>(default: <code>'.'</code>)</em>: The source directory.</li>
+  <li><code>destDir</code> <em>(default: <code>'.'</code>)</em>: The destination directory.</li>
+  <li><code>files</code>: The files you want to track. You can use a glob, see <a href="https://github.com/isaacs/minimatch">minimatch</a>.</li>
+  <li><code>command</code>: The command to execute. You can use these variables:
+    <ul>
+      <li><code>${srcFile}</code>: The input file.</li>
+      <li><code>${destFile}</code>: The output file.</li>
+      <li><code>${destFileWithoutExtension}</code>: The output file without the extension.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="license">License</h2>
+
+<p>MIT</p>
+
+save,file,run,command,watch,watcher,trigger,hook,track,execute,shell
+    </section>
+    <footer>
+      <p>
+        Made with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a>
+      </p>
+      <p>
+        <small>Last updated: 2016-04-29</small>
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+  </body>
+</html>

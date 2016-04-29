@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>Preview Plus</h1>
+<h1 id="preview-plus-package-preview-anything-to-anything">preview-plus package Preview Anything to Anything</h1>
+<hr />
+<p>INSTALL  BROWSER-PLUS –&gt; apm install browser-plus or check out in the packages</p>
+
+<p>One Utility to handle the following matrix of previews
+* Coffeescript: [‘JavaScript’,’HTML’,’htmlp’]
+* javascript: [‘CoffeeScript’,’HTML’,’htmlp’]
+* jade: [‘HTML’,’htmlp’]
+* slim: [‘HTML’,’htmlp’,’erb’]
+* markdown: [‘HTML’,’htmlp’]
+* jsx: [‘JavaScript’,’HTML’,’htmlp’]
+* typescript: [‘JavaScript’]
+* erb: [‘HAML’]
+* haml: [‘HTML’,’htmlp’]
+* html:[‘htmlp’,’Jade’,’Ruby Slim’,’GitHub Markdown’,’JSX’,’HAML’]
+* css: [‘Stylus’,’LESS’,’Sass’,’SCSS’]
+* less: [‘CSS’]
+* stylus: [‘CSS’]
+* sass: [‘CSS’]
+* scss: [‘CSS’]
+* handlebars: [‘HTML’,’htmlp’]
+* cjsx: [‘JavaScript’,’HTML’,’htmlp’,’CoffeeScript’]</p>
+
+<h2 id="install">Install</h2>
+<p>apm install preview-plus<br />
+for issues with installation please update the github for resolution.</p>
+
+<h2 id="features">Features</h2>
+<ul>
+  <li>Live Preview</li>
+  <li>HTML Preview</li>
+  <li>Select Compile To using the down arrow in status bar (eg. Incase of HTML it can compiled to SLIM/JADE/HAML/HTML Preview)</li>
+  <li>Switch on HTML/Live Preview by clicking on Live Button on statusbar or double click on the to compile in the status bar</li>
+  <li>Pass Compile to options(eg. pass bare:true to pp-options in case of coffeescript from the editor locally/as well from config setting)</li>
+  <li>easy access to config file –&gt; preview-plus:config (ctrl+alt+p)</li>
+  <li>Extensible. More Compiler can be added/contributed</li>
+  <li>Pass data to compiler (for eg in handlebars using pp-data tag)</li>
+  <li>choose the filetypes to compiled to using the config file settings(fileTypes/alias for each grammar)</li>
+  <li>All preview can have Local setting / Config~global settings..</li>
+  <li>Support for SLIM/SASS/SCSS. These are possible only after the gem is installed in the system.</li>
+</ul>
+
+<p>Check if it is working by going to the test folder(preview-plus/spec/test/) and try previewing each of it.<br />
+<a href="https://skandasoft.wordpress.com/2015/01/19/atom-io-preview-plus-getting-started/">Here is quick getting started</a></p>
+
+<p>Go to the config settings in the preview-plus to change default (Live Switched on)</p>
+
+<p>You change the default preview for each format from the config file.<br />
+Open the file using the command Preview-Plus:Config<br />
+Add fileTypes to identify to a particular grammar<br />
+All the available preview for each format is maintained in the config setting<br />
+Double click on any format to display as HTMLPreview</p>
+
+<p>preview Typescript to JS</p>
+
+<p>Here is some video link to the demo<br />
+-<a href="http://www.youtube.com/playlist?list=PLWe88FcgV1ft0TKra0gQBptfFc7jjEspC"><img src="https://raw.github.com/skandasoft/preview-plus/master/Youtube_Video.png" alt="Preview-Plus" /></a></p>
+
+<h2 id="issues">Issues</h2>
+<p>~~When the Compiler put up the preview in the split screen and the editor is closed with the preview tab still on Then there is a errror when reopening.<br />
+I will raise it up in the discussion forum.~~
+~~click on save when it asks for save/cancel..this bring it up in the same place but without the split screen.~~
+The webview right now has issues in chrome. So for now there is option for iframes but they cannot execute javascript. So The webview closes as soon as it loses focus.(I think this is going to go away )
+So 2 html previews cannot be open at one time. This will resolved once the chrome bug is resolved.
+I have tested using windows. You are welcome put the test result /raise issues for other os. The Slim compiler which is installed as gems generate a batch file. So I have
+the command as slim.bat for running as spawn.  if it is any other os I have it as just the command.<br />
+~~There is a weird error (backspace/delete key would not work while update base href for html preview in the modal panel)~~</p>
+
+<p>You are welcome to contribute by adding new precompile options/submit issues to the github repo.</p>
+
+<h2 id="todo">TODO</h2>
+
+<ul>
+  <li>Write test case for all the compilations</li>
+</ul>
+
+preview,preview-plus,css2sass,handlebars,slim,jade,html preview,scss,less,stylus,js2coffee,haml,sass,coffee2js,cjsx,jsx,react,ect,erb,markdown,markdown preview,typescript,js,javascript,coffeescript,coffee,coffee to js,js to coffee,marked,live preview,quick preview,ruby slim,css,scss2css,browser,html preview,web browser,open in browser
+    </section>
+    <footer>
+      <p>
+        Made with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a>
+      </p>
+      <p>
+        <small>Last updated: 2016-04-29</small>
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+  </body>
+</html>

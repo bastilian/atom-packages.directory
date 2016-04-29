@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>React Native Css</h1>
+<h1 id="atom-react-native-css-package">atom-react-native-css package</h1>
+<p>React-native-css turns valid CSS/SASS into the Facebook subset of CSS. <br /> Source:(<a href="https://github.com/sabeurthabti/react-native-css">https://github.com/sabeurthabti/react-native-css</a>)</p>
+
+<h2 id="install">Install</h2>
+<p>Using <code>apm</code>:</p>
+
+<p><code>
+apm install atom-react-native-css
+</code></p>
+
+<p>Or search for <code>atom-react-native-css</code> in Atom settings view.</p>
+
+<h2 id="file-support">File support</h2>
+<p>Because <code>node-sass</code> installation errors often，Now the default does not support ` sass ` file。
+If you use the <code>node-sass</code> this error:
+<code>
+At The `libsass` binding was not found in .... /node-sass/vendor/**/binding.node
+</code>
+<a href="https://github.com/sass/node-sass/releases">To download the missing file</a>,
+If you follow the above solutions still wrong, then I am sorry only use css files.</p>
+
+<h2 id="newly-added">Newly added</h2>
+<p>Can insert JS code: <code>JS()</code><br />
+New metering unit: <code>vw</code>, <code>vh</code>, <code>vmax</code>, <code>vmin</code>, <code>scale</code><br />
+<strong>vw</strong>: device width / 100<br />
+<strong>vh</strong>: device height / 100<br />
+<strong>vmax</strong>: Math.max(vw, vh)<br />
+<strong>vmin</strong>: Math.min(vw, vh)</p>
+
+<h2 id="options">Options</h2>
+<ul>
+  <li>
+    <h4 id="compilecss">compileCSS</h4>
+    <p>Enable compile React Style’</p>
+
+    <p><em>Default:</em> <code>true</code></p>
+  </li>
+  <li>
+    <h4 id="enablesass">enableSass</h4>
+    <p>Enable Sass file and install node-sass</p>
+
+    <p><em>Default:</em> <code>false</code></p>
+  </li>
+  <li>
+    <h4 id="input-files">Input files</h4>
+    <p>Enter the file path or directory. Please read <a href="https://github.com/TOP-Chao/atom-file-watchers#minimatch">minimatch</a> matching rules</p>
+
+    <p><em>Default:</em> <code>**/*.@(css|scss|sass)</code></p>
+  </li>
+  <li>
+    <h4 id="output-file">Output file</h4>
+    <p>File output directory. Relative to the path of the input file</p>
+
+    <p><em>Default:</em> <code>./</code></p>
+  </li>
+</ul>
+
+<h2 id="example">Example</h2>
+<p>Given the following CSS:</p>
+
+<p><code>css
+/* styles.scss */
+$colour-base: #656656;
+.container {
+    flex: 1;
+    padding: 0 0.1vmax;
+    margin: 0 0.2vmin;
+    align-items: center;
+}
+.description {
+    width: "-.5vw";
+    height: 50vh;
+    font-size: 18;
+    font-family: ProximaNova-Semibold;
+    text-align: center;
+    color: $colour-base;
+    writing-direction: auto;
+    text-shadow-offset: "JS({width: 0, height: 0})";
+    letter-spacing: .7px;
+    margin-top: -20px;
+    font-weight: "700";
+}
+.img {
+    margin: 0 1px 2rem 3em;
+    resize-mode: "JS(React.Image.resizeMode.cover)";
+}
+</code></p>
+
+<p>CSS will generate the following:</p>
+
+<p>```js
+// styles.js
+import React, {StyleSheet, Dimensions, PixelRatio} from “react-native”;
+const {width, height, scale} = Dimensions.get(“window”),
+    vw = width / 100,
+    vh = height / 100,
+    vmin = Math.min(vw, vh),
+    vmax = Math.max(vw, vh);</p>
+
+<p>export default StyleSheet.create({
+    “container”: {
+        “flex”: 1,
+        “paddingTop”: 0,
+        “paddingRight”: 0.1 * vmax,
+        “paddingBottom”: 0,
+        “paddingLeft”: 0.1 * vmax,
+        “marginTop”: 0,
+        “marginRight”: 0.2 * vmin,
+        “marginBottom”: 0,
+        “marginLeft”: 0.2 * vmin,
+        “alignItems”: “center”
+    },
+    “description”: {
+        “width”: -.5 * vw,
+        “height”: 50 * vh,
+        “fontSize”: 18,
+        “fontFamily”: “ProximaNova-Semibold”,
+        “textAlign”: “center”,
+        “color”: “#656656”,
+        “writingDirection”: “auto”,
+        “textShadowOffset”: {width: 0, height: 0},
+        “letterSpacing”: 0.7,
+        “marginTop”: -20,
+        “fontWeight”: “700”
+    },
+    “img”: {
+        “marginTop”: 0,
+        “marginRight”: 1,
+        “marginBottom”: 2,
+        “marginLeft”: 3,
+        “resizeMode”: React.Image.resizeMode.cover
+    }
+});
+```</p>
+
+<h2 id="usage">Usage</h2>
+
+<p>```js
+// require the generated style file
+var React = require(‘react-native’),
+	{View,Text} = React;</p>
+
+<p>var styles = require(‘./styles.js’)</p>
+
+<p>var Component = React.createClass({
+    render: function() {
+        return (
+            &lt;View style={styles.container}&gt;
+              &lt;Text style={styles.description}&gt;
+              yes or no
+              &lt;/Text&gt;
+            &lt;/View&gt;
+        );
+    }
+})
+```
+## Demo</p>
+
+<p><img src="http://7oxfk1.com1.z0.glb.clouddn.com/atom-react-native-css-demo.gif" alt="demo" /></p>
+
+react-native,css,sass,react style
+    </section>
+    <footer>
+      <p>
+        Made with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a>
+      </p>
+      <p>
+        <small>Last updated: 2016-04-29</small>
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+  </body>
+</html>

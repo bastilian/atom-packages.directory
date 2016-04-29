@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>Proto Repl</h1>
+<h1 id="proto-repl">Proto REPL</h1>
+
+<p>Proto REPL is a Clojure development environment and REPL for <a href="https://atom.io">Atom</a>. See the <a href="#features">features</a> and <a href="#installation">installation instructions</a>. See the <a href="https://github.com/jasongilman/proto-repl-demo">proto-repl-demo</a> project for a demonstration of the features.</p>
+
+<p><img src="https://github.com/jasongilman/proto-repl/raw/master/front_image.gif" alt="A screenshot of Proto REPL" /></p>
+
+<h2 id="features">Features</h2>
+
+<ul>
+  <li>An interactive REPL driven development environment.</li>
+  <li><a href="#autocompletion">Autocompleting</a> Clojure namespaces, function names, vars, and local bindings</li>
+  <li>Evaluate <a href="#sending-a-block">blocks of code</a> or <a href="#sending-a-selection">selected code</a> with a keystroke.</li>
+  <li>View results in the REPL or <a href="#inline-results">inline next to the code</a>.</li>
+  <li><a href="#automatic-evaluation-mode">Automatic Evaluation Mode</a> that executes code in a file as you type.</li>
+  <li>Easily run tests in a namespace or the whole project.</li>
+  <li>View documentation and code from linked Clojure libraries.</li>
+  <li><a href="https://atom.io/packages/tool-bar">Atom Tool Bar</a> integration that allows controlling the REPL.</li>
+  <li>Extensible with the ability to <a href="#extending-proto-repl">add your own commands</a> or <a href="https://github.com/jasongilman/proto-repl-charts">create visualizations</a>.</li>
+</ul>
+
+<h2 id="usage">Usage</h2>
+
+<h3 id="start-a-local-clojure-repl">Start a Local Clojure REPL</h3>
+
+<p>A local Proto REPL primarily works with projects using <a href="http://leiningen.org">Leiningen</a> or <a href="http://boot-clj.com/">Boot</a>.</p>
+
+<ol>
+  <li>Open your Clojure project in Atom. (See <a href="https://github.com/technomancy/leiningen/blob/stable/doc/TUTORIAL.md#creating-a-project">the Leiningen tutorial</a>
+or <a href="https://github.com/boot-clj/boot#install">the Boot tutorial</a> for help creating a new project.)</li>
+  <li>Start the REPL by bring up the Command Palette (cmd-alt-p) and select “Proto REPL: Toggle”
+    <ul>
+      <li>The REPL can also be started by using the <a href="#keybindings-and-events">keyboard shortcuts documented below</a>.</li>
+    </ul>
+  </li>
+</ol>
+
+<p>See the <a href="https://github.com/jasongilman/proto-repl-demo">Proto REPL Demo project</a> for a demonstration of the features of Proto REPL and more of a description on how it works.</p>
+
+<h3 id="connecting-to-a-remote-repl">Connecting to a Remote REPL</h3>
+
+<p>Proto REPL can connect to a remote Clojure process using <a href="https://github.com/clojure/tools.nrepl">nREPL</a>. Connect to the remote REPL by triggering the Command Palette (cmd-alt-p) and selecting “Proto REPL: Remote Nrepl Connection”. Enter the host and port of the remote nREPL server and it will connect. The keybinding <code>ctrl-, y</code> will also work.</p>
+
+<h3 id="starting-a-self-hosted-clojurescript-repl">Starting a Self Hosted ClojureScript REPL</h3>
+
+<p>Proto REPL includes the ability to start a self hosted ClojureScript REPL. This is a REPL that runs inside of the Atom editor using ClojureScript. It’s currently fairly limited in its capabilities but it will continue to be improved in the future. The ability to run a REPL inside Atom will make it easier to use Proto REPL to develop Proto REPL itself and write more of Proto REPL’s code in ClojureScript. It also removes the need to have Java or any build system like Leiningen or Boot installed to do basic things.</p>
+
+<p>Start the self hosted repl by triggering the Command Palette and selecting “Proto REPL: Start Self Hosted Repl”. The keybinding <code>ctrl-, j</code> will also work.</p>
+
+<p>This is a list of the features currently supported in the self hosted REPL.</p>
+
+<ul>
+  <li>Executing commands in the REPL.</li>
+  <li>Executing blocks or selections of code.</li>
+  <li>Autocompletion of vars (does not include documentation yet)</li>
+  <li>Using <a href="https://github.com/jasongilman/proto-repl-charts">Proto REPL Charts</a> to draw charts and graphs.</li>
+  <li>Inline display of results</li>
+  <li>Showing documentation of a var.</li>
+  <li>Automatic evaluation mode.</li>
+</ul>
+
+<p>This is a list of features currently <em>not</em> yet supported in the self hosted REPL.</p>
+
+<ul>
+  <li>Loading external files.</li>
+  <li>Saving and displaying captured values</li>
+  <li>Interrupting long running commands.</li>
+  <li>Printing var source code.</li>
+  <li>Opening the definition of a var.</li>
+  <li>Running tests.</li>
+</ul>
+
+<h3 id="usage-outside-of-leiningen-projects">Usage Outside of Leiningen Projects</h3>
+
+<p>Proto REPL can still start a REPL outside of a Leiningen project. It still uses Leiningen to start the REPL but uses a default project shipped with Proto REPL. This allows you to easily open up any Clojure file or even just a new Atom window and kick off a new REPL for experimenting.</p>
+
+<h3 id="typing-in-the-repl">Typing in the REPL</h3>
+
+<p>Code to be executed in the REPL can be entered by typing below the dashed line. Code can be executed by pressing <code>shift+enter</code>. The REPL maintains a history of executed commands that were entered in the REPL. The history can be navigated by using the up and down arrow keys after placing the cursor in the text entry area.</p>
+
+<h3 id="sending-code-to-the-repl">Sending Code to the REPL</h3>
+
+<p>Code can be sent to the REPL from within the REPL itself or any other open text editor. For example if you have some Clojure code in a Markdown file that can be sent to the REPL as well.</p>
+
+<h4 id="sending-a-block">Sending a Block</h4>
+
+<p>A block of Clojure code is code that’s delimited by parentheses <code>()</code>, curly braces <code>{}</code> (defines a map literal in Clojure), or square brackets <code>[]</code> (defines a vector literal in Clojure). The key binding <code>ctrl-, b</code> (Press ctrl and comma together, release, then press b) can be used to send a block from the current text editor. The block that is sent depends on the position of the cursor. The cursor may be located nested inside several blocks, directly after a block, or before a block. The logic for block finding searches for blocks in the following order.</p>
+
+<ol>
+  <li>A block directly after the cursor.</li>
+  <li>A block directly before the cursor.</li>
+  <li>The first block the cursor is nested within.</li>
+</ol>
+
+<p>Examples: The following examples show some sample Clojure code using a <code>|</code> to indicate cursor position.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Code</th>
+      <th>Code sent to REPL</th>
+      <th>Why?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>&#124;(foo 1 2)</code></td>
+      <td><code>(foo 1 2)</code></td>
+      <td>Cursor directly before block</td>
+    </tr>
+    <tr>
+      <td><code>(foo 1 2)&#124;</code></td>
+      <td><code>(foo 1 2)</code></td>
+      <td>Cursor directly after block</td>
+    </tr>
+    <tr>
+      <td><code>(a (b &#124;(c (foo 1 2))))</code></td>
+      <td><code>(c (foo 1 2))</code></td>
+      <td>Cursor directly before <code>c</code> block</td>
+    </tr>
+    <tr>
+      <td><code>(a (b&#124; (c (foo 1 2))))</code></td>
+      <td><code>(b (c (foo 1 2)))</code></td>
+      <td>Cursor inside <code>b</code> block</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="markdown-blocks">Markdown Blocks</h5>
+
+<p>The block detection also can find the start and end of a Github Flavored Markdown Clojure blocks. If the cursor is outside of a Clojure block but within a Markdown Clojure Block (Starts with ` <code>clojure` and ends with `</code> `) then all of the code in the Markdown block will be sent.</p>
+
+<h4 id="sending-a-selection">Sending a Selection</h4>
+
+<p>An arbitrary set of selected Clojure code can be sent to the REPL by selecting the code and using the key binding <code>ctrl-, s</code> (Press ctrl and comma together, release, then press s). This allows sending multiple blocks of code at once.</p>
+
+<h3 id="autocompletion">Autocompletion</h3>
+
+<p>Proto REPL supports completing of namespaces, vars, functions, local bindings, and Java methods using the <a href="https://github.com/alexander-yakushev/compliment">Compliment</a> library. Make sure your project includes <a href="https://clojars.org/proto-repl"><img src="https://img.shields.io/clojars/v/proto-repl.svg" alt="Clojars Project" /></a> as a dependency.</p>
+
+<p>Tips</p>
+
+<ul>
+  <li>REPL must be started</li>
+  <li>After modifying the required namespace definition reevaluate it so that Complement will be able to pick up the alias changes.</li>
+</ul>
+
+<h4 id="completing-namespaces">Completing Namespaces</h4>
+
+<p><img src="https://github.com/jasongilman/proto-repl/raw/master/images/completion_namespaces.png" alt="completing namespaces" /></p>
+
+<h4 id="completing-functions">Completing Functions</h4>
+
+<p><img src="https://github.com/jasongilman/proto-repl/raw/master/images/completion_functions.png" alt="completing functions" /></p>
+
+<h4 id="completing-java-methods">Completing Java Methods</h4>
+
+<p><img src="https://github.com/jasongilman/proto-repl/raw/master/images/completion_java.png" alt="completing Java" /></p>
+
+<h3 id="inline-results-display">Inline Results Display</h3>
+
+<p>Inline display of executed blocks or selections is supported if you have the <a href="https://github.com/JunoLab/atom-ink">Atom Ink</a> package installed. You can disable inline results through the configuration. The values displayed inline are shown in a tree like view that lets you explore large nested data structures without having to view all of the data.</p>
+
+<p><img src="https://github.com/jasongilman/proto-repl/raw/master/images/inline_results.gif" alt="inline results screenshot" /></p>
+
+<h3 id="automatic-evaluation-mode">Automatic Evaluation Mode</h3>
+
+<p>(Automatic Evaluation is in beta and subject to change. <a href="https://github.com/jasongilman/proto-repl/issues">Please report any issues or suggestions for improvement</a>.)</p>
+
+<p>Proto REPL supports the automatic evaluation of top level forms as you type. The results are displayed inline next to each top level form. This requires <a href="https://github.com/JunoLab/atom-ink">Atom Ink</a> to be installed. Automatic Evaluation Mode can be started for a file by toggling the Atom Command Palette (cmd-alt-p) and selecting “Proto Repl: Autoeval File”. It can be stopped by toggling the Atom Command Palette (cmd-alt-p) and selecting “Proto Repl: Stop Autoeval File”</p>
+
+<p><img src="https://github.com/jasongilman/proto-repl/raw/master/images/autoeval.gif" alt="automatic evaluation mode screenshot" /></p>
+
+<p>The visualization shown was created with <a href="https://atom.io/packages/proto-repl-charts">Proto REPL Charts</a>.</p>
+
+<h3 id="saving-and-viewing-local-binding-values">Saving and Viewing Local Binding Values</h3>
+
+<p>(Saving and Viewing Local Binding Values is in beta and subject to change. <a href="https://github.com/jasongilman/proto-repl/issues">Please report any issues or suggestions for improvement</a>.)</p>
+
+<p>When you are inside a function or a let block in Clojure there are symbols that have a value. In this example code which sums up <code>m</code>, <code>a</code>, and <code>b</code> are all local bindings.</p>
+
+<p>```Clojure
+(reduce (fn [m [a b]]
+         (update m a #(+ b (or % 0))))
+       {}
+       [[:apples 2] [:oranges 3] [:apples 4] [:cherries 7]])
+=&gt;</p>
+<p>```</p>
+
+<p>While this code is simple it can be difficult to understand what’s happening inside functions and loops. A lot of developers reach for logging or printing to debug this kind of code. When you do that across multiple functions and namespaces those values are mixed together and separate from the code. Proto REPL’s new feature for saving and viewing local bindings let’s you see the values in context and from multiple requests.</p>
+
+<p>The following code was the same as before but now it has <code>(proto/save 1)</code>. The <code>proto/save</code> function saves all the local bindings so that they can be viewed in Proto REPL. The <code>1</code> in <code>(proto/save 1)</code> is just a unique id to tie the saved values back to Proto REPL for display.</p>
+
+<p>```Clojure
+(reduce (fn [m [a b]]
+         (proto/save 1)
+         (update m a #(+ b (or % 0))))
+       {}
+       [[:apples 2] [:oranges 3] [:apples 4] [:cherries 7]])
+=&gt;</p>
+<p>```</p>
+
+<p>After running the code invoking the command <code>proto-repl:display-saved-value</code> will display the values in a table. Each row in the table represents a different iteration of the function.</p>
+
+<p><img src="https://github.com/jasongilman/proto-repl/raw/master/images/saved_values_table.png" alt="saved values table" /></p>
+
+<p>Tables are limited in the amount of detail that can be shown. Proto REPL will truncate long Clojure data structures to fit into a column. Each row of the table can be expanded to explore the details of large data structures.</p>
+
+<p><img src="https://github.com/jasongilman/proto-repl/raw/master/images/saved_values_table_expanded.png" alt="saved values table expanded" /></p>
+
+<p>You can also specify specific bindings to save. For example <code>(proto/save 1 m a)</code> will save just the values of local variables <code>m</code> and <code>b</code>.</p>
+
+<h4 id="using-the-save-value-feature">Using the save value feature</h4>
+
+<ol>
+  <li>Insert a call to <code>proto/save</code> in the code using the keybinding <code>ctrl-shift-, i</code> (Press ctrl shift comma together, release then i) This just inserts the save call with a unique number. The unique number allows you to have multiple save calls in different locations within your code.</li>
+  <li>Execute your code. If you’ve placed the code in a function or across multiple namespaces you’ll need to redefine the modified code or refresh before executing the code.</li>
+  <li>Show the values by pressing the keybinding <code>ctrl-shift-, d</code></li>
+  <li>Saved values can be cleared with the keybinding <code>ctrl-shift-, c</code></li>
+</ol>
+
+<p>There’s currently a limit of 20 saved values in proto-repl-lib. After debugging any issues make sure to remove the save calls. They’re meant to be used in local development only.</p>
+
+<h2 id="installation">Installation</h2>
+
+<p><code>apm install proto-repl</code> or go to your Atom settings, select “+ Install” and search for “proto-repl”.</p>
+
+<p>Make sure that the path to the <code>lein</code> or <code>boot</code> command is correct in the Proto REPL settings depending on whether you’re using Leiningen or Boot as your build tool. Proto REPL settings can be accessed in Atom by opening “Preferences” from the main menu, then selecting the “Packages” tab. Proto REPL will be one of the packages listed. Click the “Settings” button there and look for the “Lein Path” or “Boot Path” setting. Use <code>which lein</code> in a terminal to get the path.</p>
+
+<h3 id="dependencies">Dependencies</h3>
+
+<ul>
+  <li><a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">Java</a>
+    <ul>
+      <li>Not required for self hosted REPL.</li>
+    </ul>
+  </li>
+  <li><a href="http://leiningen.org">Leiningen</a> or <a href="https://github.com/boot-clj/boot">Boot</a>
+    <ul>
+      <li>Not required for self hosted REPL.</li>
+    </ul>
+  </li>
+  <li><a href="https://atom.io/packages/ink">Atom Ink</a>
+    <ul>
+      <li>This is an optional feature but many of Proto REPL’s advanced features won’t work without it.</li>
+    </ul>
+  </li>
+  <li>Add a dependency to the Clojure proto-repl-lib in your project’s dependencies. <a href="https://clojars.org/proto-repl"><img src="https://img.shields.io/clojars/v/proto-repl.svg" alt="Clojars Project" /></a>
+    <ul>
+      <li>This is an optional Clojure library that adds support for some of the advanced Proto REPL features.</li>
+      <li>Required for:
+        <ul>
+          <li>Saving and displaying local binding values</li>
+          <li>Autocompleting Clojure code</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p>Supports Clojure 1.6 and greater.</p>
+
+<h3 id="tool-bar-integration">Tool Bar Integration</h3>
+
+<p>Proto REPL integrates with the <a href="https://atom.io/packages/tool-bar">Atom Tool Bar package</a> to provide buttons for common REPL actions. Install tool-bar and then restart Proto REPL to get quick access to actions like refreshing namespaces, pretty printing, and toggling REPL scrolling.</p>
+
+<h3 id="recommended-atom-settings">Recommended Atom Settings</h3>
+
+<p>See <a href="https://git.io/atom_clojure_setup">https://git.io/atom_clojure_setup</a> for instructions on the best way to setup Atom and other packages for Clojure development.</p>
+
+<h3 id="recommended-additional-packages">Recommended Additional Packages</h3>
+
+<p>These packages go well with Proto REPL. See the link the previous section for the settings to use and the best way to combine all these together.</p>
+
+<ul>
+  <li><a href="https://atom.io/packages/ink">ink</a></li>
+  <li><a href="https://atom.io/packages/proto-repl-charts">proto-repl-charts</a></li>
+  <li><a href="https://atom.io/packages/tool-bar">tool-bar</a></li>
+  <li><a href="https://atom.io/packages/parinfer">parinfer</a></li>
+  <li><a href="https://atom.io/packages/lisp-paredit">lisp-paredit</a></li>
+</ul>
+
+<h2 id="questions-and-discussion">Questions and Discussion</h2>
+
+<p>For questions and general Proto REPL discussion see the <a href="https://clojurians.slack.com/messages/protorepl/">#protorepl channel</a> on <a href="http://clojurians.net/">Slack</a></p>
+
+<h2 id="extending-proto-repl">Extending Proto REPL</h2>
+
+<p>See <a href="https://github.com/jasongilman/proto-repl/blob/master/extending_proto_repl.md">extending_proto_repl.md</a></p>
+
+<h2 id="keybindings-and-events">Keybindings and Events</h2>
+
+<p>Keyboard shortcuts below refer to using <code>ctrl-,</code> then a letter. That means press the <code>ctrl</code> key and the comma key at the same time, release them, and then press the subsequent letter. Some keyboard shortcuts also include the shift key.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Keybinding</th>
+      <th>Event</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>ctrl-, L</code></td>
+      <td><code>proto-repl:toggle</code></td>
+      <td>Starts the REPL</td>
+    </tr>
+    <tr>
+      <td><code>ctrl-, shift-L</code></td>
+      <td><code>proto-repl:toggle</code></td>
+      <td>Starts the REPL using the current open project.clj</td>
+    </tr>
+    <tr>
+      <td><code>ctrl-, y</code></td>
+      <td><code>proto-repl:remote-nrepl-connection</code></td>
+      <td>Connects to a remote nREPL session.</td>
+    </tr>
+    <tr>
+      <td><code>ctrl-, j</code></td>
+      <td><code>proto-repl:start-self-hosted-repl</code></td>
+      <td>Starts a self hosted REPL.</td>
+    </tr>
+    <tr>
+      <td><code>ctrl-, e</code></td>
+      <td><code>proto-repl:exit-repl</code></td>
+      <td>Exits the REPL</td>
+    </tr>
+    <tr>
+      <td><code>ctrl-, k</code></td>
+      <td><code>proto-repl:clear-repl</code></td>
+      <td>Clears REPL Output</td>
+    </tr>
+    <tr>
+      <td><code>ctrl-shift-, s</code></td>
+      <td><code>proto-repl:toggle-auto-scroll</code></td>
+      <td>Enables/Disables autoscrolling the REPL</td>
+    </tr>
+    <tr>
+      <td><code>ctrl-, b</code></td>
+      <td><code>proto-repl:execute-block</code></td>
+      <td>Sends the current block of Clojure code to the REPL for execution.</td>
+    </tr>
+    <tr>
+      <td><code>ctrl-, B</code></td>
+      <td><code>proto-repl:execute-top-block</code></td>
+      <td>Sends the current top-level block of Clojure code to the REPL for execution.</td>
+    </tr>
+    <tr>
+      <td><code>ctrl-, s</code></td>
+      <td><code>proto-repl:execute-selected-text</code></td>
+      <td>Sends the selected text to the REPL for execution.</td>
+    </tr>
+    <tr>
+      <td><code>ctrl-, f</code></td>
+      <td><code>proto-repl:load-current-file</code></td>
+      <td>Loads the current file in the repl.</td>
+    </tr>
+    <tr>
+      <td><code>ctrl-, r</code></td>
+      <td><code>proto-repl:refresh-namespaces</code></td>
+      <td>Runs the <code>user/reset</code> function. See <a href="http://thinkrelevance.com/blog/2013/06/04/clojure-workflow-reloaded">My Clojure Workflow, Reloaded</a></td>
+    </tr>
+    <tr>
+      <td><code>ctrl-shift-, r</code></td>
+      <td><code>proto-repl:super-refresh-namespaces</code></td>
+      <td>Clears all loaded namespaces using <code>clojure.tools.namespace</code> the runs the <code>user/reset</code> function.</td>
+    </tr>
+    <tr>
+      <td><code>ctrl-, p</code></td>
+      <td><code>proto-repl:pretty-print</code></td>
+      <td>Pretty prints the last value returned at the REPL.</td>
+    </tr>
+    <tr>
+      <td><code>ctrl-, x</code></td>
+      <td><code>proto-repl:run-tests-in-namespace</code></td>
+      <td>Runs all the tests in the current namespace.</td>
+    </tr>
+    <tr>
+      <td><code>ctrl-, t</code></td>
+      <td><code>proto-repl:run-test-under-cursor</code></td>
+      <td>Runs the test that has a name under the cursor.</td>
+    </tr>
+    <tr>
+      <td><code>ctrl-, a</code></td>
+      <td><code>proto-repl:run-all-tests</code></td>
+      <td>Runs all the test in the current project.</td>
+    </tr>
+    <tr>
+      <td><code>ctrl-, d</code></td>
+      <td><code>proto-repl:print-var-documentation</code></td>
+      <td>Prints the documentation of a var under the cursor.</td>
+    </tr>
+    <tr>
+      <td><code>ctrl-, c</code></td>
+      <td><code>proto-repl:print-var-code</code></td>
+      <td>Prints out the code of the var under the cursor.</td>
+    </tr>
+    <tr>
+      <td><code>ctrl-, o</code></td>
+      <td><code>proto-repl:open-file-containing-var</code></td>
+      <td>Opens the code of the var or namespace under the cursor. This works even with vars defined in libraries.</td>
+    </tr>
+    <tr>
+      <td><code>ctrl-, n</code></td>
+      <td><code>proto-repl:list-ns-vars</code></td>
+      <td>Lists the vars in the namespace under the cursor.</td>
+    </tr>
+    <tr>
+      <td><code>ctrl-shift-, n</code></td>
+      <td><code>proto-repl:list-ns-vars-with-docs</code></td>
+      <td>Lists the vars in the namespace under the cursor with documentation.</td>
+    </tr>
+    <tr>
+      <td><code>shift-ctrl-c</code></td>
+      <td><code>proto-repl:interrupt</code></td>
+      <td>Attempts to interrupt the currently running command in the REPL.</td>
+    </tr>
+    <tr>
+      <td><code>ctrl-shift-, i</code></td>
+      <td><code>proto-repl:insert-save-value-call</code></td>
+      <td>Inserts a call to <code>proto/save</code> with a unique id</td>
+    </tr>
+    <tr>
+      <td><code>ctrl-shift-, d</code></td>
+      <td><code>proto-repl:display-saved-values</code></td>
+      <td>Displays values saved using the <code>proto/save</code> function.</td>
+    </tr>
+    <tr>
+      <td><code>ctrl-shift-, c</code></td>
+      <td><code>proto-repl:clear-saved-values</code></td>
+      <td>Clears previously saved values using the <code>proto/save</code> function.</td>
+    </tr>
+  </tbody>
+</table>
+
+clojure,lisp,repl,interactive
+    </section>
+    <footer>
+      <p>
+        Made with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a>
+      </p>
+      <p>
+        <small>Last updated: 2016-04-29</small>
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+  </body>
+</html>
