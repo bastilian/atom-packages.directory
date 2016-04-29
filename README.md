@@ -9,7 +9,7 @@ This project adheres to the Contributor Covenant [code of conduct](/CODE_OF_COND
 
 ## Contributing
 
-There are a lot of ways to contribute and get involved. One is to put an effort in establishing new categories if you find one is missing, or it could be better structured or improve the site overall. For this you should setup a local development environment. If you have Docker and Docker Compose installed you are already set to go:
+There are a lot of ways to contribute and get involved. One is to put an effort in establishing new categories if you find one is missing, or it could be better structured or improve the site overall. For this you should setup a local development environment. If you have [Docker](https://docs.docker.com/engine/installation/) and [Docker Compose](https://docs.docker.com/compose/install/) installed you are already set to go:
 
 ```shell
 $ git clone https://github.com/bastilian/atom-packages.directory.git
