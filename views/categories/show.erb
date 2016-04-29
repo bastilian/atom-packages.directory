@@ -23,5 +23,3 @@
     <%= partial :_package_list, locals: {packages: category.packages[0..5]} %>
   <% end %>
 <% end %>
-
-More keyword: <%= category.packages.collect(&:keywords).compact.flatten.each(&:downcase).sort.uniq.join(', ') %>
