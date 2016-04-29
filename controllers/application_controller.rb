@@ -13,6 +13,10 @@ class ApplicationController < Sinatra::Base
   set :partial_template_engine, :erb
   set :views, File.join(File.dirname(__FILE__), '../views')
 
+  before do
+    content_type 'text/html'
+  end
+
   configure do
     enable :logging
     use Rack::CommonLogger, LOG_FILE
