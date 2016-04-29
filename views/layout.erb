@@ -5,7 +5,6 @@
     <title>Atom Packages Directory</title>
     <%= stylesheet_tag 'application' %>
     <%= stylesheet_tag 'admin' %>
-    <script src="<%= javascript_path 'application' %>"></script>
 
   </head>
   <body>
@@ -18,10 +17,11 @@
     </section>
     <footer>
       <p>
-        Made with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>Last updated: <%= Time.now.strftime('%Y-%m-%d') %></small>
       </p>
       <p>
-        <small>Last updated: <%= Time.now.strftime('%Y-%m-%d') %></small>
+
       </p>
     </footer>
     <div style="opacity:.15;position:relative;z-index:-1;">
