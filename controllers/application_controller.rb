@@ -46,12 +46,4 @@ class ApplicationController < Sinatra::Base
     env_sprockets['PATH_INFO'] = path
     settings.sprockets.call env_sprockets
   end
-
-  not_found do
-    if request.env['PATH_INFO'].match(/\.\S{1,5}$/)
-      content_type :png
-      status 200
-      File.read(File.join('assets', 'images', 'pixel.png'))
-    end
-  end
 end
