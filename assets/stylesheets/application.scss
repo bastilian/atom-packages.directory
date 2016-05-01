@@ -87,6 +87,7 @@ header {
 }
 
 section#content {
+  position: relative;
   margin: 0 auto;
   width: $content-width;
   max-width: 960px;

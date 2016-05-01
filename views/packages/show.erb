@@ -1,4 +1,12 @@
 <% package = package.decorated %>
-
 <h1><%= package.humanized_name %></h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install <%= package.name.tr(' ', '-') %>
+  </pre>
+</div>
 <%= package.readme_html %>
+<section class="package-keywords">
+  <strong>Keywords:</strong> <%= package.keywords.join(', ') %> <a href="<%= package.add_keyword_url %>">Suggest keywords</a>
+</section>

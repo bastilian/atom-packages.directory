@@ -30,4 +30,12 @@ class PackageDecorator < Decorator
     string.tr!('-', ' ')
     string.split(/(\W)/).map(&:capitalize).join
   end
+
+  def github_repository
+    repository['url'].scan(/github\.com\/(.*)$/).first.first
+  end
+
+  def add_keyword_url
+    "http://github.com/#{github_repository}/edit/master/package.json"
+  end
 end
