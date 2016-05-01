@@ -6,19 +6,35 @@ The site is built as a static page deployed on GitHub Pages. It is built with Si
 
 This project adheres to the Contributor Covenant [code of conduct](/CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code. Please report unacceptable behavior to sebastian@validcode.me.
 
+## Setup
 
-## Contributing
-
-There are a lot of ways to contribute and get involved. One is to put an effort in establishing new categories if you find one is missing, or it could be better structured or improve the site overall. For this you should setup a local development environment. If you have [Docker](https://docs.docker.com/engine/installation/) and [Docker Compose](https://docs.docker.com/compose/install/) installed you are already set to go:
+If you have [Docker](https://docs.docker.com/engine/installation/) and [Docker Compose](https://docs.docker.com/compose/install/) installed you are already set to go:
 
 ```shell
 $ git clone https://github.com/bastilian/atom-packages.directory.git
 $ cd atom-packages.directory
-$ docker-compose run site rake bootstrap # Takes a while...
+$ docker-compose run site rake site:bootstrap # Takes a while...
 $ docker-compose up site
 ```
 
 Once the bootstrap process is finished and the site is up, head to your browser and go to `http://DOCKER_IP` and you should see exactly the same as on the live site.
+
+Alternatively you can setup your system to run the application locally on your computer outside of a container.
+The requirements follow.
+
+## Requirements
+
+* RethinkDB (2.3.1 or later)
+* Ruby (2.2.3 or later)
+* NodeJS for Bower (1.7.9 or later)
+
+## Documentation
+
+See [doc/README.md](doc/README.md)
+
+## Contributing
+
+There are a lot of ways to contribute and get involved. One is to put an effort in establishing new categories if you find one is missing, or it could be better structured or improve the site overall. For this you should setup a local development environment.
 
  Another way is to assign keywords to packages that have none by opening a pull request and add them to their repositories `package.json`.
 
