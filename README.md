@@ -36,7 +36,7 @@ See [doc/README.md](doc/README.md)
 
 There are a lot of ways to contribute and get involved. One is to put an effort in establishing new categories if you find one is missing, or it could be better structured or improve the site overall. For this you should setup a local development environment.
 
- Another way is to assign keywords to packages that have none by opening a pull request and add them to their repositories `package.json`.
+ Another way is to assign keywords to packages that have none by opening a pull request and add them to their repositories `package.json`. Every package page lists it's keywords as well as a link that brings you directly to it's repository on GitHub and opens `package.json` to edit.
 
 ## License
 
