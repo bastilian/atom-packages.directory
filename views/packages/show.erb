@@ -1,5 +1,10 @@
 <% package = package.decorated %>
-<h1><%= package.humanized_name %></h1>
+<h1>
+  <%= package.humanized_name %>
+  <% if package.author %>
+    <span class="author">by <%= package.author %></span>
+  <% end %>
+</h1>
 <div class="package-install">
   <strong>Install with:</strong>
   <pre>

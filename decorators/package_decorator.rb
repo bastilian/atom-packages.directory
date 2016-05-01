@@ -38,4 +38,12 @@ class PackageDecorator < Decorator
   def add_keyword_url
     "http://github.com/#{github_repository}/edit/master/package.json"
   end
+
+  def author
+    @author = versions.values.collect { |v| v['author'] }.compact.first
+    return unless @author
+    @author = @author['name'] if @author['name']
+
+    @author
+  end
 end
