@@ -1,7 +1,8 @@
 <h1>
   <% if category.parent_category %>
     <span>
-      <%= category.parent_category.name %> »
+      <a href="/category/<%= category.parent_category.permalink %>">
+        <%= category.parent_category.name %></a> »
     </span>
   <% end %>
   <%= category.name %>
