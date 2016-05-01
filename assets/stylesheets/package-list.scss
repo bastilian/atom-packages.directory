@@ -8,16 +8,19 @@
   width: 28%;
   margin-right: 4.25%;
   margin-bottom: 3em;
+
+}
+
+#content .package img {
+  display: block;
+  margin: 1em auto;
+  max-width: 90%;
 }
 
 .package-list .package-description {
   font-size: .9em;
-  height: 5em;
-
-  p {
-
-  }
 }
+
 .package-list .package-meta {
   font-size: .8em;
 }

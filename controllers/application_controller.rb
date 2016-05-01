@@ -15,6 +15,9 @@ class ApplicationController < Sinatra::Base
 
   before do
     content_type 'text/html'
+
+    @categorised_packages_count = Package.where(_or: Category.keywords.map { |keyword| :keywords.include(keyword) }).count
+    @packages_count = Package.count
   end
 
   configure do
@@ -34,9 +37,6 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/' do
-    @categorised_packages_count = Package.where(_or: Category.keywords.map { |keyword| :keywords.include(keyword) }).count
-    @packages_count = Package.count
-
     erb :index, locals: { top_categories: Category.top,
                           not_so_top_categories: Category.not_so_top }
   end

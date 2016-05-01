@@ -1,4 +1,9 @@
 <h1>
+  <% if category.parent_category %>
+    <span>
+      <%= category.parent_category.name %> »
+    </span>
+  <% end %>
   <%= category.name %>
 </h1>
 
