@@ -36,7 +36,7 @@ class PackageDecorator < Decorator
   end
 
   def add_keyword_url
-    "http://github.com/#{github_repository}/edit/master/package.json"
+    "https://github.com/#{github_repository}/edit/master/package.json"
   end
 
   def author

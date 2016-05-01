@@ -1,6 +1,9 @@
 <% package = package.decorated %>
 <h1>
   <%= package.humanized_name %>
+  <a href="https://github.com/<%= package.github_repository %>">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
   <% if package.author %>
     <span class="author">by <%= package.author %></span>
   <% end %>
