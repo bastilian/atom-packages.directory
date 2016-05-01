@@ -7,7 +7,10 @@ base_categories:
       - language
       - grammar
       - snippets
-    Assembler:
+    Assembly:
+      keywords:
+        - asm
+        - assembler
     C:
     C#:
       keywords:
