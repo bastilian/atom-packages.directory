@@ -78,7 +78,7 @@ class Category
   def packages
     return [] unless all_keywords
     Package.where(_or: own_keywords.map { |keyword| :keywords.any(keyword) } +
-                       own_keywords.map { |keyword| { :name.eq => /\s+#{keyword}\s*/ } },
+                       own_keywords.map { |keyword| { :name.eq => %r{/\s+#{Regexp.escape(keyword)}\s*/} } },
                   and: (child_keywords + sibling_keywords).map { |keyword| :keywords.not.include(keyword) })
   end
 
