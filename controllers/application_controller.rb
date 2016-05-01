@@ -34,9 +34,10 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/' do
-    erb :index, locals: { categorised_packages_count: Package.where(_or: Category.keywords.map { |keyword| :keywords.include(keyword) }).count,
-                          packages_count: Package.count,
-                          top_categories: Category.top,
+    @categorised_packages_count = Package.where(_or: Category.keywords.map { |keyword| :keywords.include(keyword) }).count
+    @packages_count = Package.count
+
+    erb :index, locals: { top_categories: Category.top,
                           not_so_top_categories: Category.not_so_top }
   end
 
