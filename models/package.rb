@@ -96,7 +96,7 @@ class Package
 
       versions.values.each do |version_hash|
         v = version_hash['version']
-        new_versions[v] = {}
+        new_versions[v] = version_hash
       end
 
       new_versions
