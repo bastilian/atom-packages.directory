@@ -9,6 +9,7 @@ rescue LoadError
 end
 
 Dir.glob('lib/tasks/*.rake').each { |r| import r }
+
 task :console do
   pry
 end

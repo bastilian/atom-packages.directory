@@ -17,6 +17,19 @@ services:
       - database
       - replica
 
+
+  builder:
+    env_file: .env
+    extends: app
+    command: bundle exec rake site:build
+    environment:
+      - RETHINKDB_DB=atom_development
+      - RETHINKDB_HOST=database
+    links:
+      - site
+      - database
+      - replica
+
   test:
     extends: app
     command: rake spec
