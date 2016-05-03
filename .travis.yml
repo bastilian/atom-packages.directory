@@ -13,6 +13,6 @@ before_script:
   - export LANG=en_US.UTF-8
   - export RACK_ENV=test
   - export RETHINKDB_DB=atom_test
-  - export RETHINKDB_HOST=loclahost
+  - export RETHINKDB_HOST=127.0.0.1
   - mkdir -p log
 script: bundle exec rspec spec
