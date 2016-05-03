@@ -3,6 +3,9 @@ rvm:
   - 2.2.3
 env:
   - LC_CTYPE=en_US.UTF-8 LANG=en_US.UTF-8
+  - RACK_ENV=test
+  - RETHINKDB_DB=atom_test
+  - RETHINKDB_HOST=loclahost
 before_install:
     - source /etc/lsb-release && echo "deb http://download.rethinkdb.com/apt $DISTRIB_CODENAME main" | sudo tee /etc/apt/sources.list.d/rethinkdb.list
     - wget -qO- https://download.rethinkdb.com/apt/pubkey.gpg | sudo apt-key add -
