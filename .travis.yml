@@ -3,4 +3,6 @@ rvm:
   - 2.2.3
 env:
   - LC_CTYPE=en_US.UTF-8 LANG=en_US.UTF-8
+before_script:
+  - mkdir -p log
 script: bundle exec rspec spec
