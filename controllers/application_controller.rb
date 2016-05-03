@@ -14,7 +14,7 @@ class ApplicationController < Sinatra::Base
   set :views, File.join(File.dirname(__FILE__), '../views')
 
   before do
-    content_type 'text/html'
+    content_type 'text/html' unless content_type || request.accept
 
     @categorised_packages_count = Package.where(_or: Category.keywords.map { |keyword| :keywords.include(keyword) }).count
     @packages_count = Package.count
