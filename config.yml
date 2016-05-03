@@ -327,3 +327,4 @@ base_categories:
           - symbol
           - ctags
           - tag
+      Minimap:
