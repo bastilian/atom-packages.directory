@@ -160,6 +160,8 @@ base_categories:
       - theme
     Syntax:
       Dark:
+        keywords:
+          - darker
       Colorful:
         keywords:
           - virbant
@@ -168,6 +170,8 @@ base_categories:
       Adaptive:
     UI:
       Dark:
+        keywords:
+          - darker
       Colorful:
         keywords:
           - virbant
