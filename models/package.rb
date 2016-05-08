@@ -67,6 +67,14 @@ class Package
   end
 
   class << self
+    def categorised_packages_count
+      @categorised_packages_count ||= Package.where(_or: Category.keywords.map { |keyword| :keywords.include(keyword) }).count
+    end
+
+    def packages_count
+      @packages_count ||= Package.count
+    end
+
     def from_data_json(json)
       new(build_package_attributes(json))
     end
