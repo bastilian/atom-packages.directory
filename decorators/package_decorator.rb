@@ -16,11 +16,7 @@ class PackageDecorator < Decorator
   end
 
   def readme_images
-    unless readme.blank?
-      readme.scan(/!\[.*\]\((.+\.+\S{1,5})\)$/).to_a.flatten
-    else
-      []
-    end
+    readme.scan(/!\[.*?\]\((.*?)\)/).to_a.flatten.select { |image| image.match(/\.(?:jpg|jpeg|gif|png)$/) } unless readme.blank?
   end
 
   def humanized_name

@@ -8,7 +8,8 @@
         <%= package.humanized_name %>
       </a>
     </strong>
-    <% if package.readme_images[0] %>
+
+    <% if package.readme_images && package.readme_images[0] %>
       <a href="/package/<%= package.permalink %>">
         <img src="<%= package.readme_images[0] %>" alt="" />
       </a>
