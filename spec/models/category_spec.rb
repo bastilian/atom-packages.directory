@@ -14,6 +14,12 @@ describe Category, type: :model do
     end
   end
 
+  describe '#own_keywords' do
+    it 'returns the name and the keywords combined' do
+      expect(subject.reload.own_keywords).to include(([subject[:name].downcase] + subject[:keywords]).sample)
+    end
+  end
+
   describe '#all_keywords' do
     let(:parent) { FactoryGirl.create(:category) }
     subject { FactoryGirl.create(:category, parent_category: parent) }
