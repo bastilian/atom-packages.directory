@@ -1,20 +1,14 @@
 development:
   clients:
     default:
-      database: <%= ENV['DATABASE'] %>
-      hosts:
-        - <%= ENV['DATABASE_HOST'] %>:27017
+      uri: <%= ENV['MONGODB_URI'] %>
 
 production:
   clients:
     default:
-      database: <%= ENV['DATABASE'] %>
-      hosts:
-        - <%= ENV['DATABASE_HOST'] %>:27017
+      uri: <%= ENV['MONGODB_URI'] %>
 
 test:
   clients:
     default:
-      database: <%= ENV['DATABASE'] %>
-      hosts:
-        - <%= ENV['DATABASE_HOST'] %>:27017
+      uri: <%= ENV['MONGODB_URI'] %>

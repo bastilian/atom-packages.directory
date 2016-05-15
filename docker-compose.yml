@@ -11,8 +11,7 @@ services:
     extends: app
     command: bundle exec puma -p 80
     environment:
-      - DATABASE=atom_development
-      - DATABASE_HOST=database
+      - MONGODB_URI=mongodb://database:27017/atom_development
     links:
       - database
 
@@ -22,8 +21,7 @@ services:
     extends: app
     command: bundle exec rake site:build
     environment:
-      - DATABASE=atom_development
-      - DATABASE_HOST=database
+      - MONGODB_URI=mongodb://database:27017/atom_development
     links:
       - site
       - database
@@ -33,8 +31,7 @@ services:
     command: rake spec
     environment:
       - RACK_ENV=test
-      - DATABASE=atom_test
-      - DATABASE_HOST=database
+      - MONGODB_URI=mongodb://database:27017/atom_test
     links:
       - database
 
