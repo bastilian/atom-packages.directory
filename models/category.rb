@@ -39,7 +39,7 @@ class Category
   end
 
   default_scope do
-    order_by(:name => :desc)
+    order_by(name: :asc)
   end
 
   scope :top, lambda {
