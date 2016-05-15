@@ -4,13 +4,13 @@
   <% package = package.decorated %>
   <div class="package grid-item">
     <strong>
-      <a href="/package/<%= package.permalink %>.html">
+      <a href="/package/<%= package.permalink %>">
         <%= package.humanized_name %>
       </a>
     </strong>
 
     <% if package.readme_images && package.readme_images[0] %>
-      <a href="/package/<%= package.permalink %>.html">
+      <a href="/package/<%= package.permalink %>">
         <img src="<%= package.readme_images[0] %>" alt="" />
       </a>
     <% end %>
