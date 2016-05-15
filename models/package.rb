@@ -72,8 +72,7 @@ class Package
         downloads: package['downloads'],
         stargazers_count: package['stargazers_count'],
         releases: package['releases'],
-        keywords: extract_keywords(package['versions']),
-        versions: extract_versions(package['versions'])
+        keywords: extract_keywords(package['versions'])
       }
     end
 
