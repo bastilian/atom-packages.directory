@@ -26,7 +26,6 @@ gem 'kramdown'
 gem 'puma'
 
 gem 'rake'
-gem 'foreman'
 
 group :development, :test do
   # Application reloader
