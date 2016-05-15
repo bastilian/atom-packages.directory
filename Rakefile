@@ -1,5 +1,5 @@
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__)))
-require 'pry'
+require 'pry' if ENV['RACK_ENV'] != 'production'
 require 'lib/environment'
 
 begin
