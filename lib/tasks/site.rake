@@ -10,7 +10,7 @@ namespace :site do
 
   desc 'Build the site'
   task :build do
-    builder = SiteBuilder.new(url: 'http://site')
+    builder = SiteBuilder.new(url: ENV['BUILD_URL'])
     builder.start
   end
 

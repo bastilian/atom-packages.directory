@@ -21,6 +21,7 @@ services:
     extends: app
     command: bundle exec rake site:build
     environment:
+      - BUILD_URL=http://site
       - MONGODB_URI=mongodb://database:27017/atom_development
     links:
       - site
