@@ -19,7 +19,7 @@ class Package
   field :readme
   field :repository
   field :releases
-  field :versions
+  field :versions, type: Array
 
   validates_uniqueness_of :name, :permalink
   validates_presence_of :downloads, :stargazers_count, :permalink
@@ -72,7 +72,8 @@ class Package
         downloads: package['downloads'],
         stargazers_count: package['stargazers_count'],
         releases: package['releases'],
-        keywords: extract_keywords(package['versions'])
+        keywords: extract_keywords(package['versions']),
+        versions: extract_versions(package['versions'])
       }
     end
 
@@ -83,11 +84,10 @@ class Package
     end
 
     def extract_versions(versions)
-      new_versions = {}
+      new_versions = []
 
       versions.values.each do |version_hash|
-        v = version_hash['version']
-        new_versions[v] = version_hash
+        new_versions << version_hash
       end
 
       new_versions

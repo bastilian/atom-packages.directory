@@ -36,7 +36,7 @@ class PackageDecorator < Decorator
   end
 
   def author
-    @author = versions.values.collect { |v| v['author'] }.compact.first
+    @author = versions.collect { |v| v['author'] }.compact.first
     return unless @author
     @author = @author['name'] if @author['name']
 
