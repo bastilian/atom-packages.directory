@@ -1,0 +1,20 @@
+development:
+  clients:
+    default:
+      database: <%= ENV['DATABASE'] %>
+      hosts:
+        - <%= ENV['DATABASE_HOST'] %>:27017
+
+production:
+  clients:
+    default:
+      database: <%= ENV['DATABASE'] %>
+      hosts:
+        - <%= ENV['DATABASE_HOST'] %>:27017
+
+test:
+  clients:
+    default:
+      database: <%= ENV['DATABASE'] %>
+      hosts:
+        - <%= ENV['DATABASE_HOST'] %>:27017

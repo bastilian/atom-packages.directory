@@ -1,10 +1,11 @@
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..'))
 require 'factory_girl'
 require 'faker'
+require 'database_cleaner'
+
 require 'rack/test'
 
 ENV['RACK_ENV'] = 'test'
-ENV['RETHINKDB_URL'] = 'rethinkdb://database/atom_test'
 
 require 'lib/environment'
 require 'support/controller_mixins'
@@ -15,16 +16,15 @@ RSpec.configure do |config|
 
   config.before(:suite) do
     FactoryGirl.find_definitions
-    NoBrainer.sync_indexes
   end
 
-  config.before(:all) do
-    NoBrainer.drop!
-    NoBrainer.sync_schema
+  config.before :each do
+    DatabaseCleaner.strategy = :truncation
+    DatabaseCleaner.start
   end
 
-  config.before(:each) do
-    NoBrainer.purge!
+  config.after do
+    DatabaseCleaner.clean
   end
 end
 

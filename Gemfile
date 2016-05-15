@@ -14,8 +14,7 @@ gem 'sprockets-sass'
 gem 'sprockets-helpers'
 
 # Database
-gem 'nobrainer'
-gem 'rethinkdb', '2.1.0'
+gem 'mongoid'
 
 # HTTP client
 gem 'faraday'
@@ -41,4 +40,6 @@ group :development, :test do
   gem 'factory_girl', require: false
   gem 'faker'
   gem 'rack-test'
+
+  gem 'database_cleaner'
 end

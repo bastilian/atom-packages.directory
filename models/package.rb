@@ -4,41 +4,25 @@ require 'decorators/package_decorator'
 # An Atom Package
 class Package
   include Resource
-  include NoBrainer::Document
+  include Mongoid::Document
   include Permalink
 
   identify_by :permalink
   decorate_with PackageDecorator
 
-  field :name,
-        index: true,
-        uniq: true
-
+  field :name
+  field :permalink
   field :description
-
-  field :downloads,
-        index: true,
-        required: true,
-        default: 0
-
-  field :stargazers_count,
-        index: true,
-        required: true,
-        default: 0
-
-  field :permalink,
-        index: true,
-        required: true,
-        uniq: true
-
-  field :keywords,
-        index: true,
-        type: Array
-
+  field :downloads, default: 0
+  field :stargazers_count, default: 0
+  field :keywords, type: Array
   field :readme
   field :repository
   field :releases
   field :versions
+
+  validates_uniqueness_of :name, :permalink
+  validates_presence_of :downloads, :stargazers_count, :permalink
 
   before_validation do
     downcase_keywords
@@ -63,12 +47,12 @@ class Package
 
   def categories
     return [] unless keywords
-    Category.where(_or: keywords.map { |keyword| { :keywords.any => keyword } })
+    Category.where(keywords: { '$in': keywords })
   end
 
   class << self
     def categorised_packages_count
-      @categorised_packages_count ||= Package.where(_or: Category.keywords.map { |keyword| :keywords.include(keyword) }).count
+      @categorised_packages_count ||= Package.where(keywords: { '$in': Category.keywords }).count
     end
 
     def packages_count

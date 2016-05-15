@@ -4,40 +4,30 @@ require 'decorators/category_decorator'
 # A Category can have packages associated via PackageCateorisations and through keywords
 class Category
   include Resource
-  include NoBrainer::Document
+  include Mongoid::Document
   include Permalink
 
   identify_by :permalink
   decorate_with CategoryDecorator
 
-  field :name,
-        index: true,
-        uniq: {
-          scope: :parent_category_id
-        },
-        required: true
+  field :name
+  validates_uniqueness_of :name, scope: [:parent_category_id]
+  validates_presence_of :name, :permalink, :sub_categories_count
 
   field :description
 
-  field :permalink,
-        index: true,
-        required: true,
-        uniq: true
+  field :permalink
+  validates_uniqueness_of :permalink
 
-  field :keywords,
-        index: true,
-        type: Array
-
+  field :keywords, type: Array
   field :sub_categories_count,
-        index: true,
-        required: true,
         default: 0
 
   belongs_to :parent_category,
-             class_name: Category,
-             index: true
+             class_name: 'Category',
+             foreign_key: :parent_category_id
   has_many :sub_categories,
-           class_name: Category,
+           class_name: 'Category',
            foreign_key: :parent_category_id
 
   before_validation do
@@ -49,16 +39,16 @@ class Category
   end
 
   default_scope do
-    order_by(:name)
+    order_by(:name => :desc)
   end
 
   scope :top, lambda {
-    where(:parent_category.undefined => true)
+    where(parent_category_id: nil)
       .where(:sub_categories_count.gt => 0)
   }
 
   scope :not_so_top, lambda {
-    where(:parent_category.undefined => true)
+    where(parent_category_id: nil)
       .where(sub_categories_count: 0)
   }
 
@@ -69,7 +59,7 @@ class Category
   end
 
   def packages_count
-    Package.where(_or: (own_keywords + child_keywords).map { |keyword| :keywords.any(keyword) }).uniq.count
+    Package.where(keywords: { '$in': own_keywords + child_keywords }).uniq.count
   end
 
   def parents
@@ -81,9 +71,8 @@ class Category
 
   def packages
     return [] unless all_keywords
-    Package.where(_or: own_keywords.map { |keyword| :keywords.any(keyword) } +
-                       own_keywords.map { |keyword| { :name.eq => %r{/\s+#{Regexp.escape(keyword)}\s*/} } },
-                  and: (child_keywords + sibling_keywords).map { |keyword| :keywords.not.include(keyword) })
+    Package.where('$or': own_keywords.map { |keyword| { keywords: keyword } })
+      .where('$or': [name: %r{/\s+(#{Regexp.escape(own_keywords.join('|'))})\s*/}])
   end
 
   def sibling_keywords

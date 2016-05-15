@@ -16,7 +16,7 @@ class ApplicationController < Sinatra::Base
   before do
     content_type 'text/html' unless content_type || request.accept
 
-    @categorised_packages_count = Package.where(_or: Category.keywords.map { |keyword| :keywords.include(keyword) }).count
+    @categorised_packages_count = Package.where(keywords: { '$in': Category.keywords }).count
     @packages_count = Package.count
   end
 

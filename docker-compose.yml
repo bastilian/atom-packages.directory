@@ -11,11 +11,10 @@ services:
     extends: app
     command: bundle exec foreman start
     environment:
-      - RETHINKDB_DB=atom_development
-      - RETHINKDB_HOST=database
+      - DATABASE=atom_development
+      - DATABASE_HOST=database
     links:
       - database
-      - replica
 
 
   builder:
@@ -23,39 +22,31 @@ services:
     extends: app
     command: bundle exec rake site:build
     environment:
-      - RETHINKDB_DB=atom_development
-      - RETHINKDB_HOST=database
+      - DATABASE=atom_development
+      - DATABASE_HOST=database
     links:
       - site
       - database
-      - replica
 
   test:
     extends: app
     command: rake spec
     environment:
       - RACK_ENV=test
-      - RETHINKDB_DB=atom_test
-      - RETHINKDB_HOST=database
+      - DATABASE=atom_test
+      - DATABASE_HOST=database
     links:
       - database
 
   production:
     extends: app
     environment:
-      - RETHINKDB_DB=atom
-      - RETHINKDB_HOST=database
+      - DATABASE=atom_packages
+      - DATABASE_HOST=database
     links:
       - database
 
   database:
-    depends_on:
-      - replica
-    image: rethinkdb:latest
-    command: rethinkdb --bind all
+    image: mongo:3.3
     ports:
-      - "8080:8080"
-
-  replica:
-    image: rethinkdb:latest
-    command: rethinkdb --join database:29015 --bind all
+      - "27017:27017"
