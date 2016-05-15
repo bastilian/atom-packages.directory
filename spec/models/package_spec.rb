@@ -72,7 +72,7 @@ describe Package, type: :model do
 
     describe '.extract_versions' do
       it 'returns a hash containing cleaned up versions' do
-        expect(subject.extract_versions(json[0]['versions']).keys.size).to eq(json[0]['versions'].keys.size)
+        expect(subject.extract_versions(json[0]['versions']).size).to eq(json[0]['versions'].size)
       end
     end
   end
