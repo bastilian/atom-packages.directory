@@ -20,6 +20,7 @@ class ResourceMatcher
   end
 
   def process_request(path)
+    path = path.split('.')[0]
     resource_name, id = path.split('/')[1..-1]
     resource_name = resource_name.singularize if collection_requrest?(resource_name)
 

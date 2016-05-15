@@ -1,7 +1,7 @@
 <% top_categories.each do |category| %>
 <div class="category">
   <header>
-    <h2><a href="/category/<%= category.permalink %>"><%= category.name %></a></h2>
+    <h2><a href="/category/<%= category.permalink %>.html"><%= category.name %></a></h2>
     <small>(<%= category.packages_count %> packages)</small>
   </header>
   <div class="category-subcategories">
@@ -9,7 +9,7 @@
       <% category.sub_categories.each do |category| %>
         <% category = category.decorated %>
         <li>
-          <a href="/category/<%= category.permalink %>">
+          <a href="/category/<%= category.permalink %>.html">
             <% if category.image_path %>
               <img src="<%= image_path category.image_path %>" />
             <% end %>
@@ -24,5 +24,5 @@
 <% end %>
 
 <% not_so_top_categories.each do |category| %>
-  <a href="/category/<%= category.permalink %>"><%= category.name %></a> |
+  <a href="/category/<%= category.permalink %>.html"><%= category.name %></a> |
 <% end %>
