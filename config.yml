@@ -39,15 +39,15 @@ base_categories:
     Erlang:
     Haml:
     HTML & CSS:
-      keywords:
-        - html5
-        - html
       CSS:
         PostCSS:
         Sass:
         Scss:
         Less:
         Bootstrap:
+      HTML:
+        keywords:
+          - html5
     Haskell:
       keywords:
         - ide-haskell
