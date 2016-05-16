@@ -87,7 +87,7 @@ class Package
       new_versions = []
 
       versions.values.each do |version_hash|
-        new_versions << version_hash
+        new_versions << version_hash.stringify_keys
       end
 
       new_versions

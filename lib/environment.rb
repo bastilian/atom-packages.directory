@@ -1,6 +1,7 @@
 require 'bundler'
 Bundler.require
 
+require 'lib/hash'
 require 'lib/permalink'
 require 'lib/decorator'
 
