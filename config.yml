@@ -220,6 +220,17 @@ base_categories:
         - lint
         - linting
         - validate
+      Natural Language:
+        keywords:
+          - proselint
+          - english
+          - redpen
+          - hedge
+          - write-good
+        exclude_keywords:
+          - autocomplete
+          - syntax
+          - spacing
     Testing:
       keywords:
         - test
