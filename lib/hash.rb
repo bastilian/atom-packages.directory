@@ -16,13 +16,13 @@ class Hash
   end
 
   def stringify_keys
-    transform_hash(self) do |hash, key, value|
+    transform_hash do |hash, key, value|
       hash[key.to_s] = value
     end
   end
 
   def deep_stringify_keys
-    transform_hash(self, deep: true) do |hash, key, value|
+    transform_hash(deep: true) do |hash, key, value|
       hash[key.to_s] = value
     end
   end
