@@ -56,6 +56,8 @@ module Packages
     end
 
     def start
+      Package.all.each(&:destroy)
+
       import
     end
   end
