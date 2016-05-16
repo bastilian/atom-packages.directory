@@ -76,7 +76,7 @@ class Category
     pkgs = Package.where('$or': own_keywords.map { |keyword| { keywords: keyword } })
            .where('$or': [name: /(#{own_keywords.map { |keyword| Regexp.escape(keyword) }.join('|')})\s+/])
 
-    if exclude_keywords
+    if exclude_keywords && !exclude_keywords.empty?
       pkgs = pkgs.where('$and': exclude_keywords.map { |keyword| { :keywords.ne => keyword } })
     end
 
