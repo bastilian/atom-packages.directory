@@ -29,11 +29,16 @@ module Categories
         if sub_categories
           keywords = category[1]['keywords']
           category[1].delete('keywords')
+
+          exclude_keywords = category[1]['exclude_keywords']
+          category[1].delete('exclude_keywords')
         else
           keywords = []
+          exclude_keywords = []
         end
 
-        new_category = Category.where(name: name, parent_category: parent_category).first_or_create!(keywords: keywords)
+        new_category = Category.where(name: name, parent_category: parent_category)
+                       .first_or_create!(keywords: keywords, exclude_keywords: exclude_keywords)
 
         if sub_categories
           build_category_tree(categories: category[1], parent_category: new_category)

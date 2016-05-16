@@ -20,6 +20,8 @@ class Category
   validates_uniqueness_of :permalink
 
   field :keywords, type: Array
+  field :exclude_keywords, type: Array
+
   field :sub_categories_count,
         default: 0
 
@@ -72,7 +74,8 @@ class Category
   def packages
     return [] unless all_keywords
     pkgs = Package.where('$or': own_keywords.map { |keyword| { keywords: keyword } })
-            .where('$or': [name: /(#{own_keywords.map { |keyword| Regexp.escape(keyword) }.join('|')})/])
+           .where('$or': [name: /(#{own_keywords.map { |keyword| Regexp.escape(keyword) }.join('|')})\s+/])
+           .where('$and': exclude_keywords.map { |keyword| { :keywords.ne => keyword } })
 
     if sub_categories.count > 0
       pkgs = pkgs.where('$and': child_keywords.map { |keyword| { :keywords.ne => keyword } })
