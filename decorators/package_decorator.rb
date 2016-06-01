@@ -20,11 +20,11 @@ class PackageDecorator < Decorator
   end
 
   def humanized_name
-    string = name
-    string.gsub(/^(language|atom)-/, '')
-    string.gsub(/-ui$/, '')
-    string.tr('-', ' ')
-    string.split(/(\W)/).map(&:capitalize).join
+    name
+      .gsub(/^(language|atom)-/, '')
+      .gsub(/-ui$/, '')
+      .tr('-', ' ')
+      .split(/(\W)/).map(&:capitalize).join
   end
 
   def github_repository
