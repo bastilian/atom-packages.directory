@@ -56,7 +56,7 @@ module Packages
     end
 
     def start
-      Package.destroy_all
+      Package.delete_all
 
       import
     end
