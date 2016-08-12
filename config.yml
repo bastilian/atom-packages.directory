@@ -171,6 +171,7 @@ base_categories:
           - color
       Light:
       Adaptive:
+      TextMate:
     UI:
       Dark:
         keywords:
