@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Latexsimple
+  <a href="https://github.com/fndercole/language-latexsimple">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+    <span class="author">by Favio D'Ercole contacto@faviodercole.com.ar</span>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install language-latexsimple
+  </pre>
+</div>
+<h1 id="language-latexsimple">language-latexsimple</h1>
+
+<p>This is an alternative package for Atom editor that support LaTeX, TeX and BibTeX grammar syntax.</p>
+
+<h2 id="features">Features</h2>
+<p>### Comments
+  - In-line comments, <code>% commented text</code>.
+  - Multi-line comments blocks, <code>\begin{comment} ... \end{comment}</code>.
+  - TODO tags in comments importing <code>source.todo</code>.</p>
+
+<h3 id="verbatim">Verbatim</h3>
+<ul>
+  <li>In-line verbatim <code>\verb|&lt;verbatim text&gt;|</code>.</li>
+  <li>Verbatim environment blocks <code>\begin{verbatim} ... \end{verbatim}</code>.</li>
+  <li>Support other source code highlight, beginning with <code>% language:</code> and ending with <code>% end</code>. Currently, support this scopes:
+    <ul>
+      <li>R: <code>source.r</code></li>
+      <li>STATA: <code>source.stata</code></li>
+      <li>Shell: <code>source.shell</code></li>
+    </ul>
+
+    <p>I plan to support any scope, but I need more knowledge about coffeeScript to achieve that.</p>
+  </li>
+</ul>
+
+<h3 id="commands">Commands</h3>
+<ul>
+  <li>Generic commands of the form <code>\command</code>.</li>
+  <li>TeX commands of the form <code>\foo@bar</code>.</li>
+  <li>Document class declaration such as
+    <ul>
+      <li><code>documentclass[&lt;optional args&gt;]{&lt;class&gt;}</code></li>
+    </ul>
+  </li>
+  <li>Including declarations such as
+    <ul>
+      <li><code>\usepackage[&lt;optional args&gt;]{&lt;packages&gt;}</code></li>
+      <li><code>\input[&lt;optional args&gt;]{&lt;files&gt;}</code></li>
+      <li><code>\include[&lt;optional args&gt;]{&lt;files&gt;}</code></li>
+      <li><code>\includegraphics[&lt;optional args&gt;]{&lt;file&gt;}</code></li>
+      <li><code>\bibliography[&lt;optional args&gt;]{&lt;file&gt;}</code></li>
+      <li><code>\nobibliography[&lt;optional args&gt;]{&lt;file&gt;}</code></li>
+    </ul>
+  </li>
+  <li>Headings declarations such as
+    <ul>
+      <li><code>\title[&lt;optional args&gt;]{&lt;heading&gt;}</code></li>
+      <li><code>\part[&lt;optional args&gt;]{&lt;heading&gt;}</code></li>
+      <li><code>\chapter[&lt;optional args&gt;]{&lt;heading&gt;}</code></li>
+      <li><code>\section[&lt;optional args&gt;]{&lt;heading&gt;}</code></li>
+      <li><code>\subsection[&lt;optional args&gt;]{&lt;heading&gt;}</code></li>
+      <li><code>\paragraph[&lt;optional args&gt;]{&lt;heading&gt;}</code></li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="environments">Environments</h3>
+<ul>
+  <li>Generics environment blocks <code>\begin{&lt;environment&gt;} ... \end{&lt;environment&gt;}</code></li>
+</ul>
+
+<h3 id="mathematics">Mathematics</h3>
+<ul>
+  <li>In-line math <code>$ ... $</code></li>
+  <li>Display math blocks <code>\[ ... \]</code></li>
+  <li>Math environments beginning with <code>\begin{equation}</code> or <code>\begin{align}</code>.</li>
+  <li>Match any of this delimiters: <code>\left\{</code>, <code>\left[</code>, <code>\left(</code>, <code>\left.</code> with any of: <code>\right\}</code>, <code>\right]</code>, <code>\right)</code>, <code>\right.</code>.</li>
+</ul>
+
+<h3 id="punctuation">Punctuation</h3>
+<ul>
+  <li>Highlights <code>&amp;</code>, <code>_</code>, <code>^</code>, <code>\\</code>, <code>.</code>, <code>-</code>.</li>
+</ul>
+
+<h3 id="groups">Groups</h3>
+<ul>
+  <li>Nested groups using <code>{</code> and <code>}</code>. Non matched <code>}</code> is not highlighted.</li>
+  <li>Match <code>(</code>, <code>)</code>.</li>
+  <li>Match <code>[</code>, <code>]</code>. Inside brackets groups highlights keyword <code>foo = bar</code>.</li>
+</ul>
+
+<h3 id="bibtex">BibTeX</h3>
+<ul>
+  <li>Entry environment <code>@entry{...}</code>.</li>
+  <li>Citation key, <code>key1999,</code></li>
+  <li>tag <code>foo = ... ,</code></li>
+</ul>
+
+<h3 id="files">Files</h3>
+<ul>
+  <li><code>text.tex.latex</code> is active on <code>tex</code>, <code>sty</code> and <code>cls</code> files.</li>
+  <li><code>text.tex.bibtex</code> is active on <code>bib</code> files.</li>
+</ul>
+
+<h2 id="todos">TODO’s</h2>
+<ul>
+  <li>Add support for other grammar into verbatim environments.</li>
+  <li>Improve Support for TeX files like <code>sty</code>, <code>cls</code> and <code>ltx</code>.</li>
+  <li>Add more escaped symbols.</li>
+  <li>Add special support for subsubsectioning.</li>
+  <li>Add support for special pstricks commands.</li>
+</ul>
+
+<h2 id="related-projects">Related projects</h2>
+
+<ul>
+  <li><a href="https://github.com/fndercole/varone-dark-syntax">Varone Dark Syntax</a>, provide colours name declared in this grammar.</li>
+  <li><a href="https://github.com/fndercole/linter-spell-latexsimple">linter-spell-latexsimple</a>, is a compatible provider for <a href="https://github.com/yitzchak/linter-spell">linter-spell</a>.</li>
+</ul>
+
+<h2 id="warnings">Warnings</h2>
+
+<p>You must disable <code>language-latex</code> or <code>language-tex</code> before enable this.</p>
+
+<p>The older package <code>language-latex</code> has some issues, so I write from scratch a new package. This is not a fork, so there is no compatibility warranty.</p>
+
+<p>This software is in alpha stage of development. Please, add an issue for request a feature.</p>
+<section class="package-keywords">
+  <strong>Keywords:</strong> tex, latex, bibtex, grammar, syntax <a href="https://github.com/fndercole/language-latexsimple/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

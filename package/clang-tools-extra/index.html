@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Clang Tools Extra
+  <a href="https://github.com/HiroakiMikami/atom-clang-tools-extra">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install clang-tools-extra
+  </pre>
+</div>
+<h1 id="atom-clang-tools-extra-apm-versionhttpsimgshieldsioapmvclang-tools-extrasvghttpsatomiopackagesclang-tools-extra-apm-downloadshttpsimgshieldsioapmdmclang-tools-extrasvghttpsatomiopackagescclang-tools-extra">atom-clang-tools-extra <a href="https://atom.io/packages/clang-tools-extra"><img src="https://img.shields.io/apm/v/clang-tools-extra.svg" alt="APM Version" /></a> <a href="https://atom.io/packages/cclang-tools-extra"><img src="https://img.shields.io/apm/dm/clang-tools-extra.svg" alt="APM Downloads" /></a></h1>
+
+<p>Atom.io integration with <a href="http://clang.llvm.org/extra/">clang-tools-extra</a>.</p>
+
+<h2 id="description">Description</h2>
+
+<p><img src="https://hiroakimikami.github.io/atom-clang-tools-extra/screenshot.png" alt="" /></p>
+
+<p>This package provides the ability to use <code>clang-tools-extra</code> via Atom.io.</p>
+
+<h2 id="features">Features</h2>
+<p>### 1. Integration with <code>clang-tidy</code>
+This package provides the plugin for <a href="https://github.com/steelbrain/linter">Linter</a> using <code>clang-tidy</code>.</p>
+
+<p>Some kinds of errors (such as forgetting to add <code>;</code>) can be fixed by <code>autocomplete-plus:activate</code>.</p>
+
+<p><img src="https://hiroakimikami.github.io/atom-clang-tools-extra/fix-error.gif" alt="" /></p>
+
+<h3 id="integration-with-clang-rename">2. Integration with <code>clang-rename</code></h3>
+<p>It also provides the user interface for <a href="http://clang.llvm.org/extra/clang-rename.html"><code>clang-rename</code></a>.</p>
+
+<p>Because of the limitation of <code>clang-rename</code> command, it cannot rename variables used in multiple files.</p>
+
+<p><img src="https://hiroakimikami.github.io/atom-clang-tools-extra/rename.gif" alt="" /></p>
+
+<h1 id="requrements">Requrements</h1>
+<ul>
+  <li><a href="http://clang.llvm.org/extra/">clang-tools-extra</a></li>
+</ul>
+
+<h1 id="usage">Usage</h1>
+<p>## clang-tidy
+1. Invoke <code>linter:lint</code> to show errors and warnings.
+2. Invoke <code>autocomplete-plus:activate</code> to fix error.</p>
+
+<h2 id="clang-rename">clang-rename</h2>
+<ol>
+  <li>Move to the variable that is to be renamed.</li>
+  <li>Invoke <code>clang-tools-extra:rename</code> (<code>Ctrl-2</code>).</li>
+  <li>Change the variable name</li>
+  <li>Invoke <code>clang-tools-extra:confirm-rename</code> (<code>Ctrl-3</code>).</li>
+</ol>
+
+<h1 id="install">Install</h1>
+<p><code>bash
+$ apm install clang-tools-extra
+</code></p>
+
+<h1 id="todo">Todo</h1>
+<ul>
+  <li>[ ] Integate with <a href="http://clang.llvm.org/extra/include-fixer.html">clang-include-fixer</a></li>
+</ul>
+
+<h1 id="license">License</h1>
+<p>This software is released under the MIT License, see <a href="LICENSE.md">LICESE.md</a></p>
+<section class="package-keywords">
+  <strong>Keywords:</strong> clang, clang-tools-extra, c++, c, objective-c++, objective-c <a href="https://github.com/HiroakiMikami/atom-clang-tools-extra/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

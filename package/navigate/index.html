@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Navigate
+  <a href="https://github.com/skandasoft/navigate">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install navigate
+  </pre>
+</div>
+<h1 id="navigate-to-any-filebackf2f3-under-cursor">Navigate to any file/back(f2/f3) under cursor</h1>
+
+<p>Navigate to any file by double clicking(f2) on the file url/any word, even if it is not on the path and jump back(f3), with support for Node Modules. Simple!!!</p>
+
+<p>Drill your way in to the file..any level !!! and back</p>
+
+<p><strong>Special support for npm modules. Jump straight to locally installed module by clicking on the require</strong></p>
+
+<p>The package will keep track of navigations, which takes time and will jump immediately next time.</p>
+
+<p>To Refresh its memory  <strong>navigate:refresh</strong></p>
+
+<p>if you just wanted to refresh a single path select the path and type navigate:refresh in the command window.</p>
+
+<h3 id="keymaps">KeyMaps</h3>
+
+<p>F2/DoubleClick to navigate forward to the file(uses same window).</p>
+
+<p>F3 to navigate backward.</p>
+
+<p>Navigate by double clicking and back on f3</p>
+
+<p><img src="https://github.com/skandasoft/navigate/blob/master/navigate.gif?raw=true" alt="navigate" /></p>
+
+<p>F4 - To open in a new window.</p>
+
+<p><img src="https://github.com/skandasoft/navigate/blob/master/open-new-window.gif?raw=true" alt="new-window" /></p>
+
+<p>Navigating into local node modules in the same window</p>
+
+<p><img src="https://github.com/skandasoft/navigate/blob/master/nodemodules.gif?raw=true" alt="localnodemoudules" /></p>
+
+<p><strong><a href="http://atom.io/packages/browser-plus">BrowserPlus</a></strong> has to be installed to take advantage of all features</p>
+
+<p>This package help in navigating/links to html file. when you press f2 on a html file it opens up the browser/BrowserPlus</p>
+
+<p>Navigating to custom url can been provided in the config against the set of keys.</p>
+
+<p>The default key combinations are now</p>
+
+<p>```javascript
+‘F1’:
+  title: ‘F1 - Help’
+  type: ‘string’
+  default: ‘http://devdocs.io/#q=&amp;searchterm’</p>
+
+<p>‘CTRL-F1’:
+  title: ‘F1 - Help’
+  type: ‘string’
+  default: ‘https://www.google.com/search?q=&amp;searchterm’</p>
+
+<p>‘CTRL-F2’:
+  title: ‘Stack Overflow Search’
+  type: ‘string’
+  default: ‘http://stackoverflow.com/search?q=&amp;searchterm’</p>
+
+<p>‘CTRL-F3’:
+  title: ‘AtomIO Search’
+  type: ‘string’
+  default: ‘https://atom.io/docs/api/search/latest?q=&amp;searchterm’
+```</p>
+
+<p><em>Ablity to add custom key map</em></p>
+
+<p>Custom keys(CTRL-F4) can be added against custom url. The word under cursor is available in the field searchterm. Currently any help for the words under cursor, are provided through devdocs.</p>
+
+<p><img src="https://github.com/skandasoft/navigate/blob/master/help-browser-plus.gif?raw=true" alt="browser-plus" /></p>
+
+<p>Maintain the custom key to custom url in any file in json format and save as .coffee file.</p>
+
+<p>for eg.</p>
+
+<p><code>coffee
+module.exports =
+  'f1': 'http://devdocs.io/#q=&amp;searchterm'
+</code></p>
+
+<p><strong>looks like the keymap has to be in lowercase in windows for it to work for some reason</strong></p>
+
+<p>check lib\keymap.coffee in this package for eg and its filepath is specified in the setting for the navigate package. Go to the “require” setting in the config and specify the file path.</p>
+
+<p>File could be any where in the system for eg in windows if it is
+&gt; c:/keymap.coffee</p>
+
+<p>update in settings for</p>
+
+<blockquote>
+  <blockquote>
+    <p>“require” to c:/keymap.coffee</p>
+  </blockquote>
+</blockquote>
+
+<p>and this file could contain the same keymap as the default config.coffee keymap..
+** your key map will be given the preference **</p>
+
+<section class="package-keywords">
+  <strong>Keywords:</strong> jump to file, forward, drilldown, jump, link, links, help, browser <a href="https://github.com/skandasoft/navigate/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

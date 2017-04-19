@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Dicom Dump
+  <a href="https://github.com/QIICR/atom-dicom-dump">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install dicom-dump
+  </pre>
+</div>
+<h1 id="dicom-viewer-for-atomhttpatomio">DICOM viewer for <a href="http://atom.io">Atom</a></h1>
+
+<h2 id="overview">Overview</h2>
+
+<p>This package provides a point-and-click interface for exploring the content of <a href="http://dicom.nema.org/">DICOM</a> files. At the moment, the functionality provided is allowing to run <a href="http://dicom.offis.de/dcmtk.php.en">DCMTK</a> command-line tools <a href="http://support.dcmtk.org/docs/dcmdump.html">dcmdump</a> and <a href="http://support.dcmtk.org/docs/dsrdump.html">dsrdump</a>.</p>
+
+<p>By using this Atom package instead of running the DCMTK tools in the command
+line, you can:</p>
+
+<ul>
+  <li>conveniently copy content to the clipboard</li>
+  <li>do folding of the indented sections of the dump</li>
+  <li>search for content of interest</li>
+  <li>add a lot more features using powerful Atom engine ;)</li>
+</ul>
+
+<h2 id="usage">Usage</h2>
+
+<h3 id="install-the-package">Install the package</h3>
+
+<p>Install the package from Atom &gt; Settings &gt; Install</p>
+
+<h3 id="install-dcmtk">Install DCMTK</h3>
+
+<ul>
+  <li><strong>Windows</strong>: you can download pre-compiled DCMTK binaries from
+https://github.com/QIICR/dcmtk-dcmqi/releases (here is the <a href="https://github.com/QIICR/dcmtk-dcmqi/releases/download/DCMTK-dcmqi-3.6.1_20161102-VS12-Win64-Release-v0.0.11-static/DCMTK-dcmqi.zip">direct download link</a>). You will also need to download and install <a href="http://www.microsoft.com/en-us/download/details.aspx?id=40784">Visual C++ Redistributable Packages for Visual Studio 2013</a>. <code>DCMTK_PATH</code> should point to the <code>bin</code> folder inside the unzipped <code>DCMTK-dcmqi.zip</code> package. Note that you will not be able to use DCMTK binaries from 3D Slicer (the approach discussed below for Mac and Lunux will not work on Windows!)</li>
+  <li><strong>Mac</strong>: you can download and install <a href="http://download.slicer.org">3D Slicer application</a> package for Mac, which contains pre-compiled DCMTK tools. If you install 3D Slicer into the standard system location, <code>DCMTK_PATH</code> should point to <code>/Applications/Slicer.app/Contents/bin</code></li>
+  <li><strong>Linux</strong>: you can download and install <a href="http://download.slicer.org">3D Slicer application</a> for Linux, which contains pre-compiled DCMTK tools. <code>DCMTK_PATH</code> should point to the <code>bin</code> directory inside the unzipped Linux package of 3D Slicer.</li>
+</ul>
+
+<h3 id="set-dcmtk-path-in-the-package-settings">Set DCMTK path in the package settings</h3>
+
+<p><img src="https://raw.githubusercontent.com/QIICR/atom-dicom-dump/master/screenshots/dcmtk_path_settings.jpg" alt="Screenshot" /></p>
+
+<h3 id="activate-package-after-opening-a-dicom-file">Activate package after opening a DICOM file</h3>
+
+<p>After opening a DICOM file in Atom, use context menu to invoke <code>dcmdump</code> or <code>dsrdump</code> tools.</p>
+
+<h2 id="status">Status</h2>
+
+<p>This package is work in progress. Contributions from the community in the form of encouragements, comments, feature requests, bug repots and pull requests are very welcome!</p>
+
+<h2 id="acknowledgment">Acknowledgment</h2>
+
+<p>This package is being developed by <a href="https://github.com/fedorov">Andrey Fedorov</a> as part of the <a href="http://qiicr.org">QIICR</a> project activities. QIICR is supported by NIH National Cancer Institute, award U24 CA180918. Please contact Andrey, join <a href="https://plus.google.com/b/103730364707811819340/+QiicrOrg">QIICR community on Google+</a>, or submit an issue on the issue tracker!</p>
+
+<h2 id="demo">Demo</h2>
+
+<p><img src="https://raw.githubusercontent.com/QIICR/atom-dicom-dump/master/screenshots/demo.gif" alt="Screenshot" /></p>
+<section class="package-keywords">
+  <strong>Keywords:</strong> dicom, dcmtk, viewer <a href="https://github.com/QIICR/atom-dicom-dump/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

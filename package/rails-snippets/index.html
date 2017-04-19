@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Rails Snippets
+  <a href="https://github.com/joseramonc/rails-snippets">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install rails-snippets
+  </pre>
+</div>
+<h1 id="rails-snippets-package">rails-snippets package</h1>
+<p>An <a href="https://atom.io">atom</a> package to add snippets for Ruby on Rails projects.</p>
+
+<p>Developed with Ruby 1.9 syntax (<code>key: 'value'</code>) and rails 5 onwards in mind, but most snippets work on older versions too.</p>
+
+<p>Contributions are greatly appreciated, if your favorite snippets are missing <a href="https://github.com/joseramonc/rails-snippets/issues">open an issue</a> or send a pull request, I would :heart: to merge your favorite snippets.</p>
+
+<p>Please fork this repository and open a pull request to add / improve snippets.</p>
+
+<h2 id="features">Features</h2>
+<ul>
+  <li>
+    <p>Support .html.erb and .html.haml templates</p>
+  </li>
+  <li>
+    <p><a href="https://github.com/eddorre/SublimeERB">Toggle between erb blocks</a>:</p>
+
+    <p><img src="http://cl.ly/image/1P2E1x0h210l/toggle_erb.gif" alt="demo" /></p>
+  </li>
+</ul>
+
+<p>Toggle with:  <kbd>cmd</kbd> + <kbd>&gt;</kbd></p>
+
+<p>(In american keyboard: <kbd>shift</kbd> + <kbd>cmd</kbd> + <kbd>.</kbd>)</p>
+
+<h4 id="optional-customize-erb-blocks">[OPTIONAL] Customize ERB Blocks</h4>
+<p>In your atom configuration file (<code>config.cson</code>). Insert each erb block you’d like as an array with the first element as the opening erb and the 2nd element as the closing erb into rails-snippets’s erbBlocks configuration array.</p>
+
+<p>As an example of how’d look like:
+<code>
+# config.cson
+"*":
+  # all your other configs...
+  "rails-snippets":
+      erbBlocks: [
+        ['&lt;%=', '%&gt;']
+        ['&lt;%', '%&gt;']
+        ['&lt;%#', '%&gt;']
+      ]
+</code>
+If you can stick to the default (above) you don’t have to do anything. Otherwise add or remove erb blocks in the order you’d like.</p>
+
+<h2 id="conventions">Conventions</h2>
+<p>The conventions for the snippets are usually the initials for the method.</p>
+
+<p>Examples:
+* For <code>validates_presence_of</code> is <code>vpo</code>
+* For <code>has_and_belongs_to_many</code> is <code>habtm</code>
+* For <code>&lt;%= link_to 'hi', path %&gt;</code> is <code>lt</code> and so on.</p>
+
+<p>Also if the method has an optional block like <code>content_tag</code> (snippet is <code>ct</code>), its block it’s going to be adding <code>block</code> to the shortcut, in this case <code>ctblock</code></p>
+
+<h2 id="snippets-list">Snippets list</h2>
+
+<p>Here are some of my favorites snippets, a complete list of snippets can be seen <a href="https://github.com/joseramonc/rails-snippets/tree/master/snippets">directly at the code</a> or once the package is installed at Settings &gt; Packages &gt; Rails Snippets
+### <code>=loop</code></p>
+
+<p><img src="http://cl.ly/image/2z0j2j043W22/=loop.gif" alt="=loop_demo" /></p>
+
+<h3 id="formfor-and-fsf"><code>form_for</code> and <code>fsf</code></h3>
+
+<p><img src="http://cl.ly/image/0s3z1t040k16/form_for.gif" alt="=form_for fsf" /></p>
+
+<h3 id="scope--p-l-bd-j-jp"><code>scope</code> + (<code>p</code> <code>l</code> <code>bd</code> <code>j</code> <code>jp</code>)</h3>
+<p><img src="http://cl.ly/image/2U011O3j343r/scopes.gif" alt="=form_for fsf" />
+* <code>p</code>roc
+* <code>l</code>ambda
+* <code>bd</code> Between dates
+* <code>j</code>oins
+* <code>jp</code>joins &amp; proc</p>
+<section class="package-keywords">
+  <strong>Keywords:</strong> rails, snippets, erb, ruby on rails <a href="https://github.com/joseramonc/rails-snippets/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

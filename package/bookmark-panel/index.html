@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Bookmark Panel
+  <a href="https://github.com/JsonHunt/bookmark-panel">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install bookmark-panel
+  </pre>
+</div>
+<h1 id="bookmark-panel-package">bookmark-panel package</h1>
+
+<p>Adds a side panel showing automatic anchors/bookmarks in active file.
+There is a set of standard bookmarks included in the package.
+To add your own, create bookmarks-config.coffee in your project root,
+or your projects folder.</p>
+
+<p>Configure your bookmarks like this:</p>
+
+<p>```
+bookmarks: [
+	{
+		filename: ‘.coffee’
+		regexp: ///\s<em>class\s(.</em>)///
+		labelfx: (match)-&gt;
+			return “Class #{match[1]}”
+	},{
+		filename: ‘.coffee’
+		regexp: ///\s<em>(.</em>?):\s<em>((.</em>?))?\s<em>-&gt;///
+		labelfx: (match)-&gt;
+			return “#{match[1]}”
+	},{
+		group: “TO-DO”
+		regexp: ///TO-?DO: (.</em>)///
+		labelfx: (match)-&gt;
+			return “#{match[1]}”
+	}
+]</p>
+
+<p>```
+The panel will now appear if active file contains one or more matching bookmarks.
+Clicking on a bookmark will take you to it.
+You can group your bookmarks, define which files they apply to (optional,using regex),
+define regex patterns and label functions (optional)</p>
+
+<p>Currently, generic TO-DOs and CoffeeScript classes + class methods are included.
+If you add other useful bookmark types, you are welcome to contribute.</p>
+<section class="package-keywords">
+  <strong>Keywords:</strong> anchors, summary, bookmark, bookmarks, todo, todos, outline, navigation, grammar, functions, methods <a href="https://github.com/JsonHunt/bookmark-panel/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Princess Syntax
+  <a href="https://github.com/duien/princess-syntax">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install princess-syntax
+  </pre>
+</div>
+<h1 id="princess-syntax-theme">Princess Syntax Theme</h1>
+
+<p>A bright syntax theme, with plenty of pink and purple. It’s mostly optimized for Ruby, with occasional JavaScript, CSS, and markup. More improvements will probably be coming, but it’s also possible I’ll get bored and move on. Use at your own risk.</p>
+
+<p><img src="https://raw.githubusercontent.com/duien/princess-syntax/master/screenshots/ruby_princess.png" alt="Ruby syntax example" /></p>
+
+<p>The font used in the screenshot is <a href="http://input.fontbureau.com/preview/?size=14&amp;language=python&amp;theme=monokai&amp;family=InputMono&amp;width=300&amp;weight=300&amp;line-height=1.2&amp;a=0&amp;g=0&amp;i=serifs_round&amp;l=serifs_round&amp;zero=0&amp;asterisk=height&amp;braces=straight&amp;preset=default&amp;customize=please">Input from FontBureau</a>. It’s extremely configurable, so I’ve linked to my particular settings.</p>
+
+<p>If you’d like your current line to be highlighted, you can add the following snippet to your user stylesheet. It’s scoped so that it will affect only this syntax theme, and includes an alternate color suggestion for the highlight line as well.</p>
+
+<p>```less
+.theme-princess-syntax {
+  @pink-light: #ffb1de;
+  @blue: #6be5fd;</p>
+
+<p>@current-line-highlight: fade(@blue, 10);</p>
+
+<p>atom-text-editor.is-focused,
+  atom-text-editor.is-focused::shadow,
+  :host(.is-focused) {
+    .line-number.cursor-line {
+      background: @current-line-highlight;
+    }
+    .line.cursor-line {
+      background:@current-line-highlight;
+    }
+  }
+}
+```</p>
+
+<p>If you’d like the look of the centered indent guides shown in the screenshot, rather than the left-aligned ones that Atom defaults to, you can add the following snippet to your user stylesheet:</p>
+
+<p><code>less
+atom-text-editor, atom-text-editor::shadow, :host {
+  // Shift indent guides to align vertically with center of column
+  .indent-guide {
+    @indent-offset: 4px; // This might need tweaking depending on font and size
+    @guide-width: 1px;
+    box-shadow: none;
+    background: linear-gradient(90deg, // replace box-shadow with gradient
+      transparent,
+      transparent @indent-offset,
+      @syntax-indent-guide-color @indent-offset,
+      @syntax-indent-guide-color @indent-offset + @guide-width,
+      transparent @indent-offset + @guide-width)
+  }
+}
+</code></p>
+<section class="package-keywords">
+  <strong>Keywords:</strong> syntax, theme, light, bright <a href="https://github.com/duien/princess-syntax/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

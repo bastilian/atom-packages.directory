@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Linter Autocomplete Jing
+  <a href="https://github.com/aerhard/linter-autocomplete-jing">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+    <span class="author">by Alexander Erhard (https://github.com/aerhard/)</span>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install linter-autocomplete-jing
+  </pre>
+</div>
+<h1 id="linter-autocomplete-jing">linter-autocomplete-jing</h1>
+
+<p><a href="https://travis-ci.org/aerhard/linter-autocomplete-jing"><img src="https://travis-ci.org/aerhard/linter-autocomplete-jing.svg?branch=master" alt="Travis CI Status" /></a>
+<a href="https://ci.appveyor.com/project/aerhard/linter-autocomplete-jing"><img src="https://ci.appveyor.com/api/projects/status/github/aerhard/linter-autocomplete-jing?branch=master&amp;svg=true" alt="Appveyor CI Status" /></a>
+<a href="https://circleci.com/gh/aerhard/linter-autocomplete-jing"><img src="https://circleci.com/gh/aerhard/linter-autocomplete-jing/tree/master.svg?style=shield&amp;circle-token=93c48cdbcad41ba1b7cd08f231286b94b195de53" alt="Circle CI Status" /></a>
+<a href="https://david-dm.org/aerhard/linter-autocomplete-jing"><img src="https://david-dm.org/aerhard/linter-autocomplete-jing.svg" alt="Dependencies" /></a>
+<a href="https://david-dm.org/aerhard/linter-autocomplete-jing?type=dev"><img src="https://david-dm.org/aerhard/linter-autocomplete-jing/dev-status.svg" alt="devDependencies Status" /></a></p>
+
+<p>Autocomplete and on-the-fly validation of XML documents in Atom.</p>
+
+<p>Supported schema types:</p>
+
+<ul>
+  <li><em>Validation</em>: RELAX NG (XML and compact syntax), Schematron (1.5, ISO), W3C Schema (XSD 1.0) and DTD</li>
+  <li><em>Autocomplete</em>: RELAX NG (XML and compact syntax), W3C Schema (XSD 1.0)</li>
+</ul>
+
+<p>You can find a basic set of common XML schemata and corresponding rules for linter-autocomplete-jing in the <a href="https://atom.io/packages/xml-common-schemata">xml-common-schemata</a> package.</p>
+
+<p>XML document processing is handled in Java using <a href="https://github.com/aerhard/jing-trang">Jing</a>, <a href="http://xerces.apache.org/xerces2-j/">Xerces</a> and <a href="http://saxon.sourceforge.net/">Saxon HE</a>. For the source code of the Java part see https://github.com/aerhard/xml-tools.</p>
+
+<h2 id="installation">Installation</h2>
+
+<p>Select the package in Atom’s Settings View (<kbd>Ctrl-,</kbd>) / Install Packages or run <code>apm install linter-autocomplete-jing</code> from the command line.</p>
+
+<p>The package depends on a Java Runtime Environment (JRE) v1.6 or above. If running <code>java -version</code> on the command line returns an appropriate version number, you should be set. Otherwise, install a recent JRE and provide the path to the Java executable either in the PATH environment variable or in the linter-autocomplete-jing package settings in Atom.</p>
+
+<h2 id="package-settings">Package Settings</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Settings Form</th>
+      <th>Atom Config Property</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Java Executable Path</td>
+      <td>javaExecutablePath</td>
+      <td>The path to the Java executable (<code>java</code>).</td>
+    </tr>
+    <tr>
+      <td>JVM Arguments</td>
+      <td>jvmArguments</td>
+      <td>Space-separated list of arguments to get passed to the Java Virtual Machine on which the validation server is run.</td>
+    </tr>
+    <tr>
+      <td>Schema Cache Size</td>
+      <td>schemaCacheSize</td>
+      <td>The maximum number of schemata retained simultaneously in memory.</td>
+    </tr>
+    <tr>
+      <td>Display Schema Parser Warnings</td>
+      <td>displaySchemaWarnings</td>
+      <td>Whether or not to display warning messages from the schema parser.</td>
+    </tr>
+    <tr>
+      <td>XML Catalog</td>
+      <td>xmlCatalog</td>
+      <td>The path to the XML Catalog file to be used in validation.</td>
+    </tr>
+    <tr>
+      <td>DTD Validation</td>
+      <td>dtdValidation</td>
+      <td>Determines under which circumstances DTDs should be used in validation. Possible values: ‘always’, ‘never’ or ‘only as fallback’. When ‘only as fallback’ is selected, documents get validated against DTDs only if no other schemata are available for validation.</td>
+    </tr>
+    <tr>
+      <td>Autocomplete Priority</td>
+      <td>autocompletePriority</td>
+      <td>The inclusion priority of the Autocomplete Plus provider. In order to exclude other autocomplete providers, the number must be larger than the other providers’ priorities. Defaults to 1 (In order to suppresses the default tag snippets provided by the <code>language-xml</code> package, set autocomplete priority to 2.)</td>
+    </tr>
+    <tr>
+      <td>Autocomplete Scope</td>
+      <td>autocompleteScope</td>
+      <td>The schema types which should be used for autocomplete.</td>
+    </tr>
+    <tr>
+      <td>Wildcard Suggestions</td>
+      <td>wildcardSuggestions</td>
+      <td>Inclusion of wildcards in autocomplete suggestions. Possible values: ‘all’, ‘localparts’, ‘none’.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>(In order to edit the settings, press <kbd>Ctrl-,</kbd> or select “Packages” / “Settings View” / “Open” in the main menu. Then either navigate to the settings form (“Packages” tab, search for “linter-autocomplete-jing” and click the “Settings” button) or click the link to Atom’s config file.</p>
+
+<h2 id="file-types">File types</h2>
+
+<p>Validation and autocomplete get activated when the current file’s grammar scope includes an item starting with <code>text.xml</code>. The Atom core package <a href="https://atom.io/packages/language-xml">language-xml</a> (installed by default) assigns a large set of common XML file extensions to <code>text.xml</code> and <code>text.xml.xsl</code>. XML property lists (<code>text.xml.plist</code>) are supported by another core package, <a href="https://atom.io/packages/language-property-list">language-property-list</a>.</p>
+
+<p>If a file extension you’re working with isn’t included in <code>language-xml</code> or any grammar derived from <code>text.xml</code> you can either request adding the extension at https://github.com/atom/language-xml or create a local association in your <code>config.cson</code>:</p>
+
+<ol>
+  <li>Open <code>config.cson</code> by pressing <kbd>Ctrl-Shift-P</kbd> and then entering <code>Open Your Config</code></li>
+  <li>Add or extend the <code>customFileTypes</code> property of <code>core</code></li>
+</ol>
+
+<p>The following example assigns the <code>.tei</code>, <code>.mei</code> and <code>.odd</code> extensions to <code>text.xml</code>:</p>
+
+<p><code>
+  core:
+    customFileTypes:
+      "text.xml": [
+        "tei"
+        "mei"
+        "odd"
+      ]
+</code></p>
+
+<p>A second way of supporting custom file extensions is creating a new grammar package based on <code>text.xml</code> and specifying the extensions in the grammar definition. An example can be found in the <a href="https://github.com/aerhard/xml-demo-package">demo package</a>.</p>
+
+<h2 id="specifying-schemata">Specifying Schemata</h2>
+
+<h3 id="schema-references-in-source-documents">Schema References in Source Documents</h3>
+
+<p>You can specify schemata by providing a DOCTYPE declaration, XSI schema instance attributes or xml-model processing instructions; see https://github.com/aerhard/linter-autocomplete-jing/tree/master/spec/validation/xml for a collection of examples). <br />
+If your documents contain references to remote schemata, you can improve performance and reduce network traffic by using an XML catalog file to map remote resources to local files. Projects like the Text Encoding Initiative (TEI) provide <a href="https://sourceforge.net/projects/tei/files/TEI-P5-all/">packages</a> which include catalog files that can be added to the linter settings.</p>
+
+<h3 id="schema-rules">Schema Rules</h3>
+
+<p>If you’d like to avoid providing schema hints in each individual source document you can specify ‘validation rules’ in Atom’s <code>config.cson</code> or in a separate Atom package.</p>
+
+<p>Here are two demo rules, the first of which associates files ending with <code>.rng</code> with an RNG schema at <code>/path/to/relaxng.rng</code>, the second associating the root element namespace <code>urn:oasis:names:tc:entity:xmlns:xml:catalog</code> with the RNC schema at <code>/path/to/catalog.rnc</code>:</p>
+
+<p><code>
+"linter-autocomplete-jing":
+  rules: [
+    {
+      priority: 1
+      test:
+        pathRegex: "\\.rng$"
+      outcome:
+        schemaProps: [
+          {
+            lang: "rng"
+            path: "/path/to/relaxng.rng"
+          }
+        ]
+    }
+    {
+      priority: 1
+      test:
+        rootNs: "urn:oasis:names:tc:entity:xmlns:xml:catalog"
+      outcome:
+        schemaProps: [
+          {
+            lang: "rnc"
+            path: "/path/to/catalog.rnc"
+          }
+        ]
+    }
+  ]
+</code></p>
+
+<p>Each rule must contain a <code>test</code>, an <code>outcome</code> and a <code>priority</code> property. <code>test</code> contains the criteria which need to be fulfilled for that rule to apply. <code>outcome</code> contains the schema / catalog information to be used when the rule is matched. When there are multiple rules, the <code>outcome</code> of the first matched rule gets applied (order is significant). Rules with higher <code>priority</code> get evaluated first, rules with the same priority get evaluated in the order in which they are specified. Rules in <code>config.cson</code> always take precedence over rules from packages.</p>
+
+<p>Possible properties of <code>test</code>:</p>
+
+<ul>
+  <li><code>pathRegex</code>: a regular expression string matching the full path of the current file</li>
+  <li><code>rootNs</code>: the namespace of the root element (string)</li>
+  <li><code>rootLocalName</code>: the localname of the root element (string)</li>
+  <li><code>rootAttributes</code>: the required attributes of the root element (object with attribute names as keys and expected attribute values as values)</li>
+  <li><code>publicId</code>: the Public ID specified in the DOCTYPE declaration</li>
+</ul>
+
+<p>Possible properties of <code>outcome</code>:</p>
+
+<ul>
+  <li><code>dtdValidation</code>: (see above for possible values)</li>
+  <li><code>xmlCatalog</code>: (see above for possible values)</li>
+  <li><code>schemaProps</code>: the schemata to be used in validation (array of objects with the properties <code>lang</code> and <code>path</code>. <code>path</code> specifies the file path of the schema, <code>lang</code> the schema language which must be one of ‘rng’, ‘rnc’, ‘sch.iso’, ‘sch.15’, ‘xsd’ or ‘none’)</li>
+</ul>
+
+<p>For an example of an Atom package containing a schema and schema association rules see <a href="https://github.com/aerhard/xml-demo-package">demo package</a>.</p>
+
+<h2 id="commands">Commands</h2>
+
+<ul>
+  <li><em>linter-autocomplete-jing:clear-schema-cache</em>: Removes all schema and catalog data from the in-memory cache so it will get read from disk in the next validation run.</li>
+</ul>
+
+<h2 id="development">Development</h2>
+
+<p>If you intend to adjust only the JavaScript part of the code, uninstall then linter-autocomplete-jing package in Atom, checkout https://github.com/aerhard/linter-autocomplete-jing from GitHub and link it to Atom by running <code>apm link</code> from the repository root (undo with <code>apm unlink</code>). The ES6 source code is in the <code>src</code> folder of the project. <code>npm run build</code> and <code>npm run watch</code> transpile the content of <code>src</code> to a single CoffeeScript file in <code>lib</code> which gets exposed to Atom. Both commands depend on Rollup (<code>npm i rollup -g</code>).
+Press <kbd>Ctrl-Alt-R</kbd> in Atom to reload the updated module.</p>
+
+<p>In order to make adjustments to the JavaScript as well as as the Java parts, checkout https://github.com/aerhard/xml-tools and follow the instructions in the README file.</p>
+<section class="package-keywords">
+  <strong>Keywords:</strong> xml, relaxng, schematron, xsd, validation, autocomplete <a href="https://github.com/aerhard/linter-autocomplete-jing/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

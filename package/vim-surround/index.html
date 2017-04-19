@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Vim Surround
+  <a href="https://github.com/gepoch/vim-surround">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install vim-surround
+  </pre>
+</div>
+<h1 id="vim-surround-for-atom-build-statushttpstravis-ciorggepochvim-surroundsvgbranchmasterhttpstravis-ciorggepochvim-surround">Vim Surround for Atom <a href="https://travis-ci.org/gepoch/vim-surround"><img src="https://travis-ci.org/gepoch/vim-surround.svg?branch=master" alt="Build Status" /></a></h1>
+
+<p>Surround is an implementation of vim-surround for the <a href="http://atom.io">atom</a>
+editor, creating a vim-surround with the power of Atom!</p>
+
+<p>You should definitely have <a href="https://atom.io/packages/vim-mode">vim-mode</a> for
+this package to function properly, of course.</p>
+
+<p>Inspiration from and kudos to the wonderful <a href="https://github.com/tpope/vim-surround">vim-surround for
+vim</a></p>
+
+<p>See vim-surround on <a href="https://github.com/gepoch/vim-surround">github</a> or
+<a href="https://atom.io/packages/vim-surround">atom.io</a>.</p>
+
+<h2 id="news">News</h2>
+
+<ul>
+  <li>
+    <p>This package supports visual mode’s <code>s )</code> set of commands for a configurable
+set of pairs.</p>
+  </li>
+  <li>
+    <p>Next on the roadmap are pair deletions with <code>d )</code> and friends.</p>
+  </li>
+  <li>
+    <p>New in 0.4: Multiple cursors are now supported, and conveniently work just
+like you think they do.</p>
+  </li>
+  <li>
+    <p>New in 0.5: Stable configuration changes and configurable surround key!</p>
+  </li>
+  <li>
+    <p>New in 0.7: Change surround and delete surround added.</p>
+  </li>
+  <li>
+    <p>New in 0.8: Tentative support for
+<a href="https://atom.io/packages/vim-mode-next">vim-mode-next</a>. See
+<a href="https://github.com/gepoch/vim-surround/issues/28">#28</a>.</p>
+  </li>
+</ul>
+
+<h3 id="muscle-memory-compatability-note">Muscle Memory Compatability Note</h3>
+
+<p>vim-surround uses a lowercase <code>s</code> instead of <code>S</code> for surround commands! This is
+configurable in the package settings, if you would like to set it to the
+original keybinding.</p>
+
+<h2 id="how-to-use-surround">How to use Surround</h2>
+
+<h3 id="surrounding">Surrounding</h3>
+
+<p>For double quotes, highlight the string in visual mode and enter <code>s "</code>.</p>
+
+<p><code>
+Hello world -&gt; "Hello world"
+</code></p>
+
+<p>For parentheses there are two options. <code>s )</code> will surround as normal. <code>s (</code>
+will pad with a space. All asymmetrical pairs have the secondary space-padded
+form.</p>
+
+<p>For example:</p>
+
+<p><code>s )</code></p>
+
+<p><code>
+Hello world -&gt; (Hello world)
+</code></p>
+
+<p><code>s (</code></p>
+
+<p><code>
+Hello world -&gt; ( Hello world )
+</code></p>
+
+<h3 id="changing-surrounding-pairs">Changing Surrounding Pairs</h3>
+
+<p>Suppose I want to make double quotes into single quotes. To do this, I should
+put my cursor inside the double quotes in question and enter <code>c s " '</code></p>
+
+<p><code>
+"Hello world" -&gt; 'Hello world'
+</code></p>
+
+<h3 id="deleting-surrounding-pairs">Deleting Surrounding Pairs</h3>
+
+<p>To delete the single quotes, place your cursor inside of them and enter <code>d s '</code></p>
+
+<p><code>
+'Hello world' -&gt; Hello world
+</code>
+### Configuration</p>
+
+<p>Currently, the following pairs work out of the box!:</p>
+
+<ul>
+  <li>()</li>
+  <li>[]</li>
+  <li>{}</li>
+  <li>””</li>
+  <li>’’</li>
+</ul>
+
+<p>You can add to the available pairs in atom’s settings, and the commands will
+be dynamically added to your keybindings.</p>
+
+<p>For example if I’m working on Jinja templates, and I want to add the ability to
+surround using <code>{%</code> and <code>%}</code> I would add this in my settings:</p>
+
+<p><code>
+(), [], {}, "", '', {%%}
+</code></p>
+
+<p>Then:</p>
+
+<p><code>s % }</code></p>
+
+<p><code>
+Hello world -&gt; {%Hello world%}
+</code></p>
+
+<p><code>s { %</code></p>
+
+<p><code>
+Hello world -&gt; {% Hello world %}
+</code></p>
+
+<h3 id="todo">TODO</h3>
+
+<ul>
+  <li>[x] Implement deleting surrounding pairs with <code>d s</code></li>
+  <li>[x] Implement changing surrounding pairs with <code>c s</code></li>
+  <li>[ ] Intelligent tag surrounding/deleting/replacing with <code>s &lt;q&gt;</code> and friends.</li>
+</ul>
+<section class="package-keywords">
+  <strong>Keywords:</strong> pair, parentheses, quotes, surround, vim <a href="https://github.com/gepoch/vim-surround/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

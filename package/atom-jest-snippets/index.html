@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Jest Snippets
+  <a href="https://github.com/bryceosterhaus/atom-jest-snippets">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+    <span class="author">by Bryce Osterhaus</span>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install atom-jest-snippets
+  </pre>
+</div>
+<h1 id="atom-jest-snippets">Atom Jest Snippets</h1>
+
+<p>An <a href="https://atom.io/">Atom</a> snippet library for <a href="https://facebook.github.io/jest/">Jest</a>. This library uses ES6 syntax.</p>
+
+<p>Install via <code>apm install atom-jest-snippets</code></p>
+
+<h2 id="snippet-available">Snippet Available</h2>
+
+<h2 id="expectcson">expect.cson</h2>
+
+<h4 id="exp">[exp]</h4>
+<p>expect(value)
+<code>js
+expect($1)$2
+</code></p>
+
+<h4 id="ebe">[ebe]</h4>
+<p>expect(value).toBe(value)
+<code>js
+expect($1).toBe($2);
+</code></p>
+
+<h4 id="ecall">[ecall]</h4>
+<p>expect(mockFn).toHaveBeenCalled()
+<code>js
+expect($1).toHaveBeenCalled();
+</code></p>
+
+<h4 id="ecallt">[ecallt]</h4>
+<p>expect(mockFn).toHaveBeenCalledTimes(number)
+<code>js
+expect($1).toHaveBeenCalledTimes($2);
+</code></p>
+
+<h4 id="ecallw">[ecallw]</h4>
+<p>expect(mockFn).toHaveBeenCalledWith(arg1, arg2, …)
+<code>js
+expect($1).toHaveBeenCalledWith($2);
+</code></p>
+
+<h4 id="ecloseto">[ecloseto]</h4>
+<p>expect(number).toBeCloseTo(number, numDigits)
+<code>js
+expect($1).toBeCloseTo($2, $3);
+</code></p>
+
+<h4 id="edef">[edef]</h4>
+<p>expect(value).toBeDefined()
+<code>js
+expect($1).toBeDefined();
+</code></p>
+
+<h4 id="efalsy">[efalsy]</h4>
+<p>expect(value).toBeFalsy()
+<code>js
+expect($1).toBeFalsy();
+</code></p>
+
+<h4 id="egreater">[egreater]</h4>
+<p>expect(number).toBeGreaterThan(number)
+<code>js
+expect($1).toBeGreaterThan($2);
+</code></p>
+
+<h4 id="egreateror">[egreateror]</h4>
+<p>expect(number).toBeGreaterThanOrEqual(number)
+<code>js
+expect($1).toBeGreaterThanOrEqual($2);
+</code></p>
+
+<h4 id="eless">[eless]</h4>
+<p>expect(number).toBeLessThan(number)
+<code>js
+expect($1).toBeLessThan($2);
+</code></p>
+
+<h4 id="elessor">[elessor]</h4>
+<p>expect(number).toBeLessThanOrEqual(number)
+<code>js
+expect($1).toBeLessThanOrEqual($2);
+</code></p>
+
+<h4 id="einst">[einst]</h4>
+<p>expect(obj).toBeInstanceOf(Class)
+<code>js
+expect($1).toBeInstanceOf($2);
+</code></p>
+
+<h4 id="enull">[enull]</h4>
+<p>expect(value).toBeNull()
+<code>js
+expect($1).toBeNull();
+</code></p>
+
+<h4 id="etruthy">[etruthy]</h4>
+<p>expect(value).toBeTruthy()
+<code>js
+expect($1).toBeTruthy();
+</code></p>
+
+<h4 id="eundef">[eundef]</h4>
+<p>expect(value).toBeUndefined()
+<code>js
+expect($1).toBeUndefined();
+</code></p>
+
+<h4 id="econ">[econ]</h4>
+<p>expect(list).toContain(value)
+<code>js
+expect($1).toContain($2);
+</code></p>
+
+<h4 id="econeq">[econeq]</h4>
+<p>expect(list).toContainEqual(value)
+<code>js
+expect($1).toContainEqual($2);
+</code></p>
+
+<h4 id="eeq">[eeq]</h4>
+<p>expect(value).toEqual(value)
+<code>js
+expect($1).toEqual($2);
+</code></p>
+
+<h4 id="eleng">[eleng]</h4>
+<p>expect(list).toHaveLength(number)
+<code>js
+expect($1).toHaveLength($2);
+</code></p>
+
+<h4 id="emat">[emat]</h4>
+<p>expect(string).toMatch(regexpOrString)
+<code>js
+expect($1).toMatch($2);
+</code></p>
+
+<h4 id="ematob">[ematob]</h4>
+<p>expect(obj).toMatchObject(obj)
+<code>js
+expect($1).toMatchObject($2);
+</code></p>
+
+<h4 id="ematsnap">[ematsnap]</h4>
+<p>expect(value).toMatchSnapshot(optionalString)
+<code>js
+expect($1).toMatchSnapshot($2);
+</code></p>
+
+<h4 id="ethrow">[ethrow]</h4>
+<p>expect(func).toThrow(error)
+<code>js
+expect($1).toThrow($2);
+</code>
+globals.cson
+—</p>
+
+<h4 id="desc">[desc]</h4>
+<p>describe(name, fn)
+<code>js
+describe('$1', () =&gt; {
+  $2
+});
+</code></p>
+
+<h4 id="test">[test]</h4>
+<p>test(name, fn)
+<code>js
+test('$1', () =&gt; {
+  $2
+});
+</code></p>
+
+<h4 id="it">[it]</h4>
+<p>alias for test()
+<code>js
+it('$1', () =&gt; {
+  $2
+});
+</code></p>
+
+<h4 id="aftera">[aftera]</h4>
+<p>afterAll(fn)
+<code>js
+afterAll(() =&gt; {
+  $1
+})
+</code></p>
+
+<h4 id="aftere">[aftere]</h4>
+<p>afterEach(fn)
+<code>js
+afterEach(() =&gt; {
+  $1
+})
+</code></p>
+
+<h4 id="beforea">[beforea]</h4>
+<p>beforeAll(fn)
+<code>js
+beforeAll(() =&gt; {
+  $1
+})
+</code></p>
+
+<h4 id="beforee">[beforee]</h4>
+<p>beforeEach(fn)
+<code>js
+beforeEach(() =&gt; {
+  $1
+})
+</code>
+jest.cson
+—</p>
+
+<h4 id="jcleartimers">[jcleartimers]</h4>
+<p><code>js
+jest.clearAllTimers();
+</code></p>
+
+<h4 id="jdisableautomock">[jdisableautomock]</h4>
+<p><code>js
+jest.disableAutomock();
+</code></p>
+
+<h4 id="jenableautomock">[jenableautomock]</h4>
+<p><code>js
+jest.enableAutomock();
+</code></p>
+
+<h4 id="jfn">[jfn]</h4>
+<p><code>js
+jest.fn($1);
+</code></p>
+
+<h4 id="jismock">[jismock]</h4>
+<p><code>js
+jest.isMockFunction($1);
+</code></p>
+
+<h4 id="jgenmock">[jgenmock]</h4>
+<p><code>js
+jest.genMockFromModule($1);
+</code></p>
+
+<h4 id="jmock">[jmock]</h4>
+<p><code>js
+jest.mock($1);
+</code></p>
+
+<h4 id="jresetallmocks">[jresetallmocks]</h4>
+<p><code>js
+jest.resetAllMocks();
+</code></p>
+
+<h4 id="jresetmodules">[jresetmodules]</h4>
+<p><code>js
+jest.resetModules();
+</code></p>
+
+<h4 id="jrunticks">[jrunticks]</h4>
+<p><code>js
+jest.runAllTicks();
+</code></p>
+
+<h4 id="jruntimers">[jruntimers]</h4>
+<p><code>js
+jest.runAllTimers();
+</code></p>
+
+<h4 id="jrunpendtimers">[jrunpendtimers]</h4>
+<p><code>js
+jest.runOnlyPendingTimers();
+</code></p>
+
+<h4 id="jsetmock">[jsetmock]</h4>
+<p><code>js
+jest.setMock($1);
+</code></p>
+
+<h4 id="junmock">[junmock]</h4>
+<p><code>js
+jest.unmock($1);
+</code></p>
+
+<h4 id="jfaketimers">[jfaketimers]</h4>
+<p><code>js
+jest.useFakeTimers($1);
+</code></p>
+
+<h4 id="jrealtimers">[jrealtimers]</h4>
+<p><code>js
+jest.useRealTimers($1);
+</code>
+mock.cson
+—</p>
+
+<h4 id="mclear">[mclear]</h4>
+<p><code>js
+.mockClear();
+</code></p>
+
+<h4 id="mreset">[mreset]</h4>
+<p><code>js
+.mockReset();
+</code></p>
+
+<h4 id="mimpl">[mimpl]</h4>
+<p><code>js
+.mockImplementation($1);
+</code></p>
+
+<h4 id="mimplonce">[mimplonce]</h4>
+<p><code>js
+.mockImplementationOnce($1);
+</code></p>
+
+<h4 id="mrett">[mrett]</h4>
+<p><code>js
+.mockReturnThis();
+</code></p>
+
+<h4 id="mretval">[mretval]</h4>
+<p><code>js
+.mockReturnValue($1);
+</code></p>
+
+<h4 id="mretvalo">[mretvalo]</h4>
+<p><code>js
+.mockReturnValueOnce($1);
+</code></p>
+<section class="package-keywords">
+  <strong>Keywords:</strong> atom, jest, snippets <a href="https://github.com/bryceosterhaus/atom-jest-snippets/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

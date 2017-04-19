@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Cform Yaml
+  <a href="https://github.com/jpbarto/atom-cform-yaml">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install atom-cform-yaml
+  </pre>
+</div>
+<h1 id="atom-cform-yaml-package">atom-cform-yaml package</h1>
+
+<p>A package based on <a href="https://github.com/dgomesbr/atom-cform">atom-cform</a> to help Atom users create YAML AWS CloudFormation templates.</p>
+
+<p>The package snippets are now derived automatically from the published <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-resource-specification.html">AWS CloudFormation Resource Specification</a>.  This enables the snippets to be more complete but perhaps a little less helpful. Any comments on how to improve usability now that the snippets are auto-generated are welcomed.</p>
+
+<h1 id="demo">Demo</h1>
+<p><img src="http://i.giphy.com/xUPGcB7Ovwa7WbkS6A.gif" alt="30 seconds or less..." /></p>
+
+<h1 id="usage">Usage</h1>
+<ol>
+  <li>Create an empty <code>*.yaml</code> file and type <code>stack-start</code> - a skeleton YAML CloudFormation template will appear.</li>
+  <li>Under each section begin typing the ‘thing’ you are trying to define, such as <code>stack-parameter</code>, <code>metadata-interface</code>, or <code>ec2-instance</code>.  The package will populate the template for you.</li>
+  <li>Tab through the different fields and fill in your values.</li>
+  <li>Save the template and run it through the AWS CloudFormation console or deploy the template using the AWS CLI.</li>
+  <li>Have fun and get building!</li>
+</ol>
+
+<h1 id="help">Help</h1>
+
+<h3 id="autocomplete-doesnt-work">Autocomplete doesn’t work?</h3>
+<p>If autocomplete doesn’t work for you it could be because of  <a href="https://github.com/atom/autocomplete-snippets/issues/55">atom/autocomplete-snippets#55</a>. <a href="https://github.com/atom/autocomplete-snippets/pull/77">autocomplete-snippets/pull/77</a> has been submitted to fix the issue but until it’s released you may have to make the change yourself.
+1. Clone <code>https://github.com/atom/autocomplete-snippets.git</code> into a folder of your choosing.
+2. Change the files as documented in <a href="https://github.com/atom/autocomplete-snippets/pull/77">autocomplete-snippets/pull/77</a>.
+3. cd into the <code>autocomplete-snippets</code> folder and run <code>apm link .</code>.  This will create a link inside ~/.atom/packages to the folder in which you download autocomplete-snippets.
+4. Reload the Atom window.
+5. In Atom go to <code>Preferences...</code>, <code>Packages</code>, search for <code>autocomplete-snippets</code>. Click on <code>Settings</code>
+6. Remove <code>.string</code> from <code>Disable Snippet Autocompletion Selector String</code>.
+7. Reload the Atom window.</p>
+
+<p><em>Uninstall fixed version of <code>autocomplete-snippets</code></em>
+1. Run <code>apm unlink ~/.atom/packages/atom-cform-yaml</code>
+2. Reload the Atom window</p>
+
+<p>=======</p>
+<section class="package-keywords">
+  <strong>Keywords:</strong> yaml, aws, cloudformation <a href="https://github.com/jpbarto/atom-cform-yaml/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Lupa
+  <a href="https://github.com/hex13/atom-lupa">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install atom-lupa
+  </pre>
+</div>
+<h1 id="lupa---outline-for-javascript-files-functions-variables-etc-">Lupa - outline for JavaScript files (functions, variables etc.) 🔍</h1>
+
+<h2 id="click-here-for-live-demohttphex13githubioatom-lupa"><a href="http://hex13.github.io/atom-lupa/">click here for Live Demo</a></h2>
+
+<ul>
+  <li>List of functions, classes, objects etc. on a sidebar</li>
+  <li>Full indexing of JS project</li>
+  <li>Global searching: just prefix your search with 2 dots: ..foo)</li>
+  <li>Semantic code search</li>
+  <li>JavaScript/ES6 support</li>
+</ul>
+
+<p><img src="https://raw.githubusercontent.com/hex13/atom-lupa/master/screenshot-main.jpg" alt="atom screenshot" /></p>
+
+<h2 id="note">Note:</h2>
+
+<p>To allow full project indexing you have to create <code>lupaProject.json</code> in root directory of your project. Example file:
+<code>
+{
+    "filePattern": "src/**/*.js"
+}
+</code></p>
+
+<p>This package shows structure of each JavaScript file, with clickable list of functions, imports etc. It allows you to navigate also between different files in project, shows what modules in project import particular file.</p>
+
+<h5 id="it-allows-you-to-filter-entries-by-name-or-type-eg">It allows you to filter entries by name or type, e.g.:</h5>
+
+<p><img src="https://raw.githubusercontent.com/hex13/atom-lupa/master/screenshot-3.png" alt="atom screenshot" /></p>
+
+<h5 id="you-can-also-perform-deep-searching-eg-you-can-find-all-functions-that-have-their-first-parameter-named-err">You can also perform deep searching, e.g. you can find all functions that have their first parameter named <code>err</code>.</h5>
+
+<p>examples of semantic search (DSL can change in future versions).</p>
+
+<p>type:objectLiteral</p>
+
+<p>(space has meaning so this isn’t gonna work:</p>
+
+<p>type :   objectLiteral #doesn’t gonna work</p>
+
+<p>Example below finds functions which have foo in name:</p>
+
+<p>type:function foo</p>
+
+<p>type:class</p>
+
+<p>type:todo</p>
+
+<p>params.length:2</p>
+
+<p>params[0].name:err</p>
+
+<p>jsx:true</p>
+
+<p>loc.start.column:7</p>
+
+<p>loc.start.line:3</p>
+
+<p>Example below finds external imports (i.e. these from node_modules):</p>
+
+<p>source:node_modules</p>
+
+<h5 id="it-has-support-for">It has support for:</h5>
+
+<ul>
+  <li>ES5 (just plain old JavaScript)</li>
+  <li>ES6 (e.g. it detects imports/exports, ES6 classes and arrow functions)</li>
+  <li>JSX (so it can be helpful during development with React)</li>
+  <li>CommonJS (it detects <code>require(...)</code>s )</li>
+  <li>AngularJS (eg. it detects AngularJS directives)</li>
+  <li>Python (basic support)</li>
+  <li>CoffeeScript (basic support)</li>
+</ul>
+
+<h5 id="breadcrumbs">Breadcrumbs:</h5>
+
+<p><img src="https://raw.githubusercontent.com/hex13/atom-lupa/master/screenshot-breadcrumbs.png" alt="atom screenshot" /></p>
+
+<h5 id="outline">Outline:</h5>
+
+<p><img src="https://raw.githubusercontent.com/hex13/atom-lupa/master/screenshot-1.jpg" alt="atom screenshot" /></p>
+
+<h1 id="changelog">CHANGELOG</h1>
+<p># 2016-06-30
+* basic support of TypeScript</p>
+
+<h1 id="section">2016-06-25</h1>
+<ul>
+  <li>go to class methods</li>
+  <li>detect variables</li>
+  <li>fix bug which ocurred during CSS editing</li>
+</ul>
+
+<h1 id="section-1">2016-06-23</h1>
+<ul>
+  <li>show names of parent functions for callbacks</li>
+  <li>toggle visibility for entity types</li>
+</ul>
+
+<h1 id="section-2">2016-06-22</h1>
+<ul>
+  <li>detect function names in namespaces (eg. foo.bar.functionName = function () {})</li>
+</ul>
+
+<h1 id="section-3">2016-06-04</h1>
+<ul>
+  <li>highlighting import/require declaration</li>
+  <li>clicking variable name from import now jumps to declaration; going to imported file is still possible by clicking on file name</li>
+</ul>
+
+<h1 id="section-4">2016-06-02</h1>
+<ul>
+  <li><code>toggle</code> command now shows/hides sidepanel. Previous <code>toggle</code> command was renamed to <code>focus</code></li>
+</ul>
+
+<h1 id="section-5">2016-05-29</h1>
+<ul>
+  <li>(for contributors) search box in styleguide</li>
+</ul>
+
+<h1 id="section-6">2016-05-26</h1>
+<ul>
+  <li>line count for all files</li>
+  <li>basic Python support</li>
+</ul>
+
+<h1 id="section-7">2016-05-22</h1>
+<ul>
+  <li>restore selections after preview</li>
+  <li>alt+click now selects entity</li>
+</ul>
+
+<h1 id="section-8">2016-05-17</h1>
+<ul>
+  <li>rewriting big parts of package</li>
+  <li>panel is now resizable</li>
+  <li>More integration with Atom color theme</li>
+  <li>Better keyboard navigation</li>
+  <li>ProjectExplorer is out (for now. It probably returns improved)</li>
+  <li>Better preview (fixing scrolling issues)</li>
+  <li>Global search (by two dots on the beginning e.g. ..something</li>
+  <li>Other improvements</li>
+</ul>
+
+<h1 id="section-9">2016-05-06</h1>
+<ul>
+  <li>Keyboard support</li>
+  <li>Complex searches (like type:function jsx:true render)</li>
+</ul>
+
+<h1 id="section-10">2016-05-04</h1>
+<ul>
+  <li>show type only before first entity of that type</li>
+  <li>autohiding refresh button when autorefresh is enabled</li>
+</ul>
+
+<h1 id="section-11">2016-05-03</h1>
+<ul>
+  <li>better AngularJS support (jumping to definition/location information)</li>
+</ul>
+
+<h1 id="section-12">2016-05-02</h1>
+<ul>
+  <li>deep search (e.g. params[0].name )</li>
+</ul>
+
+<h1 id="section-13">2016-05-01</h1>
+<ul>
+  <li>support for object literals</li>
+  <li>support for CSS class names in JSX</li>
+</ul>
+
+<h1 id="section-14">2016-04-30</h1>
+<ul>
+  <li>settings: autoRefresh(on/off)</li>
+  <li>filter by type (e.g. type:function)</li>
+  <li>breadcrumbs (you must enable it in settings)</li>
+</ul>
+
+<h1 id="section-15">2016-04-29</h1>
+<ul>
+  <li>now it’s possible to filter symbols by name</li>
+  <li>better class preview in sidepanel</li>
+  <li>project explorer now uses components from sidepanel</li>
+  <li>changeColors button for users with light backgrounds</li>
+</ul>
+
+<h1 id="section-16">2016-04-27</h1>
+<ul>
+  <li>better support for functions</li>
+</ul>
+
+<h1 id="section-17">2016-04-23</h1>
+<ul>
+  <li>redesign, rewrite, refactor</li>
+  <li>support for TODOs</li>
+  <li>fix bug with line highlighting in ProjectExplorer</li>
+  <li>fix other bugs</li>
+</ul>
+
+<h1 id="section-18">2016-04-20</h1>
+<ul>
+  <li>Smalltalk-like project explorer</li>
+</ul>
+
+<h1 id="section-19">2016-04-16</h1>
+<ul>
+  <li>support for CoffeeScript</li>
+</ul>
+
+<h1 id="section-20">2016-04-15</h1>
+<ul>
+  <li>highlight labels</li>
+</ul>
+
+<h1 id="section-21">2016-04-12</h1>
+<ul>
+  <li>basic support for css/scss</li>
+</ul>
+
+<h1 id="section-22">2016-04-10</h1>
+<ul>
+  <li>fix bug when there is no node_modules in directory tree</li>
+  <li>fix bug when there is no lupaProject.json in directory tree</li>
+  <li>line count in color (green, yellow, orange, red)</li>
+  <li>fix bug when user clicks on pane item which is not a text editor (e.g. settings)</li>
+  <li>use react</li>
+  <li>
+    <p>better list of files in dashboard (clickable and with loc colors)
+# 2016-04-09</p>
+  </li>
+  <li>list of files in separate pane item (dashboard)</li>
+  <li>highlight function range in editor</li>
+</ul>
+
+<h1 id="section-23">2016-04-08</h1>
+
+<ul>
+  <li>support for @providesModule</li>
+  <li>jump to function</li>
+  <li>few other improvements</li>
+</ul>
+
+<h1 id="section-24">2016-04-03</h1>
+
+<ul>
+  <li>configurable indexing (config must be in lupaProject.json file)</li>
+  <li>“autolabel” feature (define regexps in lupaProject.json file)</li>
+  <li>feature: files that import current file</li>
+  <li>bug: doesn’t show imports like that import {aa} from ‘aabc.js’ (needed something like that  {from:’abc.js’, name:’ss’} instead of strings)</li>
+  <li>rewrite plugin to use new Lupa version</li>
+  <li>fix bug that prevented pane to scroll (remove height: 100% from pane)</li>
+  <li>regression: analysis is not done in separate process anymore</li>
+</ul>
+
+<h1 id="section-25">2016-03-17</h1>
+<ul>
+  <li>fix bug when switching to empty(non saved) file</li>
+</ul>
+
+<h1 id="section-26">2016-03-16</h1>
+<ul>
+  <li>experimental “go to definition” feature for angular modules</li>
+</ul>
+
+<h1 id="section-27">2016-03-16</h1>
+
+<ul>
+  <li>analyze files in separate process - to avoid freezing Atom.</li>
+</ul>
+
+<p>LICENSES:
+- Atom-Lupa: MIT</p>
+
+<ul>
+  <li>The AngularJS logo design is licensed under a “<a href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>”</li>
+</ul>
+<section class="package-keywords">
+  <strong>Keywords:</strong> hierarchy, breadcrumbs, navigation, outline, breadcrumb, symbols, overview, code search, productivity, angular, angularjs, commonjs, dependencies, es6, es2015, go to definition, imports, navigate, navigator, require, structure, summary, todo, todos, react, reactjs, jsx, list, tree, symbol, view, class, classes, python, typescript <a href="https://github.com/hex13/atom-lupa/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

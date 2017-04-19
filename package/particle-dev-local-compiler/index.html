@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Particle Dev Local Compiler
+  <a href="https://github.com/spark/particle-dev-local-compiler">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install particle-dev-local-compiler
+  </pre>
+</div>
+<h1 id="particle-dev-local-compiler">Particle Dev Local Compiler</h1>
+
+<p><strong>Note:</strong> local compilation is an experimental feature and may have issues with some projects.</p>
+
+<p><img src="http://cl.ly/image/2q040i183M01/Screen%20Recording%202015-10-15%20at%2002.05%20PM.gif" alt="Particle Dev Local Compiler" /></p>
+
+<h2 id="installation-steps">Installation steps</h2>
+
+<h3 id="install-docker-toolbox">Install Docker Toolbox</h3>
+
+<p>First follow instructions for <a href="https://docs.docker.com/mac/step_one/">OS X</a> / <a href="https://docs.docker.com/windows/step_one/">Windows</a> / <a href="https://docs.docker.com/linux/started/">Linux</a>.</p>
+
+<p>If everything went well, open <strong>Docker Quickstart Terminal</strong> and type:
+<code>
+$ docker-machine env default
+</code>
+and take note of values that were shown.</p>
+
+<h3 id="install-and-setup-this-package">Install and setup this package</h3>
+
+<ol>
+  <li>Open <strong>Atom</strong> or <strong>Particle Dev</strong></li>
+  <li>Open <strong>Command Palette</strong> (<code>Cmd</code>-<code>Shift</code>-<code>P</code> on OS X or <code>Ctrl</code>-<code>Shift</code>-<code>P</code> on Windows/Linux)</li>
+  <li>Type <em>install packages</em></li>
+  <li>Choose <strong>Settings View: Install Packages and Themes</strong></li>
+  <li>Search for <em>Particle Dev Local Compiler</em></li>
+  <li>Install found package</li>
+  <li>Click <strong>Settings</strong> next to package</li>
+  <li>Fill <strong>Docker Cert Path</strong> and <strong>Docker Host</strong> with noted values from <code>docker-machine</code> output</li>
+  <li>Open <strong>Command Palette</strong></li>
+  <li>Type <em>update firmware</em></li>
+  <li>Choose <strong>Particle Dev Local Compiler: Update Firmware Versions</strong></li>
+</ol>
+
+<p>After this finishes you should be ready to start using local compiler.</p>
+
+<h2 id="usage">Usage</h2>
+
+<h3 id="selecting-target-platformversion">Selecting target platform/version</h3>
+<p>After installation you should see two new items in status bar next to selected device:</p>
+
+<p><img src="http://cl.ly/image/3S3C3u010c0H/dev-target-platform-and-version.png" alt="Target platform and target firmware version" /></p>
+
+<p>First one allows you to select for which platform you want to build the firmware.</p>
+
+<p>Second allows to select which firmware version should be targeted.</p>
+
+<p><strong>Note:</strong> those currently affect only local compilation.</p>
+
+<p><strong>Note:</strong> not all platforms are compatible with all versions (i.e. <code>0.3.4</code> won’t work for Photon).</p>
+
+<h3 id="compiling-locally">Compiling locally</h3>
+
+<p>With project opened you should see two icons with check icon on them:</p>
+
+<p><img src="http://cl.ly/image/0t3M1g2A3Y1u/dev-compile-locally.png" alt="Flash and compile buttons" /></p>
+
+<p>First one will do a cloud compile as previously.</p>
+
+<p>Second does a local compilation. Clicking it will create <code>build</code> directory in your project and fill it with compilation results.</p>
+
+<p>Resulting binary can be flashed over the air using <strong>Flash</strong> icon on over the wire using <code>particle flash --usb &lt;filename&gt;</code> <a href="https://docs.particle.io/reference/cli/#particle-flash">CLI command</a>.</p>
+
+<h2 id="faq">FAQ</h2>
+
+<h4 id="q-update-firmware-versions-takes-a-very-long-time-did-it-hang">Q: <strong>Update Firmware Versions</strong> takes a very long time. Did it hang?</h4>
+<p>A: Depending on many factors, first update may take up to dozens of minutes as it pulls image for every firmware version. There’s <a href="https://github.com/spark/particle-dev-local-compiler/issues/8">an issue</a> that should make first update much quicker. Until then it’s best to wait until it finishes.</p>
+
+<h4 id="q-i-already-entered-docker-settings-but-still-get-error-telling-me-i-dont-have-docker-environment-set-up">Q: I already entered Docker settings but still get error telling me I don’t have Docker environment set up</h4>
+<p>A: On Windows and OS X, docker requires running a small virtual machine to work. This is managed by <code>docker-machine</code> tool. Make sure you run <code>docker-machine start default</code> after restarting your computer.</p>
+
+<h4 id="q-i-get-platform-core-does-not-support-dynamic-modules-error">Q: I get <code>Platform 'core' does not support dynamic modules</code> error</h4>
+<p>A: Some platforms and versions won’t work together. You have to try using different version.</p>
+
+<h4 id="q-after-updating-firmware-versions-docker-vm-has-grown-to-over-20gb">Q: After updating firmware versions Docker VM has grown to over 20GB</h4>
+<p>A: Alpha version of local compiler tries to download all available versions which may take a lot of disk space. If you prefer just to keep latest version you can recreate VM using:</p>
+
+<p><code>
+$ docker-machine rm default
+$ docker-machine create --driver=virtualbox default
+$ eval "$(docker-machine env default)"
+$ docker pull particle/buildpack-particle-firmware:v0.4.7
+</code>
+<strong>Note:</strong> it is possible you will need to update Docker settings in Atom/Particle Dev.</p>
+
+<h4 id="q-how-can-i-uninstall-local-compiler-and-all-related-software">Q: How can I uninstall local compiler and all related software?</h4>
+<p>A: To uninstall Particle Dev Local Compiler package, go to <strong>Settings View: Uninstall packages</strong> and click <strong>Uninstall</strong> next to it. To uninstall Docker Toolbox:</p>
+
+<p>On Windows you can remove <strong>Docker Toolbox</strong> and <strong>VirtualBox</strong> using <strong>Programs and Features</strong> in <strong>Control Panael</strong>.</p>
+
+<p>On OS X you can use <a href="https://github.com/docker/toolbox/blob/master/osx/uninstall.sh">the official script</a> to uninstall <strong>Docker Machine</strong> and use <strong>VirtualBox</strong> removal tool from <a href="https://www.virtualbox.org/wiki/Downloads">latest VirtualBox</a>.</p>
+<section class="package-keywords">
+  <strong>Keywords:</strong> spark, particle, compiler, photon <a href="https://github.com/spark/particle-dev-local-compiler/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

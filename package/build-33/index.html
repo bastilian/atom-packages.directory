@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Build
+  <a href="https://github.com/noseglid/atom-build">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install build
+  </pre>
+</div>
+<h1 id="atom-build-package">Atom Build package</h1>
+
+<p><a href="https://github.com/noseglid/atom-build/releases">Release notes</a></p>
+
+<p><a href="https://atom.io/packages/build"><img src="https://img.shields.io/apm/dm/build.svg?style=flat-square" alt="Plugin installs" /></a>
+<a href="https://atom.io/packages/build"><img src="https://img.shields.io/apm/v/build.svg?style=flat-square" alt="Package version" /></a></p>
+
+<p><a href="https://travis-ci.org/noseglid/atom-build"><img src="https://img.shields.io/travis/noseglid/atom-build/master.svg?style=flat-square&amp;label=travis%20ci" alt="Travis.ci Shield" /></a>
+<a href="https://ci.appveyor.com/project/noseglid/atom-build"><img src="https://img.shields.io/appveyor/ci/noseglid/atom-build/master.svg?style=flat-square&amp;label=appveyor" alt="AppVeyor Shield" /></a></p>
+
+<p><a href="https://gitter.im/noseglid/atom-build"><img src="https://img.shields.io/badge/gitter-noseglid%2Fatom--build-24CE66.svg?style=flat-square" alt="Gitter chat" /></a>
+<a href="http://atom-slack.herokuapp.com/"><img src="https://img.shields.io/badge/chat-atom.io%20slack-ff69b4.svg?style=flat-square" alt="Slack Badge" /></a></p>
+
+<p>Automatically build your project inside your new favorite editor, Atom.</p>
+
+<ul>
+  <li><kbd>Cmd</kbd> <kbd>Alt</kbd> <kbd>B</kbd> / <kbd>Ctrl</kbd> <kbd>Alt</kbd> <kbd>B</kbd> / <kbd>F9</kbd> builds your project.</li>
+  <li><kbd>Cmd</kbd> <kbd>Alt</kbd> <kbd>G</kbd> / <kbd>Ctrl</kbd> <kbd>Alt</kbd> <kbd>G</kbd> / <kbd>F4</kbd> cycles through causes of build error. See <a href="#error-match">Error Matching</a>.</li>
+  <li><kbd>Cmd</kbd> <kbd>Alt</kbd> <kbd>G</kbd> / <kbd>Ctrl</kbd> <kbd>Alt</kbd> <kbd>H</kbd> / <kbd>Shift</kbd> <kbd>F4</kbd> goes to the first build error. See <a href="#error-match">Error Matching</a>.</li>
+  <li><kbd>Cmd</kbd> <kbd>Alt</kbd> <kbd>V</kbd> / <kbd>Ctrl</kbd> <kbd>Alt</kbd> <kbd>V</kbd> / <kbd>F8</kbd> Toggles the build panel.</li>
+  <li><kbd>Cmd</kbd> <kbd>Alt</kbd> <kbd>T</kbd> / <kbd>Ctrl</kbd> <kbd>Alt</kbd> <kbd>T</kbd> / <kbd>F7</kbd> Displays the available build targets.</li>
+  <li><kbd>Esc</kbd> terminates build / closes the build window.</li>
+</ul>
+
+<h4 id="builds-your-project---configure-it-your-way">Builds your project - configure it your way</h4>
+<p><img src="https://noseglid.github.io/build.gif" alt="work work" /></p>
+
+<h4 id="automatically-extract-targets---here-with-build-makehttpsgithubcomatombuildatom-build-make">Automatically extract targets - here with <a href="https://github.com/AtomBuild/atom-build-make">build-make</a>.</h4>
+<p><img src="https://noseglid.github.io/targets-make.gif" alt="targets" /></p>
+
+<h4 id="match-errors-and-go-directly-to-offending-code---with-atom-linterhttpsatomiopackageslinter">Match errors and go directly to offending code - with <a href="https://atom.io/packages/linter">Atom Linter</a>.</h4>
+<p><img src="https://noseglid.github.io/error-match.gif" alt="error matching" /></p>
+
+<p>(You can also use keyboard shortcuts to go to errors if you don’t like Atom Linter, or want to keep package dependencies to a minimum).</p>
+
+<h3 id="quick-start">Quick start</h3>
+
+<p>Create a file called <code>.atom-build.yml</code> (note the inital dot):
+<code>yml
+cmd: echo Hello world
+</code></p>
+
+<p>Save it, and press <kbd>Cmd</kbd> <kbd>Alt</kbd> <kbd>B</kbd> (OS X) / <kbd>Ctrl</kbd> <kbd>Alt</kbd> <kbd>B</kbd> (Linux/Windows)
+and you should see the output of <code>echo Hello world</code>, which should be <code>Hello world</code> if all is correct.</p>
+
+<h2 id="build-providers">Build providers</h2>
+
+<p>Instead of specifying commands manually, you can use a build provider. They often include functionality such as parsing
+targets (for instance all tasks from <code>gulpfile.js</code> or <code>Makefile</code>).</p>
+
+<p><strong><a href="https://atombuild.github.io">Full list of build providers</a></strong></p>
+
+<p><a name="build-command"></a>
+### Specify a custom build command</p>
+
+<p>If no build provider is enough to suit your needs, you can configure the custom build command extensively.</p>
+
+<p>Supported formats and the name of the configuration file is</p>
+
+<ul>
+  <li>JSON: <code>.atom-build.json</code></li>
+  <li>CSON: <code>.atom-build.cson</code></li>
+  <li>YAML: <code>.atom-build.yml</code></li>
+  <li>JS: <code>.atom-build.js</code></li>
+</ul>
+
+<p>Pick your favorite format, save that file in your project root, and specify exactly
+how your project is built (example in <code>yml</code>)</p>
+
+<p><code>yml
+cmd: "&lt;command to execute&gt;"
+name: "&lt;name of target&gt;"
+args:
+  - &lt;argument1&gt;
+  - &lt;argument2&gt;
+sh: true,
+cwd: &lt;current working directory for `cmd`&gt;
+env:
+  VARIABLE1: "VALUE1"
+  VARIABLE2: "VALUE2"
+errorMatch:
+  - ^regexp1$
+  - ^regexp2$
+warningMatch:
+  - ^regexp1$
+  - ^regexp2$
+keymap: &lt;keymap string&gt;
+atomCommandName: namespace:command
+targets:
+  extraTargetName:
+      cmd: "&lt;command to execute&gt;"
+      args:
+      # (any previous options are viable here except `targets` itself)
+</code></p>
+
+<p>Note that if <code>sh</code> is false <code>cmd</code> must only be the executable - no arguments here.  If the
+executable is not in your path, either fully qualify it or specify the path
+in you environment (e.g. by setting the <code>PATH</code> var appropriately on UNIX-like
+systems).</p>
+
+<p>If <code>sh</code> is true, it will use a shell (e.g. <code>/bin/sh -c</code>) on unix/linux, and command (<code>cmd /S /C</code>)
+on windows.</p>
+
+<h4 id="programmatic-build-commands-javascript">Programmatic Build commands (Javascript)</h4>
+
+<p>Using a JavaScript (JS) file gives you the additional benefit of being able to specify <code>preBuild</code> and <code>postBuild</code> and being able to run arbitrary match functions instead of regex-matching. The
+javascript function needs to return an array of matches. The fields of the matches must be the same
+as those that the regex can set.</p>
+
+<p>Keep in mind that the JavaScript file must <code>export</code> the configuration</p>
+
+<p><code>javascript
+module.exports = {
+  cmd: "myCommand",
+  preBuild: function () {
+    console.log('This is run **before** the build command');
+  },
+  postBuild: function () {
+    console.log('This is run **after** the build command');
+  },
+  functionMatch: function (terminal_output) {
+    // this is the array of matches that we create
+    var matches = [];
+    terminal_output.split(/\n/).forEach(function (line, line_number, terminal_output) {
+      // all lines starting with a slash
+      if line[0] == '/' {
+        this.push({
+          file: 'x.txt',
+          line: line_number.toString(),
+          message: line
+        });
+      }
+    }.bind(matches));
+    return matches;
+  }
+};
+</code></p>
+
+<p>A major advantage of the <code>functionMatch</code> method is that you can keep state while
+parsing the output. For example, if you have a <code>Makefile</code> output like this:</p>
+
+<p><code>terminal
+make[1]: Entering directory 'foo'
+make[2]: Entering directory 'foo/src'
+testmake.c: In function 'main':
+testmake.c:3:5: error: unknown type name 'error'
+</code></p>
+
+<p>then you can’t use a regex to match the filename, because the regex doesn’t have
+the information about the directory changes. The following <code>functionMatch</code> can
+handle this case. Explanations are in the comments:</p>
+
+<p><code>js
+module.exports = {
+  cmd: 'make',
+  name: 'Makefile',
+  sh: true,
+  functionMatch: function (output) {
+    const enterDir = /^make\[\d+\]: Entering directory '([^']+)'$/;
+    const error = /^([^:]+):(\d+):(\d+): error: (.+)$/;
+    // this is the list of error matches that atom-build will process
+    const array = [];
+    // stores the current directory
+    var dir = null;
+    // iterate over the output by lines
+    output.split(/\r?\n/).forEach(line =&gt; {
+      // update the current directory on lines with `Entering directory`
+      const dir_match = enterDir.exec(line);
+      if (dir_match) {
+        dir = dir_match[1];
+      } else {
+        // process possible error messages
+        const error_match = error.exec(line);
+        if (error_match) {
+          // map the regex match to the error object that atom-build expects
+          array.push({
+            file: dir ? dir + '/' + error_match[1] : error_match[1],
+            line: error_match[2],
+            col: error_match[3],
+            message: error_match[4]
+          });
+        }
+      }
+    });
+    return array;
+  }
+};
+</code></p>
+
+<p>Another feature of <code>functionMatch</code> is that you can attach informational messages
+to the error messages:</p>
+
+<p><img src="https://cloud.githubusercontent.com/assets/332036/15097688/ddfc170c-1523-11e6-8394-d24a79d125ea.png" alt="pic of traces and custom error types" /></p>
+
+<p>You can add these additional messages by setting the trace field of the error
+object. It needs to be an array of objects with the same fields as the error.
+Instead of adding squiggly lines at the location given by the <code>file</code>, <code>line</code> and
+<code>col</code> fields, a link is added to the popup message, so you can conveniently jump
+to the location given in the trace.</p>
+
+<p>One more feature provided by <code>functionMatch</code> is the ability to use HTML in
+the message text by setting <code>html_message</code> instead of <code>message</code>. If both
+<code>html_message</code> and <code>message</code> are set, the latter takes priority.</p>
+
+<p><a name="custom-build-config"></a>
+#### Configuration options</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Option</th>
+      <th>Required</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>cmd</code></td>
+      <td><strong>[required]</strong></td>
+      <td>The executable command</td>
+    </tr>
+    <tr>
+      <td><code>name</code></td>
+      <td><em>[optional]</em></td>
+      <td>The name of the target. Viewed in the targets list (toggled by <code>build:select-active-target</code>).</td>
+    </tr>
+    <tr>
+      <td><code>args</code></td>
+      <td><em>[optional]</em></td>
+      <td>An array of arguments for the command</td>
+    </tr>
+    <tr>
+      <td><code>sh</code></td>
+      <td><em>[optional]</em></td>
+      <td>If <code>true</code>, the combined command and arguments will be passed to <code>/bin/sh</code>. Default <code>true</code>.</td>
+    </tr>
+    <tr>
+      <td><code>cwd</code></td>
+      <td><em>[optional]</em></td>
+      <td>The working directory for the command. E.g. what <code>.</code> resolves to.</td>
+    </tr>
+    <tr>
+      <td><code>env</code></td>
+      <td><em>[optional]</em></td>
+      <td>An object of environment variables and their values to set</td>
+    </tr>
+    <tr>
+      <td><code>errorMatch</code></td>
+      <td><em>[optional]</em></td>
+      <td>A (list of) regular expressions to match output to a file, row and col. See <a href="#error-match">Error matching</a> for details.</td>
+    </tr>
+    <tr>
+      <td><code>warningMatch</code></td>
+      <td><em>[optional]</em></td>
+      <td>Like <code>errorMatch</code>, but is reported as just a warning</td>
+    </tr>
+    <tr>
+      <td><code>functionMatch</code></td>
+      <td><em>[optional]</em></td>
+      <td>A (list of) javascript functions that return a list of match objects</td>
+    </tr>
+    <tr>
+      <td><code>keymap</code></td>
+      <td><em>[optional]</em></td>
+      <td>A keymap string as defined by <a href="https://atom.io/docs/latest/behind-atom-keymaps-in-depth"><code>Atom</code></a>. Pressing this key combination will trigger the target. Examples: <code>ctrl-alt-k</code> or <code>cmd-U</code>.</td>
+    </tr>
+    <tr>
+      <td><code>killSignals</code></td>
+      <td><em>[optional]</em></td>
+      <td>An array of signals. The signals will be sent, one after each time <code>Escape</code> is pressed until the process has been terminated. The default value is <code>SIGINT</code> -&gt; <code>SIGTERM</code> -&gt; <code>SIGKILL</code>. The only signal which is guaranteed to terminate the process is <code>SIGKILL</code> so it is recommended to include that in the list.</td>
+    </tr>
+    <tr>
+      <td><code>atomCommandName</code></td>
+      <td><em>[optional]</em></td>
+      <td>Command name to register which should be on the form of <code>namespace:command</code>. Read more about <a href="https://atom.io/docs/api/v1.4.1/CommandRegistry">Atom CommandRegistry</a>. The command will be available in the command palette and can be trigger from there. If this is returned by a build provider, the command can programatically be triggered by <a href="https://atom.io/docs/api/v1.4.1/CommandRegistry#instance-dispatch">dispatching</a>.</td>
+    </tr>
+    <tr>
+      <td><code>targets</code></td>
+      <td><em>[optional]</em></td>
+      <td>Additional targets which can be used to build variations of your project.</td>
+    </tr>
+    <tr>
+      <td><code>preBuild</code></td>
+      <td><em>[optional]</em></td>
+      <td><strong>JS only</strong>. A function which will be called <em>before</em> executing <code>cmd</code>. No arguments. <code>this</code> will be the build configuration.</td>
+    </tr>
+    <tr>
+      <td><code>postBuild</code></td>
+      <td><em>[optional]</em></td>
+      <td><strong>JS only</strong>. A function which will be called <em>after</em> executing <code>cmd</code>. It will be passed 3 arguments: <code>bool buildOutcome</code> indicating outcome of the running <code>cmd</code>, <code>string stdout</code> containing the contents of <code>stdout</code>, and <code>string stderr</code> containing the contents of <code>stderr</code>. <code>this</code> will be the build configuration.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="replacements">Replacements</h4>
+
+<p>The following parameters will be replaced in <code>cmd</code>, any entry in <code>args</code>, <code>cwd</code> and
+values of <code>env</code>. They should all be enclosed in curly brackets <code>{}</code></p>
+
+<ul>
+  <li><code>{FILE_ACTIVE}</code> - Full path to the currently active file in Atom. E.g. <code>/home/noseglid/github/atom-build/lib/build.js</code></li>
+  <li><code>{FILE_ACTIVE_PATH}</code> - Full path to the folder where the currently active file is. E.g. <code>/home/noseglid/github/atom-build/lib</code></li>
+  <li><code>{FILE_ACTIVE_NAME}</code> - Full name and extension of active file. E.g., <code>build.js</code></li>
+  <li><code>{FILE_ACTIVE_NAME_BASE}</code> - Name of active file WITHOUT extension. E.g., <code>build</code></li>
+  <li><code>{PROJECT_PATH}</code> - Full path to the root of the project. This is normally the path Atom has as root. E.g <code>/home/noseglid/github/atom-build</code></li>
+  <li><code>{REPO_BRANCH_SHORT}</code> - Short name of the current active branch (if project is backed by git). E.g <code>master</code> or <code>v0.9.1</code></li>
+  <li><code>{SELECTION}</code> - Selected text.</li>
+</ul>
+
+<h3 id="creating-a-build-provider">Creating a build provider</h3>
+<p>Creating a build provider require very little code in the easiest case, and can
+be as complicated as necessary to achieve the correct functionality.
+Read more about building your own provider in <a href="create-provider.md">the create provider documentation</a>.</p>
+
+<p><a name="error-match"></a>
+## Error matching</p>
+
+<p>Error matching lets you specify a single regular expression or a list of
+regular expressions, which capture the output of your build command and open the
+correct file, row and column of the error. For instance:</p>
+
+<p><code>bash
+../foo/bar/a.c:4:26: error: expected ';' after expression
+  printf("hello world\n")
+                         ^
+                         ;
+1 error generated.
+</code></p>
+
+<p>Would be matched with the regular expression: <code>(?&lt;file&gt;[\\/0-9a-zA-Z\\._]+):(?&lt;line&gt;\\d+):(?&lt;col&gt;\\d+):\\s+(?&lt;message&gt;.+)</code>.
+After the build has failed, pressing <kbd>Cmd</kbd> <kbd>Alt</kbd> <kbd>G</kbd> (OS X) or <kbd>Ctrl</kbd> <kbd>Alt</kbd> <kbd>G</kbd> (Linux/Windows)
+(or <kbd>F4</kbd> on either platform), <code>a.c</code> would be opened and the cursor would be placed at row 4, column 26.</p>
+
+<p>Note the syntax for match groups. This is from the <a href="http://xregexp.com/">XRegExp</a> package
+and has the syntax for named groups: <code>(?&lt;name&gt; RE )</code> where <code>name</code> would be the name of the group
+matched by the regular expression <code>RE</code>.</p>
+
+<p>The following named groups can be matched from the output:
+  * <code>file</code> - <strong>[required]</strong> the file to open. May be relative <code>cwd</code> or absolute. <code>(?&lt;file&gt; RE)</code>.
+  * <code>line</code> - <em>[optional]</em> the line the error starts on. <code>(?&lt;line&gt; RE)</code>.
+  * <code>col</code> - <em>[optional]</em> the column the error starts on. <code>(?&lt;col&gt; RE)</code>.
+  * <code>line_end</code> - <em>[optional]</em> the line the error ends on. <code>(?&lt;line_end&gt; RE)</code>.
+  * <code>col_end</code> - <em>[optional]</em> the column the error ends on. <code>(?&lt;col_end&gt; RE)</code>.
+  * <code>message</code> - <em>[optional]</em> Catch the humanized error message. <code>(?&lt;message&gt; RE)</code>.</p>
+
+<p>The <code>file</code> should be relative the <code>cwd</code> specified. If no <code>cwd</code> has been specified, then
+the <code>file</code> should be relative the project root (e.g. the top most directory shown in the
+Atom Editor).</p>
+
+<p>If your build outputs multiple errors, all will be matched. Press <kbd>Cmd</kbd> <kbd>Alt</kbd> <kbd>G</kbd> (OS X) or <kbd>Ctrl</kbd> <kbd>Alt</kbd> <kbd>G</kbd> (Linux/Windows)
+to cycle through the errors (in the order they appear, first on stderr then on stdout), or you can use the
+Atom Linter integration discussed in the next section.</p>
+
+<p>Often, the first error is the most interesting since other errors tend to be secondary faults caused by that first one.
+To jump to the first error you can use <kbd>Cmd</kbd> <kbd>Alt</kbd> <kbd>H</kbd> (OS X) or <kbd>Shift</kbd> <kbd>F4</kbd> (Linux/Windows) at any point to go to the first error.</p>
+
+<h3 id="error-matching-and-atom-linter">Error matching and Atom Linter</h3>
+
+<p>Install <a href="https://atom.io/packages/linter">Atom Linter</a> and all your matched errors will listed in a neat panel.</p>
+
+<p><img src="https://noseglid.github.io/build-linter.png" alt="Linter integration" /></p>
+
+<h2 id="analytics">Analytics</h2>
+
+<p>The <code>atom-build</code> package uses google analytics to keep track of which features are in use
+and at what frequency. This gives the maintainers a sense of what parts of the
+package is most important and what parts can be removed.</p>
+
+<p>The data is fully anonymous and can not be tracked back to you in any way.
+This is what is collected</p>
+
+<ul>
+  <li>Version of package used.</li>
+  <li>Build triggered, succeeded or failed.</li>
+  <li>Which build tool was used.</li>
+  <li>Visibility of UI components.</li>
+</ul>
+
+<p>If you really do not want to share this information, you can opt out by disabling
+the <a href="https://atom.io/packages/metrics">metrics package</a>. This will disable all analytics
+collection, including the one from <code>atom-build</code>.</p>
+<section class="package-keywords">
+  <strong>Keywords:</strong> build, compile, gulp, make, productivity <a href="https://github.com/noseglid/atom-build/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

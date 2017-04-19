@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  R Exec
+  <a href="https://github.com/pimentel/atom-r-exec">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install r-exec
+  </pre>
+</div>
+<h1 id="r-exec">r-exec</h1>
+
+<p>Send R code from Atom to be executed in R.app, Terminal, iTerm, or a web browser running RStudio Server on Mac OS X.  The current selection is sent or in the case of no selection the current line is sent.</p>
+
+<h2 id="installation">Installation</h2>
+
+<p><code>apm install r-exec</code></p>
+
+<p>or</p>
+
+<p>Search for <code>r-exec</code> within package search in the Settings View.</p>
+
+<h2 id="configuration">Configuration</h2>
+
+<h3 id="keybindings">Keybindings</h3>
+
+<p>While <code>cmd-enter</code> is bound to sending code in the package, it is also annoyingly bound to entering a new line by default in atom.
+In order to make it work, you must add the following binding in <code>~/.atom/keymap.cson</code>:</p>
+
+<p><code>javascript
+'atom-workspace atom-text-editor:not([mini])':
+  'cmd-enter': 'r-exec:send-command'
+</code></p>
+
+<h3 id="behavior">Behavior</h3>
+
+<p>All configuration can be done in the settings panel. Alternatively, you can edit your configuration file as noted below.</p>
+
+<p>In your global configuration file (<code>~/.atom/init.coffee</code>), you may set the following variables:</p>
+
+<ul>
+  <li><code>r-exec.whichApp</code> which R application to use. Valid applications are:
+    <ul>
+      <li><code>R.app</code>: the default (the R GUI).</li>
+      <li><code>RStudio</code>: the RStudio console.</li>
+      <li><code>iTerm</code> or <code>Terminal</code>: Assumes the currently active terminal has R running.</li>
+      <li><code>Safari</code> or <code>Google Chrome</code>: assumes the currently active tab has an active RStudio session running or only one session is open. If the session is not in the active tab, <code>r-exec</code> should be able to find it and still send the code. This is helpful if you are viewing plots full screen.</li>
+    </ul>
+  </li>
+  <li><code>r-exec.advancePosition</code>
+    <ul>
+      <li>if <code>true</code>, go to the next line/paragraph after running the current line/paragraph.</li>
+      <li>if <code>false</code>, leave the cursor where it currently is</li>
+    </ul>
+  </li>
+  <li><code>r-exec.focusWindow</code>.
+    <ul>
+      <li>if <code>true</code>, focus the window before sending code.</li>
+      <li>if <code>false</code>, send the code in the background and stay focused on Atom. This is not possible when sending code to a browser.</li>
+    </ul>
+  </li>
+  <li><code>r-exec.notifications</code>
+    <ul>
+      <li>if <code>true</code>, notifications via <code>NotificationManager</code> when a paragraph or function is not identified.</li>
+    </ul>
+  </li>
+  <li><code>r-exec.smartInsertOperator</code>
+    <ul>
+      <li>if <code>true</code> when inserting operators, only insert whitespace to the left or right of the operator if there is no existing whitespace.</li>
+    </ul>
+  </li>
+  <li><code>r-exec.skipComments</code>
+    <ul>
+      <li>if <code>true</code> along with <code>r-exec.advancePosition</code>, skip comments after a command is run.</li>
+    </ul>
+  </li>
+</ul>
+
+<p>The default configuration looks like this:</p>
+
+<p><code>javascript
+atom.config.set('r-exec.whichApp', 'R.app')
+atom.config.set('r-exec.advancePosition', false)
+atom.config.set('r-exec.skipComments', true)
+atom.config.set('r-exec.focusWindow', true)
+atom.config.set('r-exec.notifications', true)
+atom.config.set('r-exec.smartInsertOperator', true)
+</code></p>
+
+<h4 id="inserting-operators">Inserting operators</h4>
+
+<p><code>r-exec</code> currently supports inserting the assignment (<code>&lt;-</code>) and pipe (<code>%&gt;%</code>) operators.
+It tries to be smart by looking if there is whitespace to the left or the right of the cursor.
+If there is already whitespace it will not insert additional whitespace.
+Otherwise, it will insert whitespace.
+This can be disabled in the settings tab (<code>Smart Insert Operator</code>).</p>
+
+<h3 id="notes-about-iterm">Notes about iTerm</h3>
+
+<p>The iTerm2 Applescript API recently changed as of version 3.0.0.
+Older versions of iTerm2 (&lt; 3.0.0) are supported using mode <code>iTerm</code>.
+Newer versions of iTerm2 (&gt;= 3.0.0) are supported using mode <code>iTerm2</code>.</p>
+
+<h2 id="usage">Usage</h2>
+
+<h3 id="sending-code">Sending code</h3>
+
+<ul>
+  <li><code>cmd-enter</code>: send code to configured application (<code>r-exec:whichApp</code>).</li>
+  <li><code>shift-cmd-e</code>: change to current working directory of current file.</li>
+  <li><code>shift-cmd-k</code>: send code between a knitr block (currently only RMarkdown supported).</li>
+  <li><code>shift-cmd-u</code>: send function under current cursor. Currently, only functions that begin of the first column in and on the first column of a line are sent. An example:
+<code>r
+myFunction &lt;- function(x) {
+# my code goes here
+}
+</code></li>
+  <li><code>shift-cmd-m</code>: send paragraph under current cursor. A paragraph is a region enclosed by whitespace.</li>
+  <li><code>shift-alt-p</code>: send the previous command.</li>
+</ul>
+
+<h3 id="inserting-operators-1">Inserting operators</h3>
+
+<ul>
+  <li><code>alt--</code>: insert the assignment operator ` &lt;- `</li>
+  <li><code>shift-alt-m</code>: insert the pipe operator ` %&gt;% `</li>
+</ul>
+
+<h2 id="notes">Notes</h2>
+
+<p>It is currently Mac-only because these things are easy to do with AppleScript.  Any help on the Windows or Linux side would be great.</p>
+
+<h2 id="todo">TODO</h2>
+
+<ul>
+  <li>Error reporting.</li>
+  <li>Support for Windows and Linux.</li>
+</ul>
+<section class="package-keywords">
+  <strong>Keywords:</strong> r, rstats, code, run, runner <a href="https://github.com/pimentel/atom-r-exec/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

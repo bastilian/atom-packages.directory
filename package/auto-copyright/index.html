@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Auto Copyright
+  <a href="https://github.com/lee-dohm/auto-copyright">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install auto-copyright
+  </pre>
+</div>
+<h1 id="auto-copyright-build-statushttpstravis-ciorglee-dohmauto-copyrightsvgbranchmasterhttpstravis-ciorglee-dohmauto-copyright-dependency-statushttpsdavid-dmorglee-dohmauto-copyrightsvghttpsdavid-dmorglee-dohmauto-copyright">Auto-Copyright <a href="https://travis-ci.org/lee-dohm/auto-copyright"><img src="https://travis-ci.org/lee-dohm/auto-copyright.svg?branch=master" alt="Build Status" /></a> <a href="https://david-dm.org/lee-dohm/auto-copyright"><img src="https://david-dm.org/lee-dohm/auto-copyright.svg" alt="Dependency Status" /></a></h1>
+
+<p>Inserts or updates a copyright notice.</p>
+
+<h2 id="usage">Usage</h2>
+
+<h3 id="insert">Insert</h3>
+
+<p>The <code>auto-copyright:insert</code> command adds the configured copyright text with the current year and configured owner text as a comment at the top of the file. The default copyright text looks like this:</p>
+
+<p><code>coffee
+#
+# Copyright (c) 2015 by Placeholder Corporation. All Rights Reserved.
+#
+</code></p>
+
+<p>It can be configured to say as much or as little as you want, though.</p>
+
+<h3 id="update">Update</h3>
+
+<p>When you execute the <code>auto-copyright:update</code> command, it updates the copyright year in a standard format by adding the current year to the list of years and compacting it in the following ways:</p>
+
+<ul>
+  <li>Disjoint years are separated by commas: 2000, 2005 and 2010 are represented as <code>2000, 2005, 2010</code></li>
+  <li>Years in a series are represented by the start and end years separated by a hyphen: 2001, 2002 and 2003 are represented as <code>2001-2003</code></li>
+  <li>Mixing and matching works too: 2001, 2002, 2003, 2005 and 2010 are represented as <code>2001-2003, 2005, 2010</code></li>
+</ul>
+
+<h2 id="configuration">Configuration</h2>
+
+<p>Auto Copyright supports the following configuration settings:</p>
+
+<ul>
+  <li><code>auto-copyright.buffer</code> — Number of blank commented lines before and after the copyright text. (Defaults to: <code>1</code>)</li>
+  <li><code>auto-copyright.owner</code> — Owner name to use when creating the copyright text.</li>
+  <li><code>auto-copyright.template</code> — Copyright template to follow. <code>%y</code> will be replaced with the current year. <code>%o</code> will be replaced with the owner name. (Defaults to: <code>Copyright (c) %y by %o. All Rights Reserved.</code>)</li>
+</ul>
+
+<p>Multi-line templates <em>are</em> supported. At the time of this writing, Atom’s Settings View does not support multiline configuration attributes. In order to have a multi-line template, you must manually edit your <code>config.cson</code> using the CoffeeScript multi-line string format. For example:</p>
+
+<p>```coffee
+‘*’:
+  ‘auto-copyright’:
+    ‘template’: “””
+      Copyright (c) %y by %o. All Rights Reserved.</p>
+
+<pre><code>  Some standard boilerplate license text.
+""" ```
+</code></pre>
+
+<h3 id="commands">Commands</h3>
+
+<ul>
+  <li><code>auto-copyright:insert</code> — Inserts the copyright text at the top of the file in the active editor</li>
+  <li><code>auto-copyright:update</code> — Updates the year range of the copyright text at the top of the file, if it exists</li>
+</ul>
+
+<h3 id="keybindings">Keybindings</h3>
+
+<p>No keybindings are assigned by default.</p>
+
+<h2 id="copyright">Copyright</h2>
+
+<p>Copyright © 2014-2015 <a href="http://www.lee-dohm.com">Lee Dohm</a>, <a href="http://www.liftedstudios.com">Lifted Studios</a>. See <a href="https://github.com/lee-dohm/auto-copyright/blob/master/LICENSE.md">LICENSE</a> for details.</p>
+<section class="package-keywords">
+  <strong>Keywords:</strong> file, header, copyright, insert, update <a href="https://github.com/lee-dohm/auto-copyright/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Mscgen Preview
+  <a href="https://github.com/sverweij/atom-mscgen-preview">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install mscgen-preview
+  </pre>
+</div>
+<h1 id="mscgen-preview">MscGen Preview</h1>
+
+<p>Write and preview sequence charts with MscGen and its brethren. Shortcut: <code>ctrl-shift-G</code>.</p>
+
+<p>Enabled for <code>.mscgen</code>, <code>.msc</code>, <code>.mscin</code>, <code>.xu</code>, and <code>.msgenny</code> extensions.</p>
+
+<p><img src="https://raw.githubusercontent.com/sverweij/atom-mscgen-preview/master/assets/atom-mscgen-preview.gif" alt="animated gif demoing live preview of a simple sequence chart" /></p>
+
+<h2 id="features">Features</h2>
+<ul>
+  <li><strong>syntax highlighting</strong> from the <a href="https://atom.io/packages/language-mscgen">language-mscgen</a> package - so no need to install that separately.</li>
+  <li><strong>realtime rendering</strong> of your sequence chart</li>
+  <li><strong>SVG export</strong> - to file or clipboard</li>
+  <li><strong>PNG export</strong> - to file</li>
+  <li>Uses the pure javascript <strong><a href="https://github.com/sverweij/mscgen_js">mscgen_js</a></strong> package for parsing and rendering, so apart from <strong>MscGen</strong> (<code>*.mscgen</code>, <code>*.mscin</code>, <code>*.msc</code>) it supports
+    <ul>
+      <li><strong>Xù</strong> (<code>*.xu</code>)  <br />
+A little language that adds things like <code>alt</code> and <code>loop</code> to MscGen.
+See the <a href="https://github.com/sverweij/mscgen_js/blob/master/wikum/xu.md">Xù wiki page</a>
+for more information.</li>
+      <li><strong>MsGenny</strong> (<code>*.msgenny</code>)  <br />
+Xù with a simplified syntax. And a little less features. The
+<a href="https://github.com/sverweij/mscgen_js/blob/master/wikum/msgenny.md">MsGenny wiki page</a>
+has more information.</li>
+    </ul>
+  </li>
+  <li>Frictionless conversion MscGen/ Xù &lt;=&gt; MsGenny
+    <ul>
+      <li>Check the editor context menu for
+        <ul>
+          <li><code>MsGenny -&gt; MscGen/ Xù</code>,</li>
+          <li><code>MscGen -&gt; MsGenny</code> and</li>
+          <li><code>Xù -&gt; MsGenny</code></li>
+        </ul>
+      </li>
+      <li>or use <code>Mscgen Preview: Translate</code> in the command palette.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="license-information">License information</h2>
+<p>This software is free software <a href="LICENSE.md">licensed under GPL-3.0</a>. This means (a.o.) you <em>can</em> use
+it as part of other free software, but <em>not</em> as part of non free software.</p>
+
+<h2 id="build-status">Build status</h2>
+<p><a href="https://travis-ci.org/sverweij/atom-mscgen-preview"><img src="https://travis-ci.org/sverweij/atom-mscgen-preview.svg?branch=master" alt="Build Status" /></a>
+<a href="https://ci.appveyor.com/project/sverweij/atom-mscgen-preview"><img src="https://ci.appveyor.com/api/projects/status/wv47lflylhroa9wl?svg=true" alt="Build status" /></a>
+<a href="https://codeclimate.com/github/sverweij/atom-mscgen-preview"><img src="https://codeclimate.com/github/sverweij/atom-mscgen-preview/badges/gpa.svg" alt="Code Climate" /></a>
+<a href="https://david-dm.org/sverweij/atom-mscgen-preview"><img src="https://david-dm.org/sverweij/atom-mscgen-preview.svg" alt="Dependency Status" /></a>
+<a href="https://david-dm.org/sverweij/atom-mscgen-preview#info=devDependencies"><img src="https://david-dm.org/sverweij/atom-mscgen-preview/dev-status.svg" alt="devDependency Status" /></a></p>
+<section class="package-keywords">
+  <strong>Keywords:</strong> mscgen, sequence chart, sequence diagram, preview <a href="https://github.com/sverweij/atom-mscgen-preview/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

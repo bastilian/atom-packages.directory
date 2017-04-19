@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Linter Js Standard
+  <a href="https://github.com/ricardofbarros/linter-js-standard">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+    <span class="author">by Ricardo Barros</span>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install linter-js-standard
+  </pre>
+</div>
+<h1 id="linter-js-standard">linter-js-standard</h1>
+<p><a href="https://github.com/feross/standard"><img src="https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat" alt="js-standard-style" /></a></p>
+
+<p>This plugin for <a href="https://github.com/AtomLinter/Linter">Linter</a> provides an interface for error/warning messages from <a href="https://github.com/feross/standard">standard</a>, as well as variations of standard such as <a href="https://github.com/Flet/semistandard">semistandard</a> and <a href="https://github.com/JedWatson/happiness">happiness</a>.</p>
+
+<p><img src="https://cloud.githubusercontent.com/assets/6867996/8457085/4bd7575e-2007-11e5-9762-e3f942b78232.gif" alt="demo" /></p>
+
+<h2 id="installation">Installation</h2>
+<p>Linter package must be installed in order to use this plugin. If Linter is not installed, please follow the instructions <a href="https://github.com/AtomLinter/Linter">here</a>.</p>
+
+<h3 id="plugin-installation">Plugin installation</h3>
+<p><code>
+$ apm install linter-js-standard
+</code></p>
+
+<h2 id="features">Features</h2>
+<ul>
+  <li>Support <code>standard</code>, <code>semistandard</code> and <code>happiness</code> styles.</li>
+  <li>Support ignore glob patterns in package.json.</li>
+  <li>Support custom parsers in package.json.</li>
+  <li>Support global variables in package.json <em>(supported by standard and semistandard)</em></li>
+  <li>Support fenced code lint in markdown files</li>
+</ul>
+
+<p>Custom parsers currently supported:
+- esprima
+- esprima-fb
+- babel-eslint</p>
+
+<blockquote>
+  <p>Note: If a custom parser is missing from this list please make a PR by adding the missing parser to package.json dependencies.</p>
+</blockquote>
+
+<h2 id="settings">Settings</h2>
+
+<h3 id="checkstyledevdependencies-default-false">checkStyleDevDependencies (default: false)</h3>
+<p>Check code style in package.json <code>devDependencies</code> or <code>dependencies</code>. If a valid style is not found it won’t lint.</p>
+
+<blockquote>
+  <p>Note: This will use the nearest package.json.</p>
+</blockquote>
+
+<h3 id="honorstylesettings-default-true">honorStyleSettings (default: true)</h3>
+<p>Honors style settings defined in package.json.</p>
+
+<p>Current style settings supported:
+- <code>ignore</code>
+- <code>parser</code></p>
+
+<blockquote>
+  <p>Note: This will use the nearest package.json.</p>
+</blockquote>
+
+<h3 id="style-default-standard">style (default: standard)</h3>
+<p>Switch between standard and semistandard styles.
+If <code>checkStyleDevDependencies</code> is true this setting will be <strong>ignored</strong>.</p>
+
+<h3 id="showeslintrules-default-false">showEslintRules (default: false)</h3>
+<p>Enable/disable showing the id of the offended eslint rules.</p>
+
+<p>Example of messages while showEslintRules is:
+- <strong>true:</strong> Extra semicolon. (semi)
+- <strong>false:</strong> Extra semicolon.</p>
+
+<h3 id="lintmarkdownfiles-default-false">lintMarkdownFiles (default: false)</h3>
+<p>Lint markdown fenced code blocks.</p>
+
+<h3 id="global-variable-support">Global Variable Support</h3>
+<p>To have the linter not warn about undeclared variables when using global variables, honorStyleSettings has to be checked/true and a “globals” section has to be added to package.json:
+<code>
+"semistandard": {
+    "globals": [
+      "var1",
+      "var2"
+    ]
+  }
+  OR
+"standard": {
+    "globals": [
+      "var1",
+      "var2"
+    ]
+  }
+ </code>
+Also see https://github.com/feross/standard#i-use-a-library-that-pollutes-the-global-namespace-how-do-i-prevent-variable-is-not-defined-errors.</p>
+
+<h2 id="license">License</h2>
+<p>MIT</p>
+<section class="package-keywords">
+  <strong>Keywords:</strong> javascript, standard, linter <a href="https://github.com/ricardofbarros/linter-js-standard/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

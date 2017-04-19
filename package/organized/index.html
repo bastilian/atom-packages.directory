@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Organized
+  <a href="https://github.com/MattFlower/organized">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install organized
+  </pre>
+</div>
+<h1 id="what-is-organized">What Is Organized?</h1>
+
+<p>Organized is designed to allow you to keep notes, a schedule, and todo list
+inside of Atom.</p>
+
+<p><img src="https://raw.githubusercontent.com/MattFlower/organized/master/screenshots/0_6_0.gif" alt="Organized Screenshot" /></p>
+
+<p>Right now, we’re in the early stages of Organized, but join us now and watch
+us get better.</p>
+
+<h1 id="features">Features</h1>
+<ul>
+  <li>Outlining
+    <ul>
+      <li>Indent or Unindent with tab and shift-tab</li>
+      <li>Automatically create stars if you’ve been outlining and you press enter.</li>
+      <li>Write more text for the same star on a new line if you press shift-enter</li>
+      <li>“*”, “-“, and “+” characters supported for outlining</li>
+      <li>Support numbered bullets</li>
+    </ul>
+  </li>
+  <li>Support todo items
+    <ul>
+      <li>Highlighting of [TODO]/[DONE] tags</li>
+      <li>Ctrl-Shift-T for toggling todo items from [TODO] to [DONE] to blank.</li>
+      <li>Todo items can be marked with a priority of A to E.  This will impact their sorting in the sidebar. (The default
+level is C if the items aren’t marked.)</li>
+      <li>Highlighting for CLOSED, DEADLINE, and SCHEDULED tags.  DEADLINE and SCHEDULED items will show up in the sidebar.</li>
+    </ul>
+  </li>
+  <li>Code blocks
+    <ul>
+      <li>Syntax highlighting for code blocks in c, coffeescript, c++, css, golang, html, java,
+javascript, less, objective c, objective c++, python, php, r, ruby, shell scripts (generic), and sql.</li>
+      <li>
+        <p>Execution for c, c++, coffeescript, golang, java, javascript, objective-c, perl, php, python, r, and shell
+scripts.  Put your cursor in your code block and press [Ctrl-` x] to execute code.  Output from
+code will appear in a notification by default, or create resultblock:</p>
+
+        <pre><code>```result
+```
+</code></pre>
+
+        <p>and the output will appear there.</p>
+      </li>
+      <li>Early support for code execution in C, C++, Java, Golang, R, and Objective-C.  You cannot set any libraries in
+those languages yet, which may reduce their effectively a bit.</li>
+      <li>Results can be displayed as an information popup or as a separate section in
+your notes for future reference.</li>
+    </ul>
+  </li>
+  <li>Sidebar
+    <ul>
+      <li>New sidebar shows all the todo files across the .org files in the open projects.  Settings allow you
+to always check additional projects.  Todos can be closed on jumped to with a single click</li>
+    </ul>
+  </li>
+  <li>Integrates with the <a href="https://atom.io/packages/tool-bar">tool-bar</a> package to get buttons for easy access
+to common actions.</li>
+  <li>Tables
+    <ul>
+      <li>Create an ascii-based table</li>
+      <li>Rather than writing closing table blocks, use “Ctrl– C” to automatically close them.</li>
+    </ul>
+  </li>
+  <li>Highlighting of org-mode style Metadata headers, SCHEDULED properties, links, and
+Org-mode-style tags (:tagname:)</li>
+</ul>
+
+<h1 id="whats-new">What’s New?</h1>
+
+<ul>
+  <li>0.6.3-0.6.6 (Release 2017-03-23)
+    <ul>
+      <li>Implemented syntax coloring for todo priorities</li>
+      <li>Todo Items are now sorted according to priority.  (Default priority is “C”, range is A-E)</li>
+      <li>Added keystrokes option-shift-up and option-shift-down to change priority of current item.  These should be
+alt-shift-up and alt-shift-down on windows.</li>
+      <li>Priority items in todo items</li>
+      <li>Added syntax highlighting for deadlines</li>
+      <li>Added keystrokes (ctrl-i d) to add a deadline.  Existing “insert date” functionality has been remapped to
+(ctrl-i /)</li>
+      <li>Deadlines are treated like schedule items (for now) in agendas</li>
+    </ul>
+  </li>
+  <li>0.6.2 (Released 2017-03-22)
+    <ul>
+      <li>Archive used to only archive the current subtree and it ignored selections.  Now it archives the entire selection
+too, even if it is multiple subtrees.</li>
+      <li>Even if sidebar is hidden, the toolbar button always said it was enabled.</li>
+      <li>If there are links inside of an agenda or todo item, render them as hyperlinks</li>
+      <li>If there is bold or underlined text in an agenda or todo item, render them.</li>
+    </ul>
+  </li>
+  <li>0.6.1 (Released 2017-03-18)
+    <ul>
+      <li>Missed adding some files before I released, re-releasing.  This closes issue #14.</li>
+    </ul>
+  </li>
+  <li>0.6.0 (Released 2017-03-17)
+    <ul>
+      <li>New Agenda sidebar panel</li>
+      <li>Any item marked with a SCHEDULED tag later than or equal to the
+start of today will show up in the Agenda Panel of the sidebar.</li>
+      <li>New archive command (ctrl-i a) which moves the current subtree you are pointing to into a file named
+        <current-filename>_archive.  (For example, for TODO.org, it would be moved to TODO.org_archive)
+</current-filename>
+      </li>
+      <li>Archive files are now colored by org-mode as well.</li>
+      <li>Stop using COMPLETED for todo items.  Instead use DONE.  Existing COMPLETED tags will continue to be colored
+correctly.</li>
+      <li>Don’t require brackets around TODO items.</li>
+      <li>Add a setting which asks whether we should use brackets around TODO or DONE by default</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Please see the <a href="https://raw.githubusercontent.com/MattFlower/organized/master/CHANGELOG.org">CHANGELOG.org</a>
+for full details of recent changes.</p>
+
+<h1 id="what-do-i-want-to-build">What Do I Want to Build</h1>
+<ul>
+  <li>Complete compatibility with existing org-mode documents</li>
+  <li>Syntax coloring for code blocks (Done)</li>
+  <li>Ability to execute code blocks inline (Done)</li>
+  <li>Nice looking panes that can show you your todos and agendas across multiple organized documents (In progress)</li>
+  <li>Export to pdf, html, etc</li>
+</ul>
+
+<h1 id="learning-the-basics-of-organized">Learning the Basics of Organized</h1>
+<p>At the most basic level, Organized is an outlining / note taking tool.  You can
+use either of the two major styles to create an outline:</p>
+
+<p>```
+    * Level 1
+      * One way to express index level 2
+        * One way to express index level 3</p>
+
+<pre><code>* Level 1
+** An alternate way to express index level 2
+*** An alternate way to express index level 3 ```
+</code></pre>
+
+<p>You can also use alternate characters too.  If you use whitespace to establish
+your indent level, you can mix them:</p>
+
+<p>```
+    - Level 1
+      * Level 2
+        - Level 3</p>
+
+<pre><code>- Level 1
+-- Level 2
+--- Level 3
+
+- Level 1
+-* &lt;=== This is not valid ```
+</code></pre>
+
+<p>If you feel like you need to add a TODO, press ctrl-shift-t to do it:</p>
+
+<p><code>
+    * [TODO] Some important task
+</code></p>
+
+<p>When you are done with your task, press ctrl-shift-t again to mark it as completed.</p>
+
+<p><code>
+    * [DONE] Some task I'm done with
+</code></p>
+
+<p>If you didn’t mean to mark it as a TODO, pressing ctrl-shift-t a final time
+will make it disappear.</p>
+
+<p>You might want to organize your notes a bit.  You can do that with markdown-style headers (a # character, a space, and some text):</p>
+
+<p>```
+    # This is a heading
+    * Here are some notes
+      * More specific notes</p>
+
+<pre><code>## A subheading
+* With some more notes ```
+</code></pre>
+
+<p>If you need to write some source code, you can do that too:</p>
+
+<pre><code>    ```java
+    public static void main(String[] args) {
+      System.out.println("Hello, World");
+    }
+    ```
+</code></pre>
+
+<h1 id="why-did-i-write-organized">Why Did I Write Organized?</h1>
+<p>I designed Organized in response to a personal itch.  I’ve long been a user
+of note taking software (plain text, notebooks, Evernote, OneNote, etc) and
+I’ve long been a user of todo applications (Outlook, Things, Clear, Todoist).</p>
+
+<p>One day I discovered org-mode, despite the fact I’d been a long-time emacs user.
+I absolutely loved the concept – in my mind, todo items should live inside your
+notes.  OneNote almost had this feature, but unfortunately they didn’t
+implement a good way to roll them up in the Mac version.  So you’ve got todos
+floating around with no good way to coalesce them.  (I think this might work
+if you are using Outlook, but I’m not with you there anymore).  I was totally
+lured in by the ability to both style source code inside your notes AND to
+actually run them (wow!).  Once I found tables that could execute formulas,
+I know this was a generation beyond what I had been using.  (From a mode that
+has been around forever! nonetheless).</p>
+
+<p>After using org-mode for a few weeks, I found myself craving something more:</p>
+
+<ul>
+  <li>It’s Emacs.  You can make almost anything happen (and I have done a lot) but
+some things are just clunky.  Multi-line cursors are important to me, but I
+still can’t find an implementation I like in Emacs.  I could write it, but
+that is just one of many problems.</li>
+  <li>I totally get the mini-buffer in Emacs.  I’ve made it better (for me) using
+that vertical mode thing, but in the end, I really just want normal pop downs
+and popups.  I’m not using my organizer on remote machines, so this isn’t an
+issue.</li>
+  <li>I want a real ui sometimes.  I want nice colors and checkboxes for my todos.
+I want a fancy looking calendar.  I can kinda have this in Emacs, but it just
+isn’t pretty enough.  Yep, this is shallow of me.  I get it.</li>
+  <li>I can install pdflatex/texlive, but really I just want it to work.  Also, with
+no offense meant to latex, I feel like a style upgrade is needed.  I probably
+could have rolled that myself too.</li>
+</ul>
+
+<p>I’ve been told that immitation is flattery.  If you have contributed on org-mode
+and you are fuming at my suggestions, please know I hold you in the highest
+regard.  Really!</p>
+
+<h1 id="contributions">Contributions</h1>
+<p>Contributions of source code or bugs are welcome!  Please use <a href="https://github.com/MattFlower/organized">Github</a> to submit
+issues or pull requests.</p>
+
+<h1 id="license">License</h1>
+<p>This project has been released under the MIT license.  Please see the
+LICENSE.md file for more details.</p>
+<section class="package-keywords">
+  <strong>Keywords:</strong> organized, org-mode, todo, outline <a href="https://github.com/MattFlower/organized/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

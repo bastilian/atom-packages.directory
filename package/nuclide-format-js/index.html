@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Nuclide Format Js
+  <a href="https://github.com/facebooknuclide/nuclide-format-js">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install nuclide-format-js
+  </pre>
+</div>
+<h1 id="nuclide-format-js">nuclide-format-js</h1>
+
+<p><a href="https://travis-ci.org/facebooknuclide/nuclide-format-js"><img src="https://travis-ci.org/facebooknuclide/nuclide-format-js.svg?branch=master" alt="Build Status" /></a></p>
+
+<p>This feature is a collection of codemods that automatically clean up different aspects of code so
+that you do not have to worry about every little formatting detail. Right now all of the codemods
+live in <code>src/common</code> feature.</p>
+
+<h2 id="usage">usage</h2>
+
+<p>The default keyboard shortcut for <code>nuclide-format-js:format</code> is <code>cmd-shift-i</code>.</p>
+
+<h2 id="codemods">codemods</h2>
+
+<h3 id="requires">requires</h3>
+
+<p>This collection of codemods automatically adds, removes, and formats your requires. It is primarily
+a heuristic that works by requiring identifiers that are being used that were not declared. It is
+also aware of Flow types and will properly promote type imports to requires, and demote requires to
+type imports when appropriate.</p>
+
+<p>There are a few best practices that you should follow in order to get the most benefit out of these
+transforms:</p>
+
+<ul>
+  <li>Don’t shadow require names anywhere in the file. The transform is very minimally aware of scope.</li>
+  <li>Don’t alias requires (unless you specify the alias in the aliases setting).</li>
+  <li>Destructure in a line separate from the require.</li>
+</ul>
+
+<p><code>js
+var React = require('react');
+var {PropTypes} = React;
+</code></p>
+
+<p>There are also a few things that are not supported yet that would be nice to support:</p>
+
+<ul>
+  <li>Relative requires, e.g. <code>require('../lib/module');</code></li>
+  <li>Common destructures, e.g. <code>var {PropTypes} = require('react');</code></li>
+  <li>Only add requires for known modules by maintaining a list of known modules, or by getting this
+information from Flow.</li>
+  <li>Allow per-directory configurations.</li>
+</ul>
+
+<p>Right now the recommended set up is to not run-on-save and instead use the default
+keyboard shortcut.</p>
+
+<p>Make sure to verify the requires that are added by this plugin and report any issues. If anything
+is getting in your way when using this plugin you can generally work around it by modifying the
+plugin’s settings. It’s possible to adjust things like built-ins, aliases, and even blacklist
+particular transforms there.</p>
+
+<h2 id="developing">developing</h2>
+
+<p>```sh
+# Clone the repo
+git clone git@github.com:facebooknuclide/nuclide-format-js.git</p>
+
+<p>cd nuclide-format-js</p>
+
+<h1 id="to-use-as-an-atom-package">To use as an Atom package</h1>
+<p>apm link</p>
+
+<h1 id="install-dependencies-and-start-the-transpiler-watcher">Install dependencies and start the transpiler watcher</h1>
+<p>npm install
+npm run watch
+```</p>
+
+<h2 id="releasing">releasing</h2>
+
+<ul>
+  <li>Make sure that <code>master</code> is up-to-date.</li>
+</ul>
+
+<p>```sh
+# Bump the version number
+npm version patch –no-git-tag-version</p>
+
+<h1 id="commit-the-version-bump">Commit the version bump</h1>
+<p>git add package.json
+git commit -m “$(node -p ‘require(“./package.json”).version’)”</p>
+
+<h1 id="run-the-release-script">Run the release script</h1>
+<p>./tools/release.sh</p>
+
+<h1 id="follow-the-printed-instructions-if-everything-looks-good">Follow the printed instructions if everything looks good</h1>
+<p>```</p>
+<section class="package-keywords">
+  <strong>Keywords:</strong> codemod, javascript, jscodeshift <a href="https://github.com/facebooknuclide/nuclide-format-js/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

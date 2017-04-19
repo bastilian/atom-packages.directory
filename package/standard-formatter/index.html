@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Standard Formatter
+  <a href="https://github.com/stephenkubovic/atom-standard-formatter">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install standard-formatter
+  </pre>
+</div>
+<h1 id="atom-standard-formatter">atom-standard-formatter</h1>
+
+<p>Atom package to format your Javascript using <a href="https://github.com/feross/standard">Standard Style</a>
+, <a href="https://github.com/Flet/semistandard">Semi-Standard Style</a>
+or <a href="https://github.com/jedwatson/happiness">Happiness Style</a>.</p>
+
+<p><img src="https://cloud.githubusercontent.com/assets/5852428/8020717/adbf10c0-0c51-11e5-8537-2714c9f698e5.gif" alt="" /></p>
+
+<h3 id="usage">Usage</h3>
+
+<h4 id="keybindings">Keybindings</h4>
+
+<p>Use <code>ctrl-alt-f</code> to format the current Javascript file. If a text selection is made, only the selected text will be formatted.</p>
+
+<h4 id="format-on-save">Format On Save</h4>
+
+<p>Automatically format your Javascript file on save by enabling the <em>Format On Save</em> package setting.  This is off by default.</p>
+
+<h4 id="menu">Menu</h4>
+
+<p><em>Packages &gt; standard-formatter &gt; Format</em></p>
+
+<h3 id="settings">Settings</h3>
+
+<h4 id="formatonsave-default-false">formatOnSave (default: false)</h4>
+
+<p>Format Javascript files when saving.</p>
+
+<h4 id="checkstyledevdependencies-default-false">checkStyleDevDependencies (default: false)</h4>
+
+<p>Check code style in package.json <code>devDependencies</code>. If a valid style is not found it won’t format.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Note: This will use the nearest package.json</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="style-default-standard">style (default: standard)</h4>
+
+<p>Choose the style formatter module you want to use. If <code>checkStyleDevDependencies</code> is <code>true</code> this setting will be ignored.</p>
+
+<ul>
+  <li><a href="https://github.com/feross/standard">standard</a> - equivalent to running <code>standard --fix</code></li>
+  <li><a href="https://github.com/maxogden/standard-format">standard-format</a></li>
+  <li><a href="https://github.com/ricardofbarros/semistandard-format">semistandard-format</a></li>
+  <li><a href="https://github.com/martinheidegger/hapiness-format">happiness-format</a></li>
+</ul>
+
+<h4 id="honorpackageconfig-default-true">honorPackageConfig (default: true)</h4>
+
+<p>Don’t auto-format files included in the package.json’s <code>"ignore"</code> configuration for the detected style.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Note: This will use the nearest package.json</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="a-note-on-formatting">A note on formatting</h3>
+
+<p>This package relies on the excellent work from the following modules to perform formatting:</p>
+
+<ul>
+  <li><a href="https://github.com/feross/standard">standard</a></li>
+  <li><a href="https://github.com/maxogden/standard-format">standard-format</a></li>
+  <li><a href="https://github.com/ricardofbarros/semistandard-format">semistandard-format</a></li>
+  <li><a href="https://github.com/martinheidegger/hapiness-format">happiness-format</a></li>
+</ul>
+
+<p>If parts of your Javascript are not being formatted as you’d expect, is is likely an issue with one of these modules and not this Atom package. To verify this, you can try to format your file directly using the above modules and examine the output.</p>
+
+<p>For example, to format <code>my-file.js</code> and output to stdout:
+<code>
+$ npm install -g standard-format
+$ standard-format my-file.js
+</code></p>
+<section class="package-keywords">
+  <strong>Keywords:</strong> javascript, standard, formatter <a href="https://github.com/stephenkubovic/atom-standard-formatter/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Tree View Search Bar
+  <a href="https://github.com/lixinliang/tree-view-search-bar">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install tree-view-search-bar
+  </pre>
+</div>
+<p><a href="https://atom.io/packages/tree-view-search-bar"><img src="https://img.shields.io/apm/l/tree-view-search-bar.svg?style=flat-square" alt="apm" /></a>
+<a href="https://atom.io/packages/tree-view-search-bar"><img src="https://img.shields.io/apm/v/tree-view-search-bar.svg?style=flat-square" alt="apm" /></a>
+<a href="https://atom.io/packages/tree-view-search-bar"><img src="https://img.shields.io/apm/dm/tree-view-search-bar.svg?style=flat-square" alt="apm" /></a></p>
+
+<h1 id="tree-view-search-bar">tree-view-search-bar</h1>
+<blockquote>
+  <p>🔍A file/directory filter plugin.</p>
+</blockquote>
+
+<h1 id="a-namemenuamenu"><a name="Menu"></a>Menu</h1>
+<blockquote>
+  <p>目录</p>
+</blockquote>
+
+<ul>
+  <li><a href="#Intro">Intro</a></li>
+  <li><a href="#Install">Install (安装)</a></li>
+  <li><a href="#Changelog">Changelog (更新日志)</a></li>
+  <li><a href="#Usage">Usage (使用方法)</a>
+    <ul>
+      <li><a href="#String">String : 字符</a></li>
+      <li><a href="#File">File : 文件</a></li>
+      <li><a href="#Path">Path : 路径</a></li>
+      <li><a href="#Combo">Combo : 组合</a></li>
+    </ul>
+  </li>
+  <li><a href="#Notice">Notice (注意事项)</a></li>
+</ul>
+
+<h2 id="a-nameintroaintro-menu"><a name="Intro"></a>Intro <a href="#Menu">[↑]</a></h2>
+
+<p>Actually, <code>tree-view-search-bar</code> is more like a file-filter tool.</p>
+
+<p><code>tree-view-filter</code> is a good plugin to filter files, but there are something different between <code>tree-view-filter</code> and <code>tree-view-search-bar</code>.</p>
+
+<ul>
+  <li><code>tree-view-search-bar</code> could filter directories.</li>
+  <li><code>tree-view-search-bar</code> could filter files without extension name.</li>
+</ul>
+
+<h2 id="a-nameinstallainstall-menu"><a name="Install"></a>Install <a href="#Menu">[↑]</a></h2>
+<blockquote>
+  <p>安装</p>
+</blockquote>
+
+<ul>
+  <li><code>apm install tree-view-search-bar</code> or <a href="https://atom.io/packages/tree-view-search-bar">https://atom.io/packages/tree-view-search-bar</a></li>
+  <li>command: <code>search-bar:toggle</code></li>
+  <li>or shortcut:
+    <ul>
+      <li><code>ctrl-cmd-shift-f</code> in <code>darwin</code>.</li>
+      <li><code>ctrl-alt-shift-f</code> in <code>win32</code> and <code>linux</code>.</li>
+      <li>You should focus in <code>tree-view</code> or <code>editor</code> first.</li>
+    </ul>
+  </li>
+  <li>enjoy it ☺️</li>
+</ul>
+
+<h2 id="a-namechangelogachangelog-menu"><a name="Changelog"></a>Changelog <a href="#Menu">[↑]</a></h2>
+<blockquote>
+  <p>更新日志</p>
+</blockquote>
+
+<ul>
+  <li>0.0.2 (2016-08-22) :
+    <ul>
+      <li>Add keyboard shortcut to toggle plugin.</li>
+      <li><code>ctrl-cmd-shift-f</code> in <code>darwin</code>.</li>
+      <li><code>ctrl-alt-shift-f</code> in <code>win32</code> and <code>linux</code>.</li>
+    </ul>
+  </li>
+  <li>0.0.3 (2016-09-22) :
+    <ul>
+      <li>Focus after show.</li>
+    </ul>
+  </li>
+  <li>0.1.1 (2016-10-30) :
+    <ul>
+      <li>Auto toggle when open a new window.
+        <ul>
+          <li>require tree-view still.</li>
+        </ul>
+      </li>
+      <li>“ctrl-alt-shift-f/ctrl-cmd-shift-f” shortcut feature now is “focus” instead “toggle”.
+        <ul>
+          <li>Now you can use this shortcut and “esc”, switch the search-bar and your workspace quickly.</li>
+        </ul>
+      </li>
+      <li>When you focus search-bar and search-bar is not exist, search-bar will auto show.</li>
+    </ul>
+  </li>
+  <li>0.1.2 (2016-12-04) :
+    <ul>
+      <li>Rename initialize to initializePackage.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="a-nameusageausage-menu"><a name="Usage"></a>Usage <a href="#Menu">[↑]</a></h2>
+<blockquote>
+  <p>使用方法</p>
+</blockquote>
+
+<p>Match Rule
+&gt; 匹配规则</p>
+
+<ul>
+  <li>
+    <p>Rule1 : When the input of <code>tree-view-search-bar</code> is not empty, all files or directories in <code>tree-view</code> will be hidden.
+&gt; 规则1 : 当输入框不为空时，所有的文件都会隐藏。</p>
+  </li>
+  <li>
+    <p>Rule2 : If the file or directory matches one of the expressiones, it will be visible.
+&gt; 规则2 : 只要符合输入的所有表达式的其中一条该文件或者文件夹就会显示。</p>
+  </li>
+  <li>
+    <p>Rule3 : There is a directory including at least one file or directory which is matched Rule2 that will be visible.
+&gt; 规则3 : 当文件夹包含某个符合规则2的子文件或者子文件夹时该文件夹会显示。</p>
+  </li>
+  <li>
+    <p>Rule4 : If this directory is collapsed, Rule3 is not suitable to this directory, Rule2 is not suitable to its subfile or subdirectory.
+&gt; 规则4 : 该文件夹处于收拢状态时，它的子文件或者子文件夹不会应用规则2，该文件夹不会应用规则3。</p>
+  </li>
+</ul>
+
+<h3 id="a-namestringastring---menu"><a name="String"></a>String : 字符 <a href="#Menu">[↑]</a></h3>
+
+<ul>
+  <li>
+    <p>Match all files or directories which are include the string you type.
+&gt; 匹配包含该字符串的文件与文件夹。</p>
+  </li>
+  <li>
+    <p>Case Insensitivity.
+&gt; 大小写不敏感。</p>
+  </li>
+</ul>
+
+<ol>
+  <li>
+    <p><code>tree-view-search-bar</code> includes <code>tree</code>.
+&gt; <code>tree-view-search-bar</code> 包含字符串 <code>tree</code>。</p>
+
+    <p><img src="https://raw.githubusercontent.com/lixinliang/tree-view-search-bar/master/images/string-1.png" alt="" /></p>
+  </li>
+  <li>
+    <p><code>atom-reveal-file-in-finder</code>, <code>main.js</code>, <code>intro.png</code> includes <code>in</code>, <code>lib</code> is visible because <a href="#Usage"><code>Rule3</code></a>.
+&gt; <code>atom-reveal-file-in-finder</code>，<code>main.js</code>，<code>intro.png</code> 包含字符串 <code>in</code>，<code>lib</code>因为<a href="#Usage"><code>规则3</code></a>而显示。</p>
+
+    <p><img src="https://raw.githubusercontent.com/lixinliang/tree-view-search-bar/master/images/string-2.png" alt="" /></p>
+  </li>
+  <li>
+    <p>Case Insensitivity.
+&gt; 大小写不敏感。</p>
+
+    <p><img src="https://raw.githubusercontent.com/lixinliang/tree-view-search-bar/master/images/string-3.png" alt="" /></p>
+  </li>
+</ol>
+
+<h3 id="a-namefileafile---menu"><a name="File"></a>File : 文件 <a href="#Menu">[↑]</a></h3>
+
+<ul>
+  <li>
+    <p>If the string you type include character <code>.</code> that will search file only.
+&gt; 使用<code>.</code>来识别文件类型.</p>
+  </li>
+  <li>
+    <p>Support Regular Expression.
+&gt; 允许使用正则.</p>
+  </li>
+  <li>
+    <p>Character <code>*</code> can match all filename.
+&gt; 使用<code>*</code>来代表任何长度的文件名.</p>
+  </li>
+  <li>
+    <p>Character <code>*</code> can match all file extension.
+&gt; 使用<code>*</code>来代表任何长度的文件类型.</p>
+  </li>
+</ul>
+
+<ol>
+  <li>
+    <p>Match all files if their extension are <code>md</code>.
+&gt; 匹配所有后缀为<code>md</code>的文件。</p>
+
+    <p><img src="https://raw.githubusercontent.com/lixinliang/tree-view-search-bar/master/images/file-1.png" alt="" /></p>
+  </li>
+  <li>
+    <p>Match all files if their extension are <code>md</code> and the last character of filename are <code>e</code>.
+&gt; 匹配所有后缀为<code>md</code>且最后的字母为<code>e</code>的文件。</p>
+
+    <p><img src="https://raw.githubusercontent.com/lixinliang/tree-view-search-bar/master/images/file-2.png" alt="" /></p>
+  </li>
+  <li>
+    <p>All files will be match.
+&gt; 全部文件都会被匹配。</p>
+
+    <p><img src="https://raw.githubusercontent.com/lixinliang/tree-view-search-bar/master/images/file-3.png" alt="" /></p>
+  </li>
+</ol>
+
+<h3 id="a-namepathapath---menu"><a name="Path"></a>Path : 路径 <a href="#Menu">[↑]</a></h3>
+
+<ul>
+  <li>
+    <p>If the string you type include character <code>/</code> or <code>\</code> that will match the file path.
+&gt; 使用<code>/</code>或者<code>\</code>来识别路径类型。</p>
+  </li>
+  <li>
+    <p>Each part of path will apply as same as <a href="#String"><code>String Rule</code></a> to filter the directories.
+&gt; 每一段路径使用<a href="#String"><code>字符</code></a>的匹配去过滤文件夹。</p>
+  </li>
+  <li>
+    <p>If <code>/</code> or <code>\</code> is the last character, all subfile or subdirectory of the match directory will display.
+&gt; 当以<code>/</code>或者<code>\</code>结尾时, 默认显示该文件夹下全部文件与文件夹。</p>
+  </li>
+</ul>
+
+<ol>
+  <li>
+    <p><code>tree-view-search-bar</code> includes <code>tree</code>, <code>view.less</code> includes <code>less</code>, <code>styles</code> is visible because <a href="#Usage"><code>Rule3</code></a>.
+&gt; <code>tree-view-search-bar</code> 包含字符串 <code>tree</code>，<code>view.less</code> 包含字符串 <code>less</code>，<code>styles</code>因为<a href="#Usage"><code>规则3</code></a>而显示。</p>
+
+    <p><img src="https://raw.githubusercontent.com/lixinliang/tree-view-search-bar/master/images/path-1.png" alt="" /></p>
+  </li>
+  <li>
+    <p><code>tree-view-search-bar</code> includes <code>tree</code>, and its subfiles or subdirectories are visible because the last character is <code>/</code>.
+&gt; <code>tree-view-search-bar</code> 包含字符串 <code>tree</code>，以<code>/</code>结尾时, 显示该文件夹下全部文件与文件夹。</p>
+
+    <p><img src="https://raw.githubusercontent.com/lixinliang/tree-view-search-bar/master/images/path-2.png" alt="" /></p>
+  </li>
+  <li>
+    <p><code>tree-view-search-bar</code> includes <code>tree</code>, <code>lib</code> includes <code>lib</code>, and subfiles or subdirectories of <code>lib</code> are visible because the last character is <code>/</code>.
+&gt; <code>tree-view-search-bar</code> 包含字符串 <code>tree</code>，<code>lib</code> 包含字符串 <code>lib</code>，以<code>/</code>结尾时, 显示<code>lib</code>下全部文件与文件夹。</p>
+
+    <p><img src="https://raw.githubusercontent.com/lixinliang/tree-view-search-bar/master/images/path-3.png" alt="" /></p>
+  </li>
+</ol>
+
+<h3 id="a-namecomboacombo---menu"><a name="Combo"></a>Combo : 组合 <a href="#Menu">[↑]</a></h3>
+
+<ul>
+  <li>
+    <p>Use <code>space</code> to split each expression.
+&gt; 使用<code>空格</code>分割每一条表达式。</p>
+  </li>
+  <li>
+    <p>Match one of the expressiones will be displayed.
+&gt; 只要符合其中一条表达式的匹配规则则会显示。</p>
+  </li>
+</ul>
+
+<ol>
+  <li>
+    <p>like this:
+&gt; 例子：</p>
+
+    <p><img src="https://raw.githubusercontent.com/lixinliang/tree-view-search-bar/master/images/combo-1.png" alt="" /></p>
+  </li>
+</ol>
+
+<h2 id="a-namenoticeanotice-menu"><a name="Notice"></a>Notice <a href="#Menu">[↑]</a></h2>
+<blockquote>
+  <p>注意事项</p>
+</blockquote>
+
+<ul>
+  <li>
+    <p>Do not match any files or directories which in the collapse directory.
+&gt; 收拢的文件夹内的文件不会被匹配到。</p>
+  </li>
+  <li>
+    <p>If you collapse a directory which include matched file or directory and this directory do not match any expression, then this directory will not display in the result list.
+&gt; 一个文件夹本身没有被匹配只因为其包含了被匹配的文件或者文件夹而显示时，收拢该文件夹将会导致该文件夹在匹配结果列表上消失。</p>
+  </li>
+</ul>
+
+<h2 id="todo-menu">TODO <a href="#Menu">[↑]</a></h2>
+
+<ul>
+  <li>大小写敏感(Case Sensitivity)</li>
+  <li>匹配正则表达式(Regular Expression)</li>
+  <li>关键字补全(Autocomplete)</li>
+  <li>模糊搜索(Fuzzy)</li>
+  <li>匹配高亮(Highlight)</li>
+  <li>深度匹配(Match file in fold directory)</li>
+</ul>
+
+<h2 id="license-menu">License <a href="#Menu">[↑]</a></h2>
+
+<p>MIT</p>
+<section class="package-keywords">
+  <strong>Keywords:</strong> tree-view, finder, filter, search <a href="https://github.com/lixinliang/tree-view-search-bar/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

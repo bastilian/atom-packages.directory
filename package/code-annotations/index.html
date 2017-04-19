@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Code Annotations
+  <a href="https://github.com/jneuendorf/code-annotations">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+    <span class="author">by Jim Neuendorf</span>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install code-annotations
+  </pre>
+</div>
+<h1 id="code-annotations-atomhttpatomio-package">Code Annotations (<a href="http://atom.io">Atom</a> package)</h1>
+
+<h2 id="description">Description</h2>
+
+<p>This is an atom package for creating code annotations.
+An annotation is a piece of content that has a name and can be displayed in atom.
+While working only the name of the code annotation is visible but it can be shown by clicking on the pin icon (in the atom gutter)</p>
+
+<p><img src="https://github.com/jneuendorf/code-annotations/raw/master/gifs/basic-usage.gif" alt="Basic usage" /></p>
+
+<p>By default, this package can render the following kinds of content:</p>
+
+<ul>
+  <li>images</li>
+  <li>html</li>
+  <li>links / URLs</li>
+  <li>plain text</li>
+</ul>
+
+<p>Further renderers can be added by installing code-annotation plugin packages.</p>
+
+<h2 id="usage">Usage</h2>
+
+<h3 id="creation-and-destruction">Creation and destruction</h3>
+
+<p>Code annotations can be added and deleted from the context menu, from the <code>ShowCommandsView</code>, and of course from the command palette.
+When adding or removing the position is the current (or last) cursor is relevant (so just right clicking to a certain position is insufficient (for now)).
+A new annotation is added above the line of the cursor; for deleting one the cursor must be at the annotation’s line.</p>
+
+<p>Each annotation is identified by a name (so it must be unique among all annotations of the same project folder).</p>
+
+<p>When creating an annotation its contents can be set in 2 ways:</p>
+
+<ol>
+  <li>from a file (for e.g. images)</li>
+  <li>from text input (for e.g. plain text)
+    <ul>
+      <li>All annotations from text input are displayed as plain text first. The type can be changed later.</li>
+    </ul>
+  </li>
+</ol>
+
+<h3 id="navigating-to-annotations">Navigating to annotations</h3>
+
+<p>With the <code>show-all</code> command a select list containing all package commands</p>
+
+<h3 id="shortcuts">Shortcuts</h3>
+
+<p>There are only 2: <code>ctrl-alt-c ctrl-alt-c</code> and <code>escape</code>.</p>
+
+<p>Yes, the first is what it looks like - <code>ctr-alt-c</code> twice in a row.
+This shortcut shows a select list with the commands of the package (so this is kinda like a prefiltered command palette).</p>
+
+<p><code>escape</code> is for hiding the container (see next section).</p>
+
+<p>The reasoning behind this is to avoid conflicts with other packages without making it harder to use the package without the mouse.</p>
+
+<h3 id="showing-annotations-rendering">Showing annotations (rendering)</h3>
+
+<p>Each annotation is associated with a file. The file extension of that file determines how the file contents are rendered in the popup (called <code>CodeAnnotationContainer</code>).
+Thus the <code>hide-container</code> command (which is triggered on <code>escape</code>).</p>
+
+<p>The container is made visible by clicking on the icon displayed in the <a href="https://atom.io/docs/api/latest/Gutter">gutter</a> - currently this is a pin icon.</p>
+
+<h2 id="supported-grammars">Supported grammars</h2>
+
+<ul>
+  <li><a href="https://atom.io/packages/language-c">C</a></li>
+  <li><a href="https://atom.io/packages/language-csharp">C#</a></li>
+  <li><a href="https://atom.io/packages/language-coffee-script">CoffeeScript</a></li>
+  <li><a href="https://atom.io/packages/language-css">CSS</a></li>
+  <li><a href="https://atom.io/packages/language-c">C++</a></li>
+  <li><a href="https://atom.io/packages/language-gfm">GitHub Flavored Markdown</a></li>
+  <li><a href="https://atom.io/packages/language-go">Go</a></li>
+  <li><a href="https://atom.io/packages/language-haskell">Haskell</a></li>
+  <li><a href="https://atom.io/packages/language-html">HTML</a></li>
+  <li><a href="https://atom.io/packages/language-ruby">HTML (Ruby - ERB)</a></li>
+  <li><a href="https://atom.io/packages/language-java">Java</a></li>
+  <li><a href="https://atom.io/packages/language-javascript">JavaScript</a></li>
+  <li><a href="https://atom.io/packages/language-latex">LaTeX</a></li>
+  <li><a href="https://atom.io/packages/language-less">Less</a></li>
+  <li><a href="https://atom.io/packages/language-matlab">MATLAB</a></li>
+  <li><a href="https://atom.io/packages/language-objective-c">Objective-C</a></li>
+  <li><a href="https://atom.io/packages/language-objective-c">Objective-C++</a></li>
+  <li><a href="https://atom.io/packages/language-matlab">Octave</a></li>
+  <li><a href="https://atom.io/packages/language-perl">Perl</a></li>
+  <li><a href="https://atom.io/packages/language-perl">Perl 6</a></li>
+  <li><a href="https://atom.io/packages/language-php">PHP</a></li>
+  <li><a href="https://atom.io/packages/language-python">Python</a></li>
+  <li><a href="https://atom.io/packages/language-r">R</a></li>
+  <li><a href="https://atom.io/packages/language-ruby">Ruby</a></li>
+  <li><a href="https://atom.io/packages/language-sass">Sass</a></li>
+  <li><a href="https://atom.io/packages/language-scala">Scala</a></li>
+  <li><a href="https://atom.io/packages/language-scss">SCSS</a></li>
+  <li><a href="https://atom.io/packages/language-shellscript">Shell Script</a></li>
+  <li><a href="https://atom.io/packages/language-sql">SQL</a></li>
+</ul>
+<section class="package-keywords">
+  <strong>Keywords:</strong> code, annotate, annotation, documentation <a href="https://github.com/jneuendorf/code-annotations/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Atomizr
+  <a href="https://github.com/idleberg/atom-atomizr">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+    <span class="author">by Jan T. Sott</span>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install atomizr
+  </pre>
+</div>
+<h1 id="atomizr-for-atom">Atomizr for Atom</h1>
+
+<p><a href="https://atom.io/packages/atomizr"><img src="https://img.shields.io/apm/l/atomizr.svg?style=flat-square" alt="apm" /></a>
+<a href="https://atom.io/packages/atomizr"><img src="https://img.shields.io/apm/v/atomizr.svg?style=flat-square" alt="apm" /></a>
+<a href="https://atom.io/packages/atomizr"><img src="https://img.shields.io/apm/dm/atomizr.svg?style=flat-square" alt="apm" /></a>
+<a href="https://travis-ci.org/idleberg/atom-atomizr"><img src="https://img.shields.io/travis/idleberg/atom-atomizr.svg?style=flat-square" alt="Travis" /></a>
+<a href="https://david-dm.org/idleberg/atom-atomizr"><img src="https://img.shields.io/david/idleberg/atom-atomizr.svg?style=flat-square" alt="David" /></a>
+<a href="https://david-dm.org/idleberg/atom-atomizr?type=dev"><img src="https://img.shields.io/david/dev/idleberg/atom-atomizr.svg?style=flat-square" alt="David" /></a></p>
+
+<p>Converts snippets for Atom, Sublime Text, TextMate, and Visual Studio Code</p>
+
+<p>Also available for <a href="https://github.com/idleberg/sublime-atomizr">Sublime Text</a> and the <a href="https://github.com/idleberg/ruby-atomizr">command line</a> (see the <a href="https://gist.github.com/idleberg/db6833ee026d2cd7c043bba36733b701">comparison chart</a>).</p>
+
+<h2 id="installation">Installation</h2>
+
+<p>Install <code>atomizr</code> from Atom’s <a href="http://flight-manual.atom.io/using-atom/sections/atom-packages/">Package Manager</a> or the command-line equivalent:</p>
+
+<p><code>$ apm install atomizr</code></p>
+
+<h3 id="using-git">Using Git</h3>
+
+<p>Change to your Atom packages directory:</p>
+
+<p>```bash
+# Windows
+$ cd %USERPROFILE%.atom\packages</p>
+
+<h1 id="linux--macos">Linux &amp; macOS</h1>
+<p>$ cd ~/.atom/packages/
+```</p>
+
+<p>Clone the repository as <code>atomizr</code>:</p>
+
+<p><code>bash
+$ git clone https://github.com/idleberg/atom-atomizr atomizr
+</code></p>
+
+<p>Inside the cloned directory, install Node dependencies:</p>
+
+<p><code>bash
+$ yarn || npm install
+</code></p>
+
+<h2 id="usage">Usage</h2>
+
+<p>This plugin works on active views only, so start by opening a Sublime Text completion or an Atom snippet.</p>
+
+<p>There are several commands available to start conversion, each available from the <a href="http://flight-manual.atom.io/getting-started/sections/atom-basics/#_command_palette">Command Palette</a> and the Packages menu.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Action</th>
+      <th>Input</th>
+      <th>Output</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Automatic conversion¹</td>
+      <td><code>CSON|JSON|XML</code></td>
+      <td><code>CSON|JSON|XML</code></td>
+    </tr>
+    <tr>
+      <td>Convert Atom to Sublime Text</td>
+      <td><code>CSON|JSON</code></td>
+      <td><code>JSON</code></td>
+    </tr>
+    <tr>
+      <td>Convert Atom to TextMate</td>
+      <td><code>CSON|JSON</code></td>
+      <td><code>Plist</code></td>
+    </tr>
+    <tr>
+      <td>Convert Atom to Visual Studio Code</td>
+      <td><code>CSON|JSON</code></td>
+      <td><code>JSON</code></td>
+    </tr>
+    <tr>
+      <td>Convert Sublime Text to Atom²</td>
+      <td><code>JSON|XML</code></td>
+      <td><code>CSON|JSON</code></td>
+    </tr>
+    <tr>
+      <td>Convert Sublime Text to TextMate</td>
+      <td><code>JSON|XML</code></td>
+      <td><code>Plist</code></td>
+    </tr>
+    <tr>
+      <td>Convert Sublime Text to Visual Studio Code</td>
+      <td><code>JSON|XML</code></td>
+      <td><code>JSON</code></td>
+    </tr>
+    <tr>
+      <td>Convert TextMate to Atom²</td>
+      <td><code>Plist</code></td>
+      <td><code>CSON|JSON</code></td>
+    </tr>
+    <tr>
+      <td>Convert TextMate to Sublime Text</td>
+      <td><code>Plist</code></td>
+      <td><code>JSON</code></td>
+    </tr>
+    <tr>
+      <td>Convert TextMate to Visual Studio Code</td>
+      <td><code>Plist</code></td>
+      <td><code>JSON</code></td>
+    </tr>
+    <tr>
+      <td>Convert Visual Studio Code to Atom²</td>
+      <td><code>JSON</code></td>
+      <td><code>CSON|JSON</code></td>
+    </tr>
+    <tr>
+      <td>Convert Visual Studio Code to Sublime Text</td>
+      <td><code>JSON</code></td>
+      <td><code>JSON</code></td>
+    </tr>
+    <tr>
+      <td>Convert Visual Studio Code to TextMate</td>
+      <td><code>JSON</code></td>
+      <td><code>Plist</code></td>
+    </tr>
+    <tr>
+      <td>Toggle Atom format</td>
+      <td><code>CSON|JSON</code></td>
+      <td><code>JSON|CSON</code></td>
+    </tr>
+    <tr>
+      <td>Toggle Sublime Text format</td>
+      <td><code>JSON|XML</code></td>
+      <td><code>XML|JSON</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>¹⁾ converts Atom and Sublime Text only<br />
+²⁾ target syntax can be specified in the settings</p>
+
+<h3 id="keyboard-shortcuts">Keyboard Shortcuts</h3>
+
+<p><em>The following examples use the macOS keyboard shortcuts. On Linux or Windows use <kbd>Ctrl</kbd>+<kbd>Alt</kbd> as modifier key instead of <kbd>Ctrl</kbd>.</em></p>
+
+<p>Memorizing the keyboard shortcuts for conversion is easy. Just think of the <kbd>A</kbd> key for Atom, the <kbd>S</kbd> key for Sublime Text, the <kbd>T</kbd> key for TextMate, and the <kbd>V</kbd> key for Visual Studio Code:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Action</th>
+      <th>Mnemonic</th>
+      <th>Shortcut</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Atom to Sublime Text</td>
+      <td>“A to S”</td>
+      <td><kbd>Ctrl</kbd>+<kbd>A</kbd>, <kbd>Ctrl</kbd>+<kbd>S</kbd></td>
+    </tr>
+    <tr>
+      <td>Atom to TextMate</td>
+      <td>“A to T”</td>
+      <td><kbd>Ctrl</kbd>+<kbd>A</kbd>, <kbd>Ctrl</kbd>+<kbd>T</kbd></td>
+    </tr>
+    <tr>
+      <td>Atom to Visual Studio Code</td>
+      <td>“A to V”</td>
+      <td><kbd>Ctrl</kbd>+<kbd>A</kbd>, <kbd>Ctrl</kbd>+<kbd>V</kbd></td>
+    </tr>
+    <tr>
+      <td>Sublime Text to Atom</td>
+      <td>“S to A”</td>
+      <td><kbd>Ctrl</kbd>+<kbd>S</kbd>, <kbd>Ctrl</kbd>+<kbd>A</kbd></td>
+    </tr>
+    <tr>
+      <td>Sublime Text to TextMate</td>
+      <td>“S to T”</td>
+      <td><kbd>Ctrl</kbd>+<kbd>S</kbd>, <kbd>Ctrl</kbd>+<kbd>T</kbd></td>
+    </tr>
+    <tr>
+      <td>Sublime Text to Visual Studio Code</td>
+      <td>“S to V”</td>
+      <td><kbd>Ctrl</kbd>+<kbd>S</kbd>, <kbd>Ctrl</kbd>+<kbd>V</kbd></td>
+    </tr>
+    <tr>
+      <td>Visual Studio Code to Atom</td>
+      <td>“V to A”</td>
+      <td><kbd>Ctrl</kbd>+<kbd>V</kbd>, <kbd>Ctrl</kbd>+<kbd>A</kbd></td>
+    </tr>
+    <tr>
+      <td>Visual Studio Code to Sublime Text</td>
+      <td>“V to S”</td>
+      <td><kbd>Ctrl</kbd>+<kbd>V</kbd>, <kbd>Ctrl</kbd>+<kbd>S</kbd></td>
+    </tr>
+    <tr>
+      <td>Visual Studio Code to TextMate</td>
+      <td>“V to T”</td>
+      <td><kbd>Ctrl</kbd>+<kbd>V</kbd>, <kbd>Ctrl</kbd>+<kbd>T</kbd></td>
+    </tr>
+    <tr>
+      <td>TextMate to Atom</td>
+      <td>“T to A”</td>
+      <td><kbd>Ctrl</kbd>+<kbd>T</kbd>, <kbd>Ctrl</kbd>+<kbd>A</kbd></td>
+    </tr>
+    <tr>
+      <td>TextMate to Sublime Text</td>
+      <td>“T to S”</td>
+      <td><kbd>Ctrl</kbd>+<kbd>T</kbd>, <kbd>Ctrl</kbd>+<kbd>S</kbd></td>
+    </tr>
+    <tr>
+      <td>TextMate to Visual Studio Code</td>
+      <td>“T to V”</td>
+      <td><kbd>Ctrl</kbd>+<kbd>T</kbd>, <kbd>Ctrl</kbd>+<kbd>V</kbd></td>
+    </tr>
+    <tr>
+      <td>Atom to Atom</td>
+      <td>“A to A”</td>
+      <td><kbd>Ctrl</kbd>+<kbd>A</kbd>, <kbd>Ctrl</kbd>+<kbd>A</kbd></td>
+    </tr>
+    <tr>
+      <td>Sublime Text to Sublime Text</td>
+      <td>“S to S”</td>
+      <td><kbd>Ctrl</kbd>+<kbd>S</kbd>, <kbd>Ctrl</kbd>+<kbd>S</kbd></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>For automatic conversion, press <kbd>Ctrl</kbd>+<kbd>C</kbd> twice.</p>
+
+<h2 id="grammar">Grammar</h2>
+
+<p>To ensure automatic conversion to work more reliably, this package installs grammar for a variety of Sublime Text files. As a side effect, these files get proper syntax highlighting.</p>
+
+<h2 id="license">License</h2>
+
+<p>This work is licensed under the <a href="LICENSE.md">The MIT License</a>.</p>
+
+<h2 id="donate">Donate</h2>
+
+<p>You are welcome support this project using <a href="https://flattr.com/submit/auto?user_id=idleberg&amp;url=https://github.com/idleberg/atom-atomizr">Flattr</a> or Bitcoin <code>17CXJuPsmhuTzFV2k4RKYwpEHVjskJktRd</code></p>
+<section class="package-keywords">
+  <strong>Keywords:</strong> conversion, convert, sublime text, textmate, visual studio code, vscode <a href="https://github.com/idleberg/atom-atomizr/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

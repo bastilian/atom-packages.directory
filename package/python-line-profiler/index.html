@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Python Line Profiler
+  <a href="https://github.com/iddl/pprofile">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+    <span class="author">by Ivan David Di Lernia</span>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install python-line-profiler
+  </pre>
+</div>
+<h1 id="python-line-profiler-for-atom">Python line profiler for Atom</h1>
+
+<p><img src="https://raw.githubusercontent.com/iddl/pprofile/master/readme/gutter_example.png" alt="example" /></p>
+
+<h1 id="requirements">Requirements</h1>
+
+<ul>
+  <li>
+    <p>Mac OS, or Linux machine (untested on windows)</p>
+  </li>
+  <li>
+    <p>A <a href="https://github.com/iddl/line_profiler">line_profiler fork</a> is needed to run this extension.
+<code>
+pip install https://github.com/iddl/line_profiler/zipball/master
+</code></p>
+  </li>
+</ul>
+
+<h1 id="how-to-run">How to run</h1>
+<p>1) Make sure you’re using the right environment. This is done by modifying the ‘Shell command’ option in the settings.</p>
+
+<p><img src="https://raw.githubusercontent.com/iddl/pprofile/master/readme/run_command.png" alt="run_command" /></p>
+
+<p>The default, <code>/usr/bin/python</code>, works for small tests.
+However it might be the case you’re using virtualenvs and/or running code from a virtual machine.</p>
+
+<p>Example setting of running profiler from a virtual environment in a VM:</p>
+
+<p><code>ssh, vagrant@192.168.34.10, -t, /home/user/project/venv/bin/python</code></p>
+
+<p>2) ALT+SHIFT+P to activate</p>
+
+<p>This will show an editor with a <code>Run</code> button.</p>
+
+<p>3) Import the function to profile first. The profiler is executed from the parent directory of the profiled code (this doesn’t matter if you choose a custom shell command).</p>
+
+<p>Use the <code>profile</code> function to run a profile on your code.</p>
+
+<p>The end product should look something like</p>
+
+<p><img src="https://raw.githubusercontent.com/iddl/pprofile/master/readme/pre_run.png" alt="pre_run" /></p>
+
+<p>4) Stats will appear in the editor gutter</p>
+<section class="package-keywords">
+  <strong>Keywords:</strong> profiling, python <a href="https://github.com/iddl/pprofile/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

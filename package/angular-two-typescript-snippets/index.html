@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Angular Two Typescript Snippets
+  <a href="https://github.com/GregOnNet/atom-angular-2-typeScript-snippets">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+    <span class="author">by Gregor Woiwode</span>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install angular-two-typescript-snippets
+  </pre>
+</div>
+<h1 id="angular-2-typescript-snippets-for-atom">Angular 2 TypeScript Snippets for Atom</h1>
+
+<p>This extension for Atom adds snippets for Angular 2 for TypeScript and HTML.</p>
+
+<h2 id="usage">Usage</h2>
+
+<p>Type part of a snippet, press <code>enter</code>, and the snippet unfolds.</p>
+
+<h3 id="typescript-snippets">TypeScript Snippets</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>snippet</th>
+      <th>explanation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="#ng2-bootstrap">ng2-bootstrap</a></td>
+      <td>bootstrap a module</td>
+    </tr>
+    <tr>
+      <td><a href="#ng2-module">ng2-module</a></td>
+      <td>create a module</td>
+    </tr>
+    <tr>
+      <td><a href="#ng2-component">ng2-component</a></td>
+      <td>create a component</td>
+    </tr>
+    <tr>
+      <td><a href="#ng2-input">ng2-input</a></td>
+      <td>create an input property</td>
+    </tr>
+    <tr>
+      <td><a href="#ng2-output">ng2-output</a></td>
+      <td>create an output event</td>
+    </tr>
+    <tr>
+      <td><a href="#ng2-directive">ng2-directive</a></td>
+      <td>create a directive</td>
+    </tr>
+    <tr>
+      <td><a href="#ng2-pipe">ng2-pipe</a></td>
+      <td>create a pipe</td>
+    </tr>
+    <tr>
+      <td><a href="#ng2-routes">ng2-routes</a></td>
+      <td>setup routes</td>
+    </tr>
+    <tr>
+      <td><a href="#ng2-route-path">ng2-route-path</a></td>
+      <td>configure single</td>
+    </tr>
+    <tr>
+      <td><a href="#ng2-service">ng2-service</a></td>
+      <td>create a  service</td>
+    </tr>
+    <tr>
+      <td><a href="#ng2-subscribe">ng2-subscribe</a></td>
+      <td>subscribe to an observable</td>
+    </tr>
+    <tr>
+      <td><a href="#ng2-rx-map">ng2-rx-map</a></td>
+      <td>import map-operator</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="html-snippets">HTML Snippets</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>snippet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="#ng2-ngclass">ng2-ngClass</a></td>
+    </tr>
+    <tr>
+      <td><a href="#ng2-ngfor">ng2-ngFor</a></td>
+    </tr>
+    <tr>
+      <td><a href="#ng2-ngif">ng2-ngIf</a></td>
+    </tr>
+    <tr>
+      <td><a href="#ng2-ngmodel">ng2-ngModel</a></td>
+    </tr>
+    <tr>
+      <td><a href="#ng2-property">ng2-property</a></td>
+    </tr>
+    <tr>
+      <td><a href="#ng2-event">ng2-event</a></td>
+    </tr>
+    <tr>
+      <td><a href="#ng2-routerlink">ng2-routerLink</a></td>
+    </tr>
+    <tr>
+      <td><a href="#ng2-ngstyle">ng2-ngStyle</a></td>
+    </tr>
+    <tr>
+      <td><a href="#ng2-ngswitch">ng2-ngSwitch</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Alternatively, press <code>Ctrl</code>+<code>Space</code> (Windows, Linux) or <code>Cmd</code>+<code>Space</code> (OSX) to activate snippets from within the editor.</p>
+
+<h2 id="known-issues">Known Issues</h2>
+
+<p>It seems that you need to have a <code>tsconfig.json</code> to get the TypeScript snippets to work.</p>
+
+<h2 id="snippets-in-detail">Snippets in Detail</h2>
+
+<p>No one wants to buy a pig in a poke.
+The following section will show you what the provided snippets actually do for you.</p>
+
+<h3 id="ng2-bootstrap">ng2-bootstrap</h3>
+
+<p><code>ng2-bootstrap</code> allows you to start your root module to get your app up and running.
+It also prepares <code>enableProdMode()</code> for you.</p>
+
+<p>```ts
+import { platformBrowserDynamic } from ‘@angular/platform-browser-dynamic’;
+import { enableProdMode } from ‘@angular/core’;
+import { <module-name> } from './<path-to-module>.module';</path-to-module></module-name></p>
+
+<p>//enableProdMode(); //Uncomment for production
+platformBrowserDynamic().bootstrapModule(<module-name>);
+```</module-name></p>
+
+<h3 id="ng2-module">ng2-module</h3>
+
+<p><code>ng2-module</code> provides a skeleton for an Angular 2 module.</p>
+
+<p>```ts
+import { NgModule } from ‘@angular/core’;</p>
+
+<p>@NgModule({
+  imports: [<Modules>],
+  declarations: [<Components>, <Directives>],
+  providers: [<Services>]
+})
+export class <ModuleName> { }
+```</ModuleName></Services></Directives></Components></Modules></p>
+
+<h3 id="ng2-component">ng2-component</h3>
+
+<p><code>ng2-component</code> provides a skeleton for an Angular 2 Component.
+It saves you time typing the mandatory Decorator properties.</p>
+
+<p>```ts
+import { Component, OnInit } from ‘@angular/core’;</p>
+
+<p>@Component({
+  selector: ‘<selector>',
+  templateUrl: '<component-name>.component.html',
+})
+export class <ComponentName>Component implements OnInit {
+  constructor() {  }</ComponentName></component-name></selector></p>
+
+<p>ngOnInit() {}
+}
+```</p>
+
+<h3 id="ng2-input">ng2-input</h3>
+
+<p><code>ng2-input</code> is a handy snippet to add an input property to a component class.</p>
+
+<p><code>ts
+@Input() &lt;peroperty&gt;: &lt;type&gt;;
+</code></p>
+
+<h3 id="ng2-output">ng2-output</h3>
+
+<p><code>ng2-output</code>generates a output event in a component class.</p>
+
+<p><code>ts
+@Output() &lt;event&gt;: EventEmitter&lt;type&gt; = new EventEmitter();
+</code></p>
+
+<h3 id="ng2-import">ng2-import</h3>
+
+<p><code>ng2-import</code> gives you a shorthand writing import-statements.</p>
+
+<p><code>ts
+import {&lt;Module or Component&gt;} from '&lt;path to component&gt;';
+</code></p>
+
+<h3 id="ng2-directive">ng2-directive</h3>
+
+<p><code>ng2-directive</code> provides a skeleton for an Angular 2 Attribute or Structural Directive.</p>
+
+<p>```ts
+import { Directive, Input } from ‘@angular/core’;</p>
+
+<p>@Directive({ selector: ‘[<selector>]' })
+export class [DirectiveName]Directive { }
+```</selector></p>
+
+<h3 id="ng2-pipe">ng2-pipe</h3>
+
+<p><code>ng2-pipe</code> provides a skeleton for an Angular 2 Pipe.</p>
+
+<p>```ts
+import { Pipe, PipeTransform } from ‘@angular/core’;</p>
+
+<p>@Pipe({
+  name: ‘<pipe-name>'
+})
+export class <PipeName>Pipe implements PipeTransform {
+  transform(value: <value-type>, args: any[]) : <value-type> {
+    return ;
+  }
+}
+```</value-type></value-type></PipeName></pipe-name></p>
+
+<h3 id="ng2-routes">ng2-routes</h3>
+
+<p><code>ng2-routes</code> creates the <code>@Routes</code> decorator with a single route in it.</p>
+
+<p>```ts
+import { RouterModule, Routes } from ‘@angular/router’;</p>
+
+<p>const app_routes: Routes = [
+  { path: ‘<url-segment>', component: <component-name> },
+  { path: '**', pathMatch: 'full', redirectTo: '<url-segment>' }
+];</url-segment></component-name></url-segment></p>
+
+<p>export const app_routing = RouterModule.forRoot(app_routes);
+```</p>
+
+<h3 id="ng2-route-path">ng2-route-path</h3>
+
+<p><code>ng2-route-path</code> adds a single route to <code>@Routes</code>.
+<strong>Use</strong> this snippet inside the <code>@Routes</code> decorator.</p>
+
+<p><code>ts
+{ path: '/&lt;route&gt;', component: &lt;component-name&gt; }
+</code></p>
+
+<h3 id="ng2-service">ng2-service</h3>
+
+<p><code>ng2-service</code> provides a skeleton for an Angular 2 Service.</p>
+
+<p>```ts
+import { Injectable } from ‘@angular/core’;</p>
+
+<p>@Injectable()
+export class <service-name>Service {
+  constructor() {  }
+}
+```</service-name></p>
+
+<h3 id="ng2-subscribe">ng2-subscribe</h3>
+
+<p><code>ng2-subscribe</code> gives you a shorthand to call a service function, that returns a observable.
+The <code>subscribe</code> method is also created for you. So you can assign the response quickly.</p>
+
+<p><code>ts
+this.&lt;service-name&gt;.&lt;service-function&gt;
+    .subscribe(&lt;response&gt; =&gt; this.&lt;assign-target&gt; = &lt;response&gt;});
+</code></p>
+
+<h3 id="ng2-rx-map">ng2-rx-map</h3>
+
+<p><code>ng2-rx-map</code> simply creates the import statement to reference the map operator of RxJs.</p>
+
+<p><code>ts
+import 'rxjs/add/operator/map';
+</code></p>
+
+<h3 id="ng2-ngclass">ng2-ngClass</h3>
+
+<p>This snippet inserts the <code>ngClass</code> directive.</p>
+
+<p><code>html
+&lt;div [ngClass]="cssClass: expression"&gt;&lt;/div&gt;
+</code></p>
+
+<h3 id="ng2-ngfor">ng2-ngFor</h3>
+
+<p>This snippet inserts the <code>ngFor</code> directive.</p>
+
+<p><code>html
+&lt;div *ngFor="let {1:$item} of list"&gt;&lt;/div&gt;
+</code></p>
+
+<h3 id="ng2-ngif">ng2-ngIf</h3>
+
+<p>This snippet inserts the <code>ngIf</code> directive.</p>
+
+<p><code>html
+&lt;div *ngIf="expression"&gt;&lt;/div&gt;
+</code></p>
+
+<h3 id="ng2-ngmodel">ng2-ngModel</h3>
+
+<p>This snippet inserts the <code>ngModel</code> directive.</p>
+
+<p><code>html
+&lt;div [(ngModel)]="binding"&gt;&lt;/div&gt;
+</code></p>
+
+<h3 id="ng2-property">ng2-property</h3>
+
+<p>This snippet inserts the skeleton for a property binding directive.</p>
+
+<p><code>html
+&lt;div [property]="value"&gt;&lt;/div&gt;
+</code></p>
+
+<h3 id="ng2-event">ng2-event</h3>
+
+<p>This snippet inserts the skeleton for a event binding directive.</p>
+
+<p><code>html
+&lt;div (event)="callback()"&gt;&lt;/div&gt;
+</code></p>
+
+<h3 id="ng2-routerlink">ng2-routerLink</h3>
+
+<p>This snippet inserts the <code>routerLink</code> directive.</p>
+
+<p><code>html
+&lt;a [routerLink]="routeName"&gt;&lt;/a&gt;
+</code></p>
+
+<h3 id="ng2-ngstyle">ng2-ngStyle</h3>
+
+<p>This snippet inserts the <code>ngStyle</code> directive.</p>
+
+<p><code>html
+&lt;div [ngStyle]="'style': expression"&gt;&lt;/div&gt;
+</code></p>
+
+<h3 id="ng2-ngswitch">ng2-ngSwitch</h3>
+
+<p>This snippet inserts the <code>ngSwitch</code> directive.</p>
+
+<p><code>html
+&lt;div [ngSwitch]="conditionExpression"&gt;
+  &lt;div *ngSwitchCase="expression"&gt;output&lt;/div&gt;
+  &lt;div *ngSwitchDefault&gt;output2&lt;/div&gt;
+&lt;/div&gt;
+</code></p>
+<section class="package-keywords">
+  <strong>Keywords:</strong> angular2, typescript, snippets, productivity <a href="https://github.com/GregOnNet/atom-angular-2-typeScript-snippets/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

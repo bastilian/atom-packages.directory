@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Prettier Eslint
+  <a href="https://github.com/kentcdodds/prettier-eslint-atom">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+    <span class="author">by Kent C. Dodds <kent@doddsfamily.us> (http://kentcdodds.com/)</span>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install prettier-eslint
+  </pre>
+</div>
+<h1 id="prettier-eslint-for-atom">prettier-eslint (for Atom)</h1>
+
+<h1 id="deprecated">DEPRECATED</h1>
+
+<p>This plugin has been merged with the official <a href="https://atom.io/packages/prettier-atom"><code>prettier-atom</code></a> plugin.</p>
+
+<p>Uninstall <code>prettier-eslint</code> and install <code>prettier-atom</code>. Then enable the ESLint integration:</p>
+
+<p><a href="https://atom.io/packages/prettier-atom" title="Enable ESLint integration">
+  <img src="https://github.com/kentcdodds/prettier-eslint-atom/raw/master/other/prettier-atom-settings.png" alt="Settings Screenshot" title="Settings Screenshot" width="700" />
+</a></p>
+
+<p>Atom package to format your JavaScript using Prettier and ESLint (with <code>eslint --fix</code>)</p>
+
+<!-- [![Code Coverage][coverage-badge]][coverage] TODO! Add coverage! -->
+
+<p><a href="https://travis-ci.org/kentcdodds/prettier-eslint-atom"><img src="https://img.shields.io/travis/kentcdodds/prettier-eslint-atom.svg?style=flat-square" alt="Build Status" /></a>
+<a href="https://dependencyci.com/github/kentcdodds/prettier-eslint-atom"><img src="https://dependencyci.com/github/kentcdodds/prettier-eslint-atom/badge?style=flat-square" alt="Dependencies" /></a>
+<a href="https://atom.io/packages/prettier-eslint"><img src="https://img.shields.io/apm/v/prettier-eslint.svg?style=flat-square" alt="version" /></a>
+<a href="https://atom.io/packages/prettier-eslint"><img src="https://img.shields.io/apm/dm/prettier-eslint.svg?style=flat-square" alt="downloads" /></a>
+<a href="https://github.com/kentcdodds/prettier-eslint-atom/blob/master/LICENSE"><img src="https://img.shields.io/apm/l/prettier-eslint.svg?style=flat-square" alt="MIT License" /></a></p>
+
+<p><a href="#contributors"><img src="https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square" alt="All Contributors" /></a>
+<a href="http://makeapullrequest.com"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square" alt="PRs Welcome" /></a>
+<a href="http://kcd.im/donate"><img src="https://img.shields.io/badge/$-support-green.svg?style=flat-square" alt="Donate" /></a>
+<a href="https://github.com/kentcdodds/prettier-eslint-atom/blob/master/other/CODE_OF_CONDUCT.md"><img src="https://img.shields.io/badge/code%20of-conduct-ff69b4.svg?style=flat-square" alt="Code of Conduct" /></a>
+<a href="https://github.com/kentcdodds/prettier-eslint-atom/blob/master/other/ROADMAP.md"><img src="https://img.shields.io/badge/%F0%9F%93%94-roadmap-CD9523.svg?style=flat-square" alt="Roadmap" /></a>
+<a href="https://github.com/kentcdodds/prettier-eslint-atom/blob/master/other/EXAMPLES.md"><img src="https://img.shields.io/badge/%F0%9F%92%A1-examples-8C8E93.svg?style=flat-square" alt="Examples" /></a></p>
+
+<p><a href="https://github.com/kentcdodds/prettier-eslint-atom/watchers"><img src="https://img.shields.io/github/watchers/kentcdodds/prettier-eslint-atom.svg?style=social" alt="Watch on GitHub" /></a>
+<a href="https://github.com/kentcdodds/prettier-eslint-atom/stargazers"><img src="https://img.shields.io/github/stars/kentcdodds/prettier-eslint-atom.svg?style=social" alt="Star on GitHub" /></a>
+<a href="https://twitter.com/intent/tweet?text=Check%20out%20prettier-eslint-atom!%20https://github.com/kentcdodds/prettier-eslint-atom%20%F0%9F%91%8D"><img src="https://img.shields.io/twitter/url/https/github.com/kentcdodds/prettier-eslint-atom.svg?style=social" alt="Tweet" /></a></p>
+
+<p><img src="https://raw.githubusercontent.com/kentcdodds/prettier-eslint-atom/master/other/plugin.gif" alt="demo" /></p>
+
+<h2 id="the-problem">The problem</h2>
+
+<p>I want an easy way to automatically reformat/fix my code when I save the file.</p>
+
+<h2 id="this-solution">This solution</h2>
+
+<p>This uses <a href="https://github.com/kentcdodds/prettier-eslint"><code>prettier-eslint</code></a> to automatically format and fix on save.</p>
+
+<h2 id="installation">Installation</h2>
+
+<p><code>
+apm install prettier-eslint
+</code></p>
+
+<p>Or, Settings → Install → Search for <code>prettier-eslint</code></p>
+
+<h2 id="usage">Usage</h2>
+
+<ul>
+  <li>You can configure this package in the settings to format on save.</li>
+  <li>The menu: Package → <code>prettier-eslint</code> → Format</li>
+  <li>Keyboard shortcut: <kbd>ctrl</kbd> + <kbd>alt</kbd> + <kbd>f</kbd></li>
+</ul>
+
+<p>Configure <code>eslint</code> for your project and poof, everything should work.</p>
+
+<p>Please open a pull request or file an issue if it doesn’t!</p>
+
+<h2 id="inspiration">Inspiration</h2>
+
+<p>This repository is a copy + modification of <a href="https://github.com/jlongster/prettier-atom"><code>prettier-atom</code></a></p>
+
+<h2 id="contributors">Contributors</h2>
+
+<p>Thanks goes to these people (<a href="https://github.com/kentcdodds/all-contributors#emoji-key">emoji key</a>):</p>
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<p>| <a href="https://kentcdodds.com"><img src="https://avatars.githubusercontent.com/u/1500684?v=3" width="100px;" /><br /><sub>Kent C. Dodds</sub></a><br /><a href="https://github.com/kentcdodds/prettier-eslint-atom/commits?author=kentcdodds">💻</a> <a href="https://github.com/kentcdodds/prettier-eslint-atom/commits?author=kentcdodds">📖</a> 🚇 | <a href="https://github.com/cloud-walker"><img src="https://avatars.githubusercontent.com/u/1144075?v=3" width="100px;" /><br /><sub>Luca Barone</sub></a><br /> | <a href="https://robwise.github.io"><img src="https://avatars.githubusercontent.com/u/6173488?v=3" width="100px;" /><br /><sub>Rob Wise</sub></a><br /><a href="https://github.com/kentcdodds/prettier-eslint-atom/commits?author=robwise">💻</a> <a href="https://github.com/kentcdodds/prettier-eslint-atom/commits?author=robwise">📖</a> |
+| :—: | :—: | :—: |
+<!-- ALL-CONTRIBUTORS-LIST:END --></p>
+
+<p>This project follows the <a href="https://github.com/kentcdodds/all-contributors">all-contributors</a> specification. Contributions of any kind welcome!</p>
+
+<h2 id="license">LICENSE</h2>
+
+<p>MIT</p>
+
+<section class="package-keywords">
+  <strong>Keywords:</strong> atom, javascript, prettier, eslint, formatter <a href="https://github.com/kentcdodds/prettier-eslint-atom/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

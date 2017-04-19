@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Sbt
+  <a href="https://github.com/inkytonik/atom-sbt">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+    <span class="author">by Anthony Sloane</span>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install sbt
+  </pre>
+</div>
+<p>An Atom interface to the Scala Build Tool (sbt).</p>
+
+<p>This package provides support for interactive use of sbt within the Atom editor.
+It uses the <a href="https://atom.io/packages/platformio-ide-terminal">PlatformIO IDE Terminal</a> package to provide the terminal support and uses the <a href="https://atom.io/packages/linter">linter</a> package to annotate source code with error messages.</p>
+
+<h2 id="author">Author</h2>
+
+<p>inkytonik, Anthony Sloane (<a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#105;&#110;&#107;&#121;&#116;&#111;&#110;&#105;&#107;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;">&#105;&#110;&#107;&#121;&#116;&#111;&#110;&#105;&#107;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;</a>)</p>
+
+<h2 id="non-standard-sbt-prompts">Non-standard sbt prompts</h2>
+
+<p>If you have changed your sbt prompt from the default, you will probably need to set the “Prompt Pattern” setting to match your prompt.
+The package uses this pattern to spot the prompt when resuming interactive use after you interrupt a continuous execution command (e.g., ~compile) with another command.
+Commands you enter interactively are also detected by looking for lines that contain your prompt.
+Similarly, the busy signal support uses prompt matching to detect when commands are running.
+So if any of these features are not working correctly, please check your pormpt pattern.</p>
+
+<h2 id="usage">Usage</h2>
+
+<p>Open the top-level directory of an sbt project in Atom.
+You can start an interactive sbt session within Atom using the “Sbt: Toggle Panel” command (<code>alt-shift-O</code>).
+This command will open a new terminal panel.
+sbt will run in the first project of the current Atom window.</p>
+
+<p>You can also open a file in a project and then toggle the sbt panel, in which case the sbt session will be in the project that contains that file.</p>
+
+<p>A single Atom window can contain more than one sbt panel where each one is running in a different project from that window.</p>
+
+<p>By default, the sbt package assumes that you invoke sbt script as <code>/usr/local/bin/sbt</code>.
+Use the “sbt Script” setting to specify a different location.</p>
+
+<p>Once you’ve created the terminal panel, you can interactively invoke sbt commands by typing into the panel.
+All interactive sbt commands should work, including cursor movement to access history and TAB to invoke completion.</p>
+
+<p>The terminal panel shows each time you run a command so you can see what sbt prints.
+If you prefer not to see the sbt output automatically, turn off the “Show the sbt terminal automatically” setting.</p>
+
+<p>The terminal title will be “sbt” and a description of the project.
+By default, the description is the basename of the main project path (e.g., “myproj” for a project path of “/foo/bar/myproj”).
+If you want to see the full project path, turn on the “Terminal title should show full project path” setting.</p>
+
+<h2 id="history">History</h2>
+
+<p>As well as supporting interactive use, the sbt package has Atom commands to make it easier to send sbt commands more than once.
+The simplest Atom command re-submits the most recent sbt command of the current project.</p>
+
+<p>“Sbt: Run Last Command” (<code>alt-shift-V</code>): re-submit the most recent sbt command of the current project.</p>
+
+<p>For more control over history, the sbt package creates a new Atom command each time you submit a command to sbt.
+E.g., suppose that the first command that you enter to sbt in project “mytool” is “test:compile”.
+After you have interactively entered this command, you will find a new Atom command “Sbt: History 1 mytool test:compile”.
+Thus, you can re-send sbt commands by using the Atom command palette to match on the count, the project name or the command text.
+Each sbt command entered will get an Atom history command with an incremented count.</p>
+
+<p>If you don’t want the history commands, you can turn off the “Create History Commands” package setting.</p>
+
+<p>If you accumulate too much history and want to start again, use this command to start again:</p>
+
+<p>“Sbt: Clear History”: clear the history commands for the current sbt project.</p>
+
+<h2 id="adding-new-commands">Adding new commands</h2>
+
+<p>The sbt package also supports automatically adding Atom commands that send particular strings to sbt.
+The “Command List” package setting is a comma-separated list of sbt commands that you want to have quick access to.
+The default setting is “clean, compile, exit, run, test”.</p>
+
+<p>When first loaded, the sbt package will create one Atom command for each sbt command in the “Command List” setting.
+The Atom command has a name based on the sbt command.
+For example, if the sbt command is “test” then the Atom command will be  <code>sbt:test</code> and it will appear in the command palette as “Sbt: Test”.
+Thus, you can invoke the command via the palette, or more usefully, map a key to it.</p>
+
+<p>Sbt commands have their names mangled when creating the Atom commands.
+Specifically, hyphens replace colons in Atom command names since colon has a special meaning to Atom.
+Spaces replace colons in the palette string for the command.
+E.g., if the sbt command is “test:compile” then the corresponding Atom command name will be <code>sbt:test-compile</code> and it will appear in the palette as “Sbt: Test Compile”.</p>
+
+<p>See the Key Bindings section of the package settings for the bindings that invoke the default sbt command list.</p>
+
+<h2 id="error-handling">Error handling</h2>
+
+<p>If you issue an sbt command that compiles your code and it generates compiler errors, the sbt package should notice the errors and use the linter package to annotate your code with the messages in the right places.</p>
+
+<p>If you have the linter package set to show linter information in the status bar, you should see something like “n issues” where n is the number of compiler errors.</p>
+
+<p>If you have the linter set to show inline error tooltips and/or highlights for error lines in the editor gutter, you should see those for your errors too.</p>
+
+<p>Most usefully, you should be able to use the “Linter: Next Error” Atom command (<code>alt-shift-.</code> or <code>alt-&gt;</code>) to cycle through the errors and to go to their locations in your code.</p>
+
+<h2 id="scalatest-support">ScalaTest support</h2>
+
+<p>The sbt package also has support for telling the linter about the location of ScalaTest test failures, under some assumptions.
+It assumes that test failures look like this:</p>
+
+<pre><code>[info] MySuite in src/foo/bar:
+[info] - something important works *** FAILED ***
+[info]   99 was not equal to 100 (MyFile.scala:159)
+</code></pre>
+
+<p><code>MySuite</code> is the name of the ScalaTest suite.
+<code>src/foo/bar</code> is the path of the suite relative to the top of the project.
+The test failed at line 159 of <code>src/foo/bar/MyFile.scala</code>.
+There may be other lines between the <code>FAILED</code> line and the final one.</p>
+
+<p>This is the default output format produced by ScalaTest suites, except for one detail.
+ScalaTest does not report the suite path.</p>
+
+<p>The sbt package needs the path so that it can map the failure to the correct file even if more than one file has that name.
+We assume that the suite and the file with the failing test live in the same directory.</p>
+
+<p>If you want to use this facility you need to augment your suites so that their names include the path information.
+E.g., placing the following code in the suite will produce the output above, assuming that the file resides in the directory given by its package.</p>
+
+<pre><code>override def suiteName = {
+    val pkgName = Option(getClass.getPackage).map(_.getName).getOrElse("")
+    val path = s"src/${pkgName.replaceAllLiterally(".", "/")}"
+    s"${super.suiteName} in $path"
+}
+</code></pre>
+
+<p>We’re aware that this solution is less than ideal.
+If we can convince the ScalaTest maintainers to include this implementation of <code>suiteName</code> by default, then we will.
+The situation is tricky so we are not confident.
+E.g., the file in which the failure occurs may not actually be in the same directory as the suite, which we assumed above.
+ScalaTest gets the filename from an exception stack trace but Java doesn’t provide full paths to files in stack traces, so there is nothing ScalaTest can do.</p>
+<section class="package-keywords">
+  <strong>Keywords:</strong> build, compile, sbt, scala, test <a href="https://github.com/inkytonik/atom-sbt/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

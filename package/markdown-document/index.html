@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Markdown Document
+  <a href="https://github.com/kcyarn/markdown-document">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install markdown-document
+  </pre>
+</div>
+<h1 id="markdown-document-package">Markdown-Document Package</h1>
+
+<p><strong>I hope to implement a Scriviner-like compiler in the next version. Say you want to break out the first three chapters of your document and send them to an editor or reviewer without sending them what you’re currently working on, remove all Note headings, etc… Please contribute your thoughts about this to <a href="https://github.com/kcyarn/markdown-document/issues/7">#7</a>.</strong></p>
+
+<p>Adds tools to make working with long form markdown documents in <a href="https://atom.io">Atom</a> easier.</p>
+
+<p><img src="http://i.imgur.com/T6qpW3Z.gif" alt="Markdown Document Outline View" /></p>
+
+<h2 id="features">Features</h2>
+
+<h3 id="customizable-markdown-source-list">Customizable Markdown Source List</h3>
+
+<ul>
+  <li><strong>Markdown Scopes Defined in Settings</strong>
+    <ul>
+      <li>Defaults: ‘source.gfm’, ‘text.md’, ‘text.plain’, ‘text.plain.null-grammar’</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="outline-view-ctrl-alt-o">Outline View (<code>ctrl-alt-o</code>)</h3>
+
+<ul>
+  <li><strong>Expandable Outline View</strong></li>
+  <li><strong>Supports Multiple Panes</strong></li>
+  <li><strong>Click to go to header</strong></li>
+  <li><strong>Outline Refreshes on Save</strong>
+    <ul>
+      <li>Although Markdown document attempts to remember which outline items were expanded prior to the save event, adding a new header with the same text prior to an existing header will cause the new header to be expanded and the existing to be contracted. This behavior is not considered a bug.</li>
+      <li>Swapping between panes always contracts all previously expanded item for the previous pane. I am open to ideas as to how to fix this, but am presently too unfamiliar with Atom’s pane implementation to correct this behavior for the 0.2 release.</li>
+    </ul>
+  </li>
+  <li><strong>Handling and Marking Non-Sequential Headers</strong>
+    <ul>
+      <li>For example, if <code># Header One</code> is followed by <code>### Header Three</code> instead of <code>## Header Two</code>, the outline displays Header Three as if it is Header Two. However, Header Three is colored whatever color your theme uses for caution. (Mine’s orange.)</li>
+    </ul>
+  </li>
+  <li><strong>Manual Refresh</strong>
+    <ul>
+      <li>While <code>Markdown Document: Refresh</code> still exists, I believe the command is largely unnecessary as refresh is now triggered by the save event. Please let me know if this is not the case for you. Otherwise, this command will be discontinued in the next release.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><em>Note: Although markdown does not require sequential headers, the outline generator needs at least one first level header. After that, non-sequential headers will be moved up to the next closest level.</em></p>
+
+<h3 id="autosave">Autosave</h3>
+
+<p>Continue writing content here. See if it still fires.</p>
+
+<ul>
+  <li><strong>Saves as you write!</strong>
+    <ul>
+      <li>Go to Settings(ctrl-,) -&gt; Packages -&gt; markdown-document -&gt; Settings -&gt; Set “Enable Autosave”</li>
+    </ul>
+  </li>
+</ul>
+
+<p>At present, autosave is only available for markdown files when the outline view is visible. It is not available for non-markdown files. Autosave may become its own package in the future or become available outside the outline view. Please weigh in on <a href="https://github.com/kcyarn/markdown-document/issues/1">Issue 1</a>.</p>
+
+<p>You can find and trigger features in:</p>
+
+<ul>
+  <li>Open Command Palette (<code>shift-ctrl-p</code>), enter <code>Markdown Document</code>.</li>
+  <li>Or, go to menu bar <code>Packages -&gt; Markdown Document</code>.</li>
+</ul>
+
+<h2 id="installation">Installation</h2>
+
+<ul>
+  <li>In Atom, go to Settings (<code>ctrl-,</code>), enter <code>Markdown Document</code>.</li>
+  <li>Or run <code>apm install markdown-document</code>.</li>
+</ul>
+
+<p>When autosave is enabled, the whitespace package automatically deletes the return after headers while you’re typing. Markdown-document uses remarkable and a minor fork of markdown-toc. Remarkable is designed for the commonmark syntax, not gfm. It seems to work fine with gfm, but it hasn’t been extensively tested.</p>
+
+<p>The whitespace package does not play well with <a href="https://atom.io/packages/language-markdown">language-markdown</a>. See <a href="https://github.com/burodepeper/language-markdown/issues/115">Issue 115</a> for further information and a possible workaround. I personally dislike the whitespace package and prefer everything remain exactly as I typed it so it’s disabled on my machine. Please let me know should this be an issue.</p>
+
+<h2 id="setup">Setup</h2>
+
+<p>Go to Settings (<code>ctrl-,</code>) -&gt; Packages -&gt; <code>Markdown Document</code> -&gt; Settings.</p>
+
+<p>Check <code>Enable Autosave</code> to enable the autosaver.</p>
+<section class="package-keywords">
+  <strong>Keywords:</strong> markdown, outline, markdown outline, autosave, outliner <a href="https://github.com/kcyarn/markdown-document/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

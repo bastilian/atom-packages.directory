@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Selector To Tag
+  <a href="https://github.com/surdu/selector-to-tag">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install selector-to-tag
+  </pre>
+</div>
+<h1 id="selector-to-tag-build-statushttpstravis-ciorgsurduselector-to-tagsvgbranchmasterhttpstravis-ciorgsurduselector-to-tag">Selector to Tag <a href="https://travis-ci.org/surdu/selector-to-tag"><img src="https://travis-ci.org/surdu/selector-to-tag.svg?branch=master" alt="Build Status" /></a></h1>
+
+<p>Selector to Tag is an <a href="https://atom.io/">Atom editor</a> package that allows you to create HTML tag elements using CSS selectors in HTML files.</p>
+
+<p>Just type a CSS selector and press <kbd>TAB</kbd> :</p>
+
+<p><img src="https://cloud.githubusercontent.com/assets/11520795/6700058/1b18986a-cd11-11e4-9d6a-848b808197c6.gif" alt="Demo animation" /></p>
+
+<h2 id="supported-selectors">Supported selectors</h2>
+
+<p>For now the following selectors are possible:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Selector</th>
+      <th>Output</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>foo</code></td>
+      <td><code>&lt;foo&gt;&lt;/foo&gt;</code></td>
+    </tr>
+    <tr>
+      <td><code>foo#bar</code></td>
+      <td><code>&lt;foo id="bar"&gt;&lt;/foo&gt;</code></td>
+    </tr>
+    <tr>
+      <td><code>#foo</code></td>
+      <td><code>&lt;div id="foo"&gt;&lt;/div&gt;</code></td>
+    </tr>
+    <tr>
+      <td><code>.foo</code></td>
+      <td><code>&lt;div class="foo"&gt;&lt;/div&gt;</code></td>
+    </tr>
+    <tr>
+      <td><code>foo.bar</code></td>
+      <td><code>&lt;foo class="bar"&gt;&lt;/foo&gt;</code></td>
+    </tr>
+    <tr>
+      <td><code>foo.bar.baz</code></td>
+      <td><code>&lt;foo class="bar baz"&gt;&lt;/foo&gt;</code></td>
+    </tr>
+    <tr>
+      <td><code>foo#bar.baz</code></td>
+      <td><code>&lt;foo id="bar" class="baz"&gt;&lt;/foo&gt;</code></td>
+    </tr>
+    <tr>
+      <td><code>foo#bar.baz.qux</code></td>
+      <td><code>&lt;foo id="bar" class="baz qux"&gt;&lt;/foo&gt;</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="options">Options</h2>
+
+<ul>
+  <li>
+    <p><strong>File extensions</strong> - comma separated file extensions in which this package should be active <em>(Default: “htm, html, kit, shtml, tmpl, tpl, xhtml”)</em></p>
+  </li>
+  <li>
+    <p><strong>Solve Tags</strong> - this will indicate if this package should also solve tags when there is no id or class specified. When this is activated it will basically override the default <code>html-language</code> package, so you could disable that package. <em>(Default: true)</em></p>
+  </li>
+  <li>
+    <p><strong>Close self-closing tags</strong> - Add a backslash before the end of self-closing tags. For example <code>&lt;link&gt;</code> will be solved to <code>&lt;link/&gt;</code> <em>(Default: false)</em></p>
+  </li>
+  <li>
+    <p><strong>Expand block tags to multiple lines</strong> - Puts the cursor and end tag on new lines. <em>(Default: false)</em></p>
+  </li>
+  <li>
+    <p><strong>Block-level elements</strong> - If “Expand block tags to multiple lines” is checked, these tags will count as block tags. <em>(Default: address, article, aside, audio, blockquote, canvas, dd, div, dl, fieldset, figcaption, figure, footer, form, header, hgroup, hr, main, nav, noscript, ol, output, p, pre, section, table, tfoot, ul, video)</em></p>
+  </li>
+</ul>
+
+<h2 id="support">Support</h2>
+
+<p>If you have any sugestions for other selectors or sugestions in general, please submit an issue on GitHub.</p>
+<section class="package-keywords">
+  <strong>Keywords:</strong> html, css, web development, solve tags <a href="https://github.com/surdu/selector-to-tag/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

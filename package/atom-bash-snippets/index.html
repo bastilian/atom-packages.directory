@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Bash Snippets
+  <a href="https://github.com/Janfy/Atom-Bash-Snippets">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install atom-bash-snippets
+  </pre>
+</div>
+<h1 id="atom-bash-snippets">Atom Bash Snippets</h1>
+<p>Bash snippets for Atom</p>
+
+<h1 id="list-of-snippets">List of snippets</h1>
+
+<h2 id="redirect-stdout-to-devnull">Redirect stdout to /dev/null</h2>
+
+<p>Prefix: <strong>1</strong><br />
+Render: <code>&gt;/dev/null</code></p>
+
+<h2 id="redirect-stderr-to-devnull">Redirect stderr to /dev/null</h2>
+
+<p>Prefix: <strong>2</strong><br />
+Render: <code>2&gt;/dev/null</code></p>
+
+<h2 id="redirect-stdout--stderr-to-devnull">Redirect stdout &amp; stderr to /dev/null</h2>
+
+<p>Prefix: <strong>12</strong>
+Render:<code>&gt;/dev/null 2&gt;&amp;1</code></p>
+
+<h2 id="redirect-to-stderr">Redirect to stderr</h2>
+
+<p>Prefix: <strong>e2</strong>
+Render: <code>&gt;&amp;2</code></p>
+
+<h2 id="cat-until-eof">cat until EOF</h2>
+
+<p>Prefix: <strong>cat</strong><br />
+Render:</p>
+
+<pre><code>cat &lt;&lt;-EOF &gt;/path/to/file
+
+EOF
+</code></pre>
+
+<h3 id="notes">Notes</h3>
+<ul>
+  <li>
+    <p>The <code>-</code> option to mark a here document limit string («-EOF) suppresses leading tabs (but not spaces) in the output. This may be useful in making a script more readable.</p>
+  </li>
+  <li>
+    <p>cat something to <code>stdout</code> by removing the redirection to file (<code>&gt;/path/to/file</code>).</p>
+  </li>
+</ul>
+
+<h3 id="more-about-heredocuments">More about heredocuments</h3>
+
+<p>See http://tldp.org/LDP/abs/html/here-docs.html</p>
+
+<h2 id="short-ifthenelse-almost-ternary-operator">Short ‘if..then..else’ (almost ternary operator)</h2>
+
+<p>Prefix: <strong>ite</strong><br />
+Render: <code>[[ condition ]] &amp;&amp; echo "true" || echo "false" &gt;&amp;2</code></p>
+
+<h3 id="notes-1">Notes</h3>
+<ul>
+  <li>Be sure the first command (<code>echo "true"</code>) always exits with 0 otherwise, the second command will also be executed!</li>
+</ul>
+
+<p>Example:</p>
+
+<pre><code>$ [[ 1 -eq 1 ]] &amp;&amp; { echo "it's true"; false; } || echo "but it's also false" &gt;&amp;2
+it's true
+but it's also false
+</code></pre>
+
+<h2 id="read-file-line-by-line">Read file line by line</h2>
+
+<p>Prefix: <strong>while read file</strong><br />
+Render:</p>
+
+<pre><code>while read -r line
+do
+  ${2:echo "\$line"}
+done &lt; ${1:/path/to/file}
+</code></pre>
+
+<h2 id="parsing-short-command-line-argumentsparameters">Parsing short command line arguments/parameters</h2>
+
+<p>Prefix: <strong>getopts</strong><br />
+Render:</p>
+
+<pre><code>while getopts :?h arg
+do
+  case $arg in
+    )
+      : #statements
+      ;;
+    :|?|h)
+      [[ $arg == \? ]] &amp;&amp; print_error "L'arg -$OPTARG n'est pas prise en charge !"
+      [[ $arg == : ]] &amp;&amp; print_error "L'arg -$OPTARG requiert un argument !"
+      usage
+      exit $([[ $arg == h ]] &amp;&amp; echo 0 || echo 2)
+      ;;
+  esac
+done
+</code></pre>
+
+<h3 id="notes-2">Notes</h3>
+<ul>
+  <li>After triggering this snippet, you must enter a letter (or number) for the first argument, otherwise, script doesn’t works.</li>
+  <li><code>print_error</code> is a custom function according to my needs to print message in red to stderr. You can replace it with <code>echo "the error message" &gt;&amp;2</code>.</li>
+</ul>
+
+<h2 id="parsing-short-command-line-optionsparameters">Parsing short command line options/parameters</h2>
+
+<p>Same as above but with support of long options.</p>
+
+<p>Prefix: <strong>getopts long</strong><br />
+Render:</p>
+
+<pre><code>while getopts :?a-:fqvh arg
+do
+  case $arg in
+    -)
+      if [[ ${!OPTIND} == -* ]]
+      then
+        value=
+      else
+        value="${!OPTIND}"
+        ((OPTIND++))
+      fi
+      case $OPTARG in
+        host)
+          HOST=$value
+          ;;
+        port)
+          if [[ ! $value =~ ^[0-9]+$ ]]
+          then
+            print_error "L'arg --$OPTARG a besoin d'un entier en parametre. "$value" n'est pas un entier."
+            usage
+            exit 2
+          fi
+          ;;
+        *)
+          print_error "Le parametre '--$OPTARG' n'est pas reconnu !"
+                usage
+            exit 2
+                ;;
+        esac
+      ;;
+    a)
+      [[ $OPTARG == -* ]] &amp;&amp; print_error "L'option -$arg requiert un argument !" &amp;&amp; usage &amp;&amp; exit 2
+      ;;
+    )
+      : #statements
+      ;;
+    f)
+      FORCE=1
+      ;;
+    q)
+      QUIET=1
+      ;;
+    v)
+      VERBOSE=1
+      ;;
+    :|?|h)
+      [[ $arg == \? ]] &amp;&amp; print_error "L'option -$OPTARG n'est pas prise en charge !"
+      [[ $arg == : ]] &amp;&amp; print_error "L'option -$OPTARG requiert un argument !"
+      usage
+      exit $([[ $arg == h ]] &amp;&amp; echo 0 || echo 2)
+      ;;
+  esac
+done
+</code></pre>
+
+<h3 id="more-about-getopts">More about getopts</h3>
+<p>See http://tldp.org/LDP/abs/html/internal.html#EX33</p>
+
+<h2 id="function-template">function template</h2>
+
+<p>Prefix: <strong>function!</strong>
+Render:</p>
+
+<pre><code># TODO 's description
+# @param  The first parameter
+# @return
+#
+function_name() {
+  local param_name="$1"; shift
+  echo "TODO !"
+}
+</code></pre>
+
+<h2 id="usage-function-template">usage function template</h2>
+
+<p>Prefix: <strong>usage</strong>
+Render:</p>
+
+<pre><code>usage() {
+  cat &lt;&lt;-EOF
+  Usage: pgihadmin tache &lt;CIBLE&gt; [-f] [-q] [-h]
+  Cette tache permet de bla bla
+  PARAMETRES:
+  ===========
+      CIBLE    Serveur cible : &lt;vide&gt; ou all, aps, ts, lb, ord, apsN, tsN, lbN, ordN (avec N un nombre)
+  OPTIONS:
+  ========
+      -f    Mode force
+      -q    Mode silencieux
+      -h    Affiche ce message
+  EOF
+}
+</code></pre>
+<section class="package-keywords">
+  <strong>Keywords:</strong> bash, shell, script, snippet <a href="https://github.com/Janfy/Atom-Bash-Snippets/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

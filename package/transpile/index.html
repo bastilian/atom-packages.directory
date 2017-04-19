@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Transpile
+  <a href="https://github.com/danielbayley/atom-transpile">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+    <span class="author">by Daniel Bayley <daniel.bayley@me.com> (https://github.com/danielbayley)</span>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install transpile
+  </pre>
+</div>
+<p><a href="https://atom.io/packages/transpile"><img src="https://img.shields.io/apm/v/transpile.svg?style=flat-square" alt="apm" /></a></p>
+
+<h1 id="transpile-code-in-atom">Transpile code in <a href="https://atom.io">Atom</a></h1>
+<p>Easily <a href="https://en.wikipedia.org/wiki/Source-to-source_compiler">transpile</a> code between languages within <a href="https://atom.io">Atom</a> in a standard way.</p>
+
+<p>Transpile selected blocks of code in the editor, or else the current <em><a href="http://flight-manual.atom.io/getting-started/sections/atom-basics/#basic-terminology">buffer</a></em>, in which case the appropriate <em>target <a href="http://flight-manual.atom.io/using-atom/sections/grammar">grammar</a></em> will automatically be applied on success.</p>
+
+<p>Relevant files can also be converted directly in Tree view, but will transpile to a new adjacent file by default.</p>
+
+<p>Transpiler commands are context aware to prevent unnecessary menu clutter, and are grouped into a single <em>Transpile</em> submenu.</p>
+
+<h2 id="plugins">Plugins</h2>
+<p>| Plugin                              |     From     |       To       |
+|:————————————|:————:|:————–:|
+| <a href="https://atom.io/packages/transpile-js2coffee">transpile-</a><a href="http://js2.coffee">js2coffee</a> |  JavaScript  | <a href="http://coffeescript.org">CoffeeScript</a> |
+| <a href="https://atom.io/packages/transpile-decaf">transpile-</a><a href="https://github.com/rainforestapp/decaf#decaf-js">decaf</a>         | CoffeeScript |   JavaScript   |
+| <a href="https://atom.io/packages/transpile-lebab">transpile-</a><a href="http://lebab.io">lebab</a>         |     ES5      |   <a href="http://babeljs.io/#es2015">ES6</a>/2015   |
+| <a href="https://atom.io/packages/transpile-cson">transpile-</a><a href="https://github.com/bevry/cson#what-is-cson">cson</a>           | <a href="https://github.com/bevry/cson#what-is-cson">CSON</a>/JSON  |   JSON/CSON    |
+| <a href="https://atom.io/packages/transpile-pug">transpile-</a><a href="https://github.com/pugjs/pug">pug</a>             |     HTML     |     <a href="https://github.com/pugjs/pug">Pug</a>      |</p>
+
+<h2 id="api">API</h2>
+<p>Creating a plugin is as simple as possible. See the base example below, or the multiple <a href="https://atom.io/packages/search?q=transpile-">existing packages</a> for examples of how to implement your own.</p>
+
+<pre><code class="language-js">// package.json
+"providedServices": {
+  "transpile": {
+    "versions": {
+      "1.0.0": "activate"
+    }
+  }
+},
+</code></pre>
+<p>This provides your transpiler as a <em><a href="http://flight-manual.atom.io/behind-atom/sections/interacting-with-other-packages-via-services">service</a></em> for <em>this</em> base package to build on.</p>
+
+<pre><code class="language-coffee"># index.coffee
+module.exports =
+  activate: -&gt;
+    name: 'transpile-plugin'
+    from:
+      scopeName: 'source.coffee'
+      fileTypes: ['.coffee','[data-name*=coffee]','Cakefile']
+    to:
+      scopeName: 'source.js'
+      ext: '.js' # Optional
+
+    transpile: (source) =&gt; #, indent, editor)
+      {transpile} = require 'transpiler'
+      transpile source #, { options: indent }
+</code></pre>
+<p>Notice that the <code>from.fileTypes</code> <code>[array]</code> can contain either file <code>.ext</code>ensions, complete file names, or a valid <em>CSS <a href="https://css-tricks.com/almanac/selectors/a/attribute">attribute selector</a></em>.</p>
+
+<p>Your <code>transpile:</code> <em>method</em> should simply <strong>return the transpiled code</strong>, and will be supplied with the <code>source</code> code, along with the following [optional] arguments:
+* An <code>indent</code>ation <code>'string'</code> provided as a potential option to pass on to the underlying transpiler, since formatting should be preserved if possible.
+* The current <a href="https://atom.io/docs/api/latest/TextEditor">Text<code>editor</code></a> <code>{object}</code> instance.</p>
+
+<p>Multiple transpilers can also be bundled in the same package; <em><a href="https://github.com/danielbayley/atom-transpile-decaf/blob/master/index.coffee#L14-L22">transpile-decaf</a></em> for example <a href="https://github.com/danielbayley/atom-transpile-decaf/blob/master/package.json#L40-L50">provides a choice</a> between <em><a href="https://github.com/rainforestapp/decaf#decaf-js">decaf</a></em> or <em><a href="https://github.com/decaffeinate/decaffeinate#decaffeinate-">decaffeinate</a></em>, whereas <em><a href="https://github.com/cazala/atom-transpile-cson/blob/master/lib/index.coffee">transpile-cson</a></em> can transpile between both <em><a href="https://github.com/bevry/cson#what-is-cson">CSON</a> and</em> JSON.</p>
+
+<h2 id="install">Install</h2>
+<p><code>apm install transpile</code> or search “transpile” under Packages within Atom.</p>
+
+<h2 id="license">License</h2>
+<p><a href="LICENSE.md">MIT</a> © <a href="https://github.com/danielbayley">Daniel Bayley</a></p>
+
+<section class="package-keywords">
+  <strong>Keywords:</strong> transpile, refactor, convert <a href="https://github.com/danielbayley/atom-transpile/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

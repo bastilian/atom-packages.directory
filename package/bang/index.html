@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Bang
+  <a href="https://github.com/isgj/bang">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install bang
+  </pre>
+</div>
+<h1 id="bang-package">Bang package</h1>
+
+<p>Run a shell command to filter the text or show the output in <a href="https://atom.io">Atom Text Editor</a>.</p>
+
+<p><img src="https://raw.githubusercontent.com/isgj/bang/31ceef28136651933ad7198741ad88bb26686cc6/img/bang.gif" alt="bang.gif" /></p>
+
+<h2 id="how-to-use">How to use</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Command</th>
+      <th>Key Binding</th>
+      <th>What it does</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Bang: Edit Text</strong></td>
+      <td><code>ctrl-alt-e</code></td>
+      <td>When confirmed this function will run the command and give as input the selected text if there is one. After will insert the output in the editor or replace the selected text. To run this function the cursor has to be in the editor.</td>
+    </tr>
+    <tr>
+      <td><strong>Bang : Run a command</strong></td>
+      <td><code>ctrl-alt-c</code></td>
+      <td>When confirmed this function will run the command like <code>Bang: Edit Text</code> but the output is shown in a notification. If there is no input it runs asynchronously.</td>
+    </tr>
+    <tr>
+      <td><strong>Confirm</strong></td>
+      <td><strong><code>ENTER</code></strong></td>
+      <td>When writing the command will confirm <code>Bang: Edit Text</code> or <code>Bang: Run a command</code></td>
+    </tr>
+    <tr>
+      <td><strong>Next</strong> or <strong>Previous</strong></td>
+      <td><code>UP arrow</code> :arrow_up: or <code>Down arrow</code> :arrow_down:</td>
+      <td>Will cycle through the history of the commands you have entered (<code>next: more recent</code>, <code>previous: less recent</code>)</td>
+    </tr>
+    <tr>
+      <td><strong>Complete</strong></td>
+      <td><strong><code>TAB</code></strong></td>
+      <td>Will try to complete your command</td>
+    </tr>
+    <tr>
+      <td><strong>Cancel</strong></td>
+      <td><strong><code>ECS</code></strong> or <code>ctrl-w</code></td>
+      <td>Will cancel the view without running the command</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p>The commands will run in the same directory of the file that is shown in the editor</p>
+</blockquote>
+
+<blockquote>
+  <p>If the file is not saved (untitled) the command will run in the Project directory</p>
+</blockquote>
+
+<h2 id="custom-keybinding">Custom Keybinding</h2>
+
+<p>See <a href="http://flight-manual.atom.io/behind-atom/sections/keymaps-in-depth/">Keymaps In-Depth</a> for more details.</p>
+
+<p>For example:</p>
+
+<p><code>coffeescript
+'atom-workspace':
+	'ctrl-alt-e': 'bang:edit-text'
+	'ctrl-alt-c': 'bang:run-a-command'
+</code>
+&gt; Use <code>atom-workspace</code> as selector.</p>
+
+<hr />
+<p>The base code of this package was (and is) <a href="https://github.com/atom/go-to-line">Go to line package</a></p>
+
+<p>This package is inspired by <strong><em>bang</em></strong> function of <a href="http://www.vim.org/">Vim</a></p>
+<section class="package-keywords">
+  <strong>Keywords:</strong> shel, run, command, cmd, filter, text <a href="https://github.com/isgj/bang/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

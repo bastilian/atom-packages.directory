@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Sync Settings
+  <a href="https://github.com/atom-community/sync-settings">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install sync-settings
+  </pre>
+</div>
+<h1 id="sync-settings-for-atom">Sync Settings for Atom</h1>
+
+<p><a href="https://gitter.im/atom-community/sync-settings?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge&amp;utm_content=badge"><img src="https://badges.gitter.im/Join%20Chat.svg" alt="Join the chat at https://gitter.im/atom-community/sync-settings" /></a>
+<a href="https://travis-ci.org/atom-community/sync-settings"><img src="https://travis-ci.org/atom-community/sync-settings.svg?branch=master" alt="Build Status" /></a></p>
+
+<p>Synchronize settings, keymaps, user styles, init script, snippets and installed packages across <a href="http://atom.io">Atom</a> instances.</p>
+
+<h2 id="features">Features</h2>
+<ul>
+  <li>Sync Atom’s and package settings</li>
+  <li>Sync installed packages</li>
+  <li>Sync user keymaps</li>
+  <li>Sync user styles</li>
+  <li>Sync user init script</li>
+  <li>Sync snippets</li>
+  <li>Sync user defined text files</li>
+  <li>Manual backup/restore to a gist</li>
+</ul>
+
+<h2 id="installation">Installation</h2>
+
+<p><code>$ apm install sync-settings</code> or using the Install packages pane from <a href="atom://config">Atom Settings</a>.</p>
+
+<h2 id="setup">Setup</h2>
+
+<ol>
+  <li>Open <strong>Sync Settings</strong> configuration in <a href="atom://config">Atom Settings</a>.</li>
+  <li>Create a <a href="https://github.com/settings/tokens/new">new personal access token</a> which has the <code>gist</code> scope and be sure to <strong>activate permissions</strong>: Gist -&gt; create gists.</li>
+  <li>Copy the access token to <strong>Sync Settings</strong> configuration.</li>
+  <li>Create a <a href="https://gist.github.com/">new gist</a> and save it.</li>
+  <li>Copy the gist id (last part of url after the username) to <strong>Sync Settings</strong> configuration.</li>
+</ol>
+
+<p>Disclaimer: Github Gists are by default <strong>public</strong>. If you don’t want other people to easily find your gist (i.e. if you use certain packages, storing auth-tokens, a malicious party could abuse them), you should make sure to <strong>create a secret gist</strong>.</p>
+
+<h3 id="alternative-sync-settings-configuration-using-atoms-configcson">Alternative <strong>Sync Settings</strong> configuration using Atom’s config.cson</h3>
+
+<ol>
+  <li>Click on Menu “Open Your Config” to edit Atom’s config.cson</li>
+  <li>Use these keys:</li>
+</ol>
+
+<p><code>js
+  "sync-settings":
+    gistId: "b3025...88c41c"
+    personalAccessToken: "6a10cc207b....7a67e871"
+</code></p>
+
+<h2 id="usage">Usage</h2>
+
+<p>Open the Atom <a href="https://github.com/atom/command-palette">Command Palette</a> where you can search for the following list of commands.</p>
+
+<p>Backup or restore all settings from the <kbd>Packages</kbd> menu or use one of the following <strong>commands</strong>:
+* <code>sync-settings:backup</code>
+* <code>sync-settings:restore</code></p>
+
+<p>View your online backup using the following command:
+* <code>sync-settings:view-backup</code></p>
+
+<p>Check the latest backup is applied:
+* <code>sync-settings:check-backup</code></p>
+
+<p>You can also fork existing settings from a different GitHub user using the following command:
+* <code>sync-settings:fork</code>
+* In the following input field enter the Gist ID to fork</p>
+
+<h2 id="running-the-tests">Running the tests</h2>
+
+<ol>
+  <li>Create a new <a href="https://github.com/settings/tokens/new">personal access token</a> which has the <code>gist</code> scope and will be used for testing purposes.</li>
+  <li>Export it with <code>export GITHUB_TOKEN=YOUR_TOKEN</code></li>
+  <li>Run <code>apm test</code></li>
+</ol>
+
+<h2 id="contributing">Contributing</h2>
+
+<p>If you’re going to submit a pull request, please try to follow
+<a href="https://atom.io/docs/latest/contributing">the official contribution guidelines of Atom</a>.</p>
+
+<ol>
+  <li><a href="https://github.com/atom-community/sync-settings/">Fork it</a>.</li>
+  <li>Create your feature branch (<code>git checkout -b my-new-feature</code>).</li>
+  <li>Ensure tests are passing. See <a href="https://github.com/atom-community/sync-settings#running-the-tests">running-the-tests</a>.</li>
+  <li>Commit your changes (<code>git commit -am 'Add some feature'</code>).</li>
+  <li>Push to the branch (<code>git push origin my-new-feature</code>).</li>
+  <li>Create new Pull Request.</li>
+</ol>
+
+<p><a href="https://github.com/atom-community/sync-settings/graphs/contributors">See all contributors</a>.</p>
+<section class="package-keywords">
+  <strong>Keywords:</strong> settings, productivity, manager, sync, backup, restore <a href="https://github.com/atom-community/sync-settings/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

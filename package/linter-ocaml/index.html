@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Linter Ocaml
+  <a href="https://github.com/eriklovlie/automatic-octo-computing-machine">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install linter-ocaml
+  </pre>
+</div>
+<h1 id="linter-ocaml">linter-ocaml</h1>
+
+<p>This is a linter for OCaml using <a href="https://github.com/the-lambda-church/merlin">merlin</a> for the actual linting. It builds on
+<a href="https://github.com/atom-community/linter">atom-linter</a>, like many of the other linter packages. It also uses
+merlin to show types of expressions. More merlin functionality will hopefully
+be exposed as atom commands in the future.</p>
+
+<p>Since it is <a href="https://github.com/atom-community/linter">atom-linter</a> that takes care of the decorations I may as well
+steal a screenshot. Imagine the following is OCaml instead of JavaScript:</p>
+
+<p><img src="https://camo.githubusercontent.com/70b6e697c9d793642414b4ea6d08dbb9678877b3/687474703a2f2f672e7265636f726469742e636f2f313352666d6972507a322e676966" alt="Preview" /></p>
+
+<h1 id="usage">Usage</h1>
+
+<p>Linting is performed when you save the file.</p>
+
+<p>With <a href="https://atom.io/packages/hyperclick">hyperclick</a> installed you can also cmd-click on a word to activate the
+<code>linter-ocaml:type-of</code> command.</p>
+
+<p>For the keymap some effort has been expended in picking key combinations that
+already seem to be used for similar things in other contexts (e.g. the
+symbols-view package).</p>
+
+<p>Keyboard activated commands:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Command</th>
+      <th>Description</th>
+      <th>Keybinding (Linux)</th>
+      <th>Keybinding (OS X)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>linter-ocaml:type-of</code></td>
+      <td>Show type of expression at cursor</td>
+      <td><kbd>ctrl-alt-?</kbd></td>
+      <td><kbd>cmd-alt-?</kbd></td>
+    </tr>
+    <tr>
+      <td><code>linter-ocaml:type-of-widen</code></td>
+      <td>Show type of expression one level up</td>
+      <td><kbd>ctrl-alt-.</kbd></td>
+      <td><kbd>cmd-alt-.</kbd></td>
+    </tr>
+    <tr>
+      <td><code>linter-ocaml:type-of-narrow</code></td>
+      <td>Show type of expression one level down</td>
+      <td><kbd>ctrl-alt-,</kbd></td>
+      <td><kbd>cmd-alt-,</kbd></td>
+    </tr>
+    <tr>
+      <td><code>linter-ocaml:locate</code></td>
+      <td>Jump to the symbol at the cursor</td>
+      <td><kbd>ctrl-alt-down</kbd></td>
+      <td><kbd>cmd-alt-down</kbd></td>
+    </tr>
+    <tr>
+      <td><code>linter-ocaml:locate-return</code></td>
+      <td>Return from the jump</td>
+      <td><kbd>ctrl-alt-up</kbd></td>
+      <td><kbd>cmd-alt-up</kbd></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="caveat-emptor">Caveat Emptor</h2>
+
+<p>I’ve now used this myself for some time on a program of a couple of thousand
+LOC, and it seems to work well. However it still has only been tested on
+fairly small programs so YMMV. Bug reports are welcomed.</p>
+
+<p>You should ensure that you are on the latest released merlin version.</p>
+
+<p>Tested on OS X and Linux. Not tested at all on Windows, but if you can get
+merlin to work I suppose it should work.</p>
+
+<h2 id="other-packages">Other packages</h2>
+
+<p>Other packages you probably want:</p>
+
+<ul>
+  <li><a href="https://atom.io/packages/language-ocaml">language-ocaml</a> to get syntax highlighting.</li>
+  <li><a href="https://atom.io/packages/minimap">minimap</a> to see errors/warnings in a nice minimappy thing.</li>
+  <li><a href="https://atom.io/packages/hyperclick">hyperclick</a> to get clicky functionality (cmd-click on symbols).</li>
+</ul>
+
+<h2 id="installation">Installation</h2>
+
+<p>The <a href="https://atom.io/packages/linter-ocaml">package</a> itself can be installed the normal way (from the Atom package
+installer).</p>
+
+<p>It depends on <code>ocamlmerlin</code> being in <code>PATH</code>. The simple way to do this is
+to install <a href="https://opam.ocaml.org/doc/Install.html">opam</a> and then install merlin:</p>
+
+<p><code>opam install merlin</code></p>
+
+<p>Additionally you must have a working merlin setup for you project. IOW you must
+have a <code>.merlin</code> file in your project root directory.</p>
+
+<p>If you are an experienced OCaml person you may stop reading now (or continue
+reading and then report any mistakes or bad advice).</p>
+
+<p>I’m not experienced in OCaml so YMMV, however my projects are set up as follows.</p>
+
+<p>A <code>.merlin</code> file which looks something like this (add all the packages you need):</p>
+
+<p><code>
+S src/**
+B _build/**
+PKG core_kernel
+PKG core
+PKG core_extended
+</code></p>
+
+<p>I then have a small build script:</p>
+
+<p><code>
+#!/usr/bin/env bash
+ocamlbuild -package core_extended -I src yo.byte
+</code></p>
+
+<p>The above assumes you have your sources in <code>src</code> (and your main program is
+<code>yo.ml</code>). The globbing in <code>.merlin</code> is needed because <code>ocamlbuild</code> makes
+subdirectories inside <code>_build</code> and merlin needs to see all the cmi files to
+find symbols and whatnot.</p>
+
+<p>I recommend also installing ocp-indent (also using opam) and run this on source
+files before compilation. Personally I have a simple makefile that runs it
+before running ocamlbuild. Atom refreshes the indented files automatically.</p>
+<section class="package-keywords">
+  <strong>Keywords:</strong> linter, ocaml, merlin <a href="https://github.com/eriklovlie/automatic-octo-computing-machine/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

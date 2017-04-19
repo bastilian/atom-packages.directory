@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Html Angular
+  <a href="https://github.com/drootz/language-html-angular">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install language-html-angular
+  </pre>
+</div>
+<h1 id="html-language-support-in-atom-with-angular-2-syntax-support">HTML language support in Atom with Angular 2 syntax support</h1>
+
+<p><a href="https://atom.io/packages/language-html-angular"><img src="https://img.shields.io/apm/v/language-html-angular.svg" alt="apm" /></a>
+<a href="https://github.com/drootz/language-html-angular/blob/master/LICENSE.md"><img src="https://img.shields.io/badge/license-MIT-orange.svg" alt="The MIT License" /></a></p>
+
+<p>Adds syntax highlighting and snippets to HTML files.</p>
+
+<h2 id="installation">Installation</h2>
+
+<p>Fire up a console and type:</p>
+
+<pre><code>    apm install language-html-angular
+</code></pre>
+
+<p>Or, inside Atom’s settings select Install and then search for this package.</p>
+
+<h2 id="usage">Usage</h2>
+
+<p>Open a file in Atom editor and select the <code>HTML (ng2)</code> file syntax option.</p>
+
+<p>Ensure to use a theme packages supporting Angular 2 syntax highlighting for this package:
+- <a href="https://atom.io/themes/greenish-holidays-ng2-syntax">greenish-holidays-ng2-syntax</a>
+- <a href="https://atom.io/themes/syntax-theme-boilerplate-syntax">syntax-theme-boilerplate-syntax</a>
+- <a href="https://atom.io/themes/tomorrow-night-eighties-ng2-syntax">tomorrow-night-eigthies-ng2-syntax</a>
+- <a href="https://atom.io/themes/yesterday-night-eighties-ng2-syntax">yesterday-night-eighties-ng2-syntax</a></p>
+
+<p><img src="https://raw.githubusercontent.com/drootz/language-html-angular/master/img/preview-dark.png" alt="" /></p>
+
+<h3 id="styling-scopes">Styling Scopes</h3>
+
+<h4 id="angular-2-attributes-and-tags-scoped">Angular 2 attributes and tags scoped:</h4>
+<ul>
+  <li><code>{{interpolation}}</code></li>
+  <li><code>[target] = "expression"</code></li>
+  <li><code>bind-target = "expression"</code></li>
+  <li><code>(target) = "statement"</code></li>
+  <li><code>on-target = "statement"</code></li>
+  <li><code>[(target)] = "expression"</code></li>
+  <li><code>bindon-target = "expression"</code></li>
+  <li><code>*ngIf</code>, <code>*ngFor</code>, etc.</li>
+  <li>Pipe Operator: <code>{{target | operator | chain}}</code></li>
+  <li>Template Tags: <code>&lt;custom-tag&gt;&lt;/custom-tag&gt;</code></li>
+  <li>Interpolation syntax highlighting</li>
+</ul>
+
+<p>Here are the scopes used for styling the above attributes in a syntax theme:</p>
+
+<p>````less</p>
+
+<p>.html {</p>
+
+<pre><code>.entity.other.attribute-name.ng {
+  color: @yellow !important;
+}
+
+.punctuation.separator.key-value.ng {
+  color: @yellow !important;
+}
+
+.meta.attribute-with-value.ng {
+  color: @blue !important;
+}
+
+.punctuation.definition.string.begin.ng {
+  color: @blue !important;
+}
+
+.punctuation.definition.string.end.ng {
+  color: @blue !important;
+}
+
+.meta.toc-list.ng {
+  color: @blue !important;
+}
+
+.string.interpolation.html {
+  color: @blue !important;
+}
+
+.punctuation.definition.interpolation.begin.ng {
+  color: @yellow !important;
+}
+
+.punctuation.definition.interpolation.end.ng {
+  color: @yellow !important;
+}
+
+.meta.definition.interpolation.ng {
+  color: @blue !important;
+}
+
+.string.interpolation.pipe.ng {
+  color: @orange !important;
+}
+
+.meta.ngfor-attribute.ng {
+  color: @yellow !important;
+}
+
+.punctuation.definition.tag.ng {
+  color: darken(@green,15%) !important;
+}
+
+.punctuation.definition.tag.begin.ng {
+  color: darken(@green,15%) !important;
+}
+
+.punctuation.definition.tag.end.ng {
+  color: darken(@green,15%) !important;
+}
+
+.entity.name.tag.ng {
+  color: darken(@green,15%) !important;
+}
+
+.entity.name.tag.other.ng {
+  color: darken(@green,15%) !important;
+}
+
+.meta.tag.any.ng {
+  color: darken(@green,15%) !important;
+}
+
+.meta.tag.other.ng {
+  color: darken(@green,15%) !important;
+}
+
+// Interpolation Syntax
+.punctuation.definition.js.string.begin.ng.html {
+  color: @444444 !important;
+}
+
+.punctuation.definition.js.string.end.ng.html {
+  color: @444444 !important;
+}
+
+.string.operator.ng {
+  color: @syntax-text-color !important;
+}
+
+.string.bracket.ng {
+  color: @syntax-text-color !important;
+}
+
+.string.js.bool.ng {
+  color: @222222 !important;
+}
+
+.punctuation.definition.function.begin.ng {
+  color: @666666 !important;
+}
+
+.punctuation.definition.function.end.ng {
+  color: @666666 !important;
+}
+
+.meta.definition.function.ng {
+  color: @333333 !important;
+}
+</code></pre>
+
+<p>}</p>
+
+<p>````</p>
+
+<hr />
+
+<p>Forked from the <a href="https://atom.io/packages/language-html">HTML package for Atom</a>.</p>
+<section class="package-keywords">
+  <strong>Keywords:</strong> hmtl, angular 2, ng2, syntax, highlighting, language, angular, grammar <a href="https://github.com/drootz/language-html-angular/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

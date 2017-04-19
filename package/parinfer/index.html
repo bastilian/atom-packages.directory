@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Parinfer
+  <a href="https://github.com/oakmac/atom-parinfer">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install parinfer
+  </pre>
+</div>
+<h1 id="parinfer-for-atom">Parinfer for Atom</h1>
+
+<p>A <a href="http://shaunlebron.github.io/parinfer/">Parinfer</a> package for <a href="https://atom.io/">Atom</a>.</p>
+
+<h2 id="what-is-parinfer">What is Parinfer?</h2>
+
+<p>Parinfer is a text editing mode that can infer Lisp code structure from
+indentation (and vice versa). A detailed explanation of Parinfer can be found
+<a href="http://shaunlebron.github.io/parinfer/">here</a>.</p>
+
+<p>Put simply: the goal of Parinfer is to make it so you never have to think about
+“balancing your parens” when writing or editing Lisp code. Just indent your code
+as normal and Parinfer will infer the intended paren structure.</p>
+
+<h2 id="installation">Installation</h2>
+
+<ol>
+  <li>Install <a href="https://atom.io/">Atom</a></li>
+  <li>In Atom, pull up the Settings tab by pressing <kbd>Ctrl</kbd>+<kbd>,</kbd>
+(<kbd>Cmd</kbd>+<kbd>,</kbd> on Mac) or using the main menu Edit –&gt;
+Preferences</li>
+  <li>Click on the Install tab</li>
+  <li>Search for “parinfer” and find this package</li>
+  <li>Press the Install button :)</li>
+</ol>
+
+<h2 id="usage">Usage</h2>
+
+<h3 id="file-extensions">File Extensions</h3>
+
+<p>Once the package has been installed, it will automatically load in the
+background when you open Atom and watch for file extensions found in a config
+file. The default file extensions are <a href="https://github.com/oakmac/atom-parinfer/blob/master/src-cljs/atom_parinfer/core.cljs#L67-L79">listed here</a>.</p>
+
+<p>You can edit these file extensions by going to Packages –&gt; Parinfer –&gt; Edit
+File Extensions in the menu.</p>
+
+<h3 id="opening-a-file">Opening a File</h3>
+
+<p>When a file with a recognized extension is first opened, Parinfer runs <a href="http://shaunlebron.github.io/parinfer/#paren-mode">Paren
+Mode</a> on the entire file and one of three things will happen (in order of
+likelihood):</p>
+
+<ul>
+  <li><strong>The file was unchanged.</strong> You will be automatically dropped into Indent
+Mode. This is the most likely scenario once you start using Parinfer
+regularly.</li>
+  <li><strong>Paren Mode changed the file.</strong> You will be prompted to apply the changes
+(recommended) and then dropped into Indent Mode. This is most likely to happen
+when you first start using Parinfer on an existing file.</li>
+  <li><strong>Paren Mode failed.</strong> This is almost certainly caused by having unbalanced
+parens in your file (ie: it will not compile). A prompt will show and you will
+be dropped into Paren Mode in order to fix the problem.</li>
+</ul>
+
+<p>Running Paren Mode is a necessary first step before Indent Mode can be safely
+turned on. See <a href="http://shaunlebron.github.io/parinfer/#fixing-existing-files">Fixing existing files</a> for more information.</p>
+
+<p>If you do not want to be prompted when opening a new file, the prompts can be
+disabled via <a href="https://github.com/oakmac/atom-parinfer/issues/34#issuecomment-170146141">config file</a>.</p>
+
+<p>Please be aware that - depending on the indentation and formatting in your Lisp
+files - this initial processing may result in a large diff the first time it
+happens. Once you start using Indent Mode regularly, this initial processing is
+unlikely to result in a large diff (or any diff at all). You may even discover
+that applying Paren Mode to a file can result in <a href="https://github.com/oakmac/atom-parinfer/commit/d4b49ec2636fd0530f3f2fbca9924db6c97d3a8f">catching very hard-to-find
+bugs</a> in your existing code! As usual, developers are responsible for reviewing
+their diffs before a code commit :)</p>
+
+<h3 id="hotkeys-and-status-bar">Hotkeys and Status Bar</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Command</th>
+      <th style="text-align: right">Windows/Linux</th>
+      <th>Mac</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Turn on / Toggle Mode</td>
+      <td style="text-align: right"><kbd>Ctrl</kbd>+<kbd>(</kbd></td>
+      <td><kbd>Cmd</kbd>+<kbd>(</kbd></td>
+    </tr>
+    <tr>
+      <td>Turn off</td>
+      <td style="text-align: right"><kbd>Ctrl</kbd>+<kbd>)</kbd></td>
+      <td><kbd>Cmd</kbd>+<kbd>)</kbd></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The status bar will indicate which mode you are in or show nothing if Parinfer
+is turned off.</p>
+
+<p>If you are in Paren Mode and Parinfer detects unbalanced parens (ie: code that
+will not compile), the status bar text will be red. Note that this will never
+happen in Indent Mode because Parinfer ensures that parens are always balanced.
+Also note that there is a <a href="https://github.com/oakmac/atom-parinfer/issues/32">known bug</a> with this feature due to the “parent
+expression” hack explained below.</p>
+
+<h3 id="dim-trailing-parens">Dim Trailing Parens</h3>
+
+<p>As of Atom 1.9, inferred closing parens are dimmed in Indent Mode:</p>
+
+<p><code>less
+atom-text-editor.indent-mode-76f60::shadow {
+  span.punctuation.section.end.trailing.clojure {
+    opacity: 0.4; // &lt;-- desired opacity of trailing parens
+  }
+}
+</code></p>
+
+<p>Adding this feature to other language packages for Lisp can be done by porting
+the <a href="https://github.com/atom/language-clojure/pull/37/files">extra style classes that we added to language-clojure</a>.</p>
+
+<h2 id="known-limitations">Known Limitations</h2>
+
+<p>This extension uses a hack for performance reasons that may act oddly in certain
+circumstances. It assumes that an open paren followed by an alpha character -
+ie: regex <code>^\([a-zA-Z]</code> - at the start of a line is the beginning of a new
+“parent expression” and tells the Parinfer algorithm to start analyzing from
+there until the next line that matches the same regex. Most of the time this is
+probably a correct assumption, but might break inside multi-line strings or
+other non-standard circumstances. This is tracked at <a href="https://github.com/oakmac/atom-parinfer/issues/9">Issue #9</a>; please add to
+that if you experience problems.</p>
+
+<h2 id="future-features">Future Features</h2>
+
+<p>Future features include:</p>
+
+<ul>
+  <li>JSHint-like comments to automatically “turn on” Parinfer for files (<a href="https://github.com/oakmac/atom-parinfer/issues/5">Issue #5</a>)</li>
+  <li>JSHint-like comments to tell Parinfer to ignore sections of your code (<a href="https://github.com/oakmac/atom-parinfer/issues/6">Issue #6</a>)</li>
+  <li>A menu option to run Paren Mode on all files in a directory (<a href="https://github.com/oakmac/atom-parinfer/issues/21">Issue #21</a>)</li>
+</ul>
+
+<p>More options and configuration settings are planned for future releases. Browse
+the <a href="https://github.com/oakmac/atom-parinfer/issues">issues</a> for an idea of future features. Create a new issue if you can think
+of a useful feature :)</p>
+
+<h2 id="plugin-development-setup">Plugin Development Setup</h2>
+
+<p>```sh
+# clone this repo to your homedir
+cd ~
+git clone https://github.com/oakmac/atom-parinfer.git</p>
+
+<h1 id="symlink-the-repo-to-the-atom-packages-folder">symlink the repo to the Atom packages folder</h1>
+<p>ln -s ~/atom-parinfer ~/.atom/packages/</p>
+
+<h1 id="compile-cljs-files">compile CLJS files</h1>
+<p>lein cljsbuild auto
+```</p>
+
+<p>Then run Atom on a Lisp file.  Some development notes:</p>
+
+<ul>
+  <li><code>View &gt; Developer &gt; Reload Window</code> (to reload plugin changes)</li>
+  <li><code>View &gt; Developer &gt; Toggle Developer Tools</code> (to see console)</li>
+</ul>
+
+<h2 id="license">License</h2>
+
+<p><a href="LICENSE.md">ISC License</a></p>
+
+<section class="package-keywords">
+  <strong>Keywords:</strong> parinfer, paredit, clojure, clojurescript, cljs, lisp <a href="https://github.com/oakmac/atom-parinfer/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

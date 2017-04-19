@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Wordpress Suite
+  <a href="https://github.com/peterjohnhunt/wordpress-suite">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install wordpress-suite
+  </pre>
+</div>
+<p><img src="https://raw.githubusercontent.com/peterjohnhunt/wordpress-suite/master/assets/logo.png" alt="Wordpress Suite" title="Wordpress Suite" /></p>
+
+<h2 id="summary">Summary</h2>
+<p><strong>Wordpress Suite</strong> is an ever expanding suite of Wordpress tools, accessible right from atom’s interface!
+* <a href="#installation">Installation</a>
+* <a href="#features">Features</a>
+	* <a href="#general-features">General</a>
+	* <a href="#debug-watcher">Debug Watcher</a>
+	* <a href="#wp-cli">WP CLI</a>
+	* <a href="#context-menu">Context Menu</a>
+* <a href="#settings">Settings</a>
+	* <a href="#enable-disable-notification-types">Enable / Disable Notification Types</a>
+* <a href="#release-notes">Release Notes</a>
+* <a href="#issues-additions">Issues / Additions</a></p>
+
+<hr />
+
+<h2 id="installation">Installation</h2>
+<p>Atom Package: https://atom.io/packages/wordpress-suite</p>
+
+<p><code>bash
+apm install wordpress-suite
+</code>
+Or Preferences ➔ Install ➔ Search for <code>wordpress-suite</code></p>
+
+<h2 id="features">Features</h2>
+
+<h3 id="general-features">General Features</h3>
+
+<h4 id="add-project-root">Add Project Root</h4>
+<p>If you’re working in a specific theme or plugin, this shortcut adds the main Wordpress root folder to the sidebar.</p>
+
+<hr />
+
+<h3 id="debug-watcher">Debug Watcher</h3>
+<p>Using atoms built in file watching, each Wordpress site added to the TreeView will automatically be watched by atom.</p>
+
+<h4 id="notifications">Notifications</h4>
+<p>Notifications will automatically pop up for any changes in the debug log.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>![Debug Log</td>
+      <td>Notification](https://raw.githubusercontent.com/peterjohnhunt/wordpress-suite/master/assets/notification.gif “Debug Log Notification”)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="openclear-debug-log">Open/Clear Debug Log</h4>
+<p>When a notification pops up you have the option to open or clear the debug log with just a push of a button! Clearing it will also hide all notifications currently related to that project.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>![Debug Log</td>
+      <td>Open / Clear](https://raw.githubusercontent.com/peterjohnhunt/wordpress-suite/master/assets/open_clear.gif “Debug Log Open / Clear”)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="pause-and-resume-watching">Pause and Resume Watching</h4>
+<p>suppress or resume any notifications of changes to the debug log on the current Wordpress project.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>![Debug Log</td>
+      <td>Pause / Resume ](https://raw.githubusercontent.com/peterjohnhunt/wordpress-suite/master/assets/pause_resume.gif “Debug Log</td>
+      <td>Pause / Resume”)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="show-and-clear-recent-notifications">Show and Clear recent notifications</h4>
+<p>show all the most recent notifications that were closed since the last time the debug log was cleared or clear the debug log, and remove any notifications related to the current Wordpress project.</p>
+
+<h4 id="mute-notifications">Mute Notifications</h4>
+<p>If there is a reoccurring notification that you would like to mute, when it pops up, click the mute button in the bottom right to no longer see messages with this exact text.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>![Debug Log</td>
+      <td>Mute Notification](https://raw.githubusercontent.com/peterjohnhunt/wordpress-suite/master/assets/mute.gif “Debug Log</td>
+      <td>Mute Notification”)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="clear-muted-notifications">Clear Muted Notifications</h4>
+<p>Under the context menu, you can clear all muted notifications.</p>
+
+<h4 id="stack-trace-links">Stack Trace Links</h4>
+<p>In the event that Wordpress prints an error and references where the error occurred, the path to the file will automatically be converted into a quick link to open the file in the editor directly to the specified line.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>![Debug Log</td>
+      <td>File Link](https://raw.githubusercontent.com/peterjohnhunt/wordpress-suite/master/assets/file_link.gif “Debug Log File Link”)</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h3 id="wp-cli">WP CLI</h3>
+<p>If WP-CLI is installed locally, additional context menu items will be available to manage and manipulate your Wordpress projects.</p>
+
+<h4 id="site-name">Site Name</h4>
+<p>Automatically retrieve the site name stored in the Wordpress database and use it in notification titles.</p>
+
+<h4 id="path-config">Path Config</h4>
+<p>Automatically retrieve the Wordpress path from the local wp-cli.yml if it exists.</p>
+
+<h4 id="export-database">Export Database</h4>
+<p>This will automatically generate a “db” folder in the root of the Wordpress project, it will then export the database to that db folder naming it “latest-db.sql” pulling from the credentials set in <code>wp-config.php</code>.</p>
+
+<h4 id="import-database">Import Database</h4>
+<p>This will automatically export a backup of the database and then import “latest-db.sql” pulling from the credentials set in <code>wp-config.php</code>.</p>
+
+<hr />
+
+<h3 id="context-menu">Context Menu</h3>
+<p>When right clicking a Wordpress project in the sidebar, you’ll have a “Wordpress” dropdown which has lots of useful features including:</p>
+
+<h4 id="menu-items">Menu Items</h4>
+<ul>
+  <li>Add Project Root</li>
+  <li>Show Notifications</li>
+  <li>Clear Notifications</li>
+  <li>Open Debug Log</li>
+  <li>Clear Ignored</li>
+  <li>Pause Watching</li>
+  <li>Resume Watching</li>
+  <li>Export Database</li>
+  <li>Import Database</li>
+</ul>
+
+<p><img src="https://raw.githubusercontent.com/peterjohnhunt/wordpress-suite/master/assets/context.gif" alt="Context Menu" title="Context Menu" /></p>
+
+<hr />
+
+<h2 id="settings">Settings</h2>
+
+<h3 id="enable--disable-notification-types">Enable / Disable Notification Types</h3>
+<p>Notification types can be enabled and disabled via the package settings</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>![Settings</td>
+      <td>Notification ](https://raw.githubusercontent.com/peterjohnhunt/wordpress-suite/master/assets/notification_settings.gif “Notification Settings”)</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h2 id="release-notes">Release Notes</h2>
+<p>For release notes and version history, view the <a href="https://github.com/peterjohnhunt/wordpress-suite/blob/master/changelog.md#change-log">change log</a>.</p>
+
+<hr />
+
+<h2 id="issues--additions">Issues / Additions</h2>
+<p>For any issues, additions or bugs, feel free to <a href="https://github.com/peterjohnhunt/wordpress-suite/issues/new">open an issue</a> and include stack trace if applicable!</p>
+
+<hr />
+<section class="package-keywords">
+  <strong>Keywords:</strong> wordpress, wp, notifications, debug, wp-cli, peterjohnhunt <a href="https://github.com/peterjohnhunt/wordpress-suite/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

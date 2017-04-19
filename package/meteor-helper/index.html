@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Meteor Helper
+  <a href="https://github.com/PEM--/meteor-helper">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install meteor-helper
+  </pre>
+</div>
+<h1 id="meteor-helper-call-meteor-from-atomio">Meteor-helper: Call Meteor from Atom.io</h1>
+
+<h2 id="introduction">Introduction</h2>
+<p>:rocket: Launch <a href="https://www.meteor.com/">Meteor</a>
+and <a href="https://atmospherejs.com/">Meteorite</a> inside <a href="https://atom.io/">Atom.io</a></p>
+
+<p><img src="https://raw.githubusercontent.com/PEM--/meteor-helper/master/assets/capture.png" alt="Meteor.js from Atom.io" /></p>
+
+<h2 id="installation">Installation</h2>
+<p>Either use <a href="https://atom.io/">Atom.io</a> inner packaging tool or the following
+command line:
+<code>bash
+apm install meteor-helper
+</code></p>
+
+<h2 id="settings">Settings</h2>
+<p>With this package, you can:
+* Launch or kill Meteor using:
+  * On Linux and Windows: <strong>CTRL</strong>+<strong>ALT</strong>+<strong>m</strong>
+  * On OSX: <strong>CMD</strong>+<strong>ALT</strong>+<strong>m</strong>
+* Reset Meteor using:
+  * On Linux and Windows: <strong>CTRL</strong>+<strong>ALT</strong>+<strong>r</strong>
+  * On OSX: <strong>CMD</strong>+<strong>ALT</strong>+<strong>r</strong>
+* Show/hide Meteor’s panel:
+  * On Linux and Windows: <strong>CTRL</strong>+<strong>ALT</strong>+<strong>h</strong>
+  * On OSX: <strong>CMD</strong>+<strong>ALT</strong>+<strong>h</strong>
+* Watch the Meteor’s CLI information in a dedicated pane.
+* See Meteor’s status in a dedicated status bar.
+* When Meteor’s status goes wrong, the pane automatically shows up and displays
+  the last CLI information.</p>
+
+<p>In the settings, you can customize this package behavior:
+* Meteor application path. The default is: <code>.</code>.
+* Command and its path. The default is: <code>/usr/local/bin/meteor</code>.
+* Main listening port. The default is 3000.
+* Production flag. The default is <code>false</code>.
+* Debug flag. The default is <code>false</code>.
+* MongoDB’s URL. Leave it empty to use the default embedded MongoDB in Meteor.
+* MongoDB’s Oplog URL. Leave it empty to use the default embedded MongoDB in Meteor.
+* NODE_ENV environment variable. The default is <code>undefined</code>.</p>
+
+<p><img src="https://raw.githubusercontent.com/PEM--/meteor-helper/master/assets/settings.png" alt="Settings" /></p>
+
+<p>You can overwrite variable settings with a per project file named <code>mup.json</code> at
+the root of your project using <a href="https://github.com/arunoda/meteor-up">Meteor Up</a>
+recommendations. The following variables supersede the settings ones:
+* <code>env.PORT</code>: Meteor’s port.
+* <code>env.MONGO_URL</code>: MongoDB’s URL.
+* <code>env.MONGO_OPLOG_URL</code>: MongoDB’s Oplog URL.
+* <code>env.NODE_ENV</code>: The NODE_ENV environment variable.
+* <code>app</code>: Meteor’s application path.</p>
+
+<blockquote>
+  <p><strong>Tips</strong>: To create a default Meteor Up project, simply use the following
+commands:
+<code>bash
+npm install -g mup
+mup init
+</code>
+And removes the unnecessary comments and add the following environment
+variables with your own values:
+<code>json
+  "env": {
+    "PORT": 3002,
+    "MONGO_URL": "mongodb://LOGIN:PASSWORD@ACCOUNT.mongohq.com:10023/MyApp",
+  },
+</code></p>
+</blockquote>
+
+<h2 id="misc">Misc</h2>
+<ul>
+  <li>More informations on my blog site :eyeglasses: : <a href="http://pem-musing.blogspot.com/2014/07/meteorjs-from-within-atomio-full-stack.html">Meteor.js from within Atom.io</a></li>
+  <li>Declare your bugs :bug: or enhancements :sunny: on
+<a href="https://github.com/PEM--/meteor-helper/issues?state=open">Github</a> :octocat:</li>
+</ul>
+
+<h2 id="faq">FAQ</h2>
+<p>### How to customize log colors?
+Atom allows you to overwrite its style in a specific file named
+<code>~/.atom/styles.less</code> (more info <a href="https://atom.io/docs/v0.61.0/customizing-atom">here</a>).</p>
+
+<p>For instance: <strong><code>~/.atom/styles.less</code></strong>
+<code>less
+.meteor-helper .panel-body p {
+  font-size: 14px;
+  color: red;
+}
+</code>
+### How to launch Meteor on Windows with an appropriate PATH?
+There are currently 2 solutions provided by Windows users (see #36). Results
+seem to rely on the version of your OS.
+#### The simple method shared by @JohnAReid
+In the settings of this plugin, just add the following:
+<code>C:\Users\userFolder\AppData\Local\.meteor\meteor.bat</code>
+where <code>userFolder</code> is your short Windows’s user name.
+#### A more advanced shared by @dtrimsd
+When using <code>C:\Users\userFolder\AppData\Local\.meteor\meteor.bat</code>, <code>SETLOCAL</code>
+to set meteor variables, the Windows command shell is pulling the normal <code>SET</code>
+variables including <code>PATH</code> which is required to point to the <code>system32</code> folder
+for <code>tasklist.exe</code>.</p>
+
+<p>Following the next steps should circumvent the issue:</p>
+
+<ol>
+  <li>Duplicate the <code>meteor.bat</code> file - call the new copy <code>atommeteor.bat</code>.</li>
+  <li>Open a command prompt, type <code>SET</code>, then hit <strong>ENTER</strong>. Copy the <code>PATH</code> variable
+  and paste it into the new <code>atommetor.bat</code> file, just under the <code>SETLOCAL</code>
+  line. Instead of <code>PATH=</code>, put <code>SET PATH=</code> and remember to fix the line
+  wrapping. Windows likes to line return a lot.</li>
+  <li>Create a launcher in the folder for your project - call it <code>launcher.cmd</code>.
+  This file has one line: <code>C:\Users\userFolder\AppData\Local\.meteor\atommeteor.bat</code></li>
+</ol>
+
+<p>Removing any of these steps seems to break dependencies.</p>
+
+<h3 id="is-there-a-tutorial-on-using-meteor-with-atom">Is there a tutorial on using Meteor with Atom?</h3>
+<p>Yes, there is: https://www.youtube.com/watch?t=101&amp;v=QSg3mKjhiws</p>
+
+<h3 id="settings-of-the-package-doesnt-show-up">Settings of the package doesn’t show up</h3>
+<p>The package needs to be activated for modifying your settings. Just toggle
+Meteor and you should be fine.</p>
+
+<h3 id="i-cant-load-my-settingsjson-file-when-meteor-is-launched">I can’t load my settings.json file when Meteor is launched</h3>
+<p>If you’ve used a relative path to your Meteor project don’t forget to
+apply the same path modifier to the path of your settings.</p>
+<section class="package-keywords">
+  <strong>Keywords:</strong> meteor, launcher, atom <a href="https://github.com/PEM--/meteor-helper/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

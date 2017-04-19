@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Nav Panel Plus
+  <a href="https://github.com/0tho/atom-nav-panel-plus">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install nav-panel-plus
+  </pre>
+</div>
+<h1 id="original-package">Original package</h1>
+<p>This package is a fork from Ziink/atom-nav-panel</p>
+
+<h1 id="navigation-panel">Navigation Panel</h1>
+
+<p>Navigate using bookmarks and symbols. Whenever you open a file, it is scanned
+for symbols and to dos, and a navigation panel is displayed to the right.
+The panel is displayed only when there’s something to show.
+It can be turned on and off on demand.</p>
+
+<p><img src="https://raw.githubusercontent.com/0tho/atom-nav-panel-plus/master/screenshot/screenshot1.png" alt="Scren Shot" /></p>
+
+<p>Comes prepackaged with rules for various file types. They might be a little
+flaky though. You can create your own project specific rules or
+customize the rules within any given file. Your custom configuration can
+add to the existing rules or replace them.</p>
+
+<p>Bookmarks are saved across sessions.</p>
+
+<p><strong>alt-click</strong> on gutter (where the line numbers show) to toggle the bookmark
+<strong>right-click</strong> on editor and select ‘Toggle Nav Panel’ to show/hide the panel.</p>
+
+<p>In the navigation panel, click on the icon of an item to highlight it and
+ the associated line of code. Click on the item to go to the associated
+ line.</p>
+
+<h3 id="project-rules">Project rules</h3>
+<p>Create a file ‘.nav-marker-rules’ in your project’s root directory to define your own rules.</p>
+
+<p>Each rule is on a single line. If a line does not match the format, it is ignored.</p>
+
+<ol>
+  <li>The line should begin with ‘#marker-rule:’ (without quotes)</li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>This is followed by at least one field from below. Different fields should be separated by **</td>
+          <td> </td>
+          <td>** (two vertical bars)</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>The regular expression pattern if needed should be next. This is matched against each line.</li>
+  <li>Label for the item. Usually involves a captured group in the regular pattern and indicated with %n where n is an integer indicating the captured group. If this is absent, the entire match is used as the item label.</li>
+  <li>Name of the kind of match sought by the regular expression. E.g. Function or Variable or whatever makes most sense. If absent, any item found is grouped under ‘Markers’</li>
+  <li>startOver: If this word (case matters) is a field, all previous rules are discarded</li>
+  <li>ext=fileExt1,fileExt2 : This is not needed if the rule applies to the file it is in.</li>
+  <li>disable=kind1,kind2 : Disables any rules of those kinds. E.g. ‘Function’ is a kind. These show up as main groups in the Nav Panel.</li>
+</ol>
+
+<p>Examples</p>
+
+<p><code>
+#marker-rule: /#[ \t]*urgent: (.*)/||Urgent||ext=.md
+#marker-rule: /function (\w+)/||%1||Function
+#marker-rule: /function (\w+)/i||%1||Function||startOver
+#marker-rule: disable=Variable
+</code></p>
+
+<h3 id="rules-within-a-source-file">Rules within a source file</h3>
+<p>You can also intersperse rules within a file.</p>
+<section class="package-keywords">
+  <strong>Keywords:</strong> anchors, bookmark, bookmarks, todo, todos, outline, navigation, functions, methods, markers <a href="https://github.com/0tho/atom-nav-panel-plus/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Fold Navigator
+  <a href="https://github.com/turigeza/fold-navigator">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install fold-navigator
+  </pre>
+</div>
+<h1 id="fold-navigator">Fold Navigator</h1>
+<p>fold-navigator package for <a href="https://atom.io/">Atom</a> text editor</p>
+
+<p>It helps you navigate your code folding points within Atom. It takes the lines where the folding points are and lists them with their indentation to give you an overview of your code.</p>
+
+<p>It serves a similar purpose to the minimap package but with a different approach.</p>
+
+<p>I was missing Netbeans code navigator so much I had to come up with something which helps me navigate through my code in Atom.</p>
+
+<h2 id="things-it-can-do">Things it can do:</h2>
+
+<h3 id="list-all-the-folding-points">1. List all the folding points.</h3>
+<p><img src="https://raw.githubusercontent.com/turigeza/fold-navigator/master/resources/all_folding_points.png" alt="List all the folding points." /></p>
+
+<h3 id="search-your-folding-points">2. Search your folding points.</h3>
+<p><img src="https://raw.githubusercontent.com/turigeza/fold-navigator/master/resources/fold_search.png" alt="A screenshot of your package" /></p>
+
+<h3 id="you-can-limit-the-depth-it-will-parse-and-list">3. You can limit the depth it will parse and list.</h3>
+<p>You could use this if you only wanted to see let’s say a list of methods in a class. In which case you might not care what is at indentation level 5.
+This is a screen shot where max indentation is set to 1. This (and all settings btw) can be grammar specific.</p>
+
+<p><img src="https://raw.githubusercontent.com/turigeza/fold-navigator/master/resources/limited_folds_search.png" alt="A screenshot of your package" /></p>
+
+<h3 id="move-within-folds">4. Move within folds.</h3>
+<p>A list of commands available to you to navigate within the folds.</p>
+
+<ol>
+  <li>previousFold (ctrl-alt-cmd-up)</li>
+  <li>nextFold (ctrl-alt-cmd-down)</li>
+  <li>moveLevelUp (ctrl-alt-cmd-left)</li>
+  <li>moveLevelDown (ctrl-alt-cmd-right)</li>
+  <li>nextFoldAtCurrentLevel</li>
+  <li>previousFoldAtCurrentLevel</li>
+</ol>
+
+<h3 id="keep-your-code-folded-at-all-time">5. Keep your code folded at all time.</h3>
+<p>If you are into that kind of thing. Since I can see my fold points in the navigator panel for me actually now easier not to fold my code at all. But it’s there within fold navigator settings if you prefer it that way.</p>
+
+<h3 id="toggle-folds-at-level-1-2-3-4--5-ctrl1-ctrl2-etc--">6. Toggle folds at level 1, 2, 3, 4 , 5 ctrl+1. ctrl+2 etc … ,</h3>
+<p>You can toggle the folding at specific level. It might be helpful when you are reading someone else’s code and you want to get a quick overview of what is going on at the different indentation levels.</p>
+
+<h3 id="toggle-sub-folds">7. Toggle sub folds.</h3>
+<p>Typically Atom will only unfold the very fold you have clicked on and not the the folds under it. This command will toggle all sub folds within a fold. Currently it is assigned to ctrl-alt-cmd-/ and yes it would be nicer if I could override the double click Atom opens fold with but I don’t yet know how to do that. So maybe in the future.</p>
+
+<h3 id="per-languagegrammar-settings">8. Per language/grammar settings.</h3>
+<p>All the options can be defined per language (grammar) bases but for now it only supports one language per editor. So it will not support mixed content like html + javascript.</p>
+
+<p>Language specific settings are in your config.cson which you have to edit manually.
+You will find most of what you need here
+<a href="http://flight-manual.atom.io/using-atom/sections/basic-customization/">http://flight-manual.atom.io/using-atom/sections/basic-customization/</a></p>
+
+<h3 id="notes">Notes:</h3>
+
+<ol>
+  <li>It only works if your code is indented and well formatted. I use <a href="https://atom.io/packages/atom-beautify">https://atom.io/packages/atom-beautify</a> to achieve this.</li>
+  <li>You must open the fold navigator panel at least once after you have started Atom to be able to use this package. This is because fold navigator does not start/activate when Atom starts. Use ctrl-alt-cmd-[ to open the fold navigator panel.</li>
+  <li>Skype on a Mac uses one of the shortcuts (ctrl-alt-cmd-up) globally. So if you find your shortcuts don’t work it’s most likely because of Skype. If you find a way around this please let me know.</li>
+  <li>Windows (and Linux) user I am sorry … you will have to assign shortcuts to the commands yourself. The ones I have chosen seem to be unusable on Windows. I have not tried on Linux but it possibly is the same.</li>
+</ol>
+
+<p>Try it and see. Feel free to suggest and let me know if you have any issues/bugs.</p>
+
+<p>Happy coding! : )</p>
+<section class="package-keywords">
+  <strong>Keywords:</strong> fold, navigator, code, folding, navigation, map, summary <a href="https://github.com/turigeza/fold-navigator/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

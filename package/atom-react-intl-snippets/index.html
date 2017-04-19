@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  React Intl Snippets
+  <a href="https://github.com/p10ns11y/atom-react-intl-snippets">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+    <span class="author">by Peramanathan Sathyamoorthy</span>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install atom-react-intl-snippets
+  </pre>
+</div>
+<h2 id="react-intl-snippets">React Intl Snippets</h2>
+<p>Provides essential snippets for <code>react-intl</code></p>
+
+<h2 id="commands">Commands</h2>
+<ul>
+  <li>
+    <p><code>rip</code> =&gt;
+  <code>
+  &lt;IntlProvider locale={} messages={}&gt;
+    APP
+  &lt;/IntlProvider&gt;
+ </code></p>
+  </li>
+  <li>
+    <p><code>rial</code> =&gt;
+  ```
+  import {addLocaleData} from ‘react-intl’;
+  import |LocaleData from ‘react-intl/locale-data/[sv]’;</p>
+
+    <p>addLocaleData(LocaleData);
+  ```</p>
+  </li>
+  <li>
+    <p><code>rild</code> =&gt;<code>import |LocaleData from 'react-intl/locale-data/[sv]';</code></p>
+  </li>
+  <li>
+    <p><code>rif</code> =&gt; <code>import { FormattedMessage } from 'react-intl';</code></p>
+  </li>
+  <li>
+    <p><code>rinj</code> =&gt; <code>import { injectIntl, intlShape } from 'react-intl';</code></p>
+  </li>
+  <li>
+    <p><code>ridm</code> =&gt;
+  ```
+  import { defineMessages } from ‘react-intl’;</p>
+
+    <p>export default defineMessages({
+    descriptor: {
+      id: ‘’,
+      defaultMessage: ‘’,
+    },
+    …more
+  });
+  ```</p>
+  </li>
+  <li>
+    <p><code>rifm</code> =&gt;
+  <code>
+  &lt;FormattedMessage
+    id='requiredProp'
+    description='optionalProp'
+    defaultMessage='requiredProp'
+    values={{
+      key:'value'
+    }}
+  /&gt;
+ </code></p>
+  </li>
+  <li>
+    <p><code>rifmt</code> =&gt;
+  <code>
+  &lt;FormattedMessage
+    tagName=""
+    id='requiredProp'
+    description='optionalProp'
+    defaultMessage='requiredProp'
+    values={{
+      key:'value'
+    }}
+  /&gt;
+ </code></p>
+  </li>
+  <li>
+    <p><code>rifmdm</code> =&gt; <code>&lt;FormattedMessage {...descriptor} /&gt;</code></p>
+  </li>
+  <li>
+    <p><code>rifmdmt</code> =&gt; <code>&lt;FormattedMessage tagName="" {...descriptor} /&gt;</code></p>
+  </li>
+  <li>
+    <p><code>rifmcb</code> =&gt;
+  <code>
+  &lt;FormattedMessage {...descriptor} &gt;
+    {
+      formattedMessage =&gt; (
+        &lt;[reactElementOrTagName]&gt;
+          {formattedMessage}
+        &lt;/|&gt;
+      )
+    }
+  &lt;/FormattedMessage&gt;
+ </code></p>
+  </li>
+  <li>
+    <p><code>rinjrc</code> =&gt;
+  ```
+  import React, { PropTypes } from ‘react’;
+  import { injectIntl, intlShape } from ‘react-intl’;</p>
+
+    <p>class [intlInjectComponent] extends React.Component {
+    /* Life cycle methods */</p>
+
+    <pre><code>render() {
+  const { intl } = this.props;
+
+  return (
+    &lt;div&gt;
+      {intl.formatMessage({id:'', defaultMessage: ''})}
+      {intl.formatMessage(descriptor)}
+    &lt;/div&gt;
+  );
+}   }
+</code></pre>
+
+    <p>|.propTypes = {
+    intl: intlShape.isRequired,
+  }</p>
+
+    <p>export default injectIntl(|);
+  ```
+## Pro Tip:</p>
+  </li>
+  <li>
+    <p><code>ri</code> (react-intl) root prefix and all shortcuts begins with it</p>
+    <ul>
+      <li><code>fm</code>: FormattedMessage (<code>rifm</code>)
+        <ul>
+          <li><code>dm</code>: for defaultMessages (<code>rifmdm</code>)
+            <ul>
+              <li><code>t</code> : with <code>tagName</code> prop (<code>rifmdmt</code>)</li>
+            </ul>
+          </li>
+          <li><code>t</code>: with <code>tagName</code> prop (<code>rifmt</code>)</li>
+        </ul>
+      </li>
+      <li><code>nj</code>: injectIntl import (<code>rinj</code>)
+        <ul>
+          <li><code>rc</code>: injectIntl wrapped React.Component (<code>rinjrc</code>)</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+<section class="package-keywords">
+  <strong>Keywords:</strong> react, react-intl, es6, babel, snippets <a href="https://github.com/p10ns11y/atom-react-intl-snippets/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

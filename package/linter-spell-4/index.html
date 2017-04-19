@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Linter Spell
+  <a href="https://github.com/AtomLinter/linter-spell">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+    <span class="author">by Tarn Burton <twburton@gmail.com></span>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install linter-spell
+  </pre>
+</div>
+<h1 id="linter-spell">linter-spell</h1>
+
+<p><a href="http://travis-ci.org/AtomLinter/linter-spell"><img src="http://img.shields.io/travis/AtomLinter/linter-spell/master.svg?label=Linux/OSX%20build" alt="Travis&#x2011;CI Build Status" /></a>
+<a href="http://ci.appveyor.com/project/yitzchak/linter-spell"><img src="http://img.shields.io/appveyor/ci/yitzchak/linter-spell/master.svg?label=Windows%20build" alt="AppVeyor Build Status" /></a>
+<a href="http://david-dm.org/AtomLinter/linter-spell"><img src="http://img.shields.io/david/AtomLinter/linter-spell.svg" alt="dependencies Status" /></a>
+<a href="https://david-dm.org/AtomLinter/linter-spell?type=dev"><img src="https://david-dm.org/AtomLinter/linter-spell/dev-status.svg" alt="devDependencies Status" /></a></p>
+
+<p>Multilingual grammar-specific spell checking for <a href="http://atom.io">Atom</a> and
+<a href="http://atom.io/packages/linter">linter</a> using Ispell compatible interface such
+as <a href="http://aspell.net/">GNU Aspell</a> or <a href="http://hunspell.github.io/">Hunspell</a>.</p>
+
+<h2 id="installing">Installing</h2>
+
+<p>Use the Atom package manager and search for “linter-spell”, or from a shell run</p>
+
+<p><code>bash
+apm install linter-spell
+</code></p>
+
+<h2 id="prerequisites">Prerequisites</h2>
+
+<p>This package relies on a Ispell compatible package such as
+<a href="http://aspell.net/">GNU Aspell</a> or <a href="http://hunspell.github.io/">Hunspell</a>.</p>
+
+<h2 id="usage">Usage</h2>
+
+<p>Spell checking is done upon document save with misspellings displayed by
+<a href="http://atom.io/packages/linter">linter</a>. Misspellings can be corrected or added
+to personal dictionary using the
+<a href="http://atom.io/packages/intentions">intentions</a> package via
+<kbd>ctrl</kbd>+<kbd>enter</kbd> on OSX and <kbd>alt</kbd>+<kbd>enter</kbd> on
+Linux and Windows.</p>
+
+<p>Manual language selection can be done by clicking on the status bar language
+indicator or by using the default keybinding <kbd>alt</kbd>+<kbd>y</kbd> on
+Linux or <kbd>ctrl</kbd>+<kbd>shift</kbd>+<kbd>y</kbd> on other platforms.</p>
+
+<h2 id="grammar-and-dictionary-providers">Grammar and Dictionary Providers</h2>
+
+<p>Spell checking plain text, Markdown, or AsciiDoc documents is included in the
+package. To spell check other document types use a <code>linter-spell-grammar</code>
+provider. To use additional dictionaries use <code>linter-spell-dictionary</code> provider.
+Current providers are listed in the table below (D=Dictionary, G=Grammar,
+D/G=Dictionary/Grammar).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Purpose</th>
+      <th style="text-align: left">Package</th>
+      <th style="text-align: center">Type</th>
+      <th style="text-align: left">Dependencies</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Ignore CJK words</td>
+      <td style="text-align: left"><a href="https://atom.io/packages/linter-spell-cjk">linter‑spell‑cjk</a></td>
+      <td style="text-align: center">D</td>
+      <td style="text-align: left">None</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Ispell compatible spell checking</td>
+      <td style="text-align: left">Included in linter‑spell</td>
+      <td style="text-align: center">D</td>
+      <td style="text-align: left">None</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Project specific dictionaries</td>
+      <td style="text-align: left"><a href="http://atom.io/packages/linter-spell-project">linter‑spell‑project</a></td>
+      <td style="text-align: center">D</td>
+      <td style="text-align: left">None</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">AsciiDoc spell checking</td>
+      <td style="text-align: left">Included in linter‑spell</td>
+      <td style="text-align: center">D/G</td>
+      <td style="text-align: left"><a href="http://atom.io/packages/language-asciidoc">language‑asciidoc</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Git Commit Message spell checking</td>
+      <td style="text-align: left">Included in linter‑spell</td>
+      <td style="text-align: center">D/G</td>
+      <td style="text-align: left"><a href="http://atom.io/packages/language-git">language‑git</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">GitHub flavored Markdown spell checking</td>
+      <td style="text-align: left">Included in linter‑spell</td>
+      <td style="text-align: center">D/G</td>
+      <td style="text-align: left"><a href="http://atom.io/packages/language-gfm">language‑gfm</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">HTML spell checking</td>
+      <td style="text-align: left"><a href="http://atom.io/packages/linter-spell-html">linter‑spell‑html</a></td>
+      <td style="text-align: center">D/G</td>
+      <td style="text-align: left"><a href="http://atom.io/packages/language-html">language‑html</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Javascript spell checking</td>
+      <td style="text-align: left"><a href="http://atom.io/packages/linter-spell-javascript">linter‑spell‑javascript</a></td>
+      <td style="text-align: center">D/G</td>
+      <td style="text-align: left"><a href="http://atom.io/packages/language-javascript">language‑javascript</a> or <a href="http://atom.io/packages/language-babel">language‑babel</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">JSON spell checking</td>
+      <td style="text-align: left"><a href="http://atom.io/packages/linter-spell-javascript">linter‑spell‑javascript</a></td>
+      <td style="text-align: center">D/G</td>
+      <td style="text-align: left"><a href="http://atom.io/packages/language-json">language‑json</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">LaTeX, TeX &amp; BibTeX spell checking</td>
+      <td style="text-align: left"><a href="http://atom.io/packages/linter-spell-latex">linter‑spell‑latex</a></td>
+      <td style="text-align: center">D/G</td>
+      <td style="text-align: left"><a href="http://atom.io/packages/language-latex">language‑latex</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">LaTeX spell checking</td>
+      <td style="text-align: left"><a href="https://atom.io/packages/linter-spell-latexsimple">linter‑spell‑latexsimple</a></td>
+      <td style="text-align: center">G</td>
+      <td style="text-align: left"><a href="https://atom.io/packages/language-latexsimple">language‑latexsimple</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Markdown spell checking</td>
+      <td style="text-align: left">Included in linter‑spell</td>
+      <td style="text-align: center">D/G</td>
+      <td style="text-align: left"><a href="http://atom.io/packages/language-markdown">language‑markdown</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Plain Text spell checking</td>
+      <td style="text-align: left">Included in linter‑spell</td>
+      <td style="text-align: center">D/G</td>
+      <td style="text-align: left"><a href="http://atom.io/packages/language-text">language‑text</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Ruby spell checking</td>
+      <td style="text-align: left"><a href="http://atom.io/packages/linter-spell-ruby">linter‑spell‑ruby</a></td>
+      <td style="text-align: center">D/G</td>
+      <td style="text-align: left"><a href="http://atom.io/packages/language-ruby">language‑ruby</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Shell script spell checking</td>
+      <td style="text-align: left"><a href="https://atom.io/packages/linter-spell-shellscript">linter‑spell‑shellscript</a></td>
+      <td style="text-align: center">D/G</td>
+      <td style="text-align: left"><a href="http://atom.io/packages/language-shellscript">language‑shellscript</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="creating-new-grammar-providers">Creating New Grammar Providers</h2>
+
+<p>New grammars can be added by implementing a <code>linter-spell-grammar</code> provider.
+This can be done by adding the following to <code>package.json</code></p>
+
+<p><code>json
+"providedServices": {
+  "linter-spell-grammar": {
+    "versions": {
+      "1.0.0": "provideGrammar"
+    }
+  }
+}
+</code></p>
+
+<p>The provided service should be as follows</p>
+
+<p><code>javascript
+function provideGrammar () {
+  return [{
+    grammarScopes: ['source.gfm'],
+    findLanguageTags: textEditor =&gt; { return ['en-US'] },
+    checkedScopes: {
+      'source.gfm': true,
+      'markup.code.c.gfm': false,
+      'markup.underline.link.gfm': () =&gt; atom.config.get('linter-spell.checkLinks')
+    },
+    filterRanges: (textEditor, ranges) =&gt; {
+      return {
+        ranges: ranges,
+        ignoredRanges: []
+      }
+    }
+  }]
+}
+</code></p>
+
+<p>Multiple grammars can be provided by returning an array. <code>grammarScopes</code> is
+required, but all other properties and methods are optional.</p>
+
+<p>The <code>findLanguageTags</code> method should scan <code>textEditor</code> for a file specific
+override of the user’s default language and return <a href="http://www.rfc-editor.org/rfc/rfc5646.txt">RFC
+5646</a> compliant language codes or <code>[]</code>
+if no language references were found. See
+<a href="http://atom.io/packages/linter-spell-latex">linter‑spell‑latex</a>
+for an implementation using TeX magic comments.</p>
+
+<p>The <code>checkedScopes</code> list the grammar scopes that either checked or ignored. To
+explicitly check a scope use a value of <code>true</code>, while <code>false</code> will ignore that
+scope. To allow dynamic determination of scope spell checking a function may
+also be supplied. The function should take no arguments and return a truthy
+value. If this property is not provided then all scopes in <code>grammarScopes</code> will
+be checked. When it is provided all scopes default to ignored unless specified
+with a <code>true</code> value.</p>
+
+<p>The <code>filterRanges</code> method should check the <code>ranges</code> parameter for sub-ranges
+within each ranges which are valid to spell check. It should return a list
+of modified ranges in <code>ranges</code> and can also return <code>ignoredRanges</code> for
+ranges that should not be checked. The interval difference between <code>ranges</code>
+and <code>ignoredRanges</code> will actually be checked.</p>
+
+<h2 id="create-new-dictionary-providers">Create New Dictionary Providers</h2>
+
+<p>New dictionaries can be added by implementing a <code>linter-spell-dictionary</code>
+provider. This can be done by adding the following to <code>package.json</code></p>
+
+<p><code>json
+"providedServices": {
+  "linter-spell-dictionary": {
+    "versions": {
+      "1.0.0": "provideDictionary"
+    }
+  }
+}
+</code></p>
+
+<p>The provided service should be as follows</p>
+
+<p><code>javascript
+function provideDictionary () {
+  return [{
+    name: 'Your dictionary name',
+    grammarScopes: ['source.gfm'],
+    languages: ['en-US'],
+    checkRange: (textEditor, languages, range) =&gt; {
+      return new Promise((resolve, reject) =&gt; resolve([{
+        range: new Range([0, 1], [0, 4]),
+        suggestions: ['bar'],
+        actions: [{
+          title: 'Add to my dictionary',
+          apply: () =&gt; { /* add word to your dictionary. */ }
+        }]
+      }])
+    },
+    checkWord: (textEditor, languages, range) =&gt; {
+      return new Promise((resolve, reject) =&gt; resolve({
+        isWord: false, // return true if word is found
+        suggestions: ['foo'],
+        actions: [{
+          title: 'Add to my dictionary',
+          apply: () =&gt; { /* add word to your dictionary. */ }
+        }]
+      })
+    }
+  }]
+}
+</code></p>
+
+<p>Multiple grammars can be provided by returning an array. <code>name</code> and <code>checkWord</code>
+are required, but all other properties and methods are optional. If
+<code>grammarScopes</code> or <code>languages</code> are not provided then provider will be used for
+all grammar scopes or languages, respectively.</p>
+
+<p>If <code>checkRange</code> is provided then it is assumed that the dictionary knows how
+find line breaks for all of the languages listed in <code>languages</code>. <code>linter-spell</code>
+will then move that provider to the front of the queue and allow it to perform
+word and breaks and return words that are potentially misspelled. Those
+potential misspellings are then passed to the dictionary providers that only
+define <code>checkWord</code> for an opportunity to check the word against their
+dictionary.</p>
+
+<p>If a provider cannot find a word in its dictionary then it should at least
+return <code>{ isWord: false }</code>. It may also return a list of <code>suggestions</code> or a list
+of <code>actions</code> to take on the misspelled word. For example, adding the word to a
+language specific dictionary.</p>
+<section class="package-keywords">
+  <strong>Keywords:</strong> linter, spell-check, asciidoc, markdown <a href="https://github.com/AtomLinter/linter-spell/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

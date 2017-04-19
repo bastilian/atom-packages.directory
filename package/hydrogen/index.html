@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Hydrogen
+  <a href="https://github.com/nteract/hydrogen">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+    <span class="author">by Will Whitney <me@willwhitney.com></span>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install hydrogen
+  </pre>
+</div>
+<h1 id="hydrogen">Hydrogen</h1>
+
+<p><a href="https://slackin-nteract.now.sh"><img src="https://slackin-nteract.now.sh/badge.svg" alt="slack in" /></a>
+<a href="https://greenkeeper.io/"><img src="https://badges.greenkeeper.io/nteract/hydrogen.svg" alt="Greenkeeper badge" /></a>
+<a href="https://travis-ci.org/nteract/hydrogen"><img src="https://travis-ci.org/nteract/hydrogen.svg?branch=master" alt="Build Status" /></a></p>
+
+<p>This package lets you run your code directly in Atom using any <a href="https://jupyter.org/">Jupyter</a> kernels you have installed.</p>
+
+<p>Checkout our <a href="https://medium.com/nteract/hydrogen-interactive-computing-in-atom-89d291bcc4dd">Medium blog post</a> to see what you can do with Hydrogen.</p>
+
+<p><img src="https://cloud.githubusercontent.com/assets/13285808/20360886/7e03e524-ac03-11e6-9176-37677f226619.gif" alt="hero" /></p>
+
+<h2 id="contents">Contents</h2>
+<ol>
+  <li><a href="#background">Background</a></li>
+  <li><a href="#features">Features</a></li>
+  <li><a href="#installation">Installation</a></li>
+  <li><a href="#troubleshooting">Troubleshooting</a></li>
+  <li><a href="#usage">Usage</a></li>
+  <li><a href="#plugins-for-hydrogen">Plugins for Hydrogen</a></li>
+  <li><a href="#how-it-works">How it works</a></li>
+  <li><a href="#remote-kernels-via-kernel-gateways">Remote kernels via kernel gateways</a></li>
+  <li><a href="#custom-kernel-connection">Custom kernel connection</a></li>
+  <li><a href="#why-hydrogen">Why “Hydrogen”?</a></li>
+  <li><a href="#development">Development</a></li>
+</ol>
+
+<h2 id="background">Background</h2>
+
+<p>Hydrogen was inspired by Bret Victor’s ideas about the power of instantaneous feedback and the design of <a href="http://lighttable.com/">Light Table</a>. Running code inline and in real time is a more natural way to develop. By bringing the interactive style of Light Table to the rock-solid usability of Atom, Hydrogen makes it easy to write code the way you want to.</p>
+
+<p>You also may be interested in our latest project – <a href="https://github.com/nteract/nteract">nteract</a> – a desktop application that wraps up the best of the web based Jupyter notebook.</p>
+
+<h2 id="features">Features</h2>
+
+<ul>
+  <li>execute a line, selection, or block at a time</li>
+  <li>rich media support for plots, images, and video</li>
+  <li>watch expressions let you keep track of variables and re-run snippets after every change</li>
+  <li>completions from the running kernel, just like autocomplete in the Chrome dev tools</li>
+  <li>code can be inspected to show useful information provided by the running kernel</li>
+  <li>one kernel per language (so you can run snippets from several files, all in the same namespace)</li>
+  <li>interrupt or restart the kernel if anything goes wrong</li>
+  <li>use a custom kernel connection (for example to run code inside Docker), read more in the “Custom kernel connection (inside Docker)” section</li>
+</ul>
+
+<h2 id="installation">Installation</h2>
+
+<p>For all systems, you’ll need</p>
+
+<ul>
+  <li><a href="https://atom.io/">Atom</a> <code>1.6.0+</code></li>
+  <li><a href="http://jupyter.org">Jupyter</a>: If you have Python and conda or pip setup, install the notebook directly with <code>conda install jupyter</code> or <code>pip install jupyter</code>.</li>
+</ul>
+
+<p>You can now run <code>apm install hydrogen</code> or search for <em>Hydrogen</em> in the Install pane of the Atom settings.</p>
+
+<p>If you are using Linux 32-bit follow the installation instructions <a href="TROUBLESHOOTING.md">here</a>.</p>
+
+<h3 id="kernels">Kernels</h3>
+
+<p>Tested and works with:</p>
+
+<ul>
+  <li><a href="http://ipython.org/">IPython</a></li>
+  <li><a href="https://github.com/JuliaLang/IJulia.jl">IJulia</a></li>
+  <li><a href="https://github.com/facebook/iTorch">iTorch</a></li>
+  <li><a href="https://github.com/n-riesco/ijavascript">IJavascript</a></li>
+  <li><a href="https://github.com/notablemind/jupyter-nodejs">jupyter-nodejs</a></li>
+  <li><a href="https://github.com/IRkernel/IRkernel">IRkernel</a> <code>0.4+</code></li>
+  <li><a href="https://github.com/pprzetacznik/IElixir">IElixir</a></li>
+  <li><a href="https://github.com/alexarchambault/jupyter-scala">jupyter-scala</a></li>
+</ul>
+
+<p>But it <em>should</em> work with any <a href="https://github.com/ipython/ipython/wiki/IPython-kernels-for-other-languages">kernel</a>. If you are using Hydrogen with another kernel please add it to this list or <a href="https://github.com/nteract/hydrogen/issues">post an issue</a> if anything is broken!</p>
+
+<p><img src="https://cloud.githubusercontent.com/assets/13285808/16931386/048f056e-4d41-11e6-8563-3baa8ed84371.png" /></p>
+
+<p>Note that if you install a new kernel, you’ll need to run <strong>Hydrogen: Update Kernels</strong> for Hydrogen to find it. For performance reasons, Hydrogen only looks for available kernels when it first starts.</p>
+
+<h4 id="debian-8-and-ubuntu-1604-lts">Debian 8 and Ubuntu 16.04 LTS</h4>
+
+<p>Unfortunately, the versions of IPython provided in Debian’s and Ubuntu’s
+repositories are rather old and Hydrogen is unable to detect the kernel specs
+installed in your machine. To workaround this issue, Hydrogen provides the
+setting <code>KernelSpec</code>, where the user can declare the kernel specs manually.
+Find the <code>KernelSpec</code> setting in the Atom GUI by going to the Settings pane,
+click Packages, search for Hydrogen, and click the Hydrogen Settings button.</p>
+
+<p>Below is an example <code>KernelSpec</code> for IPython 2 and 3:</p>
+
+<p><code>json
+{
+  "kernelspecs": {
+    "python2": {
+      "spec": {
+        "display_name": "Python 2",
+        "language": "python",
+        "argv": ["python2.7", "-m", "ipykernel", "-f", "{connection_file}"],
+        "env": {}
+      }
+    },
+    "python3": {
+      "spec": {
+        "display_name": "Python 3",
+        "language": "python",
+        "argv": ["python3.4", "-m", "ipykernel", "-f", "{connection_file}"],
+        "env": {}
+      }
+    }
+  }
+}
+</code></p>
+
+<h2 id="troubleshooting">Troubleshooting</h2>
+
+<p>We have a <a href="TROUBLESHOOTING.md">troubleshooting guide</a>! It’s pretty sparse at the
+moment, so please share with us the resolution to any rough spots that you find.</p>
+
+<h2 id="usage">Usage</h2>
+
+<p>Hydrogen provides a selection of commands for running code. Press ⌘-⇧-P to open the command palette and type “hydrogen” and they will come up.</p>
+
+<h3 id="hydrogen-run">“Hydrogen: Run”</h3>
+<p>There are two ways to tell Hydrogen which code in your file to run.</p>
+
+<ol>
+  <li><strong>Selected code:</strong> If you have code selected when you hit Run, Hydrogen will run exactly that code.</li>
+  <li>
+    <p><strong>Current block:</strong> With no code selected, Hydrogen will try to find the complete block that’s on or before the current line.</p>
+
+    <ul>
+      <li>
+        <p>If the line you’re on is already a complete expression (like <code>s = "abracadabra"</code>), Hydrogen will run just that line.</p>
+      </li>
+      <li>
+        <p>If the line you’re on is the start of a block like a <code>for</code> loop, Hydrogen will run the whole block.</p>
+      </li>
+      <li>
+        <p>If the line you’re on is blank, Hydrogen will run the first block above that line.</p>
+      </li>
+    </ul>
+  </li>
+</ol>
+
+<p>It’s easiest to see these interactions visually:</p>
+
+<p><img src="https://cloud.githubusercontent.com/assets/13285808/20360915/a16efcba-ac03-11e6-9d5c-3489b3c3c85f.gif" alt="execute" /></p>
+
+<p><strong>“Hydrogen: Run And Move Down”</strong> will run the the code as described above and move the cursor to the next executable line.</p>
+
+<p>If your code starts getting cluttered up with results, run <strong>“Hydrogen: Clear Results”</strong> to remove them all at once.</p>
+
+<h3 id="hydrogen-run-cell">“Hydrogen: Run Cell”</h3>
+<p>A “code cell” is a block of lines to be executed at once. You can define them using inline comments. Hydrogen supports a
+multitude of ways to define cells. Pick the one you like best.
+The following is an example for <code>python</code> but it will work in any language, just replace <code>#</code> with the comment symbol for your desired language:</p>
+
+<p>&lt;img width=280 src=”https://cloud.githubusercontent.com/assets/13285808/17094174/e8ec17b8-524d-11e6-9140-60b43e073619.png”&gt;</p>
+
+<p>When you place the cursor inside a cell and hit <strong>“Run Cell”</strong>, Hydrogen will execute this cell. The command <strong>“Hydrogen: Run Cell And Move Down”</strong> will move the cursor to the next cell after execution.</p>
+
+<h3 id="hydrogen-run-all-and-hydrogen-run-all-above">“Hydrogen: Run All” and “Hydrogen: Run All Above”</h3>
+<p>These commands will run all code inside the editor or all code above the cursor.</p>
+
+<h3 id="watch-expressions">Watch Expressions</h3>
+
+<p>After you’ve run some code with Hydrogen, you can use the <strong>“Hydrogen: Toggle Watches”</strong> command from the Command Palette to open the watch expression sidebar. Whatever code you write in watch expressions will be re-run after each time you send that kernel any other code.</p>
+
+<p><img src="https://cloud.githubusercontent.com/assets/13285808/20361086/4434ab3e-ac04-11e6-8298-1fb925de4e78.gif" alt="watch" /></p>
+
+<p><strong>IMPORTANT:</strong> Be careful what you put in your watch expressions. If you write code that mutates state in a watch expression, that code will get run after every execute command and likely result in some <em>extremely confusing</em> bugs.</p>
+
+<p>You can re-run the watch expressions by using the normal run shortcut (⌘-↩ by default) inside a watch expression’s edit field.</p>
+
+<p>If you have multiple kernels running, you can switch between their watch expressions with the <strong>“Hydrogen: Select Watch Kernel”</strong> command (or just click on the “Kernel: <language>" text).</language></p>
+
+<h3 id="completion">Completion</h3>
+
+<p>Receive completions from the running kernel.</p>
+
+<p><img width="416" src="https://cloud.githubusercontent.com/assets/13285808/14108987/35d17fae-f5c0-11e5-9c0b-ee899387f4d9.png" /></p>
+
+<h3 id="code-introspection">Code Introspection</h3>
+
+<p>You can use the <strong>“Hydrogen: Toggle Inspector”</strong> command from the Command Palette to get metadata from the kernel about the object under the cursor.</p>
+
+<p><img width="770" src="https://cloud.githubusercontent.com/assets/13285808/14108719/d72762bc-f5be-11e5-8188-32725e3d2726.png" /></p>
+
+<h3 id="managing-kernels">Managing kernels</h3>
+
+<p>Sometimes things go wrong. Maybe you’ve written an infinite loop, maybe the kernel has crashed, or maybe you just want to clear the kernel’s namespace. Use the command palette to <strong>interrupt</strong> (think <code>Ctrl-C</code> in a REPL) or <strong>restart</strong> the kernel.</p>
+
+<p>You can also access these commands by clicking on the kernel status in the status bar or via the command palette. It looks like this:</p>
+
+<p>&lt;img src=”https://cloud.githubusercontent.com/assets/13285808/16894732/e4e5b4de-4b5f-11e6-8b8e-facf17a7c6c4.png” width=300&gt;</p>
+
+<p>Additionally, if you have two or more kernels for a particular language (grammar), you can select which kernel to use with the “Switch to <kernel>" option in the Kernel Commands menu.</kernel></p>
+
+<h3 id="multiple-kernels-inside-one-rich-document">Multiple kernels inside one rich document</h3>
+
+<p>If you are working in a markup file that supports highlighted code blocks, we can handle multiple kernels per file. This way you can write your documentation, readme or paper together with your code while retaining the interactivity of Hydrogen.</p>
+
+<p>&lt;img src=”https://cloud.githubusercontent.com/assets/13285808/24365090/0af6a91c-1315-11e7-92c6-849031bf9f6a.gif” height=350&gt;</p>
+
+<p>We support <a href="https://github.com/burodepeper/language-markdown">markdown</a>, <a href="https://github.com/atom/language-gfm">gfm</a>, <a href="https://github.com/asciidoctor/atom-language-asciidoc">asciidoc</a>, <a href="https://github.com/Lukasa/language-restructuredtext">reStructuredText</a> and <a href="https://github.com/christophergandrud/language-knitr/">knitr</a>.</p>
+
+<h2 id="plugins-for-hydrogen">Plugins for Hydrogen</h2>
+
+<p>Hydrogen has support for plugins. Feel free to add your own to the list:
+- <a href="https://github.com/lgeiger/hydrogen-launcher">Hydrogen Launcher</a></p>
+
+<p>If you are interested in building a plugin take a look at our <a href="PLUGIN_API.md">plugin API documentation</a>.</p>
+
+<h2 id="how-it-works">How it works</h2>
+
+<p>Hydrogen implements the <a href="http://jupyter-client.readthedocs.io/en/latest/messaging.html">messaging protocol</a> for <a href="https://jupyter.org/">Jupyter</a>. Jupyter (formerly IPython) uses ZeroMQ to connect a client (like Hydrogen) to a running kernel (like IJulia or iTorch). The client sends code to be executed to the kernel, which runs it and sends back results.</p>
+
+<h2 id="remote-kernels-via-kernel-gateways">Remote kernels via kernel gateways</h2>
+
+<p>In addition to managing local kernels and connecting to them over ZeroMQ, Hydrogen is also able to connect to Jupyter Notebook (or Jupyter Kernel Gateway) servers. This is most useful for running code remotely (e.g. in the cloud).</p>
+
+<p>To connect to a server, you must first add the connection information to the Hydrogen <code>gateways</code> setting. An example settings entry might be:</p>
+
+<p><code>json
+[{
+  "name": "Remote notebook",
+  "options": {
+    "baseUrl": "http://example.com:8888",
+    "token": "my_secret_token"
+  }
+}]
+</code></p>
+
+<p>Each entry in the gateways list needs at minimum a <code>name</code> (for displaying in the UI), and a value for <code>options.baseUrl</code>. The <code>options.token</code> should only be present if your server requires token authentication, in which case it should contain the specific token issued by your server. (Token authentication is enabled by default for Jupyter Notebook 4.3 or later). The <code>options</code> are passed directly to the <a href="https://github.com/jupyterlab/services"><code>@jupyterlab/services</code></a> npm package, which includes documentation for additional fields.</p>
+
+<p>After gateways have been configured, you can use the <strong>“Hydrogen: Connect to Remote Kernel”</strong> command. You will be prompted to select a gateway, and then given the choice to either create a new session or connect to an existing one.</p>
+
+<p>Unlike with local kernels, Hydrogen does not kill remote kernels when it disconnects from them. This allows sharing remote kernels between Hydrogen and the Notebook UI, as well as using them for long-running processes. To clean up unused kernels, you must explicitly call the <strong>“Hydrogen: Shutdown Kernel”</strong> command while connected to a kernel.</p>
+
+<h3 id="example-with-notebook-server">Example with notebook server</h3>
+
+<p>To set up a server on the remote machine, you could</p>
+
+<ul>
+  <li>Install Jupyter Notebook:</li>
+</ul>
+
+<p><code>bash
+pip install jupyter
+</code></p>
+
+<ul>
+  <li>Check to see if you have the notebook configuration file, <code>jupyter_notebook_config.py</code>. By default, it is located in <code>~/.jupyter</code>. If you don’t already have one, create one by running the command:</li>
+</ul>
+
+<p><code>bash
+jupyter notebook --generate-config
+</code></p>
+
+<ul>
+  <li>
+    <p>Edit <code>jupyter_notebook_config.py</code> and find the line that says <code>#c.NotebookApp.token = ''</code>. Change it to say <code>c.NotebookApp.token = 'my_secret_token'</code>, substituting your choice of token string. (If you skip this step, the token will change every time the notebook server restarts).</p>
+  </li>
+  <li>
+    <p>To run a server that listens on localhost, use the command:</p>
+  </li>
+</ul>
+
+<p><code>bash
+jupyter notebook --port=8888
+</code></p>
+
+<ul>
+  <li>To run a public server, consult the <a href="http://jupyter-notebook.readthedocs.io/en/latest/public_server.html">official instructions</a> for setting up certificates. Skip the steps for setting up a password: hydrogen only supports token-based authentication. Also note that hydrogen does not support self-signed certificates – we recommend that you use Let’s Encrypt or consider alternatives such as listening on localhost followed by SSH port forwarding.</li>
+</ul>
+
+<h3 id="example-with-kernel-gateway-server">Example with kernel gateway server</h3>
+
+<p>As of December 2016, we recommend that you use a notebook server (version 4.3 or greater) instead of the Jupyter Kernel Gateway. We expect this to change in the future, and will update this README when that occurs.</p>
+
+<h2 id="docker-execution-via-kernel-gateways">Docker execution via kernel gateways</h2>
+
+<p>You can use the same technique to create a kernel gateway in a Docker container. That would allow you to develop from Atom but with all the dependencies, autocompletion, environment, etc. of a Docker container.</p>
+
+<p><strong>Note</strong>: due to the way that the kernel gateway creates sub-processes for each kernel, you have to use it in a special way, you can’t run the <code>jupyter kernelgateway</code> directly in your <code>Dockerfile</code> <code>CMD</code> section. You need to call it with an init manager such as <a href="https://github.com/krallin/tini"><strong>tini</strong></a> or run it from an interactive console.</p>
+
+<p>If all you need is a Docker Python environment to execute your code, you can read the section <a href="#example-jupyter-docker-stack-kernel-gateway"><strong>Example Jupyter Docker Stack kernel gateway</strong></a> (this method uses <strong>tini</strong> under the hood).</p>
+
+<p>If you want to add a temporal Kernel Gateway (for development) to your current Docker images or need to modify an existing image to add the Kernel Gateway functionality, read the section <a href="#example-docker-kernel-gateway"><strong>Example Docker kernel gateway</strong></a> (this method runs the kernel gateway from an interactive console).</p>
+
+<h3 id="example-jupyter-docker-stack-kernel-gateway">Example Jupyter Docker Stack kernel gateway</h3>
+
+<p>Follow this if you only need to have a simple environment to run commands inside a Docker container and nothing more.</p>
+
+<p>If you need to customize a Docker image (e.g. for web development) follow the section below: <a href="#example-docker-kernel-gateway"><strong>Example Docker kernel gateway</strong></a>.</p>
+
+<h4 id="dockerfile">Dockerfile</h4>
+
+<ul>
+  <li>Create a <code>Dockerfile</code> based on one of the <a href="https://github.com/jupyter/docker-stacks">Jupyter Docker Stacks</a>.</li>
+  <li>Install <code>jupyter_kernel_gateway</code> in your <code>Dockerfile</code></li>
+  <li>Expose the gateway port, in this example it will be <code>8888</code></li>
+  <li>Make the command to run be the Kernel Gateway:</li>
+</ul>
+
+<p>```Dockerfile
+FROM jupyter/minimal-notebook</p>
+
+<p>RUN pip install jupyter_kernel_gateway</p>
+
+<p>EXPOSE 8888
+CMD [“jupyter”, “kernelgateway”, “–KernelGatewayApp.ip=0.0.0.0”, “–KernelGatewayApp.port=8888”]
+```</p>
+
+<h4 id="run-docker-container-with-docker-commands">Run Docker Container with Docker commands</h4>
+
+<p><strong>Note</strong>: alternatively, see below for <code>docker-compose</code> instructions.</p>
+
+<ul>
+  <li>Build your container:</li>
+</ul>
+
+<p><code>bash
+docker build -t hydro-kernel-gateway .
+</code></p>
+
+<ul>
+  <li>Run your container mapping the port of the gateway</li>
+  <li>Give your container a name</li>
+</ul>
+
+<p><code>bash
+docker run -it --rm --name hydro-kernel-gateway -p 8888:8888 hydro-kernel-gateway
+</code></p>
+
+<p><strong>Note</strong>: you will only be able to run one container using that port mapping. So, if you had another container using that port, you will have to stop that one first. Or alternatively, you can create a mapping to a new port and add that configuration in the Hydrogen settings (see below).</p>
+
+<h4 id="run-docker-container-with-docker-compose">Run Docker Container with Docker Compose</h4>
+
+<ul>
+  <li>Create a <code>docker-compose.yml</code> file with something like:</li>
+</ul>
+
+<p><code>yml
+version: '2'
+services:
+  hydro-kernel-gateway:
+    build: .
+    ports:
+      - "8888:8888"
+</code></p>
+
+<ul>
+  <li>The <code>docker-compose.yml</code> file has a port mapping using the port exposed in the <code>Dockerfile</code> and used in the <code>jupyter kernelgateway</code> command</li>
+</ul>
+
+<p><strong>Note</strong>: you will only be able to run one container using that port mapping. So, if you had another container using that port, you will have to stop that one first. Or alternatively, you can create a mapping to a new port and add that configuration in the Hydrogen settings (see below).</p>
+
+<ul>
+  <li>Now start (and build) your container with <code>docker-compose</code>:</li>
+</ul>
+
+<p><code>bash
+docker-compose up -d
+</code></p>
+
+<ul>
+  <li>Check the name of your running container with:</li>
+</ul>
+
+<p><code>bash
+docker-compose ps
+</code></p>
+
+<h4 id="connect-atom">Connect Atom</h4>
+
+<p>Now you need to connect Atom to your setup. Follow the section <a href="#connect-atom-1"><strong>Connect Atom</strong></a> below.</p>
+
+<h3 id="example-docker-kernel-gateway">Example Docker kernel gateway</h3>
+
+<p>Follow this if you need to customize a Docker image you already have. For example, for a web project.</p>
+
+<p>If you only need a simple environment in where to run Python commands with Hydrogen inside a Docker container, follow the section above: <a href="#example-jupyter-docker-stack-kernel-gateway"><strong>Example Jupyter Docker Stack kernel gateway</strong></a>.</p>
+
+<h4 id="dockerfile-1">Dockerfile</h4>
+
+<ul>
+  <li>Create a <code>Dockerfile</code></li>
+  <li>Install <code>jupyter_kernel_gateway</code> in your <code>Dockerfile</code></li>
+  <li>Expose the gateway port, in this example it will be <code>8888</code>:</li>
+</ul>
+
+<p>```Dockerfile
+FROM python:2.7</p>
+
+<h1 id="remove-in-production">Remove in production</h1>
+<p>RUN pip install jupyter_kernel_gateway
+EXPOSE 8888
+```</p>
+
+<h4 id="run-docker-container-with-docker-commands-1">Run Docker Container with Docker commands</h4>
+
+<p><strong>Note</strong>: alternatively, see below for <code>docker-compose</code> instructions.</p>
+
+<ul>
+  <li>Build your container:</li>
+</ul>
+
+<p><code>bash
+docker build -t hydro .
+</code></p>
+
+<ul>
+  <li>Run your container mapping the port of the gateway</li>
+  <li>Give your container a name</li>
+  <li>Make it run an infinite loop that just keeps the container alive:</li>
+</ul>
+
+<p><code>bash
+docker run -d -p 8888:8888 --name hydro  hydro bash -c "while true; do sleep 10; done"
+</code></p>
+
+<p><strong>Note</strong>: you will only be able to run one container using that port mapping. So, if you had another container using that port, you will have to stop that one first. Or alternatively, you can create a mapping to a new port and add that configuration in the Hydrogen settings (see below).</p>
+
+<ul>
+  <li>Execute an interactive bash session in your running container:</li>
+</ul>
+
+<p><code>bash
+docker exec -it hydro bash
+</code></p>
+
+<ul>
+  <li>From that interactive session, start the gateway</li>
+  <li>Specify the IP <code>0.0.0.0</code> to make your container listen to public connections</li>
+  <li>Specify the port that you exposed in your <code>Dockerfile</code>:</li>
+</ul>
+
+<p><code>bash
+jupyter kernelgateway --ip=0.0.0.0 --port=8888
+</code></p>
+
+<h4 id="run-docker-container-with-docker-compose-1">Run Docker Container with Docker Compose</h4>
+
+<ul>
+  <li>Create a <code>docker-compose.yml</code> file with something like:</li>
+</ul>
+
+<p><code>yml
+version: '2'
+services:
+  hydro:
+    build: .
+    ports:
+      - "8888:8888"
+    command: bash -c "while true; do sleep 10; done"
+</code></p>
+
+<ul>
+  <li>The <code>docker-compose.yml</code> file has a port mapping using the port exposed in the <code>Dockerfile</code> and used in the <code>jupyter kernelgateway</code> command</li>
+  <li>The <code>command</code> overrides the default <code>CMD</code> in the <code>Dockerfile</code> (if there was one) and executes an infinite loop that would just keep the container alive</li>
+</ul>
+
+<p><strong>Note</strong>: you will only be able to run one container using that port mapping. So, if you had another container using that port, you will have to stop that one first. Or alternatively, you can create a mapping to a new port and add that configuration in the Hydrogen settings (see below).</p>
+
+<ul>
+  <li>Now start (and build) your container with <code>docker-compose</code>:</li>
+</ul>
+
+<p><code>bash
+docker-compose up -d
+</code></p>
+
+<ul>
+  <li>Check the name of your running container with:</li>
+</ul>
+
+<p><code>bash
+docker-compose ps
+</code></p>
+
+<ul>
+  <li>Execute an interactive bash session in your running container (use the name from above), e.g.:</li>
+</ul>
+
+<p><code>bash
+docker exec -it myproject_hydro_1 bash
+</code></p>
+
+<ul>
+  <li>From that interactive session, start the gateway</li>
+  <li>Specify the IP <code>0.0.0.0</code> to make your container listen to public connections</li>
+  <li>Specify the port that you exposed in your <code>Dockerfile</code>:</li>
+</ul>
+
+<p><code>bash
+jupyter kernelgateway --ip=0.0.0.0 --port=8888
+</code></p>
+
+<h3 id="connect-atom-1">Connect Atom</h3>
+
+<ul>
+  <li>Go to the settings in Atom with: <code>ctrl-shift-p</code> and type <code>Settings View: Open</code></li>
+  <li>Go to the “Packages” section</li>
+  <li>Type <code>Hydrogen</code> and go to package settings</li>
+  <li>In the section “List of kernel gateways to use” add settings for the container your created</li>
+  <li>Use a <code>name</code> that you can remind when running Hydrogen</li>
+  <li>In the <code>baseUrl</code> section use the host or IP that you use to access your Docker containers:
+    <ul>
+      <li>If you are using Docker Toolbox in Windows or Mac (or Docker for Windows, Docker for Mac), as it will be running in a virtual machine, the IP (host) would probably be like: <code>192.168.99.100</code>, you can read about it and check the <code>docker-machine ip default</code> command <a href="https://docs.docker.com/machine/get-started/#/run-containers-and-experiment-with-machine-commands">in the official Docker docs</a></li>
+      <li>If you are using Docker in a Linux machine and you are running Atom in that same machine you can just use <code>localhost</code> as the host of your <code>baseUrl</code></li>
+    </ul>
+  </li>
+  <li>For example, a possible configuration for Docker Toolbox in Windows or Mac could be:</li>
+</ul>
+
+<p><code>JSON
+[{"name": "Docker Toolbox", "options": {"baseUrl": "http://192.168.99.100:8888"}}]
+</code></p>
+
+<ul>
+  <li>In Atom, open a Python file, e.g. <code>main.py</code></li>
+  <li>Connect to the kernel you just configured: <code>ctrl-shift-p</code> and type: <code>Hydrogen: Connect To Remote Kernel</code></li>
+  <li>Select the kernel gateway you configured, e.g. <code>Docker Toolbox</code></li>
+  <li>Select the “type of kernel” to run, there will just be the option <code>Python 2</code> or <code>Python 3</code></li>
+  <li>Then select the line or block of code that you want to execute inside of your container</li>
+  <li>Run the code with: <code>ctrl-shift-p</code> and type: <code>Hydrogen: Run</code></li>
+</ul>
+
+<h3 id="testing-it">Testing it</h3>
+
+<p>You can test that it is actually working by installing a package in your container that you don’t have locally and using it inside your container (from your Atom editor).</p>
+
+<ul>
+  <li>For example, install the Python package <code>markdown</code> in your <code>Dockerfile</code>:</li>
+</ul>
+
+<p>```Dockerfile
+FROM python:2.7</p>
+
+<p>RUN pip install markdown</p>
+
+<h1 id="remove-in-production-1">Remove in production</h1>
+<p>RUN pip install jupyter_kernel_gateway
+EXPOSE 8888
+```</p>
+
+<p><strong>Note</strong>: If you followed the <a href="#example-jupyter-docker-stack-kernel-gateway"><strong>Example Jupyter Docker Stack kernel gateway</strong></a> section, your <code>Dockerfile</code> will look different. Just make sure you add a line with:</p>
+
+<p><code>Dockerfile
+RUN pip install markdown
+</code></p>
+
+<ul>
+  <li>Follow all the instructions above, and use a Python file that has:</li>
+</ul>
+
+<p><code>python
+import markdown
+markdown.version
+</code></p>
+
+<ul>
+  <li>Select the code and run it with: <code>ctrl-shift-p</code> and type <code>Hydrogen: Run</code>, you will see the code executed inline like:</li>
+</ul>
+
+<p><code>python
+import markdown [✓]
+markdown.version ['2.6.6']
+</code></p>
+
+<h3 id="terminate-the-connection-and-container">Terminate the connection and container</h3>
+
+<ul>
+  <li>
+    <p>To terminate a running kernel gateway you can “kill” it as any Linux process with <code>ctrl-c</code></p>
+  </li>
+  <li>
+    <p>If you followed the <a href="#example-jupyter-docker-stack-kernel-gateway"><strong>Example Jupyter Docker Stack kernel gateway</strong></a> section, it will just work.</p>
+  </li>
+</ul>
+
+<p>But, if you are using the general instructions (for a custom Docker image), because of the way Jupyter Kernel Gateway creates sub-processes and due to the fact that you are running in a Docker container, the actual kernel process will still be running.</p>
+
+<ul>
+  <li>Before exiting the terminal, find the still running (Python) kernel process with:</li>
+</ul>
+
+<p><code>bash
+ps -fA
+</code></p>
+
+<ul>
+  <li>You will get something like:</li>
+</ul>
+
+<p><code>
+root@6d09f8fee132:/# ps -fA
+UID        PID  PPID  C STIME TTY          TIME CMD
+root         1     0  0 00:21 ?        00:00:00 bash -c while true; do sleep 10; done
+root        10     0  0 00:22 ?        00:00:00 bash
+root        23     0  0 00:22 ?        00:00:00 /usr/local/bin/python2 -m ipykernel -f /root/.local/share/jupyter/runtime/kernel-95baef8a-6427-4415-bc95-e02dc74e4ebb.js
+root        77     1  0 00:28 ?        00:00:00 sleep 10
+root        78    10  0 00:28 ?        00:00:00 ps -fA
+</code></p>
+
+<ul>
+  <li>Kill the <code>ipykernel</code> process by killing all the <code>python</code> processes:</li>
+</ul>
+
+<p><code>bash
+pkill python
+</code></p>
+
+<ul>
+  <li>Now you can exit the interactive terminal with:</li>
+</ul>
+
+<p><code>bash
+exit
+</code></p>
+
+<h2 id="custom-kernel-connection">Custom kernel connection</h2>
+
+<p><strong>Hydrogen</strong> also supports using a custom kernel connection file for each project. It could be used to connect to “remote” environments as Docker, a remote computer, etc. But the method described above using <a href="#remote-kernels-via-kernel-gateways"><strong>kernel gateways</strong></a> is less error prone and simpler to apply in more cases.</p>
+
+<p>The recommended way of connecting to remote kernels is now using <a href="#remote-kernels-via-kernel-gateways"><strong>kernel gateways</strong> as described above</a>. But if you still need to use a custom kernel connection file you can <a href="https://github.com/nteract/hydrogen/blob/master/KERNEL_CONNECTION.md">read the <strong>Custom kernel connection</strong> guide here</a>.</p>
+
+<h2 id="why-hydrogen">Why “Hydrogen”?</h2>
+
+<p>Hydrogen atoms make up 90% of Jupiter by volume.</p>
+
+<p>Plus, it was easy to make a logo.</p>
+
+<p><img src="https://cdn.rawgit.com/nteract/hydrogen/master/static/logo.svg" alt="hydrogen logo" /></p>
+
+<h2 id="development">Development</h2>
+<p>#### Quick and dirty setup</p>
+
+<p><code>apm develop hydrogen</code></p>
+
+<p>This will clone the <code>hydrogen</code> repository to <code>~/github</code> unless you set the
+<code>ATOM_REPOS_HOME</code> environment variable.</p>
+
+<h4 id="i-already-cloned-it">I already cloned it!</h4>
+
+<p>If you cloned it somewhere else, you’ll want to use <code>apm link --dev</code> within the
+package directory, followed by <code>apm install</code> to get dependencies.</p>
+
+<h3 id="workflow">Workflow</h3>
+
+<p>After pulling upstream changes, make sure to run <code>apm update</code>.</p>
+
+<p>To start hacking, make sure to run <code>atom --dev</code> from the package directory.
+Cut a branch while you’re working then either submit a Pull Request when done
+or when you want some feedback!</p>
+
+<h4 id="running-specs">Running specs</h4>
+
+<p>You can run specs by triggering the <code>window:run-package-specs</code> command in Atom. To run tests on the command line use <code>apm test</code> within the package directory.</p>
+
+<p>You can learn more about how to write specs <a href="http://flight-manual.atom.io/hacking-atom/sections/writing-specs/">here</a>.</p>
+
+<p><strong><a href="#contents">⬆ back to top</a></strong></p>
+<section class="package-keywords">
+  <strong>Keywords:</strong> execute, run, jupyter, ipython, julia, python, torch, ijulia, itorch, plot, image <a href="https://github.com/nteract/hydrogen/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

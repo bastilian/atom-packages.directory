@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Tool Bar
+  <a href="https://github.com/suda/tool-bar">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install tool-bar
+  </pre>
+</div>
+<h1 id="atom-tool-bar">Atom Tool Bar</h1>
+
+<p><a href="https://travis-ci.org/suda/tool-bar"><img src="https://travis-ci.org/suda/tool-bar.svg?branch=master" alt="Travis CI" /></a>
+<a href="https://circleci.com/gh/suda/tool-bar/tree/master"><img src="https://circleci.com/gh/suda/tool-bar/tree/master.svg?style=svg" alt="Circle CI" /></a>
+<a href="https://ci.appveyor.com/project/suda/tool-bar"><img src="https://ci.appveyor.com/api/projects/status/xtm6u3sn3oil50da?svg=true" alt="AppVeyor" /></a>
+<a href="https://gitter.im/suda/tool-bar?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge&amp;utm_content=badge"><img src="https://badges.gitter.im/Join%20Chat.svg" alt="Chat" /></a></p>
+
+<p>This package provides extensible tool bar for Atom.</p>
+
+<p><strong>Note:</strong> this package by itself adds an empty toolbar. To propagate it with
+icons you can <a href="#plugins">install plugins</a>.</p>
+
+<p><img src="http://cl.ly/image/2w0u3c1x1K3W/Screenshot-2015-04-21-16.46.49.png" alt="Horizontal" /></p>
+
+<p><img src="http://cl.ly/image/1t3U3F191p35/Screenshot-2015-04-21-16.45.46.png" alt="Vertical" /></p>
+
+<p><img src="http://cl.ly/image/3v1N2F3e3I47/Screenshot-2015-04-21-16.45.46_2.png" alt="Different Sizes" /></p>
+
+<p><img src="http://cl.ly/image/0g043b1e0P1X/Screenshot-2015-04-21-16.46.02.png" alt="Light Theme" /></p>
+
+<h2 id="configuration">Configuration</h2>
+
+<h3 id="position">Position</h3>
+
+<p>On which edge of the editor should the tool bar appear. Possible options:</p>
+
+<ul>
+  <li>Top</li>
+  <li>Right</li>
+  <li>Bottom</li>
+  <li>Left</li>
+</ul>
+
+<h3 id="icon-size">Icon size</h3>
+
+<ul>
+  <li>Very Small <em>(12px)</em></li>
+  <li>Small <em>(16px)</em></li>
+  <li>Big <em>(24px)</em></li>
+  <li>Large <em>(32px)</em></li>
+</ul>
+
+<h3 id="visibility">Visibility</h3>
+
+<ul>
+  <li>Visible</li>
+  <li>Hidden</li>
+</ul>
+
+<h3 id="full-width-available-in-atom--17">Full Width (available in Atom &gt;= 1.7)</h3>
+
+<p>When on top/bottom, expand to full window width.</p>
+
+<h2 id="plugins">Plugins</h2>
+
+<ul>
+  <li><a href="https://atom.io/packages/flex-tool-bar">Flex Tool Bar</a></li>
+  <li><a href="https://atom.io/packages/tool-bar-main">Tool Bar Main</a></li>
+  <li><a href="https://atom.io/packages/tool-bar-almighty">Toolbar Almighty</a></li>
+  <li><a href="https://atom.io/packages/tool-bar-atom">Toolbar for Atom</a></li>
+  <li><a href="https://atom.io/packages/tool-bar-shortcuts">Toolbar Shortcuts</a></li>
+  <li>And <a href="https://atom.io/packages/search?utf8=%E2%9C%93&amp;q=keyword%3Atool-bar">more</a>…</li>
+</ul>
+
+<h2 id="packages-using-tool-bar">Packages using tool-bar</h2>
+
+<ul>
+  <li><a href="https://atom.io/packages/spark-dev">Particle Dev</a></li>
+  <li><a href="https://atom.io/packages/nuclide">Facebook Nuclide</a></li>
+  <li><a href="https://atom.io/packages/platformio-ide">PlatformIO IDE</a></li>
+</ul>
+
+<h2 id="integrating-instructions">Integrating instructions</h2>
+
+<p>By itself this package shows an empty tool bar. To add buttons and spacers to
+the tool bar, follow the instructions below.</p>
+
+<h3 id="packagejson">Package.json</h3>
+
+<p>Make sure the following properties are part of your <code>package.json</code>.</p>
+
+<p><code>json
+"consumedServices": {
+  "tool-bar": {
+    "versions": {
+      "^0 || ^1": "consumeToolBar"
+    }
+  }
+}
+</code></p>
+
+<p>We recommend using <a href="https://github.com/steelbrain/package-deps">Atom-Package-Deps</a> 
+in your package for installing dependency packages like this package.</p>
+
+<h3 id="main-package-file">Main package file</h3>
+
+<p>In your main package file, add the following methods and replace
+<code>your-package-name</code> with your package name.</p>
+
+<p>```js
+let toolBar;</p>
+
+<p>export function consumeToolBar(getToolBar) {
+  toolBar = getToolBar(‘your-package-name’);
+  // Add buttons and spacers here…
+}</p>
+
+<p>export function deactivate() {
+  if (toolBar) {
+    toolBar.removeItems();
+    toolBar = null;
+  }
+}
+```</p>
+
+<h3 id="example">Example</h3>
+
+<p>```js
+let toolBar;</p>
+
+<p>export function consumeToolBar(getToolBar) {
+  toolBar = getToolBar(‘your-package-name’);</p>
+
+<p>// Adding button
+  toolBar.addButton({
+    icon: ‘octoface’,
+    callback: ‘application:about’,
+    tooltip: ‘About Atom’
+  });</p>
+
+<p>// Adding spacer
+  toolBar.addSpacer();</p>
+
+<p>// Using custom icon set (Ionicons)
+  const button = toolBar.addButton({
+    icon: ‘gear-a’,
+    callback: ‘application:show-settings’,
+    tooltip: ‘Show Settings’,
+    iconset: ‘ion’
+  });</p>
+
+<p>// Disable button
+  button.setEnabled(false);</p>
+
+<p>// Function with data in callback
+  toolBar.addButton({
+    icon: ‘alert’,
+    callback(data) {
+      alert(data);
+    },
+    tooltip: ‘Show Alert’,
+    data: ‘foo’
+  });</p>
+
+<p>// Callback with modifiers
+  toolBar.addButton({
+    icon: ‘octoface’,
+    callback: {
+      ‘’: ‘application:cmd-1’,      // Without modifiers is default action
+      ‘alt’: ‘application:cmd-2’,
+      ‘ctrl’: ‘application:cmd-3’,  // With function callback
+      ‘shift’(data) {
+        console.log(data);
+      },
+      ‘alt+shift’: ‘application:cmd-5’,       // Multiple modifiers
+      ‘alt+ctrl+shift’: ‘application:cmd-6’   // All modifiers 
+    },
+    data: ‘foo’
+  });</p>
+
+<p>// Adding spacer and button at the beginning of the tool bar
+  toolBar.addSpacer({priority: 10});
+  toolBar.addButton({
+    icon: ‘octoface’,
+    callback: ‘application:about’,
+    priority: 10
+  });</p>
+
+<p>// Cleaning up when tool bar is deactivated
+  toolBar.onDidDestroy(() =&gt; {
+    this.toolBar = null;
+    // Teardown any stateful code that depends on tool bar …
+  });
+}
+```</p>
+
+<h2 id="methods">Methods</h2>
+
+<h3 id="addbuttonicon-callback-priority-tooltip-data"><code>.addButton({icon, callback, priority, tooltip, data})</code></h3>
+
+<p>The method <code>addButton</code> requires an object with at least the properties <code>icon</code>
+and <code>callback</code>. The <code>icon</code> can be any single icon from the <code>iconset</code>. The
+<code>callback</code> must be an Atom command string, an custom callback function or an
+object where the keys are key modifiers (<code>alt</code>, <code>ctrl</code> or <code>shift</code>) and the
+values are commands or custom function (see <a href="#example">example</a>).</p>
+
+<p>The remaining properties <code>tooltip</code> (default there is no tooltip),
+<code>iconset</code> (defaults to <code>Octicons</code>), <code>data</code> and <code>priority</code> (defaults <code>50</code>)
+are optional.</p>
+
+<p>The return value of this method shares another method called 
+<code>setEnabled(enabled)</code> to enable or disable the button.</p>
+
+<h3 id="addspacerpriority"><code>.addSpacer({priority})</code></h3>
+
+<p>The method <code>addSpacer</code> has only one optional property <code>priority</code> (defaults
+<code>50</code>).</p>
+
+<h3 id="removeitems"><code>.removeItems()</code></h3>
+
+<p>Use the method <code>removeItems</code> to remove the buttons added by your package. This
+is particular useful in your package <code>deactivate</code> method, but can be used at
+any time.</p>
+
+<h3 id="ondiddestroycallback"><code>.onDidDestroy(callback)</code></h3>
+
+<p>The <code>onDidDestroy</code> method takes a function that will be called when the
+<code>tool-bar</code> package is destroyed. This is useful if your package needs to do
+cleanup when the <code>tool-bar</code> is deactivated but your package continues running.</p>
+
+<h2 id="supported-icon-sets">Supported icon sets</h2>
+
+<ul>
+  <li><a href="https://octicons.github.com">Octicons</a> (Atom’s flavour)</li>
+  <li><a href="http://ionicons.com">Ionicons</a> (<code>ion</code>)</li>
+  <li><a href="http://fortawesome.github.io/Font-Awesome">FontAwesome</a> (<code>fa</code>)</li>
+  <li><a href="http://zurb.com/playground/foundation-icon-fonts-3">Foundation</a> (<code>fi</code>)</li>
+  <li><a href="https://icomoon.io">IcoMoon</a> (<code>icomoon</code>)</li>
+  <li><a href="http://devicon.fr">Devicon</a> (<code>devicon</code>)</li>
+  <li><a href="https://materialdesignicons.com/">MaterialDesignIcons</a> (<code>mdi</code>)</li>
+</ul>
+
+<h2 id="supported-commands">Supported commands</h2>
+
+<ul>
+  <li><code>tool-bar:toggle</code></li>
+  <li><code>tool-bar:position-top</code></li>
+  <li><code>tool-bar:position-right</code></li>
+  <li><code>tool-bar:position-bottom</code></li>
+  <li><code>tool-bar:position-left</code></li>
+</ul>
+
+<h2 id="authors">Authors</h2>
+
+<ul>
+  <li><a href="http://suda.pl">Wojtek Siudzinski</a> <sup>(owner)</sup></li>
+  <li><a href="https://github.com/jerone">Jeroen van Warmerdam</a></li>
+  <li><a href="https://github.com/cakecatz">Ryo Narita</a></li>
+</ul>
+
+<h2 id="contributors">Contributors</h2>
+
+<p>Issues and pull requests are very welcome. Feel free to write your own packages
+using this one. For all contributions credits are due:</p>
+
+<ul>
+  <li><a href="https://github.com/pbihler">Pascal Bihler</a></li>
+  <li><a href="https://github.com/nkt">Nikita Gusakov</a></li>
+  <li>Carlos Santos</li>
+  <li><a href="https://github.com/lexcast">Daniel Alejandro Cast</a></li>
+  <li><a href="https://github.com/JamesCoyle">James Coyle</a></li>
+  <li><a href="https://github.com/zertosh">Andres Suarez</a></li>
+</ul>
+<section class="package-keywords">
+  <strong>Keywords:</strong> toolbar, tool-bar, service <a href="https://github.com/suda/tool-bar/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

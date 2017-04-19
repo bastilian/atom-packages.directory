@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Dbg
+  <a href="https://github.com/31i73/atom-dbg">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install dbg
+  </pre>
+</div>
+<h1 id="dbg-package">dbg package</h1>
+
+<p>An interactive debugger frontend</p>
+
+<p><img src="http://i.imgur.com/1Xuvll8.png" alt="Debug screenshot" /></p>
+
+<p><img src="http://i.imgur.com/XcI592U.png" alt="Debug screenshot" /></p>
+
+<p>Supports:</p>
+
+<ul>
+  <li>Breakpoints</li>
+  <li>Interactive debugger controls (Continue/pause/stop/step-over/step-in/step-out)</li>
+  <li>Inline hints automatically mark changed variables when stepping through code</li>
+  <li>Browsable callstack</li>
+  <li>Local variable browsing</li>
+  <li>Multiple debugger backends via provided <code>dbg</code> service</li>
+</ul>
+
+<p>Current available backends:</p>
+
+<ul>
+  <li><a href="https://atom.io/packages/dbg-gdb">dbg-gdb</a> - Debug with gdb</li>
+</ul>
+
+<p><em>Please install a backend to get started!</em></p>
+
+<h2 id="commands">Commands:</h2>
+
+<p><code>dbg:debug</code> - Begins a new debug session, or continues an existing<br />
+<code>dbg:continue</code> - Continues a paused, active debug session<br />
+<code>dbg:pause</code> - Pause<br />
+<code>dbg:pause-continue</code> - Toggle pause/continue (or begin anew if none active)<br />
+<code>dbg:step-over</code> - Step over the current line of code<br />
+<code>dbg:step-in</code> - Step into the current procedure<br />
+<code>dbg:step-out</code> - Complete and step out of the current procedure<br />
+<code>dbg:stop</code> - Stop debugging<br />
+<code>dbg:toggle-breakpoint</code> - Toggle a breakpoint on the currently active line<br />
+<code>dbg:clear-breakpoints</code> - Clear all breakpoints</p>
+
+<p><code>dbg:custom-debug</code> - Opens the debug configuration panel<br />
+<code>dbg:select-config</code> - Opens the select list for choosing a saved debug configuration (.atom-dbg files)</p>
+
+<h2 id="debug-configuration-files">Debug Configuration Files:</h2>
+
+<p>If you need access to more options than are available in the config panel or you want to save different debug configs for easy use, you can click the save button from the debug config panel or create/amend a config file in the root directory of your project directory.</p>
+
+<p><strong>Supported files/formats:</strong><br />
+ <code>.atom-dbg.json</code> - Config file in JSON format<br />
+ <code>.atom-dbg.cson</code> - Config file in CSON format</p>
+
+<h3 id="example">Example:</h3>
+
+<p>This cson example creates debug configurations <code>client</code> and <code>server</code>, which can then be selected by starting a new debug session, or with the <code>dbg:select-config</code> command:</p>
+
+<p>```
+client:
+	debugger: ‘dbg-gdb’
+	cwd: ‘client’
+	path: ‘client/bin’
+	args: [’–connect’, ‘1234’]</p>
+
+<p>server:
+	debugger: ‘dbg-gdb’
+	cwd: ‘server’
+	path: ‘server/bin’
+	args: [’–port’, ‘1234’]
+```</p>
+
+<h4 id="config-parameters">Config Parameters:</h4>
+<p><code>debugger</code> - <em>Optional</em>. Specifies which debugger backend to use (If omitted a suitable backend will be selected automatically, based on the <code>path</code> target file)<br />
+<code>file</code> - The target file to debug</p>
+
+<p>Refer to the specific backend documentation for a list of all other supported parameter options</p>
+
+<h2 id="service-dbg">Service: <code>dbg</code></h2>
+
+<p>Returns an object with the following events and functions:</p>
+
+<h3 id="events">Events:</h3>
+
+<p><code>start</code> - A debug session has begun<br />
+<code>stop</code> - A debug session has ended</p>
+
+<h3 id="functions">Functions:</h3>
+
+<p><code>debug(options?):Promise&lt;Bool&gt;</code> - Attempt to start a new debug session (any existing session will be <code>stop()</code>ed first)</p>
+
+<p>Example: <code>dbg.debug({ path: './myProg', args: ['testmode'] });</code></p>
+
+<blockquote>
+  <p><code>options</code> - An optional object with the following properties:</p>
+</blockquote>
+
+<blockquote>
+  <blockquote>
+    <p><code>debugger</code> - <em>Optional</em>. The name of the dbg provider to use. (This can be omitted to auto-detect)<br />
+<code>path</code> - <em>Optional</em>. The path to the file to debug<br />
+<code>args</code> - <em>Optional</em>. An array of arguments to pass to the file being debugged<br />
+<code>cwd</code> - <em>Optional</em>. The working directory to use when debugging<br />
+<code>basedir</code> - <em>Optional</em>. The base dir for any relative paths<br />
+<code>...</code> - <em>Optional</em>. Custom debugger arguments</p>
+  </blockquote>
+</blockquote>
+
+<blockquote>
+  <p>If a <code>debugger</code> is not specified, every dbg provider will be queried with the options object provided;<br />
+The first provider to respond as being compatible will be selected<br />
+Note that the options supported vary depending on dbg providers, but <code>path</code>, <code>args</code> and <code>cwd</code> are recommended as defaults if relevant to the target</p>
+</blockquote>
+
+<p>Returns a promise that fulfills as <code>true</code> if a valid dbg provider is found, or <code>false</code> if not.</p>
+
+<p>If no options are passed and the user has configured valid settings in the config panel, these will be used instead. Alternatively, the config panel will be displayed and the returned promise will immediately fulfill as <code>true</code>.</p>
+
+<p><code>stop()</code> - Cancel the currently active debug session</p>
+
+<p><code>customDebug(options?)</code> - Displays the configuration panel</p>
+
+<blockquote>
+  <p><code>options</code> - An optional object with the following properties:</p>
+</blockquote>
+
+<blockquote>
+  <blockquote>
+    <p><code>debugger</code> - <em>Optional</em>. The name of the dbg provider to use. If set to an empty string, <code>"automatic"</code> will be selected<br />
+<code>path</code> - <em>Optional</em>. The path to the file to debug<br />
+<code>args</code> - <em>Optional</em>. An array of arguments to pass to the file being debugged<br />
+<code>cwd</code> - <em>Optional</em>. The working directory to use when debugging</p>
+  </blockquote>
+</blockquote>
+
+<p><code>continue()</code> - Continue<br />
+<code>pause()</code> - Pause<br />
+<code>pause_continue()</code> - Pause or continue (toggle)</p>
+
+<p><code>stepOver()</code> - Step over the current line of code<br />
+<code>stepIn()</code> - Step into the current procedure<br />
+<code>stepOut()</code> - Complete and step out of the current procedure</p>
+
+<p><code>addBreakpoint(path:String, line:Int)</code> - Add breakpoint at the specified location<br />
+&gt; <code>path</code> - The absolute file path<br />
+&gt; <code>line</code> - The line number (1-based)</p>
+
+<p><code>removeBreakpoint(path:String, line:Int)</code> - Remove a breakpoint at the specified location<br />
+&gt; <code>path</code> - The absolute file path<br />
+&gt; <code>line</code> - The line number (1-based)</p>
+
+<p><code>toggleBreakpoint(path:String, line:Int)</code> - Toggle a breakpoint at the specified location<br />
+&gt; <code>path</code> - The absolute file path<br />
+&gt; <code>line</code> - The line number (1-based)</p>
+
+<p><code>getBreakpoints()</code> - Return an array of all breakpoints. Each array item has the following properties:<br />
+&gt; <code>path</code> - The absolute file path<br />
+&gt; <code>line</code> - The line number (1-based)</p>
+
+<p><code>hasBreakpoint(path:String, line:Int)</code> - Toggles a breakpoint at the specified location<br />
+&gt; <code>path</code> - The absolute file path<br />
+&gt; <code>line</code> - The line number (1-based)</p>
+
+<h2 id="consumed-service-dbgprovider">Consumed service: <code>dbgProvider</code></h2>
+
+<p>To create a dbg provider provide a <code>dbgProvider</code> service with the following properties:</p>
+
+<p><code>name</code> - The name of this provider<br />
+<code>description</code> - A brief one-line description of this provider</p>
+
+<p><code>canHandleOptions(options):Promise&lt;Bool&gt;</code> - A function that returns a promise that fulfilling as <code>true</code> if it is compatible with the provided debug options, or <code>false</code> if it is not
+&gt; <code>options</code> - The options parameter passed to <code>debug()</code> of the <code>dbg</code> service</p>
+
+<p><code>debug(options, api)</code> - A function to begin debugging<br />
+&gt; <code>options</code> - The options parameter passed to <code>debug()</code> of the <code>dbg</code> service<br />
+&gt; <code>api</code> - An object containing the following properties:
+» <code>breakpoints</code> - An array of all breakpoints currently present<br />
+» Each item in the array contains the following properties:
+»&gt; <code>path</code> - The absolute file path<br />
+»&gt; <code>line</code> - The line number (1-based)</p>
+
+<blockquote>
+  <blockquote>
+    <p><code>ui</code> - An object containing the following functions for controlling the dbg frontend:<br />
+&gt; <code>setStack(stack:Frame[])</code> - Set the stacktrace display to the specified items.<br />
+&gt; Frames are ordered from bottom to top, with index 0 being the entrypoint of the program and the highest index being the current executing location</p>
+  </blockquote>
+</blockquote>
+
+<blockquote>
+  <blockquote>
+    <blockquote>
+      <p>Each <code>Frame</code> should have the following properties:<br />
+&gt; <code>name</code> - The friendly name of this location (“main()” etc)<br />
+&gt; <code>local:Bool</code> - Specifes if the location is locally accessible, or a system location (hidden by default unless at the top of the stack)<br />
+&gt; <code>file</code> - <em>Optional</em>. The absolute file path
+&gt; <code>path</code> - The displayed technical path  (<code>file.c:4</code>, <code>file.so:xbaadf00d</code> etc)<br />
+&gt; <code>line</code> - The line number (1-based)<br />
+&gt; <code>error</code> - <em>Optional</em>. If there is an error associated with this frame this should be a brief description (e.g. “Division by zero”)</p>
+    </blockquote>
+  </blockquote>
+</blockquote>
+
+<blockquote>
+  <blockquote>
+    <blockquote>
+      <p><code>setVariables(variables:Variable[])</code> - The list of variables visible in the currently active frame</p>
+    </blockquote>
+  </blockquote>
+</blockquote>
+
+<blockquote>
+  <blockquote>
+    <blockquote>
+      <p>Each <code>Variable</code> should have the following properties:
+&gt; <code>name</code> - The name of the variable<br />
+&gt; <code>type</code> - <em>Optional</em>. The type of the variable (as a String)<br />
+&gt; <code>value</code> - <em>Optional</em>. The value of the variable (as a String)<br />
+&gt; <code>expandable</code> - <em>Optional</em>. If <code>true</code> this variable may contain child properties. If expanded by the user <code>getVariableChildren()</code> will be called to retrieve them</p>
+    </blockquote>
+  </blockquote>
+</blockquote>
+
+<blockquote>
+  <blockquote>
+    <blockquote>
+      <p><code>setFrame(frameIndex:Int)</code> - Set this index in the stack as the currently active frame, and navigate the Atom to this file and location if it exists<br />
+If this frame in the stack is a system location then all system frames will be shown</p>
+    </blockquote>
+  </blockquote>
+</blockquote>
+
+<blockquote>
+  <blockquote>
+    <blockquote>
+      <p><code>running()</code> - Mark the debug as current running<br />
+<code>paused()</code> - Mark the debug as currently paused<br />
+<code>stop()</code> - Abort the current debug in process (this will call <code>stop()</code> for the <code>dbg</code> service internally and then <code>stop()</code> on this packages <code>dbgProvider</code>)</p>
+    </blockquote>
+  </blockquote>
+</blockquote>
+
+<blockquote>
+  <blockquote>
+    <blockquote>
+      <p><code>showWarning(warning:String)</code> - Display the specified warning<br />
+<code>showError(error:String)</code> - Display the specified error</p>
+    </blockquote>
+  </blockquote>
+</blockquote>
+
+<p><code>getVariableChildren(name):Promise&lt;Variable[]&gt;</code> - <em>Optional</em>. If any variables are marked as <code>expandable</code> this function may be called to retrieve them<br />
+It will be passed the full dot-seperated path of the variable<br />
+It should return a promise that fulfills an array of child variables, also with the following properties:
+&gt; <code>name</code> - The name of the variable<br />
+&gt; <code>type</code> - <em>Optional</em>. The type of the variable (as a String)<br />
+&gt; <code>value</code> - <em>Optional</em>. The value of the variable (as a String)<br />
+&gt; <code>expandable</code> - <em>Optional</em>. If <code>true</code> this variable may contain child properties. If expanded by the user <code>getVariableChildren()</code> will again be called to retrieve them</p>
+
+<p><code>stop()</code> - This function is called when debugging has ceased<br />
+Once this has been called the <code>api</code> property passed to <code>start()</code> should no longer be accessed</p>
+
+<p><code>continue()</code> - This function is called when the user request the debugger continue<br />
+<code>pause()</code> - This function is called when the user request the debugger pause</p>
+
+<p><code>selectFrame()</code> - This function is called when the user selects a frame from the stacktrace</p>
+
+<p><code>stepOver()</code> - This function is called when the user requests a step over<br />
+<code>stepIn()</code> - This function is called when the user requests step into<br />
+<code>stepOut()</code> - This function is called when the user requests step out</p>
+
+<p><code>addBreakpoint(breakpoint:Breakpoint)</code> - This function is called if the user adds a breakpoint during an active debug session<br />
+The breakpoint contains the following properties:
+&gt; <code>path</code> - The absolute file path<br />
+&gt; <code>line</code> - The line number (1-based)</p>
+
+<p><code>removeBreakpoint(breakpoint:Breakpoint)</code> - This function is called if the user removes a breakpoint during an active debug session<br />
+The breakpoint contains the following properties:
+&gt; <code>path</code> - The absolute file path<br />
+&gt; <code>line</code> - The line number (1-based)</p>
+<section class="package-keywords">
+  <strong>Keywords:</strong> debug, debugger <a href="https://github.com/31i73/atom-dbg/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

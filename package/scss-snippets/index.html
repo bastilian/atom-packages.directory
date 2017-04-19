@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Scss Snippets
+  <a href="https://github.com/rich-97/scss-snippets">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install scss-snippets
+  </pre>
+</div>
+<h1 id="scss-snippets-for-atom">Scss Snippets for Atom</h1>
+
+<h2 id="install">install</h2>
+
+<p>You can install the settings by pressing <code>ctrl+,</code> opened atom, then you go to <code>install</code> and looking on packages <code>scss-snippets</code>.</p>
+
+<p>Or with the command since your terminal:</p>
+
+<p><code>sh
+apm install scss-snippets
+</code></p>
+
+<h3 id="snippets">Snippets</h3>
+
+<h4 id="control-flow">control flow</h4>
+
+<ul>
+  <li>[wh] @while
+<code>scss
+@while ${1:condition} {
+${2:code}
+}
+</code></li>
+  <li>[fr] @for
+<code>scss
+@for ${1:var} from ${2:start} through ${3:end} {
+${4:code}
+}
+</code></li>
+  <li>[ar] @at-root
+<code>scss
+@at-root {
+${1:code}
+}
+</code></li>
+  <li>[db] @debug
+<code>scss
+@debug ${1:code};
+</code></li>
+  <li>[eh] @each
+<code>scss
+@each ${1:var} in ${2:list} {
+${3:code}
+}
+</code></li>
+  <li>[wn] @warn
+<code>scss
+@warn ${1:code};
+</code></li>
+  <li>[er] @error
+<code>scss
+@error ${1:code};
+</code></li>
+</ul>
+
+<h4 id="maps-functions">maps functions</h4>
+
+<ul>
+  <li>
+    <p>[mg] map-get
+<code>scss
+$get: map-get(${1:list}, ${2:value});
+</code></p>
+  </li>
+  <li>
+    <p>[mr] map-remove
+<code>scss
+$remove: map-remove(${1:list}, ${2:value});
+</code></p>
+  </li>
+  <li>
+    <p>[mk] map-keys
+<code>scss
+$keys: map-keys(${1:list}});
+</code></p>
+  </li>
+  <li>
+    <p>[mv] map-values
+<code>scss
+$values: map-values(${1:values});
+</code></p>
+  </li>
+  <li>
+    <p>[mm] map-merge
+<code>scss
+$merge: map-merge(${1:list1}, ${2:list2});
+</code></p>
+  </li>
+  <li>
+    <p>[mhk] map-has-key
+<code>scss
+$has-key: map-has-key(${1:list}, ${2:value});
+</code>
+### strings functions</p>
+  </li>
+  <li>
+    <p>[si] str-insert</p>
+  </li>
+</ul>
+
+<p><code>scss
+$insert: str-insert(${1:string}, ${2:substring}, ${3:index});
+</code></p>
+
+<ul>
+  <li>
+    <p>[sx] str-index
+<code>scss
+$index: str-index(${1:string}, ${2:substring});
+</code></p>
+  </li>
+  <li>
+    <p>[sl] str-length
+<code>scss
+$length: str-length(${1:string});
+</code></p>
+  </li>
+  <li>
+    <p>[ss] str-slice
+<code>scss
+$slice: str-slice(${1:srting}, ${2:start}, ${3:end});
+</code></p>
+  </li>
+  <li>
+    <p>[tu] to-upper-case
+<code>scss
+$upper: to-upper-case(${1:string});
+</code></p>
+  </li>
+  <li>
+    <p>[tl] to-lower-case
+<code>scss
+$lower: to-lower-case(${1:string});
+</code></p>
+  </li>
+</ul>
+
+<h3 id="list-functions">list functions</h3>
+
+<ul>
+  <li>
+    <p>[nth] nth
+<code>scss
+$nth: nth(${1:list}, ${2:index});
+</code></p>
+  </li>
+  <li>
+    <p>[in] index
+<code>scss
+$index: index(${1:list}, ${2:value});
+</code></p>
+  </li>
+  <li>
+    <p>[jo] join
+<code>scss
+$join: join(${1:list1}, ${2:list2});
+</code></p>
+  </li>
+  <li>
+    <p>[ap] append
+<code>scss
+$append: append(${1:list}, ${2:value});
+</code></p>
+  </li>
+</ul>
+
+<h3 id="color-functions">color functions</h3>
+
+<ul>
+  <li>
+    <p>[dk] darken
+<code>scss
+$darken: darken(${1:color}, ${2:amount});
+</code></p>
+  </li>
+  <li>
+    <p>[lt] lighten
+<code>scss
+$lighten: lighten(${1:color}, ${2:amount});
+</code></p>
+  </li>
+  <li>
+    <p>[st] saturate
+<code>scss
+$saturate: saturate(${1:color}, ${2:amount});
+</code></p>
+  </li>
+  <li>
+    <p>[dt] desaturate
+<code>scss
+$desaturate: desaturate(${1:color}, ${2:amount});
+</code></p>
+  </li>
+</ul>
+<section class="package-keywords">
+  <strong>Keywords:</strong> sass, scss, css, snippets, atom <a href="https://github.com/rich-97/scss-snippets/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

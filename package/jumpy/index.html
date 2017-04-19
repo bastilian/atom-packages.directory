@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Jumpy
+  <a href="https://github.com/DavidLGoldberg/jumpy">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install jumpy
+  </pre>
+</div>
+<h1 id="jumpy">Jumpy</h1>
+
+<p><a href="https://gitter.im/jumpy-atom/Lobby?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge&amp;utm_content=badge"><img src="https://badges.gitter.im/jumpy-atom/Lobby.svg" alt="Join the chat at https://gitter.im/jumpy-atom/Lobby" /></a>
+<img src="https://img.shields.io/apm/dm/jumpy.svg" alt="" />
+<img src="https://img.shields.io/apm/v/jumpy.svg" alt="" />
+<a href="https://travis-ci.org/DavidLGoldberg/jumpy"><img src="https://travis-ci.org/DavidLGoldberg/jumpy.svg?branch=master" alt="Build Status" /></a></p>
+
+<p>An Atom package that creates dynamic hotkeys to jump around files and across visible panes.</p>
+
+<h2 id="how-to-jump">How to jump</h2>
+
+<ol>
+  <li>Hit <kbd>shift</kbd> + <kbd>enter</kbd></li>
+  <li>Choose from your presented labels:</li>
+  <li>Enter two characters.</li>
+  <li>Keep coding!</li>
+</ol>
+
+<p><a href="https://raw.githubusercontent.com/DavidLGoldberg/jumpy/master/_images/jumpy.gif"> <img src="https://raw.githubusercontent.com/DavidLGoldberg/jumpy/master/_images/jumpy.gif" alt="Jumpy in Action! - (gif made with recordit.co)" /></a></p>
+
+<h2 id="install">Install</h2>
+<p>On command line:
+<code>
+apm install jumpy
+</code></p>
+
+<h2 id="notes">Notes</h2>
+
+<ul>
+  <li>Works great with or without <a href="https://github.com/atom/vim-mode" title="vim-mode's Homepage">vim-mode</a>!</li>
+  <li>Vim modes supported:
+    <ul>
+      <li>command mode</li>
+      <li>insert mode</li>
+      <li>visual mode (expands selections with <kbd>v</kbd> or <kbd>V</kbd>)</li>
+    </ul>
+  </li>
+  <li>Recommended key mappings to replace ‘f’ in vim-mode see ‘Settings’ below.</li>
+</ul>
+
+<h2 id="key-bindings">Key Bindings</h2>
+
+<h3 id="defaults">Defaults</h3>
+
+<ul>
+  <li>Enter jump mode
+    <ul>
+      <li><kbd>shift</kbd> + <kbd>enter</kbd></li>
+    </ul>
+  </li>
+  <li>Reset first character entered
+    <ul>
+      <li><kbd>backspace</kbd></li>
+    </ul>
+  </li>
+  <li>Cancel/exit jump mode (any)
+    <ul>
+      <li><kbd>shift</kbd> + <kbd>enter</kbd></li>
+      <li><kbd>enter</kbd></li>
+      <li><kbd>esc</kbd></li>
+      <li><kbd>space</kbd></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="settings">Settings</h2>
+
+<h3 id="jumpy-preferences">Jumpy preferences</h3>
+
+<p>( Preferences <kbd>cmd</kbd>+<kbd>,</kbd> ) -&gt; search for ‘jumpy’</p>
+
+<ul>
+  <li><strong>Font Size</strong>:
+If set, must be a decimal value less than 1.</li>
+  <li><strong>High Contrast</strong>:
+If checked, uses a more colorful and fun (usually green) label.</li>
+  <li><strong>Match Pattern</strong>:
+Provide a custom regex to match labels with.</li>
+  <li><strong>Use Homing Beacon Effect On Jumps</strong>:
+If left on, will display a homing beacon (usually red) after all jumps.</li>
+</ul>
+
+<p><img src="https://raw.githubusercontent.com/DavidLGoldberg/jumpy/master/_images/jumpy-settings.png" alt="Jumpy settings" /></p>
+
+<p><em>Example</em>:</p>
+
+<p><img src="https://raw.githubusercontent.com/DavidLGoldberg/jumpy/master/_images/jumpy-high-contrast-font-camel.png" alt="Jumpy example" /></p>
+
+<p>(image after settings set to .85 font size, high contrast, and default camel case matching pattern)</p>
+
+<h3 id="vim-mode-users-strongly-recommended-override">‘vim-mode’ Users (Strongly Recommended Override)</h3>
+
+<p>Put this override in your <strong>‘Atom’</strong> -&gt; <strong>‘Open Your Keymap’</strong> settings:</p>
+
+<pre><code>'atom-text-editor:not(.mini).vim-mode:not(.insert-mode):not(.jumpy-jump-mode)':
+    'f': 'jumpy:toggle'
+</code></pre>
+
+<p>This will <strong>bind ‘f’ to toggle Jumpy</strong>.</p>
+
+<p>This is not the default because it <strong>changes vim’s native behavior</strong>.
+Instead, with Jumpy, after jumping to the nearest word, you can easily word or character jump over to your target.
+The <a href="https://chrome.google.com/webstore/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb?hl=en">Vimium chrome extension</a> chose this binding.
+Please let me know what you think about this binding for Jumpy <a href="https://discuss.atom.io/t/introducing-jumpy-new-package/10980/28">here</a>!</p>
+
+<h3 id="jumpy-styles">Jumpy Styles</h3>
+
+<p>Note: Styles can be overridden in <strong>‘Atom’ -&gt; ‘Open Your Stylesheet’</strong>
+(see examples below)</p>
+
+<p><code>less
+atom-text-editor {
+    .jumpy-label {
+        // Regular labels
+        background-color: black;
+        color: white;
+        &amp;.high-contrast {
+            // High Contrast labels (activated in settings)
+            background-color: green;
+        }
+    }
+}
+</code></p>
+
+<h2 id="my-other-atom-package-">My other Atom package :)</h2>
+
+<ul>
+  <li><a href="https://atom.io/packages/qolor">Qolor</a></li>
+</ul>
+
+<h2 id="keywords">Keywords</h2>
+
+<p>(A little SEO juice)</p>
+
+<ul>
+  <li>Shortcuts</li>
+  <li>Navigation</li>
+  <li>Productivity</li>
+  <li>Mouseless</li>
+  <li>Plugin</li>
+  <li>Extension</li>
+</ul>
+<section class="package-keywords">
+  <strong>Keywords:</strong> hotkey, hotkeys, key bindings, cursor, jump, panes, shortcuts, navigation, productivity, mouseless, plugin, extension <a href="https://github.com/DavidLGoldberg/jumpy/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

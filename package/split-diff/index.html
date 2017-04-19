@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Split Diff
+  <a href="https://github.com/mupchrch/split-diff">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install split-diff
+  </pre>
+</div>
+<h1 id="split-diff-package">split-diff package</h1>
+
+<p>Diffs text between two split panes. New panes are created if less than two panes exist upon run of the package.</p>
+
+<p>** <strong>Supports diffing recent git changes!</strong> **</p>
+
+<p><img src="https://github.com/mupchrch/split-diff/raw/master/demo.gif" alt="Split Diff in action" /></p>
+
+<h2 id="usage">Usage</h2>
+
+<h3 id="commands">Commands</h3>
+
+<p>You can call any of these commands from your own custom keybinding, simply override the command in your keymap.cson!</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Command</th>
+      <th>Effect</th>
+      <th>Default Keymaps</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Toggle <code>split-diff:toggle</code></td>
+      <td>Toggles a diff of the text between two side-by-side panes. Creates panes as necessary. Displays git changes if there is a repository found.</td>
+      <td><code>ctrl-alt-t</code></td>
+    </tr>
+    <tr>
+      <td>Enable <code>split-diff:enable</code></td>
+      <td>Enables a diff of the text between two side-by-side panes. Creates panes as necessary. Displays git changes if there is a repository found.</td>
+      <td>…</td>
+    </tr>
+    <tr>
+      <td>Disable <code>split-diff:disable</code></td>
+      <td>Disables a diff. Removes any panes that were created by this package.</td>
+      <td>…</td>
+    </tr>
+    <tr>
+      <td>Ignore Whitespace <code>split-diff:ignore-whitespace</code></td>
+      <td>Toggles the Ignore Whitespace setting.</td>
+      <td>…</td>
+    </tr>
+    <tr>
+      <td>Move to Next Diff <code>split-diff:next-diff</code></td>
+      <td>Highlights the next difference. Moves the cursor so it can be easily copied.</td>
+      <td><code>ctrl-alt-n</code></td>
+    </tr>
+    <tr>
+      <td>Move to Previous Diff <code>split-diff:prev-diff</code></td>
+      <td>Highlights the previous difference. Moves the cursor so it can be easily copied.</td>
+      <td><code>ctrl-alt-p</code></td>
+    </tr>
+    <tr>
+      <td>Copy to Right <code>split-diff:copy-to-right</code></td>
+      <td>Copies all differences containing a cursor to the right pane.</td>
+      <td><code>ctrl-alt-.</code></td>
+    </tr>
+    <tr>
+      <td>Copy to Left <code>split-diff:copy-to-left</code></td>
+      <td>Copies all differences containing a cursor to the left pane.</td>
+      <td><code>ctrl-alt-,</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="settings">Settings</h3>
+
+<ul>
+  <li><strong>Show Word Diff</strong> - Diffs the words between each line when this box is checked.</li>
+  <li><strong>Ignore Whitespace</strong> - Will not diff whitespace when this box is checked.</li>
+  <li><strong>Mute Notifications</strong> - Mutes all warning notifications when this box is checked.</li>
+  <li><strong>Sync Scrolling</strong> - Syncs the scrolling of the editors.</li>
+  <li><strong>Left Editor Color</strong> - Specifies the highlight color for the left editor.</li>
+  <li><strong>Right Editor Color</strong> - Specifies the highlight color for the right editor.</li>
+</ul>
+
+<h3 id="customization">Customization</h3>
+<p>The highlighting for this package uses global UI variables defined in your syntax theme. The variables are <code>@syntax-color-added</code>, <code>@syntax-color-removed</code>, <code>@syntax-color-modified</code>, and <code>@syntax-gutter-background-color-selected</code> (for the blank spacers between lines). Make sure your theme defines these, so it is compatible with this package!</p>
+
+<p>To override these colors in your <code>styles.less</code>, write selectors for <code>.split-diff-added</code>, <code>.split-diff-removed</code>, <code>.split-diff-selected</code>, and/or <code>.split-diff-offset</code>. For instance:</p>
+
+<p><code>
+.split-diff-added {
+  background-color: fade(blue, 40%) !important;
+}
+</code></p>
+
+<h2 id="minimap-plugin">Minimap Plugin</h2>
+
+<p>Get the <a href="https://atom.io/packages/minimap-split-diff">Split Diff minimap plugin</a> to make it easier to spot differences!</p>
+<section class="package-keywords">
+  <strong>Keywords:</strong> diff, git, split, compare, panes, files, lines, code, difference, visual <a href="https://github.com/mupchrch/split-diff/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

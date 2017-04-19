@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Zebra Stripes
+  <a href="https://github.com/prodigic/zebra-stripes">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+    <span class="author">by Xavey Aguarez <davey@prodigic.com></span>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install zebra-stripes
+  </pre>
+</div>
+<h1 id="zebra-stripes">zebra-stripes</h1>
+<p>https://atom.io/packages/zebra-stripes</p>
+
+<p>Provides alternate line shading to increase legibility in text editors.</p>
+
+<p>The settings panel allows you to enable/disable the plugin and toggle logging to the console.</p>
+
+<p><img src="https://github.com/prodigic/zebra-stripes/blob/master/zebra-stripes-settings.png?raw=true" alt="Settings" /></p>
+
+<h2 id="examples">Examples</h2>
+
+<h3 id="dark-theme">Dark Theme</h3>
+
+<p><img src="https://github.com/prodigic/zebra-stripes/blob/master/zebra-stripes-dark-theme.png?raw=true" alt="Preview dark theme" /></p>
+
+<h3 id="light-theme">Light Theme</h3>
+<p><img src="https://github.com/prodigic/zebra-stripes/blob/master/zebra-stripes-light-theme.png?raw=true" alt="Preview light theme" /></p>
+
+<h2 id="installation">Installation</h2>
+
+<p>install from either the settings panel</p>
+
+<p><img src="https://github.com/prodigic/zebra-stripes/blob/master/zebra-stripes-settings-panel.png?raw=true" alt="Preview Settings Panel" /></p>
+
+<p>or use apm on the command line</p>
+
+<p><code>apm install zebra-stripes</code></p>
+
+<h2 id="supported-syntax-themes">Supported Syntax Themes</h2>
+
+<ol>
+  <li>Atom Dark</li>
+  <li>Atom Light</li>
+  <li>One Dark</li>
+  <li>One Light</li>
+  <li>Base16 Tomorrow Dark</li>
+  <li>Base16 Tomorrow Light</li>
+  <li>Solarized Dark</li>
+  <li>Solarized Light</li>
+  <li>Monokai Seti</li>
+</ol>
+
+<h2 id="adding-support-to-an-existing-syntax-theme">Adding support to an existing syntax theme</h2>
+
+<p>You can easily add support for installed syntax themes by adding a selector to the appropriate block to the zebra-stripes.less file in the plugins styles folder.</p>
+
+<h3 id="using-zebra-stripesless-local-changes">Using zebra-stripes.less (local changes)</h3>
+<p>``` css</p>
+
+<p>.zebra-stripes {</p>
+
+<p>&amp;.theme-my-syntax-dark-theme,
+  &amp;.theme-atom-dark-syntax,
+  &amp;.theme-monokai-seti,
+  &amp;.theme-base16-tomorrow-dark-theme,
+  &amp;.theme-one-dark-syntax,
+  &amp;.theme-solarized-dark-syntax  {</p>
+
+<pre><code>atom-text-editor::shadow {
+  .line:nth-child(odd) {
+    background-color:rgba(255, 255, 255,0.042);
+  }
+}   } }
+</code></pre>
+
+<p>.zebra-stripes {</p>
+
+<p>&amp;.theme-my-syntax-light-theme,
+  &amp;.theme-base16-tomorrow-light-theme,
+  &amp;.theme-one-light-syntax,
+  &amp;.theme-solarized-light-syntax,
+  &amp;.theme-atom-light-syntax {</p>
+
+<pre><code>atom-text-editor::shadow {
+  .line:nth-child(odd) {
+    background-color:rgba(0, 0, 0,0.1);
+  }
+}   } }
+</code></pre>
+
+<p>```</p>
+
+<p>Drop me a pull request if you want specific support added to the zebra-stripes plugin for your theme.</p>
+
+<h3 id="building-support-directly-into-the-theme">building support directly into the theme.</h3>
+
+<p>To add built-in support to custom themes you need to implement a CSS rule to provide the stripe effect. This is also useful if you wish to use a different color for the alternate line shading.</p>
+
+<p>``` css</p>
+
+<p>.zebra-stripes {</p>
+
+<p>.theme-my-syntax-theme {</p>
+
+<pre><code>atom-text-editor::shadow {
+  .line:nth-child(odd) {
+    background-color:rgba(25, 25, 25,0.084); /* set alternate color here */
+  }
+}   } }
+</code></pre>
+
+<p>```</p>
+<section class="package-keywords">
+  <strong>Keywords:</strong> ui, colors, design, hacks, theme <a href="https://github.com/prodigic/zebra-stripes/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Advanced Open File
+  <a href="https://github.com/Osmose/advanced-open-file">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install advanced-open-file
+  </pre>
+</div>
+<h1 id="advanced-open-file">Advanced Open File</h1>
+
+<p><a href="https://travis-ci.org/Osmose/advanced-open-file"><img src="https://travis-ci.org/Osmose/advanced-open-file.svg" alt="TravisCI Build Status" /></a>
+<a href="https://ci.appveyor.com/project/Osmose/advanced-open-file/branch/master"><img src="https://ci.appveyor.com/api/projects/status/cwyb7f46dd1bbuxh/branch/master?svg=true" alt="AppVeyor Build status" /></a></p>
+
+<p>Advanced Open File is a package for helping Atom users to open files and folders
+easily. It can also create new files and folders if they don’t exist.</p>
+
+<p><img src="http://osmose.github.io/advanced-open-file/screenshot.png" alt="Screenshot of plugin" /></p>
+
+<p>Advanced Open File is fork of
+<a href="https://github.com/Trudko/advanced-new-file">Advanced New File</a>, itself a fork
+of <a href="https://github.com/rev087/fancy-new-file">Fancy New File</a>. Thanks to both
+rev087 and Trudko for their work.</p>
+
+<h2 id="usage">Usage</h2>
+
+<p>Hit <code>Cmd-Alt-O</code>/<code>Ctrl-Alt-O</code> to open the file list to the directory of the
+current file. As you edit the path the file list will automatically show
+matching files and directories. Hit <code>Tab</code> to autocomplete the path.</p>
+
+<p>Relative paths are considered relative to the current project’s first root
+folder.</p>
+
+<p>Hit <code>Enter</code> to open the file at the given path. If the file doesn’t exist, a tab
+will be opened that will save to that file. Any directories in the path that
+don’t exist will be created immediately upon hitting <code>Enter</code>.</p>
+
+<p>You can also click on any entry in the file list to add it to the current path
+(in the case of a directory) or to open it immediately (in the case of a file).
+You can also use the <code>Up</code> and <code>Down</code> arrow keys to scroll through the list,
+<code>Page Up</code> and <code>Page Down</code> to move to the top and bottom of the list, and <code>Enter</code>
+to select the currently-highlighted item.</p>
+
+<p>If a directory has a plus symbol on the right side of its entry, clicking the
+symbol will add it as a project directory. You can also add a highlighted
+directory as a project directory using <code>Shift-Cmd-O</code>/<code>Ctrl-Alt-O</code>.</p>
+
+<p><code>Cmd-Z</code>/<code>Ctrl-Z</code> will undo changes made to the current path, such as
+autocompletion or directory shortcuts.</p>
+
+<p>You can use the keybindings for splitting panes (<code>Cmd-k &lt;Arrow Key&gt;</code> by default)
+to open the selected path in a new split pane in the desired direction.</p>
+
+<h2 id="keybindings">Keybindings</h2>
+
+<p>Available commands for binding:</p>
+
+<dl>
+  <dt><code>advanced-open-file:toggle</code></dt>
+  <dd>Toggles the Advanced Open File dialog.</dd>
+
+  <dt><code>core:confirm</code></dt>
+  <dd>
+    If a path has been selected with the cursor, open it. If no path is
+    selected, open the current path in the input.
+  </dd>
+
+  <dt><code>advanced-open-file:confirm-selected-or-first</code></dt>
+  <dd>
+    Similar to <code>core:confirm</code>. If nothing is selected, select the
+    first item in the list.
+  </dd>
+
+  <dt><code>core:cancel</code></dt>
+  <dd>Close the Advanced Open File dialog.</dd>
+
+  <dt>
+    <code>pane:split-left</code>, <code>pane:split-right</code>,
+    <code>pane:split-up</code>, and <code>pane:split-down</code>
+  </dt>
+  <dd>
+    Open the selected path (or current path in input) in a new pane split from
+    the current pane.
+  </dd>
+
+  <dt><code>application:add-project-folder</code></dt>
+  <dd>
+    If a folder path has been selected with the cursor, add it as a project
+    directory.
+  </dd>
+
+  <dt><code>advanced-open-file:autocomplete</code></dt>
+  <dd>Attempts to autocomplete the current input.</dd>
+
+  <dt><code>advanced-open-file:undo</code></dt>
+  <dd>Undo changes to the current path.</dd>
+
+  <dt><code>advanced-open-file:move-cursor-up</code></dt>
+  <dd>Move the cursor/highlight for the currently selected file up.</dd>
+
+  <dt><code>advanced-open-file:move-cursor-down</code></dt>
+  <dd>Move the cursor/highlight for the currently selected file down.</dd>
+
+  <dt><code>advanced-open-file:move-cursor-top</code></dt>
+  <dd>
+    Move the cursor/highlight for the currently selected file to the top of the
+    list.
+  </dd>
+
+  <dt><code>advanced-open-file:move-cursor-bottom</code></dt>
+  <dd>
+    Move the cursor/highlight for the currently selected file to the bottom of
+    the list.
+  </dd>
+
+  <dt><code>advanced-open-file:delete-path-component</code></dt>
+  <dd>
+    A more powerful version of <code>alt-backspace</code> that erases the a
+    directory component in the miniEditor including the slash ('/').
+  </dd>
+</dl>
+
+<p>The following extra keybindings are included by default:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Action</th>
+      <th>Extra Keys</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>advanced-open-file:move-cursor-up</code></td>
+      <td><code>Ctrl-p</code>, <code>Ctrl-i</code></td>
+    </tr>
+    <tr>
+      <td><code>advanced-open-file:move-cursor-down</code></td>
+      <td><code>Ctrl-n</code>, <code>Ctrl-k</code></td>
+    </tr>
+    <tr>
+      <td><code>advanced-open-file:delete-path-component</code></td>
+      <td><code>Ctrl-l</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>You can of course remap the keys however you wish. For example, add the
+following to your keymap to map <code>Ctrl-x Ctrl-f</code> to toggle the dialog and
+<code>Ctrl-j</code> to move the cursor down:</p>
+
+<p>```cson
+‘atom-workspace’:
+  ‘ctrl-x ctrl-f’: ‘advanced-open-file:toggle’</p>
+
+<p>‘.advanced-open-file atom-text-editor’:
+  ‘ctrl-j’: ‘advanced-open-file:move-cursor-down’
+```</p>
+
+<h2 id="settings">Settings</h2>
+
+<dl>
+  <dt>Create directories</dt>
+  <dd>
+    Normally, when you attempt to open a path pointing to a directory that
+    doesn't exist, an error beep sounds and nothing happens. When this setting
+    is enabled, opening a non-existent directory will create it and show a
+    notification confirming the creation.
+  </dd>
+
+  <dt>Create files instantly</dt>
+  <dd>
+    If checked, files are created immediately instead of on save if they don't
+    exist.
+  </dd>
+
+  <dt>Default input value</dt>
+  <dd>
+    Determines what the default value in the path input is when the dialog is
+    opened. Possible choices are nothing, the current project's root directory,
+    or the directory of the currently-active file.
+  </dd>
+
+  <dt>Use fuzzy matching for matching filenames</dt>
+  <dd>
+    Changes the method for matching filenames while typing to use a fuzzy match
+    algorithm instead of a prefix match one. When enabled, matches are sorted by
+    their match weight instead of by name and type, and autocomplete
+    automatically chooses the closest result instead of the common prefix among
+    matching filenames.
+  </dd>
+
+  <dt>Shortcuts for fast directory switching</dt>
+  <dd>
+    <p>
+      When enabled, allows for quick directory switching when appending certain
+      strings to a path that ends in a slash:
+    </p>
+    <ul>
+      <li>
+        Adding an extra slash (e.g. <code>/</code>) will switch to the
+        filesystem root.
+      </li>
+      <li>
+        Adding a tilde and a slash (e.g. <code>~/</code>) will switch to the
+        current user's home directory.
+      </li>
+      <li>
+        Adding a colon and a slash (e.g. <code>:/</code>) will switch to the
+        current project's root directory.
+      </li>
+    </ul>
+  </dd>
+</dl>
+
+<h2 id="event-service">Event Service</h2>
+
+<p>Other packages can subscribe to events to get notified when certain actions
+happen in advanced-open-file. To do so, you’ll need to consume the
+<code>advanced-open-file-events</code> service:</p>
+
+<h3 id="packagejson"><code>package.json</code></h3>
+
+<p><code>json
+"consumedServices": {
+  "advanced-open-file-events": {
+    "versions": {
+      "0.1.0": "consumeEventService"
+    }
+  }
+}
+</code></p>
+
+<h3 id="main-module">Main Module</h3>
+
+<p>```coffeescript
+{Disposable} = require ‘atom’</p>
+
+<p>module.exports =
+  consumeEventService: (service) -&gt;
+    openDisposable = service.onDidOpenPath (path) -&gt;
+      console.log “Open: #{path}”</p>
+
+<pre><code>createDisposable = service.onDidCreatePath (path) -&gt;
+  console.log "Create: #{path}"
+
+return new Disposable -&gt;
+  openDisposable.dispose()
+  createDisposable.dispose() ```
+</code></pre>
+
+<h3 id="ondidopenpath"><code>onDidOpenPath</code></h3>
+
+<p>Triggered when a file is opened via advanced-open-file.</p>
+
+<p><code>coffeescript
+service.onDidOpenPath (path) -&gt;
+  console.log "Open: #{path}"
+</code></p>
+
+<h3 id="ondidcreatepath"><code>onDidCreatePath</code></h3>
+
+<p>Triggered when a file is created via advanced-open-file. Note that this is only
+triggered when the “Create files instantly” preference is enabled. It does not
+trigger when the preference is disabled and a new file is opened and then
+subsequently saved.</p>
+
+<p><code>coffeescript
+service.onDidCreatePath (path) -&gt;
+  console.log "Create: #{path}"
+</code></p>
+
+<h2 id="contributing">Contributing</h2>
+
+<p>First, if you’re interested in contributing, thank you! It’s awesome that you
+want to help!</p>
+
+<p>The easiest way to contribute is to <a href="https://github.com/Osmose/advanced-open-file/issues/new">file an issue</a> with the bug you’ve found
+or the new feature you want added. If you’re interested in implementing the fix
+for your request yourself, or fixing an issue submitted by someone else, read
+on.</p>
+
+<h3 id="developer-setup">Developer Setup</h3>
+
+<p>Setting up a development install is easy with <a href="https://github.com/atom/apm">apm</a>:</p>
+
+<p><code>sh
+$ apm develop advanced-open-file /path/to/checkout
+</code></p>
+
+<p>The command above will use Git to clone Advanced Open File to the
+<code>/path/to/checkout</code> directory, download the dependencies, and create a symlink
+in your <code>.atom</code> profile for the package.</p>
+
+<p>Now, if you launch Atom with the <code>-d</code> flag, Atom will load the development
+checkout of Advanced Open File (instead of the released version, if you have it
+installed). Any changes you make to the code will be reflected if you use the
+<code>Window: Reload</code> command in the <a href="https://atom.io/docs/latest/getting-started-atom-basics#command-palette">Command Palette</a> to reload the editor.</p>
+
+<p>That should be all you need to get started. Create a branch, write your changes,
+and submit the branch as a pull request, and you should hear back shortly!</p>
+
+<h2 id="license">License</h2>
+
+<p>Licensed under the MIT License. See <code>LICENSE</code> for details.</p>
+<section class="package-keywords">
+  <strong>Keywords:</strong> atom, open, file, create, new <a href="https://github.com/Osmose/advanced-open-file/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

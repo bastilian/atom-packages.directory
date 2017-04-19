@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Skeletor Syntax
+  <a href="https://github.com/ramonmcros/skeletor-syntax">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install skeletor-syntax
+  </pre>
+</div>
+<h1 id="skeletor-syntax">Skeletor Syntax</h1>
+
+<p>A dark theme for <a href="http://atom.io">Atom</a>, <a href="http://http://prismjs.com">Prism</a>, <a href="http://pygments.org/">Pygments</a> and <a href="http://www.zsh.org">Zsh</a> inspired by Skeletor from He-Man and the Masters of the Universe.</p>
+
+<p><strong><a href="http://ramonmcros.github.io/skeletor-syntax/">http://ramonmcros.github.io/skeletor-syntax/</a></strong></p>
+
+<p><img src="https://raw.githubusercontent.com/ramonmcros/skeletor-syntax/master/skeletor-250.png" alt="Skeletor" /></p>
+
+<h2 id="table-of-contents">Table of contents</h2>
+
+<ul>
+  <li><a href="#atom">Atom</a></li>
+  <li><a href="#prism">Prism</a></li>
+  <li><a href="#pygments">Pygments</a></li>
+  <li><a href="#zsh">Zsh</a></li>
+  <li><a href="#credits">Credits</a></li>
+</ul>
+
+<h2 id="atom">Atom</h2>
+
+<h3 id="installation">Installation</h3>
+
+<ol>
+  <li>
+    <p>After opening Atom go to <code>Settings</code> by pressing <kbd>cmd</kbd> + <kbd>,</kbd> (<kbd>ctrl</kbd> + <kbd>,</kbd> on
+  Linux).</p>
+  </li>
+  <li>
+    <p>Select the <code>Themes</code> tab.</p>
+  </li>
+  <li>
+    <p>Search for <code>skeletor-syntax</code> in the search box.</p>
+  </li>
+</ol>
+
+<h3 id="screenshots">Screenshots</h3>
+
+<p><img src="https://raw.githubusercontent.com/ramonmcros/skeletor-syntax/master/screenshots/atom-screenshot1.png" alt="atom-screenshot1" /></p>
+
+<p><img src="https://raw.githubusercontent.com/ramonmcros/skeletor-syntax/master/screenshots/atom-screenshot2.png" alt="atom-screenshot2" /></p>
+
+<h2 id="prism">Prism</h2>
+
+<h3 id="installation-1">Installation</h3>
+<ol>
+  <li>
+    <p><a href="https://github.com/ramonmcros/skeletor-syntax/archive/master.zip">Download</a> the theme.</p>
+  </li>
+  <li>
+    <p>Link <code>prism.js</code> and <code>prism-skeletor.css</code>.</p>
+  </li>
+</ol>
+
+<p>```
+&lt;!DOCTYPE html&gt;</p>
+<html>
+<head>
+ ...
+    <link href="css/skeletor-prism.css" rel="stylesheet" />
+</head>
+<body>
+ ...
+    <!-- after all your content -->
+    <script src="prism.js"></script>
+</body>
+</html>
+<p>```</p>
+
+<h3 id="supported-languages">Supported Languages</h3>
+
+<ul>
+  <li>HTML</li>
+  <li>CSS</li>
+  <li>Sass (SCSS syntax)</li>
+  <li>Javascript</li>
+  <li>PHP</li>
+  <li>Markdown</li>
+  <li>YAML</li>
+</ul>
+
+<h3 id="plugins">Plugins</h3>
+
+<ul>
+  <li><a href="http://prismjs.com/plugins/line-numbers/">Line Numbers</a></li>
+</ul>
+
+<h3 id="screenshots-1">Screenshots</h3>
+
+<p><img src="https://raw.githubusercontent.com/ramonmcros/skeletor-syntax/master/screenshots/prism-screenshot1.png" alt="prism-screenshot1" /></p>
+
+<p>Click <a href="http://ramonmcros.github.io/skeletor-syntax/prism.html">here</a> to see more examples.</p>
+
+<h2 id="pygments">Pygments</h2>
+
+<h3 id="screenshots-2">Screenshots</h3>
+
+<p><img src="https://raw.githubusercontent.com/ramonmcros/skeletor-syntax/master/screenshots/pygments-screenshot1.png" alt="pygments-screenshot1" /></p>
+
+<h2 id="zsh">Zsh</h2>
+
+<h3 id="requirements">Requirements</h3>
+
+<p>Requires a terminal with 256 colors support.</p>
+
+<h3 id="installation-2">Installation</h3>
+
+<ol>
+  <li>
+    <p><a href="https://github.com/ramonmcros/skeletor-syntax/archive/master.zip">Download</a> the theme.</p>
+  </li>
+  <li>
+    <p>Move the <code>zsh/skeletor.zsh-theme</code> file to <a href="https://github.com/robbyrussell/oh-my-zsh/">oh-my-zsh</a>’s theme folder: <code>oh-my-zsh/themes/skeletor.zsh-theme</code>.</p>
+  </li>
+  <li>
+    <p>Open your <code>~.zshrc</code> file and set <code>ZSH_THEME="skeletor"</code>.</p>
+  </li>
+  <li>
+    <p>Restart the terminal.</p>
+  </li>
+</ol>
+
+<h3 id="screenshots-3">Screenshots</h3>
+
+<p><img src="https://raw.githubusercontent.com/ramonmcros/skeletor-syntax/master/screenshots/zsh-screenshot1.png" alt="zsh-screenshot1" /></p>
+
+<h2 id="color-palette">Color Palette</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Color</strong></th>
+      <th><strong>Hex</strong></th>
+      <th><strong>RGB</strong></th>
+      <th><strong>HSL</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>White</td>
+      <td>#ffffff</td>
+      <td>255 255 255</td>
+      <td>0° 0% 100%</td>
+    </tr>
+    <tr>
+      <td>Light Blue</td>
+      <td>#dce7fd</td>
+      <td>220 231 253</td>
+      <td>220° 89% 93%</td>
+    </tr>
+    <tr>
+      <td>Yellow</td>
+      <td>#f3e4a2</td>
+      <td>243 228 162</td>
+      <td>49° 77% 79%</td>
+    </tr>
+    <tr>
+      <td>Orange</td>
+      <td>#ffb793</td>
+      <td>255 183 147</td>
+      <td>20° 100% 79%</td>
+    </tr>
+    <tr>
+      <td>Red</td>
+      <td>#f36a66</td>
+      <td>243 106 102</td>
+      <td>2° 85% 68%</td>
+    </tr>
+    <tr>
+      <td>Orchid</td>
+      <td>#ff8adb</td>
+      <td>255 138 219</td>
+      <td>318° 100% 77%</td>
+    </tr>
+    <tr>
+      <td>Purple</td>
+      <td>#bd93f9</td>
+      <td>189 147 249</td>
+      <td>265° 89% 78%</td>
+    </tr>
+    <tr>
+      <td>Blue</td>
+      <td>#93b4ff</td>
+      <td>147 180 255</td>
+      <td>222° 100% 79%</td>
+    </tr>
+    <tr>
+      <td>Blue Gray</td>
+      <td>#7b94a5</td>
+      <td>123 148 165</td>
+      <td>204° 19% 56%</td>
+    </tr>
+    <tr>
+      <td>Green</td>
+      <td>#84fba2</td>
+      <td>132 251 16</td>
+      <td>135° 94% 75%</td>
+    </tr>
+    <tr>
+      <td>Very Light Gray</td>
+      <td>#c5c8c6</td>
+      <td>197 200 198</td>
+      <td>140° 3% 78%</td>
+    </tr>
+    <tr>
+      <td>Background</td>
+      <td>#2b2836</td>
+      <td>43 40 54</td>
+      <td>253° 15% 18%</td>
+    </tr>
+    <tr>
+      <td>Comments</td>
+      <td>#655e7f</td>
+      <td>101 94 127</td>
+      <td>253° 15% 43%</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="credits">Credits</h2>
+
+<ul>
+  <li>
+    <p>Theme inspired by <a href="http://en.wikipedia.org/wiki/Skeletor">Skeletor</a> and <a href="https://github.com/zenorocha/dracula-theme">@zenorocha’s dracula-theme</a>.</p>
+  </li>
+  <li>
+    <p>Increased font sizes for headers taken from <a href="https://github.com/nylki/pen-paper-coffee-syntax">@nylki’s pen-paper-coffee-syntax</a>.</p>
+  </li>
+  <li>
+    <p>ZSH theme based on <a href="https://github.com/robbyrussell/oh-my-zsh/blob/master/themes/robbyrussell.zsh-theme">@robbyrussell’s theme</a>.</p>
+  </li>
+</ul>
+<section class="package-keywords">
+  <strong>Keywords:</strong> dark, theme, syntax, skeletor <a href="https://github.com/ramonmcros/skeletor-syntax/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

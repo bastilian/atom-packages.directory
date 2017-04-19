@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Polymorph
+  <a href="https://github.com/halohalospecial/atom-polymorph">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install polymorph
+  </pre>
+</div>
+<h1 id="polymorph">Polymorph</h1>
+
+<p>Simultaneously edit multiple text ranges with related meanings, but different forms.</p>
+
+<h2 id="screenshots">Screenshots</h2>
+<p>Easier to explain with screenshots! :)</p>
+
+<p><img src="https://github.com/halohalospecial/atom-polymorph/blob/master/images/case1.gif?raw=true" alt="case1" /></p>
+
+<p><img src="https://github.com/halohalospecial/atom-polymorph/blob/master/images/case2.gif?raw=true" alt="case2" /></p>
+
+<p><img src="https://github.com/halohalospecial/atom-polymorph/blob/master/images/redux.gif?raw=true" alt="redux" /></p>
+
+<p><img src="https://github.com/halohalospecial/atom-polymorph/blob/master/images/cardinality.gif?raw=true" alt="cardinality" /></p>
+
+<p><img src="https://github.com/halohalospecial/atom-polymorph/blob/master/images/verb-form.gif?raw=true" alt="verb-form" /></p>
+
+<p><img src="https://github.com/halohalospecial/atom-polymorph/blob/master/images/color.gif?raw=true" alt="color" /></p>
+
+<p><img src="https://github.com/halohalospecial/atom-polymorph/blob/master/images/inverse.gif?raw=true" alt="inverse" /></p>
+
+<p><img src="https://github.com/halohalospecial/atom-polymorph/blob/master/images/xml.gif?raw=true" alt="xml" /></p>
+
+<h2 id="commands">Commands</h2>
+
+<h3 id="polymorph-mark-next-in-any-case-and-form"><code>Polymorph: Mark Next In Any Case And Form</code></h3>
+<p>Marks the next text range which has a related meaning with the active selection, but has a different letter case or form.  If nothing is selected, this will select the longest “superword” under the cursor.  Invoke this multiple times to mark the next matching text ranges, similar to <code>Find And Replace: Select Next</code>.  Editing the source text range will also edit the marked ranges.  Press <code>escape</code> when you’re done.</p>
+
+<h3 id="polymorph-skip-last-marked"><code>Polymorph: Skip Last Marked</code></h3>
+<p>Unmarks the last marked text range.  Invoking <code>Polymorph: Mark Next In Any Case And Form</code> again will mark the next matching text range, skipping the unmarked one.  This command is useful if Polymorph marked an incorrect text range.</p>
+
+<p><img src="https://github.com/halohalospecial/atom-polymorph/blob/master/images/skip.gif?raw=true" alt="skip" /></p>
+
+<h3 id="polymorph-select-all-marked"><code>Polymorph: Select All Marked</code></h3>
+<p>Selects all marked text ranges.</p>
+
+<p><img src="https://github.com/halohalospecial/atom-polymorph/blob/master/images/select-marked.gif?raw=true" alt="select-marked" /></p>
+
+<h3 id="polymorph-case-preserving-paste"><code>Polymorph: Case Preserving Paste</code></h3>
+<p>Use this instead of <code>Core: Paste</code> to coerce the case of the pasted text into the case of the target selection.  For example, if the copied text is “mark-next-in-any” and the target selection is “casePreservingPaste”, the pasted text will become “markNextInAny” because the target is in camel case.</p>
+
+<p><img src="https://github.com/halohalospecial/atom-polymorph/blob/master/images/paste.gif?raw=true" alt="paste" /></p>
+
+<h2 id="example-keybindings">Example keybindings</h2>
+<p><code>
+'atom-text-editor':
+  'cmd-e': 'polymorph:mark-next-in-any-case-and-form'
+  'shift-cmd-e': 'polymorph:skip-last-marked'
+  'ctrl-e': 'polymorph:select-all-marked'
+  'shift-cmd-v': 'polymorph:case-preserving-paste'
+</code></p>
+
+<h2 id="credits">Credits</h2>
+
+<p>Uses <a href="https://www.npmjs.com/package/nlp_compromise">nlp_compromise</a> and <a href="https://www.npmjs.com/package/tinycolor2">tinycolor2</a>.</p>
+
+<h2 id="prior-art">Prior Art</h2>
+<p>After some searching, the closest I could find is <a href="http://www.vim.org/scripts/script.php?script_id=1545">abolish.vim</a> by <a href="http://tpo.pe/">Tim Pope</a>.  That vim plugin lets you replace text by specifying some rules (e.g. <code>:%Subvert/facilit{y,ies}/building{,s}/g</code> to replace all instances of “facility” with “building” and “facilities” with “buildings”).</p>
+
+<p>Polymorph attempts to figure out the rules instead, making it less precise, but more magical.</p>
+<section class="package-keywords">
+  <strong>Keywords:</strong> edit, editing, refactor, multi-cursor, multiple cursors <a href="https://github.com/halohalospecial/atom-polymorph/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

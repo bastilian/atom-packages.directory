@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Flexbox Snippets
+  <a href="https://github.com/brenopolanski/css-flexbox-atom-snippets">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+    <span class="author">by Breno Polanski</span>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install flexbox-snippets
+  </pre>
+</div>
+<h1 id="css-flexbox-snippets-for-atom-build-statushttpstravis-ciorgbrenopolanskicss-flexbox-atom-snippetssvgbranchmasterhttpstravis-ciorgbrenopolanskicss-flexbox-atom-snippets">CSS Flexbox snippets for Atom <a href="https://travis-ci.org/brenopolanski/css-flexbox-atom-snippets"><img src="https://travis-ci.org/brenopolanski/css-flexbox-atom-snippets.svg?branch=master" alt="Build Status" /></a></h1>
+
+<h2 id="install">Install</h2>
+
+<h2 id="snippets">Snippets</h2>
+
+<p>Works for CSS/LESS/Sass/SCSS &amp; Stylus.</p>
+
+<h2 id="display">display</h2>
+
+<p><strong>trigger:</strong> flexbox⇥</p>
+
+<p><code>
+display: ${1:flex|inline-flex};
+</code></p>
+
+<h2 id="flex-direction">flex-direction</h2>
+
+<p><strong>trigger:</strong> flexdir⇥</p>
+
+<p><code>
+flex-direction: ${1:row|row-reverse|column|column-reverse};
+</code></p>
+
+<h2 id="flex-wrap">flex-wrap</h2>
+
+<p><strong>trigger:</strong> flexwrap⇥</p>
+
+<p><code>
+flex-wrap: ${1:nowrap|wrap|wrap-reverse};
+</code></p>
+
+<h2 id="flex-flow">flex-flow</h2>
+
+<p><strong>trigger:</strong> flexflow⇥</p>
+
+<p><code>
+flex-flow: ${1:&lt;'flex-direction' (row|row-reverse|column|column-reverse)&gt; || &lt;'flex-wrap' (nowrap|wrap|wrap-reverse)&gt;};
+</code></p>
+
+<h2 id="justify-content">justify-content</h2>
+
+<p><strong>trigger:</strong> flexjust⇥</p>
+
+<p><code>
+justify-content: ${1:flex-start|flex-end|center|space-between|space-around};
+</code></p>
+
+<h2 id="align-items">align-items</h2>
+
+<p><strong>trigger:</strong> flexitems⇥</p>
+
+<p><code>
+align-items: ${1:flex-start|flex-end|center|baseline|stretch};
+</code></p>
+
+<h2 id="align-content">align-content</h2>
+
+<p><strong>trigger:</strong> flexcont⇥</p>
+
+<p><code>
+align-content: ${1:flex-start|flex-end|center|space-between|space-around|stretch};
+</code></p>
+
+<h2 id="order">order</h2>
+
+<p><strong>trigger:</strong> flexorder⇥</p>
+
+<p><code>
+order: ${1:0};
+</code></p>
+
+<h2 id="flex-grow">flex-grow</h2>
+
+<p><strong>trigger:</strong> flexgrow⇥</p>
+
+<p><code>
+flex-grow: ${1:0};
+</code></p>
+
+<h2 id="flex-shrink">flex-shrink</h2>
+
+<p><strong>trigger:</strong> flexshr⇥</p>
+
+<p><code>
+flex-shrink: ${1:1};
+</code></p>
+
+<h2 id="flex-basis">flex-basis</h2>
+
+<p><strong>trigger:</strong> flexbasis⇥</p>
+
+<p><code>
+flex-basis: ${1:auto|&lt;'width' (%|rem|em|px)&gt;};
+</code></p>
+
+<h2 id="flex">flex</h2>
+
+<p><strong>trigger:</strong> flex⇥</p>
+
+<p><code>
+flex: ${1:none|auto|[&lt;'flex-grow' (0)&gt; &lt;'flex-shrink' (1)&gt; || &lt;'flex-basis' auto|&lt;'width' (%|rem|em|px)&gt;&gt;]};
+</code></p>
+
+<h2 id="align-self">align-self</h2>
+
+<p><strong>trigger:</strong> flexself⇥</p>
+
+<p><code>
+align-self: ${1:auto|flex-start|flex-end|center|baseline|stretch};
+</code></p>
+
+<h2 id="prefixing-flexbox">Prefixing Flexbox</h2>
+
+<p>Flexbox requires some vendor prefixing to support the most browsers possible. It doesn’t just include prepending properties with the vendor prefix, but there are actually entirely different property and value names. This is because the Flexbox spec has changed over time, creating an <a href="http://css-tricks.com/old-flexbox-and-new-flexbox/">“old”, “tweener”, and “new”</a> versions.</p>
+
+<p>Perhaps the best way to handle this is to write in the new (and final) syntax and run your CSS through <a href="https://github.com/postcss/autoprefixer">Autoprefixer</a>, which handles the fallbacks very well.</p>
+
+<h2 id="contributing">Contributing</h2>
+
+<p>If you want to help, please read the <a href="https://github.com/brenopolanski/css-flexbox-atom-snippets/blob/master/CONTRIBUTING.md">Contributing</a> guide.</p>
+
+<h2 id="history">History</h2>
+
+<p>For detailed changelog, see <a href="https://github.com/brenopolanski/css-flexbox-atom-snippets/releases">Releases</a>.</p>
+
+<h2 id="references">References</h2>
+
+<ul>
+  <li><a href="http://www.w3.org/TR/css-flexbox/">Flexbox in the CSS specifications</a></li>
+  <li><a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">A Complete Guide to Flexbox</a></li>
+</ul>
+
+<h2 id="license">License</h2>
+
+<p><a href="http://brenopolanski.mit-license.org/">MIT License</a> © Breno Polanski</p>
+<section class="package-keywords">
+  <strong>Keywords:</strong> css, flexbox, atom, snippets <a href="https://github.com/brenopolanski/css-flexbox-atom-snippets/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

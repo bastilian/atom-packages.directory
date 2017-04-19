@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Visual Studio Code Light
+  <a href="https://github.com/Zeioth/atom-visual-studio-code-light-ui">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install atom-visual-studio-code-light-ui
+  </pre>
+</div>
+<h2 id="atom-visual-studio-code-ui-light-theme-build-statushttpstravis-ciorgatomone-light-uisvgbranchmasterhttpstravis-ciorgatomone-light-ui">Atom Visual Studio Code UI light theme <a href="https://travis-ci.org/atom/one-light-ui"><img src="https://travis-ci.org/atom/one-light-ui.svg?branch=master" alt="Build Status" /></a></h2>
+
+<p><img src="https://cloud.githubusercontent.com/assets/3357792/10440872/3af1d882-7143-11e5-9df9-2c1d0aa5e919.png" alt="Banner Atom Visual Studio Code UI Light" /></p>
+
+<p>This theme aims to reproduce the exact feeling of work with Visual Studio Code. So you don’t need to renounce to the features of Atom to enjoy a great workflow. If you prefer, there is an <a href="https://atom.io/themes/atom-visual-studio-code-ui">alternative version</a> in dark colors.</p>
+
+<p>Made by <a href="https://twitter.com/Zeioth">@Zeioth</a></p>
+
+<hr />
+
+<p><img src="https://cloud.githubusercontent.com/assets/3357792/10629108/57174d0a-77cc-11e5-93d4-98d0832d694a.png" alt="atom-visual-studio-code-light-ui" /></p>
+
+<h3 id="install-your-toolbar">Install your toolbar</h3>
+
+<p>After you install this theme you’ll only have the color scheme of <strong>Visual Studio Code</strong>. To enjoy the full experience you must install the next packages.</p>
+
+<ol>
+  <li><code>tool-bar</code> by suda - This will enable the sidebar. You can set the position to left.</li>
+  <li><code>flex-tool-bar</code> by cakecatz - It will allow us to configure the elements of the tool-bar.</li>
+  <li><code>git-plus</code> by akonwi - Having this you can run git commands from your toolbar.</li>
+</ol>
+
+<h3 id="customize-your-toolbar">Customize your toolbar</h3>
+
+<p>You can’t see the toolbar yet. To configure it, you must press ctrl+shift+p and write “Flex Tool Bar: Edit Config File”. Then paste this code and save it. You should be able to see your new toolbar after restart Atom.</p>
+
+<p>```json
+[
+  {
+    type: “button”
+    iconset: “ion”
+    icon: “ios-copy”
+    callback: “tree-view:toggle”
+    tooltip: “Toggle Project Tree”
+    style:
+      color: “#FFFFFF”
+  }
+  {
+    type: “button”
+    iconset: “fa”
+    icon: “columns”
+    tooltip: “Split Screen”
+    callback: [“pane:split-right”]
+    style:
+      color: “#FFFFFF”
+  }
+  {
+    type: “button”
+    iconset: “devicon”
+    icon: “git-plain”
+    callback: “git-plus:menu”
+    tooltip: “Git”
+    style:
+      color: “#1AA2E4”
+  }
+  {
+    type: “url”
+    iconset: “ion”
+    icon: “bug”
+    url: “http://localhost:8000”
+    tooltip: “Debug Django Project”
+    show: [ “Python”, “HTML”, “JavaScript”, “CSS” ]
+    style:
+      color: “#FFFFFF”
+  }
+]</p>
+
+<p>```</p>
+
+<h3 id="faq">FAQ</h3>
+<p><strong>Can I custumize this theme?</strong>
+Yes, you can change anything in your styles.less like this:
+<code>css
+.theme-atom-visual-studio-code-light-ui {
+  atom-text-editor {
+    background-color: #272822;
+  }
+}
+</code>
+<strong>My toolbar icons are too small!</strong>
+You can edit the size of the icons in “Preferences &gt; Packages &gt; Tool-bar”.</p>
+
+<p><strong>Something has an incorrect color or size?</strong>
+Go to our Github repository, and open an issue uploading an image of your problem. I will fix it as soon as possible. Also, this theme is based on One Light UI, so if you need further help, please refer to the documentation of said theme.</p>
+<section class="package-keywords">
+  <strong>Keywords:</strong> light, visual, studio, code, ui, theme <a href="https://github.com/Zeioth/atom-visual-studio-code-light-ui/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Platformio Ide Terminal
+  <a href="https://github.com/platformio/platformio-atom-ide-terminal">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+    <span class="author">by Jeremy Ebneyamin</span>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install platformio-ide-terminal
+  </pre>
+</div>
+<h1 id="platformio-ide-terminal">PlatformIO IDE Terminal</h1>
+<p>A terminal package for Atom, complete with themes, API and more for <a href="http://platformio.org/#!/platformio-ide">PlatformIO IDE</a>.</p>
+
+<p><img src="https://github.com/jeremyramin/terminal-plus/raw/master/resources/demo.gif" alt="demo" /></p>
+
+<p><em><a href="https://atom.io/themes/nucleus-dark-ui">Nucleus Dark UI</a> with <a href="https://atom.io/themes/atom-material-syntax">Atom Material Syntax</a> and our Homebrew theme.</em></p>
+
+<h2 id="install">Install</h2>
+<p>Ready to install?</p>
+
+<p>You can install via apm: <code>apm install platformio-ide-terminal</code></p>
+
+<p>Or navigate to the install tab in Atom’s settings view, and search for <code>platformio-ide-terminal</code>.</p>
+
+<h2 id="usage">Usage</h2>
+
+<p><code>platformio-ide-terminal</code> stays in the bottom of your editor while you work.</p>
+
+<p>Click on a status icon to toggle that terminal (or <code>ctrl-`</code>). Right click the status icon for a list of available commands. From the right-click menu you can color code the status icon as well as hide or close the terminal instance.</p>
+
+<h3 id="terminal">Terminal</h3>
+<p>You can open the last active terminal with the <code>platformio-ide-terminal:toggle</code> command (Default:<code>ctrl-`</code>).  If no terminal instances are available, then a new one will be created. The same toggle command is used to hide the currently active terminal.</p>
+
+<p>From there you can begin typing into the terminal. By default the terminal will change directory into the project folder if possible. The default working directory can be changed in the settings to the home directory or to the active file directory.</p>
+
+<p><a href="#commands">See available commands below</a>.</p>
+
+<h2 id="features">Features</h2>
+
+<h3 id="full-terminal">Full Terminal</h3>
+<p>Every terminal is loaded with your system’s default initialization files. This ensures that you have access to the same commands and aliases as you would in your standard terminal.</p>
+
+<h3 id="themes">Themes</h3>
+<p>The terminal is preloaded with several themes that you can choose from. Not satisfied?<br />
+Use the following template in your stylesheet:
+```css
+.platformio-ide-terminal .xterm {
+  background-color: ;
+  color: ;</p>
+
+<p>::selection {
+    background-color: ;
+  }</p>
+
+<p>.terminal-cursor {
+    background-color: ;
+  }
+}
+```</p>
+
+<h3 id="process-titles">Process Titles</h3>
+<p>By hovering over the terminal status icon, you can see which command process is currently running in the terminal.</p>
+
+<p><img src="https://github.com/jeremyramin/terminal-plus/raw/master/resources/terminal_title.png" alt="" /></p>
+
+<h3 id="terminal-naming">Terminal Naming</h3>
+<p>Need a faster way to figure out which terminal is which? Name your status icons!</p>
+
+<p><img src="https://github.com/jeremyramin/terminal-plus/raw/master/resources/status-icon_rename.png" alt="" /></p>
+
+<p>Available via the status icon context menu.</p>
+
+<p><img src="https://github.com/jeremyramin/terminal-plus/raw/master/resources/status-icon_rename-dialog.png" alt="" /></p>
+
+<h3 id="color-coding">Color Coding</h3>
+<p>Color code your status icons!</p>
+
+<p><img src="https://github.com/jeremyramin/terminal-plus/raw/master/resources/status-icon_color_coding.png" alt="" /></p>
+
+<p>The colors are customizable in the settings, however the color names remain the same in the context menu.</p>
+
+<h3 id="sorting">Sorting</h3>
+<p>Organize your open terminal instances by dragging and dropping them.</p>
+
+<p><img src="https://github.com/jeremyramin/terminal-plus/raw/master/resources/sorting.gif" alt="" /></p>
+
+<h3 id="resizable">Resizable</h3>
+<p>You can resize the view vertically, or just maximize it with the maximize button.</p>
+
+<h3 id="working-directory">Working Directory</h3>
+<p>You can set the default working directory for new terminals. By default this will be the project folder.</p>
+
+<h3 id="file-dropping">File Dropping</h3>
+<p>Dropping a file on the terminal will insert the file path into the input. This works with external files, tabs from the Atom tab-view, and entries from the Atom tree-view.</p>
+
+<h3 id="insert-selected-text">Insert Selected Text</h3>
+<p>Insert and run selected text from your text editor by running the <code>platformio-ide-terminal:insert-selected-text</code> command (<code>ctrl-enter</code>).</p>
+
+<p><img src="https://github.com/jeremyramin/terminal-plus/raw/master/resources/insert_selected_text.gif" alt="" /></p>
+
+<p>If you have text selected, it will insert your selected text into the active terminal and run it.<br />
+If you don’t have text selected it, will run the text on the line where your cursor is then proceed to the next line.</p>
+
+<h3 id="quick-command-insert">Quick Command Insert</h3>
+<p>Quickly insert a command to your active terminal by executing the <code>platformio-ide-terminal:insert-text</code> command.</p>
+
+<p><img src="https://github.com/jeremyramin/terminal-plus/raw/master/resources/insert_text.png" alt="" /></p>
+
+<p>A dialog will pop up asking for the input to insert. If you have the <code>Run Inserted Text</code> option enabled in the settings (default is false), platformio-ide-terminal will automatically run the command for you.</p>
+
+<h4 id="support-for-special-keys">Support for Special Keys</h4>
+<p>Support for IME, dead keys and other key combinations via the <code>Insert Text</code> dialog box. Just click the keyboard button in the top left of the terminal or set up a keymap to the <code>platformio-ide-terminal:insert-text</code> command.</p>
+
+<p><img src="https://github.com/jeremyramin/terminal-plus/raw/master/resources/special_keys.gif" alt="" /></p>
+
+<p>Note: Make sure you have the <code>Run Inserted Command</code> toggle off otherwise it will run your inserted text.</p>
+
+<h3 id="map-terminal-to">Map Terminal To</h3>
+<p>Map your terminals to each file or folder you are working on for automatic terminal switching.</p>
+
+<h4 id="file">File</h4>
+<p><img src="https://github.com/jeremyramin/terminal-plus/raw/master/resources/map_terminals_to_file.gif" alt="" /></p>
+
+<h4 id="folder">Folder</h4>
+<p><img src="https://github.com/jeremyramin/terminal-plus/raw/master/resources/map_terminals_to_folder.gif" alt="" /></p>
+
+<p>Toggling the <code>Auto Open a New Terminal (For Terminal Mapping)</code> option will have the mapping create a new terminal automatically for files and folders that don’t have a terminal. The toggle is located right under the <code>Map Terminals To</code> option.</p>
+
+<p><img src="https://github.com/jeremyramin/terminal-plus/raw/master/resources/map_terminals_to_auto_open.gif" alt="" /></p>
+
+<h2 id="commands">Commands</h2>
+<p>| Command | Action | Default Keybind |
+|———|——–|:—————–:|
+| platformio-ide-terminal:new | Create a new terminal instance. | <code>ctrl-shift-t</code><br />or<br /><code>cmd-shift-t</code> |
+| platformio-ide-terminal:toggle | Toggle the last active terminal instance.<br /><strong>Note:</strong> This will create a new terminal if it needs to. | <code>ctrl-`</code><br />(Control + Backtick) |
+| platformio-ide-terminal:prev | Switch to the terminal left of the last active terminal. | <code>ctrl-shift-j</code><br />or<br /><code>cmd-shift-j</code> |
+| platformio-ide-terminal:next | Switch to the terminal right of the last active terminal. | <code>ctrl-shift-k</code><br />or<br /><code>cmd-shift-k</code> |
+| platformio-ide-terminal:insert-selected-text | Run the selected text as a command in the active terminal. | <code>ctrl-enter</code> |
+| platformio-ide-terminal:insert-text | Bring up an input box for using IME and special keys. | –––––––––––– |
+| platformio-ide-terminal:fullscreen | Toggle fullscreen for active terminal. | –––––––––––– |
+| platformio-ide-terminal:close | Close the active terminal. | <code>ctrl-shift-x</code><br />or<br /><code>cmd-shift-x</code> |
+| platformio-ide-terminal:close-all | Close all terminals. | –––––––––––– |
+| platformio-ide-terminal:rename | Rename the active terminal. | –––––––––––– |</p>
+
+<hr />
+<p>A fork of <a href="https://github.com/jeremyramin/terminal-plus">jeremyramin/terminal-plus</a>.</p>
+<section class="package-keywords">
+  <strong>Keywords:</strong> platformio, terminal-plus, terminal, iterm, panel, pty, tty, xterm, iterm, iterm2, console, powershell <a href="https://github.com/platformio/platformio-atom-ide-terminal/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

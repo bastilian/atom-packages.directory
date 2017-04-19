@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Build Papyrus
+  <a href="https://github.com/Gawdl3y/atom-build-papyrus">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install build-papyrus
+  </pre>
+</div>
+<h1 id="build-papyrus-package-for-atom">build-papyrus package for Atom</h1>
+<p><a href="https://atom.io/packages/build-papyrus"><img src="https://img.shields.io/apm/dm/build-papyrus.svg" alt="Downloads" /></a>
+<a href="https://atom.io/packages/build-papyrus"><img src="https://img.shields.io/apm/v/build-papyrus.svg" alt="Version" /></a>
+<a href="https://david-dm.org/Gawdl3y/atom-build-papyrus"><img src="https://david-dm.org/Gawdl3y/atom-build-papyrus.svg" alt="Dependency status" /></a>
+<a href="LICENSE"><img src="https://img.shields.io/apm/l/build-papyrus.svg" alt="License" /></a></p>
+
+<p>A build provider for the Atom <a href="https://atom.io/packages/build">build</a> package that handles Papyrus projects and manual build configuration.<br />
+For Papyrus syntax highlighting, use the <a href="https://atom.io/packages/language-papyrus">language-papyrus</a> package.</p>
+
+<h2 id="usage">Usage</h2>
+<p>If your Papyrus compilers are not in their default locations, then you must configure the compiler paths in the package’s settings.
+These are used based on the active game for the project file/configuration.<br />
+Skyrim default: <code>C:\Program Files (x86)\Steam\SteamApps\common\Skyrim\Papyrus Compiler\PapyrusCompiler.exe</code><br />
+Fallout 4 default:  <code>C:\Program Files (x86)\Steam\SteamApps\common\Fallout 4\Papyrus Compiler\PapyrusCompiler.exe</code></p>
+
+<p>To build, use <code>build:trigger</code> (<kbd>Ctrl</kbd><kbd>Alt</kbd><kbd>B</kbd> or <kbd>F9</kbd>).<br />
+You can select which build target you’d like to use with <code>build:select-active-target</code> (<kbd>Ctrl</kbd><kbd>Alt</kbd><kbd>T</kbd> or <kbd>F7</kbd>).<br />
+There are multiple build targets: default, release, and final release (only the default target is available for Skyrim).
+* The <strong>default</strong> target will use the <code>release</code> and <code>final</code> settings from the project file/configuration file.
+* The <strong>release</strong> target will send the <code>-release</code> argument to the compiler.
+* The <strong>final release</strong> target will send both the <code>-release</code> and <code>-final</code> arguments to the compiler.</p>
+
+<p>If you’re using a project file, the <code>release</code> and <code>final</code> values in there will still be taken into account by the compiler.
+Keep them <code>false</code> in the project file for the build targets to work properly.<br />
+If you have both a project file and a fully-buildable configuration file present, targets will be available for both.</p>
+
+<h3 id="papyrus-project-files">Papyrus project files</h3>
+<p>Make sure the directory you have open in Atom contains your project file in its root.
+If you add, remove, or rename a project file, make sure you run <code>build:refresh-targets</code> in the command palette.
+Skyrim does not support project files.</p>
+
+<h3 id="manual-configuration">Manual configuration</h3>
+<p>If you aren’t using project files, then you can also configure the build settings in a JSON, CSON, or YAML configuration file called <code>.build-papyrus.json</code>, <code>.build-papyrus.cson</code>, or <code>.build-papyrus.yml</code>.
+This should also go in your root directory. The possible settings:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Option</th>
+      <th>Type</th>
+      <th>Default</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>game</code></td>
+      <td>String</td>
+      <td> </td>
+      <td><strong>Required if <code>compiler</code> is not defined.</strong> Must be one of <code>skyrim</code> or <code>fallout4</code>.</td>
+    </tr>
+    <tr>
+      <td><code>compiler</code></td>
+      <td>String</td>
+      <td>Appropriate <code>game</code> path</td>
+      <td><strong>Required if <code>game</code> is not defined.</strong> Full path to the Papyrus compiler you wish to use.</td>
+    </tr>
+    <tr>
+      <td><code>flags</code></td>
+      <td>String</td>
+      <td>Appropriate <code>game</code> file</td>
+      <td><strong>Required if <code>game</code> is not defined.</strong> The compiler flags file.</td>
+    </tr>
+    <tr>
+      <td><code>output</code></td>
+      <td>String</td>
+      <td><code>.</code></td>
+      <td>The directory for the compiler to output to.</td>
+    </tr>
+    <tr>
+      <td><code>imports</code></td>
+      <td>Array</td>
+      <td> </td>
+      <td><strong>Required.</strong> An array of strings that are full paths to script import directories.</td>
+    </tr>
+    <tr>
+      <td><code>optimize</code></td>
+      <td>Boolean</td>
+      <td><code>true</code></td>
+      <td>Whether or not the compiler should optimize its output.</td>
+    </tr>
+    <tr>
+      <td><code>release</code></td>
+      <td>Boolean</td>
+      <td><code>false</code></td>
+      <td>Whether or not the compiler should build for release (strip out debugOnly). Instead of specifying this, you can select the “Papyrus release” build target.</td>
+    </tr>
+    <tr>
+      <td><code>final</code></td>
+      <td>Boolean</td>
+      <td><code>false</code></td>
+      <td>Whether or not the compiler should build for final release (strip out betaOnly). Instead of specifying this, you can select the “Papyrus final release” build target.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Triggering a build will compile the file you currently have opened.</p>
+
+<h4 id="example-configuration-with-game">Example configuration (with game)</h4>
+<p><code>.build-papyrus.yml</code>:
+<code>yaml
+game: fallout4
+output: C:\Program Files (x86)\Steam\SteamApps\common\Fallout 4\Data\Scripts\
+imports:
+    - C:\Program Files (x86)\Steam\SteamApps\common\Fallout 4\Data\Scripts\Source\User
+    - C:\Program Files (x86)\Steam\SteamApps\common\Fallout 4\Data\Scripts\Source\DLC03
+    - C:\Program Files (x86)\Steam\SteamApps\common\Fallout 4\Data\Scripts\Source\DLC02
+    - C:\Program Files (x86)\Steam\SteamApps\common\Fallout 4\Data\Scripts\Source\DLC01
+    - C:\Program Files (x86)\Steam\SteamApps\common\Fallout 4\Data\Scripts\Source\Base
+</code></p>
+
+<h4 id="example-configuration-without-game">Example configuration (without game)</h4>
+<p><code>.build-papyrus.yml</code>:
+<code>yaml
+compiler: C:\Program Files (x86)\Steam\SteamApps\common\Fallout 4\Papyrus Compiler\PapyrusCompiler.exe
+flags: Institute_Papyrus_Flags.flg
+output: C:\Program Files (x86)\Steam\SteamApps\common\Fallout 4\Data\Scripts\
+imports:
+    - C:\Program Files (x86)\Steam\SteamApps\common\Fallout 4\Data\Scripts\Source\User
+    - C:\Program Files (x86)\Steam\SteamApps\common\Fallout 4\Data\Scripts\Source\DLC03
+    - C:\Program Files (x86)\Steam\SteamApps\common\Fallout 4\Data\Scripts\Source\DLC02
+    - C:\Program Files (x86)\Steam\SteamApps\common\Fallout 4\Data\Scripts\Source\DLC01
+    - C:\Program Files (x86)\Steam\SteamApps\common\Fallout 4\Data\Scripts\Source\Base
+</code></p>
+
+<h4 id="example-configuration-with-everything">Example configuration (with everything)</h4>
+<p><code>.build-papyrus.yml</code>:
+<code>yaml
+game: fallout4
+compiler: C:\Program Files (x86)\Steam\SteamApps\common\Fallout 4\Papyrus Compiler\PapyrusCompiler.exe
+flags: Institute_Papyrus_Flags.flg
+output: C:\Program Files (x86)\Steam\SteamApps\common\Fallout 4\Data\Scripts\
+imports:
+    - C:\Program Files (x86)\Steam\SteamApps\common\Fallout 4\Data\Scripts\Source\User
+    - C:\Program Files (x86)\Steam\SteamApps\common\Fallout 4\Data\Scripts\Source\DLC03
+    - C:\Program Files (x86)\Steam\SteamApps\common\Fallout 4\Data\Scripts\Source\DLC02
+    - C:\Program Files (x86)\Steam\SteamApps\common\Fallout 4\Data\Scripts\Source\DLC01
+    - C:\Program Files (x86)\Steam\SteamApps\common\Fallout 4\Data\Scripts\Source\Base
+optimize: true
+release: false
+final: false
+</code></p>
+
+<h2 id="what-is-papyrus">What is Papyrus?</h2>
+<p>Papyrus is a scripting language for the Creation Engine, the game engine that <em>The Elder Scrolls V: Skyrim</em> and <em>Fallout 4</em> run on.
+Mods for them use this language to make things happen in the game.
+Want to learn more about it?
+Check out the Papyrus reference for <a href="http://www.creationkit.com/index.php?title=Category:Papyrus">Skyrim</a> or <a href="http://www.creationkit.com/fallout4/index.php?title=Category:Papyrus">Fallout 4</a>.</p>
+<section class="package-keywords">
+  <strong>Keywords:</strong> build, compile, papyrus, fallout, skyrim <a href="https://github.com/Gawdl3y/atom-build-papyrus/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

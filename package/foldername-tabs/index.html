@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Foldername Tabs
+  <a href="https://github.com/paulpflug/foldername-tabs">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install foldername-tabs
+  </pre>
+</div>
+<h1 id="foldername-tabs-package">foldername-tabs package</h1>
+
+<p>Adds foldernames to tabs..</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: right">Theme</th>
+      <th style="text-align: left">Appearance</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: right">atom</td>
+      <td style="text-align: left"><img src="https://cloud.githubusercontent.com/assets/1881921/8182308/7b0d9572-142e-11e5-91fa-6a5ed02eac32.png" alt="fnt-atom" /></td>
+    </tr>
+    <tr>
+      <td style="text-align: right">graphite</td>
+      <td style="text-align: left"><img src="https://cloud.githubusercontent.com/assets/1881921/8182309/7b287c70-142e-11e5-822f-a714b1bfb945.png" alt="fnt-graphite" /></td>
+    </tr>
+    <tr>
+      <td style="text-align: right">isotope</td>
+      <td style="text-align: left"><img src="https://cloud.githubusercontent.com/assets/1881921/8182310/7b37b5c8-142e-11e5-8446-bae30d303235.png" alt="fnt-isotope" /></td>
+    </tr>
+    <tr>
+      <td style="text-align: right">one</td>
+      <td style="text-align: left"><img src="https://cloud.githubusercontent.com/assets/1881921/8182311/7b398b00-142e-11e5-8a27-9e179e285a5c.png" alt="fnt-one" /></td>
+    </tr>
+    <tr>
+      <td style="text-align: right">polymorph</td>
+      <td style="text-align: left"><img src="https://cloud.githubusercontent.com/assets/1881921/8182312/7b41b83e-142e-11e5-93e7-27c21c9a2bf0.png" alt="fnt-polymorph" /></td>
+    </tr>
+    <tr>
+      <td style="text-align: right">seti</td>
+      <td style="text-align: left"><img src="https://cloud.githubusercontent.com/assets/1881921/8182313/7b42d0fc-142e-11e5-9aa0-f8a62711305c.png" alt="fnt-seti" /></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Will be automatically enabled once installed. Can be toggled but will re-enable on restart.</p>
+
+<h2 id="current-folder-naming-schema">Current folder naming schema:</h2>
+
+<p>```
+## outside of your project
+folder: /…/lastFolder</p>
+
+<h2 id="within-your-project">within your project</h2>
+<p>folder: empty # In root folder
+folder: lastFolder # directly below root
+folder: ../../lastFolder # nested below root</p>
+
+<h2 id="within-your-multi-folder-project">within your multi-folder project</h2>
+<p># like in a single-folder project but each folder gets the number of the root
+# folder prepended. Can be set to use a short name instead of a number.
+```
+### Settings</p>
+
+<p><img src="https://cloud.githubusercontent.com/assets/1881921/8568995/600b0c7c-2573-11e5-8b6a-02afec61cc9c.png" alt="foldername-settings" /></p>
+
+<p>Available settings:
+<code>coffee
+"Maximum path length":
+  default: 20
+  description: "Allowed length of a path, if set to 0, will not shorten the path"
+"Maximum folder length":
+  default: 0
+  description: "Allowed length of a single folder, if set to 0, will not shorten the folder"
+"Multi-folder project identifier":
+  default: 0
+  description: "length of the project identifier, if set to 0 will use numbers instead"
+"Filename first"
+  default: false
+  description: "Puts the filename above the foldername"
+</code>
+## Developing</p>
+
+<p>Run <code>npm install</code> in the package directory.</p>
+
+<p>Open it in atom in dev mode.</p>
+
+<p>For debugging set the debug field in package settings to the needed debug level.</p>
+
+<p>Should autoreload the package on changes in <code>lib</code> and <code>styles</code> folders</p>
+
+<h2 id="license">License</h2>
+<p>Copyright (c) 2015 Paul Pflugradt
+Licensed under the MIT license.</p>
+<section class="package-keywords">
+  <strong>Keywords:</strong> tabs, foldernames <a href="https://github.com/paulpflug/foldername-tabs/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

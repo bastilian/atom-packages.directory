@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Pigments
+  <a href="https://github.com/abe33/atom-pigments">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install pigments
+  </pre>
+</div>
+<p><a href="https://travis-ci.org/abe33/atom-pigments"><img src="https://travis-ci.org/abe33/atom-pigments.svg?branch=master" alt="Build Status" /></a></p>
+
+<h2 id="img-srchttpabe33githubioatom-pigmentslogosvg-width320-height80"><img src="http://abe33.github.io/atom-pigments/logo.svg" width="320" height="80" /></h2>
+
+<p>A package to display colors in project and files:</p>
+
+<p><img src="http://abe33.github.io/atom-pigments/pigments.gif?raw=true" alt="Screenshot" /></p>
+
+<p>Pigments will scan source files in your project directories looking for colors and will build a palette with all of them. Then for each opened file, it will use the palette to evaluate the value of a given color. The legible source paths can be defined through various settings either at the global or per project level. <strong>By default colors in every file will be highlighted, to limit the display of colors to the desired filetype only please see the <a href="#defining-where-pigments-applies">Defining Where Pigments Applies</a> below.</strong></p>
+
+<p>Pigments supports out of the box most of the color transformations functions and expressions of the three biggest CSS pre-processors out there, namely LESS, Sass and Stylus. However, it doesn’t mean pigments is able to parse and understand all of these languages constructs. For the moment, Pigments’ aim is to support the widest range of usage, even if it implies reducing its ability to parse certain complex constructs. You can refer to the <a href="https://github.com/abe33/atom-pigments/blob/master/spec/color-parser-spec.coffee">parser specs</a> for an exhaustive list of the supported expressions.</p>
+
+<h2 id="install">Install</h2>
+
+<p>Using <code>apm</code>:</p>
+
+<p><code>sh
+apm install pigments
+</code></p>
+
+<p>Or search for <code>pigments</code> in Atom settings view.</p>
+
+<h2 id="defining-where-pigments-applies">Defining Where Pigments Applies</h2>
+
+<p>By default, Pigments will highlight every color in every file, but you can limit that using the two settings <a href="#supported-filetypes"><code>Supported Filetypes</code></a> and <a href="#ignored-scopes"><code>Ignored Scopes</code></a>.</p>
+
+<p>The first setting allow you to specify the list of extensions where pigments will apply. For instance, by using the values <code>css, less</code>, colors will be visible only in CSS and Less files.</p>
+
+<p>The second setting takes an array of regular expression strings used to exclude colors in specific scopes (like comments or strings). You can find the scope that applies at the cursor position with the <code>Editor: Log Cursor Scope</code> command (<kbd>cmd-alt-p</kbd> or <kbd>ctrl-alt-shift-p</kbd>).</p>
+
+<p><img src="http://abe33.github.io/atom-pigments/get-scope.gif?raw=true" alt="get scope" /></p>
+
+<h2 id="defaults-file">Defaults File</h2>
+
+<p>Pigments is able to follow variables uses up to a certain point, if a color refers to several variables whose values can’t be evaluated (because they use unsupported language-specific features) the color will be flagged as invalid and not displayed. This can be problematic when it happens on the core components of a complex palette.</p>
+
+<p>To solve that issue, you can define a <em>defaults file</em> named <code>.pigments</code> at the root of a project directory and you can put in it all the variables declarations to use if a value from the sources files can’t be evaluated.</p>
+
+<p>This can also be used when your project core palette is dynamically defined so that pigments can evaluate properly the rest of the project colors.</p>
+
+<h2 id="commands">Commands</h2>
+
+<p><strong>Note:</strong> Pigments doesn’t define any keybindings for the provided commands, instead it’ll let you define your own keybindings.</p>
+
+<h3 id="pigments-show-palette">Pigments: Show Palette</h3>
+
+<p>You can display the project’s palette through the <code>Pigments: Show Palette</code> command from the command palette:</p>
+
+<p><img src="http://abe33.github.io/atom-pigments/palette.gif?raw=true" alt="Screenshot" /></p>
+
+<p>The project palette is made of all the colors that are affected to a variable, which means it won’t display hardcoded colors affected to a CSS property. If you want to find every color used in a project, including the hardcoded colors in CSS files, use the <code>Pigments: Find Colors</code> instead.</p>
+
+<p>Patterns for Less, Sass, Scss and Stylus variables are currently supported, which includes:</p>
+
+<p><code>stylus
+my-var = #123456 // stylus
+</code>
+<code>sass
+$my-var: #123456 // sass
+$my-var: #123456; // scss
+</code>
+<code>css
+@my-var: #123456; /* less */
+</code></p>
+
+<p>As with every command, this command can be triggered using the keyboard by defining a keybinding like this:</p>
+
+<p><code>coffee
+'atom-workspace':
+  'alt-shift-p': 'pigments:show-palette'
+</code></p>
+
+<h3 id="pigments-find-colors">Pigments: Find Colors</h3>
+
+<p>You can search for all colors in your project using the <code>Pigments: Find Colors</code> command from the command palette:</p>
+
+<p><img src="http://abe33.github.io/atom-pigments/search.gif?raw=true" alt="Screenshot" /></p>
+
+<p>The results will include colors declared in variables, places where the color variables are used as well as hardcoded color values in every file that matches one of the patterns defined in both <code>pigments.sourceNames</code> and <code>pigments.extendedSearchNames</code> settings.</p>
+
+<p>By default this includes:</p>
+
+<p><code>
+**/*.css
+**/*.less
+**/*.scss
+**/*.sass
+**/*.styl
+**/*.stylus
+</code></p>
+
+<p>This command can be triggered using the keyboard by defining a keybinding like this:</p>
+
+<p><code>coffee
+'atom-workspace':
+  'alt-shift-f': 'pigments:find-colors'
+</code></p>
+
+<h3 id="pigments-convert-to-">Pigments: Convert To *</h3>
+
+<p>It evaluates and replace a color by the corresponding notation.
+Accessible from the command palette or by right clicking on a color.</p>
+
+<p><img src="http://abe33.github.io/atom-pigments/context-menu-conversion.gif?raw=true" alt="pigments-conversion" /></p>
+
+<p>These commands can be triggered using the keyboard by defining a keybinding like this:</p>
+
+<p><code>coffee
+'atom-workspace':
+  'alt-shift-h': 'pigments:convert-to-hex'
+  'alt-shift-g': 'pigments:convert-to-rgb'
+  'alt-shift-j': 'pigments:convert-to-rgba'
+  'alt-shift-k': 'pigments:convert-to-hsl'
+  'alt-shift-l': 'pigments:convert-to-hsla'
+</code></p>
+
+<p>When triggered from the command palette or from the keyboard, the conversion will operate on every cursor positioned on color markers.</p>
+
+<h3 id="pigments-project-settings">Pigments: Project Settings</h3>
+
+<p>Each Pigments project has its own set of settings that can extend or replace the global configuration. These settings are available through the <code>pigments:project-settings</code> command:</p>
+
+<p><img src="http://abe33.github.io/atom-pigments/project-settings.png?raw=true" alt="pigments-conversion" /></p>
+
+<p>The <code>Source Names</code>, <code>Ignored Names</code>, <code>Ignored Scopes</code> and <code>Extended Search Names</code> fields all match a global configuration. When defined the project will use both the global config and the one of the current project, except when the <code>Ignore Global</code> checkbox is checked.</p>
+
+<p>The <code>Include Atom Themes Stylesheets</code> setting is specific to the project and can’t be defined globally. When enabled, it’ll add all the public themes variables in the current project palette:</p>
+
+<p><img src="http://abe33.github.io/atom-pigments/project-settings.gif?raw=true" alt="pigments-conversion" /></p>
+
+<p><strong>Note that it won’t add all the variables defined in the less files of the syntax and ui themes, only the ones that must be present as defined in the <a href="https://atom.io/docs/latest/hacking-atom-creating-a-theme">themes documentation</a>.</strong></p>
+
+<p><strong>This feature is still quite experimental at this stage.</strong></p>
+
+<h3 id="pigments-reload">Pigments: Reload</h3>
+
+<p>This command will force a reload of all variables in the project, this can be useful when the serialized state of the plugin contains invalid data and you want to get rid of them without having to touch to the content of the <code>.atom/storage</code> directory.</p>
+
+<p>This command can be triggered using the keyboard by defining a keybinding like this:</p>
+
+<p><code>coffee
+'atom-workspace':
+  'alt-shift-r': 'pigments:reload'
+</code></p>
+
+<h2 id="settings">Settings</h2>
+
+<h3 id="source-names">Source Names</h3>
+
+<p>An array of glob patterns of the files to use as source for the project’s variables and colors.</p>
+
+<ul>
+  <li>Key: <code>pigments.sourceNames</code></li>
+  <li>Default: <code>['**/*.styl', '**/*.stylus', '**/*.less', '**/*.sass', '**/*.scss']</code></li>
+</ul>
+
+<h3 id="ignored-names">Ignored Names</h3>
+
+<p>An array of glob patterns of the files to ignore as source files for the project’s variables and colors.</p>
+
+<ul>
+  <li>Key: <code>pigments.ignoredNames</code></li>
+  <li>Default: <code>['node_modules/*']</code></li>
+</ul>
+
+<h3 id="extended-search-names">Extended Search Names</h3>
+
+<p>An array of glob patterns of files to include in the <code>Pigments: Find Colors</code> scanning process.</p>
+
+<ul>
+  <li>Key: <code>pigments.extendedSearchNames</code></li>
+  <li>Default: <code>['**/*.css']</code></li>
+</ul>
+
+<h3 id="supported-filetypes">Supported Filetypes</h3>
+
+<p>An array of file extensions where colors will be highlighted. If the wildcard <code>*</code> is present in this array then colors in every file will be highlighted.</p>
+
+<ul>
+  <li>Key: <code>pigments.supportedFiletypes</code></li>
+  <li>Default: <code>['*']</code></li>
+</ul>
+
+<h3 id="filetypes-for-color-words">Filetypes For Color Words</h3>
+
+<p>An array of file extensions where color values such as <code>red</code>, <code>azure</code> or <code>whitesmoke</code> will be highlighted. By default CSS and CSS pre-processors files are supported.</p>
+
+<p>You can use <code>none</code> or whatever value that doesn’t match a file extension to completely prevent color words from being highlighted.</p>
+
+<ul>
+  <li>Key: <code>pigments.filetypesForColorWords</code></li>
+  <li>Default: <code>['css', 'less', 'styl', 'stylus', 'sass', 'scss']</code></li>
+</ul>
+
+<h3 id="ignored-scopes">Ignored Scopes</h3>
+
+<p>An array of regular expressions strings to match scopes to ignore when rendering colors in a text editor.</p>
+
+<p>For instance, if you want to ignore colors in comments and strings in your source files, use the following value:</p>
+
+<p><code>
+\.comment, \.string
+</code></p>
+
+<p>As you can notice, the <code>.</code> character in scopes are escaped. This is due to the fact that this setting uses javascript <code>RegExp</code> to test the token’s scope and the <code>.</code> is used to match against any character.</p>
+
+<p>For instance, to ignore colors in html attributes you can use the following expression:</p>
+
+<p><code>
+\.text\.html(.*)\.string
+</code></p>
+
+<p>Note the <code>(.*)</code> in the middle of the expression. It’ll ensure that we’re searching for the <code>.string</code> scope in the <code>.text.html</code> grammar even if there’s other scope between them by catching any character between the two classnames.</p>
+
+<p>To find which scope is applied at a given position in a buffer you can use the <code>editor:log-cursor-scope</code> command. From that you’ll be able to determine what expression to use to match the scope.</p>
+
+<ul>
+  <li>Key: <code>pigments.ignoredScopes</code></li>
+  <li>Default: <code>[]</code></li>
+</ul>
+
+<h3 id="autocomplete-scopes">Autocomplete Scopes</h3>
+
+<p>The autocomplete provider will only complete color names in editors whose scope is present in this list.</p>
+
+<ul>
+  <li>Key: <code>pigments.autocompleteScopes</code></li>
+  <li>Default: <code>['.source.css', '.source.css.less', '.source.sass', '.source.css.scss', '.source.stylus']</code></li>
+</ul>
+
+<h3 id="sass-shade-and-tint-implementation">Sass Shade And Tint Implementation</h3>
+
+<p>Sass doesn’t provide any implementation for shade and tint function, and Compass and Bourbon have different implementation for these two methods. This setting allow you to chose which implementation to use.</p>
+
+<ul>
+  <li>Key: <code>pigments.sassShadeAndTintImplementation</code></li>
+  <li>Default: <code>'compass'</code></li>
+</ul>
+
+<h3 id="extend-autocomplete-to-variables">Extend Autocomplete To Variables</h3>
+
+<p>When enabled, the autocomplete provider will also provides completion for non-color variables.</p>
+
+<ul>
+  <li>Key: <code>pigments.extendAutocompleteToVariables</code></li>
+  <li>Default: <code>false</code></li>
+</ul>
+
+<h3 id="extend-autocomplete-to-color-value">Extend Autocomplete To Color Value</h3>
+
+<p>When enabled, the autocomplete provider will also provides color value.</p>
+
+<ul>
+  <li>Key: <code>pigments.extendAutocompleteToColorValue</code></li>
+  <li>Default: <code>false</code></li>
+</ul>
+
+<h3 id="traverse-into-symlink-directories">Traverse Into Symlink Directories</h3>
+
+<p>Whether to traverse symlinked directories to find source files or not.</p>
+
+<ul>
+  <li>Key: <code>pigments.traverseIntoSymlinkDirectories</code></li>
+  <li>Default: <code>false</code></li>
+</ul>
+
+<h3 id="ignore-vcs-ignored-paths">Ignore VCS Ignored Paths</h3>
+
+<p>When this setting is enabled, every file that are ignored by the VCS will also be ignored in Pigments. That means they’ll be excluded when searching for colors and when building the project palette.</p>
+
+<ul>
+  <li>Key: <code>pigments.ignoreVcsIgnoredPaths</code></li>
+  <li>Default: <code>true</code></li>
+</ul>
+
+<h3 id="marker-type">Marker Type</h3>
+
+<p>Defines the render mode of color markers. The possible values are:</p>
+
+<table>
+  <tr>
+    <th>background</th>
+    <th>outline</th>
+    <th>underline</th>
+  </tr>
+  <tr>
+    <td>
+      <img src="http://abe33.github.io/atom-pigments/background-renderer.png?raw=true" />
+    </td>
+    <td>
+      <img src="http://abe33.github.io/atom-pigments/outline-renderer.png?raw=true" />
+    </td>
+    <td>
+      <img src="http://abe33.github.io/atom-pigments/underline-renderer.png?raw=true" />
+    </td>
+  </tr>
+  <tr>
+    <th>dot</th>
+    <th>square-dot</th>
+    <th>gutter</th>
+  </tr>
+  <tr>
+    <td>
+      <img src="http://abe33.github.io/atom-pigments/dot-renderer.png?raw=true" />
+    </td>
+    <td>
+      <img src="http://abe33.github.io/atom-pigments/square-dot-renderer.png?raw=true" />
+    </td>
+    <td>
+      <img src="http://abe33.github.io/atom-pigments/gutter-color.png?raw=true" />
+    </td>
+  </tr>
+</table>
+
+<ul>
+  <li>Key: <code>pigments.markerType</code></li>
+  <li>Default: <code>'background'</code></li>
+</ul>
+
+<h3 id="sort-palette-colors">Sort Palette Colors</h3>
+
+<p>The type of sorting applied to the colors in the palette view. It can be changed directly from the palette view.</p>
+
+<ul>
+  <li>Key: <code>pigments.sortPaletteColors</code></li>
+  <li>Default: <code>'none'</code></li>
+</ul>
+
+<h3 id="group-palette-colors">Group Palette Colors</h3>
+
+<p>Defines how the colors are grouped together in the palette view. It can be changed directly from the palette view.</p>
+
+<ul>
+  <li>Key: <code>pigments.groupPaletteColors</code></li>
+  <li>Default: <code>'none'</code></li>
+</ul>
+
+<h3 id="merge-duplicates">Merge Duplicates</h3>
+
+<p>Defines whether to merge colors duplicates together as a single result in the palette view. It can be changed directly from the palette view.</p>
+
+<ul>
+  <li>Key: <code>pigments.mergeDuplicates</code></li>
+  <li>Default: <code>false</code></li>
+</ul>
+
+<h3 id="delay-before-scan">Delay Before Scan</h3>
+
+<p>Pigments rescans the text buffer once you stopped editing it, however as the process can be sometime expensive, it’ll apply an extra delay after the dispatch of the <code>did-stop-changing</code> event before starting the scanning process. This setting define the number of milliseconds to wait after the <code>did-stop-changing</code> event before starting to scan the buffer again. If your start typing in the buffer again in this interval, the rescan process will be aborted.</p>
+
+<ul>
+  <li>Key: <code>pigments.delayBeforeScan</code></li>
+  <li>Default: <code>500</code> (ms)</li>
+</ul>
+<section class="package-keywords">
+  <strong>Keywords:</strong> colors, palette, less, sass, scss, css, stylus <a href="https://github.com/abe33/atom-pigments/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

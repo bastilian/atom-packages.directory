@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Badass React Snippets
+  <a href="https://github.com/tylerbuchea/badass-react-snippets">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install badass-react-snippets
+  </pre>
+</div>
+<h1 id="badass-react-snippets-build-statushttpstravis-ciorgtylerbucheabadass-react-snippetssvgbranchmasterhttpstravis-ciorgtylerbucheabadass-react-snippets">Badass React Snippets <a href="https://travis-ci.org/tylerbuchea/badass-react-snippets"><img src="https://travis-ci.org/tylerbuchea/badass-react-snippets.svg?branch=master" alt="Build Status" /></a></h1>
+<p><strong>Package for Github’s Atom Editor</strong></p>
+
+<h2 id="about">About</h2>
+<p>These snippets are made to work with the latest ES6 standards, adhere to the <a href="https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb">airbnb eslint config</a>, and are React/React-Native agnostic.</p>
+
+<p><strong>Add the airbnb eslint config to your project (optional)</strong>
+<code>
+npm install --save-dev eslint eslint-config-airbnb eslint-plugin-import eslint-plugin-react eslint-plugin-jsx-a11y
+echo '\''{ extends: [airbnb], }'\'' &gt; .eslintrc'
+</code></p>
+
+<h2 id="installation">Installation</h2>
+
+<p><code>bash
+apm install badass-react-snippets
+</code></p>
+
+<h2 id="usage">Usage</h2>
+<p>After install just type one of the titles below and hit tab then the snippet will expand in your editor. Only works on files already saved as <code>.js</code> or <code>.jsx</code></p>
+
+<p>Continue hitting tab to cycle through and highlight common editing points in a component.</p>
+
+<h2 id="rcc">rcc</h2>
+<p><strong>React ES6 Component with Constructor</strong></p>
+
+<p>``` jsx
+import React, {
+  Component,
+  PropTypes,
+} from ‘react’;</p>
+
+<p>import {
+  View,
+} from ‘react-native’;</p>
+
+<p>const propTypes = {};</p>
+
+<p>const defaultProps = {};</p>
+
+<p>export default class MyComponent extends Component {</p>
+
+<p>constructor(props) {
+    super(props);
+    this.state = {};
+  }</p>
+
+<p>render() {
+    return (
+      &lt;div&gt;
+        &lt;h1&gt;Title&lt;/h1&gt;
+      &lt;/div&gt;
+    );
+  }</p>
+
+<p>}</p>
+
+<p>MyComponent.propTypes = propTypes;
+MyComponent.defaultProps = defaultProps;</p>
+
+<p>```</p>
+
+<h2 id="rc">rc</h2>
+<p><strong>React ES6 Component</strong></p>
+
+<p>``` jsx
+import React, {
+  Component,
+  PropTypes,
+} from ‘react’;</p>
+
+<p>import {
+  View,
+} from ‘react-native’;</p>
+
+<p>const propTypes = {};</p>
+
+<p>const defaultProps = {};</p>
+
+<p>export default class MyComponent extends Component {</p>
+
+<p>render() {
+    return (
+      &lt;div&gt;
+        &lt;h1&gt;Title&lt;/h1&gt;
+      &lt;/div&gt;
+    );
+  }</p>
+
+<p>}</p>
+
+<p>MyComponent.propTypes = propTypes;
+MyComponent.defaultProps = defaultProps;</p>
+
+<p>```</p>
+
+<h2 id="rfunc">rfunc</h2>
+<p><strong>React ES6 Functional Component</strong></p>
+
+<p>``` jsx
+import React, {
+  PropTypes,
+} from ‘react’;</p>
+
+<p>import {
+  View,
+} from ‘react-native’;</p>
+
+<p>const propTypes = {};</p>
+
+<p>const defaultProps = {};</p>
+
+<p>export default function MyComponent(props) {
+  return (
+    &lt;div&gt;
+      &lt;h1&gt;Title&lt;/h1&gt;
+    &lt;/div&gt;
+  );
+}</p>
+
+<p>MyComponent.propTypes = propTypes;
+MyComponent.defaultProps = defaultProps;</p>
+
+<p>```</p>
+
+<h2 id="rconst">rconst</h2>
+<p><strong>React ES6 Constructor</strong></p>
+
+<p><code>jsx
+constructor(props) {
+  super(props);
+  this.state = {
+    someVariable,
+  };
+}
+</code></p>
+
+<h2 id="rbm">rbm</h2>
+<p><strong>React ES6 bind method to this</strong></p>
+
+<p><code>jsx
+this.someMethod = this.someMethod.bind(this);
+</code></p>
+
+<h2 id="rcc7">rcc7</h2>
+<p><strong>React ES7 Component with Constructor using static. Not airbnb compliant.</strong></p>
+
+<p>``` jsx
+import React, {
+  Component,
+  PropTypes,
+} from ‘react’;</p>
+
+<p>import {
+  View,
+} from ‘react-native’;</p>
+
+<p>export default class MyComponent extends Component {</p>
+
+<p>static defaultProps = {}</p>
+
+<p>static propTypes = {}</p>
+
+<p>constructor(props) {
+    super(props);
+    this.state = {};
+  }</p>
+
+<p>render() {
+    return (
+      &lt;div&gt;
+        &lt;h1&gt;Title&lt;/h1&gt;
+      &lt;/div&gt;
+    );
+  }</p>
+
+<p>}</p>
+
+<p>```</p>
+<section class="package-keywords">
+  <strong>Keywords:</strong> react, react-native, es6, babel, snippets, airbnb, es2015 <a href="https://github.com/tylerbuchea/badass-react-snippets/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

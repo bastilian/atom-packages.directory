@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Focus Mode
+  <a href="https://github.com/davidleghorn/atom-focus-mode">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install atom-focus-mode
+  </pre>
+</div>
+<h1 id="atom-focus-mode">atom-focus-mode</h1>
+
+<p>Helps you focus on only the lines of code you are working with, all other lines are faded into the background.<br />
+Hides editor panels and enters full screen mode for distraction free coding.</p>
+
+<p><img src="https://raw.githubusercontent.com/davidleghorn/atom-focus-mode/master/screenshots/focus-mode.png" alt="Focus cursor mode with focus mode line opacity set at 100% " /></p>
+
+<p><strong>To activate/de-activate focus modes:</strong>
+* atom menu bar <code>Packages &gt; Focus Mode</code>
+* <code>Right click menu &gt; Focus Mode</code>
+* Use key bindings (see table below)</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Focus Mode</th>
+      <th>Description</th>
+      <th>Key bindings</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Scope Focus</td>
+      <td>Automatically focus highlights lines inside the method/function/class scope that the cursor was placed inside.<br /><br />In “.txt” and “.md” files, scope focus highlights text blocks that the cursor was placed inside - any text surrounded by blank lines is considered a text block.</td>
+      <td><code>ctrl-alt-p</code></td>
+    </tr>
+    <tr>
+      <td>Cursor Focus</td>
+      <td>Focus highlights any lines that receive cursor focus and any lines that have been selected with your mouse</td>
+      <td><code>ctrl-alt-o</code></td>
+    </tr>
+    <tr>
+      <td>Cursor Shadow Focus</td>
+      <td>Focus highlights the cursor line and the 2 lines above and below the cursor line (configurable in package settings)</td>
+      <td><code>ctrl-alt-u</code></td>
+    </tr>
+    <tr>
+      <td>Single Line Focus</td>
+      <td>Focus highlights the single line(s) that have cursor focus</td>
+      <td><code>ctrl-alt-i</code></td>
+    </tr>
+    <tr>
+      <td>Exit</td>
+      <td>To exit a focus mode, press <code>ctrl-alt-cmd</code> keys or select the focus mode again (using menu or key bindings).<br />From atom menu <code>Packages &gt; Focus Mode &gt; Exit</code> or <code>Right click menu &gt; Focus Mode &gt; Exit</code></td>
+      <td><code>ctrl-alt-cmd</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>To change the key bindings used by Focus Mode <code>Atom &gt; Preferences &gt; Keybindings</code>.</p>
+
+<h3 id="package-settings">Package settings</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Setting</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Focus Mode Line Opacity</td>
+      <td>65%</td>
+      <td>Line opacity applied to any focus mode highlighted lines (options 65% or 100%)</td>
+    </tr>
+    <tr>
+      <td>Enter Full Screen</td>
+      <td>true</td>
+      <td>When focus mode is activated enter full screen mode</td>
+    </tr>
+    <tr>
+      <td>Center Editor</td>
+      <td>Off</td>
+      <td>Hides side panels and centers the editor. Editor width options - “700px” (Medium.com article width), “888px” (github content/ReadMe width), “60%”, “70%”, “80%” and “90%”.</td>
+    </tr>
+    <tr>
+      <td>Use Type Writer Scrolling</td>
+      <td>false</td>
+      <td>Keeps the line containing the cursor in the center of the text editor.<br />Type Writer Scrolling can be toggled on/off within files using keyboard shortcut <code>ctrl-alt-t</code>.</td>
+    </tr>
+    <tr>
+      <td>Hide Footer Bar</td>
+      <td>true</td>
+      <td>When focus mode is activated hide editor footer bar</td>
+    </tr>
+    <tr>
+      <td>Hide Line Numbers</td>
+      <td>true</td>
+      <td>When focus mode is activated hide editor line numbers</td>
+    </tr>
+    <tr>
+      <td>Hide Line Length Guide</td>
+      <td>false</td>
+      <td>When focus mode is activated hide the line length guide line</td>
+    </tr>
+    <tr>
+      <td>Hide Side Panels</td>
+      <td>true</td>
+      <td>When focus mode is activated hide side panels e.g. the file explorer</td>
+    </tr>
+    <tr>
+      <td>Hide Tab Bar</td>
+      <td>true</td>
+      <td>When focus mode is activated hide any opened file tabs</td>
+    </tr>
+    <tr>
+      <td>Use large font size</td>
+      <td>false</td>
+      <td>When focus mode is activated increase font size to 18px (note: this mode also hides the line length guide)</td>
+    </tr>
+    <tr>
+      <td>Number of lines to highlight above cursor</td>
+      <td>2</td>
+      <td>Number of lines above the cursor line to focus highlight in Focus Shadow mode</td>
+    </tr>
+    <tr>
+      <td>Number of lines to highlight below cursor</td>
+      <td>2</td>
+      <td>Number of lines below the cursor line to focus highlight in Focus Shadow mode</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="notes">Notes</h3>
+
+<p><strong>Scope Focus mode</strong></p>
+
+<ul>
+  <li>Currently supports files with “.js”, “.coffee”, “.py”, “.txt” and “.md” file extensions (more file types to follow).</li>
+  <li>Requires correct indentation of code block closing curly braces.</li>
+  <li>Does not focus scope when using multiple cursors.</li>
+</ul>
+
+<p><strong>Type Writer Scrolling</strong></p>
+
+<ul>
+  <li>Keeps the line containing the cursor in the center of the text editor.</li>
+  <li>Type Writer Scrolling can be toggled on/off within files using keyboard shortcut <code>ctrl-alt-t</code>.</li>
+  <li>Supported in Scope, Shadow and Cursor focus modes.</li>
+</ul>
+
+<p><strong>To configure focus mode as per version 0.8 and earlier</strong></p>
+
+<p>In package settings:
+* Set “Cursor Focus Mode Line Opacity” option to “100%”.
+* Set all options in the “When Focus Mode is Activated” section to false (not checked).</p>
+
+<h3 id="screenshots">Screenshots</h3>
+
+<p><strong>Scope focus mode</strong><br />
+ Highlights lines inside the method/function/class scope that the cursor was placed inside</p>
+
+<p><img src="https://raw.githubusercontent.com/davidleghorn/atom-focus-mode/master/screenshots/scope-focus.png" alt="Scope focus mode with focus mode line opacity set at 65%" /></p>
+
+<p><strong>Cursor focus mode</strong><br />
+ Highlights any lines you placed the cursor on or selected with your mouse</p>
+
+<p><img src="https://raw.githubusercontent.com/davidleghorn/atom-focus-mode/master/screenshots/cursor-focus.png" alt="Cursor focus mode with focus mode line opacity set at 65%" /></p>
+
+<p><strong>Cursor shadow focus mode</strong><br />
+ Highlights the cursor line and 2 lines above and below the cursor line (configurable)</p>
+
+<p><img src="https://raw.githubusercontent.com/davidleghorn/atom-focus-mode/master/screenshots/cursor-shadow-focus.png" alt="Cursor shadow focus mode with focus mode line opacity set at 65%" /></p>
+
+<p><strong>Single line focus mode</strong><br />
+ Highlights any line(s) that have cursor focus</p>
+
+<p><img src="https://raw.githubusercontent.com/davidleghorn/atom-focus-mode/master/screenshots/single-line-focus.png" alt="Cursor shadow focus mode with focus mode line opacity set at 65%" /></p>
+
+<p>Screenshots are using the atom theme <a href="https://atom.io/themes/nord-atom-ui">nord-atom-ui</a></p>
+<section class="package-keywords">
+  <strong>Keywords:</strong> distraction free, focus, writing, editing, productivity <a href="https://github.com/davidleghorn/atom-focus-mode/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Rustsym
+  <a href="https://github.com/miqid/atom-rustsym">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+    <span class="author">by Michael Huynh <miqid@outlook.com> (https://github.com/miqid)</span>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install rustsym
+  </pre>
+</div>
+<h1 id="rustsym">rustsym</h1>
+
+<p><a href="https://atom.io/packages/rustsym"><img src="https://img.shields.io/apm/v/rustsym.svg?style=flat-square" alt="apm" /></a>
+<a href="https://travis-ci.org/miqid/atom-rustsym"><img src="https://img.shields.io/travis/miqid/atom-rustsym/master.svg?style=flat-square" alt="ci" /></a></p>
+
+<p>An <a href="https://atom.io">Atom</a> package that provides symbol navigation for <a href="https://www.rust-lang.org">Rust</a> code using
+<a href="https://github.com/trixnz/rustsym"><code>rustsym</code></a>.</p>
+
+<h2 id="configuration">Configuration</h2>
+
+<p>This package is designed to coexist with other Atom packages that offer a
+symbols provider for source code.</p>
+
+<p>Standard installations of Atom should come with the <a href="https://atom.io/packages/symbols-view"><code>symbols-view</code></a> package
+by default. As such, the default settings used by this package have been chosen
+in order to avoid extra configuration for compatibility with <code>symbols-view</code>.</p>
+
+<p>The <em>Override Commands</em> setting is necessary for letting this package become
+the symbols provider for Rust source code in the presence of other providers
+in the Atom environment. With the setting enabled, commands for showing file
+or project symbols will instead be delegated to this package.</p>
+
+<p>If you are not using <code>symbols-view</code>, then you will need to set the command
+names for toggling file or project symbols so that this package can intercept
+the right commands and be triggered.</p>
+
+<h3 id="package-commands">Package Commands</h3>
+
+<p>In the event you do not wish to use the same key bindings as your preferred
+symbols provider to trigger this package, the following commands are available
+for setting manual key bindings.</p>
+
+<ul>
+  <li><code>rustsym:toggle-file-symbols</code></li>
+  <li><code>rustsym:toggle-project-symbols</code></li>
+</ul>
+
+<p>Note that the <em>Override Commands</em> setting is unnecessary if you choose to
+create key bindings for the commands just above.</p>
+
+<h2 id="usage">Usage</h2>
+
+<p>Simply press the key combination for toggling file or project symbols to bring
+to focus a search panel. As you enter search terms to locate your symbol of
+interest, <code>rustsym</code> will run in the background and return a list of results.
+Use the <kbd>↑</kbd> and <kbd>↓</kbd> keys to scroll through the results and
+then press <kbd>ENTER</kbd> to navigate to the symbol currently highlighted.
+Alternatively, you can also click on a symbol for navigation.</p>
+
+<h2 id="contributing">Contributing</h2>
+
+<p>This package is still under development.</p>
+
+<section class="package-keywords">
+  <strong>Keywords:</strong> rust, symbols, navigation <a href="https://github.com/miqid/atom-rustsym/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

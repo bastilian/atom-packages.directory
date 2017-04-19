@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Polymerjs Snippets
+  <a href="https://github.com/peduxe/polymerjs-snippets">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install polymerjs-snippets
+  </pre>
+</div>
+<h1 id="polymerjs-snippets-package">polymerjs-snippets package</h1>
+
+<h4 id="faq">FAQ</h4>
+<p><strong>I can’t see a snippet description, what can I do?</strong></p>
+
+<p>Add this rules to your Atom’s stylesheet Init file (Edit &gt; Open Your stylesheet), change width accordingly:
+<code>css
+autocomplete-suggestion-list .right-label {
+	max-width: 1200px;
+}
+</code>
+<strong>Note: There’s no need to restart the editor, the UI live updates.</strong>
+## objectfn
+<code>objectfn</code>
+<code>js
+${1:foo}: function() {
+ $0
+},
+</code>
+### Element
+<code>create</code>
+<code>js
+Polymer.create('${1:my-element}', {${2:props}});$0
+</code>
+<code>distributeContent</code>
+<code>js
+this.distributeContent();$0
+</code>
+<code>domHost</code>
+<code>js
+var ${1:el} = this.domHost();$0
+</code>
+<code>domSelector</code>
+<code>js
+this.$$('${1:selector}');
+</code>
+<code>node</code>
+<code>js
+this.$.${1:nodeId}
+</code>
+<code>elementMatches</code>
+<code>js
+this.elementMatches('${1:selector}', ${2:node});$0
+</code>
+<code>getContentChildNodes</code>
+<code>js
+    var ${1:nodeList} = this.getContentChildNodes('${2:selector}');$0
+</code>
+<code>getContentChildren</code>
+<code>js
+    var ${1:elementList} = this.getContentChildren('${2:selector}');$0
+</code>
+<code>getNativePrototype</code>
+<code>js
+    var ${1:nativeElProto} = this.getNativePrototype('${2:HTMLTag}');$0
+</code>
+<code>getPropertyInfo</code>
+<code>js
+    var ${1:propInfo} = this.getPropertyInfo('${2:property}');$0
+</code>
+<code>factoryImpl</code>
+<code>js
+factoryImpl: function(${1:name}) {
+ el.$1 = $1;$0
+},$0
+</code>
+<code>lifecycle</code>
+```js
+created: function() {
+ $0
+},</p>
+
+<p>ready: function() {</p>
+
+<p>},</p>
+
+<p>attached: function() {</p>
+
+<p>},</p>
+
+<p>detached: function() {</p>
+
+<p>},</p>
+
+<p>attributeChanged: function(name, type) {
+ var elementName = this.localName;
+ var attribute = this.getAttribute(name);
+}
+<code>
+`hostAttributes`
+</code>js
+hostAttributes: {
+ ${1:checked: true},
+ $2
+},$0
+<code>
+`extends`
+</code>js
+extends: ‘${1:input}’,$0
+<code>
+`behaviors`
+</code>js
+behaviors: [${1:behavior}],$0
+<code>
+`observers`
+</code>js
+observers: [’${1:observerFn}(${2:prop})’],$0
+<code>
+`observers-array`
+</code>js
+observers: [’${1:observerFn}(${2:prop}.$3splices)’],$0
+<code>
+`observers-deep`
+</code>js
+observers: [’${1:observerFn}(${2:prop}.${3:path}.$4*)’],$0
+<code>
+`listeners`
+</code>js
+listeners: {
+ ‘${1:event}’: ‘${2:eventHandlerFn}’
+},$0
+<code>
+`listeners-decl`
+</code>js
+listeners: {
+ ‘${1:event}’: ‘${2:eventHandlerFn}’
+},</p>
+
+<p>$2: function(e) {
+ $3
+},$0
+<code>
+### Properties
+`prop`
+</code>js
+properties: {
+ prop: ${1:Number}
+},$0
+<code>
+`prope`
+</code>js
+properties: {
+ prop: {
+   type: ${1:Number},
+   value: ${2:0},
+   readOnly: ${3:false},
+   notify: ${4:true},
+   observer: ‘${5:observerFn}’,
+   computed: ‘${6:computedFn}’,
+   reflectToAttribute: ‘${7:false}’
+  }
+},$0
+<code>
+`reflectPropertyToAttribute`
+</code>js
+this.reflectPropertyToAttribute(‘${1:name}’);$0
+<code>
+`propget`
+</code>js
+this.get(‘${1:path}’${3:, ${4:optionalRoot}});$0
+<code>
+`propset`
+</code>js
+this.set(‘${1:path}’, ${2:value}, ${3:optionalRoot});$0
+<code>
+`proppush`
+</code>js
+this.push(‘${1:path}’, ${2:value}, ${3:optionalItemN});$0
+<code>
+`proppop`
+</code>js
+this.pop(‘${1:path}’);$0
+<code>
+`propshift`
+</code>js
+this.shift(‘${1:path}’, ${2:value});$0
+<code>
+`propunshift`
+</code>js
+this.unshift(‘${1:path}’, ${2:value}, ${3:optionalItemN});$0
+<code>
+`propsplice`
+</code>js
+this.splice(‘${1:path}’, ${2:start}, ${3:deleteCount}, ${4:optionalItemN});$0
+<code>
+`arrayDelete`
+</code>js
+this.arrayDelete(‘${1:path}’, ${2:itemToRemove});$0
+<code>
+`mixin`
+</code>js
+this.mixin(${1:target}, ${2:source});$0
+<code>
+#### Properties - path
+`linkPaths`
+</code>js
+this.linkPaths(‘${1:to}’, ‘${2:from}’);$0
+<code>
+`unlinkPaths`
+</code>js
+this.unlinkPaths(‘${1:path}’);$0
+<code>
+`notifyPath`
+</code>js
+var ${1:didNotify} = this.notifyPath(‘${2:path}’, ${3:value}, ${4:optionalBooleanFromAbove});$0
+<code>
+### Serialization
+`serialize`
+</code>js
+this.serialize(‘${1:attrValue}’);$0
+<code>
+`deserialize`
+</code>js
+this.deserialize(‘${1:attrValue}’, ${2:type});$0
+<code>
+`serializeValueToAttribute`
+</code>js
+this.serializeValueToAttribute(‘${1:attrValue}’, ‘${2:attribute}’, ${3:node});$0
+<code>
+### Async
+`async`
+</code>js
+this.async(function() {
+  $1
+}, ${2:waitTime});$0
+<code>
+`asyncfn`
+</code>js
+var fn = function() {
+ ${1:console.info(‘async’);}
+};$0
+this.async(fn, ${2:waitTime});
+<code>
+### Debounce
+`debounce`
+</code>js
+this.debounce(‘${1:taskName}’, ${1:function() {
+  $2
+}}, ${3:250});$0
+<code>
+`debouncefn`
+</code>js
+var fn = function() {
+ ${1:console.info(‘debounce’);}
+};$0
+this.debounce(fn, ${2:250});
+<code>
+### Events
+`fire`
+</code>js
+this.fire(‘${1:eventName}’, ${2:{detail: {foo: ‘data’}}}, {bubbles: ${3:false}, cancelable: ${4:true}, node: ${5:node}});$0
+<code>
+`listen`
+</code>js
+this.listen(${1:node}, ‘${2:eventName}’, ‘${3:objectFnName}’);$0
+<code>
+### Template
+`instanceTemplate`
+</code>js
+    var ${1:docFragment} = this.instanceTemplate(${2:HTMLTemplateElement});$0
+<code>
+`indexForElement`
+</code>js
+${1:dom-repeat-node}.indexForElement(${2:HTMLElement});$0
+<code>
+`itemForElement`
+</code>js
+${1:dom-repeat-node}.itemForElement(${2:HTMLElement});$0
+<code>
+`keyForElement`
+</code>js
+${1:dom-repeat-node}.keyForElement(${2:HTMLElement});$0
+<code>
+`modelForElement`
+</code>js
+${1:dom-repeat-node}.modelForElement(${2:HTMLElement});$0
+<code>
+`sort`
+</code>js
+${1:dom-repeat-node}.sort();$0
+<code>
+`filter`
+</code>js
+${1:dom-repeat-node}.filter();$0
+<code>
+`render`
+</code>js
+${1:dom-repeat-node}.render();$0
+<code>
+### Utility
+`toggleAttribute`
+</code>js
+this.toggleAttribute(‘${1:name}’, ${2:true}, ${3:node});$0
+<code>
+`toggleClass`
+</code>js
+this.toggleClass(‘${1:name}’, ${2:true}, ${3:node});$0
+<code>
+`attributeFollows`
+</code>js
+this.attributeFollows(‘${1:name}’, ${2:toElement}, ${3:fromElement});$0
+<code>
+`classFollows`
+</code>js
+this.classFollows(‘${1:name}’, ${2:toElement}, ${3:fromElement});$0
+<code>
+`scopeSubtree`
+</code>js
+this.scopeSubtree(${1:element}, ${2:booleanShouldObserve});$0
+<code>
+`transform`
+</code>js
+Polymer.transform(‘$1’, ${2:node});$0
+<code>
+`translate3d`
+</code>js
+Polymer.translate3d(${1:x}, ${2:y}, ${3:z}, ${4:node});$0
+<code>
+`updateStyles`
+</code>js
+${1:Polymer}.updateStyles();$0
+<code>
+`resolveUrl`
+</code>js
+this.resolveUrl(‘${1:url}’);$0
+<code>
+`importHref`
+</code>js
+this.importHref(‘${1:foo}.html’, function(data) {
+ $2
+}, function(error) {
+ $3
+});$0
+<code>
+`setScrollDirection`
+</code>js
+this.setScrollDirection(‘${1:all|x|y|none}’, ${2:node});$0
+<code>
+### Iron Elements
+##### iron-a11y-announcer
+`ia11y-request`
+</code>js
+Polymer.IronA11yAnnouncer.requestAvailability();$0
+<code>
+`ia11y-announce`
+</code>js
+${1:iron-a11y-announcer-node}.announce(‘${2:Announcement text}’);$0
+<code>
+`ia11y-fire-announce`
+</code>js
+this.fire(‘iron-announce’, {text: ‘${1:Announcement text}’}, {bubbles: true});$0
+<code>
+##### iron-a11y-keys
+`ia11y-add-keyBinding`
+</code>js
+${1:iron-a11y-keys-node}.addOwnKeyBinding(‘${2:eventName}’, ‘${3:fnHandlerName}’);$0
+<code>
+`ia11y-keyboard-event-matches-keys`
+</code>js
+var ${1:matches} = ${2:iron-a11y-keys-node}.keyboardEventMatchesKeys(${2:eventFn}, ‘${3:eventName}’);$0
+<code>
+`ia11y-remove-keyBinding`
+</code>js
+${1:iron-a11y-keys-node}.removeOwnKeyBindings();$0
+<code>
+##### iron-ajax
+`iajax-discard-request`
+</code>js
+${1:iron-ajax-node}.discardRequest(${2:req});$0
+<code>
+`iajax-generate`
+</code>js
+${1:iron-ajax-node}.generateRequest();$0
+<code>
+`iajax-handle-error`
+</code>js
+${1:iron-ajax-node}.handleErrors(function(req, err) {
+  $2
+});$0
+<code>
+`iajax-handle-response`
+</code>js
+${1:iron-ajax-node}.handleResponse(function(req) {
+	$2
+});$0
+<code>
+`iajax-request-querystring`
+</code>js
+var ${1:qs} = ${2:iron-ajax-node}.queryString();$0
+<code>
+`iajax-request-headers`
+</code>js
+var ${1:headers} = ${2:iron-ajax-node}.requestHeaders();$0
+<code>
+`iajax-request-options-changed`
+</code>js
+${1:iron-ajax-node}.requestOptionsChanged();$0
+<code>
+`iajax-request-url`
+</code>js
+var ${1:reqURL} = ${2:iron-ajax-node}.requestURL();$0
+<code>
+`iajax-request-toOption`
+</code>js
+var ${1:data} = ${2:iron-ajax-node}.toRequestOptions();$0
+<code>
+##### iron-autogrow-textarea
+`iautogrow-textarea-get`
+</code>js
+var textarea = ${1:iron-autogrow-textarea-node}.textarea();$0
+<code>
+`iautogrow-textarea-validate`
+</code>js
+var valid = ${1:iron-autogrow-textarea-node}.validate();$0
+<code>
+##### iron-collapse
+`icollapse-enableTransition`
+</code>js
+${1:iron-collapse-node}.enableTransition(${2:boolEnabled});$0
+<code>
+`icollapse-hide`
+</code>js
+${1:iron-collapse-node}.hide();$0
+<code>
+`icollapse-show`
+</code>js
+${1:iron-collapse-node}.show();$0
+<code>
+`icollapse-toggle`
+</code>js
+${1:iron-collapse-node}.toggle();$0
+<code>
+`icollapse-updateSize`
+</code>js
+${1:iron-collapse-node}.updateSize(‘${2:size}’, ${3:boolAnimated});$0
+<code>
+##### iron-component-page
+`icomponent-page-marshal`
+</code>js
+var ${1:rendered} = ${2:iron-component-page-node}.marshal();$0
+<code>
+##### iron-dropdown
+`idropdown-containedElement`
+</code>js
+var ${1:el} = ${2:iron-dropdown-node}.containedElement();$0
+<code>
+##### iron-form
+`iform-serialize`
+</code>js
+  var ${1:data} = ${2:iron-form-node}.serialize();$0
+<code>
+`iform-submit`
+</code>js
+${1:iron-form-node}.submit();$0
+<code>
+`iform-validate`
+</code>js
+var ${1:validForm} = ${2:iron-form-node}.validate();$0
+<code>
+##### iron-iconset-svg
+`iiconset-svg-applyIcon`
+</code>js
+${1:iron-iconset-svg-node}.applyIcon(${2:element}, ‘${3:iconName}’);$0
+<code>
+`iiconset-svg-getIconNames`
+</code>js
+${1:iron-iconset-svg-node}.getIconNames();$0
+<code>
+`iiconset-svg-removeIcon`
+</code>js
+${1:iron-iconset-svg-node}.removeIcon(${2:element});$0
+<code>
+##### iron-iconset
+`iiconset-svg-applyIcon`
+</code>js
+${1:iron-iconset-node}.applyIcon(${2:element}, ${3:icon(String|Number)}, ‘${4:optionalTheme}’, ${5:optionalScale});$0
+<code>
+`iiconset-svg-removeIcon`
+</code>js
+${1:iron-iconset-node}.removeIcon(${2:element});$0
+<code>
+##### iron-input
+`iinput-validate`
+</code>js
+var ${1:validInput} = ${2:iron-input-node}.validate();$0
+<code>
+##### iron-list
+`ilist-firstVisibleIndex`
+</code>js
+var ${1:item} = ${2:iron-list-node}.firstVisibleIndex();$0
+<code>
+`ilist-scrollToIndex`
+</code>js
+${1:iron-list-node}.scrollToIndex(${2:index});$0
+<code>
+`ilist-updateViewportBoundaries`
+</code>js
+${1:iron-list-node}.updateViewportBoundaries();$0
+<code>
+##### iron-localstorage
+`ilocalstorage-reload`
+</code>js
+${1:iron-localstorage-node}.reload();$0
+<code>
+`ilocalstorage-save`
+</code>js
+${1:iron-localstorage-node}.save();$0
+<code>
+##### iron-media-query
+`imedia-query-queryChanged`
+</code>js
+${1:iron-media-query-node}.queryChanged(‘${2:cssMediaQuery}’);$0
+<code>
+`imedia-query-queryHandler`
+</code>js
+${1:iron-media-query-node}.queryHandler(‘${2:cssMediaQuery}’);$0
+<code>
+##### iron-menu-behavior
+`imenu-select`
+</code>js
+${1:iron-menu-node}.select(${2:index});$0
+<code>
+##### iron-meta
+`imeta-byKey`
+</code>js
+var data = ${1:iron-meta-node}.byKey();$0
+<code>
+`imeta-factoryImpl`
+</code>js
+${1:iron-meta-object}.factoryImpl(${2:config});$0
+<code>
+##### iron-overlay-behavior
+`ioverlay-behavior-close`
+</code>js
+${1:iron-overlay-behavior-node}.close();$0
+<code>
+`ioverlay-behavior-complete`
+</code>js
+${1:iron-overlay-behavior-node}.complete();$0
+<code>
+`ioverlay-behavior-open`
+</code>js
+${1:iron-overlay-behavior-node}.open();$0
+<code>
+`ioverlay-behavior-prepare`
+</code>js
+${1:iron-overlay-behavior-node}.prepare();$0
+<code>
+##### iron-resizable-behavior
+`iresizable-behavior-assignParentResizable`
+</code>js
+${1:resizable-node}.assignParentResizable(${2:parentResizable});$0
+<code>
+`iresizable-behavior-notifyResize`
+</code>js
+${1:resizable-node}.notifyResize();$0
+<code>
+`iresizable-behavior-resizerShouldNotify`
+</code>js
+var ${1:shouldNotify} = ${2:resizable-node}.resizerShouldNotify(${3:element});$0
+<code>
+`iresizable-behavior-stopResizeNotificationsFor`
+</code>js
+${1:resizable-node}.stopResizeNotificationsFor(${2:target});$0
+<code>
+##### iron-signals
+`isignals-send`
+</code>js
+this.fire(‘iron-signal’, {name: ‘${1:signalName}’, data: ${3:dataToSend}});$0
+<code>
+##### iron-validatable-behavior
+`ivalidatable-behavior-hasValidator`
+</code>js
+var hasValidator = ${1:validatable-node}.hasValidator();$0
+<code>
+`ivalidatable-behavior-validate`
+</code>js
+var valid = ${1:validatable-node}.validate(${2:values});$0
+<code>
+### Paper Elements
+##### paper-dialog-scrollable
+`ppaper-dialog-scrollable-scrollTarget`
+</code>js
+var ${1:el} = ${2:paper-dialog-scrollable-node}.scrollTarget();$0
+<code>
+##### paper-drawer-panel
+`ppaper-drawer-panel-close`
+</code>js
+${1:paper-drawer-panel-node}.closeDrawer();$0
+<code>
+`ppaper-drawer-panel-open`
+</code>js
+${1:paper-drawer-panel-node}.openDrawer();$0
+<code>
+`ppaper-drawer-panel-toggle`
+</code>js
+${1:paper-drawer-panel-node}.togglePanel();$0
+<code>
+##### paper-header-panel
+`ppaper-header-panel-header`
+</code>js
+var ${1:element} = ${2:paper-header-panel-node}.header();$0
+<code>
+`ppaper-header-panel-scroller`
+</code>js
+var ${1:element} = ${2:paper-header-panel-node}.scroller();$0
+<code>
+`ppaper-header-panel-visibleShadow`
+</code>js
+var ${1:hasVisibleShadow} = ${2:paper-header-panel-node}.visibleShadow();$0
+<code>
+##### paper-menu-button
+`ppaper-menu-button-close`
+</code>js
+${1:paper-menu-button-node}.close();$0
+<code>
+`ppaper-menu-button-open`
+</code>js
+${1:paper-menu-button-node}.open();$0
+<code>
+##### paper-radio-group
+`ppaper-menu-button-select`
+</code>js
+${1:paper-radio-group-node}.select(${2:itemN});$0
+<code>
+`ppaper-menu-button-selectNext`
+</code>js
+${1:paper-radio-group-node}.selectNext();$0
+<code>
+`ppaper-menu-button-selectPrevious`
+</code>js
+${1:paper-radio-group-node}.selectPrevious();$0
+<code>
+##### paper-ripple
+`ppaper-ripple-addRipple`
+</code>js
+${1:paper-ripple-node}.addRipple();$0
+<code>
+`ppaper-ripple-animate`
+</code>js
+${1:paper-ripple-node}.animate();$0
+<code>
+`ppaper-ripple-downAction`
+</code>js
+${1:paper-ripple-node}.downAction(${2:event});$0
+<code>
+`ppaper-ripple-removeRipple`
+</code>js
+${1:paper-ripple-node}.removeRipple(${2:ripple});$0
+<code>
+`ppaper-ripple-shouldKeepAnimating`
+</code>js
+${1:paper-ripple-node}.shouldKeepAnimating();$0
+<code>
+`ppaper-ripple-simulatedRipple`
+</code>js
+${1:paper-ripple-node}.simulatedRipple();$0
+<code>
+`ppaper-ripple-target`
+</code>js
+var ${1:el} = ${2:paper-ripple-node}.target();$0
+<code>
+`ppaper-ripple-upAction`
+</code>js
+${1:paper-ripple-node}.upAction(${2:event});$0
+<code>
+##### paper-scroll-header-panel
+`ppaper-scroll-header-panel-content`
+</code>js
+var ${1:el} = ${2:paper-scroll-header-panel-node}.content();$0
+<code>
+`ppaper-scroll-header-panel-header`
+</code>js
+var ${1:el} = ${2:paper-scroll-header-panel-node}.header();$0
+<code>
+`ppaper-scroll-header-panel-measureHeaderHeight`
+</code>js
+${1:paper-scroll-header-panel-node}.measureHeaderHeight();$0
+<code>
+`ppaper-scroll-header-panel-scroller`
+</code>js
+var ${1:el} = ${2:paper-scroll-header-panel-node}.scroller();$0
+<code>
+##### paper-slider
+`ppaper-slider-decrement`
+</code>js
+${1:paper-slider-node}.decrement();$0
+<code>
+`ppaper-slider-increment`
+</code>js
+${1:paper-slider-node}.increment();$0
+<code>
+##### paper-spinner
+`ppaper-spinner-reset`
+</code>js
+${1:paper-spinner-node}.reset();$0
+<code>
+##### paper-toast
+`ppaper-toast-hide`
+</code>js
+${1:paper-toast-node}.hide();$0
+<code>
+`ppaper-toast-show`
+</code>js
+${1:paper-toast-node}.show();$0
+<code>
+`ppaper-toast-toggle`
+</code>js
+${1:paper-toast-node}.toggle();$0
+<code>
+##### paper-tooltip
+`ppaper-tooltip-hide`
+</code>js
+${1:paper-tooltip-node}.hide();$0
+<code>
+`ppaper-tooltip-show`
+</code>js
+${1:paper-tooltip-node}.show();$0
+<code>
+`ppaper-tooltip-target`
+</code>js
+var ${1:el} = ${2:paper-tooltip-node}.target();$0
+```</p>
+<section class="package-keywords">
+  <strong>Keywords:</strong> polymer, project polymer, polymer snippets, polymer elements, iron elements, snippets, javascript snippets, polymerjs, polymer 1.0 <a href="https://github.com/peduxe/polymerjs-snippets/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

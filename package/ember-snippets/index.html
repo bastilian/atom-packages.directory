@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Ember Snippets
+  <a href="https://github.com/seifsallam/atom-ember-snippets">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install ember-snippets
+  </pre>
+</div>
+<h2 id="ember-snippets">Ember Snippets</h2>
+
+<p>Ember.js ES6 snippets for Atom editor (ex: ember-cli, ember-app-kit)</p>
+
+<h2 id="installation">Installation</h2>
+
+<p>Run the following command:</p>
+
+<p><code>sh
+apm install ember-snippets
+</code></p>
+
+<p>Then reload your Atom.</p>
+
+<h2 id="usage">Usage</h2>
+
+<h4 id="modules">Modules</h4>
+
+<ul>
+  <li><code>active-adapter</code> ⇥</li>
+  <li><code>active-serializer</code> ⇥</li>
+  <li><code>adapter</code> ⇥</li>
+  <li><code>arr-controller</code> ⇥</li>
+  <li><code>bound-helper</code> ⇥ (DEPRECATED: Ember.Handlebars.makeBoundHelper)</li>
+  <li><code>component</code> ⇥</li>
+  <li><code>controller</code> ⇥</li>
+  <li><code>helper</code> ⇥ (uses &gt;= 1.13.x Ember.Helper)</li>
+  <li><code>initializer</code> ⇥</li>
+  <li><code>jsonapi-adapter</code> ⇥</li>
+  <li><code>jsonapi-serializer</code> ⇥</li>
+  <li><code>mixin</code> ⇥</li>
+  <li><code>model</code> ⇥</li>
+  <li><code>object</code> ⇥</li>
+  <li><code>route</code> ⇥</li>
+  <li><code>serializer</code> ⇥</li>
+  <li><code>service</code> ⇥</li>
+  <li><code>transform</code> ⇥</li>
+  <li><code>utility</code> ⇥</li>
+  <li><code>view</code> ⇥</li>
+</ul>
+
+<p>Example output for <code>controller</code> ⇥</p>
+
+<p>Javascript:
+```js
+import Ember from ‘ember’;</p>
+
+<p>export default Ember.Controller.extend({
+	// body
+});
+```</p>
+
+<p>CoffeeScript:
+```coffee
+NameController = Ember.Controller.extend
+	# body</p>
+
+<p><code>export default NameController</code>
+```</p>
+
+<h4 id="properties">Properties</h4>
+
+<p>Used inside Ember objects</p>
+
+<ul>
+  <li><code>property</code> ⇥</li>
+  <li><code>observer</code> ⇥</li>
+  <li><code>on</code> ⇥</li>
+  <li><code>actions</code> ⇥</li>
+  <li><code>alias</code> ⇥</li>
+</ul>
+
+<p>Example output for <code>observer</code> ⇥</p>
+
+<p>JavaScript:
+<code>js
+fooChanged: Ember.observer('foo', function() {
+	// body
+}),
+</code></p>
+
+<p>CoffeeScript:
+<code>coffee
+fooChanged: Ember.observer 'foo', -&gt;
+	# body
+</code></p>
+
+<h4 id="functions">Functions</h4>
+
+<ul>
+  <li><code>find</code> ⇥ (DEPRECATED: uses &lt; 1.13 Ember Data)</li>
+  <li><code>find-id</code> ⇥ (DEPRECATED: uses &lt; 1.13 Ember Data)</li>
+  <li><code>find-all</code> ⇥</li>
+  <li><code>find-record</code> ⇥</li>
+  <li><code>peek-all</code> ⇥</li>
+  <li><code>peek-record</code> ⇥</li>
+  <li><code>query-all</code> ⇥</li>
+  <li><code>query-record</code> ⇥</li>
+  <li><code>run</code> ⇥</li>
+</ul>
+
+<h5 id="enumerables">Enumerables</h5>
+<ul>
+  <li><code>for-each</code> ⇥</li>
+  <li><code>filter</code> ⇥</li>
+  <li><code>filter-by</code> ⇥</li>
+  <li><code>map</code> ⇥</li>
+  <li><code>map-by</code> ⇥</li>
+  <li><code>every</code> ⇥</li>
+  <li><code>is-every</code> ⇥</li>
+  <li><code>some</code> ⇥</li>
+  <li><code>is-any</code> ⇥</li>
+  <li><code>to-array</code> ⇥</li>
+  <li><code>first-object</code> ⇥</li>
+  <li><code>last-object</code> ⇥</li>
+</ul>
+
+<h5 id="logger">Logger</h5>
+<ul>
+  <li><code>logger-debug</code> ⇥</li>
+  <li><code>logger-error</code> ⇥</li>
+  <li><code>logger-info</code> ⇥</li>
+  <li><code>logger-log</code> ⇥</li>
+  <li><code>logger-warn</code> ⇥</li>
+</ul>
+
+<h5 id="test-helpers">Test Helpers</h5>
+<ul>
+  <li><code>visit</code> ⇥</li>
+  <li><code>fill-in</code> ⇥</li>
+  <li><code>click</code> ⇥</li>
+  <li><code>key-event</code> ⇥</li>
+  <li><code>trigger-event</code> ⇥</li>
+  <li><code>find-element</code> ⇥</li>
+  <li><code>and-then</code> ⇥</li>
+</ul>
+
+<p>Example output for <code>find</code> ⇥</p>
+
+<p>JavaScript:
+<code>js
+this.store.find('post');
+</code></p>
+
+<p>CoffeeScript:
+<code>coffee
+this.store.find 'post'
+</code></p>
+<section class="package-keywords">
+  <strong>Keywords:</strong> ember, ember.js, javascript, snippets, snippet <a href="https://github.com/seifsallam/atom-ember-snippets/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

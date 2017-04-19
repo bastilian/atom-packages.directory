@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Rspec Tree Runner
+  <a href="https://github.com/jacobmendoza/rspec-tree-runner">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install rspec-tree-runner
+  </pre>
+</div>
+<p><a href="https://travis-ci.org/jacobmendoza/rspec-tree-runner"><img src="https://travis-ci.org/jacobmendoza/rspec-tree-runner.svg?branch=master" alt="Build Status" /></a>
+# rspec-tree-runner for Atom</p>
+
+<p>RSpec-tree-runner is a complete test runner for RSpec integrated in Atom.</p>
+
+<p>&lt;img src=”http://jacobmendoza.github.io/rspec-tree-runner/demo.gif?1” width=”854” loop=infinite&gt;</p>
+
+<p>This package finds the corresponding tests for your file, displaying the hierarchical structure and allowing you to run them, integrating the results in the editor.</p>
+
+<h2 id="how-to-use-it">How to use it</h2>
+<p>HotKeys:
+- <strong>Ctrl+Alt+L</strong> - Activate the package
+- <strong>Ctrl+Alt+X</strong> - Executes all test
+- <strong>Ctrl+Alt+R</strong> - Executes single test (current line)</p>
+
+<p>To activate the package press ctrl-alt-l.</p>
+
+<h2 id="important-note-about-this-version">Important note about this version</h2>
+
+<p>In previous versions and trying to promote the TDD flow, the package used to allow toggling between the test file and the file that hosts the production code, following the Rails convention. That convention dictates the folders where the files should be located.</p>
+
+<p>That feature, coupled the package with Rails, confusing users working in projects that were not using that structure. The feature has been removed simplifying not only the use but also the codebase.</p>
+
+<h2 id="how-does-it-work">How does it work?</h2>
+
+<p>rspec-tree-runner relies on Ripper, a Ruby script parser. In this case, we use it to read the spec file and convert it into a symbolic expression tree (a binary tree). When you open a spec file, rspec-tree-runner calls a small Ruby script that generates the expression, and transforms it to a different kind of tree, easier to process in Atom and that contains information specific to a spec file (the kind of block, the line number, the identifier, etc) as opposed to the output of Ripper, which is general to any Ruby script.</p>
+
+<p>When executing the tests, the package calls the RSpec test runner using the json formatter, because it makes easier processing the results. The RSpec test runner, after executing the file, returns all the tests, with the status (passed, failed or pending) and the line of the test that has been executed.</p>
+
+<p><img src="https://raw.github.com/jacobmendoza/rspec-tree-runner/master/process.png" alt="alt tag" /></p>
+
+<p>We match all this information with the tree that we built before, using the line number as the identifier for the node.</p>
+
+<h2 id="big-thanks-to">Big thanks to…</h2>
+<p>This package wouldn’t have been possible without the help of the <a href="https://discuss.atom.io/">Atom Discussion</a> colleagues. Also the following plugins and authors have been a big inspiration, and their code has been an important help:</p>
+
+<ul>
+  <li><a href="https://github.com/fcoury/atom-rspec">atom-rspec</a> by Felipe Coury</li>
+  <li><a href="https://github.com/wangyuhere/atom-rails-rspec">atom-rails-rspec</a> by Yu Wang</li>
+  <li><a href="https://github.com/hokaccha/atom-spec-tree-view">atom-spec-tree-view</a> by Kazuhito Hokamura</li>
+</ul>
+
+<h2 id="contributors">Contributors</h2>
+
+<ul>
+  <li>Thanks to José Morais (<a href="https://github.com/jmorais">@jmorais</a>) who kindly provided the feature that allow users to run a single test.</li>
+</ul>
+<section class="package-keywords">
+  <strong>Keywords:</strong> rspec, ruby, rails, tdd, testing <a href="https://github.com/jacobmendoza/rspec-tree-runner/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

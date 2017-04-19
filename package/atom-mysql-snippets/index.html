@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Mysql Snippets
+  <a href="https://github.com/cliffordfajardo/atom-mysql-snippets">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+    <span class="author">by Clifford Fajardo</span>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install atom-mysql-snippets
+  </pre>
+</div>
+<h1 id="atom-mysql-snippets">Atom MySQL Snippets</h1>
+
+<blockquote>
+  <p>A collection of MySQL commands for optimizing modern MySQL development productivity.</p>
+</blockquote>
+
+<p><img src="https://raw.githubusercontent.com/cliffordfajardo/atom-mysql-snippets/master/atom-mysql-snippets-demo.gif" alt="" /></p>
+
+<p><img src="https://img.shields.io/npm/l/express.svg" alt="The MIT License" />
+<a href="https://atom.io/packages/atom-mysql-snippets"><img src="https://img.shields.io/apm/v/atom-mysql-snippets.svg?style=flat-square" alt="apm" /></a>
+<a href="https://atom.io/packages/atom-mysql-snippets"><img src="https://img.shields.io/apm/dm/atom-mysql-snippets.svg?style=flat-square" alt="apm" /></a></p>
+
+<h2 id="install">Install</h2>
+
+<p><code>shell
+$ apm install atom-mysql-snippets
+</code></p>
+
+<h3 id="contributingsuggestions">Contributing/Suggestions</h3>
+
+<p>Feel free to let me know (<a href="https://github.com/cliffordfajardo/atom-mysql-snippets/issues">link</a>) what else can be improved/added or you can also submit a PR.</p>
+
+<h2 id="snippets-overview">Snippets Overview</h2>
+<ul>
+  <li><a href="#database">Database</a></li>
+  <li><a href="#table">Table</a></li>
+  <li><a href="#create-table-components">Table components</a></li>
+  <li><a href="#insert">Insert</a></li>
+  <li><a href="#select">Select</a></li>
+  <li><a href="#query-options">Query options</a></li>
+  <li><a href="#update">Update</a></li>
+  <li><a href="#delete">Delete</a></li>
+  <li><a href="#alter---modify-anything">Alter</a></li>
+  <li><a href="#trigger">Trigger</a></li>
+  <li><a href="#procedure">Procedure</a></li>
+  <li><a href="#function">Function</a></li>
+  <li><a href="#constructions">Constructions</a></li>
+  <li><a href="#show">Show</a></li>
+  <li><a href="#user">User</a></li>
+  <li><a href="#privileges">Privileges</a></li>
+  <li><a href="#other">Other</a></li>
+</ul>
+
+<h3 id="database">Database</h3>
+<p>| Snippet Code     | Description    |
+| —————–|—————-|
+| s-db             | create a new database |
+| s-db-drop        | delete the database |</p>
+
+<h3 id="table">Table</h3>
+<p>| Snippet Code     | Description    |
+| —————–|—————-|
+| s-table | create simple table with INT primary key |
+| s–table | create simple table with INT primary key, but first remove the old table |
+| s-table-tmp | create simple temporary table with engine=memory |
+| s–table-tmp | the same, but first remove the old table |</p>
+
+<p><strong>s-many-many</strong> - Very powerful snippet! Make table for relation <em>many-to-many</em>, make two foreign key constrain, and two indexes in it and make two indexes in corresponding tables</p>
+
+<h3 id="create-table-components">Create Table components</h3>
+<p>| Snippet Code     | Description    |
+| —————–|—————-|
+| s-fk | make foreign key constrain for table creation |
+| s–fk | make foreign key constrain for table creation with corresponding indexes |
+| s-idx | make default index for table creation |
+| s-idx-txt | make <code>FULLTEXT</code> index for table creation |
+| s-pk | make primary key |
+| s-uk | make unique key |</p>
+
+<h3 id="insert">Insert</h3>
+<p>| Snippet Code     | Description    |
+| —————–|—————-|
+| s-i | insert multirow |
+| s-ione | insert one row |
+| s-ifrom | isert data from a sample(other table or database)|</p>
+
+<h3 id="select">Select</h3>
+<p>| Snippet Code     | Description    |
+| —————–|—————-|
+| s-s       | default <em>select</em> for extending with help <em>query-options</em> |
+| s-sone    | <em>select</em> one row by <em>where</em> condition |
+| s-sinline | inline <em>select</em> for simple a sample |
+| s-smin    | inline <em>select</em> for search <em>min</em> value |
+| s-smax    | inline <em>select</em> for search <em>max</em> value |
+| s-scount  | inline <em>select</em> for count rows in the table |
+| s-ss      | select a value <code>SELECT '...';</code> |
+| s-sv      | select a variable <code>SELECT </code>…<code>;</code> |</p>
+
+<h3 id="query-options">Query options</h3>
+
+<p><strong>Expressions</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Snippet Code</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>s-</td>
+      <td>the entity. Like <code>`table`.`column`</code></td>
+    </tr>
+    <tr>
+      <td>s–</td>
+      <td>the entity with a comma. Like <code>, `table`.`column`</code></td>
+    </tr>
+    <tr>
+      <td>s-alias</td>
+      <td>the entity with alias. Like <code>`table`.`column` AS `my_col`</code></td>
+    </tr>
+    <tr>
+      <td>s–alias</td>
+      <td>the same with comma. Like <code>, `table`.`column` AS `my_col`</code></td>
+    </tr>
+    <tr>
+      <td>s-and</td>
+      <td>a part of conditions <code>AND ( ... )</code></td>
+    </tr>
+    <tr>
+      <td>s-or</td>
+      <td>a part of conditions <code>OR ( ... )</code></td>
+    </tr>
+    <tr>
+      <td>s–and</td>
+      <td>a part of conditions with expression <code>AND ( `col` = `col2` )</code></td>
+    </tr>
+    <tr>
+      <td>s–or</td>
+      <td>a part of conditions with expression <code>OR ( `col` = `col2` )</code></td>
+    </tr>
+    <tr>
+      <td>s-e</td>
+      <td>an expression <code>( `col` = `col2` )</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Statements</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Snippet Code</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>s-f</td>
+      <td><code>from</code> statement like <code>FROM `table` AS `alias`</code></td>
+    </tr>
+    <tr>
+      <td>s-j</td>
+      <td><code>inner join</code> statement</td>
+    </tr>
+    <tr>
+      <td>s-jleft</td>
+      <td><code>left join</code> statement</td>
+    </tr>
+    <tr>
+      <td>s-jright</td>
+      <td><code>right join</code> statement</td>
+    </tr>
+    <tr>
+      <td>s-w</td>
+      <td><code>where</code> statement</td>
+    </tr>
+    <tr>
+      <td>s-o</td>
+      <td><code>order by</code> statement</td>
+    </tr>
+    <tr>
+      <td>s-l</td>
+      <td><code>limi</code> statement</td>
+    </tr>
+    <tr>
+      <td>s-g</td>
+      <td><code>group by</code> statement</td>
+    </tr>
+    <tr>
+      <td>s-h</td>
+      <td><code>having</code> statement</td>
+    </tr>
+    <tr>
+      <td>s-u</td>
+      <td><code>union</code> statement</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="update">Update</h3>
+<p>| Snippet Code     | Description    |
+| —————–|—————-|
+| s-u | default <code>update</code> snippet with <code>where</code> condition |</p>
+
+<h3 id="delete">Delete</h3>
+<p>| Snippet Code     | Description    |
+| —————–|—————-|
+| s-d | default <code>delete</code> snippet with <code>where</code> condition |</p>
+
+<h3 id="alter---modify-structure">Alter - modify structure</h3>
+<p>All <code>alter</code> snippets begining from <code>s-alter-*</code> prefix, like <code>s-alter-add</code>.</p>
+
+<p><strong>Columns</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Snippet Code</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>add</td>
+      <td>add a column to table at the last column</td>
+    </tr>
+    <tr>
+      <td>add-first</td>
+      <td>add a column to table at the first column</td>
+    </tr>
+    <tr>
+      <td>add-after</td>
+      <td>add a column to table after someone column</td>
+    </tr>
+    <tr>
+      <td>auto-increment</td>
+      <td>change <code>auto_increment</code> counter value</td>
+    </tr>
+    <tr>
+      <td>change</td>
+      <td><code>change</code> the column(rename or change type)</td>
+    </tr>
+    <tr>
+      <td>modify</td>
+      <td><code>modify</code> the column(change type and column order)</td>
+    </tr>
+    <tr>
+      <td>drop</td>
+      <td>drop the column from the table</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Other</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Snippet Code</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>idx</td>
+      <td>add an index to the table</td>
+    </tr>
+    <tr>
+      <td>idx-drop</td>
+      <td>drop the index from the table</td>
+    </tr>
+    <tr>
+      <td>order</td>
+      <td>sort the table by column(yes it indeed possible!)</td>
+    </tr>
+    <tr>
+      <td>table-rename</td>
+      <td>rename the table</td>
+    </tr>
+    <tr>
+      <td>table-charset</td>
+      <td>change table charset and collate</td>
+    </tr>
+    <tr>
+      <td>db-charset</td>
+      <td>change database charset and collate</td>
+    </tr>
+    <tr>
+      <td>fk</td>
+      <td>add foreign key to the table</td>
+    </tr>
+    <tr>
+      <td>-fk</td>
+      <td>add foreign key to the table with index</td>
+    </tr>
+    <tr>
+      <td>fk-drop</td>
+      <td>drop the foreign key from the table</td>
+    </tr>
+    <tr>
+      <td>uk</td>
+      <td>add unique key to exists table</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="trigger">Trigger</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Snippet Code</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>s-trig</td>
+      <td>create new trigger</td>
+    </tr>
+    <tr>
+      <td>s–trig</td>
+      <td>replace trigger(drop and create new)</td>
+    </tr>
+    <tr>
+      <td>s-trig-list</td>
+      <td>list triggers for table</td>
+    </tr>
+    <tr>
+      <td>s–trig-list</td>
+      <td>list triggers for table(also specify DB)</td>
+    </tr>
+    <tr>
+      <td>s-trig-drop</td>
+      <td>drop the trigger</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="procedure">Procedure</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Snippet Code</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>s-proc</td>
+      <td>create new storage procedure</td>
+    </tr>
+    <tr>
+      <td>s–proc</td>
+      <td>replace procedure(drop and create new)</td>
+    </tr>
+    <tr>
+      <td>s-proc-drop</td>
+      <td>drop the storage procedure</td>
+    </tr>
+    <tr>
+      <td>s-proc-list</td>
+      <td>show stored procedures list(only current database)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="function">Function</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Snippet Code</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>s-func</td>
+      <td>create new function</td>
+    </tr>
+    <tr>
+      <td>s–func</td>
+      <td>replace function(drop and create new)</td>
+    </tr>
+    <tr>
+      <td>s-func-drop</td>
+      <td>drop the function</td>
+    </tr>
+    <tr>
+      <td>s-func-list</td>
+      <td>show list of user-defined functions(only current database)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="show">Show</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Snippet Code</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>s-hcols</td>
+      <td>details of the table (<code>SHOW FULL COLUMNS FROM ...</code>)</td>
+    </tr>
+    <tr>
+      <td>s-hcreate</td>
+      <td>show command for creating the table</td>
+    </tr>
+    <tr>
+      <td>s-hidx</td>
+      <td>show indexes for the table</td>
+    </tr>
+    <tr>
+      <td>s-hrel</td>
+      <td>show relations of a table (using <code>information_schema</code>)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="constructions">Constructions</h3>
+
+<p><strong>Declare</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Snippet Code</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>s-dec</td>
+      <td>declare a variable</td>
+    </tr>
+    <tr>
+      <td>s–dec</td>
+      <td>declare a variable with default value</td>
+    </tr>
+    <tr>
+      <td>s-dec-s</td>
+      <td>declare a <em>string</em>(<code>VARCHAR</code>) variable</td>
+    </tr>
+    <tr>
+      <td>s–dec-s</td>
+      <td>declare a <em>string</em>(<code>VARCHAR</code>) variable with default value</td>
+    </tr>
+    <tr>
+      <td>s-dec-h</td>
+      <td>declare a <code>CONTINUE </code><em><code>HANDLER</code></em><code> FOR SQLSTATE</code></td>
+    </tr>
+    <tr>
+      <td>s-dec-cur</td>
+      <td>declare a cursor</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Condition</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Snippet Code</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>s-if</td>
+      <td>create <code>if</code>  statement</td>
+    </tr>
+    <tr>
+      <td>s–if</td>
+      <td>create <code>if else</code> statement</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Case</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Snippet Code</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>s-case</td>
+      <td><code>CASE var_name WHEN 'value' THEN ... END CASE</code> - value based</td>
+    </tr>
+    <tr>
+      <td>s-case-w</td>
+      <td><code>WHEN 'value' THEN ... ;</code> - value based</td>
+    </tr>
+    <tr>
+      <td>s-case-wb</td>
+      <td><code>WHEN 'value' THEN BEGIN ... END;</code> - value based</td>
+    </tr>
+    <tr>
+      <td>s–case</td>
+      <td><code>CASE WHEN var_name = 'value' THEN ... END CASE</code> - condition based</td>
+    </tr>
+    <tr>
+      <td>s–case-w</td>
+      <td><code>WHEN var_name = 'value' THEN ... ;</code> - condition based</td>
+    </tr>
+    <tr>
+      <td>s–case-wb</td>
+      <td><code>WHEN var_name = 'value' THEN BEGIN ... END;</code> - condition based</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Loops</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Snippet Code</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>s-loop</td>
+      <td><code>LOOP ... END LOOP</code> - Complex snippet. With additional logic!</td>
+    </tr>
+    <tr>
+      <td>s-repeat</td>
+      <td><code>REPEAT ... UNTIL ... END REPEAT</code> construct</td>
+    </tr>
+    <tr>
+      <td>s–repeat</td>
+      <td><code>REPEAT BEGIN ... END; UNTIL ... END REPEAT</code> construct</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Other</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Snippet Code</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>s-cur</td>
+      <td>powerful complex snippet! Makes ready to use cursor</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="user">User</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Snippet Code</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>s-user-list</td>
+      <td>list all users</td>
+    </tr>
+    <tr>
+      <td>s-user-add</td>
+      <td>create a new user</td>
+    </tr>
+    <tr>
+      <td>s–user-add</td>
+      <td>create a new user with a password (short access <code>s--u</code>)</td>
+    </tr>
+    <tr>
+      <td>s-user-add-hash</td>
+      <td>create new user with a password by hash</td>
+    </tr>
+    <tr>
+      <td>s-user-drop</td>
+      <td>remove user</td>
+    </tr>
+    <tr>
+      <td>s-user-pwd</td>
+      <td>change user password</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="privileges">Privileges</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Snippet Code</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>s-priv-refresh</td>
+      <td>command <code>flush priveleges</code></td>
+    </tr>
+    <tr>
+      <td>s-priv-add</td>
+      <td>add some privileges to user</td>
+    </tr>
+    <tr>
+      <td>s-priv-add-all</td>
+      <td>add <em>all</em> privileges to user</td>
+    </tr>
+    <tr>
+      <td>s-priv-drop</td>
+      <td>remove some privileges from user</td>
+    </tr>
+    <tr>
+      <td>s-priv-drop-all</td>
+      <td>remove <em>all</em> privileges from user</td>
+    </tr>
+    <tr>
+      <td>s-priv-list</td>
+      <td>show list of user privileges</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="other">Other</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Snippet Code</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>s-delim</td>
+      <td>make <code>delimiter $$</code> statement and at the end <code>delimiter ;</code></td>
+    </tr>
+    <tr>
+      <td>s-utc</td>
+      <td>select current <code>timestamp</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="contact-me">Contact Me</h3>
+<ul>
+  <li><a href="https://github.com/cliffordfajardo/">@github/cliffordfajardo</a></li>
+  <li><a href="https://twitter.com/cliffordfajard0">@twitter/cliffordfajard0</a></li>
+</ul>
+
+<h3 id="credits">Credits</h3>
+<ul>
+  <li><a href="https://atom.io/users/idleberg/">Idleberg</a> for his <a href="https://atom.io/packages/atomizr">Atomizer</a> package that helped me convert Sublime snippets into Atom’s format.</li>
+  <li><a href="https://github.com/ancor-dev">ancor-dev</a> for his <a href="https://github.com/ancor-dev/sublime-sql-snippets">sublime-sql-snippets package</a>, which I used for the snippets in this package.</li>
+</ul>
+<section class="package-keywords">
+  <strong>Keywords:</strong> code snippets, database snippets, database productivity, mysql, mysql productivity, mysql shortcuts, mysql snippets, mysql workflow, sql, sql productivity, sql snippets, sql shortcuts, sql workflow, productivity, snippets, zen coding <a href="https://github.com/cliffordfajardo/atom-mysql-snippets/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

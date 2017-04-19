@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Api Notation
+  <a href="https://github.com/rbdr/api-notation-atom">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install api-notation
+  </pre>
+</div>
+<h1 id="api-notation-syntax-for-atom">API Notation Syntax for Atom</h1>
+
+<p>This is a grammar for api notation, a simple notation I’ve been using for
+annotating module APIs in specs and other documents.</p>
+
+<h2 id="installing">Installing</h2>
+
+<h3 id="from-command-line">From Command Line</h3>
+
+<p><code>apm install api-notation</code></p>
+
+<h3 id="from-gui">From GUI</h3>
+
+<h4 id="open-the-package-manager-from-palette-manager">Open the Package Manager from Palette Manager</h4>
+
+<ol>
+  <li>Press <code>⌘⇧P</code> on OSX or <code>⌃⇧P</code> on Windows/Linux to open the palette manager</li>
+  <li>Look for <code>Install Packages and Themes</code></li>
+</ol>
+
+<h4 id="open-the-package-manager-from-preferences">Open the Package Manager from Preferences</h4>
+
+<ol>
+  <li>Go to <code>Atom -&gt; Preferences</code> menu</li>
+  <li>Go to <code>Install</code></li>
+</ol>
+
+<h4 id="install-it">Install it</h4>
+
+<ol>
+  <li>Search for <code>api-notation</code> in the search bar</li>
+  <li>Click Install</li>
+</ol>
+
+<h2 id="usage">Usage</h2>
+
+<p>Open a <code>.api</code> file, or set it as your syntax.</p>
+
+<h2 id="api-notation-reference">API Notation Reference</h2>
+
+<p>The most recent reference as of now is in this [gist][api-reference], so
+check that to be sure. But here’s a reproduction of the notation.</p>
+
+<p>```
+NameOfClass.WithPossibleNamespace
+   + class property
+   - instance property
+  ~&gt; listened events (socket)
+  +&gt; listened events (class/module)
+  -&gt; listened events (instance)
+  &lt;~ dispatched events (socket)
+  &lt;+ dispatched events(class/module)
+  &lt;- dispatched events (instance)
+  :: class method
+   # instance method</p>
+
+<p>Other symbols
+  =&gt; returns
+-&gt;() callback return
+[xx] optional</p>
+<xx> data type
+
+Recommended order: class first, then sockets, then instance. Internally:
+Properties, events, methods.
+
+// Anything after two forward slashes is a comment
+```
+
+## How does it look like?
+
+Like this.
+
+![Like this.][api-example]
+
+[api-reference]: https://gist.github.com/benbeltran/4694c46fcec131468e34
+[api-example]: https://i.imgur.com/5WXuf4u.png
+</xx>
+<section class="package-keywords">
+  <strong>Keywords:</strong> syntax, theme, api <a href="https://github.com/rbdr/api-notation-atom/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

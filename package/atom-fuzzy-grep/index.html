@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Fuzzy Grep
+  <a href="https://github.com/geksilla/atom-fuzzy-grep">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install atom-fuzzy-grep
+  </pre>
+</div>
+<h1 id="atom-fuzzy-grep-package">atom-fuzzy-grep package</h1>
+
+<p><img src="https://raw.githubusercontent.com/geksilla/atom-fuzzy-grep/master/demo.gif" alt="demo" /></p>
+
+<h2 id="install">Install</h2>
+
+<pre><code>apm install atom-fuzzy-grep
+</code></pre>
+
+<p>Or search via <strong>Settings View -&gt; Install</strong></p>
+
+<h2 id="usage">Usage</h2>
+
+<p>Hit <code>ctrl-alt-g</code> or <code>, f f</code> in vim-mode to toggle panel.</p>
+
+<p>To open dialog with last searched string there is the command <code>fuzzy-grep:toggleLastSearch</code>. You can map it in your <code>keymap.cson</code>:</p>
+
+<p><code>
+'atom-workspace':
+  'ctrl-alt-shift-g': 'fuzzy-grep:toggleLastSearch'
+</code></p>
+
+<p>To always open dialog with last search string check <strong>Preserve Last Search</strong> in package settings.</p>
+
+<p>You can filter files in opened dialog. Toggle between grep/file mode with <code>ctrl-f</code>.
+To change this keybinding add following lines to your <em>keymaps.cson</em>:</p>
+
+<p><code>
+'atom-workspace .atom-fuzzy-grep':
+  '&lt;your_keys_here&gt;': 'fuzzy-grep:toggleFileFilter'
+</code></p>
+
+<h2 id="configuration">Configuration</h2>
+
+<p>You can specify any command you want by <strong>Grep Command String</strong> option in package settings,  <a href="https://github.com/ggreer/the_silver_searcher">ag</a> is used by default.</p>
+
+<p>If you want to setup another one instead of <strong>ag</strong> here few examples:</p>
+
+<h3 id="pthttpsgithubcommonochromeganetheplatinumsearcher"><a href="https://github.com/monochromegane/the_platinum_searcher">pt</a></h3>
+
+<pre><code>pt -i --nocolor --nogroup --column
+</code></pre>
+
+<h3 id="ackhttpsgithubcompetdanceack2"><a href="https://github.com/petdance/ack2">ack</a></h3>
+
+<pre><code>ack -i --nocolor --nogroup --column
+</code></pre>
+
+<h3 id="grep">grep</h3>
+
+<pre><code>grep -r -n --color=never
+</code></pre>
+
+<h3 id="ripgrephttpsgithubcomburntsushiripgrep"><a href="https://github.com/BurntSushi/ripgrep">ripgrep</a></h3>
+
+<pre><code>rg -i -n -H --no-heading --column
+</code></pre>
+
+<h3 id="git-grep">git grep</h3>
+
+<pre><code>git grep -n -E
+</code></pre>
+
+<p><code>git grep</code> used by default for git projects if you don’t want to use it uncheck <strong>Detect Git Project And Use Git Grep</strong> option in package settings.</p>
+
+<p>Check package settings for more info.</p>
+
+<h2 id="caveats">Caveats</h2>
+
+<ul>
+  <li>Search folder detects on project path from active text editor.</li>
+  <li>When no editors opened or <code>Untitled</code> first project root path used.</li>
+  <li>When you have opened several projects and want to search through it you need to open any file from this project and start search dialog.</li>
+  <li>When active item not in project home directory used as root dir.</li>
+  <li>When no projects opened home directory used as root dir.</li>
+</ul>
+
+<h2 id="commands">Commands</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Selector</th>
+      <th>Key Map</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>fuzzy-grep:toggle</strong></td>
+      <td><code>atom-workspace</code></td>
+      <td>‘ctrl-alt-g’</td>
+      <td>Open search dialog start typing and select item</td>
+    </tr>
+    <tr>
+      <td><strong>fuzzy-grep:toggleLastSearch</strong></td>
+      <td><code>atom-workspace</code></td>
+      <td>none</td>
+      <td>Open dialog with last search string</td>
+    </tr>
+    <tr>
+      <td><strong>fuzzy-grep:toggleFileFilter</strong></td>
+      <td><code>atom-workspace .atom-fuzzy-grep atom-text-editor</code></td>
+      <td>‘ctrl-f’</td>
+      <td>When search dialog opened toggle file name filtering on found results</td>
+    </tr>
+    <tr>
+      <td><strong>fuzzy-grep:pasteEscaped</strong></td>
+      <td><code>body.platform-linux atom-workspace .atom-fuzzy-grep atom-text-editor, body.platform-win32 atom-workspace .atom-fuzzy-grep atom-text-editor</code></td>
+      <td>‘ctrl-v’</td>
+      <td>Paste text to dialog and escape it, you can disable this behavior with <code>atom-fuzzy-grep.escapeOnPaste</code> config</td>
+    </tr>
+    <tr>
+      <td><strong>fuzzy-grep:pasteEscaped</strong></td>
+      <td><code>body.platform-darwin atom-workspace .atom-fuzzy-grep atom-text-editor</code></td>
+      <td>‘cmd-v’</td>
+      <td>Paste text to dialog and escape it, you can disable this behavior with <code>atom-fuzzy-grep.escapeOnPaste</code> config</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="configs">Configs</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Default</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>atom-fuzzy-grep.minSymbolsToStartSearch</strong></td>
+      <td>3</td>
+      <td><em>number</em></td>
+      <td>Start search after N symbol</td>
+    </tr>
+    <tr>
+      <td><strong>atom-fuzzy-grep.maxCandidates</strong></td>
+      <td>100</td>
+      <td><em>number</em></td>
+      <td>Maximum count of displayed items</td>
+    </tr>
+    <tr>
+      <td><strong>atom-fuzzy-grep.grepCommandString</strong></td>
+      <td>‘ag -i –nocolor –nogroup –column’</td>
+      <td><em>string</em></td>
+      <td>Grep command</td>
+    </tr>
+    <tr>
+      <td><strong>atom-fuzzy-grep.detectGitProjectAndUseGitGrep</strong></td>
+      <td>false</td>
+      <td><em>boolean</em></td>
+      <td>Always use <code>git grep</code> when opened project is a git repository</td>
+    </tr>
+    <tr>
+      <td><strong>atom-fuzzy-grep.gitGrepCommandString</strong></td>
+      <td>‘git grep -i –no-color -n -E’</td>
+      <td><em>string</em></td>
+      <td><code>git grep</code> command used when <code>detectGitProjectAndUseGitGrep</code> is true</td>
+    </tr>
+    <tr>
+      <td><strong>atom-fuzzy-grep.preserveLastSearch</strong></td>
+      <td>false</td>
+      <td><em>boolean</em></td>
+      <td>Use last search string as input for search dialog</td>
+    </tr>
+    <tr>
+      <td><strong>atom-fuzzy-grep.escapeSelectedText</strong></td>
+      <td>true</td>
+      <td><em>boolean</em></td>
+      <td>Escape special characters when dialog opened with selected text</td>
+    </tr>
+    <tr>
+      <td><strong>atom-fuzzy-grep.showFullPath</strong></td>
+      <td>false</td>
+      <td><em>boolean</em></td>
+      <td>Show full file path instead of file name</td>
+    </tr>
+    <tr>
+      <td><strong>atom-fuzzy-grep.inputThrottle</strong></td>
+      <td>50</td>
+      <td><em>integer</em></td>
+      <td>Input throttle</td>
+    </tr>
+    <tr>
+      <td><strong>atom-fuzzy-grep.escapeOnPaste</strong></td>
+      <td>true</td>
+      <td><em>boolean</em></td>
+      <td>Escape pasted text</td>
+    </tr>
+    <tr>
+      <td><strong>atom-fuzzy-grep.fixEnv</strong></td>
+      <td>true</td>
+      <td>boolean</td>
+      <td>Will fix $PATH variable when running your favourite grep tool, environment package should be installed.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="contributing">Contributing</h2>
+
+<p>Feel free to open issue or send pull request.</p>
+<section class="package-keywords">
+  <strong>Keywords:</strong> fuzzy, grep, ag, pt, productivity, search, find <a href="https://github.com/geksilla/atom-fuzzy-grep/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

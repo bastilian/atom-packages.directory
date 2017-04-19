@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  React Redux React Native Snippets
+  <a href="https://github.com/EQuimper/atom-react-redux-react-native-snippets">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+    <span class="author">by EQuimper</span>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install react-redux-react-native-snippets
+  </pre>
+</div>
+<h1 id="react-redux-react-native-snippets-snippets-package">react-redux-react-native-snippets-snippets package</h1>
+
+<p>Some snippets for React/React-Native and Redux for help you to be a faster developer. I try to make it really easy to remember.</p>
+
+<p>Help for:
+- React-Native-Router-Flux
+- React-Router</p>
+
+<p>More will coming soon.</p>
+
+<h1 id="react">React</h1>
+
+<h3 id="imr-import-react"><code>imr</code> Import React</h3>
+
+<p><code>js
+import React from 'react';
+</code></p>
+
+<h3 id="imrc-import-component-react"><code>imrc</code> Import Component React</h3>
+
+<p><code>js
+import React, { Component } from 'react';
+</code></p>
+
+<h3 id="sl-stateless-component"><code>sl</code> Stateless Component</h3>
+
+<p>```js
+const ${1} = () =&gt; (
+  ${2}
+);</p>
+
+<p>export default ${1};
+```</p>
+
+<h3 id="rrr-react-router-route"><code>rrr</code> React-Router route</h3>
+
+<p><code>js
+&lt;Route path="${1}" component={${2}} /&gt;
+</code></p>
+
+<h3 id="ed-export-default"><code>ed</code> Export Default</h3>
+
+<p><code>js
+export default ${1};
+</code></p>
+
+<h3 id="r-return"><code>r</code> return</h3>
+
+<p><code>js
+return ${1};
+</code></p>
+
+<h3 id="rcc-class-react-component-es6"><code>rcc</code> class React component es6</h3>
+
+<p>```js
+class ${1} extends Component {
+  render() {
+    return (
+      ${2}
+    );
+  }
+}</p>
+
+<p>export default ${1};
+```</p>
+
+<hr />
+
+<h2 id="react-component-lifecycle">React Component Lifecycle</h2>
+
+<h3 id="cwm-componentwillmount"><code>cwm</code> componentWillMount</h3>
+
+<p><code>js
+componentWillMount() {
+  ${1}
+}
+</code></p>
+
+<h3 id="cdm-componentdidmount"><code>cdm</code> componentDidMount</h3>
+
+<p><code>js
+componentDidMount() {
+  ${1}
+}
+</code></p>
+
+<h3 id="cwum-componentwillunmount"><code>cwum</code> componentWillUnmount</h3>
+
+<p><code>js
+componentWillUnmount() {
+  ${1}
+}
+</code></p>
+
+<h3 id="cwu-componentwillupdate"><code>cwu</code> componentWillUpdate</h3>
+
+<p><code>js
+componentWillUpdate() {
+  ${1}
+}
+</code></p>
+
+<h3 id="cdu-componentdidupdate"><code>cdu</code> componentDidUpdate</h3>
+
+<p><code>js
+componentDidUpdate() {
+  ${1}
+}
+</code></p>
+
+<hr />
+
+<h1 id="redux">Redux</h1>
+
+<h3 id="ins-initialstate">‘ins’ INITIAL_STATE</h3>
+
+<p><code>js
+const INITIAL_STATE = {
+  ${1}
+};
+</code></p>
+
+<h3 id="rrd-redux-reducer"><code>rrd</code> Redux Reducer</h3>
+
+<p><code>js
+export default (state = INITIAL_STATE, action) =&gt; {
+  switch (action.type) {
+    case ${1}:
+    default:
+      return state;
+  }
+};
+</code></p>
+
+<h3 id="rt-redux-types"><code>rt</code> Redux Types</h3>
+
+<p><code>js
+export const ${1} = '${1}';
+</code></p>
+
+<hr />
+
+<h1 id="react-native">React-Native</h1>
+
+<h3 id="imrn-import-react-native"><code>imrn</code> Import React-Native</h3>
+
+<p><code>js
+import { ${1} } from 'react-native';
+</code></p>
+
+<h3 id="rnvt-react-native-text-and-view"><code>rnvt</code> React-Native Text and View</h3>
+
+<p><code>js
+import {
+  View,
+  Text
+} from 'react-native';
+</code></p>
+
+<h3 id="rnsc-react-native-scene"><code>rnsc</code> React-Native scene</h3>
+
+<p><code>js
+&lt;Scene
+  key="${1}"
+  title="${2}"
+  component={${3}}
+/&gt;
+</code></p>
+<section class="package-keywords">
+  <strong>Keywords:</strong> react, redux, snippets, react-native, es6 <a href="https://github.com/EQuimper/atom-react-redux-react-native-snippets/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

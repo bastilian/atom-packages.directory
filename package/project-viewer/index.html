@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Project Viewer
+  <a href="https://github.com/jccguimaraes/atom-project-viewer">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install project-viewer
+  </pre>
+</div>
+<h1 id="readme">README</h1>
+
+<p><a href="https://gitter.im/jccguimaraes/atom-project-viewer?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge&amp;utm_content=badge"><img src="http://img.shields.io/badge/gitter-join%20chat%20%E2%86%92-brightgreen.svg?style=flat-square" alt="Join the chat at https://gitter.im/jccguimaraes/atom-project-viewer" /></a>
+<a href="#contributors"><img src="https://img.shields.io/badge/all_contributors-10-orange.svg?style=flat-square" alt="All Contributors" /></a></p>
+
+<p><a href="https://atom.io/packages/project-viewer/"><img src="https://img.shields.io/badge/atom-1.15.0-orange.svg?style=flat-square" alt="atom version" /></a>
+<a href="https://atom.io/packages/project-viewer/"><img src="https://img.shields.io/apm/v/project-viewer.svg?style=flat-square" alt="apm version" /></a>
+<a href="https://atom.io/packages/project-viewer/"><img src="https://img.shields.io/apm/dm/project-viewer.svg?style=flat-square" alt="apm downloads" /></a></p>
+
+<p><a href="https://travis-ci.org/jccguimaraes/atom-project-viewer"><img src="https://travis-ci.org/jccguimaraes/atom-project-viewer.svg?branch=master" alt="Travis CI CI" /></a>
+<a href="https://ci.appveyor.com/project/jccguimaraes/atom-project-viewer"><img src="https://ci.appveyor.com/api/projects/status/2t91cemmpf635p2e?svg=true" alt="AppVeyor CI" /></a>
+<a href="https://circleci.com/gh/jccguimaraes/atom-project-viewer"><img src="https://circleci.com/gh/jccguimaraes/atom-project-viewer/tree/master.svg?style=shield&amp;circle-token=c2215983920e08d193a80b5775760792c5d2e883" alt="CircleCI CI" /></a></p>
+
+<p><a href="https://beerpay.io/jccguimaraes/atom-project-viewer"><img src="https://beerpay.io/jccguimaraes/atom-project-viewer/badge.svg?style=flat-square" alt="Beerpay" /></a>
+<a href="https://paypal.me/jccguimaraes"><img src="https://img.shields.io/badge/paypal-donate-blue.svg?style=flat-square" alt="paypal" /></a></p>
+
+<h2 id="table-of-contents">Table Of Contents</h2>
+
+<ul>
+  <li><a href="#introduction">Introduction</a></li>
+  <li><a href="#installation">Installation</a></li>
+  <li><a href="#features">Features</a></li>
+  <li><a href="#shortcuts">Shortcuts</a></li>
+  <li><a href="#settings">Settings</a></li>
+  <li><a href="#local-file-manipulation">Local File manipulation</a>
+    <ul>
+      <li><a href="#group-schema">Group Schema</a></li>
+      <li><a href="#project-schema">Project Schema</a></li>
+    </ul>
+  </li>
+  <li><a href="#contributors">Contributors</a></li>
+  <li><a href="#contacts">Contacts</a></li>
+  <li><a href="#a-special-thank-you">A Special Thank You!</a></li>
+</ul>
+
+<h2 id="introduction">Introduction</h2>
+
+<p>This is a package built for and by the Atom community. For contribution read <a href="#contributors">below</a>.</p>
+
+<p>This package has grown so much over the last year that I felt the need to make it more stable and community friendly. And this required a more deep refactor with lots of new ideas and improvements, also huge amount of :heart: and :sweat_drops:.</p>
+
+<p>So here it is! <strong>Enjoy and contribute!</strong> :earth_africa:</p>
+
+<h2 id="installation">Installation</h2>
+
+<p>In a terminal / command line write the following line <code>apm install project-viewer</code>.</p>
+
+<p>Or just find the package by accessing the menu <strong>Atom → Preferences… → Install</strong> and search for <strong><em>project-viewer</em></strong>.</p>
+
+<h2 id="features">Features</h2>
+
+<ul>
+  <li>Group nesting;
+    <ul>
+      <li>
+        <blockquote>
+          <p>Infinite nesting of <code>groups</code> which can contain also <code>projects</code>;</p>
+        </blockquote>
+      </li>
+      <li>
+        <blockquote>
+          <p><code>projects</code> can be at any level.</p>
+        </blockquote>
+      </li>
+    </ul>
+  </li>
+  <li>Sidebar Left / Right (first or last) position;</li>
+  <li>Auto hide sidebar with hover behavior;</li>
+  <li>Resizable panel;
+    <ul>
+      <li>
+        <blockquote>
+          <p><em>Double click</em> to default width;</p>
+        </blockquote>
+      </li>
+    </ul>
+  </li>
+  <li>Hide header for more space;
+    <ul>
+      <li>
+        <blockquote>
+          <p>This is available through a config option, default is <em>not autohide</em>.</p>
+        </blockquote>
+      </li>
+    </ul>
+  </li>
+  <li>Focus toggle;
+    <ul>
+      <li>
+        <blockquote>
+          <p>Toggling focus will switch between current active element and the panel.</p>
+        </blockquote>
+      </li>
+    </ul>
+  </li>
+  <li><code>SelectListView</code> integration;
+    <ul>
+      <li>
+        <blockquote>
+          <p>Only shows <code>projects</code>.</p>
+        </blockquote>
+      </li>
+    </ul>
+  </li>
+  <li>Traverse and select <code>projects</code> with <code>up</code> and <code>down</code> keys;</li>
+  <li>Toggle collapse / expand of <code>groups</code> with <code>left</code> and <code>right</code> keys;</li>
+  <li><code>status-bar</code> with the <code>project</code>’s’ <em>breadcrumb</em> path;</li>
+  <li>Drag &amp; Drop <code>groups</code> and <code>projects</code>;
+    <ul>
+      <li>Drag and drop a <code>group</code> or <code>project</code> into a <code>group</code> will add it as a child;</li>
+      <li>Drag and drop a <code>group</code> or <code>project</code> into an <code>project</code> will add it as sibling of the dropped item;</li>
+      <li>Drag and drop a <code>group</code> or <code>project</code> into a clear space in the panel will add it as a root child;</li>
+      <li>Order dragged <code>group</code> / <code>project</code> accordingly with dropped <code>group</code> sorting.</li>
+    </ul>
+  </li>
+  <li>Open the local database file for direct editing;</li>
+  <li>Old database schemas conversion tools;</li>
+  <li>Backup services (<strong>GitHub’s <em>private</em> gist</strong>);</li>
+  <li>Editor for <code>groups</code> / <code>projects</code> creation and update;
+    <ul>
+      <li>Create, update and remove <code>group</code> or <code>project</code>;</li>
+      <li>Automatic set it’s name according to first path base name added;</li>
+      <li>Batch operation on a <code>project</code> creation;
+        <ul>
+          <li>
+            <blockquote>
+              <p>Ability to create individual <code>projects</code> when more than one path is provided;</p>
+            </blockquote>
+          </li>
+          <li>
+            <blockquote>
+              <p>Each project will automatically have it’s name set to it’s path base name.</p>
+            </blockquote>
+          </li>
+        </ul>
+      </li>
+      <li>Filtering icons;</li>
+      <li>List of icons in editor as <em>only icons</em> or <em>icon and description</em>;
+        <ul>
+          <li>
+            <blockquote>
+              <p>This is available through a config option, default is <em>icon and description</em>.</p>
+            </blockquote>
+          </li>
+        </ul>
+      </li>
+      <li>Sort children <code>groups</code> / <code>projects</code>.
+        <ul>
+          <li>
+            <blockquote>
+              <p>Sorting root <code>groups</code> / <code>projects</code> is done through a config option.</p>
+            </blockquote>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Context menu for delete, update and create new <code>group</code> or <code>project</code>;
+    <ul>
+      <li>
+        <blockquote>
+          <p>Create option is only available in <code>groups</code> or the <code>root</code>.</p>
+        </blockquote>
+      </li>
+    </ul>
+  </li>
+  <li>Show the given path in a file manager. (in <code>finder</code> or <code>explorer</code>’s alike’);</li>
+  <li>Empty <code>groups</code> and / or <code>projects</code> list message;</li>
+  <li>Custom colors for <code>groups</code> and <code>projects</code>;</li>
+  <li>Custom colors for main title, for hovering on a <code>project</code> and for selected <code>project</code>;</li>
+  <li>Option to open a <code>project</code> in a new window or vice versa;
+    <ul>
+      <li>
+        <blockquote>
+          <p>This is available through a config option which will switch between what is the primary option, defaults to open in <em>same window</em>;</p>
+        </blockquote>
+      </li>
+      <li>
+        <blockquote>
+          <p>Context menu switching also available.</p>
+        </blockquote>
+      </li>
+    </ul>
+  </li>
+  <li>Elevate current opened folders in <code>tree-view</code> to a <code>project</code>;</li>
+  <li><code>Add Project Folder</code> and <code>Remove Project Folder</code> will update current selected project as well;</li>
+  <li>Keep context when switching from <code>projects</code>.
+    <ul>
+      <li>
+        <blockquote>
+          <p>This is available through a config option, default is <em>switch contexts</em>.</p>
+        </blockquote>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="shortcuts">Shortcuts</h2>
+
+<ul>
+  <li><code>shift-ctrl-alt-c</code> toggles sidebar autohide;</li>
+  <li><code>shift-ctrl-alt-v</code> toggles sidebar visibility;</li>
+  <li><code>shift-ctrl-alt-n</code> open the editor tab;</li>
+  <li><code>shift-ctrl-alt-m</code> toggle focus from active panel and the sidebar;</li>
+  <li><code>shift-ctrl-alt-l</code> toggle the select list modal;</li>
+</ul>
+
+<h2 id="settings">Settings</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Settings</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>visibilityOption</code></td>
+      <td><code>String</code></td>
+      <td>Define what would be the default action for <strong>project-viewer</strong> visibility on startup.</td>
+      <td><code>Display on startup</code></td>
+    </tr>
+    <tr>
+      <td><code>visibilityActive</code></td>
+      <td><code>Boolean</code></td>
+      <td>Relative to the interaction option selected above.</td>
+      <td><code>true</code></td>
+    </tr>
+    <tr>
+      <td><code>panelPosition</code></td>
+      <td><code>String</code></td>
+      <td>Position the panel to the left or right of the main pane.</td>
+      <td><code>Right</code></td>
+    </tr>
+    <tr>
+      <td><code>autoHide</code></td>
+      <td><code>Boolean</code></td>
+      <td>Panel has auto hide with hover behavior.</td>
+      <td><code>false</code></td>
+    </tr>
+    <tr>
+      <td><code>hideHeader</code></td>
+      <td><code>Boolean</code></td>
+      <td>You can have more space for the list by hiding the header.</td>
+      <td><code>false</code></td>
+    </tr>
+    <tr>
+      <td><code>keepContext</code></td>
+      <td><code>Boolean</code></td>
+      <td>When switching from items, if set to <code>true</code>, will keep current context. Also will not save contexts between switching.</td>
+      <td><code>false</code></td>
+    </tr>
+    <tr>
+      <td><code>openNewWindow</code></td>
+      <td><code>Boolean</code></td>
+      <td>Always open items in a new window.</td>
+      <td><code>false</code></td>
+    </tr>
+    <tr>
+      <td><code>statusBar</code></td>
+      <td><code>Boolean</code></td>
+      <td>Will show the breadcrumb to the current opened project in the <code>status-bar</code>.</td>
+      <td><code>false</code></td>
+    </tr>
+    <tr>
+      <td><code>customWidth</code></td>
+      <td><code>Integer</code></td>
+      <td>Define a custom width for the panel.<br /><em>double clicking</em> on the resizer will reset the width</td>
+      <td>200</td>
+    </tr>
+    <tr>
+      <td><code>rootSortBy</code></td>
+      <td><code>Array</code></td>
+      <td>Sets the root sort by.</td>
+      <td><code>position</code></td>
+    </tr>
+    <tr>
+      <td><code>onlyIcons</code></td>
+      <td><code>Boolean</code></td>
+      <td>Will show only the icons in the icon's list</td>
+      <td><code>true</code></td>
+    </tr>
+    <tr>
+      <td><code>customPalette</code></td>
+      <td><code>String</code></td>
+      <td>Custom palette to use on editor</td>
+      <td><code>#F1E4E8, #F7B05B, #595959, #CD5334, #EDB88B, #23282E, #263655, #F75468, #FF808F, #FFDB80, #292E1E, #248232, #2BA84A, #D8DAD3, #FCFFFC, #8EA604, #F5BB00, #EC9F05, #FF5722, #BF3100</code></td>
+    </tr>
+    <tr>
+      <td><code>customSelectedColor</code></td>
+      <td><code>String</code></td>
+      <td>Set custom selected project color</td>
+      <td><code>''</code></td>
+    </tr>
+    <tr>
+      <td><code>customHoverColor</code></td>
+      <td><code>String</code></td>
+      <td>Set custom hover project color</td>
+      <td><code>''</code></td>
+    </tr>
+    <tr>
+      <td><code>customTitleColor</code></td>
+      <td><code>String</code></td>
+      <td>Set custom main title color</td>
+      <td><code>''</code></td>
+    </tr>
+    <tr>
+      <td><code>disclaimer</code></td>
+      <td><code>Object</code></td>
+      <td>Show release notes on startup</td>
+      <td><code>true</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p>Keep in mind that this package uses Atom’s Storage to save all groups and projects. It is wise to save it to the cloud (ex: you can import and export a private Gist through this package!).</p>
+</blockquote>
+
+<h2 id="local-file-manipulation">Local File manipulation</h2>
+
+<p>Change it at your own risk! :speak_no_evil:</p>
+
+<h3 id="group-schema">Group Schema</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Parameter</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+      <th>Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>type</code></td>
+      <td><code>String</code></td>
+      <td>The type of the model</td>
+      <td><code>group</code></td>
+      <td><code>true</code></td>
+    </tr>
+    <tr>
+      <td><code>name</code></td>
+      <td><code>String</code></td>
+      <td>The name of the project</td>
+      <td>In theory… any strj g / emoji</td>
+      <td><code>true</code></td>
+    </tr>
+    <tr>
+      <td><code>sortBy</code></td>
+      <td><code>String</code></td>
+      <td>Sorting of the nested <code>groups</code> and <code>projects</code></td>
+      <td>Possible options are <code>position</code>, <code>reserve-position</code>, <code>alphabetically</code> and <code>reverse-alphabetically</code></td>
+      <td><code>true</code></td>
+    </tr>
+    <tr>
+      <td><code>icon</code></td>
+      <td><code>String</code></td>
+      <td>Custom icon <code>octicons</code> or <code>devicons</code></td>
+      <td><code>''</code></td>
+      <td><code>false</code></td>
+    </tr>
+    <tr>
+      <td><code>color</code></td>
+      <td><code>String</code></td>
+      <td>Custom color</td>
+      <td><code>''</code></td>
+      <td><code>false</code></td>
+    </tr>
+    <tr>
+      <td><code>expanded</code></td>
+      <td><code>Boolean</code></td>
+      <td><code>group</code> is collapsed or expanded</td>
+      <td><code>false</code></td>
+      <td><code>true</code></td>
+    </tr>
+    <tr>
+      <td><code>list</code></td>
+      <td><code>Array</code></td>
+      <td>An array of models (<code>group</code> or <code>project</code></td>
+      <td><code>[]</code></td>
+      <td><code>true</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="project-schema">Project Schema</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Parameter</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+      <th>Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>type</code></td>
+      <td><code>String</code></td>
+      <td>The type of the model</td>
+      <td><code>project</code></td>
+      <td><code>true</code></td>
+    </tr>
+    <tr>
+      <td><code>name</code></td>
+      <td><code>String</code></td>
+      <td>The name of the project</td>
+      <td>In theory… any strj g / emoji</td>
+      <td><code>true</code></td>
+    </tr>
+    <tr>
+      <td><code>icon</code></td>
+      <td><code>String</code></td>
+      <td>Custom icon <code>octicons</code> or <code>devicons</code></td>
+      <td><code>''</code></td>
+      <td><code>false</code></td>
+    </tr>
+    <tr>
+      <td><code>color</code></td>
+      <td><code>String</code></td>
+      <td>Custom color</td>
+      <td><code>''</code></td>
+      <td><code>false</code></td>
+    </tr>
+    <tr>
+      <td><code>devMode</code></td>
+      <td><code>Boolean</code></td>
+      <td><em>Not working for now</em></td>
+      <td><code>false</code></td>
+      <td><code>false</code></td>
+    </tr>
+    <tr>
+      <td><code>config</code></td>
+      <td><code>Object</code></td>
+      <td><em>Not working for now</em></td>
+      <td><code>{}</code></td>
+      <td><code>false</code></td>
+    </tr>
+    <tr>
+      <td><code>paths</code></td>
+      <td><code>Array</code></td>
+      <td>An array of the root files beloging to the project</td>
+      <td><code>[]</code></td>
+      <td><code>true</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="contributors">Contributors</h2>
+
+<p>Thanks goes to these wonderful people (<a href="https://github.com/kentcdodds/all-contributors#emoji-key">emoji key</a>):</p>
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<p>| <a href="https://github.com/jccguimaraes"><img src="https://avatars.githubusercontent.com/u/14871650?v=3" width="100px;" /><br /><sub>João Guimarães</sub></a><br />💬 <a href="https://github.com/jccguimaraes/atom-project-viewer/issues?q=author%3Ajccguimaraes">🐛</a> <a href="https://github.com/jccguimaraes/atom-project-viewer/commits?author=jccguimaraes">💻</a> 🎨 <a href="https://github.com/jccguimaraes/atom-project-viewer/commits?author=jccguimaraes">📖</a> 👀 | <a href="https://github.com/Hammster"><img src="https://avatars.githubusercontent.com/u/1093709?v=3" width="100px;" /><br /><sub>Hans Koch</sub></a><br /><a href="https://github.com/jccguimaraes/atom-project-viewer/commits?author=Hammster">💻</a> | <a href="https://github.com/DamnedScholar"><img src="https://avatars.githubusercontent.com/u/4084322?v=3" width="100px;" /><br /><sub>Holland Wilson</sub></a><br /><a href="https://github.com/jccguimaraes/atom-project-viewer/commits?author=DamnedScholar">💻</a> | <a href="https://github.com/amilor"><img src="https://avatars.githubusercontent.com/u/7261682?v=3" width="100px;" /><br /><sub>Roman Huba</sub></a><br /><a href="https://github.com/jccguimaraes/atom-project-viewer/commits?author=amilor">💻</a> | <a href="https://github.com/lneveu"><img src="https://avatars.githubusercontent.com/u/10619585?v=3" width="100px;" /><br /><sub>Loann Neveu</sub></a><br /><a href="https://github.com/jccguimaraes/atom-project-viewer/commits?author=lneveu">💻</a> <a href="https://github.com/jccguimaraes/atom-project-viewer/issues?q=author%3Alneveu">🐛</a> | <a href="https://github.com/bitkris-dev"><img src="https://avatars0.githubusercontent.com/u/12634286?v=3&amp;s=460" width="100px;" /><br /><sub>Kristian Barrese</sub></a><br />🎨 <a href="https://github.com/jccguimaraes/atom-project-viewer/issues?q=author%3Abitkris-dev">🐛</a> | <a href="https://github.com/girlandhercode"><img src="https://avatars.githubusercontent.com/u/2183606?v=3" width="100px;" /><br /><sub>Nicole</sub></a><br /><a href="https://github.com/jccguimaraes/atom-project-viewer/issues?q=author%3Agirlandhercode">🐛</a> |
+| :—: | :—: | :—: | :—: | :—: | :—: | :—: |
+| <a href="http://www.damonacook.com"><img src="https://avatars.githubusercontent.com/u/405912?v=3" width="100px;" /><br /><sub>Damon Cook</sub></a><br /><a href="https://github.com/jccguimaraes/atom-project-viewer/issues?q=author%3Acolorful-tones">🐛</a> | <a href="https://github.com/zhudock"><img src="https://avatars.githubusercontent.com/u/12414689?v=3" width="100px;" /><br /><sub>Zach Hudock</sub></a><br /><a href="https://github.com/jccguimaraes/atom-project-viewer/issues?q=author%3Azhudock">🐛</a> | <a href="https://github.com/CKLFP"><img src="https://avatars.githubusercontent.com/u/5192692?v=3" width="100px;" /><br /><sub>Filip Paço</sub></a><br /><a href="https://github.com/jccguimaraes/atom-project-viewer/issues?q=author%3ACKLFP">🐛</a> |
+<!-- ALL-CONTRIBUTORS-LIST:END --></p>
+
+<p>This project follows the <a href="https://github.com/kentcdodds/all-contributors">all-contributors</a> specification. Contributions of any kind welcome!</p>
+
+<blockquote>
+  <p>If you feel you were left out, just shout!</p>
+</blockquote>
+
+<h2 id="contacts">Contacts</h2>
+
+<p>You can follow me on <a href="https://twitter.com/jccguimaraes">Twitter</a></p>
+
+<h2 id="a-special-thank-you">A Special Thank You!</h2>
+
+<p>I thank you all for giving such great feedback! :beers: &amp; :bear: for everyone.</p>
+<section class="package-keywords">
+  <strong>Keywords:</strong> project, productivity, management, settings, workflow <a href="https://github.com/jccguimaraes/atom-project-viewer/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

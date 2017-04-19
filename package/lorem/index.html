@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Lorem
+  <a href="https://github.com/shillingp/atom-lorem">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install lorem
+  </pre>
+</div>
+<h1 id="lorem-package">Lorem package</h1>
+
+<p>A simple and powerful lorem ipsum generator for <a href="https://atom.io">Atom editor</a>. Fully configurable from the package settings.</p>
+
+<p>Ported with love from the <a href="https://github.com/lkcampbell/brackets-lorem-ipsum">Lorem Ipsum</a> brackets plugin by <a href="https://github.com/lkcampbell">lkcampbell</a></p>
+
+<p><img src="https://github.com/shillingp/atom-lorem/blob/master/resources/images/lorem-overview.gif?raw=true" alt="Lorem Overview" /></p>
+
+<hr />
+
+<h3 id="how-to-use">How to Use</h3>
+
+<blockquote>
+  <p><strong>Important</strong>: For basic lorem ipsum text using the default settings just use the keybind <code>alt+l</code>.</p>
+</blockquote>
+
+<blockquote>
+  <p><strong>Important</strong>: This README states that you need to use <code>_</code> to seperate the arguments however you can any characters you want by adding them to the config on the package settings page.</p>
+</blockquote>
+
+<p>You can also add options to the lorem command with an underscore character followed by the option name. For example: <code>lorem_wrap40</code>. Multiple options can also be chained together. For example, typing <code>lorem_html_wrap40</code> and then pressing the <code>alt+l</code> will give you html formatted Lorem Ipsum text and a word wrap width of 40 characters. Using an unrecognized option will insert an error message into the document. Using more than one underscore character in a row (e.g. <code>lorem__html___p3</code>) will insert an error message into the document.</p>
+
+<blockquote>
+  <p><strong>Note</strong>: Options to the far right of the chain always have the highest priority. If two options in the chain conflict with each other, the option on the right will have precedence. For example, the command lorem_nowrap_wrap40 will insert Lorem Ipsum text with a word wrap width of 40 characters and the command lorem_wrap40_nowrap will insert Lorem Ipsum text with no word wrapping.</p>
+</blockquote>
+
+<hr />
+
+<h5 id="list-of-current-options">List of Current Options</h5>
+<p><strong><code>alt+l</code>:</strong> Simply using the keybind <code>alt+l</code> will insert lorem ipsum text based on your personal configuration. The configuration can be changed in the package settings from the package menu.</p>
+
+<p><img src="https://github.com/shillingp/atom-lorem/blob/master/resources/images/lorem-basic.gif?raw=true" alt="Basic Example" /></p>
+
+<p><strong>_p[count]:</strong> Inserts a certain number of random Lorem Ipsum paragraphs into the current document. The <code>count</code> option indicates how many paragraphs to insert. For example, <code>lorem_p3</code> will insert three paragraphs into the document. If the <code>count</code> option is not provided, one paragraph will be inserted. If the type of Lorem Ipsum text is not specified, the extension will generate paragraphs by default.</p>
+
+<p><img src="https://github.com/shillingp/atom-lorem/blob/master/resources/images/lorem-p.gif?raw=true" alt="Paragraph Example" /></p>
+
+<p><strong>_s[count]:</strong> Inserts a certain number of random Lorem Ipsum sentences into the current document. The <code>count</code> option indicates how many sentences to insert. For example, <code>lorem_s3</code> will insert three sentences into the document. If the <code>count</code> option is not provided, one sentence will be inserted.</p>
+
+<p><img src="https://github.com/shillingp/atom-lorem/blob/master/resources/images/lorem-s.gif?raw=true" alt="Sentence Example" /></p>
+
+<p><strong>_w[count]:</strong> Inserts a certain number of random Lorem Ipsum words into the current document. The <code>count</code> option indicates how many words to insert. For example, <code>lorem_w40</code> will insert 40 random words into the document. If the <code>count</code> option is not provided, one word will be inserted.</p>
+
+<p><img src="https://github.com/shillingp/atom-lorem/blob/master/resources/images/lorem-w.gif?raw=true" alt="Word Example" /></p>
+
+<p><strong>_short:</strong> Makes all sentences or paragraphs short length.</p>
+
+<p><strong>_medium:</strong> Makes all sentences or paragraphs medium length. If no size options are provided, the extension will use <code>_medium</code> as the default option.</p>
+
+<p><strong>_long:</strong> Makes all sentences or paragraphs long length.</p>
+
+<p><strong>_vlong:</strong> Makes all sentences or paragraphs very long length.</p>
+
+<p><img src="https://github.com/shillingp/atom-lorem/blob/master/resources/images/lorem-sizes.gif?raw=true" alt="Sizes Example" /></p>
+
+<p><strong>_nowrap:</strong> Inserts Lorem Ipsum text without any word wrapping.</p>
+
+<p><strong>_wrap[width]:</strong> Word wraps Lorem Ipsum text using the specified <code>width</code>. For example, <code>lorem_wrap40</code> will wrap the text at 40 characters. If a word wrap option is not provided, the extension will use <code>_wrap80</code> as the default option. If you want to turn word wrap off, use the <code>_nowrap</code> option.  This option has no effect on the <code>_link</code>, <code>_ol</code>, or <code>_ul</code> options.</p>
+
+<p><img src="https://github.com/shillingp/atom-lorem/blob/master/resources/images/lorem-wraps.gif?raw=true" alt="Wrapping Example" /></p>
+
+<p><strong>_link[count]:</strong> Inserts a certain number of random Lorem Ipsum HTML links into the current document. The HTML link will always point to https://atom.io/. The <code>count</code> option indicates how many links to insert. For example, <code>lorem_link3</code> will insert three links, separated by page breaks, into the document. If the <code>count</code> option is not provided, one link will be inserted. To avoid badly formatted HTML, the <code>_link</code> option ignores any <code>_wrap</code> options and is always set to <code>_nowrap</code>.</p>
+
+<p><img src="https://github.com/shillingp/atom-lorem/blob/master/resources/images/lorem-links.gif?raw=true" alt="Links Example" /></p>
+
+<p><strong>_ol[count], _ul[count]:</strong> Inserts a random Lorem Ipsum HTML list into the current document. Use <code>_ol</code> for an ordered list and <code>_ul</code> for an unordered list. The <code>count</code> option indicates how many list items to insert. For example, <code>lorem_ol3</code> will insert an ordered list with three list items into the document. If the <code>count</code> option is not provided, a list with one item will be inserted. To avoid badly formatted HTML, both of these options ignore any <code>_wrap</code> options and are always set to <code>_nowrap</code>.</p>
+
+<p><img src="https://github.com/shillingp/atom-lorem/blob/master/resources/images/lorem-lists.gif?raw=true" alt="Lists Example" /></p>
+
+<p><strong>_html:</strong> Wraps Lorem Ipsum text in <code>&lt;p&gt;&lt;/p&gt;</code> tags so it displays correctly in HTML. For options <code>_p</code> and <code>_s</code>each individual paragraph or sentence is wrapped. For options <code>_w</code> and <code>_link</code>, the entire collection of words or links is wrapped. This option is not available for lists since lists
+are not inline elements.</p>
+
+<p><img src="https://github.com/shillingp/atom-lorem/blob/master/resources/images/lorem-html.gif?raw=true" alt="HTML Example" /></p>
+
+<p><strong>_?, _help:</strong> Displays help for the Lorem Ipsum extension.  If this option is used, all other options will be ignored and no Lorem Ipsum text will be generated.</p>
+
+<blockquote>
+  <p><strong>Note:</strong> Any option that has a number associated with it (e.g. <code>_p3</code>, <code>_wrap40</code>)
+can also be entered with the number portion in front of the option
+(i.e. <code>_3p</code>, <code>_40wrap</code>) and it will work the same way.</p>
+</blockquote>
+
+<hr />
+
+<h3 id="other-features">Other Features</h3>
+
+<p><strong>Comment Support:</strong> The package allows for text to be inserted as a comment. Just use the keybind or type your command as a comment and it will add commented lorem text. <strong>Note: Block comments are not supported</strong>.</p>
+
+<p><img src="https://github.com/shillingp/atom-lorem/blob/master/resources/images/lorem-comments.gif?raw=true" alt="Comment Example" /></p>
+
+<p><strong>Multi Cursor Support:</strong> Support for multiple cursors has been added. If the cursors are next to valid commands then it will parse all of your lorem text. <em>Woo many lorems</em>.</p>
+
+<p><img src="https://github.com/shillingp/atom-lorem/blob/master/resources/images/lorem-multi.gif?raw=true" alt="Multi Cursor Example" /></p>
+
+<hr />
+
+<h3 id="contributing">Contributing</h3>
+<p>This is my first atom package and I welcome all the help/support/feedback I can get so if you have any or would like to make a pull-request please feel free. If you do want to contribute I am using the <code>prettier</code> package to format the code. Many thanks.</p>
+
+<hr />
+
+<h3 id="license">License</h3>
+<p>MIT License: See <code>LICENSE</code> for more details.</p>
+
+<section class="package-keywords">
+  <strong>Keywords:</strong> lorem, lorem-ipsum, ipsum, text, generator <a href="https://github.com/shillingp/atom-lorem/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

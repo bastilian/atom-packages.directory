@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Mantrajs
+  <a href="https://github.com/mantrajs/mantrajs-atom-package">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install mantrajs
+  </pre>
+</div>
+<h1 id="mantra-extensions-for-meteor-developers">Mantra extensions for Meteor developers</h1>
+
+<h2 id="quickstart">Quickstart</h2>
+
+<ol>
+  <li>Install plugin in Atom</li>
+  <li>Set your project type in the plugin preferences page (Javascript/Typescript/Redux/Apollo)</li>
+  <li>Start the plugin with “ctrl+alt+o”</li>
+  <li>If you are starting with a fresh project let plugin create all files for you</li>
+  <li>KNOWN ISSUE: When you let plugin create all files for you you need to toggle it once more, otherwise this step is not necessary</li>
+</ol>
+
+<p><strong>IMPORTANT:</strong> Currently works only with the default theme (e.g. Material design theme not supported)
+<strong>IMPORTANT:</strong> Previous CSON configuration needs to be rewritten in YAML</p>
+
+<h2 id="functionality">Functionality:</h2>
+
+<ul>
+  <li>custom pane to display Mantra modules and components</li>
+  <li>automatically generate a module</li>
+  <li>automatically generate module components from the menu</li>
+  <li><strong>NEW: automatically generate tests and stories</strong></li>
+  <li><strong>NEW: support for various project types</strong></li>
+  <li>generate server components</li>
+  <li>several snippets for mantra components ()</li>
+  <li>init a new mantra app automatically</li>
+  <li><strong>NEW: easy definition of any mantra component via YAML</strong></li>
+</ul>
+
+<ol>
+  <li>Code generation - It is possible now to modify the generated code based on placeholders (<em>here I would like feedback on possible template structure and placeholders</em>). Also, please not, how components are automatically registered inside index.js</li>
+</ol>
+
+<p><img src="https://cloud.githubusercontent.com/assets/2682705/12999539/9f73196c-d1a4-11e5-9a49-8d898d40904e.gif" alt="components" /></p>
+
+<ol>
+  <li>Similar functionality for modifying placeholders works for module components</li>
+</ol>
+
+<p><img src="https://cloud.githubusercontent.com/assets/2682705/12999551/b5078e8e-d1a4-11e5-8187-520b4337a94b.gif" alt="modulecomponents" /></p>
+
+<ol>
+  <li>When new module is created it automatically creates all necessary directories and register module in <code>main.js</code> of the mantra app</li>
+</ol>
+
+<p><img src="https://cloud.githubusercontent.com/assets/2682705/12999570/e1bd8050-d1a4-11e5-9bad-0c497e632d76.gif" alt="modulenew" /></p>
+
+<ol>
+  <li>It is possible to initialise all directories and mantra files in the empty Meteor project just by toggling the mantra plugin</li>
+</ol>
+
+<p><img src="https://cloud.githubusercontent.com/assets/2682705/12999580/f4a0b930-d1a4-11e5-922a-9411fc374425.gif" alt="lazyinit" /></p>
+
+<ol>
+  <li>
+    <p>Mantra plugin settings are kept in the mantra.json file</p>
+  </li>
+  <li>
+    <p>Context menu was disabled in mantra pane, as this led to problems with file deletion, which often led to unexpected deletes.</p>
+  </li>
+</ol>
+
+<h2 id="configuration">Configuration:</h2>
+
+<p>Plugin can be easily customised by creating a <em>mantra.yaml</em> file in the project root. In the configuration, you first define the structure of the panes that will be displayed, then you define following parameters:</p>
+
+<ol>
+  <li>For each directory you can define a template file with placeholders that will be created when pressing the “NEW” button on the directory</li>
+  <li>For each file you define the default content in the template</li>
+  <li>Files can be nested in the directories</li>
+</ol>
+
+<p>For each template you define following parameters:</p>
+
+<ol>
+  <li><em>name</em> - name of the template</li>
+  <li><em>text</em> - text of the templete. You can use $1, $2 for the placeholders</li>
+  <li><em>placeholders</em> - array of placeholders that replce $1, $2 from above</li>
+  <li><em>create</em> - file is created by default when it does not exist</li>
+  <li><em>show</em> - shows in the pane view. If this file is part of the already visible directory this has no effect</li>
+  <li><em>actions</em> - define triggers when the file is created. This can either be <em>create</em> or <em>replace</em>. Create action creates extra files. Replace action replaces content in existing files.</li>
+</ol>
+
+<p>Checkout extra configuration in the project repository. Following is an exemplary configuration for the “Classic Mantra Javascript” project.</p>
+
+<p>```yaml
+root: ‘’
+panes:
+  - name: Module
+    structure:
+      - directory: actions
+        structure:
+          - file: index.ts
+            template: actionIndex
+      - directory: components
+        structure:
+          - file: stories/index.ts
+            template: storiesIndex
+      - directory: containers
+      - file: routes.tsx
+        template: route
+      - file: index.ts
+        template: module
+  - name: Server
+    structure:
+      - directory: server/publications
+        structure:
+          - file: index.ts
+            template: publicationIndex
+      - directory: server/methods
+        structure:
+          - file: index.ts
+            template: methodIndex
+      - file: server/index.ts
+        template: server
+  - name: Configs
+    structure:
+      - directory: client/configs
+      - directory: lib
+      - file: client/configs/context.ts
+        template: context
+      - file: client/index.ts
+        template: client</p>
+
+<p>templates:
+  # Module action template
+  - name: actions
+    text: |
+      class Actions {
+        create({Meteor, LocalState}, myParam) {
+        },
+      };
+      let actions = new Actions();
+      export default actions;
+    placeholders:
+    actions:
+      - type: replace
+        path: index.ts
+        what: const actions = {
+        replace: import $name from “./$name”;\nconst actions = {
+      - type: replace
+        path: index.ts
+        what: const actions = {
+        replace: const actions = {\n $name,
+      - type: create
+        path: tests/$name_test.ts
+        text: |
+          const {describe, it} = global;
+          import {expect} from ‘chai’;
+          import {spy, stub} from ‘sinon’;
+          import actions from ‘../posts’;</p>
+
+<pre><code>      describe('module.actions.actionSet', () =&gt; {
+        describe('create', () =&gt; {
+          it('should reject if title is not there', () =&gt; {
+            const LocalState = {set: spy()};
+            actions.create({LocalState}, null, 'content');
+            const args = LocalState.set.args[0];
+
+            expect(args[0]).to.be.equal('SAVING_ERROR');
+            expect(args[1]).to.match(/required/);
+          });
+        });
+      });   - name: actionIndex
+create: true
+text: |
+  const actions = {
+    // ACTION
+  };
+  export default actions;   # Module component template   - name: storiesIndex
+create: true
+text: |
+  // imports   - name: components
+text: |
+  import React from "react";
+
+  interface IProps {
+  }
+
+  export default class $1 extends React.Component {
+    render() {
+      return (
+        &lt;div&gt;&lt;/div&gt;
+      );
+    }
+  }
+placeholders:
+  - Component Name
+actions:
+  - type: create
+    path: tests/$name_test.ts
+    text: |
+      const {describe, it} = global;
+      import {expect} from 'chai';
+      import {shallow} from 'enzyme';
+      import Component from '../$name';
+
+      describe('test', () =&gt; {
+        it('should display the post title', () =&gt; {
+          const el = shallow(&lt;Component /&gt;);
+          expect(el).not.to.be.null;
+        });
+      });
+  - type: create
+    path: stories/$name_stories.ts
+    text: |
+      import React from 'react';
+      import { storiesOf, action } from '@kadira/storybook';
+      import Component from '../$name';
+
+      storiesOf('module.$name', module)
+        .add('default view', () =&gt; {
+          return (
+            &lt;Component /&gt;
+          );
+        })
+  - type: replace
+    path: stories/index.ts
+    what: // imports
+    replace: |
+      // imports
+      import $name from "./$name_stories";   # Module container template   - name: containers
+text: |
+  import { useDeps, composeWithTracker, composeAll } from "../../../configs/context";
+  import Component from "../components/$1";
+
+  interface IProps {
+    context?: () =&gt; IContext;
+    clearErrors: Function;
+  }
+
+  export const composer = ({context, clearErrors}, onData) =&gt; {
+    const { Meteor, Collections } = context();
+    if (Meteor.subscribe("$3", postId).ready()) {
+      const options = {
+        sort: {createdAt: -1}
+      };
+      const data = {Collections.$2.find({$2}, options).fetch()};
+      onData(null, {data});
+    } else {
+      onData();
+    }
+
+    return clearErrors;
+  };
+
+  export const depsMapper = (context, actions) =&gt; ({
+    create: actions.schedule.create,
+    handleSearch: actions.schedule.handleSearch,
+    context: () =&gt; context
+  });
+
+  export default composeAll(
+    composeWithTracker(composer),
+    useDeps(depsMapper)
+  )(Component);
+placeholders:
+  - Component Name
+  - Collection Name
+  - Subscription
+actions:
+  - type: create
+    path: tests/$name_test.ts
+    text: |
+      const { describe, it } = global;
+      import {expect} from 'chai';
+      import {spy, stub} from 'sinon';
+      import {composer, depsMapper} from '../newpost';
+
+      describe('component', () =&gt; {
+        describe('composer', () =&gt; {
+          it('should get SAVING_ERROR from local state', () =&gt; {
+            const LocalState = {get: spy()};
+            const context = () =&gt; ({LocalState});
+
+            composer({context}, spy());
+
+            const args = LocalState.get.args[0];
+            expect(args).to.have.length(1);
+            expect(args[0]).to.be.equal('SAVING_ERROR');
+          });
+        });
+      });   # Module route template   - name: route
+show: true
+create: true
+text: |
+  import React from "react";
+  import { mount } from "mantra-core";
+
+  export default function (injectDeps) {
+    //const MainLayoutCtx = injectDeps(MainLayout);
+
+    // Move these as a module and call this from a main file
+    // FlowRouter.route("/", {
+    //   name: "ei.list",
+    //   action() {
+    //     mount(MainLayoutCtx, {
+    //       content: () =&gt; (&lt;EiList /&gt;)
+    //     });
+    //   }
+    // });
+  }
+</code></pre>
+
+<p># Module index template
+  - name: module
+    show: true
+    create: true
+    text: |
+      import actions from “./actions”;
+      import routes from “./routes”;</p>
+
+<pre><code>  export default {
+    actions,
+    routes
+  };
+</code></pre>
+
+<p># Server publication template
+  - name: server/publications
+    text: |
+      import {Meteor} from ‘meteor/meteor’;
+      import {check} from ‘meteor/check’;</p>
+
+<pre><code>  export default function () {
+    Meteor.publish("$1", function () {
+      const selector = {};
+      const options = {
+        // fields: {_id: 1, title: 1},
+        // sort: {createdAt: -1},
+        // limit: 10
+      };
+
+      return $2.find(selector, options);
+    });
+  }
+placeholders:
+  - Publication Name
+  - Collection
+actions:
+  - type: replace
+    path: index.ts
+    what: export default function () {
+    replace: |
+      import $name from "./$name";
+      export default function () {
+  - type: replace
+    path: index.ts
+    what: export default function () {
+    replace: |
+      export default function () {
+        $name();   # Method template   - name: server/methods
+text: |
+  import {Meteor} from 'meteor/meteor';
+  import {check} from 'meteor/check';
+
+  export default function () {
+    Meteor.methods({
+      '$1'($2) {
+        check($2, String);
+      }
+    });
+  }
+placeholders:
+  - Method Name
+  - Parameters
+actions:
+  - type: replace
+    path: index.ts
+    what: export default function () {
+    replace: &gt;
+      import $name from "./$name";
+      export default function () {
+  - type: replace
+    path: index.ts
+    what: export default function () {
+    replace: &gt;
+      export default function () {
+      $name();   - name: server
+create: true
+show: true
+text: |
+  import publications from "./publications/index";
+  import methods from "./methods/index";
+  // import addInitialData from "./configs/initial_adds";
+
+  publications();
+  methods();
+  // addInitialData();   - name: publicationIndex
+create: true
+text: |
+  export default function () {
+  }   - name: methodIndex
+create: true
+text: |
+  export default function () {
+  }
+</code></pre>
+
+<p># context template
+  - name: context
+    create: true
+    text: |
+      import * as Collections from “../../lib/collections”;</p>
+
+<pre><code>  import {Meteor} from 'meteor/meteor';
+  import {FlowRouter} from 'meteor/kadira:flow-router';
+  import {ReactiveDict} from 'meteor/reactive-dict';
+  import {Tracker} from 'meteor/tracker';
+
+  export default function () {
+    return {
+      Meteor,
+      FlowRouter,
+      Collections,
+      LocalState: new ReactiveDict(),
+    };
+  }
+</code></pre>
+
+<p># client index template
+  - name: client
+    create: true
+    show: true
+    text: |
+      import “./configs/config”;</p>
+
+<pre><code>  import {createApp} from 'mantra-core';
+
+  import coreModule from "./modules/core/index";
+  import initContext from "./configs/context";
+
+  // init context
+
+  const context = initContext();
+
+  // create app
+
+  const app = createApp(context);
+  app.loadModule(coreModule);
+  app.init();
+actions:
+  - type: replace
+    path: ../index.ts
+    what: import {createApp} from 'mantra-core';
+    replace: |
+      import {createApp} from 'mantra-core';
+      import $nameModule from "./modules/$name";
+  - type: replace
+    path: ../index.ts
+    what: app.init();
+    replace: |
+      app.loadModule($nameModule);
+      app.init() ```
+</code></pre>
+<section class="package-keywords">
+  <strong>Keywords:</strong> meteor, mantra, meteorjs, mantrajs <a href="https://github.com/mantrajs/mantrajs-atom-package/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

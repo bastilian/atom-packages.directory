@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Linter Csound
+  <a href="https://github.com/nwhetsell/linter-csound">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install linter-csound
+  </pre>
+</div>
+<h1 id="csound-linting-in-atom">Csound Linting in Atom</h1>
+
+<p>This <a href="https://atom.io/">Atom</a> package adds syntax checking for <a href="https://csound.github.io/">Csound</a> orchestras.</p>
+
+<h2 id="contributing">Contributing</h2>
+
+<p><a href="https://github.com/nwhetsell/linter-csound/issues">Open an issue</a>, or <a href="https://guides.github.com/activities/forking/">fork this project and make a pull request</a>.</p>
+
+<h2 id="linter-csounds-orchestra-parser">linter-csound’s Orchestra Parser</h2>
+
+<p>To check the syntax of orchestras, linter-csound uses a <a href="https://github.com/nwhetsell/linter-csound/tree/master/lib/csound-parser">preprocessor and parser</a> generated using the <a href="https://github.com/GerHobbelt/jison">GerHobbelt fork</a> of <a href="https://zaa.ch/jison/">Jison</a>. The <a href="https://github.com/nwhetsell/linter-csound/blob/master/lib/csound-parser/orchestra.jison">grammar</a> used by the parser is based on <a href="http://www.cjihrig.com/development/jsparser/ecmascript.jison">this JavaScript grammar</a> (which you can read about <a href="http://cjihrig.com/blog/creating-a-javascript-parser/">here</a>) and <a href="http://www.quut.com/c/ANSI-C-grammar-y-2011.html">this C grammar</a>. To generate the preprocessor and parser on macOS, open a Terminal, <code>cd</code> to linter-csound, and run:</p>
+
+<p><code>sh
+npm install https://github.com/GerHobbelt/jison/archive/0.4.18-170.tar.gz
+pushd lib/csound-parser
+../../node_modules/jison-lex/cli.js preprocessor.jisonlex --outfile preprocessor.js
+../../node_modules/jison-gho/lib/cli.js orchestra.jison orchestra.jisonlex --outfile orchestra-parser.js
+popd
+</code></p>
+
+<p>The linter-csound preprocessor and parser try to match Csound’s behavior, but linter-csound’s implementations are quite different. Here is how linter-csound’s Jison files correspond to Csound’s Flex/Bison files:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>This Jison file</th>
+      <th>Corresponds to this Flex/Bison file</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="https://github.com/nwhetsell/linter-csound/blob/master/lib/csound-parser/preprocessor.jisonlex">preprocessor.jisonlex</a></td>
+      <td><a href="https://github.com/csound/csound/blob/develop/Engine/csound_pre.lex">csound_pre.lex</a></td>
+    </tr>
+    <tr>
+      <td><a href="https://github.com/nwhetsell/linter-csound/blob/master/lib/csound-parser/orchestra.jisonlex">orchestra.jisonlex</a></td>
+      <td><a href="https://github.com/csound/csound/blob/develop/Engine/csound_orc.lex">csound_orc.lex</a></td>
+    </tr>
+    <tr>
+      <td><a href="https://github.com/nwhetsell/linter-csound/blob/master/lib/csound-parser/orchestra.jison">orchestra.jison</a></td>
+      <td><a href="https://github.com/csound/csound/blob/develop/Engine/csound_orc.y">csound_orc.y</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="known-differences-from-csounds-preprocessor">Known Differences from Csound’s Preprocessor</h3>
+
+<p>Csound’s preprocessor:</p>
+
+<ul>
+  <li>
+    <p>permits <a href="https://github.com/csound/csound/issues/663">0-length parameter names in function-like macros</a>. This orchestra prints <code>hello, world</code>:</p>
+
+    <p><code>csound
+  #define MACRO(arg') #$arg,$#
+  prints "$MACRO(hello' world)\n"
+  scoreline_i "e"
+ </code></p>
+
+    <p>The linter-csound preprocessor treats 0-length parameter names as errors.</p>
+  </li>
+  <li>
+    <p>permits duplicate parameter names in function-like macros. The linter-csound preprocessor treats duplicate parameter names as errors.</p>
+  </li>
+  <li>
+    <p><a href="https://github.com/csound/csound/issues/679">continues to compile after attempting to <code>#include</code> a directory</a>. The linter-csound preprocessor treats this as an error.</p>
+  </li>
+</ul>
+
+<h3 id="known-differences-from-csounds-parser">Known Differences from Csound’s Parser</h3>
+
+<ul>
+  <li>Csound’s parser silently ignores duplicate <a href="http://csound.github.io/docs/manual/OrchTop.html">labels</a>, while linter-csound gives a warning.</li>
+</ul>
+<section class="package-keywords">
+  <strong>Keywords:</strong> csound, music, sound <a href="https://github.com/nwhetsell/linter-csound/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

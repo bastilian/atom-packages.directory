@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Css Clean
+  <a href="https://github.com/SeanJM/atom-css-clean">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install atom-css-clean
+  </pre>
+</div>
+<h1 id="css-clean-package">css-clean package</h1>
+
+<p>We all write code a little quickly sometimes. This is a package which offers a helping hand to sort, align and clean your CSS and SASS.</p>
+
+<h2 id="configuration">Configuration</h2>
+
+<p>If you want 4 spaces and tabs, create a <code>.csscleanrc</code> file in the project root directory.</p>
+
+<p>example settings
+<code>
+{
+  "tab_space": 2,
+  "tab_char": "space"
+}
+</code></p>
+
+<ul>
+  <li><code>tab_space</code> -&gt; Any number</li>
+  <li><code>tab_char</code> -&gt; “space” or “tab”</li>
+</ul>
+
+<h2 id="sorting-properties">Sorting properties</h2>
+
+<h5 id="before">Before</h5>
+
+<p><code>css
+.comment-module {
+  font-size: 16px;
+  color: red;
+  position: 'relative';
+  z-index: 0;
+  font-family: 'sans-serif';
+}
+</code></p>
+
+<h5 id="after">After</h5>
+
+<p><code>css
+.comment-module {
+  z-index     : 0;
+  position    : 'relative';
+  color       : red;
+  font-family : 'sans-serif';
+  font-size   : 16px;
+}
+</code></p>
+
+<h2 id="clearly-format-your-media-queries">Clearly format your <code>@media</code> queries</h2>
+
+<h5 id="before-1">Before</h5>
+
+<p><code>css
+@media only screen and (min-device-width: 320px) and (device-width: 320px) and (max-device-width: 736px),
+       tv and (min-width: 320px) and (device-width: 320px) and (width: 736px) {
+  .comment-module {
+   font-size: 18px;
+  }
+}
+</code></p>
+
+<h5 id="after-1">After</h5>
+<p><code>css
+@media only screen
+       and (min-device-width : 320px)
+       and (device-width     : 320px)
+       and (max-device-width : 736px),
+       tv
+       and (min-width        : 320px)
+       and (device-width     : 320px)
+       and (width            : 736px) {
+  .comment-module {
+    font-size : 18px;
+  }
+}
+</code></p>
+
+<h2 id="sort-multiple-selector-names-and-automatic-placement-to-one-line-per-selector">Sort multiple selector names and automatic placement to one line per selector</h2>
+
+<h5 id="before-2">Before</h5>
+
+<p><code>css
+input[type="text"], [class*="btn-grey"], input[type="date"], input[type="number"], textarea {
+  color : $grey6;
+}
+</code></p>
+
+<h5 id="after-2">After</h5>
+<p><code>css
+[class*="btn-grey"],
+input[type="date"],
+input[type="number"],
+input[type="text"],
+textarea {
+  color : $grey6;
+}
+</code></p>
+
+<h1 id="sass">SASS</h1>
+
+<h2 id="grouping-of-variables-which-are-pushed-to-the-top-of-the-file">Grouping of variables which are pushed to the top of the file</h2>
+
+<h5 id="before-3">Before</h5>
+
+<p>```css
+$box-style2 : (bStyle: dotted, bColor: blue, bWidth: medium);
+$i : 6;</p>
+
+<p>@mixin does-parent-exist { @if &amp; { &amp;:hover { color : red; } } @else { a { color : red; } } }</p>
+
+<p>$gutter-width : 10px;
+```</p>
+
+<h5 id="after-3">After</h5>
+
+<p>```css
+$box-style2   : (bStyle: dotted, bColor: blue, bWidth: medium);
+$i            : 6;
+$gutter-width : 10px;</p>
+
+<p>@mixin does-parent-exist {
+  @if &amp; {
+    &amp;:hover {
+      color : red;
+    }
+  } @else {
+    a {
+      color : red;
+    }
+  }
+}
+```</p>
+
+<h2 id="merging-of-multiple-imports">Merging of multiple imports</h2>
+
+<h5 id="before-4">Before</h5>
+
+<p><code>css
+@import "buttons.scss";
+@import "forms.scss";
+@import "variables.scss";
+</code></p>
+
+<h5 id="after-4">After</h5>
+
+<p><code>css
+@import "variables.scss",
+        "buttons.scss",
+        "forms.scss";
+</code></p>
+
+<h2 id="make-your-each-statements-easier-to-read">Make your <code>@each</code> statements easier to read</h2>
+
+<h5 id="before-5">Before</h5>
+
+<p><code>css
+@each $animal, $color, $cursor in (puma, black, default), (sea-slug, blue, pointer), (egret, white, move) {
+  .#{$animal}-icon {
+    background-image : url('/images/#{$animal}.png');
+    border : 2px solid $color;
+    cursor : $cursor;
+  }
+}
+</code></p>
+
+<h5 id="after-5">After</h5>
+
+<p><code>css
+@each $animal,
+      $color,
+      $cursor in (puma, black, default),
+      (sea-slug, blue, pointer),
+      (egret, white, move) {
+  .#{$animal}-icon {
+    border           : 2px solid $color;
+    background-image : url('/images/#{$animal}.png');
+    cursor           : $cursor;
+  }
+}
+</code></p>
+
+<h2 id="gradients">Gradients</h2>
+
+<h5 id="before-6">Before</h5>
+
+<p><code>css
+  .class {
+    background : linear-gradient(rgba(33, 34, 30, 0.1), rgba(33, 34, 30, 0.1));
+  }
+</code></p>
+
+<h5 id="after-6">After</h5>
+
+<p><code>css
+  .class {
+    background : linear-gradient(
+                   rgba(33, 34, 30, 0.1),
+                   rgba(33, 34, 30, 0.1)
+                 );
+  }
+</code></p>
+
+<ul>
+  <li>Shortcut is <strong>CMD/CTRL+ALT+C</strong></li>
+</ul>
+
+<p>Feel free to contribute.</p>
+<section class="package-keywords">
+  <strong>Keywords:</strong> css, prettify, pretty print, sass, sorting, sort, alignment <a href="https://github.com/SeanJM/atom-css-clean/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

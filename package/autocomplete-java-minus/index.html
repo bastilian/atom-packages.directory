@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Autocomplete Java Minus
+  <a href="https://github.com/noseglid/autocomplete-java-minus">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install autocomplete-java-minus
+  </pre>
+</div>
+<blockquote>
+  <h2 id="under-development">Under development</h2>
+</blockquote>
+
+<blockquote>
+  <p>There’s a lot of features regarding autocompleting java which is
+not complete yet. Parsing Java with all its quirks is complicated
+and it will take a long time to get everything right.</p>
+
+  <p>Read the <a href="CONTRIBUTING.md">CONTRIBUTING guidelines</a> before
+opening PRs or Issues.</p>
+</blockquote>
+
+<h1 id="autocomplete-java-minus">autocomplete-java-minus</h1>
+
+<p>Autocomplete suggestions for Java.</p>
+
+<p><img src="https://github.com/noseglid/autocomplete-java-minus/blob/master/autocomplete.gif?raw=true" alt="Demonstrative autocompletion" title="Autocomplete" /></p>
+
+<h2 id="getting-started">Getting started</h2>
+
+<p><strong>Create a file named <code>.classpath</code> in the project root.</strong></p>
+
+<p>This file will be parsed an classes will be extracted from it and added
+to autocomplete suggestions.</p>
+
+<p>It should have the same format as the classpath
+has on your platform. On UNIX it would look something like</p>
+
+<p><code>shell
+/path/to/one/dependency.jar:/home/noseglid/devel/JavaProject/build/classes
+</code></p>
+
+<p><code>autocomplete-java-minus</code> will parse <code>dependency.jar</code> as well as any
+class or JAR file under <code>/home/noseglid/devel/JavaProject/build/classes</code></p>
+
+<h2 id="why-not-autocomplete-javahttpsatomiopackagesautocomplete-java-">Why not <a href="https://atom.io/packages/autocomplete-java">autocomplete-java</a> ?</h2>
+
+<p><code>autocomplete-java-minus</code> differs from <code>autocomplete-java</code> in that it:</p>
+
+<ul>
+  <li>uses <a href="http://npmjs.com/jdjs"><code>jdjs</code></a> to parse JARs/Classes. It’s a native javascript implementation which is way faster, consumes less resources and offers more flexibility than spawning <code>javap</code> over and over again.</li>
+  <li>will only autocomplete. The limited scope will increase maintainability and quality.</li>
+</ul>
+
+<h2 id="what-will-autocomplete-java-minus-not-do-">What will autocomplete-java-minus <em>not</em> do ?</h2>
+
+<p><code>autocomplete-java-minus</code> aims to only handle auto completion. Thus, the following will not be implemented in the scope of this package.</p>
+
+<ul>
+  <li>Work with import statements (although it does let <a href="https://github.com/noseglid/java-import-wiz">java-import-wiz</a> know that an autocompletion was made so <em>it</em> can work with imports)</li>
+  <li>Dependency source code download or display</li>
+  <li><em>go to</em> or <em>return from</em> declaration of any kind</li>
+  <li>Reconstruct source from <code>.class</code>-file</li>
+</ul>
+
+<p>While these may be desired features, it is left up to other packages to implement.</p>
+
+<h2 id="add-import-statement-after-autocomplete">Add import statement after autocomplete</h2>
+
+<p>In java it is quite tedious to look up which package/namespace
+a class belongs to. <code>autocomplete-java-minus</code> will work with
+<a href="https://github.com/noseglid/java-import-wiz">java-import-wiz</a>
+to automatically insert <code>import</code> statements when an autocompletion is accepted.</p>
+
+<h2 id="state-of-functionality">State of functionality</h2>
+
+<h3 id="current-features">Current features</h3>
+
+<ul>
+  <li>Parse implicit Java JARs (<code>rt.jar</code>, <code>javaws.jar</code>, etc).</li>
+  <li><code>.classpath</code> parsing:
+    <ul>
+      <li>JAR files</li>
+      <li>Class files</li>
+      <li>Folders (traversed for Class or Jar files)</li>
+    </ul>
+  </li>
+  <li>Autocomplete suggestions for parsed classes
+    <ul>
+      <li>Classes (Interfaces, Annotations, etc are all classes)</li>
+      <li>Constructors with arguments and snippets</li>
+      <li>Static methods of classes with arguments and snippets</li>
+    </ul>
+  </li>
+  <li>Autocomplete non-static members
+    <ul>
+      <li>Fields and members from instanced classes, and it’s inherited members</li>
+      <li>Member fields and methods from superclass</li>
+      <li>Class local member fields and methods</li>
+      <li>Method local variables</li>
+    </ul>
+  </li>
+  <li>Integrated with <a href="https://github.com/noseglid/java-import-wiz">java-import-wiz</a> for auto <code>import</code> statements.</li>
+</ul>
+
+<h3 id="upcomming-features">Upcomming features</h3>
+
+<ul>
+  <li>Automatically refresh classes in the current project as it’s edited.</li>
+</ul>
+<section class="package-keywords">
+  <strong>Keywords:</strong> java, autocomplete, productivity <a href="https://github.com/noseglid/autocomplete-java-minus/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

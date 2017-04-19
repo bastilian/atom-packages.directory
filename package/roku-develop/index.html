@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Roku Develop
+  <a href="https://github.com/belltown/roku-develop">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install roku-develop
+  </pre>
+</div>
+<h1 id="roku-develophttpsatomiopackagesroku-develop"><a href="https://atom.io/packages/roku-develop">roku-develop</a></h1>
+
+<h3 id="an-atom-editorhttpsatomio-package-to-deploy-a-roku-project-to-multiple-devices">an <a href="https://atom.io/">ATOM editor</a> package to deploy a Roku project to multiple devices</h3>
+
+<p><em>Automatically discover Rokus on the local network.</em></p>
+
+<p><em>Zip the current Roku project directory.</em></p>
+
+<p><em>Deploy to multiple Roku devices.</em></p>
+
+<p><em>Automatically increment manifest build_version.</em></p>
+
+<h3 id="install-the-package-in-atom">Install the package in Atom</h3>
+
+<p>Go to Settings <kbd>Ctrl+,</kbd> then <strong>Install</strong>. Search for <code>roku-develop</code>.</p>
+
+<p>For more info on Atom, read the
+<a href="http://flight-manual.atom.io/">Atom Flight Manual</a>.</p>
+
+<h3 id="configure-settings">Configure settings</h3>
+
+<p>Go to Settings <kbd>Ctrl+,</kbd> then <strong>Packages</strong>. Search for <code>roku-develop</code>.</p>
+
+<p>Enter the Roku developer settings password. See the Roku
+<a href="https://github.com/rokudev/docs/blob/master/develop/getting-started/setup-guide.md#1-setup-your-roku-device-to-enable-developer-settings">Developer Setup Guide</a> for instructions on
+setting the Roku developer password.
+<strong>Ensure that Developer Mode is enabled for each Roku device.</strong></p>
+
+<p><code>Increment Manifest build_version</code> - specifies whether
+the manifest file build_version is incremented when the project is deployed:</p>
+
+<ul>
+  <li>Do not increment</li>
+  <li>Increment</li>
+  <li>Use date: yyyymmdd</li>
+  <li>Use date/time: yymmddhhmm</li>
+</ul>
+
+<p><code>Save On Deploy</code> - automatically save the current file
+before deployment.</p>
+
+<p><code>Send Home Keypress Before Deploy</code> - send a Home keypress
+to the device, followed by a short delay, before uploading the
+zip file. This can be used as a workaround to a Roku bug that
+causes the device to sometimes re-boot when deploying a Scene Graph
+channel. Uncheck this box for faster deployment, provided the Roku does not crash.</p>
+
+<h3 id="keyboard-shortcuts">Keyboard shortcuts</h3>
+
+<p>roku-develop uses two commands, <code>roku-develop:toggle</code>
+and <code>roku-develop:deploy</code>,
+which may be selected from the Packages &gt; roku-develop menu,
+or from the context (right-click) menu.</p>
+
+<p>In addition, the following keyboard shortcuts are defined by default:</p>
+
+<p><kbd>Ctrl+;</kbd> (Ctrl-semicolon) - Toggle device list.</p>
+
+<p><kbd>Ctrl-Alt+;</kbd> (Ctrl-Alt-semicolon) - Deploy to selected devices.</p>
+
+<p>If you find that these particular key combinations don’t work well with
+your keyboard configuration, you can change them:</p>
+
+<ol>
+  <li>
+    <p>On the roku-develop package Settings page, un-check the ‘Enable’ box
+under Keybindings.</p>
+  </li>
+  <li>
+    <p>Edit your Atom keymap.cson file
+(look under <strong>File &gt; Keymap…</strong> or <strong>Edit &gt; Keymap…</strong>),
+then add your own keybindings. For example, to use <kbd>Ctrl+8</kbd> and
+<kbd>Ctrl+9</kbd> instead, place the following lines at the end of
+your keymap.cson file:</p>
+  </li>
+</ol>
+
+<p><code>
+'atom-workspace':
+  'ctrl-8': 'roku-develop:toggle'
+  'ctrl-9': 'roku-develop:deploy'
+</code></p>
+
+<h3 id="usage">Usage</h3>
+
+<p><kbd>Ctrl+;</kbd> (Ctrl-semicolon) - Toggle device list.
+Wait for devices to be automatically discovered,
+then check the boxes to specify devices for deployment.
+The state of the device table will be persisted between editor sessions.
+Note that if you have multiple Atom editor instances running,
+changing a checkbox state in one Atom instance
+may or may not be reflected in the other Atom instances.</p>
+
+<p><strong>By default, all newly-discovered devices are checked.
+Uncheck the boxes for devices not to be deployed to.</strong></p>
+
+<hr />
+
+<p><kbd>Ctrl-Alt+;</kbd> (Ctrl-Alt-semicolon) - Deploy to selected devices.</p>
+
+<hr />
+
+<p><code>Add New Device</code> button can be used to manually add devices not
+automatically discovered.
+Note that a device will only be listed (and deployed to) if
+it responds to ECP requests.</p>
+
+<hr />
+
+<p><code>Clear List</code> button will remove all automatically and manually-discovered
+devices from the list. Automatic discovery will re-add devices,
+although it may be necessary to restart Atom.</p>
+
+<hr />
+
+<p>When deploying a project, one of the project’s files needs to be open in the
+active editor pane on display when the deploy command is issued.
+An upward search of the directory tree is performed to locate the Roku
+project’s directory (the one containing a <code>source</code> directory and
+<code>manifest</code> file).
+The Atom editor may have multiple Roku project directories open,
+but only the project containing the file currently being edited
+will be deployed.
+Note that the manifest file must be UTF-8 encoded.</p>
+
+<p><img src="https://github.com/belltown/roku-develop/raw/master/screenshot.png" alt="screenshot" /></p>
+
+<h3 id="firewall-configuration">Firewall configuration</h3>
+
+<p>All Roku devices on the local network should automatically be discovered
+using SSDP M-SEARCH and NOTIFY responses.
+If not, then ensure your firewall is configured for automatic device discovery.
+This is more likely to be an issue for certain Linux users.</p>
+
+<p>The M-SEARCH responses are UDP unicast packets sent to the ephemeral port
+from which the M-SEARCH request originated;
+the ephemeral port range may be found by:
+<code>
+cat /proc/sys/net/ipv4/ip_local_port_range
+</code>
+The NOTIFY responses are UDP multicast packets sent to port 1900.</p>
+
+<p>So in Fedora or CentOS, for example,
+the following commands would open these ports:</p>
+
+<p><code>
+sudo firewall-cmd --permanent --add-port=1900/udp
+sudo firewall-cmd --permanent --add-port=32768-61000/udp
+sudo firewall-cmd --reload
+</code></p>
+
+<p>On Ubuntu, the firewall is typically disabled by default.
+If not, a rule like this should work:</p>
+
+<p><code>
+sudo ufw allow proto udp from 192.168.0.0/24 port 1900,32768:60999
+sudo ufw reload
+</code></p>
+
+<h3 id="contribute">Contribute</h3>
+
+<p>Some concepts used in this package were taken from the
+<a href="https://atom.io/packages/roku-deploy">roku-deploy</a> Atom package by
+<a href="https://github.com/mmratio">Mike McAulay/mmratio</a>.
+Thanks for your efforts, Mike.</p>
+
+<p>Another useful package for Roku development is
+<a href="https://atom.io/packages/language-brightscript">language-brightscript</a>,
+which provides BrightScript syntax highlighting and snippets.
+<a href="https://atom.io/packages/language-vb">language-vb</a>
+also works well with BrightScript.</p>
+
+<p>Feel free to use Github
+<a href="https://github.com/belltown/roku-develop/issues">Issues</a> or
+<a href="https://github.com/belltown/roku-develop/pulls">Pull Requests</a>
+for bug reports and enhancement requests, etc.</p>
+
+<p>You may also contact the roku-develop author,
+<a href="https://forums.roku.com/memberlist.php?mode=viewprofile&amp;u=37784">belltown</a>,
+through the <a href="https://forums.roku.com/viewforum.php?f=34">Roku Forums</a>.</p>
+<section class="package-keywords">
+  <strong>Keywords:</strong> roku, build, deploy, develop, brightscript <a href="https://github.com/belltown/roku-develop/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

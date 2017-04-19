@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Ternjs
+  <a href="https://github.com/tststs/atom-ternjs">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install atom-ternjs
+  </pre>
+</div>
+<h1 id="atom-ternjs">atom-ternjs</h1>
+
+<blockquote>
+  <p>JavaScript code intelligence for atom with <a href="https://github.com/ternjs/tern">Tern</a>.
+Adds support for ES5, ES6, ES7, Node.js, jQuery, Angular and more. Extendable via plugins.
+Uses suggestion provider by <a href="https://github.com/atom/autocomplete-plus">autocomplete-plus</a>.</p>
+</blockquote>
+
+<h2 id="installation">Installation</h2>
+
+<p>Configure your project
+* Open any JavaScript file from within your project
+* Navigate to Packages -&gt; Atom Ternjs -&gt; Configure project
+* The config view appears.
+* Hit “Save &amp; Restart Server” to create/update the .tern-project file</p>
+
+<p>Optional:
+* install the package https://atom.io/packages/hyperclick</p>
+
+<p>If configure project does not work
+* In your project root create a file named .tern-project. See docs @ http://ternjs.net/doc/manual.html#configuration.
+* Restart the server via <em>Packages -&gt; Atom Ternjs -&gt; Restart server</em></p>
+
+<p>Example <code>.tern-project</code> file (customize to your own needs):</p>
+
+<p><code>json
+{
+  "ecmaVersion": 6,
+  "libs": [
+    "browser"
+  ],
+  "loadEagerly": [
+    "path/to/your/js/**/*.js"
+  ],
+  "dontLoad": [
+    "node_modules/**",
+    "path/to/your/js/**/*.js"
+  ],
+  "plugins": {
+    "modules": {},
+    "es_modules": {},
+    "node": {},
+    "doc_comment": {
+      "fullDocs": true,
+      "strong": true
+    }
+  }
+}
+</code></p>
+
+<p><strong>In order to use third party plugins read the <a href="#third-party-plugins">Third party plugins</a> section!</strong></p>
+
+<p><strong>In order to use third party plugins from within your project’s <code>node_modules</code> read the <a href="#third-party-plugins-local">Third party plugins local</a> section! This is also an alternative if <a href="#third-party-plugins">Third party plugins</a> aren’t working.</strong></p>
+
+<h3 id="ecmaversion">EcmaVersion</h3>
+<ul>
+  <li>5: use ECMAScript5</li>
+  <li>6: use ECMAScript6 (default)</li>
+  <li>7: use ECMAScript7</li>
+</ul>
+
+<h3 id="libs">Libs</h3>
+<ul>
+  <li>browser: completion for vanilla js (optional)</li>
+  <li>jquery: completion for jQuery (optional)</li>
+  <li>underscore: completion for underscore (optional)</li>
+  <li>chai: completion for chai (optional)</li>
+</ul>
+
+<h3 id="options">Options</h3>
+<ul>
+  <li>loadEagerly: provide the path to your projects js. For relative paths do not use <code>./</code> as a prefix. This sometimes leads to an unexpected behaviour.</li>
+  <li><strong>loadEagerly is expensive. Do not add paths like <code>node_modules</code>.</strong></li>
+  <li>dontLoad: can be used to prevent Tern from loading certain files. It also takes an array of file names or glob patterns.</li>
+</ul>
+
+<h3 id="plugins">Plugins</h3>
+<ul>
+  <li>For a list of build in server plugins, visit: http://ternjs.net/doc/manual.html#plugins</li>
+</ul>
+
+<h3 id="keybindings">Keybindings</h3>
+<p>List of <a href="#features">keybindings</a>.
+To use your own keybindings goto <code>atom-ternjs</code> package settings and disable keybindings.</p>
+
+<h2 id="third-party-plugins">Third party plugins</h2>
+<p>In order to use third party plugins (e.g. <a href="https://github.com/angelozerr/tern-node-express">tern-node-express</a>):
+<code>
+$ cd ~/.atom/packages/atom-ternjs
+$ npm install tern-node-express
+</code>
+Add the plugin to your .tern-project file:
+<code>json
+{
+  "ecmaVersion": 6,
+  "libs": [
+    "browser"
+  ],
+  "loadEagerly": [
+    "app/**/*.js"
+  ],
+  "plugins": {
+    "node-express": {}
+  }
+}
+</code></p>
+
+<p>Third party plugins are still an issue and sometimes do not work as expected, especially if the plugin requires a tern version that does not match the tern version that is used by atom-ternjs.</p>
+
+<p>Restart the server: <em>Packages -&gt; Atom Ternjs -&gt; Restart server</em></p>
+
+<h2 id="third-party-plugins-local">Third party plugins local</h2>
+
+<p>Example for node-express.
+Open node_modules/tern-node-express/tern-express.js</p>
+
+<p>Replace:</p>
+
+<p><code>js
+(function(mod) {
+  if (typeof exports == "object" &amp;&amp; typeof module == "object") // CommonJS
+    return mod(require("tern/lib/infer"), require("tern/lib/tern"));
+  if (typeof define == "function" &amp;&amp; define.amd) // AMD
+    return define([ "tern/lib/infer", "tern/lib/tern" ], mod);
+  mod(tern, tern);
+}...
+</code></p>
+
+<p>With</p>
+
+<p>```js
+(function(mod) {
+  return mod(process.__infer, process.__tern);
+}…</p>
+
+<p>```</p>
+
+<p>Restart Atom.</p>
+
+<h2 id="tern-project-createdmodified">.tern-project created/modified</h2>
+<ul>
+  <li>After the file was created or has been modified, restart the server via <em>Packages -&gt; Atom Ternjs -&gt; Restart server</em></li>
+</ul>
+
+<h2 id="features">Features</h2>
+<ul>
+  <li>Completion (autocompletion triggers automatically), or via the keybindings:
+    <ul>
+      <li><kbd>ctrl+space</kbd></li>
+      <li><kbd>ctrl+alt+space</kbd> (force autocompletion in any context)</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="http://www.tobias-schubert.com/github/completion-1.png" alt="atom-ternjs" /></p>
+
+<p><img src="http://www.tobias-schubert.com/github/completion-2.png" alt="atom-ternjs" />
+* Find references (set your cursor position to one of variable, function or instance -&gt; open context-menu and trigger “Find references” or use the keybindings:
+  * <kbd>ctrl+shift+r</kbd> (macOS, Windows)
+  * <kbd>ctrl+alt+shift+e</kbd> (Linux)</p>
+
+<p>Click any item in the generated reference-list and navigate directly to file and position</p>
+
+<p><img src="http://www.tobias-schubert.com/github/reference-1.png" alt="atom-ternjs" /></p>
+
+<ul>
+  <li>Documentation
+    <ul>
+      <li>Show documentation for the thing under the cursor via <kbd>alt+o</kbd> (macOS, Windows, Linux)
+<img src="http://www.tobias-schubert.com/github/docs.png" alt="atom-ternjs" /></li>
+      <li>Also displayed if a suggestion with a valid documentation is selected in the autocomplete-plus select-list</li>
+    </ul>
+  </li>
+  <li>Find definition (set your cursor position to one of variable, function or instance -&gt; open context-menu and trigger “Find definition”) or use the keybindings:
+    <ul>
+      <li><kbd>cmd+click</kbd> (macOS, Windows, Linux), requires https://atom.io/packages/hyperclick. Since <kbd>cmd+click</kbd> is also used for multi-line editing in macOS you should change the default hyperclick settings.</li>
+      <li><kbd>ctrl+alt+shift+d</kbd> (macOS, Windows, Linux)</li>
+    </ul>
+  </li>
+  <li>Navigate back or forward
+    <ul>
+      <li><kbd>ctrl+shift+cmd+left</kbd> (macOS, Windows, Linux)</li>
+      <li><kbd>ctrl+shift+cmd+right</kbd> (macOS, Windows, Linux)</li>
+    </ul>
+  </li>
+  <li>Rename variable (set your cursor position to a variable -&gt; open context-menu and trigger “Rename”) or use the keybindings:
+    <ul>
+      <li><kbd>ctrl+alt+c</kbd> (macOS, Windows)</li>
+      <li><kbd>ctrl+alt+shift+c</kbd> (Linux)</li>
+    </ul>
+  </li>
+</ul>
+<section class="package-keywords">
+  <strong>Keywords:</strong> javascript, autocomplete-plus, autocomplete, node, es6, javascript-2015, jquery, tern <a href="https://github.com/tststs/atom-ternjs/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

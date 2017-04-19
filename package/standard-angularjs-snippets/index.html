@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Standard Angularjs Snippets
+  <a href="https://github.com/gaboesquivel/atom-standard-angularjs-snippets">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+    <span class="author">by Gabo Esquivel <hello@gaboesquivel.com></span>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install standard-angularjs-snippets
+  </pre>
+</div>
+<h1 id="standard-angularjs-snippets">Standard AngularJS Snippets</h1>
+
+<p>A set of AngularJS snippets based on John Papa’s style guide in <a href="http://standardjs.com/">standard code style</a>.</p>
+
+<p><a href="https://github.com/feross/standard"><img src="https://cdn.rawgit.com/feross/standard/master/badge.svg" alt="js-standard-style" /></a></p>
+
+<h2 id="installation">Installation</h2>
+
+<p><code>apm install standard-angularjs-snippets</code></p>
+
+<h2 id="es5-angular-14-snippets">ES5 Angular 1.4 Snippets</h2>
+
+<p>You can use the following snippets in Angular 1.4 applications.</p>
+
+<h5 id="ngmodule-module-definition"><code>ngmodule⇥</code> Module definition</h5>
+<p><code>js
+angular
+  .module('${1:module}', [
+    '${2:dependencies}'
+]);
+</code></p>
+
+<h5 id="ngcontroller-controller"><code>ngcontroller⇥</code> Controller</h5>
+<p>```js
+  angular
+    .module(‘${1:module}’)
+    .controller(‘${2:Controller}’, ${2:Controller})</p>
+
+<p>${2:Controller}.$inject = [’${3:dependencies}’]</p>
+
+<p>function ${2:Controller} (${3:dependencies}) {
+    var vm = this</p>
+
+<pre><code>activate()
+
+function activate() {
+
+}   } ```
+</code></pre>
+
+<h5 id="ngfactory-factory"><code>ngfactory⇥</code> Factory</h5>
+<p>```js
+  angular
+    .module(‘${1:module}’)
+    .factory(‘${2:factory}’, ${2:factory});</p>
+
+<p>${2:factory}.$inject = [’${3:dependencies}’]</p>
+
+<p>function ${2:factory} (${3:dependencies}) {
+    var service = {
+      ${4:functionName}: ${4:functionName}
+    }</p>
+
+<pre><code>return service
+
+function ${4:functionName}() {
+
+}   } ```
+</code></pre>
+
+<h5 id="ngdirective-directive"><code>ngdirective⇥</code> Directive</h5>
+<p>```js
+  angular
+    .module(‘${1:module}’)
+    .directive(‘${2:directive}’, ${2:directive})</p>
+
+<p>function ${2:directive} () {
+    var directive = {
+      restrict: ‘${3:EA}’,
+      templateUrl: ‘${4:templateUrl}’,
+      scope: {
+      },
+      link: linkFunc,
+      controller: ${5:Controller},
+      controllerAs: ‘vm’,
+      bindToController: true
+    }</p>
+
+<pre><code>return directive
+
+function linkFunc (scope, el, attr, ctrl) {
+
+}   }
+</code></pre>
+
+<p>${5:Controller}.$inject = [’${6:dependencies}’]</p>
+
+<p>function ${5:Controller} (${6:dependencies}) {
+    var vm = this</p>
+
+<pre><code>activate()
+
+function activate() {
+
+}   } ```
+</code></pre>
+
+<h5 id="ngservice-service"><code>ngservice⇥</code> Service</h5>
+<p>```js
+  angular
+    .module(‘${1:module}’)
+    .service(‘${2:Service}’, ${2:Service})</p>
+
+<p>${2:Service}.$inject = [’${3:dependencies}’]</p>
+
+<p>function ${2:Service} (${3:dependencies}) {
+    this.${4:functionName} = ${4:functionName}</p>
+
+<pre><code>function ${4:functionName} () {
+
+}   } ```
+</code></pre>
+
+<h5 id="ngfilter-filter"><code>ngfilter⇥</code> Filter</h5>
+<p>```js
+  angular
+    .module(‘${1:module}’)
+    .filter(‘${2:filter}’, ${2:filter})</p>
+
+<p>function ${2:filter} () {
+    return ${2:filter}Filter</p>
+
+<pre><code>function ${2:filter}Filter (${3:params}) {
+    return ${3:params}
+}   } ```
+</code></pre>
+
+<h5 id="ngiife-iife-angular-styleguideiifehttpsgithubcomjohnpapaangular-styleguideiife"><code>ngiife⇥</code> IIFE <a href="https://github.com/johnpapa/angular-styleguide#iife">angular-styleguide#iife</a></h5>
+<p>```js
+  ;(function () {
+    ‘use strict’</p>
+
+<pre><code>${0}
+</code></pre>
+
+<p>})()
+```</p>
+
+<h1 id="contributing">Contributing</h1>
+<p>More than happy to accept external contributions to the project in the form of feedback, bug reports and even better pull requests.
+Please read the <a href="contributing.md">contributing guidelines</a></p>
+
+<h1 id="related-repositories">Related Repositories</h1>
+<ul>
+  <li><a href="https://github.com/gaboesquivel/atom-standardjs-snippets">StandardJS Snippets</a></li>
+  <li><a href="https://github.com/ricardofbarros/linter-js-standard">Standard Linter</a></li>
+  <li><a href="https://github.com/maxogden/standard-format">Standard Formatter</a></li>
+</ul>
+
+<h1 id="license">License</h1>
+
+<p>The MIT License (MIT)</p>
+
+<p>Copyright (c) 2015, Gabo Esquivel</p>
+
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
+
+<p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
+
+<p>THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON INFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
+<section class="package-keywords">
+  <strong>Keywords:</strong> javascript, snippets, standardjs, productivity, angularjs, frontend <a href="https://github.com/gaboesquivel/atom-standard-angularjs-snippets/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Latex
+  <a href="https://github.com/James-Yu/Atom-LaTeX">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install atom-latex
+  </pre>
+</div>
+<h1 id="atom-latex-package">Atom-LaTeX package</h1>
+
+<p>Atom-LaTeX is an extension for <a href="https://atom.io/">Atom.io</a>, aiming to provide all-in-one features and utilities for latex typesetting with Atom.</p>
+
+<h2 id="update">Update</h2>
+
+<p>Recently (Mar. 29th, 2017 now) I switched back to <a href="https://code.visualstudio.com/">Visual Studio Code</a> for most coding and typesetting tasks due to reasons 1, 2, 3, and more. Atom-LaTeX will still be maintained, though new feature development is in stale. I would recommend you to have a check on VS Code as well as <a href="https://github.com/James-Yu/LaTeX-Workshop">LaTeX Workshop</a>, a counterpart of Atom-LaTeX to VS Code. Thank you all for your long time support!</p>
+
+<h2 id="features">Features</h2>
+
+<p>Atom-LaTeX is currently under active development. More features coming soon.
+Some features have screenshots/screencasts available <a href="https://github.com/James-Yu/Atom-LaTeX/blob/master/GALLERY.md">here</a>. Have a check!</p>
+
+<ul>
+  <li>Compile LaTeX with BibTeX</li>
+  <li>Preview PDF with build-in viewer</li>
+  <li>Parse LaTeX compiling log</li>
+  <li>Autocomplete</li>
+  <li>Syntax highlight</li>
+  <li>Direct and reverse SyncTeX</li>
+</ul>
+
+<p>If you figured out some features neat but not included, <a href="https://github.com/James-Yu/Atom-LaTeX/issues/new">create an issue</a>!</p>
+
+<h2 id="why-another-latex-package">Why another LaTeX package?</h2>
+
+<p>Unification provides seamless experience. Aiming to make it work and work perfectly.</p>
+
+<h2 id="requirements">Requirements</h2>
+
+<ul>
+  <li>LaTeX distribution in system PATH. For example, <a href="https://www.tug.org/texlive/">TeX Live</a>.
+    <ul>
+      <li><a href="https://miktex.org/">MiKTeX</a> does not ship with SyncTeX, but basic build and preview and non-SyncTeX related features work fine.</li>
+    </ul>
+  </li>
+  <li><a href="#root_file">Set LaTeX root file</a>.</li>
+</ul>
+
+<h2 id="installation">Installation</h2>
+
+<p>Installing Atom-LaTeX is simple. You can find it in <a href="https://atom.io/packages/atom-latex">the atom.io package registry</a>, or simply run <code>apm install atom-latex</code> in command line.</p>
+
+<p>For cutting edge features or changes, you can check out this repository to the Atom package folder:
+- Windows <code>%USERPROFILE%\.atom\packages</code>
+- Mac/Linux <code>$HOME/.atom/packages</code></p>
+
+<h2 id="usage">Usage</h2>
+
+<p>All commands can be invoked from <code>Package</code>-<code>Atom-LaTeX</code> menu or by command palette. Alternatively, keybinds are provided. Each command is invoked if the two key combinations are pressed sequentially.</p>
+
+<p>For reverse SyncTeX from PDF to LaTeX, use <kbd>ctrl</kbd>+<kbd>Mouse Left Click</kbd> in the PDF viewer to reveal the line in editor.</p>
+
+<p>Mac OS users can use <kbd>command</kbd> key as a replacement of <kbd>ctrl</kbd>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Command</th>
+      <th>Default Keybind</th>
+      <th>Function</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>atom-latex:build</code></td>
+      <td><kbd>ctrl</kbd>+<kbd>L</kbd> <kbd>ctrl</kbd>+<kbd>B</kbd></td>
+      <td>Build LaTeX file.</td>
+    </tr>
+    <tr>
+      <td><code>atom-latex:build-here</code></td>
+      <td><kbd>ctrl</kbd>+<kbd>L</kbd> <kbd>ctrl</kbd>+<kbd>H</kbd></td>
+      <td>Build LaTeX using active text editor file if possible.</td>
+    </tr>
+    <tr>
+      <td><code>atom-latex:clean</code></td>
+      <td><kbd>ctrl</kbd>+<kbd>L</kbd> <kbd>ctrl</kbd>+<kbd>C</kbd></td>
+      <td>Clean LaTeX auxillary files.</td>
+    </tr>
+    <tr>
+      <td><code>atom-latex:preview</code></td>
+      <td><kbd>ctrl</kbd>+<kbd>L</kbd> <kbd>ctrl</kbd>+<kbd>P</kbd></td>
+      <td>Preview generated PDF file with in-browser viewer.</td>
+    </tr>
+    <tr>
+      <td><code>atom-latex:kill</code></td>
+      <td><kbd>ctrl</kbd>+<kbd>L</kbd> <kbd>ctrl</kbd>+<kbd>K</kbd></td>
+      <td>Terminate current LaTeX building process.</td>
+    </tr>
+    <tr>
+      <td><code>atom-latex:synctex</code></td>
+      <td><kbd>ctrl</kbd>+<kbd>L</kbd> <kbd>ctrl</kbd>+<kbd>S</kbd></td>
+      <td>Direct SyncTeX from the current cursor position.</td>
+    </tr>
+    <tr>
+      <td><code>atom-latex:toggle-panel</code></td>
+      <td><kbd>ctrl</kbd>+<kbd>L</kbd> <kbd>ctrl</kbd>+<kbd>L</kbd></td>
+      <td>Toggle Atom-LaTeX panel display.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="project-based-configuration">Project-based Configuration</h2>
+<p>Atom currently does not provide per-project configuration. Atom-LaTeX uses a <code>.latexcfg</code> file under the root directory of LaTeX project to partially control its behavior. Following is a complete example of its content.
+   <code>
+   {
+     "root" : "\path\to\root\file.tex",
+     "toolchain" : "%TEX %ARG %DOC",
+     "latex_ext": [".tikz", ".Rnw"]
+   }
+  </code>
+If a key is set, the config will overwrite the global one in atom settings.</p>
+
+<h2 id="how-to">How To</h2>
+<p>### <a name="root_file"></a>Set LaTeX root file
+LaTeX root file is essential to Atom-LaTeX. Building, preview, autocompletion, and more features rely on its proper configuration. You can select to manually set the file by clicking the <code>home</code> icon on the control bar, or let Atom-LaTeX automatically find it given proper project structures:
+   <code>
+   { "root" : "\path\to\root\file.tex" }
+  </code></p>
+
+<ol>
+  <li>Create a <code>.latexcfg</code> file at the root directory of your project. The file should contain a json object with <code>root</code> key set to the root file. An example:
+<code>
+{ "root" : "\path\to\root\file.tex" }
+</code></li>
+  <li>Add a magic comment <code>% !TEX root = \path\to\root\file.tex</code> to all of your LaTeX source file. The path can be absolute or relative.</li>
+  <li>Open the root file and use <code>Build Here</code> command. Alternatively, use <code>Build LaTeX from active editor</code> menu item.</li>
+  <li>If all previous checks fail to find a root file, Atom-LaTeX will iterate through all LaTeX files in the root directory.</li>
+</ol>
+
+<p>You can choose one or multiple methods stated above to set the root file.</p>
+
+<h3 id="set-per-project-latex-toolchain">Set per-project LaTeX toolchain</h3>
+<p>LaTeX toolchain can be controlled by either atom configuration or <code>.latexcfg</code> file under root directory. If LaTeX projects need special toolchain, one can add a <code>toolchain</code> key to this file. An example:
+<code>
+{ "toolchain" : "%TEX %ARG %DOC" }
+</code>
+This example will only use the defined compiler in atom configuration to build the project. Alternatively, you can also have this example that provides the same functionality:
+<code>
+{ "toolchain" : "pdflatex -synctex=1 -interaction=nonstopmode -file-line-error -pdf %DOC" }
+</code></p>
+
+<h3 id="support-non-tex-files">Support non-tex files</h3>
+<p>Atom-LaTeX has limited support to LaTeX source files with a non-<code>.tex</code> extension. To consider such files as valid LaTeX documents, one can add a <code>latex_ext</code> key to the <code>.latexcfg</code> local configuration file. An example:
+<code>
+{ "latex_ext": [".tikz", ".Rnw"] }
+</code>
+Note that the value must be a JSON array, even when there is only one alternative file extension.
+For toolchain settings of non-tex files, @ashthespy gave a very good summary <a href="https://github.com/James-Yu/Atom-LaTeX/issues/42">here</a>.</p>
+
+<h3 id="enable-spell-check">Enable spell check</h3>
+<ul>
+  <li>Open setting panel of build-in package <code>spell-check</code>.</li>
+  <li>Add <code>text.tex.latex</code> to the <code>Grammars</code> edit box.</li>
+</ul>
+
+<h2 id="contributing">Contributing</h2>
+
+<ul>
+  <li><a href="https://github.com/James-Yu/Atom-LaTeX/issues">Creat issues</a> for bugs</li>
+  <li><a href="https://github.com/James-Yu/Atom-LaTeX/pulls">Fork and PR</a> for fixes</li>
+  <li>Thank you so much!</li>
+</ul>
+<section class="package-keywords">
+  <strong>Keywords:</strong> latex, compile, preview, synctex, highlight <a href="https://github.com/James-Yu/Atom-LaTeX/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

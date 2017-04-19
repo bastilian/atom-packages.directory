@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Ide Haskell
+  <a href="https://github.com/atom-haskell/ide-haskell">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install ide-haskell
+  </pre>
+</div>
+<h1 id="ide-haskell">IDE-Haskell</h1>
+
+<p>Welcome to IDE-Haskell plugin for amazing <a href="http://atom.io">Atom</a> editor! This
+plugin is intended to help you with development in
+<a href="http://haskell.org">Haskell</a>.</p>
+
+<p><strong>NOTE:</strong> You must install all this plugin’s dependencies in addition to
+installing this plugin.  Jump to the <a href="#requirements">Requirements section</a> below
+and follow all setup instructions.</p>
+
+<h2 id="implemented-features">Implemented features</h2>
+
+<h4 id="haskell-project-autodetection">Haskell project autodetection</h4>
+
+<p>IDE-Haskell works only with Haskell projects. When you open a Haskell source file, IDE-Haskell will start automatically.</p>
+
+<h4 id="errors-warnings-and-linter">Errors, warnings and linter</h4>
+
+<p>After saving the current file the check and linter processes will be executed.
+After processes are finished, the results can be seen in output panel. You can
+see different kind of results by switching <code>Errors</code>, <code>Warnings</code> and <code>Lints</code> tab
+buttons. If you click on message’s file name in output panel, Atom will open
+this file and put cursor near problem that triggered output message.</p>
+
+<p>Check results can also be seen in left editor gutter (near line numbers) as
+icons. If you hover mouse pointer over such an icon, a tooltip will be shown
+with problem description. Results are highlighted inside editor as well, so you
+can easily determine where the problem is.</p>
+
+<p><img src="https://cloud.githubusercontent.com/assets/7275622/9705079/52b38f7c-54c1-11e5-9b23-6b932100e876.gif" alt="errors" /></p>
+
+<h4 id="get-typeinfo">Get type/info</h4>
+
+<p>If you have <code>haskell-ghc-mod</code> or similar package installed, you can get type of any expression and get info on any symbol.</p>
+
+<p>There are two options to do so.</p>
+
+<p>First one is to hover mouse pointer over any Haskell source in editor, or any
+selection. By default, this will show type for expression/selecton under cursor.
+You can change this behavior to show info for symbol, or disable it completely
+in IDE-Haskell settings.</p>
+
+<p>Another option is to use keyboard to get type/info under cursor. No default
+bindings are specified, but you can specify them in your Atom keymap.</p>
+
+<p>See <a href="#configuration">Configuration</a> for more information.</p>
+
+<p><img src="https://cloud.githubusercontent.com/assets/7275622/9705082/52daa81e-54c1-11e5-88a8-99c8029eb14e.gif" alt="typeinfo" /></p>
+
+<p><img src="https://cloud.githubusercontent.com/assets/7275622/9705080/52cd7e64-54c1-11e5-8ee3-120641da2f85.gif" alt="typeins" /></p>
+
+<h4 id="autocompletion">Autocompletion</h4>
+
+<p>Autocompletion facilities have been moved to
+<a href="https://atom.io/packages/autocomplete-haskell">autocomplete-haskell</a> package.</p>
+
+<p>Please install it if you want autocompletion.</p>
+
+<h4 id="code-beautify">Code beautify</h4>
+
+<p>You can use <code>stylish-haskell</code> utility to indent pragmas, imports and data type
+definitions. Simply select <code>Prettify</code> from Haskel IDE menu to apply
+<code>stylish-haskell</code> to current file.</p>
+
+<p><img src="https://cloud.githubusercontent.com/assets/7275622/9705081/52d97cf0-54c1-11e5-94f0-96f09e43ada3.gif" alt="prettify" /></p>
+
+<h4 id="build-and-test-project">Build and test project</h4>
+
+<p>If you have <code>ide-haskell-cabal</code> or similar package installed, you can build,
+clean and test your project from ide-haskell (stack and cabal supported)</p>
+
+<h2 id="requirements">Requirements</h2>
+
+<p>The <code>ide-haskell</code> plugin assumes that you have a minimal Haskell toolchain
+installed on your system.  You can install this toolchain by following the
+instructions here:</p>
+
+<ul>
+  <li><a href="https://www.haskell.org/downloads#minimal">Minimal Haskell installers</a></li>
+</ul>
+
+<p>Atom plugin dependencies:</p>
+
+<p>Only the <code>language-haskell</code> plugin is strictly required, but you will probably
+also want to install one of these other plugins as well:</p>
+
+<ul>
+  <li><a href="https://atom.io/packages/language-haskell"><code>language-haskell</code></a> - <strong>ABSOLUTELY
+REQUIRED!</strong></li>
+  <li><a href="https://atom.io/packages/ide-haskell-cabal"><code>ide-haskell-cabal</code></a> - Use this
+plugin to build and launch Haskell projects</li>
+  <li><a href="https://atom.io/packages/haskell-ghc-mod"><code>haskell-ghc-mod</code></a> - Use this plugin
+to type-check your code on save and add type highlights on mouseover</li>
+  <li><a href="https://atom.io/packages/autocomplete-haskell"><code>autocomplete-haskell</code></a> - Use
+this plugin to autocomplete code.  This plugin depends on <code>haskell-ghc-mod</code></li>
+</ul>
+
+<p>Binary dependencies:</p>
+
+<ul>
+  <li><a href="https://github.com/jaspervdj/stylish-haskell"><code>stylish-haskell</code></a> - Required by
+<code>ide-haskell</code> plugin</li>
+  <li><a href="https://github.com/kazu-yamamoto/ghc-mod"><code>ghc-mod</code> / <code>ghc-modi</code></a> and
+<a href="https://github.com/ndmitchell/hlint"><code>hlint</code></a> - Required by <code>haskell-ghc-mod</code>
+if you choose to install that plugin</li>
+</ul>
+
+<h3 id="installing-binary-dependencies-with-stack">Installing binary dependencies with stack</h3>
+
+<p>The most reliable way to build these executable binaries is to use
+<code>stack install</code>.</p>
+
+<p>Run the following commands from a command line terminal after you finish
+installing the minimal Haskell toolchain:</p>
+
+<p><code>bash
+$ stack install stylish-haskell
+...
+Copied executables to {STACK_INSTALL_PATH}:
+- stylish-haskell
+$ stack install ghc-mod
+...
+Copied executables to {STACK_INSTALL_PATH}:
+- ghc-mod
+- ghc-modi
+$ stack install hlint
+...
+Copied executables to {STACK_INSTALL_PATH}:
+- hlint
+</code></p>
+
+<p>… where <code>STACK_INSTALL_PATH</code> depends on your operating system.  For example,
+on OS X or Linux this path will usually be <code>~/.local/bin/</code>.</p>
+
+<p>First, make sure that <code>STACK_INSTALL_PATH</code> is on your executable search path
+(i.e. <code>$PATH</code> for OS X and Linux).  However, this alone might not be enough for
+Atom to find your installed executables since Atom in
+<a href="https://github.com/atom-community/linter/issues/150">some cases</a> Atom does not
+correctly pick up the search path upon launch.</p>
+
+<p>If Atom fails to find a required executable (such as <code>stylish-haskell</code>) you will
+get an error that reads something like this:</p>
+
+<blockquote>
+  <p>Ide-haskell could not spawn stylish-haskell</p>
+
+  <p>Error: spawn stylish-haskell ENOENT</p>
+</blockquote>
+
+<p>If this happens, you will need to modify this package’s settings to point to the
+absolute path to where you installed <code>stylish-haskell</code> executable.  For example,
+if your <code>STACK_INSTALL_PATH</code> were <code>/home/johndoe/.local/bin/</code> then the
+absolute path to the executable would be
+<code>/home/johndoe/.local/bin/stylish-haskell</code>.</p>
+
+<h3 id="installing-binary-dependencies-with-cabal">Installing binary dependencies with cabal</h3>
+
+<p><strong><em>NOTE:</em></strong> You do not need to do this if you already installed with stack.</p>
+
+<p>Alternatively, you can use cabal-install if you don’t want to use stack for some reason.</p>
+
+<p>It is advisable to first create a cabal sandbox for the installation to avoid global package database pollution and conflicts. This will also make updating easy.</p>
+
+<p>To create a sandbox, create a directory, f.ex.</p>
+
+<p><code>bash
+mkdir $HOME/ghc-mod-sandbox
+</code></p>
+
+<p><strong><em>NOTE:</em></strong> Windows command line shell uses different syntax for environment variables, and there is usually no <code>HOME</code> defined anyway. I sincerely hope you can figure this out.</p>
+
+<p>Then, <code>cd</code> into int:</p>
+
+<p><code>bash
+cd $HOME/ghc-mod-sandbox
+</code></p>
+
+<p>And run the following command</p>
+
+<p><code>bash
+cabal sandbox init --sandbox=.
+</code></p>
+
+<p>The last <code>--sandbox=.</code> part is to simplify paths.</p>
+
+<p>Now you can install ghc-mod and stylish-haskell. <em>In the same directory</em> run</p>
+
+<p><code>bash
+cabal install ghc-mod stylish-haskell
+</code>
+<em>Note:</em> hlint will be pulled in as ghc-mod dependency.</p>
+
+<p>Now you have ghc-mod and stylish-haskell installed. Binary files are in <code>$HOME/ghc-mod-sandbox/bin</code>. You can add this path to PATH, or put full path to <strong>executables</strong> in relevant ide-haskell and haskell-ghc-mod settings.</p>
+
+<p><strong>Don’t forget to replace <code>$HOME</code> with actual path to home directory</strong> for the latter option. On Linux, you can run</p>
+
+<p><code>bash
+echo $HOME/ghc-mod-sandbox/bin/*
+</code></p>
+
+<p>in the terminal to get actual paths to all executables, if not sure what those should look like. <strong><em>NOTE:</em></strong> Bear in mind this trick probably won’t work on Windows.</p>
+
+<p>For example, assuming your <code>HOME</code> is <code>/home/user</code>:</p>
+
+<ul>
+  <li>In ide-haskell settings, set ‘Stylish Haskell Path’ to <code>/home/user/ghc-mod-sandbox/bin/stylish-haskell</code></li>
+  <li>In haskell-ghc-mod settings, set ‘Ghc Mod Path’ to <code>/home/user/ghc-mod-sandbox/bin/ghc-mod</code></li>
+</ul>
+
+<h2 id="known-conflicts">Known conflicts</h2>
+
+<p>This package relies on grammar defined by <code>language-haskell</code>. Any other Haskell grammar packages (such as <code>haskell-grammar</code>) may conflict with it.</p>
+
+<h2 id="installation">Installation</h2>
+
+<p><code>
+$ apm install language-haskell haskell-ghc-mod ide-haskell-cabal ide-haskell autocomplete-haskell
+</code></p>
+
+<h2 id="configuration">Configuration</h2>
+
+<p>Package is fully configurable via <strong>Edit → Preferences → Packages → ide-haskell
+→ Settings</strong></p>
+
+<p>You will likely need to specify full paths to <code>stylish-haskell</code>, if it is not in
+your <code>PATH</code>, at the very least.</p>
+
+<p>You might also want to look into configuring haskell-ghc-mod (<a href="https://github.com/atom-haskell/haskell-ghc-mod#haskell-ghc-mod-atom-package">haskell-ghc-mod README</a>) and ide-haskell-cabal (<a href="https://github.com/atom-haskell/ide-haskell-cabal#ide-haskell-cabal-package">ide-haskell-cabal README</a>)</p>
+
+<p><strong><em>NOTE</em></strong>: Since version 1.0.0, some configuration options have been moved to
+backends, in particular, haskell-ghc-mod. Migration should be automatic, but
+please check if your configuration is correct just in case.</p>
+
+<h3 id="keyboard-shortcuts">Keyboard shortcuts</h3>
+
+<p><strong><em>NOTE</em></strong>: Since version 1.0.0, most commands are provided by
+backends, in particular, haskell-ghc-mod and ide-haskell-cabal. Please revise
+your keymap accordingly. Refer to (<a href="https://github.com/atom-haskell/haskell-ghc-mod#haskell-ghc-mod-atom-package">haskell-ghc-mod README</a>) and (<a href="https://github.com/atom-haskell/ide-haskell-cabal#ide-haskell-cabal-package">ide-haskell-cabal README</a>) for details</p>
+
+<p>Ide-Haskell comes with little pre-specified keybindings, so you will need to specify your own, if you want those.</p>
+
+<p>You can edit Atom keybindings by opening ‘Edit → Open Your Keymap’. Here is a template for all commands, provided by ide-haskell:</p>
+
+<p>```cson
+‘atom-text-editor[data-grammar~=”haskell”]’:
+  ‘escape’: ‘ide-haskell:close-tooltip’ #this is set by default
+  ‘’:’ide-haskell:prettify-file’
+  ‘’:’ide-haskell:next-error’
+  ‘’:’ide-haskell:prev-error’</p>
+
+<p>‘atom-text-editor[data-grammar~=”cabal”]’:
+  ‘’: ‘ide-haskell:prettify-file’</p>
+
+<p>‘atom-workspace’:
+  ‘’: ‘ide-haskell:toggle-output’
+```</p>
+
+<h3 id="changing-output-panel-look">Changing output panel look</h3>
+
+<p>Changing output panel look can be achieved with Atom stylesheets. You can open your stylesheet with Edit → Stylesheet…</p>
+
+<p>Syntax is <a href="http://lesscss.org/">Less</a>. You can use the following selectors:</p>
+
+<ul>
+  <li><code>ide-haskell-panel</code> – whole panel</li>
+  <li><code>ide-haskell-panel-heading</code> – panel heading (control elements)</li>
+  <li><code>ide-hashell-panel-items</code> – output area</li>
+  <li><code>ide-haskell-item-position</code> – file/line/column of individual message</li>
+  <li><code>ide-haskell-item-description</code> – message itself</li>
+</ul>
+
+<p>Please note, that to change font face in <code>ide-haskell-item-description</code>, you need to target it specifically, or use <code>!important</code> specifier.</p>
+
+<p>For example, to change font size in whole panel:</p>
+
+<p><code>less
+ide-haskell-panel {
+  font-size: 18pt;
+}
+</code></p>
+
+<p>Or only in output area:</p>
+
+<p><code>less
+ide-haskell-panel-items {
+  font-size: 18pt;
+}
+</code></p>
+
+<p>To change font face in panel heading:</p>
+
+<p><code>less
+ide-haskell-panel-heading {
+  font-family: "Comic Sans MS";
+}
+</code></p>
+
+<p>To change font face in messages themselves:</p>
+
+<p><code>less
+ide-haskell-item-description {
+  font-family: "Fira Mono";
+}
+</code></p>
+
+<p>You are free to write any CSS, of course. Bear in mind, however, that any selectors not listed above are subject to sudden change.</p>
+
+<h2 id="api">API</h2>
+
+<p>Ide-haskell provides service-hub API with <code>ide-haskell-upi</code> service.</p>
+
+<p>More information is available in <a href="https://github.com/atom-haskell/ide-haskell/blob/master/lib/upi.coffee">lib/upi.coffee</a> source file</p>
+
+<h2 id="todo">TODO</h2>
+
+<ul>
+  <li>[x] Cabal project autodetection</li>
+  <li>[x] Errors, warnings and linter</li>
+  <li>[x] Get type at point</li>
+  <li>[x] Autocompletion</li>
+  <li>[x] Code beautify</li>
+  <li>[x] Cabal project management (with ide-haskell-cabal)</li>
+  <li>[x] Jump to definition (since haskell-ghc-mod 1.3.0, or with ide-haskell-hasktags)</li>
+  <li>[x] Interactive REPL (alpha, with ide-haskell-repl)</li>
+  <li>[x] Stack project management (with ide-haskell-cabal)</li>
+  <li>[ ] Who calls and vice versa</li>
+  <li>[ ] Documentation support</li>
+</ul>
+
+<h2 id="changelog">Changelog</h2>
+
+<p>Changelog is available <a href="https://github.com/atom-haskell/ide-haskell/blob/master/CHANGELOG.md">here</a>.</p>
+
+<h2 id="irc-chat">IRC Chat</h2>
+
+<p>You can join #atom-haskell on FreeNode, and devs can usually be found there. Bear in mind that if someone’s on the channel, it doesn’t necessarily mean they aren’t AFK.</p>
+
+<p>If you’re not familiar with IRC, you can use <a href="https://webchat.freenode.net/?channels=#atom-haskell">FreeNode’s webchat</a></p>
+
+<h2 id="license">License</h2>
+
+<p>Copyright © 2015 Alexander Chaika, Nikolay Yakimov</p>
+
+<p>Contributors:
+* John Quigley
+* Ondřej Janošík
+* Luka Horvat
+* Gabriel Gonzalez
+* Daniel Beskin
+* Gabor Greif
+* Daniel Gröber</p>
+
+<p>See the <a href="https://github.com/atom-haskell/ide-haskell/blob/master/LICENSE.md">LICENSE.md</a> for details.</p>
+
+<section class="package-keywords">
+  <strong>Keywords:</strong> ide-haskell, ide, haskell <a href="https://github.com/atom-haskell/ide-haskell/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

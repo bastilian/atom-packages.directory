@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Snippets
+  <a href="https://github.com/atom/snippets">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install snippets
+  </pre>
+</div>
+<h1 id="snippets-package">Snippets package</h1>
+<p><a href="https://travis-ci.org/atom/snippets"><img src="https://travis-ci.org/atom/snippets.svg?branch=master" alt="macOS Build Status" /></a> <a href="https://ci.appveyor.com/project/Atom/snippets/branch/master"><img src="https://ci.appveyor.com/api/projects/status/8hlc0onofkgbxw53/branch/master?svg=true" alt="Windows Build Status" /></a> <a href="https://david-dm.org/atom/snippets"><img src="https://david-dm.org/atom/snippets.svg" alt="Dependency Status" /></a></p>
+
+<p>Expand snippets matching the current prefix with <kbd>tab</kbd> in Atom.</p>
+
+<p>To add your own snippets, select the <em>Atom &gt; Snippets…</em> menu option if you’re using macOS, or the <em>File &gt; Snippets…</em> menu option if you’re using Windows, or the <em>Edit &gt; Snippets…</em> menu option if you are using Linux.</p>
+
+<h2 id="snippet-format">Snippet Format</h2>
+
+<p>Snippets files are stored in a package’s <code>snippets/</code> folder and also loaded from <code>~/.atom/snippets.cson</code>. They can be either <code>.json</code> or <code>.cson</code> file types.</p>
+
+<p><code>coffee
+'.source.js':
+  'console.log':
+    'prefix': 'log'
+    'body': 'console.log(${1:"crash"});$2'
+</code></p>
+
+<p>The outermost keys are the selectors where these snippets should be active, prefixed with a period (<code>.</code>) (details below).</p>
+
+<p>The next level of keys are the snippet names.</p>
+
+<p>Under each snippet name is a <code>prefix</code> that should trigger the snippet and a <code>body</code> to insert when the snippet is triggered.</p>
+
+<p><code>$</code> followed by a number are the tabs stops which can be cycled between by pressing <kbd>tab</kbd> once a snippet has been triggered.</p>
+
+<p>The above example adds a <code>log</code> snippet to JavaScript files that would expand to.</p>
+
+<p><code>js
+console.log("crash");
+</code></p>
+
+<p>The string <code>"crash"</code> would be initially selected and pressing tab again would place the cursor after the <code>;</code></p>
+
+<h3 id="optional-parameters">Optional parameters</h3>
+<p>These parameters are meant to provide extra information about your snippet to <a href="https://github.com/atom/autocomplete-plus/wiki/Provider-API">autocomplete-plus</a>.</p>
+
+<ul>
+  <li><code>leftLabel</code> will add text to the left part of the autocomplete results box.</li>
+  <li><code>leftLabelHTML</code> will overwrite what’s in <code>leftLabel</code> and allow you to use a bit of CSS such as <code>color</code>.</li>
+  <li><code>rightLabelHTML</code>. By default, in the right part of the results box you will see the name of the snippet. When using <code>rightLabelHTML</code> the name of the snippet will no longer be displayed, and you will be able to use a bit of CSS.</li>
+  <li><code>description</code> will add text to a description box under the autocomplete results list.</li>
+  <li><code>descriptionMoreURL</code> URL to the documentation of the snippet.</li>
+</ul>
+
+<p><img src="http://i.imgur.com/cvI2lOq.png" alt="autocomplete-description" /></p>
+
+<p>Example:
+<code>coffee
+'.source.js':
+  'console.log':
+    'prefix': 'log'
+    'body': 'console.log(${1:"crash"});$2'
+    'description': 'Output data to the console'
+    'rightLabelHTML': '&lt;span style="color:#ff0"&gt;JS&lt;/span&gt;'
+</code></p>
+
+<h3 id="determining-the-correct-scope-for-a-snippet">Determining the correct scope for a snippet</h3>
+
+<p>The outmost key of a snippet is the “scope” that you want the descendent snippets to be available in. The key should be prefixed with a period (<code>text.html.basic</code> =&gt; <code>.text.html.basic</code>). You can find out the correct scope by opening the Settings (<kbd>cmd-,</kbd> on macOS) and selecting the corresponding <em>Language [xxx]</em> package, e.g. for <em>Language Html</em>:</p>
+
+<p><img src="https://cloud.githubusercontent.com/assets/1038121/5137632/126beb66-70f2-11e4-839b-bc7e84103f67.png" alt="Screenshot of Language Html settings" /></p>
+
+<p>If it’s difficult to determine the package handling the file type in question (for example, for <code>.md</code>-documents), you can also proceed as following. Put your cursor in a file in which you want the snippet to be available, open the <a href="https://github.com/atom/command-palette">Command Palette</a>
+(<kbd>cmd-shift-p</kbd>), and run the <code>Editor: Log Cursor Scope</code> command. This will trigger a notification which will contain a list of scopes. The first scope that’s listed is the scope for that language. Here are some examples: <code>source.coffee</code>, <code>text.plain</code>, <code>text.html.basic</code>.</p>
+
+<h3 id="multi-line-snippet-body">Multi-line Snippet Body</h3>
+
+<p>You can also use multi-line syntax using <code>"""</code> for larger templates:</p>
+
+<p><code>coffee
+'.source.js':
+  'if, else if, else':
+    'prefix': 'ieie'
+    'body': """
+      if (${1:true}) {
+        $2
+      } else if (${3:false}) {
+        $4
+      } else {
+        $5
+      }
+    """
+</code></p>
+
+<h3 id="escaping-characters">Escaping Characters</h3>
+
+<p>Including a literal closing brace inside the text provided by a snippet’s tab stop will close that tab stop early. To prevent that, escape the brace with two backslashes, like so:</p>
+
+<p><code>coffee
+'.source.js':
+  'function':
+    'prefix': 'funct'
+    'body': """
+      ${1:function () {
+        statements;
+      \\}
+      this line is also included in the snippet tab;
+      }
+      """
+</code></p>
+
+<h3 id="multiple-snippets-for-the-same-scope">Multiple snippets for the same scope</h3>
+
+<p>Snippets for the same scope must be placed within the same key. See <a href="http://flight-manual.atom.io/using-atom/sections/basic-customization/#configuring-with-cson">this section of the Atom Flight Manual</a> for more information.</p>
+<section class="package-keywords">
+  <strong>Keywords:</strong>  <a href="https://github.com/atom/snippets/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

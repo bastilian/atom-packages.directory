@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Project Manager
+  <a href="https://github.com/danielbrodin/atom-project-manager">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install project-manager
+  </pre>
+</div>
+<h1 id="project-manager">Project Manager</h1>
+<p><a href="https://travis-ci.org/danielbrodin/atom-project-manager/"><img src="https://travis-ci.org/danielbrodin/atom-project-manager.svg?branch=master" alt="Build status" /></a>
+<a href="https://atom.io/packages/project-manager"><img src="https://img.shields.io/apm/dm/project-manager.svg" alt="apm" /></a>
+<a href=""><img src="https://img.shields.io/apm/v/project-manager.svg" alt="apm" /></a></p>
+
+<p><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&amp;business=DR4XQWAZV6M2A&amp;lc=SE&amp;item_name=Project%20Manager&amp;item_number=atom%2dproject%2dmanager&amp;currency_code=EUR&amp;bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted"><img src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" alt="Paypal Donations" /></a> a :beer: if you enjoy using the <a href="https://github.com/danielbrodin/atom-project-manager">project manager</a> :)</p>
+
+<p><img src="https://raw.github.com/danielbrodin/atom-project-manager/master/project-manager.gif" alt="Project Manager" /></p>
+
+<p>Get easy access to all your projects and manage them with project specific settings and options.</p>
+
+<h2 id="install">Install</h2>
+<p><code>
+$ apm install project-manager
+</code>
+You can also open Atom and go to Preferences &gt; Install and search for <code>project-manager</code></p>
+
+<h2 id="use">Use</h2>
+<p>### List Projects
+<code>ctrl-cmd-p</code> (mac) / <code>alt-shift-P</code> (win &amp; linux) or <code>Project Manager: List Projects</code> in the Command Palette.</p>
+
+<p>Projects can be filtered by <code>title</code>, <code>group</code> and <code>template</code> by typing <code>group: atom</code> which would give all projects with the <code>atom</code> group.</p>
+
+<h3 id="save-project">Save Project</h3>
+<p><code>Project Manager: Save Project</code> in the Command Palette and write the title you want to save the project as.</p>
+
+<h3 id="edit-project">Edit Project</h3>
+<p><code>Project Manager: Edit Project</code> will open a page where you can edit the current project. It currently only supports certain fields.</p>
+
+<h3 id="edit-projects">Edit Projects</h3>
+<p>All projects are saved in a <code>.cson</code> file which you can easily reach by searching for <code>Project Manager: Edit Projects</code> in the Command Palette.</p>
+
+<h2 id="project-settings">Project Settings</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>setting</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>title</code></td>
+      <td><code>string</code></td>
+      <td>Projects title. Used in the projects list</td>
+      <td><code>''</code></td>
+    </tr>
+    <tr>
+      <td><code>paths</code></td>
+      <td><code>array</code></td>
+      <td>The folders that will open in the tree view. First path is the main one that counts as the project.</td>
+      <td><code>[]</code></td>
+    </tr>
+    <tr>
+      <td><code>settings</code></td>
+      <td><code>Object</code></td>
+      <td>Enables you to set project specific settings. Everything that goes in the <code>config.cson</code> file can go here. It also supports scoped settings.</td>
+      <td><code>{}</code></td>
+    </tr>
+    <tr>
+      <td><code>icon</code></td>
+      <td><code>string</code></td>
+      <td>Icon that shows in the projects list. It’s class-based so can either be a class already provided by Atom like <code>icon-squirrel</code> or a class of your own. You can find a list of all icons on <a href="https://octicons.github.com/">octicons.github.com</a>.</td>
+      <td><code>'icon-chevron-right'</code></td>
+    </tr>
+    <tr>
+      <td><code>devMode</code></td>
+      <td><code>boolean</code></td>
+      <td><code>true</code> if project should open in dev mode. <a href="https://atom.io/docs/api/v1.11.2/AtomEnvironment#instance-open">Look here</a> for more info.</td>
+      <td><code>false</code></td>
+    </tr>
+    <tr>
+      <td><code>group</code></td>
+      <td><code>string</code></td>
+      <td>Adds a group to the projects list that can be used to group and filter projects</td>
+      <td><code>null</code></td>
+    </tr>
+    <tr>
+      <td><code>template</code></td>
+      <td><code>string</code></td>
+      <td>If you add a project in the <code>projects.cson</code> file without <code>paths</code> it will count as a template. This way you can easily share settings between projects</td>
+      <td><code>null</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="local-settings-file">Local settings file</h3>
+<p>All these settings can be added to a <code>project.cson</code> file in the root folder of the project. It follows the below example, but without the array.</p>
+
+<h3 id="example">Example</h3>
+<p>```coffeescript
+[
+  {
+    title: ‘Project Manager’
+    group: ‘Atom’
+    paths: [
+      ‘/path/to/project-manager’
+    ]
+    devMode: true
+    settings:
+      ‘editor.tabLength’: 4
+      ‘editor.showInvisibles’: true
+  }
+]</p>
+
+<p>```</p>
+
+<h2 id="provider">Provider</h2>
+<p>If you want to use the projects available through the Project Manager you can use the provided methods.</p>
+
+<p>```javascript
+function consumeProjectManager({ getProjects, getProject, saveProject, openProject } =&gt; {
+  /**
+   * Get an array containing all projects.
+   * The callback will be run each time a project is added.
+   */
+  getProjects(projects =&gt; {
+    // Do something with the projects.
+  });</p>
+
+<p>/**
+   * Get the currently active project.
+   * The callback will be run whenever the active project changes.
+   */
+  getProject(project =&gt; {
+    if (project) {
+      // We have an active project.
+    } else {
+      // Project is either not loaded yet, or there is no project saved.
+    }
+  });</p>
+
+<p>/**
+   * Can take either a project recieved from getProjects/getProject or
+   * just an object with the props for a new project.
+   */
+  saveProject(project);</p>
+
+<p>/**
+   * Will open the project.
+   * <code>openInSameWindow</code> should be true if the project should open up in the
+   * current window.
+   */
+  openProject(project, openInSameWindow);
+});</p>
+
+<p>```</p>
+
+<h2 id="contribute">Contribute</h2>
+<p>If you would like to contribute to the project manager, be it new features or bugs,
+please do the following:</p>
+
+<ol>
+  <li>Fork the repository</li>
+  <li>Create a new topic branch off the master branch that describe what it does</li>
+  <li>Commit and push the branch</li>
+  <li>Make a pull request describing what you have done</li>
+  <li>Now it will hopefully get merged :)</li>
+</ol>
+
+<p>All PR’s should:
+- Pass the <a href="https://atom.io/packages/linter-eslint">eslint</a> linter
+- Add a test when it makes sense, which should be most of the time</p>
+
+<section class="package-keywords">
+  <strong>Keywords:</strong> project, manager, settings, workflow, productivity <a href="https://github.com/danielbrodin/atom-project-manager/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

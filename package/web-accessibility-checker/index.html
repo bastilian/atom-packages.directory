@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Web Accessibility Checker
+  <a href="https://github.com/web-weber/web-accessibility-checker">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install web-accessibility-checker
+  </pre>
+</div>
+<h1 id="atom-plugin---web-accessibility-checker-package">ATOM Plugin - web-accessibility-checker package</h1>
+
+<p>The plugin provides instant feedback whether written HTML code conforms to following defined rules or not. The user can enable and disable the continuous issue checking and check the whole page on command. These features can be used via key combinations or via the ATOM menu Packages / Web Accessibility Checker. The defined rules have been selected because they can easily be checked without knowlegde of the complete website, JS files and CSS files. <strong>The plugin has still some small bugs, but it is stable and the core functionality is working. (in all tested conditions till now)</strong></p>
+
+<p><img src="https://raw.githubusercontent.com/web-weber/web-accessibility-checker/master/web-accessibility-checker.gif" alt="alt text" title="Example image of instance feedback" /></p>
+
+<h2 id="rules">Rules</h2>
+<p>### Img alternative
+<strong>WCAG 2.0 chapter:</strong> 1.1.1
+<strong>Rule:</strong> <code>Each &lt;img&gt; tag should have an alt attribute.</code></p>
+
+<h3 id="label">Label</h3>
+<p><strong>WCAG 2.0 chapter:</strong> 3.3.2
+<strong>Rule:</strong> <code>Each &lt;input&gt; tag should have a &lt;label&gt; tag, where the for attribute match the id attribute of the &lt;input&gt; tag OR the &lt;label&gt; tag covers the &lt;input&gt; tag and the description.</code></p>
+
+<h3 id="page-title">Page title</h3>
+<p><strong>WCAG 2.0 chapter:</strong> 2.4.2
+<strong>Rule:</strong> <code>A &lt;head&gt; section should include a &lt;title&gt; element.</code></p>
+
+<h3 id="language">Language</h3>
+<p><strong>WCAG 2.0 chapter:</strong> 3.1.1
+<strong>Rule:</strong> <code>The lang attribute should be defined in the &lt;html&gt; tag.</code></p>
+
+<h3 id="link">Link</h3>
+<p><strong>WCAG 2.0 chapter:</strong> 2.4.9
+<strong>Rule:</strong> <code>&lt;a&gt; tags should only include a title attribute if it is not possible to make the link destination clear with the link text alone.</code></p>
+
+<h2 id="more-information">More information</h2>
+<p>The algorithms are mainly based on regExp. The testing of those was done through code samples with the consequences that the amount and diversity of those are an important factor for the quality of the results. Till now the algorithms work quite good and fast enough to provide a instant feedback feeling (about 50ms execution time). To ensure that the typing experience will not get influenced, the package will check the page 300ms after the user stopped typing.
+In case of interest, I could invest more time to fix the known issues or if you want to further develop the plugin, feel free to contact me.</p>
+
+<h2 id="known-bugs">Known bugs</h2>
+<p><strong>Tooltips:</strong> If the user scrolls the highlighted code section and therefore also the element which displays onMouseOver a tooltip with extra information, out of the visible area of the current editor, the tooltip is not working anymore.</p>
+<section class="package-keywords">
+  <strong>Keywords:</strong> wcag, w3c, web accessibility, accessibility, html <a href="https://github.com/web-weber/web-accessibility-checker/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Git Plus
+  <a href="https://github.com/akonwi/git-plus">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install git-plus
+  </pre>
+</div>
+<h1 id="git-plus-package-build-statushttpstravis-ciorgakonwigit-plussvgbranchmaster">Git-Plus package <img src="https://travis-ci.org/akonwi/git-plus.svg?branch=master" alt="Build Status" /></h1>
+
+<p><a href="http://forthebadge.com"><img src="http://forthebadge.com/images/badges/uses-git.svg" alt="forthebadge" /></a></p>
+
+<p>vim-fugitive like package for atom. make commits and other git things without the terminal</p>
+
+<p><img src="https://raw.githubusercontent.com/akonwi/git-plus/master/commit.gif" alt="A screenshot of your spankin' package" /></p>
+
+<h2 id="usage">Usage</h2>
+
+<h1 id="important">IMPORTANT:</h1>
+<p>Make sure your gitconfig file is configured. You must configure at least the <code>user.email</code> and <code>user.name</code> variables.</p>
+
+<p>Also, the package currently favors an ssh setup that doesn’t expect to be prompted for credentials in order to push/pull, .etc. Github has a guide to help you set that up <a href="https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/">here</a></p>
+
+<p>If you are on a Windows machine, I recommend checking out <a href="https://github.com/akonwi/git-plus/issues/224">this thread</a> if you have issues pushing/pulling from a remote repository with this package. I also don’t have the means to do my own user testing in a windows environment so I won’t be immediately able to help troubleshoot windows problems.</p>
+
+<h3 id="showing-the-git-plus-palette">Showing the Git-Plus Palette</h3>
+<blockquote>
+  <ul>
+    <li><code>Cmd-Shift-H</code> on MacOS</li>
+    <li><code>Ctrl-Shift-H</code> on Windows + Linux</li>
+    <li><code>Git Plus: Menu</code> on the atom command palette.</li>
+  </ul>
+</blockquote>
+
+<h3 id="pushpullfetch-notifications">Push/Pull/Fetch notifications</h3>
+<p>Notifications will appear in a console output above the status bar.
+This view can be toggled by clicking the ‘git+’ icon in the bottom right of the status bar.</p>
+
+<p><img src="https://dl.dropboxusercontent.com/s/oe3x8wyt6lnmbv7/git%2B.png" alt="screenshot" /></p>
+
+<h3 id="auto-fetch">Auto-Fetch</h3>
+<p>Keeps your local repo bang up to date by automatically fetching from all remotes in the background every minute by default. But this can be set to any interval up to an hour, or disabled if you prefer. A notification can also be set to keep you informed.</p>
+
+<h3 id="commands">Commands</h3>
+<p><em>Commands are accessible for keybindings by dasherizing the command title.</em>
+&gt; Git Add ==  <code>git-plus:add</code></p>
+
+<blockquote>
+  <p>Git Add All Commit And Push == <code>git-plus:add-all-commit-and-push</code></p>
+</blockquote>
+
+<p><strong>Note: The following list of commands is not exhaustive. If what you want isn’t a feature, you can use <code>Git Run</code> and enter the command.</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Command</th>
+      <th>Effect</th>
+      <th>Default key binding</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>Git Run </code></td>
+      <td>Execute a custom command. ex. <code>fetch --all</code></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code>Git Status </code></td>
+      <td>Show current status.</td>
+      <td><code>Cmd-Shift-A S</code></td>
+    </tr>
+    <tr>
+      <td><code>Git Add </code></td>
+      <td>Add the current file to the index.</td>
+      <td><code>Cmd-Shift-A</code></td>
+    </tr>
+    <tr>
+      <td><code>Git Add All</code></td>
+      <td>Adds all files to the index (ex. <code>git add .</code>).</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code>Git Commit</code></td>
+      <td>Commit the staged changes. Git-Plus will show an editor for the commit message. To make the commit, save the file. To cancel the commit, close the tab.</td>
+      <td><code>Cmd-Shift-C</code>(<em><code>Ctrl-Shift-X</code></em> on Windows and Linux)</td>
+    </tr>
+    <tr>
+      <td><code>Git Add And Commit</code></td>
+      <td>Stages the current file before preparing a commit. (<code>Git add all</code> and <code>Git commit</code> run in succession)</td>
+      <td><code>Cmd-Shift-A c</code></td>
+    </tr>
+    <tr>
+      <td><code>Git Add All and Commit</code></td>
+      <td>Stages all changes before preparing a commit. (<code>Git add all</code> and <code>Git commit</code> in succession)</td>
+      <td><code>Cmd-Shift-A a</code></td>
+    </tr>
+    <tr>
+      <td><code>Git Add And Commit And Push</code></td>
+      <td>Commit currently open file and push to a remote repo.</td>
+      <td><code>Cmd-Shift-A Q</code></td>
+    </tr>
+    <tr>
+      <td><code>Git Add All Commit And Push</code></td>
+      <td>Commit all changes and push to a remote repo.</td>
+      <td><code>Cmd-Shift-A P</code></td>
+    </tr>
+    <tr>
+      <td><code>Git Commit Amend</code></td>
+      <td>Amend the previous commit.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code>Git Checkout Current File</code></td>
+      <td>Undo changes and reset the current file to HEAD.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code>Git Checkout </code><em><code>[ref]</code></em></td>
+      <td>Change to another ref (branch or tag).</td>
+      <td><code>Click</code> on status bar branch indicator.</td>
+    </tr>
+    <tr>
+      <td><code>Git Checkout New branch</code></td>
+      <td>Create a new branch.</td>
+      <td><code>Alt-Click</code> (by default) or right click on status bar branch indicator.</td>
+    </tr>
+    <tr>
+      <td><code>Git Diff [All]</code></td>
+      <td>Show the diff for the current file, or all files. The diff can either be against the staged or un-staged tree, as selected in the options.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code>Git Diff Branches</code></td>
+      <td>Show the diff for the current branch all files against another branch.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code>Git Diff Branche Files</code></td>
+      <td>Show the diff for the current branch file against another branch version.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code>Git</code> <em><code>[Push⎮Pull]</code></em></td>
+      <td>Push to or pull from a remote repo. If you have multiple remote repos, you can choose which to push to or pull from.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code>Git Remove [current file]</code></td>
+      <td><code>git rm</code> the current file or open an selector to select the files to remove. You can select multiple files at once.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code>Git Log [Current File]</code></td>
+      <td>Show the commit history [for the current file] and show display the selected commit.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code>Git Show</code></td>
+      <td>Show the specified object, for example <code>HEAD</code>, <code>HEAD~2</code>,<code>3925a0d</code>, <code>origin/master</code> or <code>v2.7.3</code>.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code>Git Open Changed Files</code></td>
+      <td>Open tabs with all added, modified or renamed files.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code>Git Tags</code></td>
+      <td>Operate on tags individually. There are options to add, show, push, checkout, verify, and delete.</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="commit-window">Commit Window</h3>
+<p>To change where the commit window appears go to settings and find
+<img src="http://imgur.com/cdc7M5p.png" alt="screenshot" /></p>
+
+<h3 id="experimental-features">Experimental Features</h3>
+<p>If you would like to use experimental features, enable them in the package settings.
+* Custom Commands
+  &gt; If enabled, you can define your own commands in your atom <code>init.coffee</code> or <code>init.js</code> file. These commands will appear in both the atom command palette as well as the Git-Plus command palette. Just like any other commands, you can define keybindings for them as well.</p>
+
+<blockquote>
+  <p>Example command for undoing the last commit:
+  <code>coffeescript
+  # In init.coffee
+  atom.packages.onDidActivateInitialPackages (p) -&gt;
+  if gitPlus = atom.packages.getActivePackage('git-plus')?.mainModule.provideService()
+    gitPlus.registerCommand 'atom-text-editor', 'custom-git-commands:undo-last-commit', -&gt;
+      gitPlus.getRepo() # If there are multiple repos in the project, you will be prompted to select which to use
+      .then (repo) -&gt; gitPlus.run repo, 'reset HEAD~1'
+ </code>
+The name of the command in the Git-plus palette will be the undasherized version of what you provided -&gt; ‘Undo Last Commit’.</p>
+</blockquote>
+
+<blockquote>
+  <p><em>Please beware of giving your commands the same name(undo-last-commit) as existing commands. They will appear as duplicates in the Git-plus palette.</em>
+* Stage Files Beta
+When enabled, the ‘Unstage Files’ and ‘Stage Files’ commands will be merged into one view where the staged status of multiple files can be toggled.</p>
+</blockquote>
+
+<h2 id="contributing">Contributing</h2>
+
+<ol>
+  <li>Fork it</li>
+  <li>Create your feature branch (<code>git checkout -b my-new-feature</code>)</li>
+  <li>Write tests</li>
+  <li>Make your changes</li>
+  <li>Run <code>apm test</code></li>
+  <li>Commit your changes (<code>git commit -am 'Add some feature'</code>)</li>
+  <li>Push to the branch (<code>git push origin my-new-feature</code>)</li>
+  <li>Create new Pull Request</li>
+</ol>
+<section class="package-keywords">
+  <strong>Keywords:</strong> git <a href="https://github.com/akonwi/git-plus/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

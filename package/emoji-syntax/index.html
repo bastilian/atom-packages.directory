@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Emoji Syntax
+  <a href="https://github.com/morkro/atom-emoji-syntax">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+    <span class="author">by Moritz Kröger <write@morkro.de></span>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install emoji-syntax
+  </pre>
+</div>
+<h1><img src="https://rawgit.com/morkro/atom-emoji-syntax/master/resources/emoji-syntax-logo.svg" alt="Emoji Syntax" style="width:100%;" /></h1>
+
+<p><a href="https://travis-ci.org/morkro/atom-emoji-syntax"><img src="https://travis-ci.org/morkro/atom-emoji-syntax.svg?branch=master" alt="Build Status" /></a> <img alt="devDependencies" src="https://david-dm.org/morkro/atom-emoji-syntax.svg" /></p>
+
+<p>Getting bored of your code? Already tried out hundreds of syntax highlighter but always felt something is missing?</p>
+
+<p><strong>Emoji Syntax is what you need!</strong></p>
+
+<p>An atom package adding emoji to language keywords.</p>
+
+<h2 id="state-of-project-whitecheckmark-active">State Of Project :white_check_mark: <em>[active]</em></h2>
+<p>The project is in <strong>active development</strong>.</p>
+
+<h2 id="installation">Installation</h2>
+<p>Install Emoji Syntax either via <code>apm</code>
+<code>
+apm install emoji-syntax
+</code>
+or search for <code>emoji syntax</code> in your Atom settings panel.</p>
+
+<h2 id="features-fire">Features :fire:</h2>
+<ul>
+  <li><strong>Emoji-Syntax is on top of your syntax theme</strong>; you can still choose any theme you like</li>
+  <li>Choose between four different emoji styles</li>
+  <li>Change existing keywords with <em>any</em> emoji you want</li>
+  <li>Define position and spacing of an emoji around the keyword</li>
+  <li>Disable entire languages or only specific keywords</li>
+</ul>
+
+<p><em>This package does not actually add emoji characters to your code—don’t worry—your linter or tests won’t go crazy!</em></p>
+
+<h2 id="supported-languages-microphone">Supported Languages :microphone:</h2>
+<p>Only official language packages are supported. Other language packages might use different selectors to highlight syntax and not work as intended.</p>
+
+<table>
+	<thead>
+		<tr>
+			<th>Language</th>
+			<th>Preview</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>JavaScript</td>
+			<td><img src="https://cdn.rawgit.com/morkro/atom-emoji-syntax/ffa417c7/resources/javascript-preview.png" title="JavaScript" alt="JavaScript" /></td>
+		</tr>
+		<tr>
+			<td>TypeScript</td>
+			<td><img src="https://cdn.rawgit.com/morkro/atom-emoji-syntax/ffa417c7/resources/typescript-preview.png" title="TypeScript" alt="TypeScript" /></td>
+		</tr>
+		<tr>
+			<td>CSS</td>
+			<td><img src="https://cdn.rawgit.com/morkro/atom-emoji-syntax/ffa417c7/resources/css-preview.png" title="CSS" alt="CSS" /></td>
+		</tr>
+		<tr>
+			<td>Sass</td>
+			<td><img src="https://cdn.rawgit.com/morkro/atom-emoji-syntax/ffa417c7/resources/scss-preview.png" title="SCSS" alt="SCSS" /></td>
+		</tr>
+		<tr>
+			<td>PHP</td>
+			<td><img src="https://cdn.rawgit.com/morkro/atom-emoji-syntax/ffa417c7/resources/php-preview.png" title="PHP" alt="PHP" /></td>
+		</tr>
+		<tr>
+			<td>Python</td>
+			<td><img src="https://cdn.rawgit.com/morkro/atom-emoji-syntax/ffa417c7/resources/python-preview.png" title="Python" alt="Python" /></td>
+		</tr>
+	</tbody>
+</table>
+
+<h2 id="icon-sets">Icon Sets</h2>
+<p><em>Note: not all emoji are supported in each of the custom sets yet!</em></p>
+<table>
+	<thead>
+		<tr>
+			<th style="width:15%;">Emoji style</th>
+			<th>Preview</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>Native</td>
+			<td>
+				<img src="https://cdn.rawgit.com/morkro/atom-emoji-syntax/0fde8866/resources/style-preview-native.png" alt="Native" />
+			</td>
+		</tr>
+		<tr>
+			<td>Twemoji</td>
+			<td>
+				<img src="https://cdn.rawgit.com/morkro/atom-emoji-syntax/0fde8866/resources/style-preview-twemoji.png" alt="Twemoji" />
+			</td>
+		</tr>
+		<tr>
+			<td>Noto Emoji</td>
+			<td>
+				<img src="https://cdn.rawgit.com/morkro/atom-emoji-syntax/0fde8866/resources/style-preview-noto-emoji.png" alt="Noto Emoji" />
+			</td>
+		</tr>
+		<tr>
+			<td>EmojiOne™</td>
+			<td>
+				<img src="https://cdn.rawgit.com/morkro/atom-emoji-syntax/0fde8866/resources/style-preview-emojione.png" alt="EmojiOne™" />
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<h2 id="settings-wrench">Settings :wrench:</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Name</th>
+      <th style="text-align: center">Default</th>
+      <th style="text-align: center">Options</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><strong>Emoji Style</strong>: Lets you choose between different emoji icon sets</td>
+      <td style="text-align: center"><code>Native</code></td>
+      <td style="text-align: center"><code>Native, Twemoji, Noto Emoji, Emoji One</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="emoji-settings-page-wrench">Emoji Settings Page :wrench:</h2>
+<p>Emoji Syntax comes with its own settings page. There you can customise, activate and deactivate every emoji for each language. The settings page is available through <code>Packages &gt; Emoji Syntax &gt; Settings</code> or the <code>emoji-syntax:settings</code> command.</p>
+
+<p><img src="https://cdn.rawgit.com/morkro/atom-emoji-syntax/master/resources/settingspage-preview.png" alt="Emoji Settings Page" /></p>
+
+<p>Each language has its own section which you can deactivate. Doing that, the entire language won’t have any emoji. The following options are available:</p>
+
+<ul>
+  <li><code>Emoji</code>: opens a modal of emoji to choose from</li>
+  <li><code>Position</code>: the position of the emoji around the keyword (e.g. <code>📦 import</code> or <code>import 📦 </code>)</li>
+  <li><code>Spacing</code>: adds spacing between emoji and keyword (e.g. <code>function 🔧 () {}</code> or <code>function🔧 () {}</code>)</li>
+</ul>
+
+<h2 id="contribution-family">Contribution :family:</h2>
+
+<p>If you want to contribute by either extending/improving a language set, adding a new language, fixing a bug or anything else you can do that by simply sending a pull request.</p>
+
+<p><a href="https://doclets.io/morkro/atom-emoji-syntax/master">API documentation</a> via Doclets.</p>
+
+<h2 id="license-copyright">License :copyright:</h2>
+<p>The code is available under <a href="https://github.com/morkro/atom-emoji-syntax/blob/master/LICENSE">MIT License</a>.</p>
+
+<h4 id="emoji-graphics">Emoji graphics</h4>
+<ul>
+  <li><a href="https://github.com/twitter/twemoji">Twemoji</a> licensed under <a href="https://github.com/twitter/twemoji/blob/gh-pages/LICENSE-GRAPHICS">CC-BY 4.0</a></li>
+  <li><a href="https://github.com/googlei18n/noto-emoji">Noto Emoji</a> licensed under <a href="https://github.com/googlei18n/noto-emoji/blob/master/fonts/LICENSE">SIL Open Font License, version 1.1</a></li>
+  <li><a href="https://github.com/Ranks/emojione">EmojiOne™</a> licensed under <a href="https://github.com/Ranks/emojione/blob/master/LICENSE.md">Creative Commons Attribution 4.0 International</a></li>
+</ul>
+<section class="package-keywords">
+  <strong>Keywords:</strong> emoji, syntax, language <a href="https://github.com/morkro/atom-emoji-syntax/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

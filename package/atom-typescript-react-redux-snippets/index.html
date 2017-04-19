@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Typescript React Redux Snippets
+  <a href="https://github.com/Armour/atom-typescript-react-redux-snippets">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+    <span class="author">by Chong Guo <cguo@azendless.com></span>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install atom-typescript-react-redux-snippets
+  </pre>
+</div>
+<h1 id="atom-typescript-react-redux-snippets">Atom-Typescript-React-Redux-Snippets</h1>
+
+<p><a href="https://travis-ci.org/Armour/atom-typescript-react-redux-snippets"><img src="https://travis-ci.org/Armour/atom-typescript-react-redux-snippets.svg?branch=master" alt="Build Status" /></a>
+<a href="https://david-dm.org/Armour/atom-typescript-react-redux-snippets"><img src="https://david-dm.org/Armour/atom-typescript-react-redux-snippets/status.svg" alt="Dependencies Status" /></a>
+<a href="https://david-dm.org/Armour/atom-typescript-react-redux-snippets?type=dev"><img src="https://david-dm.org/Armour/atom-typescript-react-redux-snippets/dev-status.svg" alt="DevDependencies Status" /></a>
+<a href="https://opensource.org/licenses/mit-license.php"><img src="https://badges.frapsoft.com/os/mit/mit.svg?v=103" alt="MIT Licence" /></a></p>
+
+<p>Typescript, React and Redux snippets for Atom (followed ES6 standard)</p>
+
+<h2 id="snippets">Snippets</h2>
+
+<ul>
+  <li>
+    <p><strong>_tsr</strong> : basic typescript react template (2 spaces)</p>
+
+    <p>```tsx
+import React from ‘react’;</p>
+
+    <p>interface I${1:ComponentName}Props {}</p>
+
+    <p>interface I${1:ComponentName}State {}</p>
+
+    <p>class ${1:ComponentName} extends React.Component&lt;I${1:ComponentName}Props, I${1:ComponentName}State&gt; {
+  public render() {
+    return (
+      ${2:<span>Body</span>}
+    );
+  }
+}</p>
+
+    <p>export default ${1:ComponentName};
+```</p>
+  </li>
+  <li>
+    <p><strong>_tsr4</strong> : basic typescript react template (4 spaces)</p>
+
+    <p>```tsx
+import React from ‘react’;</p>
+
+    <p>interface I${1:ComponentName}Props {}</p>
+
+    <p>interface I${1:ComponentName}State {}</p>
+
+    <p>class ${1:ComponentName} extends React.Component&lt;I${1:ComponentName}Props, I${1:ComponentName}State&gt; {
+    public render() {
+        return (
+          ${2:<span>Body</span>}
+        );
+    }
+}</p>
+
+    <p>export default ${1:ComponentName};
+```</p>
+  </li>
+  <li>
+    <p><strong>_tsrr</strong> : typescript react redux template (2 spaces)</p>
+
+    <p>```tsx
+import React from ‘react’;
+import { connect, Dispatch } from ‘react-redux’;</p>
+
+    <p>interface I${1:ComponentName}StateProps {}</p>
+
+    <p>interface I${1:ComponentName}DispatchProps {}</p>
+
+    <p>type I${1:ComponentName}Props = I${1:ComponentName}StateProps &amp; I${1:ComponentName}DispatchProps;</p>
+
+    <p>interface I${1:ComponentName}State {}</p>
+
+    <p>class ${1:ComponentName} extends React.Component&lt;I${1:ComponentName}Props, I${1:ComponentName}State&gt; {
+  public render() {
+    return (
+      ${3:<span>Body</span>}
+    );
+  }
+}</p>
+
+    <p>const mapStateToProps = (state: ${2:any}): I${1:ComponentName}StateProps =&gt; {
+  return {
+    // …mapStateToProps
+  };
+};</p>
+
+    <p>const mapDispatchToProps = (dispatch: Dispatch&lt;${2:any}&gt;): I${1:ComponentName}DispatchProps =&gt; {
+  return {
+    // …mapDispatchToProps
+  };
+};</p>
+
+    <p>export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(${1:ComponentName});
+```</p>
+  </li>
+  <li>
+    <p><strong>_tsrr4</strong> : typescript react redux template (4 spaces)</p>
+
+    <p>```tsx
+import React from ‘react’;
+import { connect, Dispatch } from ‘react-redux’;</p>
+
+    <p>interface I${1:ComponentName}StateProps {}</p>
+
+    <p>interface I${1:ComponentName}DispatchProps {}</p>
+
+    <p>type I${1:ComponentName}Props = I${1:ComponentName}StateProps &amp; I${1:ComponentName}DispatchProps;</p>
+
+    <p>interface I${1:ComponentName}State {}</p>
+
+    <p>class ${1:ComponentName} extends React.Component&lt;I${1:ComponentName}Props, I${1:ComponentName}State&gt; {
+    public render() {
+        return (
+          ${3:<span>Body</span>}
+        );
+    }
+}</p>
+
+    <p>const mapStateToProps = (state: ${2:any}): I${1:ComponentName}StateProps =&gt; {
+    return {
+        // …mapStateToProps
+    };
+};</p>
+
+    <p>const mapDispatchToProps = (dispatch: Dispatch&lt;${2:any}&gt;): I${1:ComponentName}DispatchProps =&gt; {
+    return {
+        // …mapDispatchToProps
+    };
+};</p>
+
+    <p>export default connect(
+    mapStateToProps,
+    mapDispatchToProps,
+)(${1:ComponentName});
+```</p>
+  </li>
+  <li>
+    <p><strong>_tsrrcont</strong> : typescript react redux template - separate container (2 spaces)’:</p>
+
+    <p>```tsx
+  import { connect, Dispatch } from ‘react-redux’;</p>
+
+    <p>import ${1:ChildComponentName} from ‘components/${1:ChildComponentName}’;</p>
+
+    <p>interface I${2:ComponentName}Props {}</p>
+
+    <p>const mapStateToProps = (state: ${3:any}, ownProps: I${2:ComponentName}Props): I${1:ChildComponentName}StateProps =&gt; {
+    return {
+      // …mapStateToProps
+    };
+  };</p>
+
+    <p>const mapDispatchToProps = (dispatch: Dispatch&lt;${3:any}&gt;, ownProps: I${2:ComponentName}Props): I${1:ChildComponentName}DispatchProps =&gt; {
+    return {
+      // …mapDispatchToProps
+    };
+  };</p>
+
+    <p>export default connect(
+    mapStateToProps,
+    mapDispatchToProps,
+  )(${1:ChildComponentName});
+```</p>
+  </li>
+  <li>
+    <p><strong>_tsrrcont4</strong> : typescript react redux template - separate container (4 spaces)’:</p>
+
+    <p>```tsx
+  import { connect, Dispatch } from ‘react-redux’;</p>
+
+    <p>import ${1:ChildComponentName} from ‘components/${1:ChildComponentName}’;</p>
+
+    <p>interface I${2:ComponentName}Props {}</p>
+
+    <p>const mapStateToProps = (state: ${3:any}, ownProps: I${2:ComponentName}Props): I${1:ChildComponentName}StateProps =&gt; {
+      return {
+          // …mapStateToProps
+      };
+  };</p>
+
+    <p>const mapDispatchToProps = (dispatch: Dispatch&lt;${3:any}&gt;, ownProps: I${2:ComponentName}Props): I${1:ChildComponentName}DispatchProps =&gt; {
+      return {
+          // …mapDispatchToProps
+      };
+  };</p>
+
+    <p>export default connect(
+      mapStateToProps,
+      mapDispatchToProps,
+  )(${1:ChildComponentName});
+```</p>
+  </li>
+  <li>
+    <p><strong>_tsrrcomp</strong> : typescript react redux template - separate component (2 spaces)’:</p>
+
+    <p>```tsx
+  import React from ‘react’;</p>
+
+    <p>interface I${1:ComponentName}StateProps {}</p>
+
+    <p>interface I${1:ComponentName}DispatchProps {}</p>
+
+    <p>interface I${1:ComponentName}OtherProps {}</p>
+
+    <p>type I${1:ComponentName}Props = I${1:ComponentName}StateProps &amp; I${1:ComponentName}DispatchProps &amp; I${1:ComponentName}OtherProps;</p>
+
+    <p>interface I${1:ComponentName}State {}</p>
+
+    <p>class ${1:ComponentName} extends React.Component&lt;I${1:ComponentName}Props, I${1:ComponentName}State&gt; {
+    public render() {
+      return (
+        ${2:<span>Body</span>}
+      );
+    }
+  }</p>
+
+    <p>export default ${1:ComponentName};
+```</p>
+  </li>
+  <li>
+    <p><strong>_tsrrcomp4</strong> : typescript react redux template - separate component (4 spaces)’:</p>
+
+    <p>```tsx
+  import React from ‘react’;</p>
+
+    <p>interface I${1:ComponentName}StateProps {}</p>
+
+    <p>interface I${1:ComponentName}DispatchProps {}</p>
+
+    <p>interface I${1:ComponentName}OtherProps {}</p>
+
+    <p>type I${1:ComponentName}Props = I${1:ComponentName}StateProps &amp; I${1:ComponentName}DispatchProps &amp; I${1:ComponentName}OtherProps;</p>
+
+    <p>interface I${1:ComponentName}State {}</p>
+
+    <p>class ${1:ComponentName} extends React.Component&lt;I${1:ComponentName}Props, I${1:ComponentName}State&gt; {
+      public render() {
+          return (
+            ${2:<span>Body</span>}
+          );
+      }
+  }</p>
+
+    <p>export default ${1:ComponentName};
+```</p>
+  </li>
+  <li>
+    <p><strong>_con</strong> : constructor (2 spaces)</p>
+
+    <p><code>tsx
+constructor(props: I${1:ComponentName}Props) {
+  super(props);
+  ${2}
+}
+${3}
+</code></p>
+  </li>
+  <li>
+    <p><strong>_con4</strong> : constructor (4 spaces)</p>
+
+    <p><code>tsx
+constructor(props: I${1:ComponentName}Props) {
+    super(props);
+    ${2}
+}
+${3}
+</code></p>
+  </li>
+  <li>
+    <p><strong>_cwm</strong> : componentWillMount (2 spaces)</p>
+
+    <p><code>tsx
+public componentWillMount() {
+  {1}
+}
+${2}
+</code></p>
+  </li>
+  <li>
+    <p><strong>_cwm4</strong> : componentWillMount (4 spaces)</p>
+
+    <p><code>tsx
+public componentWillMount() {
+    {1}
+}
+${2}
+</code></p>
+  </li>
+  <li>
+    <p><strong>_cdm</strong> : componentDidMount (2 spaces)</p>
+
+    <p><code>tsx
+public componentDidMount() {
+  {1}
+}
+${2}
+</code></p>
+  </li>
+  <li>
+    <p><strong>_cdm4</strong> : componentDidMount (4 spaces)</p>
+
+    <p><code>tsx
+public componentDidMount() {
+    {1}
+}
+${2}
+</code></p>
+  </li>
+  <li>
+    <p><strong>_cwr</strong> : componentWillReceiveProps (2 spaces)</p>
+
+    <p><code>tsx
+public componentWillReceiveProps(nextProps: I${1:ComponentName}Props) {
+  ${2}
+}
+${3}
+</code></p>
+  </li>
+  <li>
+    <p><strong>_cwr4</strong> : componentWillReceiveProps (4 spaces)</p>
+
+    <p><code>tsx
+public componentWillReceiveProps(nextProps: I${1:ComponentName}Props) {
+    ${2}
+}
+${3}
+</code></p>
+  </li>
+  <li>
+    <p><strong>_scup</strong> : shouldComponentUpdate (2 spaces)</p>
+
+    <p><code>tsx
+public shouldComponentUpdate(nextProps: I${1:ComponentName}Props, nextState: I${1:ComponentName}State) {
+  ${2}
+}
+${3}
+</code></p>
+  </li>
+  <li>
+    <p><strong>_scup4</strong> : shouldComponentUpdate (4 spaces)</p>
+
+    <p><code>tsx
+public shouldComponentUpdate(nextProps: I${1:ComponentName}Props, nextState: I${1:ComponentName}State) {
+    ${2}
+}
+${3}
+</code></p>
+  </li>
+  <li>
+    <p><strong>_cwup</strong> : componentWillUpdate (2 spaces)</p>
+
+    <p><code>tsx
+public componentWillUpdate(nextProps: I${1:ComponentName}Props, nextState: I${1:ComponentName}State) {
+  ${2}
+}
+${3}
+</code></p>
+  </li>
+  <li>
+    <p><strong>_cwup4</strong> : componentWillUpdate (4 spaces)</p>
+
+    <p><code>tsx
+public componentWillUpdate(nextProps: I${1:ComponentName}Props, nextState: I${1:ComponentName}State) {
+    ${2}
+}
+${3}
+</code></p>
+  </li>
+  <li>
+    <p><strong>_cdup</strong> : componentDidUpdate (2 spaces)</p>
+
+    <p><code>tsx
+public componentDidUpdate(prevProps: I${1:ComponentName}Props, prevState: I${1:ComponentName}State) {
+  ${2}
+}
+${3}
+</code></p>
+  </li>
+  <li>
+    <p><strong>_cdup4</strong> : componentDidUpdate (4 spaces)</p>
+
+    <p><code>tsx
+public componentDidUpdate(prevProps: I${1:ComponentName}Props, prevState: I${1:ComponentName}State) {
+    ${2}
+}
+${3}
+</code></p>
+  </li>
+  <li>
+    <p><strong>_cwun</strong> : componentWillUnmount (2 spaces)</p>
+
+    <p><code>tsx
+public componentWillUnmount() {
+  {1}
+}
+${2}
+</code></p>
+  </li>
+  <li>
+    <p><strong>_cwun4</strong> : componentWillUnmount (4 spaces)</p>
+
+    <p><code>tsx
+public componentWillUnmount() {
+    {1}
+}
+${2}
+</code></p>
+  </li>
+  <li>
+    <p><strong>_ren</strong> : render (2 spaces)</p>
+
+    <p><code>tsx
+public render() {
+  return (
+    ${1:&lt;span&gt;Body&lt;/span&gt;}
+  );
+}
+${2}
+</code></p>
+  </li>
+  <li>
+    <p><strong>_ren4</strong> : render (4 spaces)</p>
+
+    <p><code>tsx
+public render() {
+    return (
+      ${1:&lt;span&gt;Body&lt;/span&gt;}
+    );
+}
+${2}
+</code></p>
+  </li>
+</ul>
+
+<h2 id="install">Install</h2>
+
+<p>Search for <code>atom-typescript-react-redux-snippets</code> in <code>Install</code> page</p>
+
+<p>Install and Restart Atom</p>
+
+<h2 id="development">Development</h2>
+
+<p><code>bash
+cd ~/.atom/packages
+git clone https://github.com/Armour/atom-typescript-react-redux-snippets
+cd atom-typescript-react-redux-snippets
+apm install
+apm link
+</code></p>
+
+<h2 id="contributing">Contributing</h2>
+
+<ol>
+  <li>Fork this repo.</li>
+  <li>Create your own branch: git checkout -b feature/my-feature</li>
+  <li>Commit your changes: git commit -m ‘add some new feature’</li>
+  <li>Push to your branch: git push origin feature/my-feature</li>
+  <li>Send me a pull request :)</li>
+</ol>
+
+<h2 id="others">Others</h2>
+
+<p>If you prefer to use VSCode, check my <a href="https://github.com/Armour/vscode-typescript-react-redux-snippets">another repo</a>.</p>
+
+<h2 id="license">License</h2>
+
+<p>MIT License</p>
+<section class="package-keywords">
+  <strong>Keywords:</strong> typescript, react, redux, react-redux, snippets, es6, atom, atom-snippets, snippets <a href="https://github.com/Armour/atom-typescript-react-redux-snippets/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

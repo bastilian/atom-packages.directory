@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Livestyle Atom
+  <a href="https://github.com/livestyle/atom">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+    <span class="author">by Sergey Chikuyonok <serge.che@gmail.com></span>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install livestyle-atom
+  </pre>
+</div>
+<h1 id="livestyle-plugin-for-atom">LiveStyle plugin for Atom</h1>
+
+<p><em>Currently in beta and may contain bugs. Makes excessive console logging, it can be disabled in package settings.</em></p>
+
+<p><a href="http://livestyle.io">LiveStyle</a> is a real-time bi-directional edit tool for CSS, LESS and SCSS. <a href="http://livestyle.io/docs/">Read about LiveStyle project</a> before using this plugin.</p>
+
+<h2 id="installation">Installation</h2>
+
+<p>This plugin can be installed as regular Atom package:</p>
+
+<ol>
+  <li>In Atom, go to <code>Preferences &gt; Install</code>.</li>
+  <li>Search for <code>livestyle-atom</code> plugin and install it.</li>
+</ol>
+
+<p>Or you can install it via <code>apm</code>:</p>
+
+<p><code>apm install livestyle-atom</code></p>
+
+<h2 id="usage">Usage</h2>
+
+<p>This plugin doesn’t require any special setup: simply start Atom and Google Chrome and you are ready for real-time editing.</p>
+
+<p>When creating a new, unsaved files, make sure you set document syntax to either <code>CSS</code>, <code>LESS</code> or <code>SCSS</code>, otherwise this document won’t appear in LiveStyle popup in Chrome.</p>
+
+<h2 id="setting-global-dependencies-for-preprocessors">Setting global dependencies for preprocessors</h2>
+
+<p>As described in <a href="http://livestyle.io/docs/preprocessors/">Working with preprocessors</a> section of LiveStyle docs, it is possible to provide global dependencies that will be used for parsing preprocessor files.</p>
+
+<p>Currently, Atom doesn‘t provide any means to create project-level configs. In order to set global dependencies, you have to create <code>livestyle.json</code> (or <code>.livestyle.json</code>) file in your project root with content like this:</p>
+
+<p><code>json
+{
+    "globals": ["path/to/dep.scss", "libs/*.scss"]
+}
+</code></p>
+
+<ul>
+  <li>All paths must be relative to <code>livestyle.json</code>’s folder.</li>
+  <li>You can set either direct file paths or use glob patterns, but remember that sometimes order of dependencies matters.</li>
+  <li>Too much global dependencies will slow down LiveStyle, workflow with many dependencies wasn’t optimized yet. So keep only those dependencies you actually use.</li>
+</ul>
+
+<h1 id="livestyle-analyzer">LiveStyle Analyzer</h1>
+
+<p>LiveStyle Analyzer is an experimental UI that displays various code hints right in LESS and SCSS editors so you can have better overview of how compiled CSS will look like.</p>
+
+<p>By default, <em>computed value</em> and <em>resolved selector</em> hints are displayed automatically when you move caret inside value or selector respectively. This can be disabled in package preferences. All the other hints (including <em>computed value</em> and <em>resolved selector</em>) can be toggled with <code>livestyle:show-widget</code> command.</p>
+
+<p><strong>Tip:</strong> bind <code>livestyle:show-widget</code> action to a <a href="http://flight-manual.atom.io/using-atom/sections/basic-customization/#_customizing_keybindings">keyboard shortcut</a> of your choice to quickly toggle code hints.</p>
+
+<blockquote>
+  <p>LiveStyle Analyzer works for currently opened file only: it doesn’t read data from <code>@import</code> or global stylesheets yet. But you can help to make it happen! Stay tuned for updates at <a href="https://twitter.com/emmetio">@emmetio</a></p>
+</blockquote>
+
+<h2 id="computed-value">Computed value</h2>
+
+<p>Displays computed result of property value expressions, if possible. Also displays color previews even for static values. Hint is displayed automatically when you move caret inside property value, but you can disable it in package preferences and display manually with <code>livestyle:show-widget</code> command.</p>
+
+<p><img src="https://raw.githubusercontent.com/livestyle/atom/gh-pages/images/computed-value.gif" alt="Computed Value example" /></p>
+
+<h2 id="resolved-selector">Resolved selector</h2>
+
+<p>Displays resolved CSS selector for nested sections. Hint is displayed automatically when you move caret inside selector, but you can disable it in package preferences and display manually with <code>livestyle:show-widget</code> command.</p>
+
+<p><img src="https://raw.githubusercontent.com/livestyle/atom/gh-pages/images/selector.gif" alt="Resolved selector example" /></p>
+
+<h2 id="variables-and-mixin-completions">Variables and mixin completions</h2>
+
+<p>Provides variables (with computed values, if possible) and mixin completions for standard Atom’s autocomplete. LiveStyle tries to be smart here: it displays variables (and their values) available exactly for current scope, not all variables from current file.</p>
+
+<p><img src="https://raw.githubusercontent.com/livestyle/atom/gh-pages/images/completions.gif" alt="Completions" /></p>
+
+<h2 id="mixin-output">Mixin output</h2>
+
+<p>A little triangle near mixin call means LiveStyle was able to find matched mixin definitions. Hold down Cmd (Mac) or Ctrl key and click on mixin call (or call <code>livestyle:show-widget</code> action) to display computed output. Output is updated in real-time when you edit mixin call arguments.</p>
+
+<p><img src="https://raw.githubusercontent.com/livestyle/atom/gh-pages/images/mixin%20call.gif" alt="Mixin output example" /></p>
+
+<h2 id="suggested-variables">Suggested variables</h2>
+
+<p>For static values (e.g. values without expressions) LiveStyle tries to find variables with the same or similar (for colors) values. If such variables found, displays rounded underline under property value. Hold down Cmd (Mac) or Ctrl key and click on property value (or call <code>livestyle:show-widget</code> action) to display suggested variables. You may then click on variable to replace value with it or hit Esc key to close popup.</p>
+
+<p><img src="https://raw.githubusercontent.com/livestyle/atom/gh-pages/images/suggested.gif" alt="Suggested variables example" /></p>
+
+<h2 id="quick-outline">Quick outline</h2>
+
+<p>Run <code>livestyle:show-outline</code> command to display current stylesheet tree and its resolved CSS. Useful for finding source of generated CSS selectors: open quick outline, switch to Result tree (can be done with Tab key as well), find required CSS node and click on it to go to LESS/SCSS source.</p>
+
+<p><img src="https://raw.githubusercontent.com/livestyle/atom/gh-pages/images/outline.gif" alt="Suggested variables example" /></p>
+
+<h3 id="how-it-works">How it works</h3>
+
+<p>LiveStyle uses its own implementations of LESS and SCSS preprocessors, written in pure JavaScript. Unlike official preprocessors implementations with sourcemaps, LiveStyle provides proper source-to-result mappings, variable and mixin scopes, error recovery and partial compilation.</p>
+
+<p>LiveStyle produces two trees for given LESS/SCSS source code: one with source and another with CSS result. All CSS result nodes holds variables and mixins scope and references to source tree node that produced it. These trees then passed to Analyzer module which extracts required data from them and adds as <a href="https://atom.io/docs/api/v1.8.0/TextEditorMarker">markers</a> into text editor (these markers contains <code>livestyle</code> property). Authors can create custom plugins that read these marker’s data and provide custom UI, hints and so on.</p>
+
+<h3 id="ideas">Ideas?</h3>
+
+<p>With LiveStyle engine, it’s possible to use static analysis of preprocessor stylesheets, do code refactoring and much, much more. If you have any suggestions how LESS and SCSS coding experiences can be improved, feel free to <a href="https://github.com/livestyle/atom/issues">create a new issue</a> with your suggestions.</p>
+<section class="package-keywords">
+  <strong>Keywords:</strong> livestyle, css, scss, less, live, edit <a href="https://github.com/livestyle/atom/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

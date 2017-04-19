@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Nvatom
+  <a href="https://github.com/seongjaelee/nvatom">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install nvatom
+  </pre>
+</div>
+<h1 id="notational-velocity-for-atom">Notational Velocity for Atom</h1>
+
+<p><em><code>notational-velocity</code> package is renamed to <code>nvatom</code> package due to a fatal bug. For more info, refer <a href="#migration">migration section</a>.</em></p>
+
+<p><a href="https://travis-ci.org/seongjaelee/nvatom"><img src="https://travis-ci.org/seongjaelee/nvatom.svg?branch=master" alt="Build Status" /></a></p>
+
+<p><a href="http://notational.net/">Notational Velocity</a> is an application that stores and retrieves notes.</p>
+
+<p><img src="https://cloud.githubusercontent.com/assets/948301/7246990/2e2b4c6e-e7b9-11e4-93b0-57954e011e81.gif" alt="Preview" /></p>
+
+<p>This Atom package implements the some key features from this amazing app:</p>
+
+<ul>
+  <li>Modeless operation</li>
+  <li>Mouseless interaction</li>
+  <li>Incremental Search</li>
+  <li>Interlinks</li>
+</ul>
+
+<p>Integrated with Atom, we have several advantages:</p>
+
+<ul>
+  <li><strong>Use Atom’s Features</strong> - Such as Syntax Highlighting and Tree View.</li>
+  <li><strong>Use Other Packages</strong> - Such as Markdown Preview and Minimap.</li>
+  <li><strong>Multi-OS</strong> - You can use it in OSX, Linux and Windows.</li>
+</ul>
+
+<p>We do believe Notational Velocity is the precursor of the famous note-taking app Evernote. Advantages over Evernote are:</p>
+
+<ul>
+  <li><strong>Open Source</strong></li>
+  <li><strong>No Rich Text</strong> - Instead, we strongly recommend to use <a href="http://daringfireball.net/projects/markdown/syntax">Markdown</a>.</li>
+  <li><strong>Sync Whereever You Want</strong> - You can save notes locally, in Dropbox, or in Google Drive.</li>
+</ul>
+
+<h2 id="settings">Settings</h2>
+
+<p>To configure your note directory, set <code>nvatom.directory</code>:</p>
+
+<ul>
+  <li>Open your <code>~/.atom/config.cson</code> file from the menu: <em>Atom &gt; Open Your Config</em></li>
+  <li>
+    <p>Append the following lines:</p>
+
+    <p><code>cson
+    'nvatom':
+      directory: '/path/to/your/notes'
+ </code></p>
+  </li>
+</ul>
+
+<p>The first line should be indented by one step from <code>*</code> at the top. If you’ve
+kept the default indentation of two spaces, the block above should paste in
+properly.</p>
+
+<p>Double-quotes also work.</p>
+
+<h2 id="key-bindings">Key Bindings</h2>
+
+<ul>
+  <li><code>alt-cmd-l</code>: Toggles the search view.</li>
+  <li><code>alt-cmd-o</code>: Jumps to the referred note when the cursor is on the interlink in the form of [[double-bracketed interlink]].</li>
+</ul>
+
+<p>You can also override <code>cmd-l</code> if you want to keep your muscle memory from Notational Velocity and nvALT. Just edit your keymap (Atom menu -&gt; Open Your Keymap) and add the following lines:</p>
+
+<p><code>cson
+'atom-text-editor':
+  'cmd-l': 'unset!'
+'atom-workspace':
+  'cmd-l': 'nvatom:toggle'
+</code></p>
+
+<p>To set Windows and Linux key binds you can add the following lines to your keymap:</p>
+
+<p><code>cson
+'atom-workspace':
+  'alt-ctrl-l': 'nvatom:toggle'
+'atom-workspace atom-text-editor':
+  'alt-ctrl-o': 'nvatom:openInterlink'
+</code></p>
+
+<h2 id="migration">Migration</h2>
+
+<p>v0.1.0 under published package name <code>notational-velocity</code> had a fatal bug that sets the default value of its note directory under package directory. In that case, all notes are deleted once the user updates the package, since package directory is overwritten when the user. For more information, refer <a href="https://github.com/seongjaelee/nvatom/issues/25">#25</a>.</p>
+
+<p>To resolve this problem, we renamed our package name to <code>nvatom</code>. Users who have the old <code>notational-velocity</code> need to <strong>install <code>nvatom</code> package first</strong>, activate the package to automatically migrate the existing notes, and then delete <code>notational-velocity</code> package.</p>
+
+<p>Since keymaps overlap with <code>notational-velocity</code>, follow the menu <em>Packages &gt; nvAtom &gt; Toggle</em> to activate this package.</p>
+
+<h2 id="references">References</h2>
+
+<ul>
+  <li><a href="http://notational.net/">Notational Velocity</a></li>
+  <li><a href="http://brettterpstra.com/projects/nvalt/">nvALT</a></li>
+  <li><a href="http://daringfireball.net/projects/markdown/">Markdown</a></li>
+  <li><a href="http://commonmark.org/">CommonMark</a></li>
+  <li><a href="https://evernote.com/">Evernote</a></li>
+  <li><a href="http://simplenote.com/">Simplenote</a></li>
+</ul>
+
+<section class="package-keywords">
+  <strong>Keywords:</strong> wiki, notational velocity, nvatom, note, notetaking <a href="https://github.com/seongjaelee/nvatom/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Build Oracle
+  <a href="https://github.com/tschf/atom-build-oracle">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install build-oracle
+  </pre>
+</div>
+<h1 id="oracle-compiler-for-atom">Oracle compiler for Atom</h1>
+
+<p><a href="https://atom.io/packages/build-oracle"><img src="https://img.shields.io/apm/l/build-oracle.svg?style=flat-square" alt="apm" /></a>
+<a href="https://atom.io/packages/build-oracle"><img src="https://img.shields.io/apm/v/build-oracle.svg?style=flat-square" alt="apm" /></a>
+<a href="https://atom.io/packages/build-oracle"><img src="https://img.shields.io/apm/dm/build-oracle.svg?style=flat-square" alt="apm" /></a></p>
+
+<p>Uses the <a href="https://atom.io/packages/build">atom-build</a> package to execute Oracle compilations in the Atom editor.</p>
+
+<p>This package requires <a href="https://atom.io/packages/build">atom-build</a> to be installed.</p>
+
+<h2 id="prerequisites">Prerequisites</h2>
+
+<p>To be able to compile your code, you need either <code>SQL*Plus</code> or <code>SQLcl</code> available on your system - preferably in your PATH. <code>SQL*Plus</code> requires more steps to get set up (such as installing the instant client), but you will get much faster compile times so that is the preferred interpreter (<code>SQLcl</code> is Java based, so launching the JVM each time adds to the compile time).</p>
+
+<h3 id="sqlplus-set-up">SQL*Plus set up</h3>
+
+<h4 id="os-x">OS X</h4>
+
+<p>You may face issues depending on how you set up the instant client. The <a href="https://docs.oracle.com/cd/E11882_01/install.112/e38228/inst_task.htm#BABHEBIG">typical guide</a> involves setting an environment variable <code>DYLD_LIBRARY_PATH</code>. Unforunately, in OS X El Capitan, this variable is not passed in as an environment variable into Atom (this is a part of security measure known as System Integrity Protection). You can also see that this is not output if you run the <code>env</code> command on the terminal.</p>
+
+<p>If you followed those general steps, you will likely be getting this error (or very similar):</p>
+
+<p><code>
+dyld: Library not loaded: /ade/dosulliv_sqlplus_mac/oracle/sqlplus/lib/libsqlplus.dylib
+  Referenced from: /opt/Oracle/instantclient_11_2/sqlplus
+  Reason: image not found
+Trace/BPT trap: 5
+</code></p>
+
+<p>Two ways around this.</p>
+
+<ul>
+  <li>In the settings for this plugin, set the path where your client files are (copy what you have for your existing DYLD_LIBRARY_PATH).</li>
+</ul>
+
+<p><img src="https://cloud.githubusercontent.com/assets/1747643/17292725/1f61b8a2-582f-11e6-940f-b9c7ae7ff42e.png" alt="" /></p>
+
+<ul>
+  <li>Or, instead of setting <code>DYLD_LIBRARY_PATH</code>, you can make all the libaries available in a location that <code>SQL*Plus</code> knows where to look for them. Two common locations are <code>~/lib</code> or <code>/usr/local/lib</code>. So, assuming you placed the instant client at <code>/opt/Oracle/instantclient_11_2</code>, run the following:</li>
+</ul>
+
+<p><code>bash
+sudo mkdir -p /usr/local/lib
+sudo ln -s /opt/Oracle/instantclient_11_2/libclntsh.dylib.11.1 /usr/local/lib/libclntsh.dylib.11.1
+sudo ln -s /opt/Oracle/instantclient_11_2/libnnz11.dylib /usr/local/lib/libnnz11.dylib
+sudo ln -s /opt/Oracle/instantclient_11_2/libociei.dylib /usr/local/lib/libociei.dylib
+sudo ln -s /opt/Oracle/instantclient_11_2/libsqlplus.dylib /usr/local/lib/libsqlplus.dylib
+sudo ln -s /opt/Oracle/instantclient_11_2/libsqlplusic.dylib /usr/local/lib/libsqlplusic.dylib
+</code></p>
+
+<p>Ensure your <code>PATH</code> is set up with the instant client directory on it so that <code>sqlplus</code> is on it. In your <code>~/.bash_profile</code> add the line:</p>
+
+<p><code>bash
+export PATH=/opt/Oracle/instantclient_11_2:$PATH
+</code></p>
+
+<p>I went with <code>/usr/local/lib</code> rather than <code>~/lib</code> so to not fill up my home directory. Aside from that difference, this is much as what is described on the <a href="http://www.oracle.com/technetwork/topics/intel-macsoft-096467.html">download page</a> of the instant client (down the bottom of the page).</p>
+
+<p>If you previously set up <code>DYLD_LIBRARY_PATH</code> you can unset that and you should be good to go.</p>
+
+<h4 id="ubuntulinux">Ubuntu/Linux</h4>
+
+<p>To be able to run SQL*Plus from Atom, Atom needs to have all the relevant enviornment variables set up. I followed the installation from this <a href="https://help.ubuntu.com/community/Oracle%20Instant%20Client">guide</a>. The guide mentions to set environment variables in a system wide location or <code>~/.bash_profile</code>. The guide suggests to install it in a system wide location since you typically only have one Oracle client installed per system. That is a good approach also for Atom, as it will ensure Atom picks up the relevant environment variables. I found that environment variables set in <code>~/.bash_profile</code> are not picked up by the (GUI) terminal, and upon further digging I found that <code>~/.bash_profile</code> is only picked up when launching a virtual console - see this <a href="http://askubuntu.com/questions/121073/why-bash-profile-is-not-getting-sourced-when-opening-a-terminal">post</a>. The other location you may be tempted to use is <code>~/.bashrc</code>, however this is also not a good place as Atom doesn’t seem to pick up the environment set up in there, see this <a href="https://github.com/joefitzgerald/go-plus/issues/386#issuecomment-199359955">comment</a>.</p>
+
+<p>So, to sum it up. Either place your Oracle variables in a script at <code>/etc/profile.d/oracle.sh</code> (globally set), or place them in <code>~/.profile</code> which will get picked up by Atom.</p>
+
+<h3 id="sqlcl-set-up">SQLcl set up</h3>
+
+<h4 id="windows">Windows</h4>
+
+<p>An issue you may face on Windows is if you try and compile code containing unicode characters, they won’t persist when compiling with SQLcl. The reason is that the JVM doesn’t default to UTF-8 encoding on Windows.</p>
+
+<p>To get around this, ensure you point to sql.bat (instead of sql.exe) and also that you have checked “Enforce UTF-8” in the package settings, similar to:</p>
+
+<p><img src="https://cloud.githubusercontent.com/assets/1747643/18032450/6bcbdfbe-6d48-11e6-87f0-a471ff298301.png" alt="screenshot from 2016-08-28 17-49-57" /></p>
+
+<p>When <code>Enforce UTF-8 encoding</code> is on, the environment variable <code>JAVA_OPTS</code> will be set to <code>-Dfile.encoding=UTF-8</code>. This is also discussed on Stack overflow: http://stackoverflow.com/questions/361975/setting-the-default-java-character-encoding</p>
+
+<h2 id="installation">Installation</h2>
+
+<p>Install through apm or in Atom itself, where the name of the package is <code>build-oracle</code>.</p>
+
+<p><code>
+apm install build-oracle
+</code></p>
+
+<p>Once installed, you will want to access the settings and set the relevant path for your SQL interpreter. That will be either SQLcl or SQL*Plus. For me, I have <code>sqlplus</code> in my <code>path</code> so no change is necessary (there is an issue where PATH may not be correctly set in Atom, in that case you should set the full path of <code>sqlplus</code>). If I wanted to point it to the binary for <code>SQLcl</code>, which isn’t in my <code>path</code>, I would set the configuration to <code>/opt/sqlcl/bin/sql</code>.</p>
+
+<p><img src="https://cloud.githubusercontent.com/assets/1747643/11413201/79fcaa10-943a-11e5-881f-1715ef163e29.png" alt="" /></p>
+
+<h2 id="usage-instructions">Usage instructions</h2>
+
+<p>In your project root directory, add a JSON file named <code>.atom-build-oracle.json</code>, where you can define build targets for your project. This contents of the file expects an array of objects, which supports the following parameters:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property name</th>
+      <th>Description</th>
+      <th>Example</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>targetName</td>
+      <td>A descriptive name of the build target. This is so you know to which environment you’ll be compiling to.</td>
+      <td>hr: dev</td>
+    </tr>
+    <tr>
+      <td>connectString</td>
+      <td>The connect string you would used to connect to <code>sqlplus</code> on the command line. <br /><strong>note 1:</strong> You <em>must</em> specify a password at this stage. <br /><strong>note 2:</strong> <code>connectString</code> is the preferred field to use.</td>
+      <td>- hr/hr@//server:port/sid  <br />- hr/hr@XE1</td>
+    </tr>
+    <tr>
+      <td>host</td>
+      <td>The server of the database</td>
+      <td>example.com</td>
+    </tr>
+    <tr>
+      <td>port</td>
+      <td>The database port</td>
+      <td>1521 (default)</td>
+    </tr>
+    <tr>
+      <td>sid</td>
+      <td>The database SID or service name</td>
+      <td>XE</td>
+    </tr>
+    <tr>
+      <td>user</td>
+      <td>The schema name you connect to</td>
+      <td>hr</td>
+    </tr>
+    <tr>
+      <td>password</td>
+      <td>The password of the schema</td>
+      <td>oracle</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>note: <code>connectString</code> is built from the other server details if you ommit that setting.</p>
+
+<p>Examples:</p>
+
+<p>Connect string:</p>
+
+<p>Suppose I have the following TNS entry defined:</p>
+
+<p>```
+XE1 =
+    (DESCRIPTION =
+        (ADDRESS_LIST =
+            (ADDRESS = (PROTOCOL = TCP)(HOST = 192.168.56.101)(PORT = 1521))</p>
+
+<pre><code>    )
+    (CONNECT_DATA =
+        (SERVICE_NAME = XE)
+    )
+) ```
+</code></pre>
+
+<p>My build file becomes:</p>
+
+<p><code>json
+[
+    {
+        "targetName" : "hr: dev",
+        "connectString" : "hr/hr@XE1"
+    }
+]
+</code></p>
+
+<p>Individual details:
+<code>json
+[
+    {
+        "targetName" : "hr: dev",
+        "host" : "example.com",
+        "sid" : "xe",
+        "port" : 1521,
+        "user" : "hr",
+        "password" : "hr"
+    }
+]
+</code></p>
+
+<p>Where you can specify any number of build targets.
+If your database server uses service names instead of SID, you can enter the service name in the property “sid” nonetheless.</p>
+
+<p>Since this file contains sensitive information (password) you will likely also want to add an entry to your <code>.gitignore</code> file so this is not published.</p>
+
+<p><code>conf
+.atom-build-oracle.json
+</code></p>
+
+<p>It’s worth noting, that to get the build system to recognise the above configuration, you will need to reload atom (only the first time). This can be done in the menu <code>View-&gt;Reload</code> or with the keyboard shortcut <code>ctrl+alt+r</code>.</p>
+
+<p>This plugin is an extension to the <code>build</code> system, providing the necessary scripts to compile Oracle code. The build triggers are determined as part of the over-arching <code>build</code> package. To build the active file is done with the keyboard shortcut <code>ctrl+alt+b</code> or <code>cmd+alt+b</code> or <code>f9</code>. By default, this will be the first entry in your build config file. The active build target can be switched with <code>f7</code>, which will also trigger a build on the active file:</p>
+
+<p><img src="https://cloud.githubusercontent.com/assets/1747643/15595301/2eeb787e-2401-11e6-9b89-f138d261c122.png" alt="" /></p>
+
+<p>The build panel (with build output) can be toggled with <code>f8</code>.</p>
+<section class="package-keywords">
+  <strong>Keywords:</strong> build, compile, sqlcl, sql*plus, sqlplus, productivity, oracle, pl/sql, plsql <a href="https://github.com/tschf/atom-build-oracle/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

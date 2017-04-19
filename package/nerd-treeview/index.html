@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Nerd Treeview
+  <a href="https://github.com/sQu1rr/nerd-treeview">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install nerd-treeview
+  </pre>
+</div>
+<h1 id="nerd-treeview">Nerd TreeView</h1>
+
+<h3 id="unfortunately-i-switched-back-to-neovim-and-i-am-not-planning-any-improvements-in-the-future">Unfortunately, I switched back to NeoVim and I am not planning any improvements in the future</h3>
+
+<p>The Nerd TreeView package will transform the native atom Tree View to somewhat
+similar to the famous NERD Tree Vim plugin - hence the name</p>
+
+<p>Some of the NERD Tree’s functionality is present in the native Tree View by
+default, but it doesn’t expose any interface so apart from CSS developers
+can’t really change much. This package will try to replicate Vim’s original
+NERD Tree functionality</p>
+
+<h2 id="current-functionality">Current functionality</h2>
+<ul>
+  <li>Most of the key VIM NERD Tree default key bindings are working</li>
+  <li>Completely replaces standard Tree View bindings</li>
+  <li>Smooth scroll (NERD Tree like scroll - still unstable)</li>
+  <li>Search - accepts js regular expressions only, without slashes or flags</li>
+</ul>
+
+<h2 id="plannednot-available-functionality">Planned/Not Available functionality</h2>
+<ul>
+  <li>Bookmarks (Integrate with Core Bookmarks?)</li>
+  <li>NERD Tree menu (Subtree management)</li>
+  <li>cd/CD (through ex-mode extention)</li>
+  <li>Try to use vim-mode functionality where/if possible</li>
+  <li>Expose API through service</li>
+  <li>Search highlight</li>
+  <li>Show line numbers on demand (both relative and absolute)</li>
+</ul>
+
+<h2 id="installation-notes">Installation Notes</h2>
+<ul>
+  <li><strong>This is first, and very unstable version</strong></li>
+  <li>Best to use in conjunction with <a href="https://atom.io/packages/vim-mode-plus">vim-mode-plus</a>
+and <a href="https://atom.io/packages/ex-mode">ex-mode</a></li>
+  <li>Repetated operations (e.g. 10j to jump up 10 times) require disabling native
+tree view keybindings</li>
+</ul>
+
+<h2 id="tips">Tips</h2>
+<p>#### Use ZZ to save-and-close current tab/split
+See <a href="https://atom.io/packages/vim-mode-zz">vim-mode-zz</a></p>
+
+<h2 id="default-key-bindings-and-events">Default key bindings and events</h2>
+
+<h3 id="general">General</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Event</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>C-\, D-\ (mac), C-k C-b, D-k D-b (mac)</td>
+      <td>nerd-treeview:toggle</td>
+      <td>toggle the tree (default)</td>
+    </tr>
+    <tr>
+      <td>A-\, C-0 (mac)</td>
+      <td>nerd-treeview:toggle-focus</td>
+      <td>activate the tree (default)</td>
+    </tr>
+    <tr>
+      <td>C-|, D-| (mac)</td>
+      <td>nerd-treeview:reveal-active-file</td>
+      <td>jump selection to the active file</td>
+    </tr>
+    <tr>
+      <td>ZZ, q</td>
+      <td>nerd-treeview:toggle</td>
+      <td>hides tree View</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="open-files">Open Files</h3>
+
+<p>Key | Event | Description
+— | —– | ———–
+o, <CR> | nerd-treeview:open | open file or toggle folder
+go | nerd-treeview:open-stay | same as "o" but tree stays active
+t | nerd-treeview:open-tab | open selected file in a new tab
+gt | nerd-treeview:open-tab-stay | same as "t" but tree stays active
+T | nerd-treeview:add | same as "t" but current tab will stay active
+gT | nerd-treeview:add-tab-stay | same as "T" but tree stays active
+i | nerd-treeview:open-split-vertical | split open file vertically downwards
+gi | nerd-treeview:open-split-vertical-stay | same as "i" but tree stays active
+s | nerd-treeview:open-split-horizontal | split open file horizontally to the right
+gs | nerd-treeview:open-split-horizontal-stay | same as "s" but tree stays active</CR></p>
+
+<h3 id="interact-with-folders">Interact with Folders</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Event</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>O</td>
+      <td>nerd-treeview:expand</td>
+      <td>recursively expand directory</td>
+    </tr>
+    <tr>
+      <td>x</td>
+      <td>nerd-treeview:close-parent</td>
+      <td>close parent directory</td>
+    </tr>
+    <tr>
+      <td>X</td>
+      <td>nerd-treeview:close-children</td>
+      <td>close children directories recursively</td>
+    </tr>
+    <tr>
+      <td>e</td>
+      <td>nerd-treeview:open-tree</td>
+      <td>add selected folder as a new project root</td>
+    </tr>
+    <tr>
+      <td>E</td>
+      <td>nerd-treeview:open-tree-stay</td>
+      <td>same as “e” but cursor stays where it is</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="navigation">Navigation</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Event</th>
+      <th>Description</th>
+      <th>Can be prefixed</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>j, +, down</td>
+      <td>nerd-treeview:jump-down</td>
+      <td>move cursor down</td>
+      <td><strong>YES</strong></td>
+    </tr>
+    <tr>
+      <td>k, -, up</td>
+      <td>nerd-treeview:jump-up</td>
+      <td>move cursor up</td>
+      <td><strong>YES</strong></td>
+    </tr>
+    <tr>
+      <td>K</td>
+      <td>nerd-treeview:jump-first</td>
+      <td>jump cursor to the first element in this folder</td>
+      <td>NO</td>
+    </tr>
+    <tr>
+      <td>J</td>
+      <td>nerd-treeview:jump-last</td>
+      <td>jump cursor to the last element in this folder</td>
+      <td>NO</td>
+    </tr>
+    <tr>
+      <td>C-J</td>
+      <td>nerd-treeview:jump-next</td>
+      <td>jump to the next sibling</td>
+      <td><strong>YES</strong></td>
+    </tr>
+    <tr>
+      <td>C-K</td>
+      <td>nerd-treeview:jump-prev</td>
+      <td>jump to the previous sibling</td>
+      <td><strong>YES</strong></td>
+    </tr>
+    <tr>
+      <td>gg</td>
+      <td>core:move-to-top</td>
+      <td>move to the top</td>
+      <td>NO</td>
+    </tr>
+    <tr>
+      <td>G</td>
+      <td>nerd-treeview:jump-line</td>
+      <td>move to the bottom</td>
+      <td><strong>YES</strong></td>
+    </tr>
+    <tr>
+      <td>P</td>
+      <td>nerd-treeview:jump-root</td>
+      <td>jump cursor to the current root folder</td>
+      <td>NO</td>
+    </tr>
+    <tr>
+      <td>p</td>
+      <td>nerd-treeview:jump-parent</td>
+      <td>jump cursor to the parent folder</td>
+      <td><strong>YES</strong></td>
+    </tr>
+    <tr>
+      <td>H</td>
+      <td>nerd-treeview:move-to-top-of-screen</td>
+      <td>Select top line</td>
+      <td>NO</td>
+    </tr>
+    <tr>
+      <td>L</td>
+      <td>nerd-treeview:move-to-bottom-of-screen</td>
+      <td>Select bottom line</td>
+      <td>NO</td>
+    </tr>
+    <tr>
+      <td>M</td>
+      <td>nerd-treeview:move-to-middle-of-screen</td>
+      <td>Select middle line</td>
+      <td>NO</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="tree-modification">Tree modification</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Event</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>c</td>
+      <td>nerd-treeview:change-root</td>
+      <td>set selected directory as root</td>
+    </tr>
+    <tr>
+      <td>C</td>
+      <td>nerd-treeview:change-root</td>
+      <td>set selected directory as root saving folder expansion state</td>
+    </tr>
+    <tr>
+      <td>u</td>
+      <td>nerd-treeview:change-root</td>
+      <td>set root’s parent directory as root</td>
+    </tr>
+    <tr>
+      <td>U</td>
+      <td>nerd-treeview:change-root</td>
+      <td>set root’s parent directory as root saving folder expansion state</td>
+    </tr>
+    <tr>
+      <td>I</td>
+      <td>nerd-treeview:toggle-ignored-names</td>
+      <td>toggle visibility of hidden files</td>
+    </tr>
+    <tr>
+      <td>h</td>
+      <td>nerd-treeview:toggle-vcs-ignored-files</td>
+      <td>toggle visibility of hidden VCS files</td>
+    </tr>
+    <tr>
+      <td>F</td>
+      <td>nerd-treeview:toggle-files</td>
+      <td>toggle visibility of files</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="filesystem-interaction">Filesystem interaction</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Event</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Y</td>
+      <td>nerd-treeview:copy-full-path</td>
+      <td>copy full path of the selected file</td>
+    </tr>
+    <tr>
+      <td>yn</td>
+      <td>nerd-treeview:copy-name</td>
+      <td>copy file name <strong>without</strong> extension</td>
+    </tr>
+    <tr>
+      <td>yN</td>
+      <td>nerd-treeview:copy-name-ext</td>
+      <td>copy file name <strong>with</strong> extension</td>
+    </tr>
+    <tr>
+      <td>a</td>
+      <td>nerd-treeview:add-file</td>
+      <td>create new file</td>
+    </tr>
+    <tr>
+      <td>A</td>
+      <td>nerd-treeview:add-folder</td>
+      <td>create new folder</td>
+    </tr>
+    <tr>
+      <td>D</td>
+      <td>nerd-treeview:remvoe</td>
+      <td>delete file or folder, or remove project root from workspace</td>
+    </tr>
+    <tr>
+      <td>mm</td>
+      <td>nerd-treeview:move</td>
+      <td>rename/move</td>
+    </tr>
+    <tr>
+      <td>mp</td>
+      <td>nerd-treeview:paste</td>
+      <td>paste</td>
+    </tr>
+    <tr>
+      <td>yp</td>
+      <td>nerd-treeview:duplicate</td>
+      <td>duplicate</td>
+    </tr>
+    <tr>
+      <td>yy</td>
+      <td>nerd-treeview:copy</td>
+      <td>copy</td>
+    </tr>
+    <tr>
+      <td>dd</td>
+      <td>nerd-treeview:cut</td>
+      <td>cut</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="scroll">Scroll</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Event</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>C-u</td>
+      <td>nerd-treeview:scroll-half-screen-up</td>
+      <td>Scroll half screen up</td>
+    </tr>
+    <tr>
+      <td>C-b</td>
+      <td>nerd-treeview:scroll-full-screen-up</td>
+      <td>Scroll full screen up</td>
+    </tr>
+    <tr>
+      <td>C-d</td>
+      <td>nerd-treeview:scroll-half-screen-down</td>
+      <td>Scroll half screen down</td>
+    </tr>
+    <tr>
+      <td>C-f</td>
+      <td>nerd-treeview:scroll-full-screen-down</td>
+      <td>Scroll full screen down</td>
+    </tr>
+    <tr>
+      <td>C-e</td>
+      <td>nerd-treeview:scroll-down</td>
+      <td>Scroll Down</td>
+    </tr>
+    <tr>
+      <td>C-y</td>
+      <td>nerd-treeview:scroll-up</td>
+      <td>Scroll Up</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="zoom">Zoom</h3>
+
+<p>Key | Event | Description
+— | —– | ———–
+z<CR>, zt | nerd-treeview:scroll-cursor-to-top | scroll current line to the top
+z., zz | nerd-treeview:scroll-cursor-to-middle | scroll current line to the middle
+z-, zb | nerd-treeview:scroll-cursor-to-bottom | scroll current line to the bottom</CR></p>
+
+<h3 id="search">Search</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Event</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>/</td>
+      <td>nerd-treeview:search</td>
+      <td>search</td>
+    </tr>
+    <tr>
+      <td>?</td>
+      <td>nerd-treeview:reverse-search</td>
+      <td>reverse search</td>
+    </tr>
+    <tr>
+      <td>n</td>
+      <td>nerd-treeview:repeat-search</td>
+      <td>go to the next match <strong>(can be prefixed)</strong></td>
+    </tr>
+    <tr>
+      <td>N</td>
+      <td>nerd-treeview:repeat-search-backwards</td>
+      <td>go to the previous match <strong>(can be prefixed)</strong></td>
+    </tr>
+    <tr>
+      <td>:</td>
+      <td>nerd-treeview:search-clear-highlight</td>
+      <td>clear match highlight</td>
+    </tr>
+  </tbody>
+</table>
+<section class="package-keywords">
+  <strong>Keywords:</strong> treeview, nerdtree, tree, nerd, vim, bindings <a href="https://github.com/sQu1rr/nerd-treeview/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

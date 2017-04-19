@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Sonic Pi Autocomplete
+  <a href="https://github.com/euwbah/sonic-pi-autocomplete">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install sonic-pi-autocomplete
+  </pre>
+</div>
+<h1 id="sonic-pi-autocompletehttpsatomiopackagessonic-pi-autocomplete"><a href="https://atom.io/packages/sonic-pi-autocomplete">Sonic Pi Autocomplete</a></h1>
+<p>###### Atom + Sonic Pi Integration with Ultra Cow Powers!!!</p>
+
+<p>This plugin allows remote controlling <a href="http://sonic-pi.net/">Sonic Pi</a> via <a href="https://atom.io/">Atom</a>.</p>
+
+<p>Sonic Pi is fun to play with, but its built-in editor relies a lot on <code>ctrl-i</code> to get real stuff done.
+With this plugin, you can livecode without having to worry about nitty things like which parameters can you slide or control, or what are the currently available parameters for all synths, fx, samples, and functions, or whether 1 stood for linear slide_shape for one parameter, or saw mod_wave for another.</p>
+
+<p><img src="https://raw.githubusercontent.com/euwbah/sonic-pi-autocomplete/master/screenshot.png" alt="sonic-pi-atom-screenshot" /></p>
+
+<h3 id="usage">Usage</h3>
+
+<p>Start up Sonic Pi or the Sonic Pi server (over UDP), and get live coding in Atom!</p>
+
+<p>Note that the support for executing huge files with the <code>Play Huge File</code> command,
+will only work with Sonic Pi 2.11 excluding commit https://github.com/samaaron/sonic-pi/commit/16a55e7657ea5d457c70e7594adcdcbb2b9e1ccd
+(meaning you’ll have to compile it from source though, good luck!)</p>
+
+<h3 id="default-key-bindings">Default Key Bindings</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Key Binding</th>
+      <th>Action</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>alt-r</code></td>
+      <td><code>sonic-pi-autocomplete:play-file</code></td>
+      <td>Sends content of the currently open buffer to Sonic Pi for instant playback</td>
+    </tr>
+    <tr>
+      <td><code>ctrl-alt-r</code></td>
+      <td><code>sonic-pi-autocomplete:play-selection</code></td>
+      <td>Sends currently selected text to Sonic Pi for instant playback</td>
+    </tr>
+    <tr>
+      <td><code>alt-shift-r</code></td>
+      <td><code>sonic-pi-autocomplete:stop</code></td>
+      <td>Tells Sonic Pi to stop all playback</td>
+    </tr>
+    <tr>
+      <td>unbinded</td>
+      <td><code>sonic-pi-autocomplete:play-huge-file</code></td>
+      <td>Plays a large file that can’t be sent over a single OSC message</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="get-started">Get Started</h2>
+
+<h3 id="basic-usage">Basic Usage</h3>
+
+<p>Try typing</p>
+
+<p><code>
+play :c4,
+</code></p>
+
+<p>Now type <code>adsr</code>, and hit enter to use the snippet.
+Use <code>tab</code> and <code>shift-tab</code> to jump between the attack, decay, sustain and release values. Change them if you want!</p>
+
+<p>Now key in <code>amp: 0.5, </code> or some other slidable parameter. You’ll know if it’s slidable if
+there’s something on the right saying ‘Slide Syn. Pms.’ (Sliding Synth Parameters).</p>
+
+<p>Now key in <code>slideshape</code>, hit enter, and bam! There will now be <code>amp_slide</code> and <code>amp_slide_shape</code> parameters</p>
+
+<p>Key in the value for <code>amp_slide</code>, and <code>amp_slide_shape</code>… oh wait… was 1 a linear slide or a stepped slide?</p>
+
+<p>Who cares! Just type in <code>linear</code>, <code>cubic</code>, or whatever you want, hit enter and you should have something like this:</p>
+
+<p><code>
+play :c4, attack: 0.01, decay: 0, sustain: 1, release: 0.1, amp: 0.5, amp_slide: 1, amp_slide_shape: 1
+</code></p>
+
+<p>Add <code>x = </code> in front to get something like this: <code>x = play :c4, attack: 0.01, ....</code></p>
+
+<p>Try typing <code>control</code> on a new line, you should be able to see <code>x</code> as a <code>:beep</code> synth instance. Now you’ll be able to see what parameters you can control or slide for <code>:beep</code>.</p>
+
+<p>This works for all synths, the most recent <code>use_synth</code> available in the current scope will determine the synth played. This also works if you use <code>x = synth :tb303, :c4, attack: 0.01</code> or whatever function that returns a synth instance.</p>
+
+<h3 id="parsing-directives">Parsing directives</h3>
+
+<h4 id="aliasing-">Aliasing <code>#@</code></h4>
+
+<h5 id="control"><code>control</code></h5>
+
+<p>Sometimes, you may want to use <code>control</code> a lot, and you end up defining a helper function like this:</p>
+
+<p><code>ruby
+def c(*args)
+  control *args
+end
+</code></p>
+
+<p>Now if you want to alias this shortened <code>c</code> function with the original <code>control</code> function, you can create a comment on a new line that goes like this:
+<code>ruby
+#@ control c
+</code></p>
+
+<p>And now whenever you are in scope of the alias comment, you will be able to get autocompletion for <code>c</code> just as you would in <code>control</code></p>
+
+<h5 id="play"><code>play</code></h5>
+
+<p>Here’s another aliasing directive that can come in handy:
+<code>#@ play &lt;alias_name&gt; &lt;optional: parameter index to start suggestions&gt; &lt;optional: synth_used&gt;</code></p>
+
+<p>This will let you control at which parameter of the aliased <code>alias_name</code> function will autocompletions for the synth parameters appear for either the current synth, (or <code>synth_used</code>, if provided). It doesn’t have to be for the <code>play</code> command, as demonstrated in the example below:</p>
+
+<p>```ruby
+drone = synth :dark_ambience, :c2, sustain: 56, release: 8</p>
+
+<h1 id="play-ctldrone-0-darkambience">@ play ctldrone 0 :dark_ambience</h1>
+<p>define :ctldrone do |*args|
+  control drone, *args
+end
+sleep 4
+ctldrone note: :eb2
+```</p>
+
+<h5 id="note-instances">Note instances</h5>
+
+<p>It’s also possible to alias identifiers with instances of synths by using <code>#@ :synthname identifier</code></p>
+
+<p>Here’s an example:</p>
+
+<p><code>ruby
+define :rndplay do
+  return play rand * 120
+end
+</code></p>
+
+<h4 id="usesynth-">use_synth <code>#$</code></h4>
+
+<p>In the same way, if you have a function that changes synths, but the <code>use_synth</code> is not in scope, you can use <code>#$ :synthname</code> like this:
+```ruby
+define :waw do
+  use_synth :tb303
+end</p>
+
+<p>waw
+#$ :tb303
+play :c4, cutoff: 80, cutoff_min: 60
+```
+to get autocompletions for the <code>tb303</code> synth.</p>
+
+<hr />
+<p>## Full list of autocomplete features:
+##### Functions, Names and Parameters:
+  - All Synth symbols
+  - All FX symbols
+  - All Sample symbols
+  - All functions
+  - All parameters + parameter type</p>
+
+<h5 id="smart-snippets">Smart Snippets</h5>
+<ul>
+  <li><code>adsr</code>
+    <ul>
+      <li>attack, decay, sustain, release</li>
+    </ul>
+  </li>
+  <li><code>asr</code>
+    <ul>
+      <li>attack, sustain, release`</li>
+    </ul>
+  </li>
+  <li><code>pluck</code>
+    <ul>
+      <li><code>sustain: 0</code>, release</li>
+    </ul>
+  </li>
+  <li><code>slide</code>
+    <ul>
+      <li>adds a <code>_slide</code> setting for the parameter just before the cursor</li>
+    </ul>
+  </li>
+  <li><code>slidecurve</code>
+    <ul>
+      <li>same as <code>slide</code> but also adds a <code>_slide_curve</code> parameter</li>
+    </ul>
+  </li>
+  <li><code>slideshape</code>
+    <ul>
+      <li>same as <code>slide</code> but also adds a <code>_slide_shape</code> parameter</li>
+    </ul>
+  </li>
+  <li>All integer enumerations representing wave shapes in wave shape / slide shape parameters
+    <ul>
+      <li><code>step</code></li>
+      <li><code>linear</code></li>
+      <li><code>sine</code></li>
+      <li><code>welch</code></li>
+      <li><code>squared</code></li>
+      <li><code>cubed</code></li>
+      <li><code>saw</code></li>
+      <li><code>pulse</code></li>
+      <li><code>triangle</code></li>
+      <li><code>sine</code></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="whats-new">What’s new?</h2>
+
+<h3 id="v21-minor-fixes">v.2.1: Minor fixes</h3>
+<ul>
+  <li>Enumeration autocomplete now works in all places (in <code>control</code> fn, <code>with_fx</code>)</li>
+  <li>Fixed NPEs (argh)</li>
+  <li>Fixed aliases not working sometimes</li>
+</ul>
+
+<h3 id="v20-huge-update">v.2.0: Huge Update</h3>
+<ul>
+  <li>Much smarter autocompletion.</li>
+  <li>Support for ALL samples, synths, fxs, functions, and their respective params</li>
+  <li>Smart scope-based contextual autocompletion with pre-parsing features</li>
+  <li>Added autocompletion directives</li>
+</ul>
+
+<h3 id="v11-no-file-size-limit-only-if-httpsgithubcomsamaaronsonic-picommit16a55e7657ea5d457c70e7594adcdcbb2b9e1ccd-is-excluded">v.1.1: No file size limit! (only if https://github.com/samaaron/sonic-pi/commit/16a55e7657ea5d457c70e7594adcdcbb2b9e1ccd is excluded)</h3>
+<ul>
+  <li>Previously, sending OSC messages over UDP to the Sonic Pi server directly limited the maximum file size</li>
+  <li>Sonic Pi v.2.11 (still under dev) now supports loading files into the buffer and playing it directly with the /save-and-run-buffer-via-local-file OSC command</li>
+  <li>This feature can be accessed via the command palatte (ctrl-shift-P) as <code>Play Huge File</code>, but you can create your own keybindings.</li>
+</ul>
+
+<h3 id="v10-the-fork">v1.0: The fork</h3>
+<ul>
+  <li>rkh seems to have stopped development on atom-sonic, so I decided to reincarnate it as sonic-pi-autocomplete</li>
+  <li>Improved autocomplete, now with context sensing</li>
+  <li>Fixed not able to run code, creds to <a href="https://github.com/rkh/atom-sonic/compare/master...bengm:master">this</a> patch</li>
+  <li>Added necessary snippets from <code>live_loop</code>s to <code>amp_slide: 1, amp_slide_curve: 3</code></li>
+  <li>Updated all synth names, samples, fx to the latest release: Sonic Pi v2.10</li>
+  <li>Added placeholders for things like <code>note_slide_shape</code>, because memorizing <code>0: Step, 1: Linear, etc...</code> won’t cut</li>
+</ul>
+
+<h2 id="todo">TODO:</h2>
+<ul>
+  <li>Add autocomplete for <code>cue</code> and <code>sync</code></li>
+  <li>Allow function aliasing directives to be placed right before functions so that the redundant alias name parameter needn’t be there.</li>
+</ul>
+<section class="package-keywords">
+  <strong>Keywords:</strong> sonic, pi, live coding, steam, music <a href="https://github.com/euwbah/sonic-pi-autocomplete/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

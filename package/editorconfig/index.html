@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Editorconfig
+  <a href="https://github.com/sindresorhus/atom-editorconfig">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+    <span class="author">by Sindre Sorhus</span>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install editorconfig
+  </pre>
+</div>
+<h1 id="editorconfig-build-statushttpstravis-ciorgsindresorhusatom-editorconfigsvgbranchmasterhttpstravis-ciorgsindresorhusatom-editorconfig">EditorConfig <a href="https://travis-ci.org/sindresorhus/atom-editorconfig"><img src="https://travis-ci.org/sindresorhus/atom-editorconfig.svg?branch=master" alt="Build Status" /></a></h1>
+
+<p><a href="http://editorconfig.org">EditorConfig</a> helps developers maintain consistent coding styles between different editors.</p>
+
+<blockquote>
+  <p>“I will take a peanut butter sandwich on white bread” – <a href="https://www.youtube.com/watch?v=3funeDWFr9g">Ralph S. Mouse</a></p>
+</blockquote>
+
+<p><img src="https://raw.githubusercontent.com/sindresorhus/atom-editorconfig/master/fievel-mousekewitz48.gif" alt="" /></p>
+
+<h2 id="install">Install</h2>
+
+<p><code>
+$ apm install editorconfig
+</code></p>
+
+<p>Or, Settings → Install → Search for <code>editorconfig</code></p>
+
+<h2 id="getting-started">Getting started</h2>
+
+<p>See the EditorConfig <a href="http://editorconfig.org">documentation</a> for a detailed description of the <code>.editorconfig</code> file format.</p>
+
+<ol>
+  <li>Open a project containing an <code>.editorconfig</code> file.</li>
+  <li>Whenever you open a file in the project (or change any <code>.editorconfig</code> file from within Atom), EditorConfig evaluates the EditorConfig settings for the current file.</li>
+  <li>EditorConfig then applies these settings to your current editor pane. Any change you make <strong>from now on</strong> will follow the EditorConfig settings. EditorConfig won’t automatically fix older files that it considers to be malformed.</li>
+  <li>You can always check your EditorConfig settings against the current file using the <code>EditorConfig: Show State</code> command. You can try to fix malformed files using the command <code>EditorConfig: Fix File</code>.</li>
+</ol>
+
+<blockquote>
+  <p>:bulb: If EditorConfig detects any issues which may prevent it from working properly a :mouse: will appear in the status bar; click on it to open the state notification.</p>
+</blockquote>
+
+<blockquote>
+  <p>:warning: EditorConfig will not automatically fix malformed files (e.g. change all soft tabs to hard tabs) – you need to use the <code>EditorConfig: Fix File</code> command on each malformed file. Keep in mind that malformed files (especially mixed tab characters) may lead to unexpected behaviour.</p>
+</blockquote>
+
+<h2 id="supported-properties">Supported properties</h2>
+
+<ul>
+  <li><code>root</code></li>
+  <li><code>indent_style</code></li>
+  <li><code>indent_size</code> / <code>tab_width</code> <em>(<code>indent_size</code> takes precedence over <code>tab_width</code>)</em></li>
+  <li><code>charset</code> <em>(supported values: <code>latin1</code>, <code>utf-8</code>, <code>utf-16be</code>, <code>utf-16le</code>)</em></li>
+  <li><code>end_of_line</code> <em>(supported values: <code>lf</code>, <code>crlf</code>)</em></li>
+  <li><code>trim_trailing_whitespace</code> <em>(supported values: <code>true</code>, <code>false</code>)</em></li>
+  <li><code>insert_final_newline</code> <em>(supported values: <code>true</code>, <code>false</code>; Setting this to <code>false</code> strips final newlines)</em></li>
+  <li><code>max_line_length</code></li>
+</ul>
+
+<blockquote>
+  <p>:bulb: Any malformed or missing property is set to <code>auto</code> which leaves the control to Atom.</p>
+</blockquote>
+
+<h2 id="editorconfig-commands">EditorConfig commands</h2>
+
+<ul>
+  <li><code>EditorConfig: Fix File</code>: Fixes <code>indent_style</code> and <code>end_of_line</code> issues for the current editor.</li>
+  <li><code>EditorConfig: Show State</code>: Shows the current state of EditorConfig for your current editor.</li>
+  <li><code>EditorConfig: Generate Config</code>: Generates an initial <code>.editorconfig</code> for your project.</li>
+</ul>
+
+<h2 id="features">Features</h2>
+
+<ul>
+  <li>Applies the settings from your <code>.editorconfig</code> file</li>
+  <li>Ability to fix <code>indent_style</code> and <code>end_of_line</code> issues</li>
+  <li>Syntax highlights <code>.editorconfig</code> files (now with specification-like case insensitivity)</li>
+  <li>Ability to generate an <code>.editorconfig</code> file based on the current settings</li>
+  <li>Displays a nifty :mouse: in the statusBar whose color shows you if EditorConfig faces any problems</li>
+  <li>Clicking on the :mouse: invokes the <code>Show State</code> command for you</li>
+  <li>Recognizes if you save any <code>.editorconfig</code> file and reapplies all settings to <strong>all</strong> opened editor-panes</li>
+</ul>
+
+<h2 id="example-file">Example file</h2>
+
+<p>```ini
+root = true</p>
+
+<p>[*]
+indent_style = tab
+indent_size = 3
+end_of_line = lf
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true</p>
+
+<p>[*.{json,yml}]
+indent_size = 2</p>
+
+<p>[*.md]
+trim_trailing_whitespace = false
+```</p>
+
+<h2 id="changelog">Changelog</h2>
+
+<ul>
+  <li>2.2: Respecting Atom’s <code>SoftWrap</code> &amp;&amp; <code>SoftWrapAtPreferredLineLength</code>-setting; Drops custom WrapGuide-implementation and sane intercepts the core wrap-guide; Fix mouse-icon-precedence (thanks to <a href="https://github.com/gorriecoe">gorriecoe</a>); Preserves additional spaces on <code>Fix File</code>; Added warning  for interfering ‘tabs-to-spaces’-configuration</li>
+  <li>2.1: Supporting Atom’s upcoming Shadow-DOM transition; <a href="https://github.com/sindresorhus/atom-editorconfig/pull/153">optimizing package size</a></li>
+  <li>2.0: We finally support all EditorConfig properties (with the recently added <code>max_line_length</code>); introducing <code>EditorConfig: Fix File</code>; fixing EditorConfig’s onSave handling</li>
+  <li>1.7: Showing the StatusBar icon only on problems; introducing <code>EditorConfig: Show State</code>; optimizing grammar</li>
+</ul>
+
+<h2 id="troubleshooting">Troubleshooting</h2>
+
+<p>We’re sorry to hear you’re having trouble using atom-editorconfig! However, please bear some caveats in mind:</p>
+
+<ul>
+  <li><strong>Why isn’t EditorConfig applying the indentation character to my files?</strong> EditorConfig is not intended to do so; it will apply the indentation char only to <em>new</em> indentations. However, you may try to fix indentation issues with the <code>EditorConfig: Fix File</code> command.</li>
+  <li><strong>Why is <code>indent_style</code> not working?</strong> Your Atom’s config setting “Tab Type” might be set to either <code>soft</code> or <code>hard</code>, this unfortunately prevents EditorConfig from influencing the indentation style. Set Atom’s “Tab Type” to <code>auto</code> to fix that.</li>
+  <li><strong>Why is <em>feature X</em> not working?</strong> Some other packages (e.g. the “whitespace” package) override the EditorConfig settings. In these cases, we try to alert you about confirmed interferences and suggest that you try disabling the other package. If you face any unreported issues, please <a href="https://github.com/sindresorhus/atom-editorconfig/issues/new">let us know</a>.</li>
+</ul>
+
+<blockquote>
+  <p>:bulb: You can check how EditorConfig affects your current file by invoking the <code>EditorConfig: Show State</code> command. If EditorConfig detects any issues which may prevent it from working properly a  :mouse: will be shown in the status bar; clicking on it also opens the state notification.</p>
+</blockquote>
+
+<h2 id="help-us-get-better">Help us get better</h2>
+
+<p>We would be happy to hear from you – <a href="https://github.com/sindresorhus/atom-editorconfig/issues/new">please report any feedback, issues or ideas</a>. Thank you! :gift_heart:</p>
+
+<blockquote>
+  <p>:gift_heart: We thank our <a href="https://github.com/sindresorhus/atom-editorconfig/graphs/contributors">contributors</a> for their amazing work to make Atom support editorconfig!</p>
+</blockquote>
+
+<h2 id="license">License</h2>
+
+<p>MIT © <a href="https://sindresorhus.com">Sindre Sorhus</a></p>
+<section class="package-keywords">
+  <strong>Keywords:</strong> editorconfig, format, code, style, code-style <a href="https://github.com/sindresorhus/atom-editorconfig/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Go Plus
+  <a href="https://github.com/joefitzgerald/go-plus">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+    <span class="author">by Joe Fitzgerald <jfitzgerald@pivotal.io> (http://github.com/joefitzgerald)</span>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install go-plus
+  </pre>
+</div>
+<h1 id="go-plushttpsatomiopackagesgo-plus-build-statushttpstravis-ciorgjoefitzgeraldgo-plussvgbranchmasterhttpstravis-ciorgjoefitzgeraldgo-plus-build-statushttpsciappveyorcomapiprojectsstatusd0cekvaprt9wo1etbranchmastersvgtruehttpsciappveyorcomprojectjoefitzgeraldgo-plusbranchmaster-slackhttpsimgshieldsiobadgeatomslack-23go--plus-bluesvgstyleflathttpsatom-slackherokuappcom-slackhttpsimgshieldsiobadgegophersslack-23go--plus-bluesvgstyleflathttpsgophersinviteherokuappcom"><a href="https://atom.io/packages/go-plus">go-plus</a> <a href="https://travis-ci.org/joefitzgerald/go-plus"><img src="https://travis-ci.org/joefitzgerald/go-plus.svg?branch=master" alt="Build Status" /></a> <a href="https://ci.appveyor.com/project/joefitzgerald/go-plus/branch/master"><img src="https://ci.appveyor.com/api/projects/status/d0cekvaprt9wo1et/branch/master?svg=true" alt="Build status" /></a> <a href="https://atom-slack.herokuapp.com"><img src="https://img.shields.io/badge/atom_slack-%23go--plus-blue.svg?style=flat" alt="Slack" /></a> <a href="https://gophersinvite.herokuapp.com"><img src="https://img.shields.io/badge/gophers_slack-%23go--plus-blue.svg?style=flat" alt="Slack" /></a></h1>
+
+<blockquote>
+  <p>An Improved <a href="https://www.golang.org">Go</a> Experience For The <a href="https://atom.io">Atom Editor</a></p>
+</blockquote>
+
+<ul>
+  <li>Github: https://github.com/joefitzgerald/go-plus</li>
+  <li>Atom: https://atom.io/packages/go-plus</li>
+</ul>
+
+<h2 id="overview">Overview</h2>
+
+<p>This package includes the following functionality:</p>
+
+<ul>
+  <li>Display information about your current go installation, by running <code>go version</code> and <code>go env</code></li>
+  <li>Autocomplete using <code>gocode</code></li>
+  <li>Format your code with <code>gofmt</code>, <code>goimports</code>, or <code>goreturns</code>; optionally run one of these tools on save of any <code>.go</code> file</li>
+  <li>Run <code>go install .</code> and <code>go test -c -o {tempdir} .</code> to verify your code can compile and to keep <code>gocode</code> suggestions up to date</li>
+  <li>Run a variety of linters (e.g. <code>golint</code>, <code>vet</code>, etc.) against your code using <code>gometalinter</code></li>
+  <li>Run tests, display test output, and display test coverage using <code>go test -coverprofile</code></li>
+  <li>Display documentation for identifiers in source code using
+<a href="https://github.com/zmb3/gogetdoc"><code>gogetdoc</code></a></li>
+  <li>Rename the symbol under your cursor using <code>gorename</code></li>
+  <li>Go to definition using <code>guru</code> or <code>godef</code></li>
+  <li>Highlight occurrences of an identifier using <code>guru</code></li>
+  <li>Find usages of an identifier using <code>guru</code></li>
+</ul>
+
+<p>You can add debug functionality to Atom by installing the following package:</p>
+
+<ul>
+  <li><a href="https://atom.io/packages/go-debug">go-debug</a>: Debug your package / tests using <a href="https://github.com/derekparker/delve"><code>delve</code></a></li>
+</ul>
+
+<h2 id="builds">Builds</h2>
+
+<h3 id="how-are-the-builds-performed">How Are The Builds Performed?</h3>
+
+<p>The following commands are run for the directory of the current file:
+* <code>go install .</code> (for normal <code>.go</code> files)
+* <code>go test -o {tmpdir} -c .</code> (for <code>_test.go</code> files)</p>
+
+<h3 id="why-are-you-running-go-install-instead-of-go-build">Why Are You Running <code>go install</code> Instead Of <code>go build</code>?</h3>
+
+<p><code>gocode</code> (and a few other tools, like <code>gotype</code>) work on <code>.a</code> files (i.e. the package object archive), and the way to keep these up to date is to run <code>go install</code> periodically. This ensures your autocomplete suggestions are kept up to date without having to resort to <code>gocode set autobuild true</code> :tada:.</p>
+
+<h3 id="but-what-about-gb">But What About <code>gb</code>?</h3>
+
+<p>We are open to suggestions for detecting a package which is built with gb; please feel free to submit a pull request that detects a gb package without any explicit configuration and runs it.</p>
+
+<h2 id="platforms">Platforms</h2>
+
+<p>The package has CI for OS X, Windows and Ubuntu.</p>
+
+<h2 id="installing-missing-tools">Installing Missing Tools</h2>
+
+<p>If you are missing any required tools, you may be prompted to install them. You can also manually install the required tools in your terminal:</p>
+
+<p><code>
+go get -u golang.org/x/tools/cmd/goimports
+go get -u golang.org/x/tools/cmd/gorename
+go get -u github.com/sqs/goreturns
+go get -u github.com/nsf/gocode
+go get -u github.com/alecthomas/gometalinter
+go get -u github.com/zmb3/gogetdoc
+go get -u github.com/rogpeppe/godef
+go get -u golang.org/x/tools/cmd/guru
+</code></p>
+
+<h2 id="having-issues">Having Issues?</h2>
+
+<p>Please consult the <a href="https://github.com/joefitzgerald/go-plus/wiki/FAQ">FAQ</a> prior to <a href="https://github.com/joefitzgerald/go-plus/issues/new">opening an issue</a>: https://github.com/joefitzgerald/go-plus/wiki/FAQ</p>
+
+<p>If you have an issue with debugging, file an issue with  <a href="https://github.com/lloiser/go-debug"><code>go-debug</code></a> <a href="https://github.com/lloiser/go-debug/issues/new">here</a>.</p>
+
+<h2 id="maintainers">Maintainers</h2>
+<ul>
+  <li>Joe Fitzgerald (<a href="https://github.com/joefitzgerald">@joefitzgerald</a>)</li>
+  <li>Zac Bergquist (<a href="https://github.com/zmb3">@zmb3</a>)</li>
+  <li>Lukas Beranek (<a href="https://github.com/lloiser">@lloiser</a>)</li>
+</ul>
+
+<h2 id="contributors">Contributors</h2>
+<p>A list of contributors can be found at https://github.com/joefitzgerald/go-plus/graphs/contributors. Thank you so much to everyone has contributed to the package :heart:. You are awesome!</p>
+
+<h2 id="contributing">Contributing</h2>
+
+<p>Contributions are greatly appreciated. Please fork this repository, make your
+changes, and open a pull request. See <a href="https://github.com/joefitzgerald/go-plus/wiki/Contributing">Contributing</a> for detailed instructions.</p>
+<section class="package-keywords">
+  <strong>Keywords:</strong> go, golang, autocomplete, gofmt, gocode, format, fmt, godef, godoc, goimports, gorename, goreturns, lint, vet, gometalinter, go-debug, delve, hyperclick, guru <a href="https://github.com/joefitzgerald/go-plus/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

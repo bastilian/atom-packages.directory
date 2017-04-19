@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Bootstrapfour
+  <a href="https://github.com/mdegoo/atom-bootstrap4">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install atom-bootstrapfour
+  </pre>
+</div>
+<h1 id="bootstrap-4-support-for-atom">Bootstrap 4 Support for Atom</h1>
+
+<p>Provides <a href="http://v4-alpha.getbootstrap.com/">Bootstrap 4</a> classes and HTML tags with autocompletion features.</p>
+
+<p>Install:
+<code>bash
+apm install atom-bootstrap4
+</code></p>
+
+<p>Key Features:</p>
+
+<ul>
+  <li>Supports autocompletion of all helper classes in JavaScript, CSS and HTML</li>
+  <li>Snippet support for all components.</li>
+  <li>Snippet support for templates.</li>
+  <li>Snippet support for layout.</li>
+  <li>Snippet support for content.</li>
+</ul>
+
+<p>Screenshot :</p>
+
+<p><img src="https://raw.githubusercontent.com/mdegoo/atom-bootstrap4/master/atom-screenshot/screeshot_30.gif" alt="Screenshot" /></p>
+
+<p>Feel free to let me know what else you want added via:</p>
+
+<ul>
+  <li>Twitter <a href="https://twitter.com/de_gouville">@de_gouville</a></li>
+  <li>Slack   <a href="https://getbootstrap.slack.com/messages/@degouville/">@de_gouville</a></li>
+  <li>Github  <a href="https://github.com/mdegoo/atom-bootstrap4/issues">Issues</a></li>
+</ul>
+
+<p><img src="https://octodex.github.com/images/stormtroopocat.png" alt="Screenshot" /></p>
+
+<h2 id="a-namemenuamenu"><a name="menu"></a>Menu</h2>
+<ul>
+  <li>Templates
+    <ul>
+      <li><a href="#templates">Basic</a></li>
+      <li><a href="#templates">Example</a></li>
+    </ul>
+  </li>
+  <li>Layout
+    <ul>
+      <li><a href="#grid">Grid</a></li>
+      <li><a href="#media">Media</a></li>
+      <li><a href="#responsive-utilities">Responsive Utilities</a></li>
+    </ul>
+  </li>
+  <li>Content
+    <ul>
+      <li><a href="#typography">Typography</a></li>
+      <li><a href="#tables">Tables</a></li>
+      <li><a href="#figures">Figures</a></li>
+    </ul>
+  </li>
+  <li>Components
+    <ul>
+      <li><a href="#buttons">Buttons</a></li>
+      <li><a href="#button-group">Button group</a></li>
+      <li><a href="#button-dropdown">Button dropdown</a></li>
+      <li><a href="#forms">Forms</a></li>
+      <li><a href="#input-group">Input group</a></li>
+      <li><a href="#dropdowns">Dropdowns</a></li>
+      <li><a href="#jumbotron">Jumbotron</a></li>
+      <li><a href="#label">Label</a></li>
+      <li><a href="#alerts">Alerts</a></li>
+      <li><a href="#card">Card</a></li>
+      <li><a href="#navs">Navs</a></li>
+      <li><a href="#navbar">Navbar</a></li>
+      <li><a href="#breadcrumb">Breadcrumb</a></li>
+      <li><a href="#pagination">Pagination</a></li>
+      <li><a href="#progress">Progress</a></li>
+      <li><a href="#list-group">List group</a></li>
+      <li><a href="#modal">Modal</a></li>
+      <li><a href="#scrollspy">Scrollspy</a></li>
+      <li><a href="#tooltips">Tooltips</a></li>
+      <li><a href="#popovers">Popovers</a></li>
+      <li><a href="#collapse">Collapse</a></li>
+      <li><a href="#carousel">Carousel</a></li>
+      <li><a href="#utilities">Utilities</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="snippets">Snippets</h2>
+
+<h3 id="a-nametemplatestemplatesa"><a name="templates">Templates</a></h3>
+<p>| Snippets       | Descriptions                          |
+| :————- | :———————————— |
+| cdnb4         | Generates a  CSS &amp; JS from CDN        |
+| htmlb4        | Generates a  Basic HTML Template      |
+| htmlbl        | Generates a  Blog Template            |
+| htmlca        | Generates a  Carousel Template        |
+| htmlco        | Generates a  Cover Template           |
+| htmlda        | Generates a  Dashboard Template       |
+| htmlgd        | Generates a  Grids Template           |
+| htmljb        | Generates a  Jumbotron Template       |
+| htmlnb        | Generates a  Navbar Template          |
+| htmlnbfx      | Generates a  Fixed Navbar Template    |
+| htmlnbj       | Generates a  Justified nav Template   |
+| htmlnbst      | Generates a  Static top Navbar Templat|
+| htmlsf        | Generates a  Sticky footer Template   |
+| htmlsfn       | Generates a  Sticky footer w/ navbar T|
+| htmlsi        | Generates a  Sign-in Template         |
+| htmlst        | Generates a  Starter Template         |</p>
+
+<h3 id="layout">Layout</h3>
+
+<h6 id="a-namegridgrida"><a name="grid">Grid</a></h6>
+<p>| Snippets       | Descriptions                          |
+| :————- | :———————————— |
+| con            | Generates a  container                |
+| conf           | Generates a  fluid container          |
+| row            | Generates a  row                      |
+| grid           | Generates a  grid                     |
+| col            | Generates a  column                   |
+| col-xs         | Generates a  extra small column       |
+| col-sm         | Generates a  small column             |
+| col-md         | Generates a  medium column            |
+| col-lg         | Generates a  large column             |
+| col-xl         | Generates a  extra large column       |
+| colcf          | Generates a  Clearfix for Grid system |
+| 3col           | Generates a  3 Columns Grid           |
+| 2col           | Generates a  2 Columns Grid           |
+| 4col           | Generates a  4 Columns Grid           |
+| 6col           | Generates a  6 Columns Grid           |
+| 12col          | Generates a  12 Columns Grid          |
+| 2colr          | Generates a  Responsive 3 Columns Grid|
+| 3colr          | Generates a  Responsive 2 Columns Grid|
+| 4colr          | Generates a  Responsive 4 Columns Grid|
+| 6colr          | Generates a  Responsive 6 Columns Grid|
+| 12colr         | Generates a  Responsive 12 Columns Gri|</p>
+
+<h6 id="a-namemediamediaa"><a name="media">Media</a></h6>
+<p>| Snippets       | Descriptions                          |
+| :————- | :————————————-|
+| med            | Generates a  Media                    |
+| medr           | Generates a  Media right              |
+| medm           | Generates a  Media middle             |
+| medb           | Generates a  Media bottom             |
+| medl           | Generates a  Media List               |</p>
+
+<h6 id="a-nameresponsive-utilitiesresponsive-utilitiesa"><a name="responsive-utilities">Responsive Utilities</a></h6>
+<p>| Snippets       | Descriptions                          |
+| :————- | :———————————— |
+| colh           | Generates a  Responsive hidden classes|
+| colvp          | Generates a  Responsive visible print |
+| colhp          | Generates a  Responsive hidden print c|</p>
+
+<h3 id="content">Content</h3>
+
+<h6 id="a-nametypographytypographya"><a name="typography">Typography</a></h6>
+<p>| Snippets       | Descriptions                          |
+| :————- | :———————————— |
+| texm           | Generates a  Text Muted               |
+| dih            | Generates a  Display Heading          |
+| lead           | Generates a  Lead                     |
+| blo            | Generates a  Blockquotes              |
+| blor           | Generates a  Blockquotes Reverse      |
+| lisun          | Generates a  List Unstyled            |
+| lisin          | Generates a  List Inline              |
+| desho          | Generates a  Horizontal Description   |
+| imgr           | Generates a  Responsive Image -       |
+| imgro          | Generates an Image Rounded -          |
+| imgci          | Generates an Image Circle -           |
+| imgth          | Generates an Image Thumbnail -        |
+| imgl           | Generates an Image Left -             |
+| imgr           | Generates an Image Right -            |
+| imgce          | Generates an Image Center -           |</p>
+
+<h6 id="a-nametablestablesa"><a name="tables">Tables</a></h6>
+<p>| Snippets       | Descriptions                          |
+| :————- | :———————————— |
+| tab            | Generates a  Table                    |
+| tabs           | Generates a  Tables (full option)     |
+| tabhin         | Generates a  Tables Head Inverse      |
+| tabr           | Generates a  Tables Responsive        |
+| tdcs           | Generates a  Tables Colspan           |
+| tabtrc         | Generates a  Tables Colors (tr)       |
+| tabtdc         | Generates a  Tables Colors (td)       |</p>
+
+<h6 id="a-namefiguresfiguresa"><a name="figures">Figures</a></h6>
+<p>| Snippets       | Descriptions                          |
+| :————- | :———————————— |
+| figooo         | Figure                                |</p>
+
+<h3 id="components">Components</h3>
+
+<h6 id="a-namebuttonsbuttonsa"><a name="buttons">Buttons</a></h6>
+<p>| Snippets       | Descriptions                          |
+| :————- | :———————————— |
+| btn            | Generates a  Button                   |
+| btnc           | Generates a  Button colors            |
+| btno           | Generates a  Button Outline           |
+| btna           | Generates a  Button &lt; a &gt;             |
+| btni           | Generates a  Button &lt; input &gt;         |
+| btnsz          | Generates a  Button sizes             |
+| btnbk          | Generates a  Button block             |
+| btnast         | Generates a  Button state &lt; a&gt;        |
+| btnst          | Generates a  Button state             |
+| btnt           | Generates a  Button toggle            |
+| btnpr          | Generates a  Button plugin Radio      |</p>
+
+<h6 id="a-namebutton-groupbutton-groupa"><a name="button-group">Button group</a></h6>
+<p>| Snippets       | Descriptions                          |
+| :————- | :———————————— |
+| btngr          | Generates a  Button group             |
+| btntlb         | Generates a  Button toolbar           |
+| btngrsi        | Generates a  Button group size        |
+| btndr          | Generates a  Button dropdown          |
+| btngrvr        | Generates a  Button group             |</p>
+
+<h6 id="a-namebutton-dropdownbutton-dropdowna"><a name="button-dropdown">Button dropdown</a></h6>
+<p>| Snippets       | Descriptions                          |
+| :————- | :———————————— |
+| btndd          | Generates a  Button dropdown          |
+| btndu          | Generates a  Button dropup            |</p>
+
+<h6 id="a-nameformsformsa"><a name="forms">Forms</a></h6>
+<p>| Snippets       | Descriptions                          |
+| :————- | :———————————— |
+| form           | Generates a  Form Controls            |
+| formgr         | Generates a  Form group               |
+| formin         | Generates a  Form inline              |
+| formhl         | Generates a  Form hidden label        |
+| formgrid       | Generates a  Form w/ Grid             |
+| formcb         | Generates a  Form Checkbox            |
+| formcbin       | Generates a  Form Checkbox inline     |
+| formra         | Generates a  Form Radio               |
+| formrain       | Generates a  Form Radio inline        |
+| formrawola     | Generates a  Form Radio w/o label     |
+| formsc         | Generates a  Form Static Controls     |
+| formdis        | Generates a  Form disabled state      |
+| formreo        | Generates a  Form Readonly            |
+| formiptsz      | Generates a  Form input sizing        |
+| formsltsz      | Generates a  Form select sizing       |
+| formcolsz      | Generates a  Form column sizing       |
+| formht         | Generates a  Form Help text           |
+| formval        | Generates a  Form Validation          |
+| formctmcb      | Generates a  Form Custom checkbox     |
+| formctmra      | Generates a  Form Custom radio        |</p>
+
+<h6 id="a-nameinput-groupinput-groupa"><a name="input-group">Input group</a></h6>
+<p>| Snippets       | Descriptions                          |
+| :————- | :———————————— |
+| iptg           | Generates an Input Group              |
+| iptgsz         | Generates an Input Group Sizing       |
+| iptbtnadd      | Generates a  Buttons addons           |
+| iptbtnwdd      | Generates a  Buttons w/ dropdowns     |
+| iptbtnseg      | Generates a  Segmented buttons        |</p>
+
+<h6 id="a-namedropdownsdropdownsa"><a name="dropdowns">Dropdowns</a></h6>
+<p>| Snippets       | Descriptions                          |
+| :————- | :———————————— |
+| drp            | Generates a  Dropdown                 |
+| drpagm         | Generates a  Dropdown Alignement      |
+| drpmh          | Generates a  Dropdown menu header     |</p>
+
+<h6 id="a-namejumbotronjumbotrona"><a name="jumbotron">Jumbotron</a></h6>
+<p>| Snippets       | Descriptions                          |
+| :————- | :———————————— |
+| jum            | Generates a  Jumbotron                |
+| jumf           | Generates a  Fluid Jumbotron          |</p>
+
+<h6 id="a-namelabellabela"><a name="label">Label</a></h6>
+<p>| Snippets       | Descriptions                          |
+| :————- | :———————————— |
+| lab            | Generates a  Label                    |
+| labco          | Generates a  Label context            |
+| labpi          | Generates a  Label pill               |</p>
+
+<h6 id="a-namealertsalertsa"><a name="alerts">Alerts</a></h6>
+<p>| Snippets       | Descriptions                          |
+| :————- | :———————————— |
+| alesu          | Generates an Alert success            |
+| alein          | Generates an Alert info               |
+| alewa          | Generates an Alert warning            |
+| aleda          | Generates an Alert danger             |
+| aledis         | Generates an Alert dismissing         |</p>
+
+<h6 id="a-namecardcarda"><a name="card">Card</a></h6>
+<p>| Snippets       | Descriptions                          |
+| :————- | :———————————— |
+| car            | Generates a  Cards                    |
+| carct          | Generates a  Cards content type       |
+| carsz          | Generates a  Cards sizing             |
+| carta          | Generates a  Cards Text alignment     |
+| caric          | Generates a  Cards image caps         |
+| cario          | Generates a  Cards image overlays     |
+| carit          | Generates a  Cards inverted text      |
+| cargr          | Generates a  Cards groups             |
+| cardk          | Generates a  Cards decks              |
+| carcol         | Generates a  Cards columns            |
+| cargr          | Generates a  Cards groups             |
+| cargr          | Generates a  Cards groups             |</p>
+
+<h6 id="a-namenavsnavsa"><a name="navs">Navs</a></h6>
+<p>| Snippets       | Descriptions                          |
+| :————- | :———————————— |
+| nav            | Generates a  Nav                      |
+| navin          | Generates a  Nav inline               |
+| navtb          | Generates a  Nav tabs                 |
+| navpl          | Generates a  Nav pills                |
+| navplsk        | Generates a  Nav pills stacked        |
+| navtbdd        | Generates a  Nav tabs w/ dropdown     |</p>
+
+<h6 id="a-namenavbarnavbara"><a name="navbar">Navbar</a></h6>
+<p>| Snippets       | Descriptions                          |
+| :————- | :———————————— |
+| nvb            | Generates a  Navbar                   |
+| nvbc           | Generates a  Navbar color             |
+| nvbconout      | Generates a  Navbar container out     |
+| nvbconin       | Generates a  Navbar container in      |
+| nvbft          | Generates a  Navbar fixed top         |
+| nvbfb          | Generates a  Navbar fixed bottom      |
+| nvbclp         | Generates a  Navbar collapse          |
+| nvbtg          | Generates a  Navbar toggler           |
+| nvb            | Generates a  Navbar                   |</p>
+
+<h6 id="a-namebreadcrumbbreadcrumba"><a name="breadcrumb">Breadcrumb</a></h6>
+<p>| Snippets       | Descriptions                          |
+| :————- | :———————————— |
+| bre            | Generates a  Breadcrumb               |</p>
+
+<h6 id="a-namepaginationpaginationa"><a name="pagination">Pagination</a></h6>
+<p>| Snippets       | Descriptions                          |
+| :————- | :———————————— |
+| pag            | Generates a  Pagination               |
+| pagsz          | Generates a  Pagination               |
+| pager          | Generates a  Pagination pager         |</p>
+
+<h6 id="a-nameprogressprogressa"><a name="progress">Progress</a></h6>
+<p>| Snippets       | Descriptions                          |
+| :————- | :———————————— |
+| pro            | Generates a  Progress                 |
+| proco          | Generates a  Progress context         |
+| procost        | Generates a  Progress striped         |
+| prostan        | Generates a  Progress                 |</p>
+
+<h6 id="a-namelist-grouplist-groupa"><a name="list-group">List group</a></h6>
+<p>| Snippets       | Descriptions                          |
+| :————- | :———————————— |
+| lis            | Generates a  List                     |
+| lisla          | Generates a  List label               |
+| lisli          | Generates a  List linked              |
+| lisbtn         | Generates a  List button              |
+| lisdis         | Generates a  List disabled items      |
+| lisco          | Generates a  List context             |
+| liscc          | Generates a  List custom content      |</p>
+
+<h6 id="a-namemodalmodala"><a name="modal">Modal</a></h6>
+<p>| Snippets       | Descriptions                          |
+| :————- | :———————————— |
+| mod            | Generates a  Modal                    |
+| modsz          | Generates a  Modal sizes              |
+| modgr          | Generates a  Modal grid               |
+| modcb          | Generates a  Modal content based      |</p>
+
+<h6 id="a-namescrollspyscrollspya"><a name="scrollspy">Scrollspy</a></h6>
+<p>| Snippets       | Descriptions                          |
+| :————- | :———————————— |
+| scr            | Generates a  Scrollspy                |</p>
+
+<h6 id="a-nametooltipstooltipsa"><a name="tooltips">Tooltips</a></h6>
+<p>| Snippets       | Descriptions                          |
+| :————- | :———————————— |
+| too            | Generates a  Tooltipc                 |</p>
+
+<h6 id="a-namepopoverspopoversa"><a name="popovers">Popovers</a></h6>
+<p>| Snippets       | Descriptions                          |
+| :————- | :———————————— |
+| pop            | Generates a  Popover                  |
+| popdi          | Generates a  Popover direction        |</p>
+
+<h6 id="a-namecollapsecollapsea"><a name="collapse">Collapse</a></h6>
+<p>| Snippets       | Descriptions                          |
+| :————- | :———————————— |
+| coll           | Generates a  Collapse                 |
+| colla          | Generates a  Collapse accordion       |</p>
+
+<h6 id="a-namecarouselcarousela"><a name="carousel">Carousel</a></h6>
+<p>| Snippets       | Descriptions                          |
+| :————- | :———————————— |
+| caro           | Generates a  Carousel                 |
+| caroca         | Generates a  Carousel caption         |</p>
+
+<h6 id="a-nameutilitiesutilitiesa"><a name="utilities">Utilities</a></h6>
+<p>| Snippets       | Descriptions                          |
+| :————- | :———————————— |
+| texta          | Generates a  Text alignment           |
+| textt          | Generates a  Text transform           |
+| textcol        | Generates a  Text context colors      |
+| cloi           | Generates a  Close icon               |
+| cenb           | Generates a  Center block             |
+| cle            | Generates a  Clearfix                 |
+| hid            | Generates a  Hidden content           |
+| inv            | Generates an Invisible content        |
+| sro            | Generates a  Screen reader            |
+| imgre          | Generates an Image replacement        |
+| emb            | Generates a  Responsive embeds        |</p>
+
+<hr />
+
+<p><a href="#menu"><strong>Back to Top</strong></a></p>
+
+<!-- Links -->
+<section class="package-keywords">
+  <strong>Keywords:</strong> bootstrap4 , bootstrap 4, bootstrap  , framework  , responsive , flexbox    , github     , css        , js         , html <a href="https://github.com/mdegoo/atom-bootstrap4/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

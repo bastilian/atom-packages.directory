@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Typescript
+  <a href="https://github.com/TypeStrong/atom-typescript">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install atom-typescript
+  </pre>
+</div>
+<h1 id="atom-typescript">Atom TypeScript</h1>
+
+<p><a href="https://gitter.im/TypeStrong/atom-typescript?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge&amp;utm_content=badge"><img src="https://badges.gitter.im/Join%20Chat.svg" alt="Join the chat at https://gitter.im/TypeStrong/atom-typescript" /></a></p>
+
+<p>JavaScript developers can now just open a <code>.ts</code> file and start hacking away like they are used to. No <code>grunt</code> no <code>Visual Studio</code>. Just pure coding.</p>
+
+<p><strong>NOTE</strong>: This branch contains a major rewrite (<strong>v11</strong>) of the <code>atom-typescript</code> plugin that is lighter and faster, but lacks a few major features that you might miss. The previous version is still available in the <code>legacy</code> branch and will continue to receive minor bugfixes, but I wouldn’t count on any new developments.</p>
+
+<h2 id="installation">Installation</h2>
+
+<ol>
+  <li>Install <a href="https://atom.io">atom</a>.</li>
+  <li><code>apm install atom-typescript</code> (<code>apm</code> needs <code>git</code> in your path)</li>
+  <li>Fire up atom. Open a TypeScript file. Potentially wait for further installs (just <code>apm install linter</code> if its not there already).</li>
+</ol>
+
+<p><strong>Additional Notes</strong>: <a href="https://github.com/TypeStrong/atom-typescript/blob/master/docs/packages.md">Some packages we love</a>.</p>
+
+<h2 id="reviews">Reviews</h2>
+<p><em>Featured on the TypeScript home page under tools http://www.typescriptlang.org/</em> and <a href="https://twitter.com/schwarty/status/593858817894404096">demoed by <strong>Anders Hejlsberg</strong></a>.</p>
+
+<p>“I was shocked at how good it felt to poke around on the compiler with it.” <a href="https://twitter.com/jntrnr">Jonathan Turner</a>
+“And guess what, it worked perfectly. Like everything else! Faster than Visual Studio!” <a href="http://stackoverflow.com/users/27423/daniel-earwicker">Daniel Earwicker</a>
+“It’s a thing of beauty - they had me at ‘<em>Type information on hover</em>’. Discovering  <code>tsconfig.json</code> support as well was just an enormous bonus.” <a href="https://twitter.com/johnny_reilly">John Reilly</a>
+“This may be your best option for editing TypeScript at the moment - very nice!” <a href="https://twitter.com/mindplaydk">Rasmus Schultz</a></p>
+
+<p><a href="https://github.com/TypeStrong/atom-typescript/issues/66"><em>Add yours!</em></a></p>
+
+<h1 id="features">Features</h1>
+<ul>
+  <li>Autocomplete</li>
+  <li>Live error analysis</li>
+  <li>Type information on hover</li>
+  <li>Compile on save</li>
+  <li>Project Context Support (<code>tsconfig.json</code>)</li>
+  <li>Project Build Support</li>
+  <li><code>package.json</code> Support</li>
+  <li>Goto Declaration</li>
+  <li>Find References</li>
+  <li>Block comment and uncomment</li>
+  <li>Rename refactoring</li>
+  <li>Common Snippets</li>
+</ul>
+
+<h1 id="faq">FAQ</h1>
+<p>Located online : https://github.com/TypeStrong/atom-typescript/blob/master/docs/faq.md</p>
+
+<hr />
+
+<h1 id="feature-details">Feature Details</h1>
+<p>## Auto Complete
+Internally using AutoComplete+. Just start typing and hints will show up. Or you can explicitly trigger it using <code>ctrl+space</code> or <code>cmd+space</code>. Press <code>tab</code> to make a selection.</p>
+
+<h2 id="type-information-on-hover">Type information on hover</h2>
+<p>Just hover</p>
+
+<p><img src="https://raw.githubusercontent.com/TypeStrong/atom-typescript/master/docs/screens/hover.png" alt="you definitely get the point" /></p>
+
+<h2 id="compile-on-save">Compile on save</h2>
+<p>When <code>"compileOnSave": true</code> is set in <code>tsconfig.json</code>, Typescript files will be compiled and saved automatically. The compiler does its best to emit something, even if there are semantic errors in the file.</p>
+
+<h2 id="project-support">Project Support</h2>
+<p><code>atom-typescript</code> supports all the same options the Typescript compiler does as it’s using it behind the scenes to do all of the heavy lifting. In fact, <code>atom-typescript</code> will use the exact version of Typescript you have installed in your <code>node_modules</code> directory.</p>
+
+<h2 id="format-code">Format Code</h2>
+<p>Shortcut : <code>ctrl+alt+l</code> or <code>cmd+alt+l</code>. Will format just the selection if you have something selected otherwise it will format the entire file.</p>
+
+<h2 id="go-to-declaration">Go to Declaration</h2>
+<p>Shortcut : <code>F12</code>. Will open the <em>first</em> declaration of the said item for now. (Note: some people call it Go to Definition)</p>
+
+<h2 id="find-references">Find References</h2>
+<p>Shortcut <code>shift+F12</code>. Also called <em>find usages</em>.</p>
+
+<h2 id="refactoring">Refactoring</h2>
+
+<h3 id="rename">Rename</h3>
+<p><code>f2</code> to initiate rename. <code>enter</code> to commit and <code>esc</code> to cancel.
+<img src="https://raw.githubusercontent.com/TypeStrong/atom-typescript/master/docs/screens/renameRefactoring.png" alt="" /></p>
+
+<h2 id="quick-fix">Quick Fix</h2>
+<p>Current iteration of the plugin doesn’t support any Quickfixes, but they’re coming in the future.</p>
+
+<h2 id="contributing">Contributing</h2>
+
+<p>Look at <a href="https://github.com/TypeStrong/atom-typescript/blob/master/CONTRIBUTING.md">CONTRIBUTING.md</a> for curiosity. We work hard to keep the code as approachable as possible and are highly keen on helping you help us.</p>
+
+<h2 id="changelog">Changelog</h2>
+<p>Breaking changes <a href="https://github.com/TypeStrong/atom-typescript/blob/master/docs/CHANGELOG.md">available online</a>.</p>
+<section class="package-keywords">
+  <strong>Keywords:</strong> typescript, javascript, html <a href="https://github.com/TypeStrong/atom-typescript/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

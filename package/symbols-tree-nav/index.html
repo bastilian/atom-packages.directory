@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Symbols Tree Nav
+  <a href="https://github.com/nicolashainaux/symbols-tree-nav">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install symbols-tree-nav
+  </pre>
+</div>
+<h1 id="symbols-tree-nav-package">symbols-tree-nav package</h1>
+
+<p>Symbols Tree View for Atom.io, just like taglist or tagbar for VIM.</p>
+
+<p>tag-generator.coffee comes from http://github.com/atom/symbols-view</p>
+
+<p><strong>Caution</strong> If you want to try symbols-tree-nav, you must first disable symbols-tree-view, then install symbols-tree-nav. These two packages should not ne enabled in the same time (they use the same key bindings for instance…). When you want to get back to symbols-tree-view, just disable (or uninstall) symbols-tree-nav and then enable symbols-tree-view again.</p>
+
+<p><strong>Disclaimer</strong> This is a fork from https://atom.io/packages/symbols-tree-view. I am not the original author. symbols-tree-nav only offers some more options, but be warned I am no coffee script expert, so they may be experimental! At least, I use this package and it works at home. PR are welcome! Also, new contributors are welcome.</p>
+
+<p>Whenever possible, I’ll create a PR on symbols-tree-view to propose a new feature that is included in symbols-tree-nav.</p>
+
+<p>Another fork, without any extra options, but fixes for deprecations warnings, is available at https://atom.io/packages/symbols-tree-view-fix.</p>
+
+<h2 id="extra-settings">Extra Settings</h2>
+<p>The ones that are not in symbols-tree-view:</p>
+
+<p><img src="https://github.com/nicolashainaux/symbols-tree-nav/blob/master/new_settings.png?raw=true" alt="New settings illustration" /></p>
+
+<ul>
+  <li>
+    <p><code>Collapsed By Default</code> Self-explanatory (default=false)</p>
+  </li>
+  <li>
+    <p><code>Colors From Syntax Theme</code> If checked, symbols-tree-nav will try to colorize the entries based on the syntax theme you use. Depending on ctags parser results, this support may be incomplete. Do not hesitate to file an Issue and/or a PR to enhance the support. (default=false)</p>
+  </li>
+  <li>
+    <p><code>Custom Colors</code> If checked, symbols-tree-nav will use the colors defined in styles/symbols-tree-nav.less for entries when icons are hidden. See example below. These values should override the syntax theme colors. If you wish to share the same colors both when icons are shown or hidden, then just add these definitions on the same line. (default=false)</p>
+
+    <p>.symbols-tree-nav {
+    li.list-item {
+      .custom-function, .custom-method {
+        color: #61afef;
+      }
+    }
+  }</p>
+  </li>
+  <li>
+    <p><code>Show Icons</code> Self explanatory. If you wish to change the colors, then add entries for <code>.icon-function</code>, <code>.icon-variable</code> etc. classes in your styles/symbols-tree-nav.less file. (default=true)</p>
+  </li>
+  <li>
+    <p><code>AlternativeCtagsBinary</code> this one is a workaround intended for Linux users since the Linux Universal Ctags binary provided by symbols-tree-view seems to be a little bit buggy (python files are not correctly parsed, for instance). So you can check that another parser is installed on your system (like Exuberant Ctags) and provide its absolute path here. Leave default to keep using the provided binary. (default=’default’)</p>
+  </li>
+</ul>
+
+<h2 id="extra-features-without-settings">Extra Features (without settings)</h2>
+<p>Here I’ll try to keep an up-to-date list of the features that are proposed in symbols-tree-nav but not (yet?) in symbols-tree-view. Apart from the features already described in the Extra Settings section above.</p>
+
+<ul>
+  <li>
+    <p>Enhanced support for markdown files (from PR https://github.com/xndcn/symbols-tree-view/pull/138)</p>
+  </li>
+  <li>
+    <p>Support for R language</p>
+  </li>
+  <li>
+    <p>Bugfix: #148 (from PR https://github.com/xndcn/symbols-tree-view/pull/160)</p>
+  </li>
+</ul>
+
+<h2 id="to-do-yet-unchanged">TO DO (yet unchanged)</h2>
+
+<ul>
+  <li>
+    <p>Add specs for test</p>
+  </li>
+  <li>
+    <p>Improve icons</p>
+  </li>
+</ul>
+
+<section class="package-keywords">
+  <strong>Keywords:</strong> taglist, tagbar, symbols <a href="https://github.com/nicolashainaux/symbols-tree-nav/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

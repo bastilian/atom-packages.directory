@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Prettier Atom
+  <a href="https://github.com/prettier/prettier-atom">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install prettier-atom
+  </pre>
+</div>
+<h1 id="prettier-for-atom-watch-on-githubgithub-watch-badgegithub-watchstar-on-githubgithub-star-badgegithub-startweettwitter-badgetwitter">Prettier for Atom <a href="https://github.com/prettier/prettier-atom/watchers"><img src="https://img.shields.io/github/watchers/prettier/prettier-atom.svg?style=social" alt="Watch on GitHub" /></a><a href="https://github.com/prettier/prettier-atom/stargazers"><img src="https://img.shields.io/github/stars/prettier/prettier-atom.svg?style=social" alt="Star on GitHub" /></a><a href="https://twitter.com/intent/tweet?text=Check%20out%20prettier-atom!%20https://github.com/prettier/prettier-atom%20%F0%9F%91%8D"><img src="https://img.shields.io/twitter/url/https/github.com/prettier/prettier-atom.svg?style=social" alt="Tweet" /></a></h1>
+
+<!-- [![Dependencies][dependencyci-badge]][dependencyci] TODO: Add dependency CI! -->
+<!-- [![Code of Conduct][coc-badge]][coc] -->
+
+<p><a href="https://atom.io/packages/prettier-atom"><img src="https://img.shields.io/apm/v/prettier-atom.svg?style=flat-square" alt="Version" /></a>
+<a href="https://atom.io/packages/prettier-atom"><img src="https://img.shields.io/apm/dm/prettier-atom.svg?style=flat-square" alt="Downloads" /></a>
+<a href="https://travis-ci.org/prettier/prettier-atom"><img src="https://img.shields.io/travis/prettier/prettier-atom.svg?style=flat-square" alt="Build Status" /></a>
+<a href="https://codecov.io/github/prettier/prettier-atom"><img src="https://img.shields.io/codecov/c/github/prettier/prettier-atom.svg?style=flat-square" alt="Code Coverage" /></a>
+<a href="https://github.com/prettier/prettier-atom/blob/master/LICENSE"><img src="https://img.shields.io/apm/l/prettier-atom.svg?style=flat-square" alt="MIT License" /></a>
+<a href="#contributors"><img src="https://img.shields.io/badge/all_contributors-13-orange.svg?style=flat-square" alt="All Contributors" /></a>
+<a href="http://makeapullrequest.com"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square" alt="PRs Welcome" /></a></p>
+
+<p>Atom package to format your JavaScript using Prettier. Comes with powerful optional ESlint integration.</p>
+
+<h2 id="demo">Demo</h2>
+<p><img src="https://github.com/prettier/prettier-atom/raw/master/prettier-demo.gif" alt="prettier demo" /></p>
+
+<h2 id="installation">Installation</h2>
+
+<p><code>
+apm install prettier-atom
+</code></p>
+
+<p>Or, Settings → Install → Search for <code>prettier-atom</code></p>
+
+<p>Make sure to restart Atom app after package installation.</p>
+
+<h2 id="usage">Usage</h2>
+
+<p>Use two ways:</p>
+
+<ul>
+  <li>Invoke manually using the keyboard shortcut (if no selection, whole file is formatted): <kbd>ctrl</kbd> + <kbd>alt</kbd> + <kbd>f</kbd></li>
+  <li>Automatically format on save (requires enabling in Package → <code>prettier-atom</code> → Format)</li>
+</ul>
+
+<p>If you use ESlint, check the “ESLint Integration” checkbox and poof, everything should work (we use Kent Dodds’s <a href="https://github.com/prettier/prettier-atom"><code>prettier-eslint</code></a> plugin under the hood). We will recursively search up the file tree for your package.json and eslint settings and use them when formatting.</p>
+
+<p><img src="https://github.com/prettier/prettier-atom/raw/master/prettier-eslint-demo.gif" alt="prettier-eslint demo" /></p>
+
+<p>More detailed descriptions of each option can be found in the Atom settings for this plugin.</p>
+
+<p>Please open a pull request or file an issue if you notice bugs or something doesn’t work as it should!</p>
+
+<h2 id="inspiration">Inspiration</h2>
+
+<p>This repository was created by <a href="https://github.com/jlongster">James Long</a> to go along with his Prettier project. <a href="https://github.com/kentcdodds">Kent C. Dodds</a> extended Prettier to add <code>eslint --fix</code> integration as <a href="https://github.com/prettier/prettier-atom">prettier-eslint</a> and forked the original prettier-atom plugin to create the prettier-eslint-atom plugin. Because it became clear that the plugins were very similar and thus maintenance made easier by combining the two, prettier-eslint-atom, <a href="https://github.com/robwise">Rob Wise</a> merged prettier-eslint back into prettier-atom.</p>
+
+<h2 id="maintainers">Maintainers</h2>
+<p><a href="https://github.com/robwise">Rob Wise</a></p>
+
+<h2 id="contributors">Contributors</h2>
+
+<p>Thanks goes to these people (<a href="https://github.com/kentcdodds/all-contributors#emoji-key">emoji key</a>):</p>
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<p>| <a href="http://jlongster.com"><img src="https://avatars.githubusercontent.com/u/17031?v=3" width="100px;" /><br /><sub>James Long</sub></a><br />💬 <a href="https://github.com/prettier/prettier-atom/commits?author=jlongster">💻</a> <a href="https://github.com/prettier/prettier-atom/commits?author=jlongster">📖</a> 🔌 👀 | <a href="https://robwise.github.io"><img src="https://avatars.githubusercontent.com/u/6173488?v=3" width="100px;" /><br /><sub>Rob Wise</sub></a><br /><a href="https://github.com/prettier/prettier-atom/commits?author=robwise">💻</a> <a href="https://github.com/prettier/prettier-atom/commits?author=robwise">📖</a> 💬 💡 👀 <a href="https://github.com/prettier/prettier-atom/commits?author=robwise">⚠️</a> | <a href="https://kentcdodds.com"><img src="https://avatars.githubusercontent.com/u/1500684?v=3" width="100px;" /><br /><sub>Kent C. Dodds</sub></a><br /><a href="https://github.com/prettier/prettier-atom/commits?author=kentcdodds">💻</a> <a href="https://github.com/prettier/prettier-atom/commits?author=kentcdodds">📖</a> 🚇 | <a href="https://github.com/cloud-walker"><img src="https://avatars.githubusercontent.com/u/1144075?v=3" width="100px;" /><br /><sub>Luca Barone</sub></a><br /> | <a href="https://github.com/arnarthor"><img src="https://avatars.githubusercontent.com/u/4514159?v=3" width="100px;" /><br /><sub>Arnar Þór Sveinsson</sub></a><br /><a href="https://github.com/prettier/prettier-atom/commits?author=arnarthor">💻</a> | <a href="http://www.adammiskiewicz.com/"><img src="https://avatars.githubusercontent.com/u/131916?v=3" width="100px;" /><br /><sub>Adam Miskiewicz</sub></a><br /><a href="https://github.com/prettier/prettier-atom/commits?author=skevy">💻</a> | <a href="http://www.orilivni.com"><img src="https://avatars.githubusercontent.com/u/2685242?v=3" width="100px;" /><br /><sub>Ori Livni</sub></a><br /><a href="https://github.com/prettier/prettier-atom/commits?author=oriSomething">💻</a> |
+| :—: | :—: | :—: | :—: | :—: | :—: | :—: |
+| <a href="https://transcranial.github.io"><img src="https://avatars.githubusercontent.com/u/6182852?v=3" width="100px;" /><br /><sub>Leon Chen</sub></a><br /><a href="https://github.com/prettier/prettier-atom/commits?author=transcranial">💻</a> | <a href="http://blog.vjeux.com/"><img src="https://avatars.githubusercontent.com/u/197597?v=3" width="100px;" /><br /><sub>Christopher Chedeau</sub></a><br />💬 <a href="https://github.com/prettier/prettier-atom/commits?author=vjeux">💻</a> 🔌 | <a href="http://christoph-geschwind.de"><img src="https://avatars.githubusercontent.com/u/646693?v=3" width="100px;" /><br /><sub>Christoph Geschwind</sub></a><br /><a href="https://github.com/prettier/prettier-atom/commits?author=1st8">💻</a> | <a href="https://andrewhutchings.com"><img src="https://avatars.githubusercontent.com/u/35026?v=3" width="100px;" /><br /><sub>Andrew Hutchings</sub></a><br /><a href="https://github.com/prettier/prettier-atom/commits?author=ahutchings">💻</a> | <a href="http://davidschnurr.com"><img src="https://avatars.githubusercontent.com/u/875591?v=3" width="100px;" /><br /><sub>David Schnurr</sub></a><br /><a href="https://github.com/prettier/prettier-atom/commits?author=schnerd">💻</a> | <a href="http://rycole.com/"><img src="https://avatars.githubusercontent.com/u/484801?v=3" width="100px;" /><br /><sub>Ryan Cole</sub></a><br /><a href="https://github.com/prettier/prettier-atom/commits?author=ryancole">💻</a> | <a href="https://github.com/darahak"><img src="https://avatars0.githubusercontent.com/u/11488612?v=3" width="100px;" /><br /><sub>Dara Hak</sub></a><br /><a href="https://github.com/prettier/prettier-atom/commits?author=darahak">💻</a> |
+| <a href="http://www.stephenjohnsorensen.com/"><img src="https://avatars3.githubusercontent.com/u/487068?v=3" width="100px;" /><br /><sub>Stephen John Sorensen</sub></a><br /><a href="https://github.com/prettier/prettier-atom/commits?author=spudly">💻</a> | <a href="https://github.com/lgeiger"><img src="https://avatars2.githubusercontent.com/u/13285808?v=3" width="100px;" /><br /><sub>Lukas Geiger</sub></a><br /><a href="https://github.com/prettier/prettier-atom/commits?author=lgeiger">💻</a> | <a href="https://github.com/charypar"><img src="https://avatars2.githubusercontent.com/u/1517854?v=3" width="100px;" /><br /><sub>Viktor Charypar</sub></a><br /><a href="https://github.com/prettier/prettier-atom/commits?author=charypar">💻</a> <a href="https://github.com/prettier/prettier-atom/commits?author=charypar">⚠️</a> | <a href="http://mats.hgbrg.se"><img src="https://avatars0.githubusercontent.com/u/1007436?v=3" width="100px;" /><br /><sub>Mats Högberg</sub></a><br /><a href="https://github.com/prettier/prettier-atom/commits?author=mhgbrg">💻</a> |
+<!-- ALL-CONTRIBUTORS-LIST:END --></p>
+
+<p>This project follows the <a href="https://github.com/kentcdodds/all-contributors">all-contributors</a> specification. Contributions of any kind welcome!</p>
+
+<h2 id="license">LICENSE</h2>
+
+<p><a href="./LICENSE.md">MIT</a></p>
+
+<section class="package-keywords">
+  <strong>Keywords:</strong> atom, javascript, prettier, prettier-eslint, eslint, formatter <a href="https://github.com/prettier/prettier-atom/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

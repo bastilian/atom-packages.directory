@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Diary
+  <a href="https://github.com/sluedecke/atom-diary">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install atom-diary
+  </pre>
+</div>
+<h1 id="atom-diary-package">atom-diary package</h1>
+
+<p>Keep a diary in Atom using markup like <a href="http://asciidoc.org/">AsciiDoc</a> or <a href="https://daringfireball.net/projects/markdown/">Markdown</a>.</p>
+
+<p>This package allows you to keep a diary in atom - how great is that?  It has a nice three month calendar view for easy navigation to past entries and organizes your diary in monthly files.</p>
+
+<ul>
+  <li><code>Alt-Shift-d a</code>: Creates a new diary entry for the current time</li>
+  <li><code>Alt-Shift-d c</code>: Toggles the calendar view</li>
+  <li><code>Alt-Shift-d d</code>: Opens the diary as a project in a dedicated window</li>
+  <li><code>Alt-Shift-d p</code>: Creates a “printable” version of the diary</li>
+</ul>
+
+<p>This package is inspired by my Emacs module <a href="http://meta-x.de/software/diary-private.el">diary-private.el</a>.</p>
+
+<p>You might want to install the <a href="https://atom.io/packages/asciidoctor-preview">AsciiDoctor preview package for Atom</a> for previewing your diary files.</p>
+
+<h2 id="features">Features</h2>
+
+<p><img src="https://raw.githubusercontent.com/sluedecke/atom-diary/master/screenshot.png" alt="Screenshot of atom-diary" /></p>
+
+<ul>
+  <li>Creates month based AsciiDoc or Markdown files for diaries</li>
+  <li>Calendar view with clickable days</li>
+  <li>Calendar view allows to navigate back and forth between months and years</li>
+  <li>User can set a language for the diary files different from the system language</li>
+  <li>User can create a printable version of the full diary (AsciiDoc only at the moment)</li>
+  <li>User can open the diary folder as an atom project in a separate window</li>
+</ul>
+
+<h2 id="todo-items">TODO items</h2>
+
+<h3 id="major-features">Major features</h3>
+
+<ol>
+  <li>[IN PROGRESS] Make diary printable
+    <ul>
+      <li>[DONE] Create meta AsciiDoc files to create a printable diary</li>
+      <li>Create meta Markdown files to create a printable diary</li>
+      <li>Calendar View
+        <ul>
+          <li>[IN PROGRESS] Create new entries by right-clicking on a day</li>
+          <li>Add year selector (click on a year number to open selector, shall navigate to the selected year and the current month)</li>
+        </ul>
+      </li>
+      <li>[IN PROGRESS] Make diary manageable
+        <ul>
+          <li>[DONE] Add command to open diary basedir as a project with it’s own tree-view, probably integrate with <a href="https://atom.io/packages/project-manager">project-manager</a></li>
+          <li>Add sorting and other cleanup routines</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ol>
+
+<h3 id="minor-features">Minor features</h3>
+
+<ul>
+  <li>Ask user on the very first start whether he wants to use AsciiDoc or Markdown</li>
+  <li>Make navigating to settings an option in the packages menu (or add easy switching of markup language)</li>
+  <li>Expand on ~/ and $HOME in baseDir configuration</li>
+  <li>Improve markup support by using file templates</li>
+  <li>Watch for changes on diary files even when they are changed by atom outside atom-diary</li>
+  <li>Add some simple caching in calendar-lib::getDays which is based on file modification times</li>
+  <li>When day changes, update marker on calendar view</li>
+  <li>If available, open a pane with asciidoc/asciidoctor preview</li>
+  <li>What happens if project-manager is not installed?</li>
+</ul>
+<section class="package-keywords">
+  <strong>Keywords:</strong> diary, asciidoc, asciidoctor, markdown <a href="https://github.com/sluedecke/atom-diary/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

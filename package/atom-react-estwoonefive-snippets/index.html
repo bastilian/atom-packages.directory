@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  React Estwoonefive Snippets
+  <a href="https://github.com/manuelbieh/atom-react-es2015-snippets">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install atom-react-estwoonefive-snippets
+  </pre>
+</div>
+<h1 id="atom-react-es2015-snippets">Atom React ES2015 Snippets</h1>
+
+<p>Some very opinionated (how <a href="https://www.manuelbieh.de">I</a> like it) React ES2015/2016/2017/Stage-0 snippets for Atom</p>
+
+<h2 id="react-component-class-rckbdtabkbd">React Component Class <code>rc</code>→<kbd>tab</kbd></h2>
+
+<p>```
+import React from ‘react’;
+import PropTypes from ‘prop-types’;</p>
+
+<p>export default class ${1:MyComponent} extends Component {</p>
+
+<pre><code>static propTypes = {
+    ${2}
+};
+
+constructor(props) {
+    super(props);
+    this.state = {};
+}
+
+render() {
+    return (
+        ${3:&lt;div&gt;&lt;/div&gt;}
+    );
+}
+</code></pre>
+
+<p>}
+```</p>
+
+<h2 id="react-component-class-with-child-context-rcckbdtabkbd">React Component Class with Child Context <code>rcc</code>→<kbd>tab</kbd></h2>
+
+<p>```
+import React from ‘react’;
+import PropTypes from ‘prop-types’;</p>
+
+<p>export default class ${1:MyComponent} extends Component {</p>
+
+<pre><code>static propTypes = {
+    ${2}
+};
+
+static childContextTypes = {
+    ${3}
+};
+
+constructor(props) {
+    super(props);
+    this.state = {};
+}
+
+getChildContext() {
+    return {
+        ${4}
+    };
+}
+
+render() {
+    return (
+        ${5:&lt;div&gt;&lt;/div&gt;}
+    );
+}
+</code></pre>
+
+<p>}
+```</p>
+
+<h2 id="react-functional-component-rfnkbdtabkbd">React Functional Component <code>rfn</code>→<kbd>tab</kbd></h2>
+
+<p>```
+import React from ‘react’;
+import PropTypes from ‘prop-types’;</p>
+
+<p>export default function ${1}(props) {
+    return (
+        ${2:&lt;div&gt;MyComponent&lt;/div&gt;}
+    );
+}</p>
+
+<p>${1}.propTypes = {
+    ${3}
+};
+```</p>
+
+<h2 id="react-functional-component-with-context-rfnckbdtabkbd">React Functional Component with Context <code>rfnc</code>→<kbd>tab</kbd></h2>
+
+<p>```
+import React from ‘react’;
+import PropTypes from ‘prop-types’;</p>
+
+<p>export default function ${1}(props, context) {
+    return (
+        ${2:&lt;div&gt;MyComponent&lt;/div&gt;}
+    );
+}</p>
+
+<p>${1}.propTypes = {
+    ${3}
+};</p>
+
+<p>${1}.contextTypes = {
+    ${4}
+};
+```</p>
+
+<h2 id="lifecycle-methods">Lifecycle Methods</h2>
+
+<p>There is a shortcut for each of React’s lifecycle methods. Just use the first letters of the method’s words. <code>componentDidMount</code> = <code>cdm</code>, <code>componentWillReceiveProps</code> = <code>cwrp</code>, etc. Since <code>componentWillUpdate</code> and <code>componentWillUnmount</code> share the same letters/abbreviation you need to use <code>cwun</code> for the latter.</p>
+
+<h2 id="proptypes">PropTypes</h2>
+
+<p>PropType shortcuts begin with <code>pt</code> (or <code>rpt</code> if you need <code>React.PropTypes…</code>) and end with a lowercase (if optional) or uppercase (if required) letter (or letters) indicating their type (a = array, o = object, oo = oneOf, etc.). Here is a full list:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Shortcut</th>
+      <th>PropType</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>(r)pts</code></td>
+      <td><code>(React.)PropTypes.string</code></td>
+    </tr>
+    <tr>
+      <td><code>(r)ptS</code></td>
+      <td><code>(React.)PropTypes.string.isRequired</code></td>
+    </tr>
+    <tr>
+      <td><code>(r)ptn</code></td>
+      <td><code>(React.)PropTypes.number</code></td>
+    </tr>
+    <tr>
+      <td><code>(r)ptN</code></td>
+      <td><code>(React.)PropTypes.number.isRequired</code></td>
+    </tr>
+    <tr>
+      <td><code>(r)pto</code></td>
+      <td><code>(React.)PropTypes.object</code></td>
+    </tr>
+    <tr>
+      <td><code>(r)ptO</code></td>
+      <td><code>(React.)PropTypes.object.isRequired</code></td>
+    </tr>
+    <tr>
+      <td><code>(r)pta</code></td>
+      <td><code>(React.)PropTypes.string</code></td>
+    </tr>
+    <tr>
+      <td><code>(r)ptA</code></td>
+      <td><code>(React.)PropTypes.string.isRequired</code></td>
+    </tr>
+    <tr>
+      <td><code>(r)ptany</code></td>
+      <td><code>(React.)PropTypes.string</code></td>
+    </tr>
+    <tr>
+      <td><code>(r)ptAny</code></td>
+      <td><code>(React.)PropTypes.string.isRequired</code></td>
+    </tr>
+    <tr>
+      <td><code>(r)ptb</code></td>
+      <td><code>(React.)PropTypes.bool</code></td>
+    </tr>
+    <tr>
+      <td><code>(r)ptB</code></td>
+      <td><code>(React.)PropTypes.bool.isRequired</code></td>
+    </tr>
+    <tr>
+      <td><code>(r)ptf</code></td>
+      <td><code>(React.)PropTypes.func</code></td>
+    </tr>
+    <tr>
+      <td><code>(r)ptF</code></td>
+      <td><code>(React.)PropTypes.func.isRequired</code></td>
+    </tr>
+    <tr>
+      <td><code>(r)ptsh</code></td>
+      <td><code>(React.)PropTypes.shape({${1}})</code></td>
+    </tr>
+    <tr>
+      <td><code>(r)ptSh</code></td>
+      <td><code>(React.)PropTypes.shape({${1}}).isRequired</code></td>
+    </tr>
+    <tr>
+      <td><code>(r)ptoo</code></td>
+      <td><code>(React.)PropTypes.oneOf([${1}])</code></td>
+    </tr>
+    <tr>
+      <td><code>(r)ptOo</code></td>
+      <td><code>(React.)PropTypes.oneOf([${1}]).isRequired</code></td>
+    </tr>
+    <tr>
+      <td><code>(r)ptoot</code></td>
+      <td><code>(React.)PropTypes.oneOfType([${1}])</code></td>
+    </tr>
+    <tr>
+      <td><code>(r)ptOot</code></td>
+      <td><code>(React.)PropTypes.oneOfType([${1}]).isRequired</code></td>
+    </tr>
+    <tr>
+      <td><code>(r)ptao</code></td>
+      <td><code>(React.)PropTypes.arrayOf(${1})</code></td>
+    </tr>
+    <tr>
+      <td><code>(r)ptAo</code></td>
+      <td><code>(React.)PropTypes.arrayOf(${1}).isRequired</code></td>
+    </tr>
+    <tr>
+      <td><code>(r)ptio</code></td>
+      <td><code>(React.)PropTypes.instanceOf(${1})</code></td>
+    </tr>
+    <tr>
+      <td><code>(r)ptIo</code></td>
+      <td><code>(React.)PropTypes.instanceOf(${1}).isRequired</code></td>
+    </tr>
+    <tr>
+      <td><code>(r)pte</code></td>
+      <td><code>(React.)PropTypes.element</code></td>
+    </tr>
+    <tr>
+      <td><code>(r)ptE</code></td>
+      <td><code>(React.)PropTypes.element.isRequired</code></td>
+    </tr>
+    <tr>
+      <td><code>(r)ptnode</code></td>
+      <td><code>(React.)PropTypes.node</code></td>
+    </tr>
+    <tr>
+      <td><code>(r)ptNode</code></td>
+      <td><code>(React.)PropTypes.node.isRequired</code></td>
+    </tr>
+  </tbody>
+</table>
+<section class="package-keywords">
+  <strong>Keywords:</strong> react, es6, es2015, es2016, es2017, babel, snippets <a href="https://github.com/manuelbieh/atom-react-es2015-snippets/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

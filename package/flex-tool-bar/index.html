@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Flex Tool Bar
+  <a href="https://github.com/cakecatz/flex-toolbar">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install flex-tool-bar
+  </pre>
+</div>
+<h1 id="flex-tool-bar">Flex Tool Bar</h1>
+
+<p><a href="https://travis-ci.org/cakecatz/flex-toolbar"><img src="https://travis-ci.org/cakecatz/flex-toolbar.svg?branch=master" alt="Build Status" /></a></p>
+
+<h2 id="about">About</h2>
+
+<p>This is a plugin for
+the <a href="https://atom.io/packages/tool-bar">Atom Tool Bar</a> package.</p>
+
+<p>You can configure your toolbar buttons with a <code>CSON</code>, <code>JSON</code>, <code>JSON5</code>, <code>js</code>, <code>coffee</code> file
+to perform specific actions in Atom
+or to open web sites in your default browser.</p>
+
+<p><img src="https://raw.githubusercontent.com/cakecatz/flex-toolbar/docs/screenshot_cson.png" alt="screenshot" /></p>
+
+<p>To edit your config file,
+type <code>Flex Tool Bar: Edit Config File</code> in the Atom command palette.</p>
+
+<h2 id="configuration">Configuration</h2>
+
+<p><strong>Flex Tool Bar</strong> has four <code>type</code>s you can configure:
+<code>button</code>, <code>url</code>, <code>function</code> and <code>spacer</code>.</p>
+
+<ul>
+  <li>
+    <p><code>button</code> creates default buttons for your toolbar.</p>
+
+    <p>You can use it to set actions like <code>application:new-file</code>.</p>
+  </li>
+  <li>
+    <p><code>url</code> creates buttons pointing to specific web pages.</p>
+
+    <p>Use this to open any web site, such as your GitHub notifications,
+in your default browser. See this feature in action in this <a href="http://quick.as/b5vafe4g">screencast</a>.</p>
+
+    <p>If you have the package <a href="https://atom.io/packages/browser-plus">browser-plus</a>
+installed, you can use it to open your links.
+Just check the box in Flex Tool Bar’s settings.</p>
+
+    <p>Also Atom URI are allowed. For example
+<code>atom://config/packages/flex-tool-bar</code> will open Flex Tool Bar’s settings.</p>
+  </li>
+  <li>
+    <p><code>function</code> creates buttons that can call a function with the previous target as a parameter</p>
+
+    <p>This requires the config file to be a <code>.js</code> or <code>.coffee</code> file that exports the array of buttons</p>
+  </li>
+  <li>
+    <p><code>spacer</code> adds separators between toolbar buttons.</p>
+  </li>
+</ul>
+
+<h3 id="features">Features</h3>
+
+<ul>
+  <li>multiple callback</li>
+  <li>function callback</li>
+  <li>inline button styles</li>
+  <li>add class(s) to buttons</li>
+  <li>hide/disable a button in certain cases</li>
+</ul>
+
+<h3 id="button-style">Button style</h3>
+
+<p>You can use CSS styles per button.</p>
+
+<p><code>coffeescript
+style: {
+  color: "red"
+  background: "green"
+  border: "1px solid blue"
+}
+</code></p>
+
+<h3 id="button-class">Button class</h3>
+
+<p>Using a comma separated list you can add your own class names to buttons.
+This is great if you want to take advantage of native styles like Font Awesome
+or if you have your own styles you prefer to keep in a stylesheet.</p>
+
+<p><code>coffeescript
+className: "fa-rotate-90, custom-class"
+</code></p>
+
+<h3 id="multiple-callback">Multiple callback</h3>
+
+<p><code>coffeescript
+callback: ["callback1", "callback2"]
+</code></p>
+
+<h3 id="function-callback">Function callback</h3>
+
+<p><code>coffeescript
+callback: target -&gt;
+  console.log target
+</code></p>
+
+<h3 id="hideshow-disableenable-button">Hide(Show), Disable(Enable) button</h3>
+
+<p>You can hide or disable buttons when a certain grammar is
+used in the active file or a specified file is matched.</p>
+
+<p>If you set <code>disable</code> (<code>show</code>, <code>hide</code> or <code>enable</code>) this way:</p>
+
+<p><code>coffeescript
+disable: "coffee"
+</code></p>
+
+<p>It will disable the button if a CoffeeScript file is open.</p>
+
+<p>You can also look for a specific file using <a href="https://tr.im/glob">globs</a>:</p>
+
+<p><code>coffeescript
+show: {
+  pattern: 'gulpfile.js'
+  options: {
+    maxDepth: 2
+  }
+}
+</code></p>
+
+<p>The package uses <a href="https://github.com/bored/tree-match-sync">tree-match-sync</a>
+that depends on the <code>tree</code> command, <a href="https://github.com/bored/tree-match-sync#installation">install it</a>
+before using this feature.</p>
+
+<p>The options are explained <a href="https://github.com/isaacs/minimatch#options">here</a>
+and it has an extra field: <code>maxDepth</code>,
+it translates to <code>tree</code>’s option <code>-L</code>, you should always set it.</p>
+
+<p>Of course, you can set it as an array.</p>
+
+<p><code>coffeescript
+disable: [
+  "json"
+  "less"
+]
+</code></p>
+
+<p>You can use <code>!</code> :laughing:</p>
+
+<p><code>coffeescript
+hide: "!Markdown"
+</code></p>
+
+<p>This will hide button when opened any file except Markdown.</p>
+
+<p><code>coffeescript
+show: "Markdown"
+</code></p>
+
+<p>This is same above.</p>
+
+<h3 id="cson-example">.cson Example</h3>
+
+<p><code>coffeescript
+[
+  {
+    type: "url"
+    icon: "octoface"
+    url: "https://github.com/"
+    tooltip: "Github Page"
+  }
+  {
+    type: "spacer"
+  }
+  {
+    type: "button"
+    icon: "document"
+    callback: "application:new-file"
+    tooltip: "New File"
+    iconset: "ion"
+    mode: "dev"
+  }
+  {
+    type: "button"
+    icon: "columns"
+    iconset: "fa"
+    callback: ["pane:split-right", "pane:split-right"]
+  }
+  {
+    type: "button"
+    icon: "circuit-board"
+    callback: "git-diff:toggle-diff-list"
+    style:
+      color: "#FA4F28"
+  }
+  {
+    type: "button"
+    icon: "markdown"
+    callback: "markdown-preview:toggle"
+    disable: "!markdown"
+  }
+  {
+    type: "button"
+    icon: "sitemap"
+    iconset: "fa"
+    className: "fa-rotate-180"
+    tooltip: "This is just an example it does nothing"
+  }
+]
+</code></p>
+
+<h3 id="coffee-example">.coffee Example</h3>
+
+<p><code>coffeescript
+module.exports = [
+  {
+    type: "function"
+    icon: "bug"
+    callback: (target) -&gt;
+      console.dir target
+    tooltip: "Debug Target"
+  }
+  {
+    type: "spacer"
+  }
+  {
+    type: "url"
+    icon: "octoface"
+    url: "https://github.com/"
+    tooltip: "Github Page"
+  }
+  {
+    type: "spacer"
+  }
+  {
+    type: "button"
+    icon: "document"
+    callback: "application:new-file"
+    tooltip: "New File"
+    iconset: "ion"
+    mode: "dev"
+  }
+  {
+    type: "button"
+    icon: "columns"
+    iconset: "fa"
+    callback: ["pane:split-right", "pane:split-right"]
+  }
+  {
+    type: "button"
+    icon: "circuit-board"
+    callback: "git-diff:toggle-diff-list"
+    style:
+      color: "#FA4F28"
+  }
+  {
+    type: "button"
+    icon: "markdown"
+    callback: "markdown-preview:toggle"
+    disable: "!markdown"
+  }
+  {
+    type: "button"
+    icon: "sitemap"
+    iconset: "fa"
+    className: "fa-rotate-180"
+    tooltip: "This is just an example it does nothing"
+  }
+]
+</code></p>
+
+<h3 id="per-project-configuration">Per Project Configuration</h3>
+
+<p>If you want buttons that are only for a specific project. Create a toolbar configuration file at the root of your project directory that is listed in the Atom Tree View. All buttons added to the project toolbar will append to the global toolbar buttons.</p>
+
+<p>See more examples on <a href="https://github.com/cakecatz/flex-toolbar/wiki">Wiki</a> ✨</p>
+
+<h2 id="authors">Authors</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center"><a href="https://github.com/cakecatz"><img src="https://avatars.githubusercontent.com/u/6136383?v=3&amp;s=100" alt="Ryo Narita" /></a></th>
+      <th style="text-align: center"><a href="https://github.com/jerone"><img src="https://avatars.githubusercontent.com/u/55841?v=3&amp;s=100" alt="Jeroen van Warmerdam" /></a></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><a href="https://github.com/cakecatz">Ryo Narita</a></td>
+      <td style="text-align: center"><a href="https://github.com/jerone">Jeroen van Warmerdam</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="license">License</h2>
+
+<p>MIT © <a href="https://github.com/cakecatz">Ryo Narita</a></p>
+
+<section class="package-keywords">
+  <strong>Keywords:</strong> toolbar, tool-bar <a href="https://github.com/cakecatz/flex-toolbar/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

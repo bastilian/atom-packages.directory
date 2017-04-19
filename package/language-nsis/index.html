@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Nsis
+  <a href="https://github.com/idleberg/atom-language-nsis">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+    <span class="author">by Jan T. Sott</span>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install language-nsis
+  </pre>
+</div>
+<h1 id="nsis-for-atom">NSIS for Atom</h1>
+
+<p><a href="https://atom.io/packages/language-nsis"><img src="https://img.shields.io/apm/l/language-nsis.svg?style=flat-square" alt="apm" /></a>
+<a href="https://atom.io/packages/language-nsis"><img src="https://img.shields.io/apm/v/language-nsis.svg?style=flat-square" alt="apm" /></a>
+<a href="https://atom.io/packages/language-nsis"><img src="https://img.shields.io/apm/dm/language-nsis.svg?style=flat-square" alt="apm" /></a>
+<a href="https://travis-ci.org/idleberg/atom-language-nsis"><img src="https://img.shields.io/travis/idleberg/atom-language-nsis.svg?style=flat-square" alt="Travis" /></a>
+<a href="https://david-dm.org/idleberg/atom-language-nsis?type=dev"><img src="https://img.shields.io/david/dev/idleberg/atom-language-nsis.svg?style=flat-square" alt="David" /></a>
+<a href="https://gitter.im/NSIS-Dev/Atom"><img src="https://img.shields.io/badge/chat-Gitter-ed1965.svg?style=flat-square" alt="Gitter" /></a></p>
+
+<p>Language syntax, auto-completions and build system for Nullsoft Scriptable Install System (NSIS), as well as language syntax for NSIS Language Files (NLF).</p>
+
+<p><img src="https://raw.github.com/idleberg/atom-language-nsis/master/screenshot.gif" alt="Screenshot" /></p>
+
+<p><em>Screenshot of NSIS in Atom with <a href="https://atom.io/themes/hopscotch">Hopscotch</a> theme</em></p>
+
+<h2 id="features">Features</h2>
+
+<ul>
+  <li>syntax grammar for NSIS and NSIS Language Files (.nlf)</li>
+  <li>auto-complete core NSIS commands, variables and predefines</li>
+  <li>auto-complete core Plugins:
+    <ul>
+      <li>AdvSplash</li>
+      <li>Banner</li>
+      <li>BgImage</li>
+      <li>Dialer</li>
+      <li>InstallOptions</li>
+      <li>LangDLL</li>
+      <li>Math</li>
+      <li>nsDialogs</li>
+      <li>nsExec</li>
+      <li>NSISdl</li>
+      <li>Splash</li>
+      <li>StartMenu</li>
+      <li>System</li>
+      <li>UserInfo</li>
+      <li>VPatch</li>
+    </ul>
+  </li>
+  <li>auto-complete core libraries (“Useful Headers”):
+    <ul>
+      <li>FileFunc</li>
+      <li>LogicLib</li>
+      <li>Memento</li>
+      <li>Modern UI</li>
+      <li>MultiUser</li>
+      <li>Sections</li>
+      <li>StrFunc</li>
+      <li>WinMessages</li>
+      <li>WinVer</li>
+      <li>WordFunc</li>
+      <li>x64</li>
+    </ul>
+  </li>
+  <li><a href="https://github.com/idleberg/atom-language-nsis#drunken-nsis">Drunken NSIS</a></li>
+  <li><a href="https://github.com/idleberg/atom-language-nsis#building">Build Tools</a></li>
+</ul>
+
+<p>You can further extend this package with snippets for <a href="https://atom.io/packages/nsis-plugins">third-party plug-ins</a>.</p>
+
+<h2 id="installation">Installation</h2>
+
+<h3 id="apm">apm</h3>
+
+<p>Install <code>language-nsis</code> from Atom’s <a href="http://flight-manual.atom.io/using-atom/sections/atom-packages/">Package Manager</a> or the command-line equivalent:</p>
+
+<p><code>$ apm install language-nsis</code></p>
+
+<h3 id="using-git">Using Git</h3>
+
+<p>Change to your Atom packages directory:</p>
+
+<p>```bash
+# Windows
+$ cd %USERPROFILE%.atom\packages</p>
+
+<h1 id="linux--macos">Linux &amp; macOS</h1>
+<p>$ cd ~/.atom/packages/
+```</p>
+
+<p>Clone repository as <code>language-nsis</code>:</p>
+
+<p><code>bash
+$ git clone https://github.com/idleberg/atom-language-nsis language-nsis
+</code></p>
+
+<p>Inside the cloned directory, install Node dependencies:</p>
+
+<p><code>bash
+$ yarn || npm install
+</code></p>
+
+<h3 id="package-dependencies">Package Dependencies</h3>
+
+<p>This package automatically installs third-party packages it depends on. You can prevent this by disabling the <em>Manage Dependencies</em> option in the package settings.</p>
+
+<h2 id="usage">Usage</h2>
+
+<h3 id="completion">Completion</h3>
+
+<p>With most commands, you can specify available options before completion. For instance, rather than completing <code>RequestExecutionLevel</code> and then specifying an option, you can directly choose <code>RequestExecutionLevel user</code> from the completion menu.</p>
+
+<p>To complete <a href="http://nsis.sourceforge.net/Docs/Chapter5.html#">compile time commands</a>, <a href="http://nsis.sourceforge.net/Docs/Chapter4.html#varother">variables</a> or <a href="http://nsis.sourceforge.net/Docs/Chapter5.html#comppredefines">predefines</a>, make sure to <em>omit special characters</em> like <code>!</code>, <code>$</code> and brackets:</p>
+
+<ul>
+  <li><code>include</code> completes to <code>!include</code></li>
+  <li><code>INSTDIR</code> completes to <code>$INSTDIR</code></li>
+  <li><code>NSIS_VERSION</code> completes to <code>${NSIS_VERSION}</code></li>
+</ul>
+
+<p>However, you have to type <code>__LINE__</code> to complete to <code>${__LINE__}</code>.</p>
+
+<p>There are several special cases for your convenience:</p>
+
+<ul>
+  <li><code>MB_OK</code> completes to <code>MessageBox MB_OK "messagebox_text"</code></li>
+  <li><code>onInit</code> completes to a <code>Function .onInit</code> block</li>
+  <li><code>LogicLib</code> completes to <code>!include "LogicLib.nsh"</code></li>
+</ul>
+
+<h4 id="drunken-nsis">Drunken NSIS</h4>
+
+<p>Fuzzy syntax completions are available through the “Drunken NSIS” snippets, which iron out some of the inconsistencies of the NSIS language, for instance word order.</p>
+
+<p><strong>Example:</strong></p>
+
+<ul>
+  <li><code>FileRead</code> equals <code>ReadFile</code></li>
+  <li><code>ReadINIStr</code> equals <code>INIStrRead</code></li>
+  <li><code>SectionSetText</code> equals <code>SetSectionText</code></li>
+  <li><code>LogSet</code> equals <code>SetLog</code></li>
+  <li><code>FindFirst</code> equals <code>FirstFind</code></li>
+  <li><code>${FindLine}</code> equals <code>${LineFind}</code></li>
+</ul>
+
+<h3 id="building">Building</h3>
+
+<p>There are many ways to compile NSIS scripts in Atom. But before you read on, make sure <code>makensis</code> is in your <a href="http://superuser.com/a/284351/195953">PATH environmental variable</a>.</p>
+
+<p>As of recently, this package contains build system to compile your NSIS scripts. To trigger a build, select <em>“NSIS: Save &amp; Compile”</em> from the <a href="https://atom.io/docs/latest/getting-started-atom-basics#command-palette">command-palette</a> or use the keyboard shortcut.</p>
+
+<p>If you prefer working with specific compiler arguments, you can specify them in your Atom <a href="http://flight-manual.atom.io/using-atom/sections/basic-customization/#_global_configuration_settings">configuration</a>. Optionally, you can also specify the path to <code>makensis</code>.</p>
+
+<p><strong>Example:</strong></p>
+
+<p><code>cson
+"language-nsis":
+  compilerArguments: "/WX /V3"
+  pathToMakensis: "/usr/local/bin/makensis"
+</code></p>
+
+<h4 id="third-party-build-tools">Third-party Build Tools</h4>
+
+<p>Should you prefer working with an existing third-party build system, the following packages already have support for NSIS.</p>
+
+<ul>
+  <li><a href="https://atom.io/packages/build">build</a> – requires additional provider (e.g. <a href="https://atom.io/packages/build-makensis">build-makensis</a>), supports <a href="https://atom.io/packages/linter">linter</a> package</li>
+  <li><a href="https://atom.io/packages/script">script</a></li>
+  <li><a href="https://atom.io/packages/atom-runner">atom-runner</a></li>
+</ul>
+
+<p>Project files for <code>build</code> can be created by executing <em>“NSIS: Create .atom-build file”</em> from the <a href="https://atom.io/docs/latest/getting-started-atom-basics#command-palette">command-palette</a> or using the keyboard shortcut. An equivalent for <a href="https://atom.io/packages/build-makensis-wine">building on Wine</a> is also available. You can specify your preferred build file syntax (CSON/JSON/YAML) in the package settings.</p>
+
+<p>You can set up <code>atom-runner</code> by executing <em>“NSIS: Set default runner”</em> from the <a href="https://atom.io/docs/latest/getting-started-atom-basics#command-palette">command-palette</a> or packages menu. To remove it, use <em>“NSIS: Remove default runner”</em>.</p>
+
+<h2 id="license">License</h2>
+
+<p>This work is dual-licensed under <a href="https://opensource.org/licenses/MIT">The MIT License</a> and the <a href="https://opensource.org/licenses/GPL-2.0">GNU General Public License, version 2.0</a></p>
+
+<h2 id="donate">Donate</h2>
+
+<p>You are welcome support this project using <a href="https://flattr.com/submit/auto?user_id=idleberg&amp;url=https://github.com/idleberg/atom-language-nsis">Flattr</a> or Bitcoin <code>17CXJuPsmhuTzFV2k4RKYwpEHVjskJktRd</code></p>
+<section class="package-keywords">
+  <strong>Keywords:</strong> nsis, nullsoft, installer, setup, windows, build, build tool, compiler, grammar, language syntax <a href="https://github.com/idleberg/atom-language-nsis/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

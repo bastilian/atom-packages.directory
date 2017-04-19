@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Frontendler Atom Snippets
+  <a href="https://github.com/frontendler/frontendler-atom-snippets">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install frontendler-atom-snippets
+  </pre>
+</div>
+<h1 id="frontendler-atom-snippets">Frontendler Atom Snippets</h1>
+
+<p>Atom snippets for:</p>
+
+<p>Frontendler Sass Library <a href="https://github.com/frontendler/frontendler-sass">https://github.com/frontendler/frontendler-sass</a></p>
+
+<p><img src="https://cloud.githubusercontent.com/assets/5122156/23227376/802b7b8a-f917-11e6-8dc3-48272ba6ae4e.png" alt="frontendler" /></p>
+
+<h1 id="frontendler-sass-library">Frontendler Sass Library</h1>
+
+<p>This package contains all scss files used in <a href="http://frontendler.com.br">frontendler</a> project.</p>
+
+<h2 id="dependencies">Dependencies</h2>
+
+<p>This library is browser prefixes free so if you want to use this package in your personal project <strong>we strongly recommend</strong> you to use <a href="https://www.npmjs.com/package/gulp-autoprefixer">Autoprefixer</a> for manager your prefixes.</p>
+
+<h2 id="documentation">Documentation</h2>
+
+<p><strong><em>IMPORTANT:</em></strong> Now the Frontendler grid is entirely based on the flexbox display property.</p>
+
+<h3 id="grid">Grid</h3>
+
+<p><strong>grid-gutter <code>var</code></strong></p>
+
+<p><code>scss
+$grid-gutter: 40px !default;
+</code></p>
+
+<p><strong>grid-breakpoints <code>var</code></strong></p>
+
+<p><code>scss
+$grid-breakpoints:(
+    "xsmall": 100% max 600px,
+    "small":  100% min 601px max 960px,
+    "medium": 100% min 961px max 1280px,
+    "large":  1280px min 1281px max 1600px,
+    "xlarge": 1600px min 1601px
+)!default;
+</code></p>
+
+<p><strong>grid-row <code>mixin</code></strong></p>
+
+<p><code>scss
+@include grid-row()
+</code></p>
+
+<p><strong>grid-column <code>mixin</code></strong></p>
+
+<p><code>scss
+@include grid-column($flex: 1, $gutter: $grid-gutter)
+</code></p>
+
+<p><strong>grid-column-breakpoint <code>mixin</code></strong></p>
+
+<p><code>scss
+@include grid-column-breakpoint($breakpoint, $flex: 1, $gutter: false)
+</code></p>
+
+<p><strong>or</strong></p>
+
+<p><code>scss
+@include grid-column-breakpoint($breakpoint, $flex: 1, $gutter: false) {
+    ...
+}
+</code></p>
+
+<p><strong>grid-breakpoint <code>mixin</code></strong></p>
+
+<p><code>scss
+@include grid-breakpoint($breakpoints...) {
+    ...
+};
+</code></p>
+
+<p><strong>grid-breakpoint-hide <code>mixin</code></strong></p>
+
+<p><code>scss
+@include grid-breakpoint-hide ($breakpoints...);
+</code></p>
+
+<hr />
+
+<h3 id="colors">Colors</h3>
+
+<p><strong>colors <code>var</code></strong></p>
+
+<p><code>scss
+$colors:(
+    "ocean":   #00a7ca,
+    "blue":    #0075d3,
+    "purple":  #8244a7,
+    "pink":    #dd318a,
+    "green":   #71be48,
+    "yellow":  #f59d37,
+    "orange":  #f75925,
+    "red":     #dd202b,
+    "dark":    #1c2731,
+    "gray":    #606c78,
+    "silver":  #939fac
+) !default;
+</code></p>
+
+<p><strong>color <code>function</code></strong></p>
+
+<p><code>scss
+@function color($color-name,$amount:50%)
+</code></p>
+
+<hr />
+
+<h3 id="animations">Animations</h3>
+
+<p><strong>animations <code>include</code></strong> Add animation keyframes listed in <code>$animation-keyframes</code>.</p>
+
+<p><code>scss
+@include animations;
+</code></p>
+
+<p><strong>animation-duration <code>var</code></strong></p>
+
+<p><code>scss
+$animation-duration: 0.25s !default;
+</code></p>
+
+<p><strong>animation-time-functions <code>var</code></strong></p>
+
+<p><code>scss
+$animation-time-functions: (
+    "in-out-quad": cubic-bezier(0.455, 0.030, 0.515, 0.955),
+    "in-out-cubic": cubic-bezier(0.645, 0.045, 0.355, 1.000),
+    "in-out-quart": cubic-bezier(0.770, 0.000, 0.175, 1.000),
+    "in-out-quint": cubic-bezier(0.860, 0.000, 0.070, 1.000),
+    "in-out-sine": cubic-bezier(0.445, 0.050, 0.550, 0.950),
+    "in-out-expo": cubic-bezier(1.000, 0.000, 0.000, 1.000),
+    "in-out-circ": cubic-bezier(0.785, 0.135, 0.150, 0.860),
+) !default;
+</code></p>
+
+<p><strong>animation-keyframes <code>var</code></strong></p>
+
+<p><code>scss
+$animation-keyframes:(
+    "fade-in",
+    "fade-out",
+    "bounce-in-down",
+    "bounce-in-up",
+    "rubber-band",
+    "zoom-in",
+    "slide-in-up",
+    "slide-in-down",
+    "alert"
+) !default;
+</code></p>
+
+<hr />
+
+<h3 id="utils">Utils</h3>
+
+<p><strong>clearfix <code>mixin</code></strong></p>
+
+<p>More about this mixin in this <a href="http://cssmojo.com/latest_new_clearfix_so_far/">link</a>.</p>
+
+<p><code>scss
+@include clearfix;
+</code></p>
+
+<p><strong>box-shadow <code>mixin</code></strong></p>
+
+<p>Based in this awesome <a href="https://medium.com/@Florian/freebie-google-material-design-shadow-helper-2a0501295a2d">freebie</a>.</p>
+
+<p><code>scss
+@include box-shadow ($level);
+</code></p>
+
+<hr />
+
+<p>Made with ♥ by <a href="http://www.danielbeff.com.br/">Daniel Beff</a> (<a href="https://github.com/dbeff">@dbeff</a>)</p>
+<section class="package-keywords">
+  <strong>Keywords:</strong> frontendler, atom, snippet, snippets <a href="https://github.com/frontendler/frontendler-atom-snippets/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

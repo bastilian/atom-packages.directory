@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Linter Swagger Improved
+  <a href="https://github.com/TonyFNZ/linter-swagger-improved">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install linter-swagger-improved
+  </pre>
+</div>
+<blockquote>
+  <p><strong>Update: March 20th 2017</strong> <br />
+The improved error handler from within this project has now been merged into the main <a href="https://github.com/AtomLinter/linter-swagger" title="Linter-Swagger Atom Package">linter-swagger</a> project.  This project will be kept here for reference, but I recommend everyone switch to using the <a href="https://github.com/AtomLinter/linter-swagger" title="Linter-Swagger Atom Package">linter-swagger</a> project where this functionality will be maintained from now on.</p>
+</blockquote>
+
+<h1 id="linter-swagger-improved">linter-swagger-improved</h1>
+<p><a href="https://atom.io/packages/linter-swagger-improved"><img src="https://img.shields.io/apm/v/linter-swagger-improved.svg" alt="apm" /></a> <a href="https://atom.io/packages/linter-swagger-improved"><img src="https://img.shields.io/apm/dm/linter-swagger-improved.svg" alt="apm" /></a></p>
+
+<p>An improved version of the <a href="https://github.com/AtomLinter/linter-swagger" title="Linter-Swagger Atom Package">linter-swagger</a> plugin with better identification of errors within your swagger files.</p>
+
+<p>This plugin for <a href="https://github.com/AtomLinter/Linter" title="Linter Atom Package">Linter</a> will lint <a href="http://swagger.io/" title="Swagger Main Site">Swagger 2.0 specifications</a>, both JSON and YAML using <a href="https://www.npmjs.com/package/swagger-parser" title="Swagger Parser NPM Page"><code>swagger-parser</code> node package</a>.</p>
+
+<h2 id="linting-examples">Linting Examples</h2>
+<p>Debugging Swagger spec errors has always been a frustrating experience, with the error messages given seemingly random and arbitrary.  Here are a few examples of how this plugin improves things.</p>
+
+<h3 id="invalid-types">Invalid Types</h3>
+<p><code>yaml
+swagger: "2.0"
+info:
+  title: "Sample 1"
+  version: "1.0.0"
+paths:
+  /todos:
+    get:
+      description: "Returns all todo items"
+      responses:
+        200:
+          description: "A list of todo items"
+          schema:
+            type: array
+            items:
+              type: object
+              properties:
+                id:
+                  type: strin
+                  format: uuid
+                name:
+                  type: string
+</code>
+| Now | <img src="https://github.com/TonyFNZ/linter-swagger-improved/raw/master/docs/1-after.png" alt="Sample 1 Errors After" title="Sample 1 Errors After" /> |
+—|—
+| Before | <img src="https://github.com/TonyFNZ/linter-swagger-improved/raw/master/docs/1-before.png" alt="Sample 1 Errors Before" title="Sample 1 Errors Before" /> |</p>
+
+<h3 id="invalid-properties">Invalid Properties</h3>
+<p><code>yaml
+swagger: "2.0"
+info:
+  title: "Sample 2"
+  version: "1.0.0"
+paths:
+  /todos:
+    get:
+      description: "Returns all todo items"
+      responses:
+        200:
+          description: "A list of todo items"
+          schema:
+            type: array
+            items:
+              type: object
+              properties:
+                id:
+                  type: string
+                  forma: uuid
+                name:
+                  type: string
+</code>
+| Now | <img src="https://github.com/TonyFNZ/linter-swagger-improved/raw/master/docs/2-after.png" alt="Sample 2 Errors After" title="Sample 2 Errors After" /> |
+—|—
+| Before | <img src="https://github.com/TonyFNZ/linter-swagger-improved/raw/master/docs/2-before.png" alt="Sample 2 Errors Before" title="Sample 2 Errors Before" /> |</p>
+
+<h2 id="installation">Installation</h2>
+
+<p>Install <code>linter-swagger-improved</code> either in Atom’s Preferences/Install Packages, or with
+<code>apm</code> on the command-line:</p>
+
+<p><code>sh
+apm install linter-swagger-improved
+</code></p>
+
+<p>This package will automatically install <code>linter</code> if that is missing.</p>
+
+<h2 id="license">License</h2>
+
+<p>MIT. More info in the <a href="./LICENSE.md">LICENSE file</a></p>
+
+<section class="package-keywords">
+  <strong>Keywords:</strong> swagger, linter, atom <a href="https://github.com/TonyFNZ/linter-swagger-improved/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

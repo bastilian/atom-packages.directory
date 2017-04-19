@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Maven
+  <a href="https://github.com/concon121/atom-maven">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install atom-maven
+  </pre>
+</div>
+<h1 id="atom-maven-package">atom-maven package</h1>
+
+<p><a href="https://api.travis-ci.org/concon121/atom-maven"><img src="https://api.travis-ci.org/concon121/atom-maven.png" alt="Build Status" /></a>
+<a href="https://www.codacy.com/app/connor-bray/atom-maven?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=concon121/atom-maven&amp;utm_campaign=Badge_Grade"><img src="https://api.codacy.com/project/badge/Grade/9b9b60c42152461a9ec4e29d84848b01" alt="Codacy Badge" /></a>
+<a href="https://codeclimate.com/github/concon121/atom-maven"><img src="https://codeclimate.com/github/concon121/atom-maven/badges/gpa.svg" alt="Code Climate" /></a>
+<a href="https://codeclimate.com/github/concon121/atom-maven"><img src="https://codeclimate.com/github/concon121/atom-maven/badges/issue_count.svg" alt="Issue Count" /></a>
+<a href="https://codeclimate.com/github/concon121/atom-maven/coverage"><img src="https://codeclimate.com/github/concon121/atom-maven/badges/coverage.svg" alt="Test Coverage" /></a>
+<a href="https://atom.io/packages/atom-maven"><img src="https://img.shields.io/apm/dm/atom-maven.svg?maxAge=2592000" alt="Downloads" /></a></p>
+
+<p>Maven integration for atom!</p>
+
+<p>Generates module specific .classpath files based on the Maven pom files in your Atom workspace.</p>
+
+<h2 id="features">Features</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Feature</th>
+      <th style="text-align: center">Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Configures the classpath for every Maven module in your workspace.</td>
+      <td style="text-align: center">:white_check_mark:</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Automatically update the classpath when you update your pom files.</td>
+      <td style="text-align: center">:white_check_mark:</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Build the Maven projects in the workspace on save.</td>
+      <td style="text-align: center">:white_check_mark:</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Build the Maven project via user interaction with the UI.</td>
+      <td style="text-align: center">:x:</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Notification when your classpath has been configured.</td>
+      <td style="text-align: center">:white_check_mark:</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Notification when a duplicate dependency definition has been identified.</td>
+      <td style="text-align: center">:x:</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Notification when a dependency does not exist.</td>
+      <td style="text-align: center">:white_check_mark:</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Link to the location of erroneous dependencies.</td>
+      <td style="text-align: center">:o:</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Identify when a new pom file is added into the workspace and bind the change event to it.</td>
+      <td style="text-align: center">:x:</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><img src="https://cloud.githubusercontent.com/assets/12021575/15692408/12018824-2786-11e6-8cac-289fd0af4076.JPG" alt="310516" /></p>
+
+<h2 id="known-issues">Known Issues</h2>
+<ul>
+  <li>The notification which informs you that a dependency doesn’t exist always points to line 0.</li>
+</ul>
+
+<h2 id="configuration">Configuration</h2>
+<p>It is required that Apache Maven is correctly installed on your computer and is ready to use on the command line.</p>
+
+<p>Please see the Maven website for <a href="http://maven.apache.org/install.html">installation instructions</a>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">Configuration Key</th>
+      <th style="text-align: center">Required / Optional</th>
+      <th style="text-align: center">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">classpathFileName</td>
+      <td style="text-align: center">Optional</td>
+      <td style="text-align: center">The name of the file to write your classpath to in your Maven module.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="whats-new">What’s new?</h2>
+<p>Checkout the <a href="https://github.com/concon121/atom-maven/blob/master/CHANGELOG.md">changelog</a> for the full list of recently implemented features and bug fixes.</p>
+
+<h2 id="backlog-and-issues">Backlog and Issues</h2>
+<p>The complete list of features which needs to be implemented, future enhancements, known issues and bugs can be found on the atom-maven GitHub repository <a href="https://github.com/concon121/atom-maven/issues">issues page</a>.</p>
+
+<h2 id="contributing">Contributing</h2>
+<p>Contributions are always welcome, there is still a lot of work to be done!  Feel free to pick up an issue in the backlog and open a pull request to get the conversation going.  I am more than happy to provide help and direction, and very welcoming of advice and suggestions.</p>
+
+<h2 id="raising-issues">Raising Issues</h2>
+
+<p>If atom-maven is not resolving your classpath correctly, it is really useful for debugging purposes if you could provide sample pom files which I can use to reproduce your issue.</p>
+
+<h2 id="what-can-i-use-atom-maven-for">What can I use atom-maven for?</h2>
+
+<p>I started developing atom-maven as I wanted to be able to write my Java code in Atom.  There are a couple of packages I found which make this easier, but they depend on a .classpath file being configured.  As a user of Maven, Maven configures your classpath and makes sure all your dependencies are available when you need them to be.  The atom-maven package replicates this functionality and generates the .classpath file other Atom Java packages need, based on your Maven pom files!</p>
+
+<h3 id="useful-java-packages">Useful Java Packages</h3>
+
+<ul>
+  <li><a href="https://atom.io/packages/autocomplete-java">autocomplete-java</a></li>
+  <li><a href="https://atom.io/packages/linter-javac">linter-javac</a></li>
+</ul>
+
+<h4 id="autocomplete-java">autocomplete-java</h4>
+<p>Capable of reading the generated .classpath file, this package provides functionlity to organise imports, complete packages and classes, examine methods etc…</p>
+
+<p>Note. git ignored .classpath files are not discovered.</p>
+
+<h4 id="linter-javac">linter-javac</h4>
+<p>Capable of reading the generated .classpath file, this package will attempt to compile your .java files and show you all the compile time problems with your code.</p>
+
+<h2 id="kudos">Kudos</h2>
+<p>Kudos to the following, for making my life easier!</p>
+
+<ul>
+  <li><a href="https://www.npmjs.com/package/node-maven-api">node-maven-api</a></li>
+  <li><a href="https://github.com/tcarlsen/atom-message-panel">atom-message-panel</a></li>
+  <li><a href="https://github.com/Leonidas-from-XIV/node-xml2js">xml2js</a></li>
+</ul>
+<section class="package-keywords">
+  <strong>Keywords:</strong> apache, maven, java <a href="https://github.com/concon121/atom-maven/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

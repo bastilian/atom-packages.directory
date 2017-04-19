@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Quick Editor
+  <a href="https://github.com/Maushundb/quick-editor">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install quick-editor
+  </pre>
+</div>
+<h1 id="quick-editor">Quick Editor</h1>
+<p><a href="https://travis-ci.org/Maushundb/quick-editor"><img src="https://travis-ci.org/Maushundb/quick-editor.svg?branch=master" alt="Build Status" /></a></p>
+
+<p>Quickly select and edit CSS/LESS/SCSS styles from the context of your markup instead of cluttering up your coding environment with extra panes.
+Inspired by <a href="http://brackets.io/">Brackets</a>’s quick edit feature.</p>
+
+<p><img src="https://github.com/Maushundb/quick-editor/blob/master/quick-edit.gif?raw=true" alt="Quick Edit Demo" /></p>
+
+<h1 id="install">Install</h1>
+<p><code>
+apm install quick-editor
+</code></p>
+
+<p>Or search for <code>quick-editor</code> in Atom settings view.</p>
+
+<h1 id="key-bindings">Key Bindings</h1>
+<p>The default <code>shift-cmd-e</code> or <code>shift-ctrl-e</code>will toggle quick-edit while the cursor is over a CSS id or class</p>
+
+<p>This can be edited by defining a keybinding as follows</p>
+
+<p>```coffee
+‘.platform-darwin atom-text-editor’:
+  ‘shift-cmd-e’: ‘quick-editor:quick-edit’</p>
+
+<p>‘.platform-linux atom-text-editor, .platform-win32 atom-text-editor’:
+  ‘shift-ctrl-e’: ‘quick-editor:quick-edit’
+```</p>
+
+<h1 id="settings">Settings</h1>
+<p>#### Styles Directory
+Specify an absolute path to your styles directory when working in a large project to improve performance.</p>
+
+<h1 id="release-notes">Release Notes:</h1>
+
+<h2 id="section">0.4.1</h2>
+<ul>
+  <li>Added keybindings for Windows and Linux</li>
+</ul>
+
+<h2 id="section-1">0.4.0</h2>
+<ul>
+  <li>Added the ability to specify a styles directory to improve performance on larger projects</li>
+  <li>Fixed bug with context menu not working</li>
+  <li>Fixed bug with markup parsing</li>
+</ul>
+
+<h2 id="section-2">0.3.0</h2>
+<ul>
+  <li>Added the ability to add a new selector</li>
+</ul>
+
+<h3 id="full-change-log-herechangelogmd">Full change log <a href="./CHANGELOG.md">here</a></h3>
+
+<h1 id="coming-soon">Coming Soon:</h1>
+<ul>
+  <li>Multiple files with same selector</li>
+  <li>Caching for larger projects</li>
+  <li>Show the name of CSS file</li>
+  <li>Link to open in new tab</li>
+  <li>Editor updates when changed in another file at the same time</li>
+  <li>Support SASS and Stylus</li>
+  <li>Multiple matches in the same file</li>
+  <li>Support Jade</li>
+  <li>Add support for javascript functions</li>
+  <li>Add support for color picking</li>
+</ul>
+<section class="package-keywords">
+  <strong>Keywords:</strong> css, scss, quick, edit, quick-editor <a href="https://github.com/Maushundb/quick-editor/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Expressjs
+  <a href="https://github.com/amandeepmittal/expressjs">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install expressjs
+  </pre>
+</div>
+<h1 id="expressjs-snippets">expressjs snippets</h1>
+
+<p><a href="https://atom.io/packages/expressjs"><img src="https://img.shields.io/apm/v/expressjs.svg?style=flat-square" alt="apm" /></a>
+<a href="https://atom.io/packages/expressjs"><img src="https://img.shields.io/apm/dm/expressjs.svg?style=flat-square" alt="apm" /></a>
+<a href="https://atom.io/packages/expressjs"><img src="https://img.shields.io/apm/l/expressjs.svg?style=flat-square" alt="apm" /></a></p>
+
+<p>A collection of <a href="http://expressjs.com">Expressjs</a> snippets for <a href="http://atom.io">Atom</a></p>
+
+<p>This package also support some of the ES6 syntax.</p>
+
+<h3 id="how-to-install">How to Install?</h3>
+<p>Go to <code>Settings &gt; Install</code></p>
+
+<p>and then search for <code>expressjs</code> under <code>Packages</code>.</p>
+
+<p>After installation of this package, restart Atom Editor.</p>
+
+<h3 id="snippets">Snippets</h3>
+<p>These snippets are for daily use to avoid writing as much as it could the boilerplate code. If you like, to add yours, feel free to contribute.</p>
+
+<h4 id="common-express-methods">Common Express Methods:</h4>
+<ul>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td><code>aall</code></td>
+          <td><code>aall6</code></td>
+          <td><code>aall*</code></td>
+          <td><code>aall*6</code> app.all()</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td><code>adel</code></td>
+          <td><code>adel6</code>  app.delete()</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li><code>adisable</code> app.disable()</li>
+  <li><code>adisabled</code> app.disabled()</li>
+  <li><code>aenable</code> app.enable()</li>
+  <li><code>aenabled</code> app.enabled()</li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td><code>aget</code></td>
+          <td><code>aget6</code> app.get()</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td><code>apost</code></td>
+          <td><code>apost6</code> app.apost()</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td><code>aput</code></td>
+          <td><code>aput6</code> app.put()</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td><code>alisten</code></td>
+          <td><code>alisten5</code></td>
+          <td><code>alisten6</code> app.listen()</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li><code>aset</code> app.set()</li>
+  <li><code>ause</code> app.use()</li>
+  <li><code>rjson</code> res.json()</li>
+  <li><code>rjsonp</code> res.jsonp()</li>
+  <li><code>rredirect</code> res.redirect()</li>
+  <li><code>rsend</code> res.send()</li>
+  <li><code>rstatus</code> res.sendStatus()</li>
+  <li><code>router()</code> Router()</li>
+</ul>
+
+<h4 id="initializing-app-variable">Initializing <code>app</code> variable</h4>
+<ul>
+  <li><code>vapp</code> var app = express();</li>
+  <li><code>capp</code> const app = express();</li>
+</ul>
+
+<h4 id="requiring-express">Requiring Express</h4>
+<ul>
+  <li><code>vexpress</code> var express = require(‘express’);</li>
+  <li><code>cexpress</code> const express = require(‘express’);</li>
+</ul>
+
+<h4 id="commonly-used-middleware">Commonly used Middleware</h4>
+<ul>
+  <li><code>bodyParserj</code>  app.use(bodyParser.json());</li>
+  <li><code>bodyParserurl</code> app.use(bodyParser.urlencoded({extended: true}));</li>
+  <li><code>methodOverride</code> app.use(methodOverride(‘method’));</li>
+  <li><code>staticfile</code> app.use(express.static(‘public’));</li>
+  <li><code>compress</code> app.use(compression({level:zlib.Z_DEFAULT_COMPRESSION}));</li>
+  <li><code>helmet</code> app.use(helmet());</li>
+</ul>
+
+<hr />
+
+<h3 id="contribute">Contribute</h3>
+<p>Pull requests for more snippets are welcome.</p>
+
+<p>Copyright (c) 2016 Aman Mittal</p>
+
+<section class="package-keywords">
+  <strong>Keywords:</strong> nodejs, snippet, javascript, express, expressjs, es6, node <a href="https://github.com/amandeepmittal/expressjs/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

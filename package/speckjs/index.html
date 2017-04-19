@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Speckjs
+  <a href="https://github.com/speckjs/atom-speckjs">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install speckjs
+  </pre>
+</div>
+<p><img src="https://travis-ci.org/speckjs/atom-speckjs.svg?branch=master" alt="Build Status" /></p>
+
+<h1 id="speckjs-for-atom">SpeckJS for Atom</h1>
+
+<h2 id="about">About</h2>
+<p>SpeckJS is an npm module that parses JavaScript and outputs unit-tests. SpeckJS currently supports the <a href="https://github.com/substack/tape">Tape</a>, <a href="https://github.com/jasmine/jasmine">Jasmine</a>, and <a href="https://github.com/mochajs/mocha">Mocha</a>/<a href="https://github.com/chaijs/chai">Chai</a> testing frameworks. Along with our Atom plugin, we have plugins available for <a href="https://github.com/speckjs/grunt-speckjs">Grunt</a>, <a href="https://github.com/speckjs/gulp-speckjs">Gulp</a>, as well as a <a href="https://github.com/speckjs/speckjs">standalone npm package</a>.</p>
+
+<p>Our goal with SpeckJS is to make it as easy as possible to get started using Test-Driven Development on a new project, to quickly add unit-tests to your existing project, or anywhere in between. We know the value of well-tested code, and SpeckJS is here to make that simpler than ever.</p>
+
+<h2 id="how-to-use">How to Use</h2>
+
+<h3 id="installation">Installation</h3>
+<p>Open Atom’s Settings and navigate to the <code>Install</code> view.</p>
+
+<p>For easy access, use Atom’s command palette: <code>cmd-shift-p</code> (OSX) or <code>ctrl-shift-p</code> (Linux/Windows)
+and search for <code>Settings View: Install Packages and Themes</code>.</p>
+
+<p>In the text field under <code>Install Packages</code>, make sure the <code>Packages</code> tab is selected.
+Now, simply search for <code>speckjs</code>, click <code>install</code>, and you’re all set!</p>
+
+<!-- ONCE NEW TAG LINE HAS BEEN UPDATED, INSERT GIF OF "INSTALL PACKAGE" -> SEARCH "speckjs" -> CLICK INSTALL -->
+
+<h3 id="creating-a-speckjs-comment">Creating a SpeckJS Comment</h3>
+<p>The first line of a SpeckJS comment is the <code>title</code>, describing your test block.
+<code>
+// test &gt; sum function
+</code></p>
+
+<p>Next, use SpeckJS’ domain-specific language (DSL) to create an assertion of what you wish to test. Here’s the format of the DSL:
+<code>
+// # &lt;actual&gt; &lt;assertion-type&gt; &lt;expected&gt; (&lt;description&gt;)
+</code></p>
+
+<p>You can add as many (or as few) assertions as you’d like.
+<code>
+// # sum(1, 2) == 3 (returns the sum of both params)
+// # sum(3, 4) == 7 (returns the sum of both params)
+</code></p>
+
+<p>That’s it! Here’s a complete SpeckJS comment for the simple sum function:
+<code>
+// test &gt; sum function
+// # sum(1, 2) == 3 (returns the sum of both params)
+// # sum(3, 4) == 7 (returns the sum of both params)
+</code></p>
+
+<p>Comments can also be written using block style comments:
+<code>
+/*
+test &gt; sum function
+# sum(1, 2) == 3 (returns the sum of both params)
+# sum(3, 4) == 7 (returns the sum of both params)
+*/
+</code></p>
+
+<h3 id="using-the-plugin">Using the Plugin</h3>
+<p>We offer several easy ways to use SpeckJS in Atom.</p>
+
+<ul>
+  <li>
+    <p>From Atom’s Command Palette, enter <code>Speckjs:Build</code>
+<img src="http://i.imgur.com/eBoLu2N.gif" alt="From Command Palette" /></p>
+  </li>
+  <li>
+    <p>From the Menu Bar, select Packages &gt; SpeckJS &gt; Build
+<img src="http://i.imgur.com/oXt5cxB.gif" alt="From Menu" /></p>
+  </li>
+  <li>
+    <p>Use the hotkey: <code>ctrl-alt-s</code></p>
+  </li>
+</ul>
+
+<h3 id="changing-the-test-framework">Changing the Test Framework</h3>
+<p>By default, SpeckJS will build your test files using the Tape framework, but you can change this in the options.
+Here, we’ll update our settings to build Jasmine tests, instead:</p>
+
+<p><img src="http://i.imgur.com/4HoHsxn.gif" alt="From Menu" /></p>
+
+<h3 id="supported-assertion-types">Supported Assertion Types</h3>
+<p>These are the assertion types currently supported, and you can extend this list to include others in <a href="https://github.com/speckjs/speckjs/blob/master/parsing/comment-conversion.js"><code>parsing/comment-conversion.js</code></a>.
+<code>
+==   : equal
+===  : deep equal
+!==  : not equal
+!=== : not deep equal
+</code></p>
+
+<h2 id="support">Support</h2>
+<p>SpeckJS is also available as a plugin for the following platforms:</p>
+
+<p><a href="https://github.com/speckjs/grunt-speckjs">Grunt</a></p>
+
+<p><a href="https://github.com/speckjs/gulp-speckjs">Gulp</a></p>
+<section class="package-keywords">
+  <strong>Keywords:</strong> tdd, test, tape, jasmine, mocha, spec, unit <a href="https://github.com/speckjs/atom-speckjs/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

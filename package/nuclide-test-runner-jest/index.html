@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Nuclide Test Runner Jest
+  <a href="https://github.com/JosePedroDias/nuclide-test-runner-jest">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+    <span class="author">by José Pedro Dias</span>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install nuclide-test-runner-jest
+  </pre>
+</div>
+<h1 id="jest-test-runner-for-nuclide">Jest Test Runner for Nuclide</h1>
+
+<h2 id="what-is-this">What is this?</h2>
+
+<p>This is a <a href="https://facebook.github.io/jest/">Jest</a> test runner for <a href="https://nuclide.io/">Nuclide</a> and its nuclide-test-runner.</p>
+
+<p>It is loosely based on <a href="https://github.com/klorenz/nuclide-test-runner-pytest">nuclide-test-runner-pytest</a> and reverse engineering.
+<a href="https://github.com/facebook/nuclide/blob/master/pkg/nuclide-test-runner/lib/TestRunnerController.js#L266">This part</a> helped, along with atom’s inspector.</p>
+
+<p>This is my first atom package and nuclide-test-runner’s documentation is lacking.
+It works though. If you want to help out please do!</p>
+
+<h2 id="how-to-install">How to install</h2>
+
+<p>Install it in an atom instance with nuclide. The package is called <code>nuclide-test-runner-jest</code> there.</p>
+
+<p>You can also do it in the console if you prefer:<br />
+<code>apm install nuclide-test-runner-jest</code></p>
+
+<h2 id="how-to-use-it">How to use it</h2>
+
+<p>Go to menu <strong>Nuclide</strong> &gt; <strong>Test Runner</strong> &gt; <strong>Toggle</strong><br />
+Make sure Jest is chosen on the test runner drop down<br />
+Press the <strong>Test/Re-test</strong> blue button</p>
+
+<p>Notice that this package assumes:
+* the atom project root is the <code>package.json</code> root
+* the project has <code>jest-cli</code> locally installed (aka <code>npm install --save-dev jest-cli</code>)</p>
+
+<h2 id="how-does-it-look">How does it look</h2>
+
+<p><img src="shots/all.png" alt="all" /><br />
+by default runs all tests</p>
+
+<p><img src="shots/single.png" alt="single" /><br />
+if you’re editing a test file, runs only that one</p>
+
+<h2 id="limitations">Limitations</h2>
+
+<ul>
+  <li>nuclide-test-runner only fires if you have at least one opened file (can’t do anything about this one)</li>
+  <li>failed tests aren’t properly marked red on the summary view on the left (I believe this is a nuclide-test-runner limitation too)</li>
+  <li>stopping tests while they’re running doesn’t kill jest process (is it reporting back to us that event?)</li>
+</ul>
+<section class="package-keywords">
+  <strong>Keywords:</strong> jest, testrunner, test, nuclide, javascript <a href="https://github.com/JosePedroDias/nuclide-test-runner-jest/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

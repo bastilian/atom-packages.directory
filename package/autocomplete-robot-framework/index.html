@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Autocomplete Robot Framework
+  <a href="https://github.com/gliviu/autocomplete-robot-framework">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install autocomplete-robot-framework
+  </pre>
+</div>
+<h1 id="autocomplete-robot-framework">autocomplete-robot-framework</h1>
+<p>An <a href="https://github.com/atom/autocomplete-plus">autocomplete-plus</a> provider for <a href="http://robotframework.org/">Robot Framework</a>.</p>
+
+<p><img src="https://raw.githubusercontent.com/gliviu/autocomplete-robot-framework/master/anim.gif" alt="Demo" /></p>
+
+<h2 id="install">Install</h2>
+<p><code>shell
+apm install language-robot-framework
+apm install autocomplete-robot-framework
+</code></p>
+
+<h2 id="usage">Usage</h2>
+<p>Opening a robot file will scan the parent project for keywords that will later be available as suggestions.</p>
+
+<p>Works only for files that are included in an Atom project. Opening an independent robot resource won’t provide any suggestions. Space separated <strong>.robot</strong> and <strong>.txt</strong> files are supported.</p>
+
+<h2 id="suggestions">Suggestions</h2>
+<p>Keywords may be suggested by partial keyword name separated or not by spaces, or even acronyms.</p>
+
+<p><code>text
+run if             # suggests 'Run Keyword If'
+sheq               # suggests 'Should Be Equal'
+cfl                # acronyms also work and suggest 'Continue For Loop', ...
+</code>
+Sugestions are not limited to keywords. Library or resource names are suggested by prefixing their name.</p>
+
+<p>```text
+Library    OperatingSystem
+Library    robot.libraries.DateTime
+Resource   path/MyKeywords.robot</p>
+
+<p>oper               # Suggests OperatingSystem
+date               # Suggests robot.libraries.DateTime
+robot              # Also suggests robot.libraries.DateTime
+my                 # Suggest MyKeywords
+```</p>
+
+<p>Note that library names are suggested as long as they are successfully imported. See below.</p>
+
+<p>Using ‘WITH NAME’ on a library is not taken in consideration at this time.</p>
+
+<h2 id="scopes">Scopes</h2>
+<p>By default suggestions are limited to imported libraries and resources.
+Scope modifiers allow us to override the default scope and search for keywords beyond current imports.
+* this. -  suggests keywords from current file only
+* . -  searches all  available keywords
+* libraryOrResourceName. - limits suggestions to one source</p>
+
+<p><code>text
+Collections.       # Suggests all keywords from Collections
+Collections.copy   # As above but limits suggestions
+MyKeywords.        # Same rules apply for resources as well
+this.              # Show only local keywords
+.append            # Search 'append' through all indexed keywords
+</code></p>
+
+<h2 id="library-import">Library import</h2>
+<p>Python libraries have to be scanned for keywords just as regular robot files are.
+For this mechanism to work following requirements should be met.
+* Python environment is accessible and correctly configured
+* Supported versions: cpython 2.7, jython 2.7.0, ironpython 2.7.6
+* Python executable is correctly defined in Atom package settings (defaults to ‘python’)
+* Robotframework 3.0 is installed according to <a href="https://github.com/robotframework/robotframework/blob/master/INSTALL.rst">instructions</a></p>
+
+<p>Be sure to have PYTHONPATH, JYTHONPATH, CLASSPATH and IRONPYTHONPATH environment properly defined.</p>
+
+<p>At this time libraries with mandatory parameters in constructor are not supported.</p>
+
+<p>Libraries identified by path do not work - ‘Library    path/PythonLibrary.py’</p>
+
+<p>To help troubleshoot wrong imports and python environment problems take a look at <a href="#status">Status panel</a> below.</p>
+
+<h2 id="fallback-libraries">Fallback libraries</h2>
+<p>Official Robot Framework <a href="http://robotframework.org/#libraries">libraries</a> are included for convenience, just in case library import mechanism is not working for some reasons. This could be the case for example if using the RF Jar distribution without any python interpreter available.</p>
+
+<p>Fallback libraries are libdoc xml files generated with libdoc tool. Any such <strong>.xml</strong> file encountered in Atom project will be parsed for keywords together with the other <strong>.robot</strong> files.</p>
+
+<p>To create a fallback library of your own use libdoc tool and copy the result somewhere in robot project so it can be scanned. Note that name of the file must be the fully qualified library name.
+If you use the import below</p>
+
+<pre><code>*** Settings ***
+Library    my.utilities.Arrays
+</code></pre>
+
+<p>it would need a libdoc named my.utilities.Arrays.xml.</p>
+
+<h2 id="status">Status</h2>
+<p>Status pane shows imported libraries and python environment information together with any error occurred during import process.</p>
+
+<p>It can be activated from <strong>Packages-&gt;Robot Framework-&gt;Show autocomplete status</strong>.</p>
+
+<h2 id="troubleshooting">Troubleshooting</h2>
+<ul>
+  <li>When files are modified outside Atom, autocomplete index may become invalid. Use <strong>Packages-&gt;Robot Framework-&gt;Reload autocomplete data</strong>. Restarting Atom would have the same effect.</li>
+  <li><strong>.txt</strong> files are not detected as Robot format automatically. Work around by manually choosing the grammar (open Grammar Selector ctrl-shift-L and pick Robot Framework).</li>
+  <li>Keywords are global to all projects opened in Atom. To mitigate this use <a href="https://atom.io/packages/project-viewer">project-viewer</a> package or equivalent.</li>
+  <li>Should anything else go wrong, use <strong>Packages-&gt;Robot Framework-&gt;Print autocomplete debug info</strong> to display internal state in developer console  - <strong>View-&gt;Developer-&gt;Toggle dev tools</strong>.</li>
+  <li>More information can be shown by toggling Debug option in package settings.</li>
+</ul>
+
+<h2 id="api">API</h2>
+<p>An API is available to enable cooperation with other packages by providing access to underlying keyword repository.
+* getKeywordNames()
+* getKeywordsByName(name)
+* getResourceKeys()
+* getResourceByKey(resourceKey)</p>
+
+<p>Keyword
+<code>
+  {
+    name: 'keyword name',
+    documentation : 'documentation',
+    arguments : ['arg1', ...],
+    startRowNo : 0,
+    startColNo : 0,
+    resource : {
+      path : 'resource path',
+      name : 'resource name',
+      libraryPath : 'python library source path if available',
+      hasTestCases : true/false,
+      hasKeywords : true/false,
+      isLibrary : true/false,
+      imports : {
+	    libraries : [{name : '', alias : ''}],
+	    resources : [{name : '', extension : ''}]
+      }
+  }
+</code></p>
+
+<p>Resource
+<code>
+  {
+    path: 'resource path',
+    name : 'resource name',
+    libraryPath : 'python library source path if available',
+    hasTestCases: true/false,
+    hasKeywords: true/false,
+    isLibrary : true/false,
+    imports : {
+      libraries : [{name : '', alias : ''}],
+      resources : [{name : '', extension : ''}]
+    },
+    keywords: [keyword1, ...]
+  }
+</code>
+## Testing
+<code>apm test</code>
+python/robot framework must be installed and operational. ‘python’ command must be available in PATH.</p>
+
+<h2 id="links">Links</h2>
+<ul>
+  <li><a href="https://atom.io/packages/project-viewer">project-viewer</a> switch between distinct robot projects</li>
+  <li><a href="https://atom.io/packages/hyperclick-robot-framework">hyperclick-robot-framework</a> go to definition for keywords</li>
+  <li><a href="https://atom.io/packages/script">script</a> run robot test suites</li>
+  <li><a href="https://robotframework.slack.com/messages/atom/">https://robotframework.slack.com/messages/atom/</a> discuss <a href="https://atom.io/">atom.io</a> support for RF</li>
+</ul>
+
+<h2 id="changelog">Changelog</h2>
+<ul>
+  <li>v3.2.0
+    <ul>
+      <li>Auto download Atom dependencies using <a href="https://github.com/steelbrain/package-deps">package-deps</a></li>
+    </ul>
+  </li>
+  <li>v3.0.0
+    <ul>
+      <li>Import python libraries</li>
+      <li>Scope modifiers</li>
+      <li>Support multiple resources with identical name</li>
+      <li>Status panel</li>
+      <li>Show Atom notifications for various commands</li>
+      <li>Configurable keyword arguments in suggestions</li>
+    </ul>
+  </li>
+  <li>v2.2.2 - Add support for unicode characters</li>
+  <li>v2.1.0 - Allow multi-word suggestions</li>
+  <li>v2.0.0
+    <ul>
+      <li>Bug fixes</li>
+      <li>Added provider API</li>
+    </ul>
+  </li>
+  <li>v1.1.0</li>
+  <li>Use dot notation to have all suggestions inside single library</li>
+  <li>Better suggestions are provided by <a href="https://www.npmjs.com/package/fuzzaldrin-plus">fuzzaldrin-plus</a></li>
+  <li>v1.0.1</li>
+  <li>Added Atom commands for data reload and debug info</li>
+  <li>Debug config option is now available in GUI</li>
+  <li>bug fixes</li>
+</ul>
+<section class="package-keywords">
+  <strong>Keywords:</strong> autocomplete, robot, framework <a href="https://github.com/gliviu/autocomplete-robot-framework/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

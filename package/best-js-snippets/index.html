@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Best Js Snippets
+  <a href="https://github.com/maochunguang/best-js-snippets">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+    <span class="author">by tommy</span>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install best-js-snippets
+  </pre>
+</div>
+<h2 id="best-js-snippets-package">best-js-snippets package</h2>
+<p>this is the best <strong>atom snippets</strong> of js that include <strong>es6</strong>, <strong>express</strong> ,<strong>String</strong>, <strong>nodejs-fs</strong>,<strong>nodejs-utils</strong> ,<strong>dom</strong>, and so on.</p>
+
+<p><em>Note: this is a fork of <a href="extrabacon/atom-turbo-javascript">turbo-javascript</a> that uses arrow functions by default and adds  more snippets for express,node-fs,dom-child and so on.</em></p>
+
+<h3 id="special-statement">special statement</h3>
+<p><em>Note: the most common modules I use the shorCut to improve efficiency,but some uncommon modules are not necessary for us.So,I decided to use fullName to autocomplete uncommon modules .</em></p>
+
+<h3 id="nodejs-netnode-httpnodejs-dnsnodejs-crypto-nodejs-stream-and-so-on">nodejs-net,node-http,nodejs-dns,nodejs-crypto ,nodejs-stream and so on</h3>
+<p>```
+net.
+http.
+dns.
+crypto.
+stream.
+os.
+queryString.
+readline.
+vm.
+zlib.</p>
+
+<p>// and so on
+```</p>
+
+<h3 id="lodash-snippets">lodash snippets</h3>
+
+<h4 id="chunkconcat-dropand-so-on"><code>_chunk⇥</code>,<code>_concat⇥</code> ,<code>_drop⇥</code>and so on</h4>
+<p>```
+_.chunk(${1:array},${2:size});
+_.concat(${1:array},${2:array2});
+_.drop(${1:array},${2:size});</p>
+
+<p>// and so on
+```</p>
+
+<h3 id="js-math-snippets">js-Math snippets</h3>
+
+<h4 id="math"><code>Math.⇥</code></h4>
+<p>```
+Math.abs(${1:value})
+Math.ceil(${1:value})
+Math.floor(${1:value})
+Math.max(${1:value})</p>
+
+<p>// and so on
+```
+### js-Number snippets</p>
+
+<h4 id="number"><code>Number.⇥</code></h4>
+<p>```
+Number.isNaN()
+Number.isFinite()
+Number.parseInt(${1:num})</p>
+
+<p>// and so on
+```</p>
+
+<h3 id="nodejs-assert-snippets">nodejs-assert snippets</h3>
+
+<h4 id="assert"><code>assert.⇥</code></h4>
+<p>```
+assert.equal(${1:actual}, ${2:expected});
+assert.notEqual(${1:actual}, ${2:expected});
+assert.ok(${1:actual});
+assert.ifError(${1:actual});</p>
+
+<p>// and so on
+```</p>
+
+<h3 id="nodejs-process-snippets">nodejs-process snippets</h3>
+
+<h4 id="process"><code>process.⇥</code></h4>
+<p>```
+process.abort()
+process.arch
+process.uptime()</p>
+
+<p>// and so on
+```
+### nodejs-path snippets</p>
+
+<h4 id="path"><code>path.⇥</code></h4>
+<p><code>
+path.basename('${1:pathname}')
+path.dirname('${1:pathname}')
+path.format(${1:pathname})
+path.join('${1:pathname}','${2:name}')
+path.parse(${1:pathname})
+// and so on
+</code></p>
+
+<h3 id="express-snippets">Express snippets</h3>
+
+<h4 id="agetaposaalladel-aput"><code>aget⇥</code>,<code>apos⇥</code>,<code>aall⇥</code>,<code>adel⇥</code>, <code>aput⇥</code></h4>
+<p><code>js
+app.get('${1:path}', (req, res, next) =&gt; {
+});
+......
+app.put('${1:path}', (req, res, next) =&gt; {
+});
+</code>
+#### <code>rqa⇥</code>,<code>rqb⇥</code>,<code>rqc⇥</code>,<code>rqg⇥</code>,<code>rqh⇥</code>,<code>rqi⇥</code>,
+<code>js
+var ${1:body} = req.accepts("${2:name}");
+var ${1:body} = req.body;
+var ${1:cookie} = req.cookie;
+var ${1:key} = req.get("${2:name}");
+var ${1:host} = req.hostname;
+var ${1:ip} = req.ip;
+</code>
+#### <code>rqm⇥</code>,<code>rqp⇥</code>,<code>rqpa⇥</code>,<code>rqpr⇥</code>,<code>rqpt⇥</code>
+<code>js
+var ${1:method} = req.method;
+var ${1:param} = req.params;
+var ${1:path} = req.path;
+var ${1:protocol} = req.protocol;
+var ${1:path} = req.path;
+</code></p>
+
+<h3 id="string-snippets">String snippets</h3>
+
+<h4 id="slechatcharcodeatincludesan-so-onmethod-fullname--string-method"><code>sle⇥</code>,<code>chat⇥</code>,<code>charCodeAt⇥</code>,<code>includes⇥</code>,an so on,<strong>method fullName</strong>  string method</h4>
+<p><code>js
+${1:value}.length;
+${1:value}.charAt(${2:index});
+${1:value}.charCodeAt(${2:index});
+${1:value}.concat(${2:index});
+${1:value}.includes(${2:index});
+${1:value}.indexOf(${2:index});
+${1:value}.lastIndexOf(${2:index});
+${1:value}.startsWith(${2:index});
+${1:value}.endsWith(${2:index});
+${1:value}.localeCompare(${2:index});
+${1:value}.match(${2:index});
+${1:value}.replace(${1:str}, ${2:reg}, '${3:newStr}');
+${1:value}.repeat(${2:index});
+${1:value}.search(${2:index});
+${1:value}.slice(${2:begin},${3:end});
+${1:value}.split(${2:index});
+${1:value}.substr(${2:start},${3:length});
+${1:value}.substring(${2:begin},${3:end});
+${1:value}.toUpperCase();
+${1:value}.toLowerCase();
+${1:value}.trim();
+${1:value}.toString();
+</code>
+### nodejs-fs snippets</p>
+
+<h4 id="fswritefswritesfsreadfsreadsfsexistsfsexistss"><code>fswrite⇥</code>,<code>fswrites⇥</code>,<code>fsread⇥</code>,<code>fsreads⇥</code>,<code>fsexists⇥</code>,<code>fsexistss⇥</code></h4>
+<p><code>js
+fs.writeFile(${1:filename}, ${2:content});
+fs.writeFileSync(${1:filename}, ${2:content});
+fs.readFile(${1:filename}, ${2:charset});
+fs.readFileSync(${1:filename}, ${2:charset});
+fs.exists(${0:filename});
+fs.existsSync(${0:filename});
+</code></p>
+
+<h3 id="nodejs-utils-snippets">nodejs-utils snippets</h3>
+
+<h4 id="isaisboisbuisdiseisfisnisnmisoisrississyisun-util-typeof-object"><code>isa⇥</code>,<code>isbo⇥</code>,<code>isbu⇥</code>,<code>isd⇥</code>,<code>ise⇥</code>,<code>isf⇥</code>,<code>isn⇥</code>,<code>isnm⇥</code>,<code>iso⇥</code>,<code>isr⇥</code>,<code>iss⇥</code>,<code>issy⇥</code>,<code>isun⇥</code>, util typeof Object</h4>
+<p><code>js
+util.isArray(${1:name});
+util.isBoolean(${1:name});
+util.isBuffer(${1:name});
+util.isDate(${1:name});
+util.isError(${1:name});
+util.isFunction(${1:name});
+util.isNull(${1:name});
+util.isNumber(${1:name});
+util.isObject(${1:name});
+util.isRegExp(${1:name});
+util.isString(${1:name});
+util.isSymbol(${1:name});
+util.isUndefined(${1:name});
+</code></p>
+
+<h3 id="declarations">Declarations</h3>
+
+<h4 id="v--ve-var-statement"><code>v⇥</code>  <code>ve⇥</code> ,var statement</h4>
+<p><code>js
+var ${1:name};
+var ${1:name} = ${2:value};
+</code></p>
+
+<h4 id="l-le-let-statement"><code>l⇥</code> ,<code>le⇥</code> let statement</h4>
+<p><code>js
+let ${1:name};
+let ${1:name} = ${2:value};
+</code></p>
+
+<h4 id="co-coecos--const-statement"><code>co⇥</code> ,<code>coe⇥</code>,<code>cos⇥</code>  const statement</h4>
+<p><code>js
+const ${1:name};
+const ${1:name} = ${2:value};
+const ${1:name} = Symbol('${1:name}');
+</code></p>
+
+<h3 id="flow-control">Flow Control</h3>
+
+<h4 id="ifel--ife-ei-if-else-statement"><code>if⇥</code>,<code>el⇥</code> , <code>ife⇥</code> ,<code>ei⇥</code> if else statement</h4>
+<p><code>js
+//if⇥
+if (${1:condition}) {
+  ${0}
+}
+//el⇥
+else {
+  ${0}
+}
+//ife⇥
+if (${1:condition}) {
+  ${2}
+} else {
+  ${3}
+}
+//ei⇥
+else if (${1:condition}) {
+  ${0}
+}
+</code></p>
+
+<h4 id="fl-for-loop"><code>fl⇥</code> for loop</h4>
+<p><code>js
+for (let ${1:i} = 0; ${1:i} &lt; ${2:iterable}${3:.length}; ${1:i}++) {
+  ${4}
+}
+</code></p>
+
+<h4 id="fi-for-in-loop"><code>fi⇥</code> for in loop</h4>
+<p><code>js
+for (let ${1:key} in ${2:source}) {
+  if (${2:source}.hasOwnProperty(${1:key})) {
+    ${0}
+  }
+}
+</code></p>
+
+<h4 id="fo-for-of-loop-es6"><code>fo⇥</code> for of loop (ES6)</h4>
+<p><code>js
+for (let ${1:key} of ${2:source}) {
+  ${0}
+}
+</code></p>
+
+<h4 id="wl-while-loop"><code>wl⇥</code> while loop</h4>
+<p><code>js
+while (${1:condition}) {
+  ${0}
+}
+</code></p>
+
+<h4 id="tc-trycatch"><code>tc⇥</code> try/catch</h4>
+<p><code>js
+try {
+  ${1}
+} catch (${2:err}) {
+  ${3}
+}
+</code></p>
+
+<h4 id="tf-tryfinally"><code>tf⇥</code> try/finally</h4>
+<p><code>js
+try {
+ ${1}
+} finally {
+ ${2}
+}
+</code></p>
+
+<h4 id="tcf-trycatchfinally"><code>tcf⇥</code> try/catch/finally</h4>
+<p><code>js
+try {
+  ${1}
+} catch (${2:err}) {
+  ${3}
+} finally {
+  ${4}
+}
+</code></p>
+
+<h3 id="functions">Functions</h3>
+
+<h4 id="f-anonymous-function"><code>f⇥</code> anonymous function</h4>
+<p><code>js
+function (${1:arguments}) {${0}}
+</code></p>
+
+<h4 id="fn-named-function"><code>fn⇥</code> named function</h4>
+<p><code>js
+function ${1:name}(${2:arguments}) {
+  ${0}
+}
+</code></p>
+
+<h4 id="iife-immediately-invoked-function-expression-iife"><code>iife⇥</code> immediately-invoked function expression (IIFE)</h4>
+<p><code>js
+((${1:arguments}) =&gt; {
+  ${0}
+})(${2});
+</code></p>
+
+<h4 id="fa-fbfc-function-applybindcall"><code>fa⇥</code> ,<code>fb⇥</code>,<code>fc⇥</code>, function apply,bind,call</h4>
+<p><code>js
+${1:fn}.apply(${2:this}, ${3:arguments})
+${1:fn}.bind(${2:this}, ${3:arguments})
+${1:fn}.call(${2:this}, ${3:arguments})
+</code></p>
+
+<h4 id="afafb--arrow-function-es6"><code>af⇥</code>,<code>afb⇥</code>  arrow function (ES6)</h4>
+<p><code>js
+//`af⇥`
+${1:(arguments)} =&gt; ${2:statement}
+//`afb⇥`
+${1:(arguments)} =&gt; {
+\t${0}
+}
+</code></p>
+
+<h4 id="gfgfn-generator-function-es6"><code>gf⇥</code>,<code>gfn⇥</code> generator function (ES6)</h4>
+<p><code>js
+function* (${1:arguments}) {
+  ${0}
+}
+function* ${1:name}(${1:arguments}) {
+  ${0}
+}
+</code></p>
+
+<h3 id="iterables">Iterables</h3>
+
+<h4 id="fe-foreach-loop-chainable"><code>fe⇥</code> forEach loop (chainable)</h4>
+<p><code>js
+${1:iterable}.forEach((${2:item}) =&gt; {
+  ${0}
+});
+</code></p>
+
+<h4 id="map-map-function-chainable"><code>map⇥</code> map function (chainable)</h4>
+<p><code>js
+${1:iterable}.map((${2:item}) =&gt; {
+  ${0}
+});
+</code></p>
+
+<h4 id="reduce-reduce-function-chainable"><code>reduce⇥</code> reduce function (chainable)</h4>
+<p><code>js
+${1:iterable}.reduce((${2:previous}, ${3:current}) =&gt; {
+  ${0}
+}${4:, initial});
+</code></p>
+
+<h4 id="filter-filter-function-chainable"><code>filter⇥</code> filter function (chainable)</h4>
+<p><code>js
+${1:iterable}.filter((${2:item}) =&gt; {
+  ${0}
+});
+</code></p>
+
+<h4 id="find-es6-find-function-chainable"><code>find⇥</code> ES6 find function (chainable)</h4>
+<p><code>js
+${1:iterable}.find((${2:item}) =&gt; {
+  ${0}
+});
+</code></p>
+
+<h3 id="objects-and-classes">Objects and classes</h3>
+
+<h4 id="c-class-es6"><code>c⇥</code> class (ES6)</h4>
+<p><code>js
+class ${1:name} {
+  constructor(${2:arguments}) {
+    ${0}
+  }
+}
+</code></p>
+
+<h4 id="cex-child-class-es6"><code>cex⇥</code> child class (ES6)</h4>
+<p><code>js
+class ${1:name} extends ${2:base} {
+  constructor(${2:arguments}) {
+    super(${2:arguments})
+    ${0}
+  }
+}
+</code></p>
+
+<h4 id="cf-class-function-es6"><code>cf⇥</code> class function (ES6)</h4>
+
+<p><code>js
+{$1:name}({$2:arguments}) {
+  ${0}
+}
+</code></p>
+
+<h4 id="kv-keyvalue-pair"><code>kv⇥</code> key/value pair</h4>
+<p>Javascript:
+<code>js
+${1:key}: ${2:'value'}
+</code></p>
+
+<h4 id="m-method-es6-syntax"><code>m⇥</code> method (ES6 syntax)</h4>
+<p><code>js
+${1:method}(${2:arguments}) {
+  ${0}
+}
+</code></p>
+
+<h4 id="getset--getter-setter-es6-syntax"><code>get⇥</code>,<code>set⇥</code>  getter ,setter (ES6 syntax)</h4>
+<p><code>js
+get ${1:property}() {
+  ${0}
+}
+set ${1:property}(${2:value}) {
+  ${0}
+}
+</code></p>
+
+<h4 id="gs-getter-and-setter-es6-syntax"><code>gs⇥</code> getter and setter (ES6 syntax)</h4>
+<p>```js
+get ${1:property}() {
+  ${0}
+}
+set ${1:property}(${2:value}) {</p>
+
+<p>}
+```</p>
+
+<h4 id="proto-prototype-method-chainable"><code>proto⇥</code> prototype method (chainable)</h4>
+<p><code>js
+${1:Class}.prototype.${2:methodName} = function (${3:arguments}) {
+  ${0}
+};
+</code></p>
+
+<h3 id="returning-values">Returning values</h3>
+
+<h4 id="rrthrnrt-rf-r0-r-1-return"><code>r⇥</code>,<code>rth⇥</code>,<code>rn⇥</code>,<code>rt⇥</code> ,<code>rf⇥</code> ,<code>r0⇥</code>, <code>r-1⇥</code> return</h4>
+<p>```js
+return ${0};    //<code>r⇥</code>
+return this;    //<code>rth⇥</code>
+return null;    //<code>rn⇥</code>
+return true;    //<code>rt⇥</code>
+return false;   //<code>rf⇥</code>
+return 0;       //<code>r0⇥</code>
+return -1;      //<code>r-1⇥</code></p>
+
+<p>```</p>
+
+<h3 id="types">Types</h3>
+
+<h4 id="s-string"><code>S⇥</code> String</h4>
+<p>#### <code>N⇥</code> Number
+#### <code>O⇥</code> Object
+#### <code>A⇥</code> Array
+#### <code>D⇥</code> Date
+#### <code>Rx⇥</code> RegExp</p>
+
+<h4 id="tof-typeof-comparison"><code>tof⇥</code> typeof comparison</h4>
+<p><code>js
+typeof ${1:source} === '${2:undefined}'
+</code></p>
+
+<h4 id="iof-instanceof-comparison"><code>iof⇥</code> instanceof comparison</h4>
+<p><code>js
+${1:source} instanceof ${2:Object}
+</code></p>
+
+<h3 id="promises">Promises</h3>
+
+<h4 id="rp-return-promise-es6"><code>rp⇥</code> return Promise (ES6)</h4>
+<p><code>js
+return new Promise((resolve, reject) =&gt; {
+  ${0}
+});
+</code></p>
+
+<h4 id="p-new-promise-es6"><code>p⇥</code> new Promise (ES6)</h4>
+<p><code>js
+new Promise((resolve, reject) =&gt; {
+  ${0}
+})
+</code></p>
+
+<h4 id="then-promisethen-chainable"><code>then⇥</code> Promise.then (chainable)</h4>
+<p><code>js
+${1:promise}.then((${2:value}) =&gt; {
+  ${0}
+});
+</code></p>
+
+<h4 id="catch-promisecatch-chainable"><code>catch⇥</code> Promise.catch (chainable)</h4>
+<p><code>js
+${1:promise}.catch((${2:err}) =&gt; {
+  ${0}
+});
+</code></p>
+
+<h3 id="es6-modules">ES6 modules</h3>
+
+<h4 id="ex-module-export"><code>ex⇥</code> module export</h4>
+<p><code>js
+export ${1:member};
+</code></p>
+
+<h4 id="im-module-import"><code>im⇥</code> module import</h4>
+<p><code>js
+import ${1:*} from '${2:module}';
+</code></p>
+
+<h4 id="ima-module-import-as"><code>ima⇥</code> module import as</h4>
+<p><code>js
+import ${1:*} as ${2:name} from '${3:module}';
+</code></p>
+
+<h4 id="imn-named-module-import"><code>imn⇥</code> named module import</h4>
+<p><code>js
+import \{ ${1:name} \} from '${2:module}';
+</code></p>
+
+<h3 id="bdd-testing-mocha-jasmine-etc">BDD testing (Mocha, Jasmine, etc.)</h3>
+
+<h4 id="desc-describe"><code>desc⇥</code> describe</h4>
+<p><code>js
+describe('${1:description}', () =&gt; {
+  ${0}
+});
+</code></p>
+
+<h4 id="its-synchronous-it"><code>its⇥</code> synchronous “it”</h4>
+<p><code>js
+it('${1:description}', () =&gt; {
+  ${0}
+});
+</code></p>
+
+<h4 id="ita-asynchronous-it"><code>ita⇥</code> asynchronous “it”</h4>
+<p><code>js
+it('${1:description}', (done) =&gt; {
+  ${0}
+});
+</code></p>
+
+<h4 id="bef-before"><code>bef⇥</code> before</h4>
+<p><code>js
+before(() =&gt; {
+  ${0}
+});
+</code></p>
+
+<h4 id="befe-beforeeach"><code>befe⇥</code> beforeEach</h4>
+<p><code>js
+beforeEach(() =&gt; {
+  ${0}
+});
+</code></p>
+
+<h4 id="aft-after"><code>aft⇥</code> after</h4>
+<p><code>js
+after(() =&gt; {
+  ${0}
+});
+</code></p>
+
+<h4 id="afte-aftereach"><code>afte⇥</code> afterEach</h4>
+<p><code>js
+afterEach(() =&gt; {
+  ${0}
+});
+</code></p>
+
+<h3 id="console">Console</h3>
+
+<h4 id="clcll-cectctecw--consolelog"><code>cl⇥</code>,<code>cll⇥</code>, <code>ce⇥</code>,<code>ct⇥</code>,<code>cte⇥</code>,<code>cw⇥</code>  console.log</h4>
+<p><code>js
+console.log('${1:title}', ${2:$1}$0);
+console.log(${0});
+console.error(${0});
+console.time(${0});
+console.timeEnd(${0});
+console.warn(${0});
+</code></p>
+
+<h3 id="timers">Timers</h3>
+
+<h4 id="stsi-sim-settimeoutsetinterval"><code>st⇥</code>,<code>si⇥</code> ,<code>sim⇥</code> setTimeout,setInterval</h4>
+<p><code>js
+//`st⇥`
+setTimeout(() =&gt; {
+  ${0}
+}, ${1:delay});
+//`si⇥`
+setTimeout(() =&gt; {
+  ${0}
+}, ${1:delay});
+//`sim⇥`
+setImmediate(() =&gt; {
+  ${0}
+});
+</code></p>
+
+<h3 id="dom-specifics">DOM specifics</h3>
+
+<h4 id="ae-addeventlistener"><code>ae⇥</code> addEventListener</h4>
+<p><code>js
+${1:document}.addEventListener('${2:event}', function (e) {
+  ${0}
+});
+</code>
+#### <code>ga⇥</code>,<code>ra⇥</code> , <code>ac⇥</code>,<code>rc⇥</code>  get,setAttribute,append,removeChild
+<code>js
+${1:document}.getAttribute('${2:id}')
+${1:document}.removeAttribute('${2:attr}');
+${1:document}.appendChild(${2:elem});
+${1:document}.removeChild(${2:elem});
+</code></p>
+
+<h4 id="gi-getelementbyid"><code>gi⇥</code> getElementById</h4>
+<p><code>js
+${1:document}.getElementById('${2:id}')
+</code></p>
+
+<h4 id="gc-getelementsbyclassname"><code>gc⇥</code> getElementsByClassName</h4>
+<p><code>js
+Array.from(${1:document}.getElementsByClassName('${2:class}'))
+</code>
+<code>Array.from</code> polyfill required for ES5</p>
+
+<h4 id="gt-getelementsbytagname"><code>gt⇥</code> getElementsByTagName</h4>
+<p><code>js
+Array.from(${1:document}.getElementsByTagName('${2:tag}'))
+</code>
+<code>Array.from</code> polyfill required for ES5</p>
+
+<h4 id="qs-queryselector"><code>qs⇥</code> querySelector</h4>
+<p><code>js
+${1:document}.querySelector('${2:selector}')
+</code></p>
+
+<h4 id="qsa-queryselectorall"><code>qsa⇥</code> querySelectorAll</h4>
+<p><code>js
+Array.from(${1:document}.querySelectorAll('${2:selector}'))
+</code>
+<code>Array.from</code> polyfill required for ES5</p>
+
+<h3 id="nodejs-specifics">Node.js specifics</h3>
+
+<h4 id="cb-nodejs-style-callback"><code>cb⇥</code> Node.js style callback</h4>
+<p><code>js
+(err${1:, value}) =&gt; {${0}}
+</code></p>
+
+<h4 id="re-require-a-module"><code>re⇥</code> require a module</h4>
+<p><code>js
+require('${1:module}');
+</code></p>
+
+<h4 id="em-export-member"><code>em⇥</code> export member</h4>
+<p><code>js
+exports.${1:name} = ${2:value};
+</code></p>
+
+<h4 id="me-moduleexports"><code>me⇥</code> module.exports</h4>
+<p><code>js
+module.exports = ${1:name};
+</code></p>
+
+<h4 id="on-attach-an-event-handler-chainable"><code>on⇥</code> attach an event handler (chainable)</h4>
+<p><code>js
+${1:emitter}.on('${2:event}', (${3:arguments}) =&gt; {
+  ${0}
+});
+</code></p>
+
+<h3 id="miscellaneous">Miscellaneous</h3>
+
+<h4 id="us-use-strict"><code>us⇥</code> use strict</h4>
+<p><code>js
+'use strict';
+</code></p>
+
+<h1 id="license">License</h1>
+
+<p>The MIT License (MIT)
+Copyright (c) 2016 maochunguang</p>
+<section class="package-keywords">
+  <strong>Keywords:</strong> javascript, snippets, nodejs, es6, express <a href="https://github.com/maochunguang/best-js-snippets/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

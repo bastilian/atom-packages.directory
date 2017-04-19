@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Block Cursor
+  <a href="https://github.com/adamrenklint/atom-block-cursor">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install block-cursor
+  </pre>
+</div>
+<p><img src="https://raw.githubusercontent.com/olmokramer/atom-block-cursor/master/block-cursor.png" alt="Block cursor" /></p>
+
+<h2 id="config">config</h2>
+
+<p>Version 0.13.0 breaks the config from previous versions, but has much more flexibility.</p>
+
+<p>Multiple cursor types can be registered in <code>config.cson</code>. The <code>block-cursor:new-custom-cursor</code> command can register a new cursor type.</p>
+
+<p>The following properties can be set for each cursor type:</p>
+
+<p><code>coffee
+selector: 'atom-text-editor'
+scopes: [ '*' ]
+blinkOn:
+  backgroundColor: '#393939'
+  borderStyle: 'none'
+  borderColor: 'transparent'
+  borderWidth: 0
+blinkOff:
+  backgroundColor: 'transparent'
+  borderStyle: 'none'
+  borderColor: 'transparent'
+  borderWidth: 0
+pulseDuration: 0
+cursorLineFix: false
+</code></p>
+
+<h3 id="selector">selector</h3>
+
+<p>Defines which <code>atom-text-editor</code> elements the cursor type should apply to. The selector should select an <code>atom-text-editor</code> element.</p>
+
+<h3 id="scopes">scopes</h3>
+
+<p>List of scopes that the cursor type should apply to.</p>
+
+<h3 id="blinkonbackgroundcolor--blinkoffbackgroundcolor">blinkOn.backgroundColor &amp; blinkOff.backgroundColor</h3>
+
+<p>The background color of the cursor in blink-on or blink-off state.</p>
+
+<h3 id="blinkonborderstyle--blinkoffborderstyle">blinkOn.borderStyle &amp; blinkOff.borderStyle</h3>
+
+<p>The border style of the cursor in blink-on or blink-off state. Can be one of the following:</p>
+
+<ul>
+  <li><code>bordered-box</code> <br /><img src="https://raw.githubusercontent.com/olmokramer/atom-block-cursor/master/cursor-bordered-box.png" alt="Block cursor" /></li>
+  <li><code>i-beam</code> <br /><img src="https://raw.githubusercontent.com/olmokramer/atom-block-cursor/master/cursor-i-beam.png" alt="Block cursor" /></li>
+  <li><code>underline</code> <br /><img src="https://raw.githubusercontent.com/olmokramer/atom-block-cursor/master/cursor-underline.png" alt="Block cursor" /></li>
+  <li><code>none</code></li>
+</ul>
+
+<h3 id="blinkonbordercolor--blinkoffbordercolor">blinkOn.borderColor &amp; blinkOff.borderColor</h3>
+
+<p>The border color of the cursor in blink-on or blink-off state.</p>
+
+<h3 id="blinkonborderwidth--blinkoffborderwidth">blinkOn.borderWidth &amp; blinkOff.borderWidth</h3>
+
+<p>The border width of the cursor in blink-on or blink-off state.</p>
+
+<h3 id="pulseduration">pulseDuration</h3>
+
+<p>Pulse effect that fades the cursor from blink-on to blink-off state (instead of blinking). Set to 0 to disable.</p>
+
+<p><img src="https://raw.githubusercontent.com/olmokramer/atom-block-cursor/master/cursor-pulse.gif" alt="Block cursor" /></p>
+
+<h3 id="cursorlinefix">cursorLineFix</h3>
+
+<p>When your syntax theme uses a <code>background-color</code> on <code>.cursor-line</code> - the line the cursor is on - the <code>block</code> cursor may become invisible. This is because the cursor has a <code>z-index</code> of <code>-1</code>, to make it render behind the text instead of above it. This fix sets the cursor’s <code>z-index</code> to <code>1</code>, to make it render above the text, so you should use low <code>alpha</code> values for <code>primaryColor</code> and <code>secondaryColor</code> if you enable this fix.</p>
+
+<p>The <code>cursorLineFix</code> is currently ignored due to the new tile rendering of the editor that was introduced in Atom v0.209.0. It will always be set to <code>true</code>, to allow the cursor to render above the text, so make sure the background colors you use have low alpha values. Otherwise the character under the cursor will not be visible.</p>
+
+<p>You can also add this to your <code>styles.less</code> to disable the line highlight:
+<code>less
+atom-text-editor.editor .lines .line.cursor-line {
+  background-color: transparent;
+}
+</code></p>
+
+<h3 id="example-config">example config</h3>
+
+<p><code>coffee
+  "block-cursor":
+    # white cursor by default
+    global:
+      blinkOn:
+        backgroundColor: "white"
+    # dary grey cursor on [mini] editors
+    mini:
+      selector: "atom-text-editor[mini]"
+      blinkOn:
+        backgroundColor: "darkgrey"
+    # box cursor when editor is not focused
+    "no-focus":
+      selector: "atom-text-editor:not(.is-focused)"
+      blinkOn:
+        backgroundColor: "transparent"
+        borderColor: "white"
+        borderStyle: "bordered-box"
+        borderWidth: 1
+    # red cursor in coffeescript
+    "coffee-script":
+      scopes: [ ".source.coffee" ],
+      blinkOn:
+        backgroundColor: "red"
+    # lightgray cursor when using the one-dark-syntax theme
+    "one-dark-syntax":
+      selector: ".theme-one-dark-syntax atom-text-editor"
+      blinkOn:
+        backgroundColor: "lightgray"
+    # darkgray cursor when using the one-light-syntax theme
+    "one-light-syntax":
+      selector: ".theme-one-light-syntax atom-text-editor"
+      blinkOn:
+        backgroundColor: "darkgray"
+</code></p>
+
+<h3 id="help-the-blink-interval-setting-has-disappeared">HELP! the blink interval setting has disappeared</h3>
+
+<p>Use the <a href="https://atom.io/packages/cursor-blink-interval">cursor-blink-interval</a> package instead. Due to the changes in v0.13.0 it was not as easy to implement it alongside the other features.</p>
+
+<h2 id="commands">commands</h2>
+
+<h3 id="block-cursornew-custom-cursor"><code>block-cursor:new-custom-cursor</code></h3>
+
+<p>This command adds a new cursor type that can be customised customise to <code>config.cson</code>, that can be configured from the settings view. By default it will be called <code>custom-X</code>, but it can be renamed to anything you like.</p>
+
+<h2 id="scoped-config">scoped config</h2>
+
+<p>From <code>v0.13.0</code> scoped config is done by creating a new cursor type. See the example config.</p>
+
+<h2 id="known-issues">known issues</h2>
+
+<p>Due to a <a href="https://github.com/atom/settings-view/issues/518">bug</a> in <a href="https://atom.io/packages/settings-view">settings-view</a> sometimes the settings don’t appear in the settings view. In that case you’ll have to update <code>~/.atom/config.cson</code> by hand.</p>
+
+<h2 id="contribute">contribute</h2>
+
+<p>Have other neat ideas for cursor customization? Found a bug?</p>
+
+<ol>
+  <li>Fork the repo</li>
+  <li>:rocket: Make awesome things happen</li>
+  <li>Create a pull request</li>
+</ol>
+
+<p>Or <a href="https://github.com/olmokramer/atom-block-cursor/issues/new">create a new issue</a> at the repository if you can’t do it yourself.</p>
+
+<h2 id="copyright--license">copyright &amp; license</h2>
+
+<p>© 2015 Olmo Kramer <br /> <a href="LICENSE.md">MIT license</a></p>
+<section class="package-keywords">
+  <strong>Keywords:</strong> ui, cursor <a href="https://github.com/adamrenklint/atom-block-cursor/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

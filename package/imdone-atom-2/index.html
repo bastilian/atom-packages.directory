@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Imdone Atom
+  <a href="https://github.com/imdone/imdone-atom">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+    <span class="author">by Jesse Piascik</span>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install imdone-atom
+  </pre>
+</div>
+<h2 id="a-task-board-made-from-todo-comments-in-your-code-and-text-files">A task board made from TODO comments in your code and text files</h2>
+<p><strong>Turn your TODO comments and plain text tasks into a task board and set up webhooks on <a href="https://imdone.io">imdone.io</a> to integrate with anything</strong><br />
+Just use <code>alt+t</code> while editing a file to see your projects board.</p>
+
+<p><img src="https://cloud.githubusercontent.com/assets/233505/20188737/9a3decf8-a73f-11e6-89c3-c3b348c98ae7.png" alt="Static imdone image" /></p>
+
+<p><a href="https://atom.io/packages/imdone-atom"><img src="https://img.shields.io/apm/dm/imdone-atom.svg" alt="apm" /></a>
+<a href=""><img src="https://img.shields.io/apm/v/imdone-atom.svg" alt="apm" /></a></p>
+
+<h2 id="new-in-22--webhooks">NEW in 2.2  Webhooks!</h2>
+<p>### Now you can integrate any way you want<br />
+<strong>Just configure the payloadURL of your <a href="https://imdone.io">imdone.io</a> project’s webhook.  The payloadURL will receive an HTTP POST with the following JSON body.</strong>
+<code>js
+{
+    "taskNow": {}, // https://github.com/imdone/imdone-core/blob/master/lib/task.js
+    "taskBefore": {}, // https://github.com/imdone/imdone-core/blob/master/lib/task.js
+    "delta": {} // https://github.com/benjamine/jsondiffpatch/blob/master/docs/deltas.md
+}
+</code></p>
+
+<p><strong>You can also update tasks by returning a json response in the following format.</strong>
+```js
+{
+  text: “The text of the task id:3 +story trello:19”,
+  list: “DOING”
+}</p>
+
+<p>```</p>
+
+<h2 id="working-webhook-examples-in-glitchhttpsglitchcom">Working webhook examples in <a href="https://glitch.com">Glitch</a></h2>
+<p>### <a href="https://glitch.com/edit/#!/imdone-webhook-twitter">imdone-webhook-twitter</a>
+- Tweet your TODO comments when they change
+- <a href="https://medium.com/imdoneio/tweet-from-todo-comments-with-imdone-atom-and-glitch-118e212acac8">Check out this blog post to get started</a></p>
+
+<h3 id="imdone-webhook-trellohttpsglitchcomeditimdone-webhook-trello"><a href="https://glitch.com/edit/#!/imdone-webhook-trello">imdone-webhook-trello</a></h3>
+<ul>
+  <li>Keep your trello board updated with TODO comments</li>
+</ul>
+
+<h2 id="you-live-in-the-code-your-tasks-should-too">You live in the code, your tasks should too!</h2>
+<p>For decades developers have used <a href="https://medium.com/imdoneio/5-ways-using-todo-comments-will-make-you-a-better-programmer-240abd00d9e4">TODO style code comments</a> to track issues that almost never end up in issue tracking software.  imdone is a plugin for your favorite text editor that turns code comments into trackable issues that you can update from your code.  It collects all TODO style comments in your project and organizes them in a drag and drop task-board that can integrate with <a href="https://github.com">GitHub</a>, <a href="https://waffle.io">waffle.io</a> and soon whatever you want with webhooks using <a href="https://imdone.io">imdone.io</a>.</p>
+
+<p>imdone works best with todo.txt and markdown syntax.  See the <a href="https://github.com/imdone/imdone-core#task-formats">syntax guide at imdone-core</a> for details.</p>
+
+<h2 id="features">Features</h2>
+<p>### Filtering your board
+imdone uses regular expression matching to filter your cards on your board.  The content and the path of the file are searched, but the Token (e.g. TODO) is not searched.
+<img src="https://cloud.githubusercontent.com/assets/233505/21971105/fc44f31c-db72-11e6-857a-17fa92082a46.gif" alt="filter-tasks" /></p>
+
+<h3 id="delete-all-visible-tasks">Delete all visible tasks</h3>
+<p>Just click on the trash can icon and all the visible tasks will be deleted.  imdone will also get rid of any blank lines left behind!  Great for cleaning up!</p>
+
+<h3 id="open-all-files-for-visible-tasks">Open all files for visible tasks</h3>
+<p>Click on the lightning bolt icon and open all files for the visible tasks.</p>
+
+<h3 id="using-tags-in-your-todo-comments">Using tags in your TODO comments</h3>
+<p>imdone uses a bit of <a href="https://github.com/ginatrapani/todo.txt-cli/wiki/The-Todo.txt-Format">Todo.txt format</a> (except priority), so <code>+bug</code> would be a tag.  Tags in TODO content are turned into filter links, so clicking on it will filter the board.</p>
+
+<h3 id="using-contexts-and-name-syntax">Using contexts and @name syntax</h3>
+<p>You can use <a href="https://github.com/ginatrapani/todo.txt-cli/wiki/The-Todo.txt-Format">Todo.txt</a>  contexts in the same way.  They’ll also be turned into filter links.</p>
+
+<h3 id="metadata">metadata</h3>
+<p>Another great benefit of using <a href="https://github.com/ginatrapani/todo.txt-cli/wiki/The-Todo.txt-Format">Todo.txt format</a> is the <a href="https://github.com/ginatrapani/todo.txt-cli/wiki/The-Todo.txt-Format#add-on-file-format-definitions">metadata</a>. Just use the format ` key:value <code>, and your metadata will be listed in a table inside the task card.  We use metadata for imdone.io integrations like </code>gh:1<code> to represent github issue number 1 and </code>id:1` to represent imdone task id 1.</p>
+
+<h3 id="integrate-with-issue-tracking">Integrate with issue tracking</h3>
+<p>My favorite feature of imdone are the integrations.  Today you can integrate with github and waffle.io.  Jira SaaS integration is coming soon.</p>
+
+<p><a href="https://imdone.io/#video" target="_blank"><img src="http://img.youtube.com/vi/ECIfGmngetU/0.jpg" alt="imdone.io integration" width="240" height="180" border="10" /></a></p>
+
+<ul>
+  <li>
+    <p>Create an issue and attach it to a TODO that has a tag you configure like +enhancement, +feature or +bug</p>
+
+    <p>A TODO like this</p>
+
+    <p><code>js
+// TODO: DRY this code up, and create a new method +enhancement
+</code></p>
+
+    <p>will trun into this</p>
+
+    <p><code>js
+// TODO: DRY this code up, and create a new method +enhancement id:1 gh:1
+</code></p>
+
+    <p>creating github issue number 1 with the title “DRY this code up, and create a new method” and attaching it to the TODO</p>
+  </li>
+  <li>
+    <p>Close a TODO’s attached issue(s) when it’s token changes to something you configure, like DONE.</p>
+
+    <p>A comment like this</p>
+
+    <p><code>js
+// DONE: DRY this code up, and create a new method +enhancement id:1 gh:1
+</code></p>
+
+    <p>would close github issue number 1.</p>
+  </li>
+  <li>
+    <p>Comment on a TODO’s attached issue(s) when it’s modified and optionaly contains a tag you configure</p>
+  </li>
+  <li>
+    <p>Create and add labels to a TODO’s attached issue(s) for tags that occur in the TODO</p>
+
+    <p>A comment like this</p>
+
+    <p><code>js
+// TODO: DRY this code up, and create a new method +enhancement id:1 gh:1 +groovy
+</code></p>
+
+    <p>would add the label groovy to github issue number 1</p>
+  </li>
+  <li>
+    <p>Move a TODO’s attached issues to a waffle.io list you configure when the TODO’s token is changed to a token you configure.</p>
+  </li>
+</ul>
+
+<p>if the token DOING is mapped to “in progress” then a TODO like this</p>
+
+<p><code>js
+  // DOING: DRY this code up, and create a new method +enhancement id:1 gh:1
+ </code></p>
+
+<p>will move the waffle card to the “in progress” list in your waffle.io project</p>
+
+<h3 id="adding-and-removing-todo-tokens">Adding and removing TODO tokens</h3>
+<p>You can add a token by just adding an all caps list using the add list button.  If the list name matches this regex <code>[A-Z]+[A-Z-_]{2,}</code> a new token will be created.
+<img src="https://cloud.githubusercontent.com/assets/233505/21989108/548c5d9c-dbcf-11e6-96d0-8e2e92e73371.gif" alt="Adding a  TODO token" />
+If the list name matches this this regex <code>/[\w\-]+?/</code>, then you will have to use the <a href="https://github.com/imdone/imdone-core#hash-style">hash style syntax</a> like this…
+<code>js
+// #to-do: This is in a list that doesn't have all caps!
+</code>
+### Code journal
+Configure a directory to use as a daily journal.  Open the daily journal with alt+j.  If your like me, you’ll just use dropbox directory for this.  Remember, you can use TODO’s in any text file if you put a <code>#</code> in front of the token, like this…
+<code>md
+This is my simple markdown journal
+- #TODO: Finish this work
+</code></p>
+
+<p>Use your code journal for anything, even planning your next set of features!</p>
+
+<!-- ### Using markdown -->
+<p>### Open files in <a href="https://www.jetbrains.com/products.html">intellij and webstorm</a>
+- <strong>Open task links in <a href="https://www.jetbrains.com/products.html">intellij</a> family of products with imdone-atom and <a href="https://plugins.jetbrains.com/plugin/8067">imdone intellij plugin</a>!</strong></p>
+
+<h3 id="ignoring-files">Ignoring files</h3>
+<ul>
+  <li>
+    <p>Configuration setting<br />
+You can ignore files with the “Exclude Vcs Ignored Paths” setting</p>
+  </li>
+  <li>
+    <p>.imdoneignore<br />
+<code>.imdoneignore</code> is implemented using the <a href="https://www.npmjs.com/package/ignore">ignore</a> package.  Each file in your projects path is tested against the rules in <code>.imdoneignore</code>.<br />
+To ignore all but some subdirectories, see this Stack Overflow question. <a href="http://stackoverflow.com/questions/5533050/gitignore-exclude-folder-but-include-specific-subfolder">git - .gitignore exclude folder but include specific subfolder - Stack Overflow</a></p>
+  </li>
+  <li>
+    <p>.imdone/config.json<br />
+imdone will also ignore files and folders that match a regex in the <code>.imdone/config.json</code>, <code>exclude</code> array.  The array is seeded with some common excludes on first run.</p>
+
+    <p><strong>IMPORTANT:</strong> If your project is large (#files &gt; 1000) consider adding an .imdoneignore file.</p>
+  </li>
+</ul>
+
+<h2 id="install">Install</h2>
+<p><code>
+$ apm install imdone-atom
+</code>
+or open Atom and go to Preferences &gt; Install and search for <code>imdone-atom</code></p>
+
+<h2 id="commands">Commands</h2>
+<p>| Command Palette               | Key Mapping | Description              |
+|:——————————|:————|:————————-|
+| <code>Imdone Atom: Tasks</code>          | Alt+T       | Open task board          |
+| <code>Imdone Atom: Todays Journal</code> | Alt+J       | Open todays journal file |
+| <code>Imdone Atom: Board Zoom In</code>  | Alt+.       | Zoom in board            |
+| <code>Imdone Atom: Board Zoom Out</code> | Alt+,       | Zoom out board           |</p>
+
+<h2 id="settings">Settings</h2>
+<p>| Name                               | Type    | Default     | Description                                                                                    |
+|:———————————–|:——–|:————|:———————————————————————————————–|
+| Exclude Vcs Ignored Paths          | boolean | false       | Exclude files that are ignored by your version control system                                  |
+| File Opener Port                   | integer | 9799        | Port the file opener communicates on                                                           |
+| Max Files Prompt                   | integer | 2500        | How many files is too many to parse without prompting to add ignores?                          |
+| Open in Intellij                   | string  | ‘’          | <a href="https://github.com/isaacs/node-glob">Glob pattern</a> for files that should open in Intellij.    |
+| Show Notifications                 | boolean | false       | Show notifications upon clicking task source link.                                             |
+| Show Tags Inline                   | boolean | false       | Display inline tag and context links in task text?                                             |
+| Today’s Journal Date Format        | string  | YYYY-MM-DD  | How would you like your <code>date</code> variable formatted?                                             |
+| Today’s Journal Directory          | string  | $HOME/notes | Where do you want your journal files to live? (Their project directory)                        |
+| Today’s Journal File Name Template | string  | ${date}.md  | How do you want your journal files to be named?                                                |
+| Today’s Journal Month Format       | string  | YYYY-MM     | How would you like your <code>month</code> variable formatted for use in directory or file name template? |
+| Use Alternate File Watcher         | boolean | false       | If your board won’t update when you edit files, then try the alternate file watcher            |
+| Zoom Level                         | Number  | 1           | Set the default zoom level on startup.  min: .2, max: 2.5                                      |</p>
+<section class="package-keywords">
+  <strong>Keywords:</strong> todo, fixme, tasks, productivity, issues, flow, zone, waffle, github issues, webhooks <a href="https://github.com/imdone/imdone-atom/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

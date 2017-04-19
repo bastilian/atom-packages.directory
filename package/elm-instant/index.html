@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Elm Instant
+  <a href="https://github.com/mukeshsoni/elm-instant">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install elm-instant
+  </pre>
+</div>
+<h1 id="elm-instant">elm-instant</h1>
+
+<p>atom package link - https://atom.io/packages/elm-instant</p>
+
+<p>elm-instant is an atom package inspired by <a href="http://haskellformac.com">haskell for mac</a>. It provides both a visual REPL to try your elm code as well as a preview pane to immediately see the output of calling functions you have in your elm files.</p>
+
+<p>With elm-instant, you can start typing expressions and immediately see results in the output panel without any glue code. Plus, it works for ui stuff too!</p>
+
+<h2 id="features">Features</h2>
+
+<ul>
+  <li>Immediate feedback</li>
+  <li>Quick way for someone new to the language to try it out</li>
+  <li>Mix of ui views + normal expressions</li>
+  <li>Has around 38 packages built in (the list is below). E.g. Just do <code>import Http</code> and it will work.</li>
+  <li>Can load files from the disk and the dependencies will be resolved automatically</li>
+  <li>Can try multiple expressions for the same function. i like how <a href="https://github.com/bhauman/devcards">clojurescript devcards</a> describes themselves - visual REPL.</li>
+</ul>
+
+<p><img src="https://raw.githubusercontent.com/mukeshsoni/elm-instant/master/images/showcase.gif" alt="Elm counter pairs from elm-architechture examples" /></p>
+
+<p>elm-instant was inspired by <a href="http://haskellformac.com">haskell for mac</a>. The primary idea is to have a playground panel where users can type out code expressions and see the result instantaneously without any setup. There is a similar thing currently for elm (<a href="elm-lang.org/try">elm-lang.org/try</a>) but it has limited functionality and doesn’t work without having the ui layer (model, view, update, main etc.).</p>
+
+<h2 id="setup">Setup</h2>
+
+<p><code>
+npm install elm -g -- in case you don't have elm installed already
+apm install elm-instant
+</code></p>
+
+<p><strong>Note</strong>
+To test out your views just copy whatever you would assign to <code>main</code>. E.g. if your code has -</p>
+
+<p><code>
+main =
+  Html.program
+    { init = init
+    , view = view
+    , update = update
+    , subscriptions = subscriptions
+    }
+</code></p>
+
+<p>copy this to the playground -</p>
+
+<p><code>
+Html.program
+  { init = init
+  , view = view
+  , update = update
+  , subscriptions = subscriptions
+  }
+</code></p>
+
+<p>To test the <code>UI</code> part of a view without having the whole triplet, use <code>$view</code> -</p>
+
+<p>```
+– In your code
+ball =
+  div [] [text “assume it’s a ball”]</p>
+
+<p>– In the playground
+$view ball
+```</p>
+
+<h2 id="dev-setup">Dev setup</h2>
+
+<p><code>
+npm install elm -g -- in case you don't have elm installed already
+git clone https://github.com/mukeshsoni/elm-instant
+cd elm-instant
+npm install
+npm run install-elm-packages
+apm link
+</code></p>
+
+<h2 id="packages-included-by-default">Packages included by default</h2>
+<ul>
+  <li>elm-lang/animation-frame</li>
+  <li>elm-lang/core</li>
+  <li>elm-lang/dom</li>
+  <li>elm-lang/geolocation</li>
+  <li>elm-lang/html</li>
+  <li>elm-lang/keyboard</li>
+  <li>elm-lang/lazy</li>
+  <li>elm-lang/mouse</li>
+  <li>elm-lang/navigation</li>
+  <li>elm-lang/page-visibility</li>
+  <li>elm-lang/svg</li>
+  <li>elm-lang/trampoline</li>
+  <li>elm-lang/websocket</li>
+  <li>elm-lang/window</li>
+  <li>evancz/elm-http</li>
+  <li>evancz/elm-markdown</li>
+  <li>elm-community/undo-redo</li>
+  <li>elm-community/easing-functions</li>
+  <li>elm-community/elm-lazy-list</li>
+  <li>elm-community/elm-linear-algebra</li>
+  <li>elm-community/elm-material-icons</li>
+  <li>elm-community/elm-webgl</li>
+  <li>elm-community/graph</li>
+  <li>elm-community/intdict</li>
+  <li>elm-community/list-split</li>
+  <li>elm-community/html-extra</li>
+  <li>elm-community/json-extra</li>
+  <li>elm-community/maybe-extra</li>
+  <li>elm-community/random-extra</li>
+  <li>elm-community/result-extra</li>
+  <li>elm-community/string-extra</li>
+  <li>elm-community/svg-extra</li>
+  <li>elm-community/array-extra</li>
+  <li>elm-community/basics-extra</li>
+  <li>elm-community/dict-extra</li>
+</ul>
+
+<h2 id="maintainers">Maintainers</h2>
+
+<ul>
+  <li><a href="https://github.com/mukeshsoni">Mukesh Soni</a></li>
+</ul>
+
+<h2 id="license">License</h2>
+<p>MIT © <a href="https://github.com/mukeshsoni">Mukesh Soni</a></p>
+<section class="package-keywords">
+  <strong>Keywords:</strong> elm, preview, instant, playground <a href="https://github.com/mukeshsoni/elm-instant/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

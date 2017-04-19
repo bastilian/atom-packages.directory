@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Custom Minimap Titles
+  <a href="https://github.com/jalenconner/custom-minimap-titles">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install custom-minimap-titles
+  </pre>
+</div>
+<h1 id="custom-minimap-titles">Custom Minimap Titles</h1>
+<p><a href="https://atom.io/">Atom</a> package to convert the selected text to ASCII art using <a href="http://www.figlet.org/">FIGlet</a> and then comment it.</p>
+
+<p>The chosen figlet font (Banner3) is perfect for minimap visualization. If you want to change the font, add the following into your Atom config:
+<code>
+"custom-minimap-titles":
+  font: "Small"
+</code>
+All the available fonts can be found at <a href="http://patorjk.com/software/taag">http://patorjk.com/software/taag</a></p>
+
+<p>Select some text to convert something like this:
+<code>
+hello world
+</code>
+into something like this:
+<code>
+##     ## ######## ##       ##        #######     ##      ##  #######  ########  ##       ########  
+##     ## ##       ##       ##       ##     ##    ##  ##  ## ##     ## ##     ## ##       ##     ##
+##     ## ##       ##       ##       ##     ##    ##  ##  ## ##     ## ##     ## ##       ##     ##
+######### ######   ##       ##       ##     ##    ##  ##  ## ##     ## ########  ##       ##     ##
+##     ## ##       ##       ##       ##     ##    ##  ##  ## ##     ## ##   ##   ##       ##     ##
+##     ## ##       ##       ##       ##     ##    ##  ##  ## ##     ## ##    ##  ##       ##     ##
+##     ## ######## ######## ########  #######      ###  ###   #######  ##     ## ######## ########  
+</code>
+you can also <code>Toggle Comment Borders</code> to put a border around the text to add more distinction in the minimap:
+<code>
+****************************************************************************************************
+##     ## ######## ##       ##        #######     ##      ##  #######  ########  ##       ########
+##     ## ##       ##       ##       ##     ##    ##  ##  ## ##     ## ##     ## ##       ##     ##
+##     ## ##       ##       ##       ##     ##    ##  ##  ## ##     ## ##     ## ##       ##     ##
+######### ######   ##       ##       ##     ##    ##  ##  ## ##     ## ########  ##       ##     ##
+##     ## ##       ##       ##       ##     ##    ##  ##  ## ##     ## ##   ##   ##       ##     ##
+##     ## ##       ##       ##       ##     ##    ##  ##  ## ##     ## ##    ##  ##       ##     ##
+##     ## ######## ######## ########  #######      ###  ###   #######  ##     ## ######## ########
+****************************************************************************************************
+</code>
+Note that <code>Toggle Comment Borders</code> determines border size based on your editors preferred line length.</p>
+
+<p>The difference is slight and completely based on user preference:</p>
+
+<p><img src="http://i.imgur.com/xBCmrSx.png" alt="Border vs. No Border Example" /></p>
+
+<h2 id="usage">Usage</h2>
+<p>To convert text, select the text you wish to convert, and do <strong>any</strong> of the following:
+- Press <code>ctrl-shift-del</code> <strong>or</strong>
+- Select <code>Minimap Titles: Convert</code> in the <a href="https://atom.io/docs/latest/getting-started-atom-basics#command-palette">command palette</a> <strong>or</strong>
+- Select <em>Packages</em> -&gt; <em>Minimap Titles</em> -&gt; <em>Convert</em> from the main menu <strong>or</strong>
+- Right click on the selected text, and select <em>Minimap Titles: Convert</em> from the context menu</p>
+
+<p>To create comment borders around text to help distinguish sections in the minimap do the following:
+- Select <em>Packages</em> -&gt; <em>Minimap Titles</em> -&gt; <em>Toggle Comment Borders</em> from the main menu
+- Run the Convert command on your text as detailed above</p>
+
+<h2 id="credits">Credits</h2>
+<p>Based on the following packages:
+- <a href="https://github.com/masavini/atom-minimap-titles">minimap-titles</a>
+- <a href="https://github.com/robatron/atom-figletify">atom-figletify</a>
+- <a href="https://github.com/RayKwon/atom-block-comment/">block-comment</a></p>
+<section class="package-keywords">
+  <strong>Keywords:</strong> figlet, ascii art, comment, minimap <a href="https://github.com/jalenconner/custom-minimap-titles/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Autocomplete Jsp
+  <a href="https://github.com/MoritzKn/atom-autocomplete-jsp">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+    <span class="author">by Moritz Kneilmann <moritz.kneilmann@gmx.de></span>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install autocomplete-jsp
+  </pre>
+</div>
+<h1 id="jsp-autocomplete-package">JSP Autocomplete package</h1>
+<p><a href="https://travis-ci.org/MoritzKn/atom-autocomplete-jsp"><img src="https://travis-ci.org/MoritzKn/atom-autocomplete-jsp.svg?branch=master" alt="Build Status" /></a></p>
+
+<p>This <a href="https://atom.io">Atom</a> package adds autocompletion support for JSP with focus on it’s subset JSPX.  Uses the <a href="https://github.com/atom-community/autocomplete-plus">autocomplete-plus</a> package.</p>
+
+<p>See <a href="https://github.com/MoritzKn/atom-autocomplete-jsp/blob/master/README.md#setup">setup</a> and <a href="https://github.com/MoritzKn/atom-autocomplete-jsp/blob/master/CHANGELOG.md">changelog</a>.</p>
+
+<h2 id="features">Features</h2>
+<p>### Autocompletion for implicit objects
+<img src="https://raw.githubusercontent.com/MoritzKn/atom-autocomplete-jsp/master/doc/img/screenshot-implicit-objects.png" alt="Screenshot of autocompletion for implicit objects" /></p>
+
+<h3 id="autocompletion-for-el-keywords">Autocompletion for EL keywords</h3>
+<p><img src="https://raw.githubusercontent.com/MoritzKn/atom-autocomplete-jsp/master/doc/img/screenshot-keywords.png" alt="Screenshot of autocompletion for keywords" /></p>
+
+<h3 id="autocompletion-for-variables-defined-in-tags">Autocompletion for variables defined in tags</h3>
+<p><img src="https://raw.githubusercontent.com/MoritzKn/atom-autocomplete-jsp/master/doc/img/screenshot-tags-set.png" alt="Screenshot of autocompletion for variables" /></p>
+
+<h3 id="autocompletion-for-variables-from-jspusebean-tags">Autocompletion for variables from <code>&lt;jsp:useBean&gt;</code> tags</h3>
+<p><img src="https://raw.githubusercontent.com/MoritzKn/atom-autocomplete-jsp/master/doc/img/screenshot-tags-use-bean.png" alt="Screenshot of autocompletion for variables" /></p>
+
+<h3 id="autocompletion-of-tag-functions-from-tld-files">Autocompletion of tag functions from <code>.tld</code> files</h3>
+<p><img src="https://raw.githubusercontent.com/MoritzKn/atom-autocomplete-jsp/master/doc/img/screenshot-tag-functions.png" alt="Screenshot of autocompletion for el-functions" /></p>
+
+<p>See <a href="https://github.com/MoritzKn/atom-autocomplete-jsp/blob/master/README.md#setup">setup</a> for an explanation how to get autocompletion based on <code>.tld</code> files to work.</p>
+
+<h3 id="abbreviations">Abbreviations</h3>
+<p><img src="https://raw.githubusercontent.com/MoritzKn/atom-autocomplete-jsp/master/doc/img/screenshot-abbreviations.png" alt="Autocompletion for abbreviations" /></p>
+
+<h3 id="autocompletion-for-tags-from-tld-files">Autocompletion for tags from <code>.tld</code> files</h3>
+<p><img src="https://raw.githubusercontent.com/MoritzKn/atom-autocomplete-jsp/master/doc/img/screenshot-tag.png" alt="Autocompletion for tag" /></p>
+
+<h3 id="autocompletion-for-attributes-from-tld-files">Autocompletion for attributes from <code>.tld</code> files</h3>
+<p><img src="https://raw.githubusercontent.com/MoritzKn/atom-autocomplete-jsp/master/doc/img/screenshot-tag-attributes.png" alt="Autocompletion for tag attributes" /></p>
+
+<h3 id="autocompletion-for-attributes-values-scope-var">Autocompletion for attributes values (<code>scope</code>, <code>var</code>)</h3>
+<p><img src="https://raw.githubusercontent.com/MoritzKn/atom-autocomplete-jsp/master/doc/img/screenshot-var-attribute.png" alt="Autocompletion for var attribute" />
+<img src="https://raw.githubusercontent.com/MoritzKn/atom-autocomplete-jsp/master/doc/img/screenshot-scope-attribute.png" alt="Autocompletion for scope attribute" /></p>
+
+<h3 id="follows-include-directives-to-find-taglib-declarations">Follows include directives to find taglib declarations</h3>
+<p>To find all taglib declarations the package crawls the file system by following include directives.</p>
+
+<h2 id="goals">Goals</h2>
+<ul>
+  <li>EL autocompletion for properties</li>
+</ul>
+
+<h2 id="what-this-package-wont-do">What this package won’t do</h2>
+<ul>
+  <li>Autocomplete embedded Java code</li>
+</ul>
+
+<h2 id="config">Config</h2>
+<ul>
+  <li><code>tldSources</code>: array of directories containing tld files</li>
+</ul>
+
+<h2 id="setup">Setup</h2>
+<ul>
+  <li>
+    <p>Install this package
+<code>sh
+apm install autocomplete-jsp
+</code></p>
+  </li>
+  <li>
+    <p>Set the configuration <code>autocomplete-jsp.tldSources</code> to a directory of your choice, for example <code>~/tlds</code> and make sure this directory exist.
+<code>sh
+mkdir ~/tlds
+</code></p>
+  </li>
+  <li>
+    <p>Make sure all <a href="https://jstl.java.net/">JSTL</a> TLDs are in this directory
+<code>sh
+cd ~/tlds
+wget https://svn.java.net/svn/jstl~svn/tags/jstl-1.2/impl/src/main/resources/META-INF/fn.tld
+wget https://svn.java.net/svn/jstl~svn/tags/jstl-1.2/impl/src/main/resources/META-INF/c.tld
+wget https://svn.java.net/svn/jstl~svn/tags/jstl-1.2/impl/src/main/resources/META-INF/fmt.tld
+wget https://svn.java.net/svn/jstl~svn/tags/jstl-1.2/impl/src/main/resources/META-INF/sql.tld
+wget https://svn.java.net/svn/jstl~svn/tags/jstl-1.2/impl/src/main/resources/META-INF/x.tld
+</code></p>
+  </li>
+  <li>
+    <p>Copy all of your custom <code>.tld</code> files into this directory
+<code>sh
+cp ~/workspace/someProject/src/main/resources/WEB-INF/*.tld ~/tlds
+# or perhaps even
+cp ~/workspace/*/src/**.tld ~/tlds/
+</code></p>
+  </li>
+</ul>
+
+<h2 id="license">License</h2>
+<p>This project is licensed under the terms of the MIT license. A copy of the license can be found
+in the root directory of the project in the file <a href="./LICENSE.md">LICENSE.md</a>.</p>
+
+<section class="package-keywords">
+  <strong>Keywords:</strong> autocomplete, autocomplete-plus, jsp, jspx, java, server, pages <a href="https://github.com/MoritzKn/atom-autocomplete-jsp/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

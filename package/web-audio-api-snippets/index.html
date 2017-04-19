@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Web Audio Api Snippets
+  <a href="https://github.com/njenkins/atom-webaudio-snippets">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+    <span class="author">by Nathan Jenkins <web@nathanjenkins.com.au> (http://nathanjenkins.com.au/)</span>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install web-audio-api-snippets
+  </pre>
+</div>
+<h1 id="web-audio-api-snippets-for-atom">Web Audio API Snippets for Atom</h1>
+
+<p><a href="https://travis-ci.org/njenkins/atom-webaudio-snippets"><img src="https://travis-ci.org/njenkins/atom-webaudio-snippets.svg?branch=master" alt="Build Status" /></a></p>
+
+<p>Snippets for working with the <a href="http://www.w3.org/TR/webaudio/">Web Audio API</a> within <a href="http://atom.io">Atom</a></p>
+
+<h2 id="installation-instructions">Installation instructions</h2>
+<p>Go to Atom &gt; File &gt; Settings then search for Web Audio in the Packages tab. Once found, install.
+## Development
+<code>js
+$ cd ~/.atom/packages
+$ git clone https://github.com/njenkins/atom-webaudio-snippets.git
+$ cd atom-webaudio-snippets
+$ apm install
+$ apm link
+</code></p>
+
+<h2 id="analysernode">AnalyserNode</h2>
+<p>### getByteFrequencyData
+#### [waangbf]
+<code>js
+${1:AnalyserNode}.getByteFrequencyData(${2:dataArray});$0
+</code></p>
+
+<h3 id="getbytetimedomaindata">getByteTimeDomainData</h3>
+<p>#### [waangbt]
+<code>js
+${1:AnalyserNode}.getByteTimeDomainData(${2:dataArray});$0
+</code></p>
+
+<h3 id="getfloatfrequencydata">getFloatFrequencyData</h3>
+<p>#### [waangff]
+<code>js
+${1:AnalyserNode}.getFloatFrequencyData(${2:dataArray});$0
+</code></p>
+
+<h3 id="getfloattimedomaindata">getFloatTimeDomainData</h3>
+<p>#### [waangft]
+<code>js
+${1:AnalyserNode}.getFloatTimeDomainData(${2:dataArray});$0
+</code></p>
+
+<h2 id="audiobuffer">AudioBuffer</h2>
+<p>### copyFromChannel
+#### [waabcfc]
+<code>js
+${1:AudioBuffer}.copyFromChannel(${2:destination},${3:channelNumber},${4:startInChannel});$0
+</code></p>
+
+<h3 id="copytochannel">copyToChannel</h3>
+<p>#### [waabctc]
+<code>js
+${1:AudioBuffer}.copyToChannel(${2:source},${3:channelNumber},${4:startInChannel});$0
+</code></p>
+
+<h3 id="getchanneldata">getChannelData</h3>
+<p>#### [waabgcd]
+<code>js
+${1:AudioBuffer}.getChannelData(${2:channel});$0
+</code>
+## AudioBufferSourceNode
+### start
+#### [waabsnsta]
+<code>js
+${1:AudioBufferSourceNode}.start(${2:when}, ${3:offset}, ${4:duration});$0
+</code>
+### stop
+#### [waabsnsto]
+<code>js
+${1:AudioBufferSourceNode}.stop(${2:when});$0
+</code></p>
+
+<h2 id="audiocontext">AudioContext</h2>
+<p>### close
+#### [waaccl]
+<code>js
+${1:AudioContext}.close().then(${2:function() \{ /*stuff here*/\}});$0
+</code>
+### createAnalyser
+#### [waacca]
+<code>js
+${1:AudioContext}.createAnalyser();$0
+</code>
+### createAudioWorker
+#### [waaccaw]
+<code>js
+${1:AudioContext}.createAudioWorker();$0
+</code>
+### createBiquadFilter
+#### [waaccbf]
+<code>js
+${1:AudioContext}.createBiquadFilter();$0
+</code>
+### createBuffer
+#### [waaccbu]
+<code>js
+${1:AudioContext}.createBuffer(${2:numOfChannels}, ${3:length}, ${4:sampleRate});$0
+</code>
+### createBufferSource
+#### [waaccbs]
+<code>js
+${1:AudioContext}.createBufferSource();$0
+</code>
+### createChannelMerger
+#### [waacccm]
+<code>js
+${1:AudioContext}.createChannelMerger(${2:numOfInputs});$0
+</code>
+### createChannelSplitter
+#### [waacccs]
+<code>js
+${1:AudioContext}.createChannelSplitter(${2:numOfInputs});$0
+</code>
+### createConvolver
+#### [waaccco]
+<code>js
+${1:AudioContext}.createConvolver();$0
+</code>
+### createDelay
+#### [waaccd]
+<code>js
+${1:AudioContext}.createDelay(${2:maxDelayTime});$0
+</code>
+### createDynamicsCompressor
+#### [waaccdc]
+<code>js
+${1:AudioContext}.createDynamicsCompressor();$0
+</code>
+### createGain
+#### [waaccg]
+<code>js
+${1:AudioContext}.createGain();$0
+</code>
+### createIIRFilter
+#### [waaccii]
+<code>js
+${1:AudioContext}.createIIRFilter(${2:feedforward}, ${3:feedback});$0
+</code>
+### createMediaElementSource
+#### [waaccme]
+<code>js
+${1:AudioContext}.createMediaElementSource(${2:myMediaElement});$0
+</code>
+### createMediaStreamDestination
+#### [waaccmsd]
+<code>js
+${1:AudioContext}.createMediaStreamDestination();$0
+</code>
+### createMediaStreamSource
+#### [waaccmss]
+<code>js
+${1:AudioContext}.createMediaStreamSource(${2:stream});$0
+</code>
+### createMediaStreamTrackSource
+#### [waaccmsts]
+<code>js
+${1:AudioContext}.createMediaStreamTrackSource(${2:streamTrack});$0
+</code></p>
+
+<h3 id="createoscillator">createOscillator</h3>
+<p>#### [waaccos]
+<code>js
+${1:AudioContext}.createOscillator();$0
+</code>
+### createPanner
+#### [waaccp]
+<code>js
+${1:AudioContext}.createPanner();$0
+</code>
+### createPeriodicWave
+#### [waaccpw]
+<code>js
+${1:AudioContext}.createPeriodicWave(${2:real}, ${3:imag}, ${4:options});$0
+</code>
+### createScriptProcessor
+#### [waaccsp]
+<code>js
+${1:AudioContext}.createScriptProcessor(${2:bufferSize}, ${3:numberOfInputChannels}, ${4:numberOfOutputChannels});$0
+</code>
+### createStereoPanner
+#### [waaccspa]
+<code>js
+${1:AudioContext}.createStereoPanner();$0
+</code>
+### createWaveShaper
+#### [waaccws]
+<code>js
+${1:AudioContext}.createWaveShaper();$0
+</code>
+### decodeAudioData
+#### [waacda]
+<code>js
+${1:AudioContext}.decodeAudioData({2:audioData}).then(${3:function(decodedData) \{/* stuff here*/\}});$0
+</code>
+### getOutputTimestamp
+#### [waacgot]
+<code>js
+${1:AudioContext}.getOutputTimestamp();$0
+</code>
+### resume
+#### [waacr]
+<code>js
+${1:AudioContext}.resume().then(${2:function() \{ /*stuff here */ \}});$0
+</code>
+### suspend
+#### [waacsu]
+<code>js
+${1:AudioContext}.suspend().then(${2:function() \{ /*stuff here*/ \}});$0
+</code>
+## Audio Listener
+### setOrientation
+#### [waalso]
+<code>js
+${1:AudioListener}.setOrientation(${2:frontX},${3:frontY},${4:frontZ},${5:upX},${6:upY},${7:upZ});$0
+</code>
+### setPosition
+#### [waalsp]
+<code>js
+${1:AudioListener}.setPosition(${2:x},${3:y},${4:z});$0
+</code>
+## Audio Node
+### Connect
+#### [waanc]
+<code>js
+${1:AudioNode}.connect(${2:AudioNode or AudioParam});$0
+</code></p>
+
+<h3 id="disconnect">Disconnect</h3>
+<p>#### [waand]
+<code>js
+${1:AudioNode}.disconnect(${2:destination}, ${3:output}, ${4:input});$0
+</code>
+## Audio Param
+### cancelScheduledValues
+#### [waapcsv]
+<code>js
+${1:AudioParam}.cancelScheduledValues(${2:startTime});$0
+</code>
+### exponentialRampToValueAtTime
+#### [waapertv]
+<code>js
+${1:AudioParam}.exponentialRampToValueAtTime(${2:value}, ${3:endTime});$0
+</code>
+### linearRampToValueAtTime
+#### [waaplrtv]
+<code>js
+${1:AudioParam}.linearRampToValueAtTime(${2:value}, ${3:endTime});$0
+</code>
+### setTargetAtTime
+#### [waapstat]
+<code>js
+${1:AudioParam}.setTargetAtTime(${2:target}, ${3:startTime}, ${4:timeConstant});$0
+</code>
+### setValueAtTime
+#### [waapsvat]
+<code>js
+${1:AudioParam}.setValueAtTime(${2:value}, ${3:startTime});$0
+</code>
+### setValueCurveAtTime
+#### [waapsvcat]
+<code>js
+${1:AudioParam}.setValueCurveAtTime(${2:values}, ${3:startTime}, ${4:duration});$0
+</code>
+## Audio Worker
+### addParameter
+#### [waawap]
+<code>js
+${1:AudioWorker}.addParameter(${2:name}, ${3:defaultValue});$0
+</code>
+### createNode
+#### [waawcn]
+<code>js
+${1:AudioWorker}.createNode(${2:numberOfInputs}, ${3:numberOfOutputs});$0
+</code>
+### removeParameter
+#### [waawrp]
+<code>js
+${1:AudioWorker}.removeParameter(${2:name});$0
+</code></p>
+
+<h2 id="biquad-filter-node">Biquad Filter Node</h2>
+<p>### getFrequencyResponse
+#### [wabf]
+<code>js
+${1:BiquadFilterNode}.getFrequencyResponse(${2:freqHz}, ${3:magResponse}, ${4:phaseResponse});$0
+</code>
+## IIR Filter Node
+### getFrequencyResponse
+#### [wabf]
+<code>js
+${1:IIRFilterNode}.getFrequencyResponse(${2:freqHz}, ${3:magResponse}, ${4:phaseResponse});$0
+</code></p>
+
+<h2 id="offline-audio-context">Offline Audio Context</h2>
+<p>### resume
+#### [waoacr]
+<code>js
+${1:OfflineAudioContext}.resume();$0
+</code></p>
+
+<h3 id="startrendering">startRendering</h3>
+<p>#### [waoa]
+<code>js
+${1:OfflineAudioContext}.startRendering();$0
+</code>
+### suspend
+#### [waoacs]
+<code>js
+${1:OfflineAudioContext}.suspend(${2:suspendTime});$0
+</code></p>
+
+<h2 id="oscillator-node">Oscillator Node</h2>
+<p>### setPeriodicWave
+#### [waonsp]
+<code>js
+${1:OscillatorNode}.setPeriodicWave(${2:periodicWave});$0
+</code>
+### start
+#### [waonsta]
+<code>js
+${1:OscillatorNode}.start(${2:when});$0
+</code>
+### stop
+#### [waonsto]
+<code>js
+${1:OscillatorNode}.stop(${2:when});$0
+</code>
+## Panner Node
+### setOrientation
+#### [wapnso]
+<code>js
+${1:PannerNode}.setOrientation(${2:x}, ${3:y}, ${4:z});$0
+</code>
+### setPosition
+#### [wapnsp]
+<code>js
+${1:PannerNode}.setPosition(${2:x}, ${3:y}, ${4:z});$0
+</code>
+### setVelocity
+#### [wapnsv]
+<code>js
+${1:PannerNode}.setVelocity(${2:x}, ${3:y}, ${4:z});$0
+</code></p>
+<section class="package-keywords">
+  <strong>Keywords:</strong> javascript, audio <a href="https://github.com/njenkins/atom-webaudio-snippets/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

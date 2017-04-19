@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Modern React Snippets
+  <a href="https://github.com/Agnostics/modern-react-snippets">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install modern-react-snippets
+  </pre>
+</div>
+<h1 id="reactjs">Reactjs</h1>
+<hr />
+<p>## Supported languages (file extensions)
+* JavaScript (.js)
+* TypeScript (.ts)
+* JavaScript React (.jsx)
+* TypeScript React (.tsx)</p>
+
+<h2 id="snippets">Snippets</h2>
+
+<p>Below is a list of all available snippets and the triggers of each one. The <strong>⇥</strong> means the <code>TAB</code> key.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: right">Trigger</th>
+      <th>Content</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: right"><code>rcc→</code></td>
+      <td>class component skeleton</td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code>rccp→</code></td>
+      <td>class component skeleton with prop types after the class</td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code>rcjc→</code></td>
+      <td>class component skeleton without import and default export lines</td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code>rcfc→</code></td>
+      <td>class component skeleton that contains all the lifecycle methods</td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code>rsc→</code></td>
+      <td>stateless component skeleton</td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code>rscp→</code></td>
+      <td>stateless component with prop types skeleton</td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code>rpt→</code></td>
+      <td>empty propTypes declaration</td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code>con→</code></td>
+      <td>class default constructor with props</td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code>conc→</code></td>
+      <td>class default constructor with props and context</td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code>est→</code></td>
+      <td>empty state object</td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code>cwm→</code></td>
+      <td><code>componentWillMount method</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code>cdm→</code></td>
+      <td><code>componentDidMount method</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code>cwr→</code></td>
+      <td><code>componentWillReceiveProps method</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code>scu→</code></td>
+      <td><code>shouldComponentUpdate method</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code>cwup→</code></td>
+      <td><code>componentWillUpdate method</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code>cdup→</code></td>
+      <td><code>componentDidUpdate method</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code>cwun→</code></td>
+      <td><code>componentWillUnmount method</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code>ren→</code></td>
+      <td><code>render method</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code>sst→</code></td>
+      <td><code>this.setState with object as parameter</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code>ssf→</code></td>
+      <td><code>this.setState with function as parameter</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code>props→</code></td>
+      <td><code>this.props</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code>state→</code></td>
+      <td><code>this.state</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code>bnd→</code></td>
+      <td><code>binds the this of method inside the constructor</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The following table lists all the snippets that can be used for prop types.
+Every snippet regarding prop types begins with <code>pt</code> so it’s easy to group it all together and explore all the available options.
+On top of that each prop type snippets has one equivalent when we need to declare that this property is also required.
+For example <code>pta</code> creates the <code>PropTypes.array</code> and <code>ptar</code> creates the <code>PropTypes.array.isRequired</code></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: right">Trigger</th>
+      <th>Content</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: right"><code>pta→</code></td>
+      <td><code>PropTypes.array,</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code>ptar→</code></td>
+      <td><code>PropTypes.array.isRequired,</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code>ptb→</code></td>
+      <td><code>PropTypes.bool,</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code>ptbr→</code></td>
+      <td><code>PropTypes.bool.isRequired,</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code>ptf→</code></td>
+      <td><code>PropTypes.func,</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code>ptfr→</code></td>
+      <td><code>PropTypes.func.isRequired,</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code>ptn→</code></td>
+      <td><code>PropTypes.number,</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code>ptnr→</code></td>
+      <td><code>PropTypes.number.isRequired,</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code>pto→</code></td>
+      <td><code>PropTypes.object.,</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code>ptor→</code></td>
+      <td><code>PropTypes.object.isRequired,</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code>pts→</code></td>
+      <td><code>PropTypes.string,</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code>ptsr→</code></td>
+      <td><code>PropTypes.string.isRequired,</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code>ptnd→</code></td>
+      <td><code>PropTypes.node,</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code>ptndr→</code></td>
+      <td><code>PropTypes.node.isRequired,</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code>ptel→</code></td>
+      <td><code>PropTypes.element,</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code>ptelr→</code></td>
+      <td><code>PropTypes.element.isRequired,</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code>pti→</code></td>
+      <td><code>PropTypes.instanceOf(ClassName),</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code>ptir→</code></td>
+      <td><code>PropTypes.instanceOf(ClassName).isRequired,</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code>pte→</code></td>
+      <td><code>PropTypes.oneOf(['News', 'Photos']),</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code>pter→</code></td>
+      <td><code>PropTypes.oneOf(['News', 'Photos']).isRequired,</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code>ptet→</code></td>
+      <td><code>PropTypes.oneOfType([PropTypes.string, PropTypes.number]),</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code>ptetr→</code></td>
+      <td><code>PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code>ptao→</code></td>
+      <td><code>PropTypes.arrayOf(PropTypes.number),</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code>ptaor→</code></td>
+      <td><code>PropTypes.arrayOf(PropTypes.number).isRequired,</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code>ptoo→</code></td>
+      <td><code>PropTypes.objectOf(PropTypes.number),</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code>ptoor→</code></td>
+      <td><code>PropTypes.objectOf(PropTypes.number).isRequired,</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code>ptsh→</code></td>
+      <td><code>PropTypes.shape({color: PropTypes.string, fontSize: PropTypes.number}),</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code>ptshr→</code></td>
+      <td><code>PropTypes.shape({color: PropTypes.string, fontSize: PropTypes.number}).isRequired,</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<section class="package-keywords">
+  <strong>Keywords:</strong> react, react router, flux, snippets, es6 <a href="https://github.com/Agnostics/modern-react-snippets/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Linter Raml Myrules
+  <a href="https://github.com/ramltribute/linter-raml-myrules">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install linter-raml-myrules
+  </pre>
+</div>
+<h1 id="linter-raml-myrules">linter-raml-myrules</h1>
+<p>New Linter for Atom editor (and console) that validates your RAML files and is expandable with your own personal rules!</p>
+
+<p>The atom package is https://atom.io/packages/linter-raml-myrules.</p>
+
+<p>This package allow to create custom functional rules that raml standard coverage rules doesn’t cover. It comes with a template, and a data envelope example (this means that every correct answer should have an envelope with data key).</p>
+
+<p>It uses raml-js-parser-2 by default https://github.com/raml-org/raml-js-parser-2 to parse the raml, and uses its API to navigate through all the raml:
+https://raml-org.github.io/raml-js-parser-2/modules/<em>src_index</em>.html.</p>
+
+<p>Check more examples in: 
+https://github.com/raml-org/raml-js-parser-2/blob/master/documentation/GettingStarted.md</p>
+
+<p>If api-workbench is installed in ATOM too, it checks npm require cache to use same parser as workbench, if its not installed, it uses raml-js-parser-2 that is defined in package.json (This is done because raml-js-parser-2 is not prepared to be required twice). In order to customize the linter with new rules, it is required to create new callbacks.</p>
+
+<p>Callback files are created in my-rules folder. It receives the API parser from the parser, and return an array of errors that callback generates. The error structure needed is:</p>
+
+<p><code>
+{
+column: column where error starts,
+end: position where error ends,
+line: line where error is,
+message: error message,
+path: 'api.raml',
+range: This is the array structure:  [{column:starts.column,line:starts.line,position:starts.position},{column:ends.column,line:ends.line,position:ends.position}],
+start: position where error starts,
+};
+</code></p>
+
+<p>Also it has an auxiliary helper to resolve errors in RAML into ATOM using the parser, it is in my-rules/index.js.</p>
+
+<section class="package-keywords">
+  <strong>Keywords:</strong> linter, raml <a href="https://github.com/ramltribute/linter-raml-myrules/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

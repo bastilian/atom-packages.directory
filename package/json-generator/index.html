@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Json Generator
+  <a href="https://github.com/KunihikoKido/atom-json-generator">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install json-generator
+  </pre>
+</div>
+<h1 id="json-generator-package">json-generator package</h1>
+
+<p>Generates random dummy JSON data atom package.</p>
+
+<p><img src="https://raw.githubusercontent.com/KunihikoKido/atom-json-generator/master/screenshots/overview.gif" alt="overview" /></p>
+
+<h2 id="installation">Installation</h2>
+
+<p>Atom Package: https://atom.io/packages/json-generator</p>
+
+<p><code>
+apm install json-generator
+</code></p>
+
+<p>Or Settings/Preferences ➔ Install ➔ Search for <code>json-generator</code></p>
+
+<h2 id="commands">Commands</h2>
+<ul>
+  <li>Json Generator: New Template</li>
+  <li>Json Generator: Generate (ctrl-alt-g)</li>
+</ul>
+
+<h2 id="basic-available-helpers">Basic available helpers</h2>
+<p>This package is used based on the <a href="https://github.com/webroo/dummy-json">dummy-json</a>.</p>
+
+<p>You can see the  details of available helpers on the dummy-json.</p>
+
+<p>I am grateful to the dummy-json!</p>
+
+<h2 id="additional-helpers">Additional helpers</h2>
+
+<h3 id="language">Language</h3>
+
+<p><code>{{language}}</code></p>
+
+<p>Generates a random language.</p>
+
+<h3 id="currency">Currency</h3>
+
+<p><code>{{currency}}</code></p>
+
+<p>Generates a random currency.</p>
+
+<h3 id="gender">Gender</h3>
+
+<p><code>{{gender}}</code></p>
+
+<p>Generates a random gender.</p>
+
+<h3 id="genre">Genre</h3>
+
+<p><code>{{genre}}</code></p>
+
+<p>Generates a random genre.</p>
+
+<h3 id="movie-title">Movie title</h3>
+
+<p><code>{{movie}}</code></p>
+
+<p>Generates a random movie.</p>
+
+<h3 id="occupation">Occupation</h3>
+
+<p><code>{{occupation}}</code></p>
+
+<p>Generates a random occupation.</p>
+
+<h3 id="japanese-lorem-ipsum">Japanese lorem ipsum</h3>
+
+<p><code>{{loremja [sentenceCount]}}</code></p>
+
+<ul>
+  <li><code>sentenceCount</code> Number of sentences to generate (optional, default is 1)</li>
+</ul>
+
+<p>Generates random sentences of japanese lorem ipsum text.</p>
+
+<h3 id="random">Random</h3>
+<p><code>{{random [csv] }}</code></p>
+
+<ul>
+  <li><code>csv</code> comma separated values</li>
+</ul>
+
+<p><code>{{random 'apple,orange,banana'}}</code></p>
+
+<h2 id="overriding-built-in-mock-data">Overriding built-in mock data.</h2>
+<p>You can override the built-in data using the package settings.</p>
+
+<p>(Settings/Preferences ➔ Packages ➔ Search for <code>json-generator</code>)</p>
+
+<h2 id="output-format">Output Format</h2>
+<p>You can change the output format.
+(Settings/Preferences ➔ Packages ➔ Search for <code>json-generator</code>)</p>
+
+<h3 id="pretty-json-format">Pretty JSON format</h3>
+<p>When you have selected the <code>json</code></p>
+
+<p><strong>Example</strong></p>
+
+<p><code>json
+[
+  {
+    "_index": "item",
+    "_type": "items",
+    "_id": "966b0d44-6e1f-4fe6-b971-cf9522d8ec09",
+    "firstname": "Francis",
+    "lastname": "Backer",
+    "age": 3
+  },
+  {
+    "_index": "item",
+    "_type": "items",
+    "_id": "cb26c226-6a59-4696-8cd0-267bea89fb14",
+    "firstname": "Michelle",
+    "lastname": "Kilmer",
+    "age": 42
+  },
+  {
+    "_index": "item",
+    "_type": "items",
+    "_id": "9d34885c-9b21-4329-be08-e89e73935d08",
+    "firstname": "Jenna",
+    "lastname": "Karst",
+    "age": 57
+  }
+]
+</code>
+### JSON Lines format
+newline-delimited JSON format.</p>
+
+<p>When you have selected the <code>jsonlines</code></p>
+
+<p><strong>Example</strong></p>
+
+<p><code>json
+{"_index":"item","_type":"items","_id":"15e82060-9b25-408d-be74-9f7aa4a9de8b","firstname":"Isabelle","lastname":"Keesee","age":26}
+{"_index":"item","_type":"items","_id":"9ba26f1d-d9b9-4513-834e-01ce22edacad","firstname":"Kathy","lastname":"Oldman","age":79}
+{"_index":"item","_type":"items","_id":"ed72b4c7-3d68-4221-a469-e166ab644135","firstname":"Maisha","lastname":"Flinn","age":43}
+</code></p>
+
+<p>See more details ➔ <a href="http://jsonlines.org/">JSON Lines</a></p>
+
+<h3 id="elasticsearch-bulk-api-format">Elasticsearch Bulk API format</h3>
+<p>When you have selected the <code>elasticsearch</code></p>
+
+<p><strong>Example</strong></p>
+
+<p>``` json
+{“index”:{“_index”:”item”,”_type”:”items”,”_id”:”95e2351f-f61b-4252-a716-1ddd02850638”}}
+{“firstname”:”Madeleine”,”lastname”:”Rohloff”,”age”:69}
+{“index”:{“_index”:”item”,”_type”:”items”,”_id”:”9ee29322-68ac-4886-83c1-ea7b93c7fa45”}}
+{“firstname”:”Alejandro”,”lastname”:”Raymond”,”age”:100}
+{“index”:{“_index”:”item”,”_type”:”items”,”_id”:”8e5bd58b-7b30-44c2-9ddb-fc95961676e3”}}
+{“firstname”:”Travis”,”lastname”:”Pickering”,”age”:39}</p>
+
+<p>```</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>See more details ➔ [Bulk API</td>
+      <td>Elasticsearch Reference](https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-bulk.html)</td>
+    </tr>
+  </tbody>
+</table>
+<section class="package-keywords">
+  <strong>Keywords:</strong> json, generator <a href="https://github.com/KunihikoKido/atom-json-generator/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

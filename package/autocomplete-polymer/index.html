@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Autocomplete Polymer
+  <a href="https://github.com/SlicedSilver/autocomplete-polymer">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+    <span class="author">by Mark Silverwood</span>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install autocomplete-polymer
+  </pre>
+</div>
+<p><img src="https://cloud.githubusercontent.com/assets/3482679/7901748/3685cfb6-0798-11e5-8865-6106193cc2e4.png" alt="polymer autocomplete logo" /></p>
+
+<h2 id="polymer-autocomplete-package">Polymer Autocomplete Package</h2>
+
+<p>Polymer element tag and attribute autocompletions in Atom.</p>
+
+<p>:movie_camera: <a href="https://dl.dropboxusercontent.com/u/6808702/autocomplete-polymer-preview.mp4">Preview video of autocomplete-polymer in action</a></p>
+
+<h3 id="package-installation">Package Installation</h3>
+<p>From the Atom editor menus, navigate to <code>Atom -&gt; Preferences</code>.<br />
+Click on the install tab and enter <code>autocomplete-polymer</code> in the search field.</p>
+
+<h3 id="usage-guide">Usage guide</h3>
+<p>For the package to offer autocompletion hints it needs to have a list of the possible elements
+in your current project. This is saved within a file in your projects root directory named <code>.ac-poly.json</code>. This file needs to built for each polymer project and updated when elements are changed or added (including bower components). It is recommended that the file is added to your <code>.gitignore</code>.</p>
+
+<p>Whenever you need to build / update the autocompletion dictionary (<code>.ac-poly.json</code>) then run the <code>Update Project Completions Dictionary</code> command in the autocomplete-polymer package menu (<code>Packages  -&gt;  Autocomplete Polymer</code>) in the top toolbar.<br />
+You can also call <code>Autocomplete Polymer:Update</code> from the command palette (<code>cmd + shift + p</code>) or use the keyboard shortcut <code>ctrl + alt + p</code>.</p>
+
+<h3 id="how-it-works">How it works</h3>
+<p>The package builds a list of autocompletions by:
+- Scanning your projects directory for all <code>js</code> and <code>html</code> files that are not within a folder named <code>test</code> or <code>demo</code>.
+- then it searches through those files for the Polymer element registration calls (<code>Polymer({ is: '...'})</code>).
+- The identified scripts containing the Polymer calls are then parsed and analysed by <code>esprima</code> such that we can pull out the elements names and a list of it’s properties.
+- A JSON object is written to the projects root folder which contains all the element names and the properties associated with those elements.</p>
+
+<h3 id="important-notes">Important Notes</h3>
+<ul>
+  <li>Probably not compatible with atom projects which have multiple root folders.</li>
+  <li>Will ignore any files placed within a <code>test</code> or <code>demo</code> folder.</li>
+  <li>Only scans <code>js</code> and <code>html</code> files.</li>
+  <li>Required to run the update command whenever there is a need to refresh the completions dictionary.</li>
+</ul>
+
+<h3 id="recommended-packages-for-atom">Recommended Packages for Atom</h3>
+<ul>
+  <li>For Polymer snippets check out: <a href="https://atom.io/packages/atom-polymer">atom-polymer</a></li>
+  <li>Html autocompletions: <a href="https://atom.io/packages/autocomplete-html">autocomplete-html</a></li>
+  <li>Automatic closing of html tags: <a href="https://atom.io/packages/autoclose-html">autoclose-html</a></li>
+  <li>File path autocompletions: <a href="https://atom.io/packages/autocomplete-paths">autocomplete-paths</a></li>
+  <li>Html code linter: <a href="https://atom.io/packages/linter-htmlhint">linter-htmlhint</a></li>
+</ul>
+
+<h3 id="acknowledgements">Acknowledgements</h3>
+<p>This project is a fork of the <a href="https://github.com/atom/autocomplete-html">autocomplete-html</a> project.  The project makes use of <a href="https://github.com/atom/scandal">scandal</a> for directory scanning and file searching, <a href="http://http://esprima.org/">esprima</a> for the javascript analysis and <a href="https://github.com/estools/estraverse">estraverse</a> for the transversal of the abstract syntax tree.</p>
+
+<h3 id="bugs-improvements-requests">Bugs, Improvements, Requests</h3>
+<p>Please add an issue in the GitHub repository if you find any bugs, have improvement ideas, or requests.</p>
+
+<h3 id="contributing">Contributing</h3>
+<p>Any pull requests will be greatly welcome since I’m sure there is plenty of room for improvement.</p>
+
+<h3 id="author">Author</h3>
+<p>Mark Silverwood</p>
+<section class="package-keywords">
+  <strong>Keywords:</strong> polymer, autocomplete, web components, components, atom, polymer.js, web-components <a href="https://github.com/SlicedSilver/autocomplete-polymer/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

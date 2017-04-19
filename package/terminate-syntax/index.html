@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Terminate Syntax
+  <a href="https://github.com/keithalpichi/terminate-syntax">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install terminate-syntax
+  </pre>
+</div>
+<h1 id="terminate">Terminate</h1>
+<hr />
+<p>#### Syntax theme for the Atom.io editor</p>
+
+<blockquote>
+  <p>Terminate-syntax (this package) goes really well with Terminate-ui. Make sure to pair these together.</p>
+</blockquote>
+
+<p>An adaptation of Apple’s green default Terminal settings with a touch of blues, yellows and red to contrast important syntax like function calls, constants, strings, operators and comments while keeping a central color scheme.</p>
+
+<h4 id="less-here-is-a-screenshot-of-terminates-color-scheme">LESS (here is a screenshot of Terminate’s color scheme)</h4>
+<p><img src="https://cloud.githubusercontent.com/assets/14797743/20460431/01afa88c-ae97-11e6-90e7-6658f1332fb9.png" alt="less" />
+#### CSS
+<img src="https://cloud.githubusercontent.com/assets/14797743/20460432/01cdb23c-ae97-11e6-90d1-ffa20ddb10f0.png" alt="css" />
+#### HTML
+<img src="https://cloud.githubusercontent.com/assets/14797743/20460451/68cf45a4-ae97-11e6-988b-06f029a231a8.png" alt="html" />
+#### Markdown
+<img src="https://cloud.githubusercontent.com/assets/14797743/20460388/3e6aee8c-ae95-11e6-9e1b-31fdeae88da0.png" alt="markdown" />
+#### Javascript
+<img src="https://cloud.githubusercontent.com/assets/14797743/20460387/3e6abf5c-ae95-11e6-8bcc-fb691b1f70e5.png" alt="javascript" />
+#### Ruby
+<img src="https://cloud.githubusercontent.com/assets/14797743/20460390/3e734f50-ae95-11e6-8685-a7dd8fc192b3.png" alt="ruby" />
+#### Python
+<img src="https://cloud.githubusercontent.com/assets/14797743/20460389/3e6cfa24-ae95-11e6-9ff0-c4f71e90ff98.png" alt="python" />
+#### Elixir
+<img src="https://cloud.githubusercontent.com/assets/14797743/20460386/3e68a9ce-ae95-11e6-9c12-45847b78d62d.png" alt="elixir" /></p>
+
+<h2 id="idea-behind-terminate">Idea behind Terminate:</h2>
+<ul>
+  <li>Old school feel of bright green font with a dark background.</li>
+  <li>Contrasting colors to allow important operations/code to ‘pop out’ from the dark background and other code that isn’t as important.</li>
+  <li>Comments are dark and closely colored to the background to remove their importance of interpreted code</li>
+  <li>Function calls are brightened to show where in your code they’re being called at</li>
+  <li>Constants are bright red and important operations (arithmetic and comparisons) are dark red</li>
+  <li>Strings are very light hue of the main green font color. This color is near opposite of comments and are easily seen.</li>
+  <li>Syntax UI to fit any language (see below for language support)</li>
+  <li>Search results are outlined in bright red</li>
+</ul>
+
+<h2 id="color-scheme">Color Scheme</h2>
+<ul>
+  <li>Main text color- lime green</li>
+  <li>Background color- dark teal (near black)</li>
+  <li>Supporting colors- dark green, pale lime, teal and blue</li>
+  <li>Comment color- lightened shade of background color</li>
+  <li>String color- bright white shade of main text color</li>
+  <li>Constants and operations color- from dark to normal red</li>
+</ul>
+
+<h2 id="installation">Installation</h2>
+<p><code>&gt; apm install terminate-syntax</code> or search and install theme in <code>Preferences</code> -&gt; <code>Install</code> -&gt; <code>Install Packages</code> -&gt; <code>terminate-syntax</code></p>
+
+<h2 id="language-support">Language Support</h2>
+<p><strong>Terminate</strong> <em>should</em> display nicely with most common languages. If not open an issue and I’ll fix it (I’m also open to pull-requests. See below for more information). I’ve tested Terminate with the following languages:
+- Markdown
+- HTML &amp; CSS (LESS, SASS)
+- Python
+- Ruby
+- Javascript &amp; JSON
+- Elixir</p>
+
+<h2 id="pull-requests">Pull Requests</h2>
+<p>Gladly accepting pull-requests. First open an issue if one hasn’t been opened already and let’s discuss changes. I’d like help to work with other languages that I am not familiar. Those would be any languages I have not supported above. Thank you!</p>
+
+<h2 id="todo">Todo:</h2>
+<ul>
+  <li>edit any <code>@red</code> attributes- I did this to note that I need to fix these. So in a language if there is an odd red syntax it’s probably an attribute that hasn’t been intentionally set yet.</li>
+  <li>Language-specific
+    <ul>
+      <li>HTML-
+        <ul>
+          <li>make color of <code>class</code> attributes match <code>id</code></li>
+          <li>make all <code>href</code> attributes same color</li>
+          <li>make all <code>=</code> same color</li>
+        </ul>
+      </li>
+      <li>Python
+        <ul>
+          <li>fix color for constants and booleans. Not showing highlighted as red</li>
+        </ul>
+      </li>
+      <li>Ruby-
+        <ul>
+          <li>fix color of function calls. Not showing as highlighted neon-green</li>
+          <li>fix color change of interpolated strings</li>
+        </ul>
+      </li>
+      <li>Elixir-
+        <ul>
+          <li>fix color of constants</li>
+          <li>change single line <code>do</code>’s to secondary color (teal)</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+<section class="package-keywords">
+  <strong>Keywords:</strong> syntax, theme, vim, macosx, mac, apple, ios, terminal, command-line <a href="https://github.com/keithalpichi/terminate-syntax/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

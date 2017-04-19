@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Polymer
+  <a href="https://github.com/zacharytamas/atom-polymer">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install atom-polymer
+  </pre>
+</div>
+<h1 id="atom-polymer">atom-polymer</h1>
+
+<p>Develop for Polymer 1.0+ faster with Atom.</p>
+
+<h2 id="snippets">Snippets</h2>
+
+<p><strong>Note:</strong> The majority of the initial snippets are borrowed from <a href="https://github.com/robdodson/Atom-PolymerSnippets">Rob Dodson’s excellent <code>polymer-snippets</code> package</a> and adapted for a Polymer 1.0+ world.</p>
+
+<h3 id="html-imports">HTML imports</h3>
+
+<h4 id="hii-import-iron-element">[hii] Import Iron element</h4>
+
+<p>```html</p>
+<link rel="import" href="${1:bower_components}/iron-$2/iron-$2.html" />
+
+<p>```</p>
+
+<h4 id="hip-import-paper-element">[hip] Import Paper element</h4>
+
+<p>```html</p>
+<link rel="import" href="${1:bower_components}/paper-$2/paper-$2.html" />
+
+<p>```</p>
+
+<h4 id="hi-import-generic-element">[hi] Import generic element</h4>
+
+<p>```html</p>
+<link rel="import" href="${1:bower_components}/${0}/${0}.html" />
+
+<p>```</p>
+
+<h3 id="new-element-boilerplates">New element boilerplates</h3>
+
+<h4 id="pe-polymer-element-with-template-and-style">[pe] Polymer element with template and style</h4>
+
+<p>```html</p>
+<link rel="import" href="${1:../bower_components}/polymer/polymer.html" />
+
+<dom-module id="$2">
+  <template>
+    <style>
+      :host {
+        $5
+      }
+    </style>
+    $4
+  </template>
+  <script>
+    Polymer({
+      is: '$2',
+      $3
+    });
+  </script>
+</dom-module>
+<p>```</p>
+
+<h4 id="pen-polymer-element-without-template">[pen] Polymer element without template</h4>
+
+<p>```html</p>
+<link rel="import" href="${1:../bower_components}/polymer/polymer.html" />
+
+<script>
+  Polymer({
+    is: '$2',
+    $3
+  });
+</script>
+
+<p>```
+#### [pes] Polymer element with an external script source</p>
+
+<p>```html</p>
+<link rel="import" href="${1:../bower_components}/polymer/polymer.html" />
+
+<dom-module id="$2">
+  <template>
+    <style>
+      :host {
+        $5
+      }
+    </style>
+    $4
+  </template>
+  <script src="$3">
+  </script>
+</dom-module>
+<p>```</p>
+
+<h4 id="pet-polymer-element-with-a-template-only">[pet] Polymer element with a template only</h4>
+<p>This snippet also provides a wrapper div for <code>&lt;content&gt;</code> and a style declaration.</p>
+
+<p>```html</p>
+<link rel="import" href="${1:../bower_components}/polymer/polymer.html" />
+
+<dom-module id="$2">
+  <template>
+    <style>
+      :host {
+        $4
+      }
+      .content-wrapper > ::content {
+        $5
+      }
+    </style>
+    $3
+    <div class="content-wrapper">
+      <content></content>
+    </div>
+  </template>
+</dom-module>
+<p>```</p>
+
+<h3 id="dom-module-a-blank-dom-module-element">[dom-module] A blank <code>dom-module</code> element</h3>
+
+<p>This is handy if you need to add a visual presence to a Polymer element that did not necessarily need it before.</p>
+
+<p>```html</p>
+<dom-module id="$1">
+  <style>
+    :host {
+      display: block;
+    }
+  </style>
+  <template>
+    $2
+  </template>
+</dom-module>
+<p>```</p>
+
+<h3 id="template-shortcuts"><template> shortcuts</template></h3>
+
+<h4 id="tm-template-tag">[tm] Template tag</h4>
+
+<p>```html</p>
+<template>
+  $1
+</template>
+<p>```</p>
+
+<h4 id="tm-repeat-repeating-template">[tm-repeat] Repeating template</h4>
+
+<p>```html</p>
+<template is="dom-repeat" items="{{$1}}">
+  $2
+</template>
+<p>```</p>
+
+<h4 id="tm-if-conditional-template">[tm-if] Conditional template</h4>
+
+<p>```html</p>
+<template is="dom-if" if="$1">
+  $2
+</template>
+<p>```</p>
+
+<h3 id="paper-elements">Paper elements</h3>
+
+<p>We include snippets of these Paper elements with sensible defaults:</p>
+
+<ul>
+  <li><code>paper-button</code></li>
+  <li><code>paper-checkbox</code></li>
+  <li><code>paper-dialog</code></li>
+  <li><code>paper-drawer-panel</code></li>
+  <li><code>paper-fab</code></li>
+  <li><code>paper-header-panel</code></li>
+  <li><code>paper-icon-button</code></li>
+  <li><code>paper-menu</code></li>
+  <li><code>paper-progress</code></li>
+  <li><code>paper-radio-button</code></li>
+  <li><code>paper-radio-group</code></li>
+  <li><code>paper-ripple</code></li>
+  <li><code>paper-scroll-header-panel</code></li>
+  <li><code>paper-slider</code></li>
+  <li><code>paper-spinner</code></li>
+  <li><code>paper-tabs</code></li>
+  <li><code>paper-toolbar</code></li>
+</ul>
+
+<h3 id="iron-elements">Iron elements</h3>
+
+<p>We include snippets of these Iron elements with sensible defaults:</p>
+
+<ul>
+  <li><code>iron-ajax</code></li>
+  <li><code>iron-collapse</code></li>
+  <li><code>iron-form</code></li>
+  <li><code>iron-icon</code></li>
+  <li><code>iron-iconset</code></li>
+  <li><code>iron-image</code></li>
+  <li><code>iron-input</code></li>
+  <li><code>iron-localstorage</code></li>
+  <li><code>iron-media-query</code></li>
+  <li><code>iron-pages</code></li>
+</ul>
+
+<h3 id="gold-elements">Gold elements</h3>
+
+<ul>
+  <li><code>gold-cc-cvc-input</code></li>
+  <li><code>gold-cc-expiration-input</code></li>
+  <li><code>gold-cc-input</code></li>
+  <li><code>gold-email-input</code></li>
+  <li><code>gold-phone-input</code></li>
+  <li><code>gold-zip-input</code></li>
+</ul>
+<section class="package-keywords">
+  <strong>Keywords:</strong> polymer, polymer.js, web-components <a href="https://github.com/zacharytamas/atom-polymer/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

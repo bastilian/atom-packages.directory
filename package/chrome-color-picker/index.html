@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Chrome Color Picker
+  <a href="https://github.com/puranjayjain/chrome-color-picker">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install chrome-color-picker
+  </pre>
+</div>
+<h1 id="chrome-color-picker">chrome-color-picker</h1>
+<p>A color picker inspired by chrome’s dev tools color picker (or <a href="https://github.com/bgrins/spectrum">spectrum</a> color picker)</p>
+
+<p><a href="http://atom-slack.herokuapp.com/"><img src="http://atom-slack.herokuapp.com/badge.svg" alt="Join us on the Atom Community on Slack" /></a> <a href="https://gitter.im/puranjayjain/chrome-color-picker?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge"><img src="https://badges.gitter.im/puranjayjain/chrome-color-picker.svg" alt="Gitter" /></a></p>
+
+<p><strong>Always mention the relevant person with @username</strong></p>
+
+<h2 id="preview">Preview</h2>
+<p><img src="https://raw.githubusercontent.com/puranjayjain/chrome-color-picker/master/demo.gif" alt="Demo Image" /></p>
+
+<p><strong>Note: The color highlight or marker is not part of this package, to obtain that functionality we use <a href="https://atom.io/packages/pigments">pigments</a> and the syntax theme is <a href="https://atom.io/packages/chrome-dark-syntax">chrome-dark-syntax</a></strong></p>
+
+<h1 id="install">Install</h1>
+<p>## Using <code>apm</code>:</p>
+
+<p><code>
+apm install chrome-color-picker
+</code>
+## Using Atom
+Search for <code>chrome color picker</code> in Atom Settings (<code>Settings &gt; Install &gt; Search</code>).</p>
+
+<h1 id="simple-usage">Simple Usage</h1>
+<ul>
+  <li>Open the dialog using the shortcut key or using the context menu</li>
+  <li>Press Escape to close it.
+<br /><strong>or</strong></li>
+  <li>Press Enter to update the color</li>
+</ul>
+
+<h1 id="features">Features</h1>
+<p>## Use Colors in these formats
+* HEX
+* Named (<a href="https://en.wikipedia.org/wiki/Web_colors#X11_color_names">Web colors</a>)
+* RGB
+* RGBa
+* RGB and RGBa %
+* RGB and RGBa ratios
+* HSL
+* HSLa
+* HSL and HSLa ratios</p>
+
+<h2 id="integrated-palette">Integrated Palette</h2>
+<ul>
+  <li>Use the palette with the picker as done in dev tools.</li>
+  <li>Contains the <a href="https://www.google.com/design/spec/style/color.html">material design palette</a> by default.</li>
+  <li>Click any palette swatch to select it.</li>
+  <li>Double click any material palette swatch to expand it (except black or white swatch).</li>
+</ul>
+
+<h2 id="accessibility">Accessibility</h2>
+<p>You can use the entire picker using just the keyboard.<br />
+Use these keys for navigating within the component:
+* <code>Escape</code>: To close the picker
+* <code>Escape</code>: To save the value to the editor
+* <code>Tab</code>: To move to the next part where action can be performed (e.g. button, slider, etc.)
+* <code>Shift + Tab</code>: To move to the previous part where action can be performed (e.g. button, slider, etc.)
+* <code>Space</code>: Do the action</p>
+
+<p>There are more actions that are possible with keys and mouse</p>
+
+<h3 id="slide-using-scroll">Slide using scroll</h3>
+<p>You can use the mouse wheel to scroll on the sliders and the main canvas to change the values.
+You can also do the following:
+- Use <code>ctrl + wheel</code> to increment more value.
+- Use <code>shift + wheel</code> to slide from left to right or vice-versa on the main slider (or canvas).
+- Similarly Use <code>ctrl + shift + wheel</code> to increment more value.</p>
+
+<p><strong>Note: ctrl also means cmd in Unix based operating systems like Linux or OS X</strong></p>
+
+<h3 id="slide-using-arrow-keys">Slide using arrow keys</h3>
+<p>You can use the arrow keys to scroll on the sliders and the main canvas to change the values.
+You can also do the following:
+- Use <code>ctrl + arrowKey</code> to increment more value.
+- All four arrow keys are usable on the main slider.
+- Only Right and Left Arrow keys are usable on the slider hue and alpha.</p>
+
+<h2 id="supports-multiple-cursors-beta">Supports multiple cursors [Beta]</h2>
+<p>When you have multiple cursors it inserts the color in each of their locations</p>
+
+<h2 id="color-picking-from-screen-beta">Color Picking from screen [Beta]</h2>
+<p>You can now pick colors from anywhere on the screen</p>
+
+<p><strong>Note: Features marked [Beta] are not stable and might not work as expected so feel free to point out any issues with them</strong></p>
+
+<h1 id="powered-by">Powered by</h1>
+<p>The plugin uses the following projects (or their sources) or technologies in some manner:
+- <a href="http://www.html5rocks.com/en/tutorials/webcomponents/customelements">Custom Elements</a>
+- <a href="https://github.com/js2coffee/js2coffee">https://github.com/js2coffee/js2coffee</a> to convert the code
+- <a href="https://github.com/bgrins/spectrum">https://github.com/bgrins/spectrum</a> for the original inspiration
+- <a href="https://github.com/auchenberg/chrome-devtools-app">https://github.com/auchenberg/chrome-devtools-app</a> to understand the working of the devtools
+- <a href="https://github.com/bgrins/TinyColor">https://github.com/bgrins/TinyColor</a> for working with colors
+- <a href="https://github.com/desandro/draggabilly">https://github.com/desandro/draggabilly</a> for sliding across the main canvas
+- <a href="https://github.com/davidtheclark/focus-trap">https://github.com/davidtheclark/focus-trap</a>
+- <a href="https://github.com/davidtheclark/tabbable">https://github.com/davidtheclark/tabbable</a>
+- <a href="https://github.com/niklasvh/html2canvas">https://github.com/niklasvh/html2canvas</a></p>
+
+<p>Feel free to use the source code of the converted files as long as you adhere to their respective licenses.</p>
+
+<h1 id="customize-the-key-binding-to-your-taste">Customize the key binding to your taste</h1>
+<p>Open your <a href="http://flight-manual.atom.io/behind-atom/sections/keymaps-in-depth/">keymap</a> file and add this line to it:
+<code>CoffeeScript
+'atom-workspace':
+  'your-keybinding': 'chrome-color-picker:toggle'
+</code>
+<strong>Note: Your key binding can be e.g. <code>alt + ctrl + c</code> and also make sure to disable the default key binding from the package’s settings or resolve it using the key binding resolver</strong></p>
+
+<h2 id="the-commands-that-are-supported-currently-are">The commands that are supported currently are:</h2>
+<ul>
+  <li>chrome-color-picker:toggle        - triggers dialog open/close</li>
+  <li>chrome-color-picker:close         - triggers dialog close</li>
+  <li>chrome-color-picker:save          - triggers the color to be updated back to the editor</li>
+  <li>chrome-color-picker:saveAndClose  - triggers the color to be updated back to the editor and closed after that</li>
+  <li>chrome-color-picker:pickcolor     - toggle the color picker eyedropper tool to pick colors from screen</li>
+</ul>
+
+<h1 id="purpose-to-create">Purpose to create</h1>
+<p>This implementation was built from ground up to:
+- Aid web developers to work with colors more easily and in a friendly environment
+- To learn about the hsv color model
+- Learn more of <a href="http://coffeescript.org">coffeescript</a></p>
+
+<h1 id="faqs">FAQs</h1>
+
+<h4 id="i-am-seeing-strange-settings-which-im-not-able-to-edit">1) I am seeing strange settings which I’m not able to edit</h4>
+
+<p><strong>Solution</strong>
+  1. Open the developer tools in atom (View &gt; Developers &gt; Toggle Developer Mode or Using <code>ctrl + alt + i</code>)</p>
+
+<ol>
+  <li>Enter this command in the developer tools console <code>atom.config.unset('chrome-color-picker')</code> and restart atom</li>
+</ol>
+
+<h4 id="how-do-i-know-which-settings-override-which-ones">2) How do I know which settings override which ones?</h4>
+
+<p><strong>Solution</strong>
+  - Although there is no guide (yet) for the specificity of settings or which settings are above which ones.
+But you can know about some of them <a href="https://github.com/puranjayjain/chrome-color-picker/blob/master/lib/modules/core/Input.coffee#L163">here</a></p>
+
+<p>Feel free to update the <a href="https://github.com/puranjayjain/chrome-color-picker/wiki/Setting's-specificity">wiki</a> with your findings.</p>
+
+<h4 id="do-you-mind-feature-requests-or-suggestions">3) Do you mind feature requests or suggestions?</h4>
+
+<p><strong>Solution</strong><br /><br />
+They are always welcome, even if they are present in the <a href="https://github.com/puranjayjain/chrome-color-picker/milestones">milestone</a></p>
+
+<h4 id="help-the-picker-wont-open-">4) Help! the picker won’t open !</h4>
+
+<p><strong>Solution</strong><br /><br />
+Try restarting atom or closing and opening atom or reloading atom (<code>View &gt; Developer &gt; Reload Window</code>)</p>
+
+<h1 id="versioning">Versioning</h1>
+
+<p>For transparency into our release cycle and in striving to maintain backward compatibility, package is maintained under <a href="http://semver.org/">the Semantic Versioning guidelines</a>. Sometimes we screw up, but we’ll adhere to those rules whenever possible.</p>
+
+<h1 id="license">License</h1>
+
+<p>Copyright (c) 2016 Puranjay Jain and <a href="https://github.com/puranjayjain/chrome-color-picker/graphs/contributors">Contributors</a> All Rights Reserved.
+This project is licensed under an <a href="https://github.com/puranjayjain/chrome-color-picker/blob/master/LICENSE.md">MIT License</a>.</p>
+
+<p>The list of all 3rd party licenses along with the main License can be found <a href="https://github.com/puranjayjain/chrome-color-picker/blob/master/LICENSE.md">here</a></p>
+<section class="package-keywords">
+  <strong>Keywords:</strong> chrome, color, picker, palette, material, design, ui, dev-tools <a href="https://github.com/puranjayjain/chrome-color-picker/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

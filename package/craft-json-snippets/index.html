@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Craft Json Snippets
+  <a href="https://github.com/Emkaytoo/craft-json-snippets">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+    <span class="author">by Ian DeRanieri</span>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install craft-json-snippets
+  </pre>
+</div>
+<h1 id="craft-json-snippets-atom-package">Craft .json snippets Atom package</h1>
+
+<p>Snippets for <a href="https://atom.io/">Atom</a> that help you quickly generate <code>.json</code> models for <a href="http://craftcms.com">CraftCMS</a>. They work really well with the <a href="http://github.com/Pennebaker/craftcms-thearchitect">Architect plugin</a>.</p>
+
+<h2 id="install">Install:</h2>
+<p>You can install this package through the Atom settings menu, or via the command line:</p>
+
+<pre><code>apm install craft-json-snippets
+</code></pre>
+
+<h2 id="usage">Usage:</h2>
+<p>Install the package and type the name of a snippet. By default, use <code>tab</code> to expand.</p>
+
+<h2 id="snippets">Snippets:</h2>
+
+<h3 id="initializing">Initializing</h3>
+<p>Use <code>CraftJsonInit</code> in a blank document to begin creating a content model.</p>
+
+<h3 id="fields">Fields</h3>
+
+<ul>
+  <li><code>CraftAssets</code> - Creates a blank <strong>Assets</strong> field.</li>
+  <li><code>CraftFieldCategories</code> - Creates a blank <strong>Categories</strong> field.</li>
+  <li><code>CraftCheckboxes</code> - Creates a blank <strong>Checkboxes</strong> field.</li>
+  <li><code>CraftColor</code>Creates a blank <strong>Color</strong> field.</li>
+  <li><code>CraftDate</code> - Creates a blank <strong>Date</strong> field.</li>
+  <li><code>CraftDropdown</code> - Creates a blank <strong>Dropdown</strong> field.</li>
+  <li><code>CraftEntries</code> - Creates a blank <strong>Entries</strong> field.</li>
+  <li><code>CraftLightswitch</code> - Creates a blank <strong>Lightswitch</strong> field.</li>
+  <li><code>CraftLinkIt</code> - Creates a blank <strong><a href="https://github.com/fruitstudios/LinkIt">FruitLinkIt</a></strong> field.</li>
+  <li><code>CraftMatrix</code> - Creates an <em>incomplete</em> blank <strong>Matrix</strong> field.
+    <ul>
+      <li><code>CraftMatrixBlock</code> - Creates a new blocktype for use in the “blockTypes” array in a Matrix.</li>
+      <li><code>CraftMatrixAssets</code> - Creates a new <strong>Assets</strong> field within a Matrix.</li>
+      <li><code>CraftMatrixCategories</code> - Creates a new <strong>Categories</strong> field within a Matrix.</li>
+      <li><code>CraftMatrixCheckboxes</code> - Creates a new <strong>Checkboxes</strong> field within a Matrix.</li>
+      <li><code>CraftMatrixColor</code> - Creates a new <strong>Color</strong> field within a Matrix.</li>
+      <li><code>CraftMatrixDate</code> - Creates a new <strong>Date</strong> field within a Matrix.</li>
+      <li><code>CraftMatrixDropdown</code> - Creates a new <strong>Dropdown</strong> field within a Matrix.</li>
+      <li><code>CraftMatrixEntries</code> - Creates a new <strong>Entries</strong> field within a Matrix.</li>
+      <li><code>CraftMatrixLightswitch</code> - Creates a new <strong>Lightswitch</strong> field within a Matrix.</li>
+      <li><code>CraftMatrixMultiselect</code> - Creates a new <strong>Multiselect</strong> field within a Matrix.</li>
+      <li><code>CraftMatrixNumber</code> - Creates a new <strong>Number</strong> field within a Matrix.</li>
+      <li><code>CraftMatrixPlainText</code> - Creates a new <strong>PlainText</strong> field within a Matrix.</li>
+      <li><code>CraftMatrixPositionSelect</code> - Creates a new <strong>PositionSelect</strong> field within a Matrix.</li>
+      <li><code>CraftMatrixRadioButtons</code> - Creates a new <strong>RadioButtons</strong> field within a Matrix.</li>
+      <li><code>CraftMatrixRichText</code> - Creates a new <strong>RichText</strong> field within a Matrix.</li>
+      <li><code>CraftMatrixTable</code> - Creates a new <strong>Table</strong> field within a Matrix.</li>
+      <li><code>CraftMatrixTags</code> - Creates a new <strong>Tags</strong> field within a Matrix.</li>
+      <li><code>CraftMatrixUsers</code> - Creates a new <strong>Users</strong> field within a Matrix.</li>
+      <li><code>CraftMatrixFieldNotes</code> - Creates a new <strong>FieldNotes</strong> field within a Matrix.</li>
+    </ul>
+  </li>
+  <li><code>CraftMultiselect</code> - Creates a blank <strong>Multiselect</strong> field.</li>
+  <li><code>CraftNeo</code> - Creates an <em>incomplete</em> blank <strong>Neo</strong> field.
+    <ul>
+      <li><code>CraftNeoBlock</code> - Creates a new blocktype for use in the “blockTypes” array in a Neo field.</li>
+    </ul>
+  </li>
+  <li><code>CraftNumber</code> - Creates a blank <strong>Number</strong> field.</li>
+  <li><code>CraftPlainText</code> - Creates a blank <strong>PlainText</strong> field.</li>
+  <li><code>CraftPositionSelect</code> - Creates a blank <strong>PositionSelect</strong> field.</li>
+  <li><code>CraftRadioButtons</code> - Creates a blank <strong>RadioButtons</strong> field.</li>
+  <li><code>CraftRichText</code> - Creates a blank <strong>RichText</strong> field.</li>
+  <li><code>CraftSEOmatic</code>- Creates a blank <strong><a href="https://github.com/nystudio107/seomatic">SEOmatic</a></strong> field.</li>
+  <li><code>CraftSuperTable</code>- Creates a blank <strong>SuperTable</strong> field.  Use the <code>CraftMatrix</code> subfields to configure SuperTable.</li>
+  <li><code>CraftTable</code>Creates an <em>incomplete</em> blank <strong>Table</strong> field.
+    <ul>
+      <li><code>CraftTableColumn</code> - Creates a blank <strong>Columns</strong> subfield for use in a table.</li>
+      <li><code>CraftTableRow</code> - Creates a blank <strong>Row</strong> subfield for use in a table.</li>
+    </ul>
+  </li>
+  <li><code>CraftTags</code>Creates a blank <strong>Tags</strong> field.</li>
+  <li><code>CraftFieldUsers</code> - Creates a blank <strong>Users</strong> field.</li>
+  <li><code>CraftFieldNotes</code> - Creates a blank <strong>FieldNotes</strong> field.</li>
+</ul>
+
+<h3 id="sections">Sections</h3>
+<ul>
+  <li><code>CraftHomePage</code> - Creates a blank <strong>Homepage</strong> section.</li>
+  <li><code>CraftSingle</code> - Creates a blank <strong>Single</strong> section.</li>
+  <li><code>CraftChannel</code> - Creates a blank <strong>Channel</strong> section.</li>
+  <li><code>CraftStructure</code> - Creates a blank <strong>Structure</strong> section.</li>
+</ul>
+
+<h3 id="entry-types">Entry Types</h3>
+<ul>
+  <li><code>CraftEntrySingle</code> - Creates a blank <strong>Single</strong> entryType.</li>
+  <li><code>CraftEntryChannel</code> - Creates a blank entryType used for both <strong>Channels and Structures</strong>.</li>
+</ul>
+
+<h3 id="asset-sources">Asset Sources</h3>
+<ul>
+  <li><code>CraftSourceLocal</code> - Creates a blank <strong>Local</strong> asset source.</li>
+  <li><code>CraftSourceS3</code> - Creates a blank <strong>Amazon S3</strong> asset source.</li>
+  <li><code>CraftSourceGoogleCloud</code> - Creates a blank <strong>Google Cloud</strong> asset source.</li>
+  <li><code>CraftSourceRackspace</code> - Creates a blank <strong>Rackspace</strong> asset source.</li>
+</ul>
+
+<h3 id="categories">Categories</h3>
+<ul>
+  <li><code>CraftCategories</code> - Creates a blank category model.</li>
+</ul>
+
+<h3 id="users">Users</h3>
+<ul>
+  <li><code>CraftUsers</code> - Creates a blank <strong>user</strong> template.</li>
+</ul>
+<section class="package-keywords">
+  <strong>Keywords:</strong> snippets, atom, craftcms, json, models <a href="https://github.com/Emkaytoo/craft-json-snippets/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

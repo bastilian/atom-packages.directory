@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Event Watch
+  <a href="https://github.com/lexicalunit/event-watch">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+    <span class="author">by lexicalunit <lexicalunit@lexicalunit.com></span>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install event-watch
+  </pre>
+</div>
+<h1 id="event-watch">Event Watch</h1>
+
+<p><a href="https://github.com/lexicalunit/event-watch/releases"><img src="https://img.shields.io/apm/v/event-watch.svg" alt="apm package" /></a>
+<a href="https://travis-ci.org/lexicalunit/event-watch"><img src="https://travis-ci.org/lexicalunit/event-watch.svg?branch=master" alt="travis-ci" /></a>
+<a href="https://ci.appveyor.com/project/lexicalunit/event-watch?branch=master"><img src="https://ci.appveyor.com/api/projects/status/5c5kwql6e5bvca1y/branch/master?svg=true" alt="appveyor" /></a>
+<a href="https://circleci.com/gh/lexicalunit/event-watch/tree/master"><img src="https://circleci.com/gh/lexicalunit/event-watch/tree/master.svg?style=shield" alt="circle-ci" /></a>
+<a href="https://david-dm.org/lexicalunit/event-watch"><img src="https://david-dm.org/lexicalunit/event-watch.svg" alt="david" /></a>
+<a href="https://atom.io/packages/event-watch"><img src="http://img.shields.io/apm/dm/event-watch.svg" alt="download" /></a>
+<a href="http://opensource.org/licenses/MIT"><img src="https://img.shields.io/apm/l/event-watch.svg" alt="mit" /></a></p>
+
+<p>Create notifications for all your recurring events! For example, I use this to keep track of when my
+Southbound and Northbound trains are next leaving. That way I know when I need to pack up my laptop
+and head over to the station.</p>
+
+<p><img src="https://cloud.githubusercontent.com/assets/1903876/7494968/8f9965f8-f3d0-11e4-84e4-e884f70065b5.png" alt="9_15" /></p>
+
+<h2 id="installation">Installation</h2>
+
+<h3 id="via-command-line">Via Command Line</h3>
+
+<p><code>shell
+apm install event-watch
+</code></p>
+
+<h3 id="via-atom">Via Atom</h3>
+
+<p><code>
+Command Palette ➔ Settings View: Install Packages And Themes ➔ Event Watch
+</code></p>
+
+<h2 id="configuration">Configuration</h2>
+
+<p>Most configuration options for this package are available through your Atom settings panel. You must
+edit schedule data directly. To do this, first open your Atom configuration file:</p>
+
+<p><code>
+Command Palette ➔ Application: Open Your Config
+</code></p>
+
+<p>Within this config you should see configuration data for installed packages, for example you will
+see <code>core</code>, <code>editor</code>, <code>minimap</code> (if you have it installed), as well as other package configurations.
+You will need to provide schedule data for <code>event-watch</code> specifying your recurring event schedules.</p>
+
+<h3 id="configuring-schedule-data">Configuring Schedule Data</h3>
+
+<p>The <code>schedules</code> configuration should be a simple key/value object. Its keys are the titles of your
+events, and its values are the schedules. For example:</p>
+
+<p><code>cson
+schedules:
+  "Standup Meeting": "at 9:00 am on Mon,Tue,Wed,Thu,Fri"
+  "Happy Hour": "at 5:00 pm on Fri"
+</code></p>
+
+<p>If you’d like to put your schedules in their own separate configuration files, you can instead use
+the <code>subscriptions</code> configuration, which should be an array of file paths to load schedule data
+from. For example,</p>
+
+<p><code>cson
+"Standup Meeting": "at 9:00 am on Mon,Tue,Wed,Thu,Fri"
+"Happy Hour": "at 5:00 pm on Fri"
+</code></p>
+
+<p>in a file at <code>/path/to/your/data.cson</code> and then set your <code>subscriptions</code> configuration as follows.</p>
+
+<p><code>cson
+subscriptions: [
+    "/path/to/your/data.cson"
+]
+</code></p>
+
+<p>Either or both methods of configuring schedule data are valid. Use whichever method is more
+convenient for your purposes.</p>
+
+<blockquote>
+  <p>The files listed in the <code>subscriptions</code> configuration parse at startup time and if the
+configuration changes. You can force a reload and update of event-watch using the command
+<code>Command Palette ➔ Event Watch: Reload</code>.</p>
+</blockquote>
+
+<h3 id="writing-a-schedule">Writing a Schedule</h3>
+
+<p>Schedules are strings parsed using <a href="http://bunkat.github.io/later/parsers.html#text">later.js’s text or cron parser</a>. Please see their
+extensive documentation for further details and examples. If event-watch encounters a problem in
+parsing your schedule, it will warn you with a short notification. Note that later.js can not detect
+errors in cron expressions.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Example Schedule</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>"at 10:15 am"</code></td>
+      <td>fires at 10:15am every day</td>
+    </tr>
+    <tr>
+      <td><code>"every 5 mins"</code></td>
+      <td>fires every 5 minutes every day</td>
+    </tr>
+    <tr>
+      <td><code>"at 7:03 am on Mon,Fri"</code></td>
+      <td>fires at 7:03 am every Monday and Friday</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="time-and-display-formats">Time and Display Formats</h3>
+
+<p>Time formats such as <code>timeFormatSameDay</code> and <code>timeFormatOtherDay</code> must fit
+<a href="http://momentjs.com/docs/#/displaying/format/">moment.js’s format specification</a>. Display formats like <code>Display Format</code> and
+<code>Display Format Tooltip</code> are strings that specify how to display your event times in the status bar
+or tooltip areas. The following values interpolate automatically in display formats:</p>
+
+<ul>
+  <li><code>$title</code>: The title of the event as defined by its key in <code>schedules</code> or <code>subscriptions</code>.</li>
+  <li><code>$time</code>: The time of the next occurring event, formatted according to either <code>timeFormatSameDay</code>
+or <code>timeFormatOtherDay</code> as appropriate.</li>
+  <li><code>$tminus</code>: The time remaining until the next occurring event.</li>
+</ul>
+
+<h3 id="example-config">Example Config</h3>
+
+<p>The following is what my configuration looks like.</p>
+
+<p><code>cson
+"*":
+  "event-watch":
+    schedules:
+      Northbound: '''
+        at 7:03am and 7:34am and 8:05am and 8:41am and 9:15am and 9:44am and
+        10:15am and 11:15am and 12:15am and  1:15pm and 2:15pm and 3:15pm
+        and 3:44pm and 4:19pm and 4:55pm and 5:27pm and 5:57pm and 6:30pm on
+        Mon,Tue,Wed,Thu,Fri also at 7:30pm and 8:30pm and 9:30pm and 10:30pm
+        and 11:30pm on Fri also at 12:30am on Sat also at 4:41pm and 5:15pm
+        and 5:15pm and 5:49pm and 6:23pm and 6:57pm and 7:31pm and 8:05pm
+        and 8:39pm and 9:13pm and 9:47pm and 10:21pm and 10:55pm and 11:29pm
+        on Sat also at 12:03am on Sun
+      '''
+      Southbound: '''
+        at 6:24am and 6:56am and 7:27am and 7:58am and 8:34am and 9:09am and
+        9:38am and 10:38am and 11:38am and 12:38am and 1:38pm and 2:38pm and
+        3:09pm and 3:38pm and 4:13pm and 4:43pm and 5:19pm and 5:51pm on
+        Mon,Tue,Wed,Thu,Fri also at 6:53pm and 7:53pm and 8:24pm and 9:24pm
+        and 10:24pm and 11:24pm on Fri also at 4:00pm and 4:34pm and 5:08pm
+        and 5:42pm and 6:16pm and 6:50pm and 7:24pm and 7:58pm and 8:32pm
+        and 9:06pm and 9:40pm and 10:14pm and 10:48pm and 11:22pm on Sat
+      '''
+</code></p>
+
+<p>So if my current time is <code>9:09 AM</code>:</p>
+
+<p><img src="https://cloud.githubusercontent.com/assets/1903876/7494974/9435bee0-f3d0-11e4-8000-705086a56860.png" alt="9_09" /></p>
+
+<p>And if I hover over the widget at <code>9:11 AM</code> I would see:</p>
+
+<p><img src="https://cloud.githubusercontent.com/assets/1903876/7494970/91ba24e4-f3d0-11e4-9d25-aacc276a1eb7.png" alt="9_11 tool" /></p>
+
+<h2 id="future-work">Future Work</h2>
+
+<p>I would like to add the following features in future versions of event-watch.</p>
+
+<ul>
+  <li>Option to configure certain events to display in-editor notifications.</li>
+  <li>Detect “last event of the day” and display in-editor warning.</li>
+  <li>Time formatting options for <code>$tminus</code> besides <a href="http://momentjs.com/docs/#/durations/humanize/">humanized durations</a>.</li>
+  <li>More unit tests. Tests for every configuration option. Tests for tooltip and commands.</li>
+  <li>Add more screenshots other than my Northbound/Southbound train example.</li>
+  <li>Refactor and unify creation of tooltip and status-bar label?</li>
+  <li>Support schedule data provided by remote configuration file? Or from a common dot file?</li>
+</ul>
+
+<hr />
+
+<p><a href="http://opensource.org/licenses/MIT">MIT</a> © <a href="http://github.com/lexicalunit">lexicalunit</a> et <a href="https://github.com/lexicalunit/event-watch/graphs/contributors">al</a></p>
+
+<section class="package-keywords">
+  <strong>Keywords:</strong> events, indicator, status-bar, productivity, scheduling <a href="https://github.com/lexicalunit/event-watch/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

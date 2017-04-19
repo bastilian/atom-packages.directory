@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Angularjs
+  <a href="https://github.com/angular-ui/AngularJS-Atom">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install angularjs
+  </pre>
+</div>
+<h1 id="angularjs-v1x-support-in-atom">AngularJS v1.x support in Atom</h1>
+
+<p>Adds syntax highlighting and snippets to AngularJS v1.x in Atom.</p>
+
+<p>Originally <a href="http://atom.io/docs/latest/converting-a-text-mate-bundle">converted</a>
+from the <a href="https://github.com/angular-ui/AngularJs.tmbundle">AngularJS TextMate bundle</a>.</p>
+
+<p>Contributions are greatly appreciated. Please fork this repository and open a
+pull request to add snippets, make grammar tweaks, etc.</p>
+
+<h2 id="supported-features">Supported features</h2>
+
+<h3 id="autocompletes">Autocompletes</h3>
+
+<p>You can use autocompletes for directives in HTML and
+angular.js’s variables and function in JavaScript.
+See <a href="https://github.com/angular-ui/AngularJS-Atom/blob/master/settings/">settings</a>
+for more details.</p>
+
+<p><img src="https://raw.github.com/angular-ui/AngularJS-Atom/master/screenshots/autocompletes.gif" alt="" /></p>
+
+<p>If you type some prefix and press <kbd>Tab</kbd> or <kbd>Enter</kbd>,
+you can use autocompletes in below.</p>
+
+<h4 id="html">HTML</h4>
+<p><code>
+ng-valid
+ng-invalid
+ng-pristine
+ng-dirty
+ng-show
+ng-required
+ng-minlength
+ng-maxlength
+ng-pattern
+ng-true-value
+ng-false-value
+ng-value
+ng-trim
+ng-app
+ng-bind
+ng-bind-html
+ng-bind-template
+ng-blur
+ng-change
+ng-checked
+ng-class
+ng-class-even
+ng-class-odd
+ng-click
+ng-cloak
+ng-controller
+ng-copy
+ng-csp
+ng-cut
+ng-dblclick
+ng-disabled
+ng-focus
+ng-form
+ng-hide
+ng-href
+ng-if
+ng-include
+ng-init
+ng-keydown
+ng-keypress
+ng-keyup
+ng-list
+ng-model
+ng-model-options
+ng-mousedown
+ng-mouseenter
+ng-mouseleave
+ng-mousemove
+ng-mouseover
+ng-mouseup
+ng-non-bindable
+ng-open
+ng-paste
+ng-pluralize
+ng-readonly
+ng-repeat
+ng-repeat-start
+ng-repeat-end
+ng-selected
+ng-src
+ng-srcset
+ng-style
+ng-submit
+ng-switch
+ng-options
+ng-switch-when
+ng-switch-default
+ng-transclude
+ng-view
+ng-messages
+ng-message
+ng-swipe-left
+ng-swipe-right
+</code></p>
+
+<h4 id="javascript">JavaScript</h4>
+
+<p><code>
+angular
+bind
+bootstrap
+copy
+element
+equals
+extend
+forEach
+fromJson
+identity
+injector
+isArray
+isDate
+isDefined
+isElement
+isFunction
+isNumber
+isObject
+isString
+isUndefined
+lowercase
+module
+noop
+reloadWithDebugInfo
+toJson
+uppercase
+$anchorScroll
+$animate
+$cacheFactory
+$compile
+$controller
+$document
+$exceptionHandler
+$filter
+$http
+$httpBackend
+$interpolate
+$interval
+$locale
+$location
+$log
+$parse
+$q
+$rootElement
+$rootScope
+$sce
+$sceDelegate
+$templateCache
+$templateRequest
+$timeout
+$window
+$animateProvider
+$compileProvider
+$controllerProvider
+$filterProvider
+$httpProvider
+$interpolateProvider
+$locationProvider
+$logProvider
+$parseProvider
+$rootScopeProvider
+$sceDelegateProvider
+$sceProvider
+$injector
+$provide
+$ariaProvider
+$aria
+$cookieStore
+$cookies
+mock
+$exceptionHandlerProvider
+TzDate
+dump
+inject
+$resource
+$routeProvider
+$route
+$routeParams
+$sanitize
+$swipe
+controller
+$scope
+service
+factory
+provider
+ngResource
+defer
+config
+when
+otherwise
+directive
+run
+filter
+</code></p>
+
+<h3 id="snippets">Snippets</h3>
+
+<p>You can use snippets in HTML and JavaScript.
+See <a href="https://github.com/angular-ui/AngularJS-Atom/tree/master/snippets">snippets</a>
+for more details.</p>
+
+<p><img src="https://raw.github.com/angular-ui/AngularJS-Atom/master/screenshots/snippets.gif" alt="" /></p>
+
+<p>If you type prefix and press <code>tab</code>,
+It will be replaced by snippet for it.</p>
+
+<h4 id="html-1">HTML</h4>
+
+<h5 id="ngindex">ngindex</h5>
+<p>```</p>
+<html>
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/$1/angular.js"></script>
+</head>
+<body ng-app="">
+ $2
+</body>
+</html>
+<p>```</p>
+
+<h5 id="ngsa">ngsa</h5>
+<p><code>
+&lt;script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/$1/angular.js"&gt;&lt;/script&gt;
+</code></p>
+
+<h5 id="ngst">ngst</h5>
+<p><code>
+&lt;script type="text/ng-template" id="$1"&gt;
+  $2
+&lt;/script&gt;
+</code></p>
+
+<h5 id="nginc">nginc</h5>
+<p><code>
+&lt;ng-include src="$1" ${2: onload="$3"} ${4: autoscroll="$5"}&gt;&lt;/ng-include&gt;
+</code></p>
+
+<h5 id="ngplural">ngplural</h5>
+<p><code>
+&lt;ng-pluralize count="$1" when="$2" ${3: offset="$4"}&gt;&lt;/ng-pluralize&gt;
+</code></p>
+
+<h5 id="ngswitch">ngswitch</h5>
+<p>```</p>
+<ng-switch on="$1">$2</ng-switch>
+<p>```</p>
+
+<h5 id="ngtmpl">ngtmpl</h5>
+<p><code>
+&lt;script type="text/ng-template"&gt;$1&lt;/script&gt;
+</code></p>
+
+<h5 id="ngview">ngview</h5>
+<p><code>
+&lt;ng-view ${1: onload="$2"} ${3: $autoscroll="$4"}&gt;&lt;/ng-view&gt;
+</code></p>
+
+<h4 id="javascript-1">JavaScript</h4>
+
+<h5 id="ngm">ngm</h5>
+<p><code>
+angular.module('$1', [$2])$3
+</code></p>
+
+<h5 id="ngma">ngma</h5>
+<p><code>
+var $1 = angular.module('$2', [$3])$4
+</code></p>
+
+<h5 id="ngmc">ngmc</h5>
+<p><code>
+var $1 = angular.module('$2', [$3], function($4) {
+    $5
+})$6
+</code></p>
+
+<h5 id="ngmfa">ngmfa</h5>
+<p><code>
+factory('$1', function($2) {
+  $3
+})$4
+</code></p>
+
+<h5 id="ngmfi">ngmfi</h5>
+<p><code>
+filter('$1', function($2) {
+  return function (input, $3) {
+    $4
+  };
+})$5
+</code></p>
+
+<h5 id="ngms">ngms</h5>
+<p><code>
+service('$1', function($2) {
+  $3
+})$4
+</code></p>
+
+<h5 id="ngro">ngro</h5>
+<p><code>
+$routeProvider.otherwise({redirectTo: '$1' });
+</code></p>
+
+<h5 id="ngrw">ngrw</h5>
+<p><code>
+$routeProvider.when('$1', {templateUrl: '$2', controller: '$3'});
+</code></p>
+
+<h5 id="ngrwr">ngrwr</h5>
+<p><code>
+$routeProvider.when('$1', {templateUrl: '$2', controller: '$3', resolve: {$4} });
+</code></p>
+
+<h5 id="ngfor">ngfor</h5>
+<p><code>
+angular.forEach($1, function(value, key) {
+  $2
+});
+</code></p>
+
+<h5 id="ngdl">ngdl</h5>
+<p><code>
+.directive('$1', function($2) {
+  $3
+  return function(scope, element, attrs) {
+    $4
+  }
+})$5
+</code></p>
+
+<h5 id="ngdlf">ngdlf</h5>
+<p><code>
+function (scope, element, attrs) {
+  $1
+}
+</code></p>
+
+<h5 id="ngdc">ngdc</h5>
+<p><code>
+.directive('$1', function factory($2) {
+  var directiveDefinitionObject = {
+    $3
+    compile: function compile(tElement, tAttrs, transclude) {
+      $4
+      return function (scope, element, attrs) {
+        $5
+      }
+    }
+  };
+  return directiveDefinitionObject;
+})$6
+</code></p>
+
+<h5 id="ngdcf">ngdcf</h5>
+<p><code>
+function compile(tElement, tAttrs, transclude) {
+  $1
+  return function (scope, element, attrs) {
+    $2
+  }
+}$3
+</code></p>
+
+<h5 id="ngb">ngb</h5>
+<p><code>
+$scope.$broadcast('$1', $2);
+</code></p>
+
+<h5 id="nge">nge</h5>
+<p><code>
+$scope.$emit('', );
+</code></p>
+
+<h5 id="ngf">ngf</h5>
+<p><code>
+$scope.$1 = function($2) {
+  $3
+};
+</code></p>
+
+<h5 id="ngcp">ngcp</h5>
+<p><code>
+$1Ctrl.prototype.$2 = function $2($3) {
+  $4
+};
+</code></p>
+
+<h5 id="ngon">ngon</h5>
+<p><code>
+$scope.$on('$1', function(event, $2) {
+  $3
+});
+</code></p>
+
+<h5 id="ngv">ngv</h5>
+<p><code>
+$scope.$1 = $2;
+</code></p>
+
+<h5 id="ngw">ngw</h5>
+<p><code>
+$scope.$watch('$1', function(newValue, oldValue) {
+  $2
+});
+</code></p>
+
+<h5 id="ngc">ngc</h5>
+<p><code>
+var $1 = function($scope, $2) {
+  $3
+}
+</code></p>
+
+<h5 id="ngc-1">ngc$</h5>
+<p><code>
+$1Ctrl.$inject = [$scope, '$2'];
+function $1Ctrl($scope, $2) {
+  $4
+}
+angular.module($3).controller('$1Ctrl', $1Ctrl);
+</code></p>
+
+<h5 id="ngdoc">ngdoc</h5>
+<p><code>
+/**
+ * @ngdoc ${1:function}
+ * @name $2
+ * @description
+ * $3
+ * 
+ */
+</code></p>
+
+<h5 id="nghttp">nghttp</h5>
+<p><code>
+$http({method: '${1:GET}', url: '$2'})
+.success(function(data, status, headers, config) {
+  $3
+})
+.error(function(data, status, headers, config) {
+  $4
+});
+</code></p>
+
+<h5 id="ngcopy">ngcopy</h5>
+<p><code>
+angular.copy(${1:source} ${2:, ${3:destination}})
+</code></p>
+
+<h5 id="ngel">ngel</h5>
+<p><code>
+angular.element(${1:element});
+</code></p>
+
+<h5 id="ngeq">ngeq</h5>
+<p><code>
+angular.equals(${1:object1}, ${2:object2});
+</code></p>
+
+<h5 id="ngext">ngext</h5>
+<p><code>
+angular.extend(${1:destinationObject}, ${2:sourceObject})
+</code></p>
+
+<h5 id="ngisa">ngisa</h5>
+<p><code>
+angular.isArray(${1:value})
+</code></p>
+
+<h5 id="ngisd">ngisd</h5>
+<p><code>
+angular.isDefined(${1:value})
+</code></p>
+
+<h5 id="ngisf">ngisf</h5>
+<p><code>
+angular.isFunction(${1:value})
+</code></p>
+
+<h5 id="ngisn">ngisn</h5>
+<p><code>
+angular.isNumber(${1:value})
+</code></p>
+
+<h5 id="ngiso">ngiso</h5>
+<p><code>
+angular.isObject(${1:value})
+</code></p>
+
+<h5 id="ngiss">ngiss</h5>
+<p><code>
+angular.isString(${1:value})
+</code></p>
+
+<h5 id="nglo">nglo</h5>
+<p><code>
+angular.lowercase(${1:string});
+</code></p>
+
+<h5 id="ngup">ngup</h5>
+<p><code>
+angular.uppercase(${1:string});
+</code></p>
+
+<h2 id="faq">FAQ</h2>
+
+<h4 id="cant-i-use-autocompletion-with-tab-when-i-installed-emmet-plugin">Can’t I use autocompletion with tab when I installed emmet plugin</h4>
+
+<p>See <a href="https://github.com/emmetio/emmet-atom#tab-key">emmet’s document</a></p>
+
+<p>In your <code>keymap.cson</code>, add the following code.</p>
+
+<p><code>
+'atom-text-editor[data-grammar="text html angular"]:not([mini])':
+  'tab': 'emmet:expand-abbreviation-with-tab'
+</code></p>
+<section class="package-keywords">
+  <strong>Keywords:</strong> angular, angularjs, javascript, frontend <a href="https://github.com/angular-ui/AngularJS-Atom/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

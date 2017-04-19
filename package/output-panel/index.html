@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Output Panel
+  <a href="https://github.com/31i73/atom-output-panel">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install output-panel
+  </pre>
+</div>
+<h1 id="output-panel-package">output-panel package</h1>
+
+<p>A bottom output panel for running processes and displaying output</p>
+
+<p><img src="http://i.imgur.com/e57nAJp.png" alt="Output Panel screenshot" /></p>
+
+<h2 id="commands">Commands:</h2>
+
+<p><code>output-panel:show</code> - Show the panel<br />
+<code>output-panel:hide</code> - Hide the panel<br />
+<code>output-panel:toggle</code> - Toggle the panel<br />
+<code>output-panel:run</code> - TODO: prompt the user to run a program in the panel<br />
+<code>output-panel:stop</code> - Stop any program currently running in the panel<br />
+<code>core:cancel</code> - Hide the panel</p>
+
+<h2 id="service-output-panel">Service: <code>output-panel</code></h2>
+
+<p>Returns an object with the following functions:</p>
+
+<p><code>run(show, path:String, ?args:String[], ?options)</code> - Run a process in the panel (this will <code>stop()</code> any existing, first)</p>
+
+<blockquote>
+  <p><code>show</code> - If <code>true</code> will immediately display the panel. if <code>"auto"</code> will automatically display the panel if the program displays output. if <code>false</code> will leave the panel in its current state.</p>
+</blockquote>
+
+<blockquote>
+  <p><code>path</code> - The path to the program to execute</p>
+</blockquote>
+
+<blockquote>
+  <p><code>args</code> - Optional. An array of arguments to pass to the program</p>
+</blockquote>
+
+<blockquote>
+  <p><code>options</code> - Optional. An options object compatible with <code>child_process.spawn()</code></p>
+</blockquote>
+
+<p>Returns a <code>child_process</code> compatible object of the running process</p>
+
+<p><code>stop()</code> - Stop and process currently running in the panel</p>
+
+<p><code>show()</code> - Display the panel</p>
+
+<p><code>hide()</code> - Hide the panel</p>
+
+<p><code>toggle()</code> - Toggle the panel</p>
+
+<p><code>print(line:String)</code> - Print a <code>line</code> of text to the panel</p>
+
+<p><code>clear()</code> - Clear the panel</p>
+<section class="package-keywords">
+  <strong>Keywords:</strong> output, bottom, panel, process, terminal <a href="https://github.com/31i73/atom-output-panel/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

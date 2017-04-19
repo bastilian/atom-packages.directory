@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Ember
+  <a href="https://github.com/DHedgecock/language-ember">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+    <span class="author">by Dan Hedgecock</span>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install language-ember
+  </pre>
+</div>
+<h1 id="ember-htmlbars-highlighting">Ember HTMLBars Highlighting</h1>
+
+<p>This package provides HMLBars/Glimmer syntax highlighting for template (<code>.hbs</code>)
+files as well as inline template declaration in JS files.</p>
+
+<h3 id="syntax-highlighting">Syntax Highlighting</h3>
+
+<p>To activate syntax highlighting in template files select <code>Ember Glimmer</code> as the
+language. Glimmer highlighting is automatically applied to any inline template
+declaration in JS files.</p>
+
+<h3 id="ember-inline-template-declaration">Ember Inline Template Declaration</h3>
+
+<p>Ember component test files are automatically generated with inline template string syntax, eg:</p>
+
+<p><code>javascript
+this.render(hbs`
+  {{#some-component}}
+    Syntax highlighting is the best.
+  {{/some-component}}
+`);
+</code></p>
+
+<p>But you can also declare templates for components using a tagged template string and the <code>layout</code> property!</p>
+
+<p>```javascript
+import Ember from ‘ember’;
+import hbs from ‘htmlbars-inline-precompile’;</p>
+
+<p>export default Ember.component.extend({
+  // Component layout using tagged template string:
+  layout: hbs<code>
+    &lt;span&gt;Hello there, {{name}}&lt;/span&gt;
+  </code>
+});
+```</p>
+
+<p>This package will match the <code>hbs` `</code> declaration and apply syntax highlighting
+to template string contents.</p>
+
+<h3 id="features">Features</h3>
+<ul>
+  <li>HTMLBars Comment Block Bindings on <code>Cmd + /</code></li>
+  <li>Unescaped output (triple curlies) are flagged with wrapping <code>.unescaped.block.htmlbars</code></li>
+  <li>Property/Component/Helper names flagged as <code>string.of.property.function.component.name.htmlbars</code></li>
+  <li>All framework Ember helpers flagged as <code>support.function.builtin.inline.htmlbars</code></li>
+</ul>
+
+<p><img src="https://raw.githubusercontent.com/DHedgecock/language-ember/master/screenshot.png" alt="Screenshot" /></p>
+
+<p>See <code>CONTRIBUTING.md</code> for technical details.</p>
+
+<h3 id="thank-you">Thank You</h3>
+<p><a href="https://github.com/jmurphyau/language-ember-htmlbars">language-ember-htmlbars</a> for ideas on regex patterns.</p>
+<section class="package-keywords">
+  <strong>Keywords:</strong> ember, atom, grammar <a href="https://github.com/DHedgecock/language-ember/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

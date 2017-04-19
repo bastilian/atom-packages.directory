@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Tester
+  <a href="https://github.com/yacut/tester">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+    <span class="author">by yacut</span>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install tester
+  </pre>
+</div>
+<h1 id="tester">Tester</h1>
+
+<p><a href="https://travis-ci.org/yacut/tester"><img src="https://travis-ci.org/yacut/tester.svg" alt="Build Status" /></a>
+<a href="https://ci.appveyor.com/api/projects/status/github/yacut/tester"><img src="https://ci.appveyor.com/api/projects/status/github/yacut/tester?svg=true" alt="Windows Build Status" /></a>
+<a href="https://atom.io/packages/tester"><img src="https://img.shields.io/apm/v/tester.svg" alt="APM Version" /></a>
+<a href="https://atom.io/packages/tester"><img src="https://img.shields.io/apm/dm/tester.svg" alt="APM Downloads" /></a>
+<a href="https://github.com/yacut/tester/stargazers"><img src="https://img.shields.io/github/stars/yacut/tester.svg" alt="GitHub stars" /></a>
+<a href="https://github.com/yacut/tester/issues"><img src="https://img.shields.io/github/issues/yacut/tester.svg" alt="GitHub issues" /></a>
+<a href="https://david-dm.org/yacut/tester"><img src="https://img.shields.io/david/yacut/Tester.svg" alt="Dependencies!" /></a></p>
+
+<p>Tester is a test runner for the hackable <a href="http://atom.io">Atom Editor</a>. Additionally, you need to install a specific tester provider for your test framework. You will find a full list below in the <a href="#known-providers">Known provider</a> section.</p>
+
+<p><img src="https://raw.githubusercontent.com/yacut/tester/master/preview.gif" alt="Preview" /></p>
+
+<h3 id="base-features">Base Features</h3>
+<ul>
+  <li>
+    <p>IDE based Feedback</p>
+
+    <ul>
+      <li>
+        <p>Gutter test result markers</p>
+
+        <p><img src="https://raw.githubusercontent.com/yacut/tester/master/resources/gutter-markers.png" alt="gutter-markers" /></p>
+      </li>
+      <li>
+        <p>Pop-Up notification with test results</p>
+
+        <p><img src="https://raw.githubusercontent.com/yacut/tester/master/resources/notification.png" alt="notification" /></p>
+      </li>
+      <li>
+        <p>In-line error messages</p>
+
+        <p><img src="https://raw.githubusercontent.com/yacut/tester/master/resources/inline-error.png" alt="inline-error" /></p>
+      </li>
+      <li>
+        <p>Console test output</p>
+
+        <p><img src="https://raw.githubusercontent.com/yacut/tester/master/resources/console-output.png" alt="console-output" /></p>
+      </li>
+    </ul>
+  </li>
+  <li>Session based test watching
+    <ul>
+      <li>Test file on open</li>
+      <li>Test file after save</li>
+    </ul>
+  </li>
+  <li>Supported test frameworks (for now):
+    <ul>
+      <li><a href="https://mochajs.org/">Mocha</a></li>
+      <li><a href="https://github.com/facebook/jest">Jest</a></li>
+      <li><a href="https://phpunit.de/">PHPUnit</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="how-to--installation">How to / Installation</h4>
+
+<p>You can install through the CLI by doing:</p>
+
+<p><code>
+$ apm install tester
+</code></p>
+
+<p>Or you can install from Settings view by searching for <code>Tester</code>.</p>
+
+<h3 id="known-providers">Known providers</h3>
+
+<ul>
+  <li><a href="https://atom.io/packages/tester-mocha">Mocha</a> test runner.</li>
+  <li><a href="https://atom.io/packages/tester-jest">Jest</a> test runner.</li>
+  <li><a href="https://atom.io/packages/tester-phpunit">PHPUnit</a> test runner.</li>
+</ul>
+
+<h3 id="tester-api">Tester API</h3>
+
+<h4 id="example">Example</h4>
+
+<p>Declare the provider callback in the <code>package.json</code>.</p>
+
+<p><code>js
+"providedServices": {
+  "tester": {
+    "versions": {
+      "1.0.0": "provideTester"
+    }
+  }
+}
+</code></p>
+
+<p>Define the provider callback in <code>lib/main.js</code>.</p>
+
+<p><code>js
+export function provideTester() {
+  return {
+    name: 'tester-name',
+    options: {},
+    scopes: ['**/test/*.js', '**/*spec.js'],
+    test(textEditor) {
+      // Note, a Promise may be returned as well!
+      return {
+        messages: [
+          {
+            duration: 1, // duration in ms
+            error: {
+              name: 'optional error object',
+              message: 'something went wrong',
+              actual: 'optional actual result', // can be an object
+              expected: 'optional expected result', // can be an object
+              operator: 'optional operator',
+            },
+            filePath: 'file path to highlight',
+            lineNumber: 1, // line number to highlight
+            state: 'failed', // 'passed' | 'failed' | 'skipped',
+            title: 'some test title',
+          }
+        ],
+        output: 'tester console output'
+      };
+    },
+    stop(textEditor) {
+      // stop tester if needed
+    }
+  };
+}
+</code></p>
+
+<h3 id="experimental-features">Experimental Features</h3>
+
+<h4 id="test-all-opened-files-after-any-save-action">Test all opened files after any save action</h4>
+
+<p><img src="https://raw.githubusercontent.com/yacut/tester/master/resources/test-all-opened-files-preview.gif" alt="Preview" /></p>
+
+<h3 id="inspiration">Inspiration</h3>
+
+<p>I’d like to give a shout out to <a href="https://wallabyjs.com/">Wallaby.js</a>, which is a significantly more comprehensive and covers a lot more editors, if this extension interests you - check out that too.</p>
+
+<h3 id="contribute">Contribute</h3>
+
+<p>Stick to imposed codestyle:</p>
+
+<ul>
+  <li><code>$ npm i</code></li>
+  <li><code>$ npm test</code></li>
+</ul>
+
+<h3 id="roadmap">Roadmap</h3>
+
+<ul>
+  <li>add unknown status for test which not ran</li>
+  <li>replace all views with react components</li>
+  <li>add table view with results similar to nuclide diagnostics (react+redux)</li>
+  <li>add <code>run all project tests</code> command</li>
+</ul>
+<section class="package-keywords">
+  <strong>Keywords:</strong> test, tester, testing, interactive, mocha, wallaby.js <a href="https://github.com/yacut/tester/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

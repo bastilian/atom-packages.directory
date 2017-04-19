@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Markdown
+  <a href="https://github.com/burodepeper/language-markdown">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install language-markdown
+  </pre>
+</div>
+<h1 id="markdown-grammar">Markdown grammar</h1>
+
+<p>A realistic implementation of various Markdown specifications as a flexible, drop-in alternative for <a href="https://github.com/atom/language-gfm/">language-gfm</a>. Adds smart context-aware behavior to lists, and keyboard shortcuts for inline emphasis and links/images.</p>
+
+<p><a href="https://travis-ci.org/burodepeper/language-markdown"><img src="https://travis-ci.org/burodepeper/language-markdown.svg?branch=master" alt="Build Status" /></a>
+<a href="https://atom.io/packages/language-markdown"><img src="https://img.shields.io/apm/dm/language-markdown.svg" alt="apm" /></a>
+<a href="https://atom.io/packages/language-markdown"><img src="https://img.shields.io/apm/v/language-markdown.svg" alt="apm" /></a></p>
+
+<h2 id="installation">Installation</h2>
+
+<ol>
+  <li>Install <code>language-markdown</code> via either
+    <ul>
+      <li>your terminal: <code>apm install language-markdown</code></li>
+      <li>the Atom GUI: <code>Atom</code> &gt; <code>Settings</code> &gt; <code>Install</code> &gt; Search for <code>language-markdown</code></li>
+    </ul>
+  </li>
+  <li>Select <code>language-markdown</code> as your Markdown grammar. Open a Markdown file and
+    <ul>
+      <li>press <kbd>ctrl+shift+L</kbd> and choose “Markdown”</li>
+      <li>choose “Markdown” from the grammar selection interface in the bottom right-hand corner of the window</li>
+    </ul>
+  </li>
+</ol>
+
+<p>To avoid conflicts this package tries to disable the core package <code>language-gfm</code>. If you run into any issue, make sure you’ve selected the correct grammar.</p>
+
+<h2 id="supported-grammars">Supported grammars</h2>
+
+<ul>
+  <li>CommonMark Markdown</li>
+  <li>Github Flavored Markdown (including AtomDoc)</li>
+  <li>Markdown Extra</li>
+  <li>CriticMark annotation</li>
+  <li>Front Matter (yaml, toml and json)</li>
+  <li>R Markdown</li>
+</ul>
+
+<h3 id="additional-features">Additional features</h3>
+
+<ul>
+  <li><strong>Smarter lists</strong>
+    <ul>
+      <li>Automatically create new list-items when pressing <kbd>enter</kbd></li>
+      <li>Indent or outdent list-items by pressing <kbd>tab</kbd> or <kbd>shift+tab</kbd></li>
+      <li>Toggle tasks with <kbd>cmd+shift+x</kbd> or <kbd>ctrl+shift+x</kbd></li>
+      <li>Remove empty trailing list-items when pressing <kbd>enter</kbd></li>
+    </ul>
+  </li>
+  <li>Add shortcuts (via <kbd>_</kbd>, <kbd>*</kbd> and <kbd>~</kbd>) for toggling inline-emphasis and strike-through on selected text</li>
+  <li>Add shortcuts for converting selected text to a link (via <kbd>@</kbd>) or an image (via <kbd>!</kbd>)</li>
+  <li>Supports embedded <code>HTML</code>- and <code>Liquid</code>-tags</li>
+  <li>Embedded math functions (via <code>language-latex</code> and <code>language-mathematica</code>)</li>
+</ul>
+
+<h3 id="syntax-theme-support">Syntax-theme support</h3>
+
+<p>By default, most syntax-themes only provide basic styling for <code>.markup</code> classes. This package provides additional, more specific classes which are supported by the following syntax-themes:</p>
+
+<ul>
+  <li><a href="https://atom.io/themes/minimal-syntax">minimal-syntax</a> (light, high-contrast)</li>
+  <li><a href="https://atom.io/themes/minimal-syntax-dark">minimal-syntax-dark</a> (dark, high-contrast)</li>
+  <li><a href="https://atom.io/themes/pen-paper-coffee-syntax">pen-paper-coffee</a> (light, low-contrast)</li>
+  <li><a href="https://atom.io/themes/pubster-syntax">pubster-syntax</a> (dark, high-contrast)</li>
+  <li><a href="https://atom.io/themes/one-o-eight-syntax">one-o-eight-syntax</a> (various, medium-contrast)</li>
+</ul>
+
+<p>If you are interested in adding support for all <code>.markup</code> classes to your syntax-theme, take a look at <a href="https://github.com/burodepeper/language-markdown/blob/master/CONTRIBUTING.md#syntax-theme-support">the relevant section</a> in <a href="https://github.com/burodepeper/language-markdown/blob/master/CONTRIBUTING.md">the contribution guide</a>.</p>
+
+<h2 id="faq">F.A.Q.</h2>
+
+<p>If you run into any issues, consult the <a href="https://github.com/burodepeper/language-markdown/blob/master/FAQ.md">F.A.Q.</a> first. Amongst other things, this document contains information about common issues involving spell-check, autocompletion and syntax-highlighting.</p>
+
+<h2 id="contributing">Contributing</h2>
+
+<p>If you want to contribute to this package, have a look at <a href="https://github.com/burodepeper/language-markdown/blob/master/CONTRIBUTING.md">the contribution guide</a>.</p>
+<section class="package-keywords">
+  <strong>Keywords:</strong> markdown, commonmark, gfm, github flavored, markdown extra, criticmark, front-matter, atomdoc, r markdown <a href="https://github.com/burodepeper/language-markdown/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

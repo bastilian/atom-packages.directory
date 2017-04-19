@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Gem Wiseguy
+  <a href="https://github.com/buttercloud/atom-gem-wiseguy">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install gem-wiseguy
+  </pre>
+</div>
+<h1 id="gem-wiseguy-package">gem-wiseguy package</h1>
+
+<p>Get quick info about your Gemfile gems without leaving your editor.</p>
+
+<h1 id="installing">Installing</h1>
+<p><code>apm install inline-messenger gem-wiseguy</code></p>
+
+<p>If you’re using rbenv, you need to make sure your PATH is set correctly for Atom.  You can do this inside of the <code>~/.atom/init.coffee</code> file.</p>
+
+<p>Add a line like this for rbenv:
+<code>coffee 
+process.env.PATH = "#{process.env.HOME}/.rbenv/shims:#{process.env.HOME}/.rbenv/bin:#{process.env.PATH}" 
+</code>
+There is probably a similar process to get RVM to work.</p>
+
+<h1 id="usage">Usage</h1>
+
+<ul>
+  <li>Open your Gemfile.</li>
+</ul>
+
+<p>To get info on all gems:</p>
+
+<ul>
+  <li>Toggle gem-wiseguy using the command:</li>
+</ul>
+
+<p><code>Gem Wiseguy: Toggle All</code>
+or keyboard shortcut
+<code>CTRL-ALT-g</code></p>
+
+<p>To get info on specific gems only (faster):</p>
+
+<ul>
+  <li>Place cursor on one or more gems then run the command:</li>
+</ul>
+
+<p><code>Gem Wiseguy: Toggle At Cursor</code>
+or keyboard shortcut
+<code>CTRL-ALT-i</code></p>
+
+<p>To turn off:</p>
+
+<ul>
+  <li>Simple run the command:
+<code>Gem Wiseguy: Toggle All</code></li>
+</ul>
+
+<p>Will take a second to load the gem info form rubygems.org</p>
+
+<h1 id="current-features">Current features:</h1>
+<ul>
+  <li>Scans your Gemfile and creates a tooltip for each gem with:
+    <ul>
+      <li>Quick Links to Documentation, Source Code and Issue Tracker</li>
+      <li>Current installed version (based on Gemfile.lock)</li>
+      <li>Latest version of the gem on rubygems.org</li>
+      <li>Description of the gem</li>
+      <li>Development and Runtime dependencies</li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="screenshot">Screenshot</h1>
+<p><img src="https://raw.githubusercontent.com/buttercloud/atom-gem-wiseguy/master/gem-wiseguy-screenshot-1.png" alt="Screenshot" /></p>
+
+<h1 id="author--contributors">Author &amp; Contributors</h1>
+
+<p>This package was developed by <a href="http://www.buttercloud.com">Buttercloud</a>.</p>
+
+<p>Maintained by: Ahmad Hammad <a href="https://github.com/afhammad">@afhammad</a></p>
+<section class="package-keywords">
+  <strong>Keywords:</strong> gem, gems, gemfile, bundle, bundler, packages, ruby, rails <a href="https://github.com/buttercloud/atom-gem-wiseguy/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

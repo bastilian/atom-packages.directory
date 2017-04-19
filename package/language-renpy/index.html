@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Renpy
+  <a href="https://github.com/williamd1k0/language-renpy">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install language-renpy
+  </pre>
+</div>
+<h1 id="renpy-language-support-in-atom">Ren’Py language support in Atom</h1>
+
+<p><a href="https://pledgie.com/campaigns/31864"><img alt="Click here to lend your support to: Ren&#x27;Py Package for Atom and make a donation at pledgie.com !" src="https://pledgie.com/campaigns/31864.png?skin_name=chrome" border="0" /></a>
+<a href="https://travis-ci.org/williamd1k0/language-renpy"><img src="https://travis-ci.org/williamd1k0/language-renpy.svg" alt="Build Status" /></a>
+<a href="https://gitter.im/williamd1k0/language-renpy?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge&amp;utm_content=badge"><img src="https://badges.gitter.im/Join%20Chat.svg" alt="Join the chat at https://gitter.im/williamd1k0/language-renpy" /></a>
+<a href="https://github.com/williamd1k0/language-renpy/blob/master/README_PT-BR.md">Português</a></p>
+
+<p>Adds syntax highlighting and snippets to Ren’Py files in Atom.</p>
+
+<p>Originally converted from the <a href="https://github.com/atom/language-python">Python package for Atom</a>.</p>
+
+<p>Syntax highlighting test: <a href="https://github-lightshow.herokuapp.com/?utf8=%E2%9C%93&amp;scope=from-url&amp;grammar_url=https%3A%2F%2Fgithub.com%2Fwilliamd1k0%2Flanguage-renpy%2Fblob%2Fmaster%2Fgrammars%2Frenpy.cson&amp;grammar_text=&amp;code_source=from-url&amp;code_url=https%3A%2F%2Fgithub.com%2Fwilliamd1k0%2Flanguage-renpy%2Fblob%2Fmaster%2Fexample.rpy&amp;code="><code>GitHub Lightshow</code></a></p>
+
+<p>Contributions are greatly appreciated. Please fork this repository and open a
+pull request to add snippets, make grammar tweaks, etc.</p>
+
+<ul>
+  <li>The highlight may vary depending on the syntax theme used.</li>
+  <li>Default suggested syntax theme: <a href="https://atom.io/themes/atom-dark-syntax"><code>Atom Dark</code></a>.</li>
+  <li>Alternative suggested syntax theme:</li>
+  <li><a href="https://atom.io/themes/monokai"><code>Monokai</code></a>.</li>
+  <li><a href="https://atom.io/themes/octocat-syntax"><code>octocat-syntax</code></a></li>
+  <li>To have better functionality is advisable to ~~install~~ (the following plugins are now included in the Atom &gt;1.0) the plugins <code>autocomplete-plus</code> and <code>autocomplete-snippets</code>.</li>
+  <li>Other recommended plugin:</li>
+  <li><a href="https://atom.io/packages/file-icons"><code>file-icons</code></a>  - Just for file icons style</li>
+  <li><a href="https://atom.io/packages/pigments"><code>pigments</code></a> - Display colors in project (Hex, RGB etc)</li>
+  <li><a href="https://atom.io/packages/color-picker"><code>color-picker</code></a> - Color picker (Hex, RGB etc)</li>
+  <li><a href="https://atom.io/packages/minimap"><code>minimap</code></a> - Code minimap</li>
+</ul>
+
+<blockquote>
+  <p>Ren’Py is a Visual Novel development tool, available from <a href="http://www.renpy.org/">www.renpy.org</a></p>
+</blockquote>
+
+<blockquote>
+  <p>Thanks to <a href="https://github.com/koroshiya">Koroshiya</a> (Sublime-Renpy) and <a href="https://github.com/renpytom">PyTom</a> (Ren’Py), of course!</p>
+</blockquote>
+
+<blockquote>
+  <p><a href="https://github.com/williamd1k0/language-renpy/issues/8">Known issues</a></p>
+</blockquote>
+
+<h2 id="getting-started">Getting Started</h2>
+
+<h3 id="installation">Installation</h3>
+
+<p>With <a href="https://atom.io/">Atom</a> already installed, open the Settings tab: <code>File</code>&gt;<code>Settings</code> (or with <kbd>Ctrl</kbd>+<kbd>,</kbd>)</p>
+
+<p>Click in <kbd>+ Install</kbd> and search for <code>renpy</code> then click in <kbd>Install</kbd> button of the package <code>language-renpy</code>.</p>
+
+<p>It’s also possible installing using the cli command <code>apm</code> (atom package manager):
+<code>sh
+apm install language-renpy
+</code></p>
+
+<h3 id="usage">Usage</h3>
+
+<p>Open a <code>.rpy</code> file or create a new one and test the syntax highlighting of the Ren’Py. Also use the <a href="https://github.com/williamd1k0/language-renpy/blob/master/example.rpy">example file</a> available on the package repository.</p>
+
+<h2 id="snippets">Snippets:</h2>
+
+<p>Snippets are pieces of code like in the following example.</p>
+
+<p><img src="http://i.imgur.com/J6Y17rA.gif" alt="Snippets" /></p>
+
+<p>The usage is done with keywords followed by a <kbd>Tab</kbd> to insert the snippet.</p>
+
+<p>For example, there’s a snippet with useful links, type <code>dochelp</code> and press <kbd>Tab</kbd> or <kbd>Enter</kbd>.</p>
+
+<p>You can check the snippets list with Atom, being at the tab of a <code>.rpy</code> file and pressing <kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>S</kbd> or going to the package settings (<code>Settings</code>&gt;<code>Packages</code>&gt;<code>language-renpy</code>&gt;<code>Snippets</code>).</p>
+
+<p>Snippets are added by need, so suggestions are welcomed. Use the <a href="https://github.com/williamd1k0/language-renpy/issues/6">repository issue</a> to leave your suggestion or send a message to <code>tumeowilliam@gmail.com</code>.</p>
+<section class="package-keywords">
+  <strong>Keywords:</strong> language, grammar, snippets, renpy, visual-novel, game-dev, engine <a href="https://github.com/williamd1k0/language-renpy/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

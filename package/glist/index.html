@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Glist
+  <a href="https://github.com/jcouyang/glist">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install glist
+  </pre>
+</div>
+<h1 id="glist-20">glist 2.0</h1>
+
+<p>Taking notes with Github Gist from atom, inspired by <a href="http://notational.net/">notational velocity</a></p>
+
+<p>在 atom 中像 <a href="http://notational.net/">notational velocity</a> 一样快速记笔记，贴代码片段，甚至写博客，迅速保存到 github gist 上</p>
+
+<p><img src="http://notational.net/images/notational-diagram.png" alt="" /></p>
+
+<h2 id="rationale">Rationale</h2>
+<ol>
+  <li>gist is version controlled, and support almost all markup and programming language.</li>
+  <li>atom is awesome (at lease for markdown).</li>
+  <li>Notational Velocity is simple, fast and awesome. I use emacs deft every day, but it doesn’t have any version control.</li>
+</ol>
+
+<p><strong>glist</strong> combine all these cool things</p>
+
+<h2 id="section">为什么</h2>
+<ol>
+  <li>gist 带版本管理，每个 gist 都是一个 git repo, 而且支持各种标记和编程语言</li>
+  <li>atom 非常好用（虽然我写代码时用 emacs，但是 markdown 支持并不如 org-mode）而且开源，插件容易写，于是花了两天</li>
+  <li>Notational Velocity 的方式记笔记非常高效，这一点在 emacs 中对应的是 deft mode，缺点是 deft mode 只能同步 dropbox，并不能结合有版本管理的服务 如 gist</li>
+</ol>
+
+<h2 id="install">Install</h2>
+<p><code>
+apm install glist
+</code></p>
+
+<h2 id="configure">Configure</h2>
+<p><img src="https://www.evernote.com/l/ABfoXCABoadBmpTgE92e5DtGnt61pgXFfs4B/image.png" alt="" />
+### Github Token
+1. get a github auth token via either <a href="https://developer.github.com/v3/oauth_authorizations/#create-a-new-authorization">curl</a> or <a href="https://github.com/blog/1509-personal-api-tokens">gui</a>
+2. copy the token and paste to glist’s setting
+&gt; ⚠ your token will be saved <strong>safely</strong> under <code>~/.atom/glist/.config.cson</code>, then token in config panel willbe mask as <code>********</code>, then it will be safe to use dotfiles to sync you atom config.</p>
+
+<h3 id="gist-directory">Gist Directory</h3>
+<p>you can customize where to store your gist files, by default they are under <code>HOME/.atom/package/glist/gists</code></p>
+
+<p>:heavy_exclamation_mark: the path has to be a absolute, no relative, <code>~</code> doesn’t work either</p>
+
+<h3 id="token-path">Token Path</h3>
+<p>this is the place where storing you github token, config it to a safe place. by default it’s <code>~/.atom/glist/.config.cson</code></p>
+
+<h3 id="default-suffix-for-new-gist">default suffix for new gist</h3>
+<p>by default every new gist created is markdown.</p>
+
+<h2 id="how-to-use">How to Use</h2>
+
+<h3 id="findopen-gist">find/open gist</h3>
+<p><img src="https://github.com/jcouyang/glist/raw/master/imgs/Styleguide_-__Users_jcouyang_Develop_glist_-_Atom.png" alt="" /></p>
+
+<p><img src="https://github.com/jcouyang/glist/raw/master/imgs/react-tips_md_-__Users_jcouyang_Develop_glist_-_Atom_2.png" alt="" />
+### edit gist
+<img src="https://github.com/jcouyang/glist/raw/master/imgs/react-tips_md_-__Users_jcouyang_Develop_glist_-_Atom_1.png" alt="" /></p>
+
+<p><img src="https://github.com/jcouyang/glist/raw/master/imgs/react-tips_md_-__Users_jcouyang_Develop_glist_-_Atom.png" alt="" />
+### create gist
+<img src="https://github.com/jcouyang/glist/raw/master/imgs/README_md_-__Users_jcouyang_Develop_glist_-_Atom.png" alt="" /></p>
+
+<p><img src="https://github.com/jcouyang/glist/raw/master/imgs/some-not_exist_gist_md_-__Users_jcouyang__atom_packages_glist_gists_-_Atom.png" alt="" /></p>
+
+<blockquote>
+  <p>now create a gist with you own suffix just by adding an <code>!</code> at the end. for example <code>fancy ruby file.rb</code> will now actually create a ruby file instead of default markdown.</p>
+</blockquote>
+
+<h3 id="copy-gist-url">copy gist url</h3>
+<p><code>ctrl-c cmd-c</code></p>
+
+<h3 id="open-gist-on-web">open gist on web</h3>
+<p>just press <code>ctrl-c ctrl-o</code> while a gist file opened. and the url will also copied into you clipboard</p>
+
+<h3 id="delete-gist-file">delete gist file</h3>
+<p>in the gist file you wanna delete, press <code>ctrl-c ctrl-d</code></p>
+
+<h3 id="delete-gist-folder">delete gist folder</h3>
+<p>in any gist file, press <code>ctrl-c cmd-d</code> on mac, on windows <code>cmd</code> is <code>windows</code> key? im not sure</p>
+
+<h3 id="todo">TODO:</h3>
+<ul>
+  <li>[X] delete gist file</li>
+  <li>[X] delete gist</li>
+  <li>[X] open gist on web</li>
+  <li>[X] copy gist URL</li>
+  <li>[X] writing tests</li>
+</ul>
+
+<p>now I can use Atom and gist in place of Notational Velocity/Evernote</p>
+
+<p><a href="https://gum.co/3q">Thank you! Let me buy you a :beer: please~</a></p>
+<section class="package-keywords">
+  <strong>Keywords:</strong> gist, github, snippet, note, notational velocity, deft, evernote <a href="https://github.com/jcouyang/glist/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

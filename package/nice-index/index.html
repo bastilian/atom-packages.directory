@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Nice Index
+  <a href="https://github.com/joshwcomeau/nice-index">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+    <span class="author">by Joshua Comeau</span>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install nice-index
+  </pre>
+</div>
+<h1 id="atom-nice-index">Atom Nice Index</h1>
+
+<p>An Atom package that automatically renames index.* files to their parent directory name.</p>
+
+<p><code>
+about/index.html  -&gt; /about
+Home/index.jsx    -&gt; /Home
+server/index.js   -&gt; /server
+</code></p>
+
+<h3 id="why">Why?</h3>
+
+<p>It’s common practice, in web development, to give your directories semantically-relevant names, but to give the primary file the name of <code>index.js</code>, <code>index.html</code>, <code>index.css</code>, etc.</p>
+
+<p>Web servers like apache will, by default, automatically try and serve index.html or index.php files when you request a directory. So, <code>http://www.google.com/</code> will attempt to serve <code>http://www.google.com/index.html</code>. This allows us to hide the file extension from the user, and provide nicer URLs.</p>
+
+<p>In Node.js and ES2015 Javascript imports, this same convention was adopted. You can <code>require</code> or <code>import</code> a path like <code>/components/Home</code>, and it will attempt to find an <code>index.*</code> file within it.</p>
+
+<p>The end result is that a lot of projects are packed with files like <code>index.js</code>, <code>index.html</code>, <code>index.css</code>, etc. Here’s an example structure from a React app:</p>
+
+<p><code>
+.
+├── components
+|   ├── Home
+|   |   ├── index.jsx
+|   |   └── index.css
+|   ├── Header
+|   |   ├── index.jsx
+|   |   └── index.css
+|   └── Footer
+|   |   ├── index.jsx
+|   |   └── index.css
+├── server
+|   └── index.js
+└── index.html
+</code></p>
+
+<p>In Atom, this means your files will look something like this:</p>
+
+<p><img src="/img/before.png" alt="Sample pane files" title="Before" /></p>
+
+<p>This is not good! All the filenames are the same. Atom tries to be helpful by showing the directory name after the filename, but when you have more than a couple of files open, that stuff all gets hidden.</p>
+
+<h3 id="there-must-be-a-better-way">There must be a better way…</h3>
+
+<p>Wouldn’t it be nicer if, for all <code>index.*</code> files, we just showed the parent directory? Something like:</p>
+
+<p><img src="/img/after.png" alt="Better pane files" title="After" /></p>
+
+<p>This way, we get the best of both worlds. We get semantically meaningful tab names in Atom while developing, and we can still reap all the benefits of using the index.* convention.</p>
+
+<h2 id="acknowledgements">Acknowledgements</h2>
+
+<p>JP Richardson’s <a href="https://github.com/jprichardson/atom-rename-tabs">atom-rename-tabs</a> gave me the inspiration (and a starter template) for this codebase.</p>
+
+<h2 id="install">Install</h2>
+
+<p><code>
+apm install nice-index
+</code></p>
+
+<p>or go to <code>Settings</code> → <code>Install</code> → <code>Search</code> and search for <code>nice-index</code>.</p>
+
+<h2 id="icons">Icons</h2>
+<p>Because we’re hiding the file extensions (index.jsx vs index.css, for example), you’ll probably want to ensure you use an Atom UI theme that has custom icons. I recommend Seti UI.</p>
+
+<h2 id="known-issues">Known Issues</h2>
+
+<p>Because we’re hijacking the tab-naming, there are a few small bugs I have not yet had the chance to fix. For example, when renaming a file, you’ll need to close and reopen the file for it to display its new title.</p>
+
+<p>Will happily accept PRs for this issue :)</p>
+
+<h2 id="license">License</h2>
+<p>MIT</p>
+<section class="package-keywords">
+  <strong>Keywords:</strong> atom, tabs, rename, title, filename, pane, index, javascript <a href="https://github.com/joshwcomeau/nice-index/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Pull Requests
+  <a href="https://github.com/philschatz/atom-pull-requests">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install pull-requests
+  </pre>
+</div>
+<h1 id="pull-requests-package-for-atom-gh-boardhttpsimgshieldsiogithubissuesphilschatzatom-pull-requestssvglabelissues2028gh-board29httpphilschatzcomgh-boardrphilschatzatom-pull-requests">pull-requests package for Atom <a href="http://philschatz.com/gh-board/#/r/philschatz:atom-pull-requests"><img src="https://img.shields.io/github/issues/philschatz/atom-pull-requests.svg?label=Issues%20%28gh-board%29" alt="gh-board" /></a></h1>
+
+<p>View/Edit comments on a Pull Request directly inside the Atom Editor.</p>
+
+<p><img src="https://cloud.githubusercontent.com/assets/253202/11326511/82360626-9139-11e5-8466-ed2d356cb0d8.png" alt="counts-and-icons-in-tab" /></p>
+
+<p>Annoyed when someone litters your elegant code with <em>“comments”</em>, and <em>“suggestions”</em>? and then you have to sift through all the files in your text editor to find the right place? Fear no more!</p>
+
+<p><img src="https://cloud.githubusercontent.com/assets/253202/11237087/a3568100-8dab-11e5-8d9d-3bc9cc3dc5af.gif" alt="in action" /></p>
+
+<h1 id="setup">Setup</h1>
+
+<p>GitHub restricts talking to their API. You can view public repositories without having to authenticate against GitHub but will be limited to <em>60 requests per hour</em>.</p>
+
+<p>If you want to look at <strong>private repositories</strong> or are requesting more than 60 times per hour, you can create a token at https://github.com/settings/tokens and set that in the plugin config.</p>
+
+<ul>
+  <li>Just leave all the scopes checkboxes <em>unchecked</em> to give this plugin the minimal permissions necessary.</li>
+</ul>
+
+<h1 id="todo">TODO</h1>
+
+<ul>
+  <li>[x] work with private or enterprise repositories (see package settings)</li>
+  <li>[x] show comment counts in tree view and in file tab</li>
+  <li>[x] render all MarkDown in the comments
+    <ul>
+      <li>[ ] render emojis</li>
+    </ul>
+  </li>
+  <li>[ ] support forked Pull Requests</li>
+  <li>[ ] do local diff of all commits since the one pushed to GitHub
+    <ul>
+      <li>[ ] let user know that they have unpushed commits</li>
+    </ul>
+  </li>
+  <li>[ ] support comments made to the entire Pull Request (not just lines in the code)</li>
+</ul>
+
+<h1 id="atom-api-suggestions">Atom API Suggestions</h1>
+
+<ul>
+  <li>expose a <code>tree-view</code> file decorator that can add classes asynchronously
+    <ul>
+      <li>see <a href="https://github.com/atom/tree-view/pull/658">atom/tree-view#658</a> for progress on this feature</li>
+    </ul>
+  </li>
+  <li>expose a <code>tabs</code> filename decorator so open tabs can have the # of comments in the file</li>
+</ul>
+
+<h1 id="atom-communitylinter-suggestions"><code>atom-community/linter</code> suggestions</h1>
+
+<ul>
+  <li>provide icons in gutter markers</li>
+</ul>
+
+<h1 id="config">Config</h1>
+
+<p>For private repositories you need to create a token @ github:
+ 1. Go to https://github.com/settings/tokens and create a new token
+ 2. Open your config.cson
+ 3. Add this snippet (replacing ‘<em>my-git-token</em>’ with the token you created
+<code>cson  
+  "pull-requests":
+    githubAuthorizationToken: "my-git-token"
+</code></p>
+<section class="package-keywords">
+  <strong>Keywords:</strong> github, pull request, comments <a href="https://github.com/philschatz/atom-pull-requests/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

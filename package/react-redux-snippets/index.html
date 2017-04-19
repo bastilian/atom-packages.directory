@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  React Redux Snippets
+  <a href="https://github.com/chmaltsp/react-redux-snippets">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+    <span class="author">by Philip Chmalts</span>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install react-redux-snippets
+  </pre>
+</div>
+<h1 id="react-redux-snippets">react-redux-snippets</h1>
+<p>React and Redux Snippets for the future with ES6 and ES7 capabiilities</p>
+
+<h2 id="redux-snippets">Redux Snippets</h2>
+
+<h4 id="action-type---act-t">Action Type - <code>act-t</code></h4>
+
+<p><code>javascript
+export const ${1:ACTION_TYPE} = 'app/${2: reducer}/${1:ACTION_TYPE}'
+</code></p>
+
+<h4 id="action-creators-file---act-f">Action Creators File - <code>act-f</code></h4>
+<p>```javascript
+/**
+ * Action Creators for ${1: Reducer} reducer
+**/</p>
+
+<p>import ${2:ACTION_TYPE} from ‘./constants’;</p>
+
+<p>export function ${3: actionCreatorName} (${4:payload}) {
+    return {
+        type: ${2:ACTION_TYPE},
+        ${4:payload}
+    }
+}
+```</p>
+
+<h4 id="action-creator---act-c">Action Creator - <code>act-c</code></h4>
+<p><code>javascript
+export function ${1: actionCreatorName} (${3:payload}) {
+    return {
+        type: ${2:ACTION_TYPE},
+        ${3:payload}
+    }
+}
+</code></p>
+
+<h4 id="redux-reducer-file---red-f">Redux Reducer File - <code>red-f</code></h4>
+<p>```javascript
+  /**
+   *  ${1:reducerName} reducer
+   */
+  import { fromJS } from ‘immutable’;</p>
+
+<p>// Import Action Types
+  import { ${2:ACTION_TYPE} } from ‘./constants’;</p>
+
+<p>const initialState = fromJS({
+    ${3:key}: ${4:value}
+  });</p>
+
+<p>function ${1:reducerName}(state = initialState, action) {
+    switch (action.type) {
+      case ${2:ACTION_TYPE}:
+        return state;
+      default:
+        return state;
+    }
+  }</p>
+
+<p>export default ${1:ComponentName};</p>
+
+<p>```
+## React Component Snippets
+#### React Component  - <code>rcc</code></p>
+
+<p>```javascript
+  import React, { Component, PropTypes } from ‘react’;</p>
+
+<p>/**
+   * ${1:ComponentName}
+   */
+  export class ${1:ComponentName} extends Component { // eslint-disable-line react/prefer-stateless-function
+    render() {
+      return (
+        &lt;div&gt;MY COMPONENT&lt;/div&gt;
+      );
+    }
+  }</p>
+
+<p>${1:ComponentName}.propTypes = {
+    ${2:prop}: PropTypes.${3:type}.isRequired
+  }</p>
+
+<p>export default ${1:ComponentName};
+  ```</p>
+
+<h2 id="styled-components">Styled Components</h2>
+<p>#### Styled Component - <code>sc</code></p>
+
+<p><code>javascript
+const ${1:ComponentName} = styled.${2:div}`
+  $3
+`;
+</code></p>
+
+<h4 id="styled-component-export---sc-e">Styled Component Export - <code>sc-e</code></h4>
+<p><code>javascript
+export const ${1:ComponentName} = styled.${2:div}`
+  $3
+`;
+</code></p>
+
+<h4 id="styled-components-import---sc-i">Styled Components Import - <code>sc-i</code></h4>
+<p><code>javascript
+import styled from 'styled-component';
+</code></p>
+
+<h2 id="redux-saga-snippets">Redux Saga Snippets</h2>
+
+<h4 id="saga-file---saga-f">Saga File - <code>saga-f</code></h4>
+<p>```javascript
+/**
+ * ${1:defaultSagaName} Saga
+ */</p>
+
+<p>// Import Global Dependencies
+import { takeLatest, take, put, cancel } from ‘redux-saga/effects’;
+import { LOCATION_CHANGE } from ‘react-router-redux’;</p>
+
+<p>// Import Local Dependencies
+import { ${3:ACTION_TYPE} } from ‘./constants’;</p>
+
+<p>export function* ${2:calledSaga}() {</p>
+
+<p>}</p>
+
+<p>export function* ${1:defaultSagaName}() {
+  const watcher = yield takeLatest(${3:ACTION_TYPE}, ${2:calledSaga});
+  yield take(LOCATION_CHANGE);
+  yield cancel(watcher);
+}</p>
+
+<p>export default [${1:defaultSagaName}];
+```</p>
+
+<h4 id="saga-form-submit-file---saga-form">Saga Form Submit File - <code>saga-form</code></h4>
+<p>```javascript
+/**
+ * ${1:defaultSagaName} Saga
+ */</p>
+
+<p>// Import Global Dependencies
+import { takeLatest, take, put, call, cancel } from ‘redux-saga/effects’;
+import { LOCATION_CHANGE } from ‘react-router-redux’;
+import { startSubmit, stopSubmit, reset } from ‘redux-form/immutable’;
+import api from ‘${2:utils/api}’;</p>
+
+<p>// Import Local Dependencies
+import { ${3:ACTION_TYPE} } from ‘./constants’;</p>
+
+<p>export function* ${4:calledSaga}(action) {
+  const data = action.${5:data};
+  const formId = action.formId;
+  yield put(startSubmit(formId));
+  try {
+    const response = yield call(api, ‘${6:method}’, ‘${7:/endpoint}’, {
+      data
+    });
+    console.log(response);
+    yield put(stopSubmit(formId));
+    yield put(reset(formId));
+  } catch (error) {
+    console.error(error);
+    yield put(stopSubmit(formId, { _error: error}));
+  }
+}</p>
+
+<p>export function* ${1:defaultSagaName}() {
+  const watcher = yield takeLatest(${3:ACTION_TYPE}, ${4:calledSaga});
+  yield take(LOCATION_CHANGE);
+  yield cancel(watcher);
+}</p>
+
+<p>export default [${1:defaultSagaName}];
+```</p>
+
+<h4 id="saga-api-call---saga-a">Saga api call - <code>saga-a</code></h4>
+
+<p><code>javascript
+try {
+  const response = yield call(api, '${1:method}', '${2:/endpoint}', {
+    data
+  });
+  console.log(response);
+  $3
+} catch (error) {
+  console.error(error);
+}
+</code></p>
+<section class="package-keywords">
+  <strong>Keywords:</strong> react, redux, snippets, es6, es7, enzyme <a href="https://github.com/chmaltsp/react-redux-snippets/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

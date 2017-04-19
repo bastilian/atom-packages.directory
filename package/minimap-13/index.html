@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Minimap
+  <a href="https://github.com/atom-minimap/minimap">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+    <span class="author">by Fangdun Cai <cfddream@gmail.com></span>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install minimap
+  </pre>
+</div>
+<p><a href="https://travis-ci.org/atom-minimap/minimap"><img src="https://travis-ci.org/atom-minimap/minimap.svg?branch=master" alt="Build Status" /></a>
+<a href="https://atom.io/packages/minimap"><img src="https://img.shields.io/apm/v/minimap.svg" alt="APM Version" /></a>
+<a href="https://atom.io/packages/minimap"><img src="https://img.shields.io/apm/dm/minimap.svg" alt="APM Downloads" /></a></p>
+
+<h1 id="minimap-package">Minimap package</h1>
+
+<p>A preview of the full source code.</p>
+
+<p><img src="https://github.com/atom-minimap/minimap/blob/master/resources/screenshot.png?raw=true" alt="Minimap Screenshot" />
+<small>In the screenshot above the minimap-git-diff and minimap-highlight-selected plugins are activated.</small></p>
+
+<h3 id="installation">Installation</h3>
+
+<p><code>
+apm install minimap
+</code></p>
+
+<h3 id="features">Features</h3>
+
+<ul>
+  <li>Service-based Plugin API: Use the plugin generation command and start developing your plugin right away.</li>
+  <li>Decoration API: Use the same API to manage <code>TextEditor</code> and <code>Minimap</code> decorations.</li>
+  <li>Canvas-based Rendering: Simple, fast and flexible.</li>
+  <li>Stand-alone Mode: Wants to display a preview of a text editor in your UIs, use a stand-alone version of the Minimap.</li>
+</ul>
+
+<h3 id="available-plugins">Available Plugins</h3>
+
+<p>Below is the list of available plugins so far:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Package</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="https://atom.io/packages/minimap-autohider">Auto-Hider</a></td>
+      <td>Hides the Minimap while editing.</td>
+    </tr>
+    <tr>
+      <td><a href="https://atom.io/packages/minimap-bookmarks">Bookmarks</a></td>
+      <td>Displays Atom bookmarks.</td>
+    </tr>
+    <tr>
+      <td><a href="https://atom.io/packages/minimap-codeglance">Code Glance</a></td>
+      <td>Shows the code that’s under the mouse cursor when hovering the Minimap.</td>
+    </tr>
+    <tr>
+      <td><a href="https://atom.io/packages/minimap-cursorline">Cursor Line</a></td>
+      <td>Highlights the line with cursor.</td>
+    </tr>
+    <tr>
+      <td><a href="https://atom.io/packages/minimap-find-and-replace">Find And Replace</a></td>
+      <td>Displays the search matches.</td>
+    </tr>
+    <tr>
+      <td><a href="https://atom.io/packages/minimap-git-diff">Git Diff</a></td>
+      <td>Displays the file diff.</td>
+    </tr>
+    <tr>
+      <td><a href="https://atom.io/packages/google-repo-diff-minimap">Google-Repo-Diff-Minimap</a></td>
+      <td>A Minimap binding for the <a href="https://atom.io/packages/google-repo-diff">google-repo-diff</a> package and <a href="https://atom.io/packages/google-repo">google-repo</a> package.</td>
+    </tr>
+    <tr>
+      <td><a href="https://atom.io/packages/gpool-diff-minimap">GPool-Diff-Minimap</a></td>
+      <td>A minimap binding for the <a href="https://atom.io/packages/gpool-diff">gpool-diff</a> package.</td>
+    </tr>
+    <tr>
+      <td><a href="https://atom.io/packages/minimap-hide">Hide on inactive panes</a></td>
+      <td>Hide the Minimap when pane isn’t focus.</td>
+    </tr>
+    <tr>
+      <td><a href="https://atom.io/packages/minimap-highlight-selected">Highlight Selected</a></td>
+      <td>A Minimap binding for the <a href="http://atom.io/packages/highlight-selected">highlight-selected</a> package.</td>
+    </tr>
+    <tr>
+      <td><a href="https://atom.io/packages/minimap-linter">Linter</a></td>
+      <td>Displays <a href="https://atom.io/packages/linter">linter</a> markers.</td>
+    </tr>
+    <tr>
+      <td><a href="https://atom.io/packages/minimap-pigments">Pigments</a></td>
+      <td>Displays the <a href="https://atom.io/packages/pigments">Pigments</a> colors.</td>
+    </tr>
+    <tr>
+      <td><a href="https://atom.io/packages/minimap-quick-highlight">Quick-Highlight</a></td>
+      <td>Shows multiple selections done with the <a href="https://atom.io/packages/quick-highlight">quick-highlight</a> package.</td>
+    </tr>
+    <tr>
+      <td><a href="https://atom.io/packages/minimap-selection">Selection</a></td>
+      <td>Display the buffer’s selections.</td>
+    </tr>
+    <tr>
+      <td><a href="https://atom.io/packages/minimap-split-diff">Split-Diff</a></td>
+      <td>A Minimap binding for the <a href="https://atom.io/packages/split-diff">split-diff</a> package.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="settings">Settings</h3>
+
+<h4 id="auto-toggle">Auto Toggle</h4>
+
+<p>If checked the Minimap is toggled on at startup. <code>(default=true)</code></p>
+
+<h4 id="device-pixel-ratio-rounding">Device Pixel Ratio Rounding</h4>
+
+<p>If checked the <code>devicePixelRatio</code> will be rounded using <code>Math.floor</code>. <code>(default=true)</code></p>
+
+<h4 id="display-code-highlights">Display Code Highlights</h4>
+
+<p>If checked the code will be highlighted using the grammar tokens. <code>(default=true)</code></p>
+
+<table>
+  <thead>
+    <tr>
+      <th><code>true</code></th>
+      <th><code>false</code></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><img src="https://github.com/atom-minimap/minimap/blob/master/resources/with-code-highlights.png?raw=true" alt="" /></td>
+      <td><img src="https://github.com/atom-minimap/minimap/blob/master/resources/without-code-highlights.png?raw=true" alt="" /></td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="display-minimap-on-left">Display Minimap On Left</h4>
+
+<p>If checked the Minimap appears on the left side of editors, otherwise it appears on the right side. <code>(default=false)</code></p>
+
+<table>
+  <thead>
+    <tr>
+      <th><code>true</code></th>
+      <th><code>false</code></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><img src="https://github.com/atom-minimap/minimap/blob/master/resources/minimap-on-left.png?raw=true" alt="" /></td>
+      <td><img src="https://github.com/atom-minimap/minimap/blob/master/resources/minimap-on-right.png?raw=true" alt="" /></td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="char-height">Char Height</h4>
+
+<p>The height of a character in the Minimap in pixels. <code>(default=2)</code></p>
+
+<table>
+  <thead>
+    <tr>
+      <th><code>1px</code></th>
+      <th><code>2px</code></th>
+      <th><code>4px</code></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><img src="https://github.com/atom-minimap/minimap/blob/master/resources/1px-char-height.png?raw=true" alt="" /></td>
+      <td><img src="https://github.com/atom-minimap/minimap/blob/master/resources/2px-char-height.png?raw=true" alt="" /></td>
+      <td><img src="https://github.com/atom-minimap/minimap/blob/master/resources/4px-char-height.png?raw=true" alt="" /></td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="char-width">Char Width</h4>
+
+<p>The width of a character in the Minimap in pixels. <code>(default=1)</code></p>
+
+<table>
+  <thead>
+    <tr>
+      <th><code>1px</code></th>
+      <th><code>2px</code></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><img src="https://github.com/atom-minimap/minimap/blob/master/resources/1px-char-width.png?raw=true" alt="" /></td>
+      <td><img src="https://github.com/atom-minimap/minimap/blob/master/resources/2px-char-width.png?raw=true" alt="" /></td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="interline">Interline</h4>
+
+<p>The space between lines in the Minimap in pixels. <code>(default=1)</code></p>
+
+<table>
+  <thead>
+    <tr>
+      <th><code>1px</code></th>
+      <th><code>2px</code></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><img src="https://github.com/atom-minimap/minimap/blob/master/resources/1px-interline.png?raw=true" alt="" /></td>
+      <td><img src="https://github.com/atom-minimap/minimap/blob/master/resources/2px-interline.png?raw=true" alt="" /></td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="text-opacity">Text Opacity</h4>
+
+<p>The opacity used to render the line text in the Minimap. <code>(default=0.6)</code></p>
+
+<table>
+  <thead>
+    <tr>
+      <th><code>0.6</code></th>
+      <th><code>1</code></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><img src="https://github.com/atom-minimap/minimap/blob/master/resources/text-opacity-default.png?raw=true" alt="" /></td>
+      <td><img src="https://github.com/atom-minimap/minimap/blob/master/resources/text-opacity-1.png?raw=true" alt="" /></td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="ignore-whitespaces-in-tokens">Ignore Whitespaces In Tokens</h4>
+
+<p>When enabled, text editor tokens are rendered as plain blocks, with no regards to the whitespaces they contains. <code>(default=false)</code></p>
+
+<table>
+  <thead>
+    <tr>
+      <th><code>false</code></th>
+      <th><code>true</code></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><img src="https://github.com/atom-minimap/minimap/blob/master/resources/with-whitespaces.png?raw=true" alt="" /></td>
+      <td><img src="https://github.com/atom-minimap/minimap/blob/master/resources/without-whitespaces.png?raw=true" alt="" /></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="display-plugins-controls">Display Plugins Controls</h3>
+
+<p>If checked, the Minimap plugins can be activated/deactivated from the Minimap settings view and a quick settings dropdown will be available on the top right corner of the Minimap. <code>(default=true)</code></p>
+
+<p><strong>You need to restart Atom for this setting to be effective.</strong></p>
+
+<p><img src="https://github.com/atom-minimap/minimap/blob/master/resources/plugins-control.png?raw=true" alt="" /></p>
+
+<h4 id="minimap-scroll-indicator">Minimap Scroll Indicator</h4>
+
+<p>Toggles the display of a side line showing which part of the buffer is currently displayed by the Minimap. The side line appear only if the Minimap height is bigger than the editor view height. <code>(default=true)</code></p>
+
+<p><img src="https://github.com/atom-minimap/minimap/blob/master/resources/scroll-indicator.png?raw=true" alt="" /></p>
+
+<h4 id="plugins-">Plugins *</h4>
+
+<p>When plugins are installed, a setting is created for each to enable/disable them directly from the Minimap settings view.</p>
+
+<h4 id="plugins--decorations-z-index">Plugins * Decorations Z-Index</h4>
+
+<p>When several plugins create decorations for the same layer, the general rule is to render the decorations as follows:</p>
+
+<ul>
+  <li>On the background layer, the <code>line</code> decorations are rendered before the <code>highlight-under</code> decorations.</li>
+  <li>On the foreground layer, the <code>highlight-over</code> decorations are rendered before the <code>highlight-outine</code> decorations.</li>
+  <li>When two plugins adds the same type of decorations at the same place, the decorations are rendered in the order they have been created.</li>
+</ul>
+
+<p>But fortunately, it’s possible to reorder decorations on their specific layer using these settings. These settings works as a <code>z-index</code> in CSS, the higher the value, the higher the decorations will be in the render stack, for instance, a plugin’s decorations with an order value of <code>1</code> will appear above decorations from a plugin with an order value of <code>0</code>.</p>
+
+<h4 id="smooth-scrolling">Smooth Scrolling</h4>
+
+<p>Whether to offset the minimap canvas when scrolling to keep the scroll smooth. When <code>true</code> the minimap canvas will be offseted, resulting in a smoother scroll, but with the side-effect of a blurry minimap when the canvas is placed between pixels. When <code>false</code> the canvas will always stay at the same position, and will never look blurry, but the scroll will appear more jagged. <code>(default=true)</code></p>
+
+<table>
+  <thead>
+    <tr>
+      <th><code>true</code></th>
+      <th><code>false</code></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><img src="https://github.com/atom-minimap/minimap/blob/master/resources/smooth-scroll.png?raw=true" alt="" /></td>
+      <td><img src="https://github.com/atom-minimap/minimap/blob/master/resources/no-smooth-scroll.png?raw=true" alt="" /></td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="scroll-animation">Scroll Animation</h4>
+
+<p>Enable animations when scrolling the editor by clicking on the Minimap. <code>(default=false)</code></p>
+
+<h4 id="scroll-animation-duration">Scroll Animation Duration</h4>
+
+<p>Duration of the scroll animation when clicking on the Minimap. <code>(default=300)</code></p>
+
+<h4 id="independent-minimap-scroll-on-mouse-wheel-events">Independent Minimap Scroll On Mouse Wheel Events</h4>
+
+<p>When enabled, using the mouse wheel over the Minimap will make it scroll independently of the text editor. The Minimap will still sync with the editor whenever the editor is scrolled, but it will no longer relay the mouse wheel events to the editor. <code>(default=false)</code></p>
+
+<p><img src="https://github.com/atom-minimap/minimap/blob/master/resources/independent-scroll.gif?raw=true" alt="" /></p>
+
+<h4 id="scroll-sensitivity">Scroll Sensitivity</h4>
+
+<p>The scrolling speed when the <code>Independent Minimap Scroll On Mouse Wheel Events</code> setting is enabled. <code>(default=0.5)</code></p>
+
+<h4 id="use-hardware-acceleration">Use Hardware Acceleration</h4>
+
+<p>If checked the Minimap scroll is done using a <code>translate3d</code> transform, otherwise the <code>translate</code> transform is used. <code>(default=true)</code></p>
+
+<h4 id="adjust-minimap-width-to-soft-wrap">Adjust Minimap Width To Soft Wrap</h4>
+
+<p>If this option is enabled and Soft Wrap is checked then the Minimap max width is set to the Preferred Line Length value. <code>(default=true)</code></p>
+
+<h4 id="adjust-minimap-width-only-when-smaller">Adjust Minimap Width Only When Smaller</h4>
+
+<p>If this option and <code>adjustMinimapWidthToSoftWrap</code> are enabled the minimap width will never go past the limit sets by CSS. On the other hand, when disabled the minimap will expand to honor the preferred line width. <code>(default=true)</code></p>
+
+<h4 id="absolute-mode">Absolute Mode</h4>
+
+<p>When enabled the Minimap uses an absolute positioning, letting the editor’s content flow below the Minimap. <code>(default=false)</code></p>
+
+<p>Note that this setting will do nothing if <code>Display Minimap On Left</code> is also enabled.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th><code>false</code></th>
+      <th><code>true</code></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><img src="https://github.com/atom-minimap/minimap/blob/master/resources/normal-mode.png?raw=true" alt="" /></td>
+      <td><img src="https://github.com/atom-minimap/minimap/blob/master/resources/absolute-mode.png?raw=true" alt="" /></td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="adjust-absolute-mode-height">Adjust Absolute Mode Height</h4>
+
+<p>When enabled and <code>Absolute Mode</code> is also enabled, the minimap height will be adjusted to only take the space required by the text editor content, leaving the space below triggering mouse events on the text editor. <code>(default=false)</code></p>
+
+<p><strong>Be aware this can have some impact on performances as the minimap canvases will be resized every time a change in the editor make its height change.</strong></p>
+
+<h3 id="key-bindings">Key Bindings</h3>
+
+<p>The Minimap package doesn’t provide any default keybindings. But you can define your own as demonstrated below:</p>
+
+<p><code>coffee
+'atom-workspace':
+  'cmd-m': 'minimap:toggle'
+  'ctrl-alt-cmd-j': 'minimap:generate-javascript-plugin'
+  'ctrl-alt-cmd-b': 'minimap:generate-babel-plugin'
+  'ctrl-alt-cmd-c': 'minimap:generate-coffee-plugin'
+</code></p>
+
+<h3 id="tweaking-the-minimap">Tweaking The Minimap</h3>
+
+<h4 id="hiding-scrollbars">Hiding scrollbars</h4>
+
+<p>If you want to hide the default editor scrollbar, edit your <code>style.less</code> (Open Your Stylesheet) and use the following snippet:</p>
+
+<p><code>css
+atom-text-editor[with-minimap] .vertical-scrollbar {
+  opacity: 0;
+  width: 0;
+}
+</code></p>
+
+<h4 id="changing-the-minimaps-background">Changing the Minimap’s background</h4>
+
+<p><img src="https://github.com/atom-minimap/minimap/blob/master/resources/minimap-custom-background.png?raw=true" alt="minimap-custom-background" /></p>
+
+<p><code>css
+atom-text-editor atom-text-editor-minimap {
+  background: green;
+}
+</code></p>
+
+<h4 id="changing-the-color-of-the-minimaps-visible-area">Changing the color of the Minimap’s <code>visible-area</code></h4>
+
+<p><img src="https://github.com/atom-minimap/minimap/blob/master/resources/minimap-custom-visible-area.png?raw=true" alt="minimap-custom-background" /></p>
+
+<p><code>css
+atom-text-editor atom-text-editor-minimap .minimap-visible-area::after {
+  background-color: rgba(0, 255, 0, 0.5);
+}
+</code></p>
+
+<h4 id="changing-the-color-of-the-minimaps-scroll-indicator">Changing the color of the Minimap’s <code>scroll-indicator</code></h4>
+
+<p><img src="https://github.com/atom-minimap/minimap/blob/master/resources/minimap-custom-scroll-indicator.png?raw=true" alt="minimap-custom-background" /></p>
+
+<p><code>css
+atom-text-editor atom-text-editor-minimap .minimap-scroll-indicator {
+  background-color: green;
+}
+</code></p>
+
+<h4 id="adding-an-opaque-background-to-the-minimap-in-absolute-mode-with-adjusted-height">Adding an opaque background to the minimap in absolute mode with adjusted height</h4>
+
+<p>With both <code>absoluteMode</code> and <code>adjustAbsoluteModeHeight</code> settings are enabled, the canvases in the minimap won’t necessarily takes the whole editor’s height.</p>
+
+<p><code>css
+atom-text-editor, html {
+  atom-text-editor-minimap canvas:first-child {
+    background: @syntax-background-color;
+  }
+}
+</code></p>
+
+<h4 id="disabling-mouse-interactions-when-in-absolute-mode">Disabling mouse interactions when in absolute mode</h4>
+
+<p>If you want to prevent to catch the mouse pointer when the <code>absoluteMode</code> setting is enabled you can use the following snippet to do so:</p>
+
+<p>```css
+atom-text-editor atom-text-editor-minimap {
+  pointer-events: none;
+}</p>
+
+<p>atom-text-editor atom-text-editor-minimap .minimap-visible-area {
+  pointer-events: auto;
+}
+```</p>
+
+<p>The visible area will still allow interaction but the Minimap track won’t.</p>
+
+<h4 id="making-minimap-visible-only-in-the-focused-pane">Making Minimap visible only in the focused pane</h4>
+
+<p>You can put the following code in your user stylesheet to achieve this effect:</p>
+
+<p>```css
+atom-text-editor {
+  atom-text-editor-minimap {
+    display: none;
+  }</p>
+
+<p>&amp;.is-focused {
+    atom-text-editor-minimap {
+      display: block;
+    }
+  }
+}
+```</p>
+
+<h4 id="make-minimap-visible-area-display-like-sublime-text">Make Minimap Visible area display like Sublime Text</h4>
+
+<p>Put the following code in your user stylesheet to make your minimap look like Sublime text.
+It’s more easy to view when you have code hightlight in minimap.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th><code>Default State (Hidden)</code></th>
+      <th><code>Hover</code></th>
+      <th style="text-align: center"><code>Only display Visible area when hover or click/drag event.</code></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><img src="https://github.com/machinavn/minimap/blob/master/resources/on-default-minimap.png?raw=true" alt="" /></td>
+      <td><img src="https://github.com/machinavn/minimap/blob/master/resources/on-hover-minimap.png?raw=true" alt="" /></td>
+      <td style="text-align: center"><img src="https://github.com/machinavn/minimap/blob/master/resources/on-scroll-minimap.png?raw=true" alt="" /></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>```css
+atom-text-editor,
+html {
+    atom-text-editor-minimap {
+        .minimap-visible-area {
+            background-color: #7c7c7c;
+            // Color of Visible area.
+            opacity: 0;
+            // Default 0 when you not working with minimap
+            cursor: default;
+            // Change cursor style to pointer.
+            transition: 0.5s opacity;
+            // Better UI.
+            &amp;:hover {
+                opacity: 0.2;
+            } // Only display Minimap visible area when working.
+            &amp;:active {
+                cursor: default;
+            } // Change cursor when dragging.
+        }
+        &amp;:hover {
+            .minimap-visible-area {
+                opacity: 0.2;
+                transition: opacity 1s;
+            } // When Hover to all minimap area, visible area will display.
+        }</p>
+
+<pre><code>    &amp;:active {
+        .minimap-visible-area {
+            opacity: 0.2;
+            transition: opacity 0.5s;
+        } // Display Minimap visible area when dragging.
+    }
+} }
+</code></pre>
+
+<p>```</p>
+
+<h3 id="ascii-art-comments">ASCII Art Comments</h3>
+
+<p>One neat trick is to use ASCII art to create huge comments visible in the minimap. This is really efficient when navigating huge files.</p>
+
+<p><img src="https://github.com/atom-minimap/minimap/blob/master/resources/ascii-comments.png?raw=true" alt="ASCII Art Comments" /></p>
+
+<p>To generate these comments you can use on these useful Atom packages:</p>
+
+<ul>
+  <li><a href="https://atom.io/packages/figlet">Figlet</a></li>
+  <li><a href="https://atom.io/packages/figletify">Figletify</a></li>
+  <li><a href="https://atom.io/packages/minimap-titles">Minimap Titles</a></li>
+  <li><a href="https://atom.io/packages/draw-package">Draw Package</a></li>
+</ul>
+
+<h3 id="developers-documentation">Developers Documentation</h3>
+
+<ul>
+  <li><a href="http://github.com/atom-minimap/minimap/docs/Developers Documentation.md">Developers Documentation</a></li>
+  <li><a href="http://atom-minimap.github.io/minimap/">Minimap API Documentation</a></li>
+</ul>
+
+<h3 id="license">License</h3>
+
+<p><a href="./LICENSE">MIT</a></p>
+<section class="package-keywords">
+  <strong>Keywords:</strong> minimap, overview <a href="https://github.com/atom-minimap/minimap/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

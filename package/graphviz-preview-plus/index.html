@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Graphviz Preview Plus
+  <a href="https://github.com/sverweij/atom-graphviz-preview-plus">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install graphviz-preview-plus
+  </pre>
+</div>
+<h1 id="graphviz-preview">GraphViz preview+</h1>
+
+<p>Write and preview GraphViz dot. Shortcut: <code>ctrl-shift-V</code>.</p>
+
+<p>Enabled for <code>.dot</code> files</p>
+
+<p><img src="https://raw.githubusercontent.com/sverweij/atom-graphviz-preview-plus/master/assets/graphviz-preview-plus.gif" alt="animated gif demoing live preview" /></p>
+
+<h2 id="features">Features</h2>
+<ul>
+  <li><strong>live rendering</strong> of your diagram</li>
+  <li><strong>SVG export</strong> - to file or clipboard</li>
+  <li><strong>PNG export</strong> - to file</li>
+  <li><strong>Switch</strong> the GraphViz <strong>layout engine</strong>. GraphViz Preview+ will
+remember the last one you used.</li>
+  <li>For syntax hihglighting we recommend 
+<a href="https://github.com/AdoPi/language-dot">language-dot</a> (the only one in 
+<code>apm</code> at the moment). If it’s not installed, GraphViz preview+ will take
+care of the installation.</li>
+  <li>Uses <strong><a href="https://github.com/mdaines/viz.js">viz.js</a></strong> package for parsing and
+rendering, so no need to have graphviz installed.</li>
+  <li><em>Can</em> use the original graphviz command line version if you want it to; 
+tick the <em>use GraphViz command line</em> option in the settings</li>
+</ul>
+
+<h2 id="why-another-graphviz-previewer">Why another GraphViz previewer?</h2>
+<p>Because I needed one.</p>
+
+<p>There is an <a href="https://atom.io/packages/graphviz-preview">other</a>
+atom package for GraphViz. It is in dire need of
+maintenance (e.g. it <a href="https://github.com/jumpkick/graphviz-preview/issues/32">doesn’t</a>
+<a href="https://github.com/jumpkick/graphviz-preview/pull/33">work</a>
+<a href="https://github.com/jumpkick/graphviz-preview/issues/28">very well</a>
+in Atom versions &gt; 1.0.0), but seems to be abandoned - last activity
+is from May 2016.</p>
+
+<p>GraphViz preview+ takes a more ‘Atom-native’ approach to integrating GraphViz.
+This should make your GraphViz editing experience in Atom more pleasant.
+Live rendering and svg export work out of the box; engine switching,
+exporting to other formats and a lot of potential future features are easy
+to implement, usually with just a few lines of code.</p>
+
+<h2 id="license-information">License information</h2>
+<ul>
+  <li>This software is free software <a href="LICENSE.md">licensed under GPL-3.0</a>. This means
+(a.o.) you <em>can</em> use it as part of other free software, but <em>not</em> as part of
+non free software.</li>
+  <li>viz.js is <a href="https://github.com/mdaines/viz.js/blob/master/LICENSE">BSD</a> licensed,</li>
+  <li>GraphViz is licensed under the <a href="http://graphviz.org/License.php">EPL</a>.</li>
+</ul>
+
+<h2 id="build-status">Build status</h2>
+<p><a href="https://travis-ci.org/sverweij/atom-graphviz-preview-plus"><img src="https://travis-ci.org/sverweij/atom-graphviz-preview-plus.svg?branch=master" alt="Build Status" /></a>
+<a href="https://ci.appveyor.com/project/sverweij/atom-graphviz-preview-plus/branch/master"><img src="https://ci.appveyor.com/api/projects/status/i4dlprwi46rja2ve/branch/master?svg=true" alt="Build status" /></a>
+<a href="https://david-dm.org/sverweij/atom-graphviz-preview-plus"><img src="https://david-dm.org/sverweij/atom-graphviz-preview-plus.svg" alt="Dependency Status" /></a>
+<a href="https://david-dm.org/sverweij/atom-graphviz-preview-plus#info=devDependencies"><img src="https://david-dm.org/sverweij/atom-graphviz-preview-plus/dev-status.svg" alt="devDependency Status" /></a></p>
+<section class="package-keywords">
+  <strong>Keywords:</strong> graphviz, dot, preview <a href="https://github.com/sverweij/atom-graphviz-preview-plus/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

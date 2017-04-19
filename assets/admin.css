@@ -1,0 +1,38 @@
+/* line 3, /app/assets/stylesheets/admin.scss */
+.atom-package-admin {
+  left: 15%;
+  padding: .5em 0;
+  position: fixed;
+  width: 70%;
+  z-index: 2;
+  text-align: right;
+}
+
+/* line 12, /app/assets/stylesheets/admin.scss */
+.category-admin {
+  display: inline-block;
+  font-size: .6em;
+  font-weight: normal;
+  color: #66595c;
+  line-height: 1.5em;
+  height: 1.5em;
+}
+/* line 21, /app/assets/stylesheets/admin.scss */
+.category-admin form {
+  display: inline-block;
+  overflow: hidden;
+  width: 0;
+  transition: all 500ms ease-in;
+  height: 1.5em;
+}
+/* line 29, /app/assets/stylesheets/admin.scss */
+.category-admin.subcategory form, .category-admin.merge form {
+  transition: all 500ms ease-in;
+  width: 350px;
+}
+/* line 35, /app/assets/stylesheets/admin.scss */
+.category-admin .octicon-file-submodule,
+.category-admin .octicon-git-merge {
+  font-size: 1.4em;
+  margin-right: .2em;
+}

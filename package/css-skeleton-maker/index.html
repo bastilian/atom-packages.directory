@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Css Skeleton Maker
+  <a href="https://github.com/sympe/css-skeleton-maker">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install css-skeleton-maker
+  </pre>
+</div>
+<h2 id="css-skeleton-maker">css-skeleton-maker</h2>
+<p>cssのスケルトンを自動生成するパッケージ</p>
+
+<h3 id="section">目的</h3>
+<p>cssの無駄な肥大化。これらはHTMLが大きくなればなるほどcssも大きくなりどこにどのセレクタがあるのかわからなくなってしまい、作業の非効率化を招きます。肥大化する原因はネスト構造が考慮しきれなかったり、HTML内では消したタグがcssの方では残っているなど様々な場合が考えられます。css-skeleton-makerはcssの無駄を省き、多くのcssに悩む開発者を助けます。</p>
+
+<h3 id="section-1">機能</h3>
+<p>　css-skeleton-makerには以下の機能があります。
+  1. <strong>セレクタの自動生成</strong>　HTMLファイルを開いた状態でcss-skeleton-makerを起動するとHTMLを解析してcssのスケルトンを自動で作成します。これによってセレクタをいちいち書く手間が省けます。自動生成なのでセレクタを書く際のスペルミスもありません。セレクタ自動生成については同等の機能を持つ多くのWebサービスがありますが、エディタ内でできるという点が強みです。</p>
+
+<ol>
+  <li>
+    <p><strong>cssのスケルトンを編集しながら使える</strong>　css-skeleton-makerでcssのスケルトンを作成したあとに、cssのセレクタ内にスタイルを書いて、その後にHTMLを編集することもあると思います。その際は、もともと書いてあったスタイルはそのままに、あたらしく追加したHTMLタグがある場合は対応するセレクタを追加し、HTMLタグを削除した場合はセレクタを削除して、cssを常に一番無駄のない状態に保ちます。</p>
+  </li>
+  <li>
+    <p><strong>ネストも考慮する</strong>　HTMLのネスト構造を考慮したcssセレクタを作ります。これによってどの要素がどの要素と親子関係であるというのがcssを見ながらわかります。</p>
+  </li>
+</ol>
+
+<h3 id="section-2">使い方</h3>
+<p>　1. HTMLファイルのある__フォルダ__をATOMエディタで開きます。<strong>(注意)</strong>　HTMLファイルのみ開くと動作しません。HTMLファイルしか作成していない場合は、フォルダを作成しその中にHTMLファイルを入れて、必ずHTMLを含む__フォルダ__をATOMエディタで開いてください。</p>
+
+<p>　2. HTML内の<code>&lt;head&gt;</code>内にcssファイルを指定している<code>&lt;link&gt;</code>があるか確認してください。以下の例のように記述すると、フォルダ内のHTMLファイルと同じ場所にcssフォルダを作成し、<strong>style.css</strong> というcssファイルを作成します。
+```html</p>
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+
+<p>```
+　上記の例のようなcssの指定がない場合、HTMLファイルと同じ場所に<strong>example.css</strong>という名前のcssファイルを作成します。</p>
+
+<p>　3. cssを作成したいHTMLファイルを開いた状態で、右クリックかメニューバーの<code>pacakges</code>から<code>CSS Skeleton Maker</code>を選択すると、cssが作成されます。HTML以外を開いた状態では動作しないので注意してください。</p>
+
+<h3 id="section-3">その他注意</h3>
+<ol>
+  <li>1つのhtmlファイルに関連するcssファイルは1つとする</li>
+  <li>html内にコメントがある場合はコメントの箇所は無視する</li>
+  <li>閉じタグが要らないhtmlタグには閉じタグをつけない <strong>(<code>&lt;br&gt;</code>を<code>&lt;br /&gt;</code>と記述しない)</strong></li>
+</ol>
+
+<p>　閉じタグの要らないHTMLタグ</p>
+
+<p>　<code>
+&lt;br&gt;,&lt;img&gt;,&lt;hr&gt;,&lt;meta&gt;,&lt;input&gt;,&lt;embed&gt;,&lt;area&gt;,&lt;base&gt;,&lt;col&gt;,&lt;keygen&gt;,&lt;param&gt;,&lt;source&gt;
+　</code></p>
+
+<p>　上記以外の閉じタグの必要なHTMLタグには必ず閉じタグをつける</p>
+
+<h3 id="section-4">ショートカットキー</h3>
+<p><code>ctrl + alt + l</code></p>
+<section class="package-keywords">
+  <strong>Keywords:</strong> css, skeleton, selector, maker <a href="https://github.com/sympe/css-skeleton-maker/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

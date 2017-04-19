@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Pane Browser
+  <a href="https://github.com/nju33/atom-pane-browser">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install pane-browser
+  </pre>
+</div>
+<h1><img src="https://github.com/nju33/atom-pane-browser/blob/master/images/icon_32x32@2x.png?raw=true" width="30" />&nbsp;Pane Browser</h1>
+
+<p>🗿 An browser on Atom</p>
+
+<p><img src="https://raw.github.com/nju33/atom-pane-browser/master/screenshot.png" alt="Atom Pane Browser" /></p>
+
+<h2 id="motivation">Motivation</h2>
+
+<p>want to reduce window switching during development!</p>
+
+<h2 id="install">Install</h2>
+
+<p><code>
+apm install pane-browser
+</code></p>
+
+<h2 id="keymaps">Keymaps</h2>
+
+<p>```cson
+‘ctrl-alt-b’: ‘Pane Browser: Open’
+‘ctrl-alt-c’: ‘Pane Browser: Open from clipboard’</p>
+
+<h1 id="mac">mac</h1>
+<p>‘.platform-darwin atom-pane atom-pane-browser’:
+    ‘cmd-r’: ‘Pane Browser: Reload’
+    ‘cmd-alt-i’: ‘Pane Browser: Open devtool’
+# windows
+‘.platform-windows atom-pane atom-pane-browser’:
+    ‘ctrl-r’: ‘Pane Browser: Reload’
+    ‘ctrl-alt-i’: ‘Pane Browser: Open devtool’
+```</p>
+
+<h2 id="commands">Commands</h2>
+
+<ul>
+  <li><code>Pane Browser: Open</code><br />
+Open the PaneBrowser to the right pane</li>
+  <li><code>Pane Browser: Open from clipboard</code><br />
+Open search results with clipboard contents</li>
+  <li><code>Pane Browser: Reset all state</code><br />
+Delete all holding state</li>
+  <li><code>Pane Browser: Reload</code>
+Reload the current page on current browser</li>
+  <li><code>Pane Browser: Open devtool</code>
+Open devtool on current browser</li>
+  <li><code>Pane Browser: Capture</code><br />
+Capture page on current browser</li>
+  <li><code>Pane Browser: Capture @2x</code><br />
+Capture page (width x2, height x2) on current browser</li>
+  <li><code>Pane Browser: Capture @3x</code><br />
+Capture page (width x3, height x3) on current browser</li>
+</ul>
+
+<h2 id="scheme">Scheme</h2>
+
+<ul>
+  <li><code>gh|github</code>
+For example, <code>gh://nju33/atom-pane-browser</code> will be <code>https://github.com/nju33/atom-pane-browser</code></li>
+</ul>
+
+<h2 id="options">Options</h2>
+
+<ul>
+  <li><code>defaultScale</code> [default: <code>1.0</code>]<br />
+Scale size in the state without doing anything.<br />
+(In other words, the <code>transform: scale (n)</code> of <code>&lt;webview/&gt;</code>)</li>
+  <li><code>minifyZoomLevel</code>, [default: <code>0.7</code>]<br />
+When the menu button is clicked, the page reduction ratio applied</li>
+  <li><code>user agent</code>, default: <code>Mozilla/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B143 Safari/601.1</code><br />
+When the menu button is clicked, the applied user agent</li>
+</ul>
+
+<h2 id="interpretation-of-url">Interpretation of URL</h2>
+
+<ul>
+  <li>Begin with <code>https</code><br />
+Access as it is</li>
+  <li>Only 4 digits or more (e.g. <code>3000</code> <code>4567</code> <code>8888</code> <code>33333</code>)<br />
+Interpreted as port number, accessed by localhost (e.g <code>localhost:3000</code>)</li>
+  <li>When <code>.</code> and <code>:</code> are included<br />
+Interpret as url and access (e.g. <code>example.com</code> <code>localhost:3000</code>)</li>
+  <li>other<br />
+Google search</li>
+</ul>
+<section class="package-keywords">
+  <strong>Keywords:</strong> browser, pane, webview, development <a href="https://github.com/nju33/atom-pane-browser/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

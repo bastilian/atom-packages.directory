@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Dash
+  <a href="https://github.com/blakeembrey/atom-dash">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install dash
+  </pre>
+</div>
+<h1 id="atom-dash">Atom Dash</h1>
+
+<p><a href="https://travis-ci.org/blakeembrey/atom-dash"><img src="https://img.shields.io/travis/blakeembrey/atom-dash.svg?style=flat" alt="Build status" /></a></p>
+
+<blockquote>
+  <p>Simple <a href="http://kapeli.com/dash">Dash</a> documentation integration for <a href="https://atom.io/packages/dash">Atom</a>.</p>
+</blockquote>
+
+<p><strong>Please note:</strong> This plugin also works with Velocity or Zeal on Windows, and Zeal on Linux.</p>
+
+<h2 id="installation">Installation</h2>
+
+<p><code>
+apm install dash
+</code></p>
+
+<p>Alternatively, open <code>Settings/Preferences -&gt; Install</code> and search for <code>dash</code>.</p>
+
+<h2 id="usage">Usage</h2>
+
+<p>Look up the word under your cursor or selected text by pressing <code>ctrl-h</code>. This uses a scoped search and searches based on the current file name and selected syntax. If you want to search all documentation, press <code>ctrl-alt-h</code>.</p>
+
+<p><strong>Hint:</strong> To open avoid activating Dash, add <code>shift</code> to the command. E.g. <code>ctrl-shift-h</code>. This is useful when Dash is already visible - such as a dual monitor setup.</p>
+
+<h3 id="adding-docsets">Adding Docsets</h3>
+
+<p>Open the Atom config file <code>Atom -&gt; Config...</code> and add the docsets under the <code>dash</code> object in the following form:</p>
+
+<p><code>cson
+'dash':
+  'grammars':
+    'JavaScript': [
+      'nodejs'
+    ]
+  'filenames':
+    'gruntfile.js': [
+      'grunt'
+    ]
+</code></p>
+
+<p><strong>Please note:</strong> File names <em>must</em> be lower case.</p>
+
+<p>Docsets defined in your local configuration will override the default settings. Take a look at the <a href="https://github.com/blakeembrey/atom-dash/blob/master/lib/grammar-map.coffee">built-in grammar map</a> and <a href="https://github.com/blakeembrey/atom-dash/blob/master/lib/filename-map.coffee">built-in filename map</a> for the default configurations.</p>
+
+<h2 id="license">License</h2>
+
+<p>MIT</p>
+
+<section class="package-keywords">
+  <strong>Keywords:</strong> dash, documentation, api, docs, man <a href="https://github.com/blakeembrey/atom-dash/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Amwiki
+  <a href="https://github.com/TevinLi/amWiki">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install amwiki
+  </pre>
+</div>
+<h1 id="amwiki-">amWiki 轻文库</h1>
+
+<p><img src="https://amwiki.xf09.net/docs/assets/logo.png" alt="amWiki logo" /><br />
+amWiki 是一款基于 Javascript 脚本语言、依赖 Atom 编辑器或 Npm 命令行、使用 Markdown 标记语法的轻量级开源 wiki 文库系统。<br />
+amWiki 致力于让大家可以更简单、更便捷的建设个人和团队文库系统！</p>
+
+<p>[<a href="https://github.com/TevinLi/amWiki">view amWiki on Github</a>]</p>
+
+<p>GitHub:<br />
+<a href="https://github.com/TevinLi/amWiki" title="GitHub Stars"><img src="https://img.shields.io/github/stars/TevinLi/amWiki.svg?style=social&amp;label=Star" alt="" /></a> <a href="https://github.com/TevinLi/amWiki" title="GitHub Forks"><img src="https://img.shields.io/github/forks/TevinLi/amWiki.svg?style=social&amp;label=Fork" alt="" /></a> <a href="https://github.com/TevinLi/amWiki" title="GitHub Open Issues"><img src="https://img.shields.io/github/issues-raw/TevinLi/amWiki.svg" alt="" /></a> <a href="https://github.com/TevinLi/amWiki" title="GitHub Closed Issues"><img src="https://img.shields.io/github/issues-closed-raw/TevinLi/amWiki.svg" alt="" /></a><br />
+<a href="https://github.com/TevinLi/amWiki" title="GitHub Tag"><img src="https://img.shields.io/github/tag/TevinLi/amWiki.svg" alt="GitHub Tag" /></a> <a href="https://atom.io/packages/amWiki" title="MIT License"><img src="https://img.shields.io/github/license/TevinLi/amWiki.svg" alt="apm" /></a><br />
+APM:<br />
+<a href="https://atom.io/packages/amWiki" title="APM Version"><img src="https://img.shields.io/apm/v/amWiki.svg" alt="APM Version" /></a> <a href="https://atom.io/packages/amWiki" title="APM Downloads"><img src="https://img.shields.io/apm/dm/amWiki.svg" alt="APM Downloads" /></a><br />
+NPM:<br />
+<a href="https://www.npmjs.com/package/amwiki" title="NPM Version"><img src="https://img.shields.io/npm/v/amwiki.svg" alt="NPM Version" /></a> <a href="https://www.npmjs.com/package/amwiki" title="APM Downloads"><img src="https://img.shields.io/npm/dt/amWiki.svg" alt="APM Downloads" /></a></p>
+
+<h3 id="amwiki">amWiki优势</h3>
+<ul>
+  <li>文档系统采用 markdown 语法</li>
+  <li>不用数据库，文档使用 <code>.md</code> 格式保存本地文件</li>
+  <li>无需服务端开发，只需支持 http 静态访问网页空间</li>
+  <li>一键创建新的文库</li>
+  <li>自动更新文库导航目录</li>
+  <li>支持截图直接粘帖为本地 png 并插入当前 markdown</li>
+  <li>文档web端自适应显示，适合所有平台</li>
+  <li>支持接口文档自动抓取内容生成简单的ajax测试</li>
+  <li>… (更多内容期待您的发现)</li>
+</ul>
+
+<h3 id="web">web端效果演示</h3>
+<p>一键创建新文库将自动生成一套Web端html页面，默认生成效果一览：<a href="https://tevinli.github.io/amWiki/index.html">https://tevinli.github.io/amWiki/</a></p>
+
+<h2 id="section">如何开始</h2>
+
+<ol>
+  <li>
+    <p>下载Github开源文本编辑器 <a href="https://atom.io/" title="Atom官网">Atom 官网</a>，并安装</p>
+  </li>
+  <li>安装Atom插件amWiki，并重启Atom
+    <ul>
+      <li>Atom菜单，File -&gt; Setting -&gt; Install -&gt; 搜索<code>amWiki</code></li>
+      <li>或者，运行cmd：<code>apm install amWiki</code></li>
+      <li>或者，前往Github的 <a href="https://github.com/TevinLi/amWiki/releases">amWiki版本发布</a> 下载压缩包，解压到<code>C:\Users\Administrator\.atom\packages</code>，并将文件夹名<code>amWiki-master</code>改为<code>amWiki</code></li>
+    </ul>
+  </li>
+  <li>
+    <p>(在本地服务器静态目录)创建一个文件夹</p>
+  </li>
+  <li>
+    <p>在Atom中 <strong>添加项目文件夹</strong>，并指向刚创建的文件夹</p>
+  </li>
+  <li>在Atom刚创建的项目下新建<code>config.json</code>文件，并输入以下内容(不包含注释)：
+ <code>javascript
+ {
+     "name": "",       //您的文库名称，设置但为空或不设置将显示默认名
+     "ver": "",        //文本版本号或维护者名号，设置但为空将不显示，注意诺不设置此属性将显示 amWiki 作者
+     "logo": "",       //可选，logo 的 url，设置但为空或不设置将显示默认logo
+     "testing": true,  //可选，是否启用接口测试，默认值 false
+     "colour": "",     //可选，自定义颜色，默认为蓝色
+     "github-url": ""  //可选，导出 github wiki 时，需要对应项目的 url
+ }
+</code></li>
+  <li>
+    <p>点击Atom菜单：</p>
+
+    <pre><code> Packages -&gt; amWiki文库 -&gt; 通过“config.json”创建新文库
+</code></pre>
+  </li>
+  <li>
+    <p>此时项目中自动创建了许多内容，其中 library 文件夹即为您的文档库，编辑您的文库文档</p>
+  </li>
+  <li>使用 F12 启动本地静态服务器，访问刚刚自动创建的 index.html</li>
+</ol>
+
+<h2 id="section-1">目录结构</h2>
+<p>自动生创建的内容目录如下</p>
+
+<pre><code>index.html               //http访问首页
+amWiki/                  //amWiki工作文件目录
+library/                 //您的markdown文库目录，所有文件必须使用.md格式
+  ├ $navigation.md       //amWiki文库目录导航文件，可自动/手动更新
+  ├ 首页.md              //内容区默认显示内容
+  ├ 01-关于amWiki文库/    //markdown文件夹01
+  │   ├ 001-关于amWiki   //一些markdown文档，支持二级目录
+  │   └ 002-...
+  ├ 02-学习markdown/     //markdown文件夹02
+  │   ├ 001-md入门       //一些markdown文档，支持二级目录
+  │   └ 002-...
+  └ 03-...               //更多markdown文件夹
+(assetes/)               //如果您粘帖截图，图片文件将自动创建在此处
+</code></pre>
+
+<h2 id="section-2">如何编辑</h2>
+<ol>
+  <li>
+    <p>新建或更改文件夹和文档名，组织您自己的文档结构 (文档必须markdown文档、<strong>使用.md扩展名</strong>)</p>
+  </li>
+  <li>
+    <p>编辑markdown文档，制作您自己的文档内容</p>
+  </li>
+  <li>
+    <p>每个文件夹或文件使用“id-名称”来实现命名排序，请勿删除id，删除后将无法正常工作<br />
+id仅允许整数或浮点数类型，且使用连接符或下划线与具体名称组成命名</p>
+  </li>
+  <li>
+    <p>library文件夹下<code>首页.md</code>为打开时默认的或url参数错误时的显示内容</p>
+  </li>
+  <li>
+    <p><code>$navigation.md</code>导航文件无需人工维护，创建新文件夹或文件时将自动更新，也可以在菜单栏手动刷新：</p>
+
+    <pre><code> 菜单栏 -&gt; amWiki文库 -&gt; 手动更新当前文库导航文件
+</code></pre>
+  </li>
+  <li>
+    <p>如果需要在markdown文档中插入图片，<strong>请先截图</strong>，然后在.md文档对应位置使用快捷键：<code>Ctrl + Shift + V</code></p>
+  </li>
+  <li>
+    <p>对于较长文章，可以使用页内目录，依次进行如下操作，或使用快捷键<code>Ctrl + D</code>，即可在光标处插入页内目录。
+     菜单栏 -&gt; amWiki文库 -&gt; 提取h2、h3标题为页内目录
+注意：请按顺序使用h1、h2、h3，且h1仅使用一次。</p>
+  </li>
+  <li>如果启用了测试，对于文档中<strong>同时存在“请求地址”“请求类型”“请求参数”三个h3标题</strong>的文档，自动在右上角激活接口测试功能
+    <ul>
+      <li>请求参数的表格，请按<code>参数名、类型、必填、描述、默认值</code>的顺序建立表格，否则不能正常抓取</li>
+      <li>只能请求同域接口，不能跨域</li>
+      <li>如果接口需要登录权限，请先登录您自己的系统</li>
+    </ul>
+  </li>
+  <li>
+    <p>本插件升级后，您想更新<code>项目/amWiki/</code>文件夹下web端的工作文件，您只需重新打开<code>config.json</code>文件，然后在Atom菜单上选择<code>通过“config.json”创建新文库</code>即可。<br />
+这个二次创建操作不会影响您 library 与 assetes 文件夹下的内容。</p>
+  </li>
+  <li>借助版本管理 SVN、Git、Hg，传输协议FTP/SFTP，文件同步Dropbox、百度云等等工具，便捷实现网络访问。</li>
+</ol>
+
+<h2 id="section-3">如何使用</h2>
+
+<ol>
+  <li>
+    <p>使用 http 访问项目的 index.html。</p>
+  </li>
+  <li>
+    <p>PC端使用左侧导航栏、移动端使用右上角导航弹出菜单切换页面。</p>
+  </li>
+  <li>
+    <p>在导航栏顶部，可以使用筛选功能整个导航目录进行筛选。</p>
+  </li>
+  <li>
+    <p>如果存在页内目录，直接点击，页内目录使用hash滚动；同时您可以直接带hash分享，以方便他人快速浏览指定内容。</p>
+  </li>
+  <li>
+    <p>如果页面激活了接口测试功能，点击右上角“测试接口”打开测试面板，输出参数并点击“发送Ajax”，即可看到响应内容。</p>
+  </li>
+</ol>
+
+<h2 id="section-4">后记</h2>
+<p>这个项目的初始灵感来自 MDwiki，这是一个使用 html5/js 纯静态的 markdown wiki 系统。<br />
+一开始，我也准备使用它来写一些文档，但是我很快发现，如果我新增一篇文档，需要我手动去编辑导航栏文件增加一条导航，这个体验并不友好。然后想写一套类似 <a href="http://mp.weixin.qq.com/wiki/home/index.html">微信公众平台开发者文档</a> 这样较大的文档库，发现 MDwiki 由于其容量所限，并不能很好的胜任。<br />
+于是经过一番折腾，就有了amWiki。<br />
+个人开源不易，欢迎来github上star支持一下，如果发现问题或好的建议，请尽量在github上发issues，不胜感谢！</p>
+
+<h2 id="section-5">更新日志</h2>
+<p>### 如何获取最新版本信息与动态？
+- QQ群 <strong>347125653</strong>
+- 如果可以，欢迎直接加我微信，微信号 <strong>XF90_Net</strong></p>
+
+<h3 id="section-6">如何查看历史版本日志？</h3>
+<p><a href="https://github.com/TevinLi/amWiki/blob/master/CHANGELOG.md" title="amWiki版本更新日志">amWiki 版本更新日志</a></p>
+<section class="package-keywords">
+  <strong>Keywords:</strong> amwiki, markdown, wiki, doc, api <a href="https://github.com/TevinLi/amWiki/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

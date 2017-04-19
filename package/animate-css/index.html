@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Animate Css
+  <a href="https://github.com/thevuong/animate-css">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install animate-css
+  </pre>
+</div>
+<h1 id="hng-dn-s-dng-animate-css">Hướng dẫn sử dụng Animate CSS</h1>
+<p>Ứng dụng tạo gợi ý nhanh class của Animate.css trong <a href="https://atom.io/">Atom Editer</a>
+Link Animate.css: https://daneden.github.io/animate.css/</p>
+
+<h2 id="ci-t">Cài đặt</h2>
+
+<p>Chạy dòng lệnh bên dưới:</p>
+
+<p><code>sh
+apm install animate-css
+</code></p>
+
+<p>Ngoài ra, vào <code>Atom &gt; Preferences &gt; Packages</code> và tìm với từ khóa <code>animate-css</code>.</p>
+
+<h2 id="hng-dn-s-dng">Hướng dẫn sử dụng</h2>
+
+<p>Animate CSS thường được sử dụng với WOW.JS để tạo hiệu ứng đẹp mắt trong web site như làm chậm hoặc các chuyển động thường thấy trong slide powerpoint.</p>
+
+<h3 id="gii-thiu-wowjs">Giới thiệu Wow.js</h3>
+<p>WOW.js được phát triển bởi @Matthieu_Aussaguel, một kỹ sư lập trình web hiện đang sống và làm việc tại Thái Lan. WOW.js là sự kết hợp giữa jQuery và thư viện animation.css được viết sẵn các kịch bản. Khi bạn scroll website thì jQuery sẽ bắt sự kiện và kích hoạt chuyển động, các đối tượng sẽ chuyển động và diễn hoạt với sự hỗ trợ của CSS 3 Animation và CSS 3 Transition.</p>
+
+<h3 id="cch-dng-wowjs-v-animatecss">Cách dùng wow.js và animate.css</h3>
+
+<ol>
+  <li>Thêm <code>animate.css</code> vào bên trong cặp thẻ <code>&lt;head&gt; &lt;/head&gt;</code></li>
+</ol>
+
+<p>```html</p>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.1/animate.css" />
+
+<p>````
+2. Trước thẻ đóng <code>&lt;/body&gt;</code> thêm và kích hoạt <code>wow.js</code></p>
+
+<p><code>html
+&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+  new WOW().init();
+&lt;/script&gt;
+</code></p>
+
+<ol>
+  <li>Chọn hiệu ứng (hoặc chuyển động) bằng cách thêm <code>wow tên_hiệu_ứng</code> ví dụ:
+```html</li>
+</ol>
+<div class="wow bounceInUp">
+  Content to Reveal Here
+</div>
+<p>```</p>
+
+<h3 id="nng-cao">Nâng cao</h3>
+<p>Ngoài cách thể hiện sự chuyển động bạn cũng có thể kiểm soát số lần chuyển động, thời gian chuyển động, thời điểm chuyển động…
+```html</p>
+<div class="wow bounce" data-wow-duration="2s" data-wow-delay="3s" data-wow-iteration="5" data-wow-offset="100">Hello! Xin chào các bạn !!</div>
+<p><code>
+</code>
+data-wow-duration=”2s”
+<code>
+Thời gian chuyển động của đối tượng. Ở ví dụ này là 2s.
+</code>
+data-wow-delay=”3s”
+<code>
+Thời gian chờ để chuyển động. Khi bạn cuộn màng hình tới đối tượng thì đối tượng cần một khoảng thời gian để bắt đầu chuyển động. Ở ví dụ này là chờ 3s.
+</code>
+data-wow-iteration=”5”
+<code>
+Số lần chuyển động lặp lại. Ở ví dụ này là lặp lại 3 lần.
+</code>
+data-wow-offset=”100”
+```
+Khoảng cách từ đối tượng tới điểm cuối màng hình để đối tượng bắt đầu chuyển động. Ở ví dụ này, khi khoảng cách của đối tượng với màng hình 100px đối tượng sẽ chuyển động.</p>
+
+<h3 id="cc-loi-hiu-ng">Các loại hiệu ứng</h3>
+<ul>
+  <li><code>bounce</code></li>
+  <li><code>bounceIn</code></li>
+  <li><code>bounceInDown</code></li>
+  <li><code>bounceInLeft</code></li>
+  <li><code>bounceInRight</code></li>
+  <li><code>bounceInUp</code></li>
+  <li><code>bounceOut</code></li>
+  <li><code>bounceOutDown</code></li>
+  <li><code>bounceOutLeft</code></li>
+  <li><code>bounceOutRight</code></li>
+  <li><code>bounceOutUp</code></li>
+  <li><code>fadeIn</code></li>
+  <li><code>fadeInDown</code></li>
+  <li><code>fadeInDownBig</code></li>
+  <li><code>fadeInLeft</code></li>
+  <li><code>fadeInLeftBig</code></li>
+  <li><code>fadeInRight</code></li>
+  <li><code>fadeInRightBig</code></li>
+  <li><code>fadeInUp</code></li>
+  <li><code>fadeInUpBig</code></li>
+  <li><code>fadeOut</code></li>
+  <li><code>fadeOutDown</code></li>
+  <li><code>fadeOutDownBig</code></li>
+  <li><code>fadeOutLeft</code></li>
+  <li><code>fadeOutLeftBig</code></li>
+  <li><code>fadeOutRight</code></li>
+  <li><code>fadeOutRightBig</code></li>
+  <li><code>fadeOutUp</code></li>
+  <li><code>fadeOutUpBig</code></li>
+  <li><code>flash</code></li>
+  <li><code>flip</code></li>
+  <li><code>flipInX</code></li>
+  <li><code>flipInY</code></li>
+  <li><code>flipOutX</code></li>
+  <li><code>flipOutY</code></li>
+  <li><code>headShake</code></li>
+  <li><code>hinge</code></li>
+  <li><code>jello</code></li>
+  <li><code>lightSpeedIn</code></li>
+  <li><code>lightSpeedOut</code></li>
+  <li><code>pulse</code></li>
+  <li><code>rollIn</code></li>
+  <li><code>rollOut</code></li>
+  <li><code>rotateIn</code></li>
+  <li><code>rotateInDownLeft</code></li>
+  <li><code>rotateInDownRight</code></li>
+  <li><code>rotateInUpLeft</code></li>
+  <li><code>rotateInUpRight</code></li>
+  <li><code>rotateOut</code></li>
+  <li><code>rotateOutDownLeft</code></li>
+  <li><code>rotateOutDownRight</code></li>
+  <li><code>rotateOutUpLeft</code></li>
+  <li><code>rotateOutUpRight</code></li>
+  <li><code>rubberBand</code></li>
+  <li><code>shake</code></li>
+  <li><code>slideInDown</code></li>
+  <li><code>slideInLeft</code></li>
+  <li><code>slideInRight</code></li>
+  <li><code>slideInUp</code></li>
+  <li><code>slideOutDown</code></li>
+  <li><code>slideOutLeft</code></li>
+  <li><code>slideOutRight</code></li>
+  <li><code>slideOutUp</code></li>
+  <li><code>swing</code></li>
+  <li><code>tada</code></li>
+  <li><code>wobble</code></li>
+  <li><code>zoomIn</code></li>
+  <li><code>zoomInDown</code></li>
+  <li><code>zoomInLeft</code></li>
+  <li><code>zoomInRight</code></li>
+  <li><code>zoomInUp</code></li>
+  <li><code>zoomOut</code></li>
+  <li><code>zoomOutDown</code></li>
+  <li><code>zoomOutLeft</code></li>
+  <li><code>zoomOutRight</code></li>
+  <li><code>zoomOutUp</code></li>
+</ul>
+<section class="package-keywords">
+  <strong>Keywords:</strong> animate-css, animate, css, less, sass, scss <a href="https://github.com/thevuong/animate-css/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

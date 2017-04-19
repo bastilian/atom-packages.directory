@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Imdone Atom Harbour
+  <a href="https://github.com/hernad/imdone-atom-harbour">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+    <span class="author">by Ernad Husremovic</span>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install imdone-atom-harbour
+  </pre>
+</div>
+<h2 id="the-todo-comment-task-board">The TODO comment task board</h2>
+<p><strong>Turn your TODO comments into a task-board and let <a href="https://imdone.io">imdone.io</a> do your issue tracking so you can stay in the zone.</strong><br />
+Just use <code>alt+t</code> while editing a file to see your projects board.</p>
+
+<p><img src="https://cloud.githubusercontent.com/assets/233505/20188737/9a3decf8-a73f-11e6-89c3-c3b348c98ae7.png" alt="Static imdone image" /></p>
+
+<p><a href="https://atom.io/packages/imdone-atom"><img src="https://img.shields.io/apm/dm/imdone-atom.svg" alt="apm" /></a>
+<a href=""><img src="https://img.shields.io/apm/v/imdone-atom.svg" alt="apm" /></a></p>
+
+<h2 id="you-live-in-the-code-your-tasks-should-too">You live in the code, your tasks should too!</h2>
+<p>Developers are creative people and the text editor is their canvas.  For decades they’ve used TODO style code comments to track issues that almost never end up in issue tracking software.  imdone is a plugin for your favorite text editor that turns code comments into trackable issues that you can update from your code.  It collects all TODO style comments in your project and organizes them in a drag and drop task-board that integrates with any web based issue tracking system.</p>
+
+<p>imdone works best with todo.txt and markdown syntax.  See the <a href="https://github.com/imdone/imdone-core#task-formats">syntax guide at imdone-core</a> for details.</p>
+
+<h2 id="whats-new">Whats new!</h2>
+<ul>
+  <li>Stay in the zone!  Track Github issues with TODO comments in your code.  Sign up at <a href="https://imdone.io">imdone.io</a>!</li>
+  <li>Zoom your board.  See the commands bellow.</li>
+</ul>
+
+<h2 id="and-more">And more!</h2>
+<ul>
+  <li>:notebook_with_decorative_cover: <strong>Todays’s Journal</strong> - Open today’s journal file as configured in settings.  Great for people who like to keep plain text notes.</li>
+  <li>:zap: <strong>Open all files for visible tasks!</strong></li>
+  <li><strong>Open task links in <a href="https://www.jetbrains.com/products.html">intellij</a> family of products with imdone-atom and <a href="https://plugins.jetbrains.com/plugin/8067">imdone intellij plugin</a>!</strong></li>
+  <li><strong><a href="https://github.com/imdone/imdone-atom/wiki/How-To-Write-Plugins">How To Write Plugins</a> for imdone-atom</strong></li>
+  <li><strong>Link your TODO comments to github issues.  Try the <a href="https://atom.io/packages/imdone-atom-github">imdone-atom-github</a> plugin!</strong></li>
+</ul>
+
+<h2 id="install">Install</h2>
+<p><code>
+$ apm install imdone-atom
+</code>
+or open Atom and go to Preferences &gt; Install and search for <code>imdone-atom</code></p>
+
+<h2 id="commands">Commands</h2>
+<p>| Command Palette               | Key Mapping | Description              |
+|:——————————|:————|:————————-|
+| <code>Imdone Atom: Tasks</code>          | Alt+T       | Open task board          |
+| <code>Imdone Atom: Todays Journal</code> | Alt+J       | Open todays journal file |
+| <code>Imdone Atom: Board Zoom In</code>  | Alt+.       | Zoom in board            |
+| <code>Imdone Atom: Board Zoom Out</code> | Alt+,       | Zoom out board           |</p>
+
+<h2 id="settings">Settings</h2>
+<p>| Name                               | Type    | Default     | Description                                                                                    |
+|:———————————–|:——–|:————|:———————————————————————————————–|
+| Exclude Vcs Ignored Paths          | boolean | false       | Exclude files that are ignored by your version control system                                  |
+| File Opener Port                   | integer | 9799        | Port the file opener communicates on                                                           |
+| Max Files Prompt                   | integer | 2500        | How many files is too many to parse without prompting to add ignores?                          |
+| Open in Intellij                   | string  | ‘’          | <a href="https://github.com/isaacs/node-glob">Glob pattern</a> for files that should open in Intellij.    |
+| Show Notifications                 | boolean | false       | Show notifications upon clicking task source link.                                             |
+| Show Tags Inline                   | boolean | false       | Display inline tag and context links in task text?                                             |
+| Today’s Journal Date Format        | string  | YYYY-MM-DD  | How would you like your <code>date</code> variable formatted?                                             |
+| Today’s Journal Directory          | string  | $HOME/notes | Where do you want your journal files to live? (Their project directory)                        |
+| Today’s Journal File Name Template | string  | ${date}.md  | How do you want your journal files to be named?                                                |
+| Today’s Journal Month Format       | string  | YYYY-MM     | How would you like your <code>month</code> variable formatted for use in directory or file name template? |
+| Use Alternate File Watcher         | boolean | false       | If your board won’t update when you edit files, then try the alternate file watcher            |
+| Zoom Level                         | Number  | 1           | Set the default zoom level on startup.  min: .2, max: 2.5                                      |</p>
+
+<h2 id="ignoring-files">Ignoring files</h2>
+<ul>
+  <li>
+    <p>Configuration setting<br />
+You can ignore files with the “Exclude Vcs Ignored Paths” setting</p>
+  </li>
+  <li>
+    <p>.imdoneignore<br />
+<code>.imdoneignore</code> is implemented using the <a href="https://www.npmjs.com/package/ignore">ignore</a> package.  Each file in your projects path is tested against the rules in <code>.imdoneignore</code>.<br />
+To ignore all but some subdirectories, see this Stack Overflow question. <a href="http://stackoverflow.com/questions/5533050/gitignore-exclude-folder-but-include-specific-subfolder">git - .gitignore exclude folder but include specific subfolder - Stack Overflow</a></p>
+  </li>
+  <li>
+    <p>.imdone/config.json<br />
+imdone will also ignore files and folders that match a regex in the <code>.imdone/config.json</code>, <code>exclude</code> array.  The array is seeded with some common excludes on first run.</p>
+  </li>
+</ul>
+
+<p><strong>IMPORTANT:</strong> If your project is large (#files &gt; 1000) consider adding an .imdoneignore file.</p>
+
+<h2 id="how-to-link-code-and-github-issues">How To Link Code And Github Issues</h2>
+<p>Using <a href="https://github.com/imdone/imdone-core#metadata">todo.txt metadata</a> in your tasks and a minor change to <code>.imdone/config.json</code>, you can link to external resources like github issues and profiles.</p>
+
+<ul>
+  <li>
+    <p>Add a <code>meta</code> attribute to <code>.imdone/config.json</code><br />
+<code>javascript
+"meta": {
+"issue": {
+  "urlTemplate": "https://github.com/imdone/imdone-core/issues/%s",
+  "titleTemplate": "github issue #%s"
+}
+}
+</code></p>
+  </li>
+  <li>
+    <p>Use <code>issue:[gh issue id]</code> as metadata in your tasks.</p>
+  </li>
+</ul>
+<pre>
+// &#35;BACKLOG:0 issue:27 Export TODOs
+</pre>
+
+<ul>
+  <li>Your issue is linked to the comment!<br />
+<img src="https://cloud.githubusercontent.com/assets/233505/9595122/72542350-502a-11e5-87b3-a4eb49428b7c.png" alt="gh-issue-imdone" /></li>
+</ul>
+
+<p>Look at <a href="https://github.com/imdone/imdone-core#metadata">imdone/imdone-core#metadata</a> for more info.</p>
+<section class="package-keywords">
+  <strong>Keywords:</strong> todo, fixme, tasks, productivity, issues, flow, zone <a href="https://github.com/hernad/imdone-atom-harbour/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

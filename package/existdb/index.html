@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Existdb
+  <a href="https://github.com/wolfgangmm/atom-existdb">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+    <span class="author">by Wolfgang Meier</span>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install existdb
+  </pre>
+</div>
+<h1 id="atom-editor-package-for-existdb">Atom editor package for eXistdb</h1>
+
+<p>This package contains a set of views and providers to support XQuery development using the <a href="http://exist-db.org">eXistdb Native XML Database</a>. In particular, the features are:</p>
+
+<ul>
+  <li>tree view to browse the contents of the database</li>
+  <li>open, edit and save files stored remotely in the database</li>
+  <li>syntax highlighting and linting of XQuery scripts (based on <a href="https://github.com/wcandillon/xqlint">xqlint</a>)</li>
+  <li>autocomplete showing all functions and variables which are in scope, including those from imported modules</li>
+  <li>a hyperclick provider to navigate to the definition of a function, even if located in an imported module</li>
+  <li>refactoring of variables</li>
+  <li>XML auto-close tags, tag renaming</li>
+  <li>execution of XQuery scripts within the editor</li>
+  <li>symbols view to navigate to functions and variables which are in scope for the current XQuery</li>
+</ul>
+
+<p><img src="https://raw.githubusercontent.com/wolfgangmm/atom-existdb/master/basic.gif" alt="First steps" /></p>
+
+<h2 id="dependencies">Dependencies</h2>
+
+<p>The eXistdb package requires a small support app to be installed in the database instance you want to access. You should be asked if you would like to install the support app the first time the package is activated. If this fails for any reason, install it manually by going to the eXistdb dashboard. In the package manager, search for an app called <em>Server side support scripts for the Atom editor package</em> and install it.</p>
+
+<p>Linting and code navigation also depend on two Atom packages, which should be installed automatically unless they are already present:</p>
+
+<ol>
+  <li>linter</li>
+  <li>hyperclick</li>
+</ol>
+
+<h2 id="usage">Usage</h2>
+
+<h3 id="introduction">Introduction</h3>
+
+<p>The package supports two different workflows for developing with eXist:</p>
+
+<ol>
+  <li>directly work on the files stored <em>inside</em> the database, i.e. all development is done in eXist</li>
+  <li>Atom is called on a directory on the file system, which resembles an application stored in eXist. Editing is done in the directory but files are automatically synced to the database.</li>
+</ol>
+
+<p>Most eXist users will be familiar with the first approach because this is how the in-browser IDE, eXide, works. (2) has advantages if you are working on an existing app, e.g. cloned from git. In this case, you deploy the app once, configure the automatic sync and continue to edit files in the file system. We’ll cover this workflow below. See the section on <em>Automatic Sync</em>.</p>
+
+<h3 id="getting-started">Getting Started</h3>
+
+<p>When activated the first time, the package tries to detect if it can connect to an eXist server at the default location and if the server-side support app is installed on the database instance (see the first screencast above). By default, the package assumes that eXist can be reached using the URL: http://localhost:8080/exist, and the password for the admin user is empty.</p>
+
+<p>If you changed the default eXist configuration or would like to connect to a different instance, select “Edit Server Configuration” from the packages menu or run the <code>existdb:edit-configuration</code> command. The configuration file is a simple JSON file:</p>
+
+<p><code>json
+{
+    "servers": {
+        "localhost": {
+            "server": "http://localhost:8080/exist",
+            "user": "admin",
+            "password": ""
+        }
+    }
+}
+</code></p>
+
+<p>The “servers” object is a dictionary mapping server names to connection details for each server available. After changing this file, you may need to call the <em>Reconnect</em> command from the package menu in Atom.</p>
+
+<p>If the server-side support app is not installed on the selected server instance, you will be asked to install it. Just answer with “Yes” and the app will be installed automatically.</p>
+
+<p>Once the package is activated, you should see the database browser tree view on either the left or right side of the Atom editor window. If not, please select <em>Toggle Database View</em> from the package menu (or press <code>cmd-ctrl-e</code> on mac, <code>ctrl-alt-e</code> on windows).</p>
+
+<p>Clicking on any resource in the database browser will open the remote file for editing in an Atom editor tab. Behind the scenes, the resource is downloaded and stored into a temporary directory. The connection with the remote resource is preserved though, so pressing save in the editor will reupload the changed content into the database. This should also work across restarts of Atom: the package detects if you had previously opened files stored in eXist and re-downloads them upon restart.</p>
+
+<p>A right-click on a resource or collection in the database browser opens a context menu from which one can</p>
+
+<ul>
+  <li>create new collections or resources</li>
+  <li>delete resources</li>
+  <li>reindex a collection</li>
+  <li>refresh the collection tree</li>
+</ul>
+
+<h3 id="editor-features">Editor Features</h3>
+
+<h4 id="autocomplete">Autocomplete</h4>
+<p>While you type, autocomplete will talk to the database to get a list of functions or variable names which are in scope and may match what you just typed. This includes all functions and variables which are visible to your current code.</p>
+
+<p>Concerning local variables, autocomplete looks at the XQuery syntax tree corresponding to the current position of the cursor to determine which variables would be in scope.</p>
+
+<h4 id="linting">Linting</h4>
+<p>Whenever you change an XQuery file, its contents will be forwarded to eXist and any compile errors will pop up in the editor window. This will not only detect errors in the current file, but also issues in modules it imports.</p>
+
+<p>In addition to server-side compilation, xqlint will be called in the background to provide hints and alerts for the currently open file. The eXistdb package combines those with the feedback coming from the eXist server.</p>
+
+<h4 id="navigate-to-a-function-or-variable-definition">Navigate to a function or variable definition</h4>
+<p>The package includes a provider for <em>hyperclick</em>: keep the <code>ctrl</code> or <code>command</code> key pressed while moving the mouse over a function call or variable name and it should be highlighted. Clicking on the highlighted range should navigate to the definition of the function or variable, given that the source location of the corresponding XQuery module is known to the XQuery engine (obviously it won’t work for the standard Java modules compiled into eXist). If the declaration resides in a different file, it will be opened in a new editor tab.</p>
+
+<p>Just in case hyperclick doesn’t work for you: place the cursor inside a function call or variable and press <code>cmd-alt-g</code> or <code>ctrl-alt-g</code>.</p>
+
+<h4 id="symbol-browser">Symbol browser</h4>
+<p>To quickly navigate to the definition of a function or variable, you can also use the symbol browser: press <code>cmd-ctrl-r</code> or <code>ctrl-alt-r</code> to get a popup showing all functions and variables which are visible to the code currently open in the editor.</p>
+
+<p>Type a few characters to limit the list to functions or variable containing that string sequence. Press return to jump to a highlighted item.</p>
+
+<h4 id="refactoring">Refactoring</h4>
+<p>You will notice that if you place the cursor inside a variable name, other occurrences of the same variable within the current scope will be highlighted. To rename the variable, press <code>cmd-alt-v</code> or <code>ctrl-alt-v</code>. This will select all occurrences and you can type as usual to change them all simultaneously. Once you’re done, press <code>ESC</code> to get back to the single cursor.</p>
+
+<p><img src="https://raw.githubusercontent.com/wolfgangmm/atom-existdb/master/refactor.gif" alt="XML Editing" /></p>
+
+<h4 id="expand-selection">Expand Selection</h4>
+<p>Pressing <code>alt-up</code> will expand the current selection to the closest XQuery expression, respecting XQuery semantics. Repeatedly press <code>alt-up</code> to select larger blocks.</p>
+
+<h3 id="xml-editing-in-xquery">XML Editing in XQuery</h3>
+<ul>
+  <li>open XML tags are closed automatically if you press <code>&lt;/</code> inside an XML context</li>
+  <li>changing the name of a tag will also change the corresponding opening or closing tag</li>
+</ul>
+
+<p><img src="https://raw.githubusercontent.com/wolfgangmm/atom-existdb/master/xml-edit.gif" alt="XML Editing" /></p>
+
+<h4 id="execute-xquery-scripts">Execute XQuery scripts</h4>
+<p>You can send the XQuery code in the current editor to eXist for execution by pressing <code>ctrl-enter</code> (mac) or <code>alt-shift-enter</code> (windows/linux). The result will be displayed in a new editor tab. Obviously this will only work for XQuery main modules.</p>
+
+<p><img src="https://raw.githubusercontent.com/wolfgangmm/atom-existdb/master/run.gif" alt="Executing query" /></p>
+
+<h3 id="using-the-file-tree-view">Using the File Tree View</h3>
+<p>Inside Atom’s file tree pane, right clicking will show a subcategory <em>existdb</em> in the context menu for files and directories.</p>
+
+<ul>
+  <li><em>Upload Selected</em> will upload any selected files to the database collection highlighted in the DB view</li>
+  <li><em>Deploy Package</em> is shown if you click on a <code>.xar</code> file (which is eXist’s format for installable packages). Selecting it will install the
+xar into the database using eXist’s package management features.</li>
+</ul>
+
+<h3 id="automatic-sync">Automatic Sync</h3>
+<p>Automatic sync will start a background thread which keeps watching the current project directory for changes. Any change will be immediately uploaded to the corresponding target collection in the database. This means you can work on the files in the file system as you would usually do in Atom, though it even detects changes happening outside the editor, e.g. if you copy or remove files.</p>
+
+<p>To get started, open Atom on the root directory containing the source code of the eXist app you’re working on. Atom projects are directory-based, so whatever directory you choose will become the root of your project.</p>
+
+<p>Next, right click on the project root in the file tree and select <em>Edit Configuration for Current Project</em> (or use the existdb package menu). This creates a configuration file called <code>.existdb.json</code> in your project root:</p>
+
+<p><code>json
+{
+    "servers": {
+        "localhost": {
+            "server": "http://localhost:8080/exist",
+            "user": "admin",
+            "password": ""
+        }
+    },
+    "sync": {
+        "server": "localhost",
+        "root": "/db/apps/atom-editor",
+        "active": true,
+        "ignore": [
+            ".existdb.json",
+            ".git/**"
+        ]
+    }
+}
+</code></p>
+
+<p>The “servers” configuration is identical to the global config file, but there’s an additional property “sync”, which configures the mapping between the project directory and a collection on the server:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>server</td>
+      <td>the name of the server entry to connect to</td>
+    </tr>
+    <tr>
+      <td>root</td>
+      <td>the root collection to sync with</td>
+    </tr>
+    <tr>
+      <td>active</td>
+      <td>sync will only be active if this is set to true</td>
+    </tr>
+    <tr>
+      <td>ignore</td>
+      <td>an array of file path patterns which should not be synced</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="workflow-for-working-on-a-cloned-repo">Workflow for Working on a Cloned Repo</h3>
+<p>Most of the time you will probably use automatic sync on an eXistdb application package you cloned from git. In this case, the workflow to get started would be as follows:</p>
+
+<ol>
+  <li>clone the repository into a local directory</li>
+  <li>build the xar and deploy it into eXistdb</li>
+  <li>configure automatic sync on the project</li>
+  <li>start coding</li>
+  <li>commit your changes from the directory as usually</li>
+</ol>
+
+<h3 id="caveats">Caveats</h3>
+<p>Changes made to the project directory while Atom is closed will not be detected and thus not synced to the database. Future versions of the package may contain a “sync upon startup” feature.</p>
+
+<h2 id="development">Development</h2>
+
+<h3 id="building-from-source">Building from source</h3>
+
+<p>Clone the main package, cd into it and run <code>apm install</code> once. This creates a subdirectory <code>node_modules</code>. Next, call <code>apm link .</code> to register the package with Atom. The complete steps:</p>
+
+<p><code>shell
+git clone https://github.com/wolfgangmm/atom-existdb.git
+cd atom-existdb
+apm install
+apm link .
+</code></p>
+
+<p>You may also want to clone and build the server-side support app:</p>
+
+<p><code>shell
+git clone https://github.com/wolfgangmm/atom-editor-support.git
+cd atom-editor-support
+ant
+</code></p>
+
+<p>This creates <code>atom-editor-[version].xar</code> inside the <code>build/</code> directory. Deploy this into your eXist instance using the dashboard.</p>
+<section class="package-keywords">
+  <strong>Keywords:</strong> xmldb, exist-db, xquery, xml <a href="https://github.com/wolfgangmm/atom-existdb/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

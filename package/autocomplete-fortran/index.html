@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Autocomplete Fortran
+  <a href="https://github.com/hansec/autocomplete-fortran">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install autocomplete-fortran
+  </pre>
+</div>
+<h1 id="autocomplete-fortran-package-package-versionhttpsimgshieldsioapmvautocomplete-fortransvgstyleflat-squarehttpsatomiopackagesautocomplete-fortran-plugin-installshttpsimgshieldsioapmdmautocomplete-fortransvgstyleflat-squarehttpsatomiopackagesautocomplete-fortran">autocomplete-fortran package <a href="https://atom.io/packages/autocomplete-fortran"><img src="https://img.shields.io/apm/v/autocomplete-fortran.svg?style=flat-square" alt="Package version" /></a> <a href="https://atom.io/packages/autocomplete-fortran"><img src="https://img.shields.io/apm/dm/autocomplete-fortran.svg?style=flat-square" alt="Plugin installs" /></a></h1>
+
+<p>This package provides autocomplete suggestions and “Go To Declaration” support for FORTRAN code using <a href="https://atom.io/packages/autocomplete-plus">autocomplete-plus</a>.</p>
+
+<p><em>Note:</em> This package is experimental. If you find any bugs or if there are any missing features you would like please open an <a href="https://github.com/hansec/autocomplete-fortran/issues">issue</a>.</p>
+
+<p><img src="http://staff.washington.edu/hansec/ac_fortran_ex1.gif" alt="Autocomplete in user-defined types" /></p>
+
+<p><img src="http://staff.washington.edu/hansec/ac_fortran_ex2.gif" alt="Go To Declaration" /></p>
+
+<h2 id="requirements">Requirements</h2>
+<p>This package requires the following packages to be installed:
+ * <a href="https://atom.io/packages/autocomplete-plus">autocomplete-plus</a>
+ * <a href="https://atom.io/packages/language-fortran">language-fortran</a></p>
+
+<p>Additionally, you must have <a href="https://www.python.org/">Python</a> installed on your system.</p>
+
+<p>This package has been tested and <em>should</em> work on :apple: Mac OSX, :penguin: Linux and Windows</p>
+
+<h2 id="features">Features</h2>
+<ul>
+  <li>Provides suggestions across imported modules</li>
+  <li>Provides suggestions within user-defined types even when nested</li>
+  <li>Provides argument list for subroutine and function calls (optional arguments are indicated)</li>
+  <li>Indicates return type for function calls</li>
+  <li>“Go To Declaration” support for FORTRAN objects (including fields in user-defined types)</li>
+  <li>Support for generating and using external index files (completion for libraries outside project ex. MPI, BLAS/LAPACK, etc.)</li>
+</ul>
+
+<h2 id="usage">Usage</h2>
+<p>Suggestions should be presented automatically while typing. At anytime you can force rebuilding of the index through the menu <code>Packages-&gt;Autocomplete FOTRAN-&gt;Rebuild index</code>.</p>
+
+<p>“Go To Declaration” is also supported for FORTRAN objects as the <code>FORTRAN-Goto Declaration</code> option in the context menu (right-click in editor). “Go To Declaration” can also be activated by the key binding <code>cmd-alt-g</code> on OS X and <code>ctrl-alt-g</code> on Linux/Windows.</p>
+
+<h3 id="notes">Notes</h3>
+<ul>
+  <li>Initial setup of the index, including file parsing, is performed upon the first suggestion call. This may cause the first suggestion to take a moment to appear for very large projects (this is usually not noticeable).</li>
+  <li>After setup the index is dynamically updated as you modify files. However, if you edit a file outside of Atom (ex. switching branches in git,svn,etc.) changes will not be incorporated into the index until you edit the modified files in Atom or rebuild the index manually.</li>
+  <li>The grammar (fixed or free) is currently determined by file extension (<code>f,F,f77,F77,for,FOR,fpp,FPP</code> for fixed-form) and (<code>f90,F90,f95,F95,f03,F03,f08,F08</code> for free-form)</li>
+</ul>
+
+<h2 id="configuration">Configuration</h2>
+
+<h3 id="setup-module-search-paths">Setup module search paths</h3>
+<p>By default all files with the suffix <code>f,F,f77,F77,for,FOR,fpp,FPP</code> or <code>f90,F90,f95,F95,f03,F03,f08,F08</code> in the
+base atom project directory are parsed and used for generating suggestions. Specific folders containing FORTRAN
+source files can be set for a given project by placing a JSON file (example below) named <code>.ac_fortran</code> in the
+base directory. Folders to search are listed in the variable <code>mod_dirs</code> (relative to the project root) and excluded
+files can be specified using the variable <code>excl_paths</code>. Directories are not added recursively, so
+any nested sub directories must be explicitly listed.</p>
+
+<pre><code>{
+  "mod_dirs": ["subdir1", "subdir2"],
+  "excl_paths": ["subdir1/file_to_skip.F90"]
+}
+</code></pre>
+
+<h3 id="external-index-files">External index files</h3>
+<p>Additional autocompletion information can also be imported for use in the current project by specifying index files
+in the variable <code>ext_index</code> (relative to the project root) in your project’s <code>.ac_fortran</code> file. Index files can be
+generated from a project through the menu through the menu <code>Packages-&gt;Autocomplete FOTRAN-&gt;Save external index file</code>.
+This action will save a file called <code>ac_fortran_index.json</code> in the root directory of the project containing all the
+information necessary to provide autocompletion for FORTRAN entities in the project. However, source file information
+will be stripped so “Go To Declaration” will not be available for externally imported entities. This file can then
+be used to make these entities available in a different project. Some useful index files for common libraries
+(ex. BLAS/LAPACK) are available at https://github.com/hansec/autocomplete-fortran-ext.</p>
+
+<pre><code>{
+  "ext_index": ["blas_index.json"]
+}
+</code></pre>
+
+<h3 id="settings">Settings</h3>
+
+<p>The FORTRAN parser is written in Python so a Python implementation is required to use this package. The path to Python may be set in package settings (required for Windows).</p>
+
+<p>Many additional settings, such as the selection keys (<code>TAB</code>/<code>ENTER</code>), are governed by the global settings for the <a href="https://atom.io/packages/autocomplete-plus">autocomplete-plus</a> package.</p>
+
+<h2 id="todos">TODOs</h2>
+<ul>
+  <li>Handle explicit PASS statement for type bound procedures</li>
+  <li>Allow fuzzy completion suggestions</li>
+</ul>
+
+<hr />
+
+<p>If you <em>really</em> like <a href="https://atom.io/packages/autocomplete-fortran">autocomplete-fortran</a> you can <a href="https://ko-fi.com/A1085MY" target="_blank"><img height="25" style="border:0px;height:25px;" src="https://az743702.vo.msecnd.net/cdn/kofi1.png?v=b" border="0" alt="Buy Me a Coffee at ko-fi.com" /></a> or a :beer: to say thanks.</p>
+<section class="package-keywords">
+  <strong>Keywords:</strong> fortran, autocomplete <a href="https://github.com/hansec/autocomplete-fortran/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

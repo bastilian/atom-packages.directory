@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Browser Plus
+  <a href="https://github.com/skandasoft/browser-plus">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install browser-plus
+  </pre>
+</div>
+<h1 id="browserplus--real-browser-in-atom"><strong>**BrowserPlus ~ Real Browser in ATOM!!**</strong></h1>
+
+<h2 id="here-are-some-feature">Here are some feature…</h2>
+
+<ol>
+  <li>Live Preview</li>
+  <li>Back/Forward Button</li>
+  <li>DevTool</li>
+  <li>Refresh</li>
+  <li>History</li>
+  <li>Favorites</li>
+  <li>Simple Plugin Framework - Jquery/ContextMenu based.</li>
+</ol>
+
+<p>-<img src="https://raw.github.com/skandasoft/browser-plus/master/browser.gif" alt="Browser-Plus" /></p>
+
+<h2 id="faq"><strong>FAQ</strong></h2>
+
+<ol>
+  <li><strong>I have problem loading this package?</strong></li>
+</ol>
+
+<p>on your command prompt for atom directory, try uninstalling the package and reinstalling it</p>
+
+<blockquote>
+  <p>apm uninstall browser-plus</p>
+</blockquote>
+
+<blockquote>
+  <p>apm install browser-plus</p>
+</blockquote>
+
+<p>if there is package dependency issue(jquery.autocomplete.js no found error messages etc) try</p>
+
+<blockquote>
+  <p>apm rebuild-module-cache</p>
+</blockquote>
+
+<blockquote>
+  <p>if still issues with jquery.automcomple. delete the jquery-ui directory under node_modules and
+  npm install –&gt; in the browser-plus directory. This will install all dependency</p>
+</blockquote>
+
+<ol>
+  <li>
+    <p><strong>How to open browser in atom?</strong></p>
+
+    <p>ctrl+shift+p(cmd+shift+p) Browser Plus: Open. It opens the home page(maintained in the settings) or http://www.google.com.</p>
+  </li>
+  <li>
+    <p><strong>How to open the current file in the brower-plus?</strong></p>
+
+    <p>ctrl+shift+p(cmd+shift+p) Browser Plus: OpenCurrent</p>
+  </li>
+  <li>
+    <p><strong>Is it possible to hide the URL Bar?</strong></p>
+
+    <p>Yes. ctrl+shift+p(cmd+shift+p) Browser Plus View: toggleURLBar/F11. You need to have the browser highlighted when performing the action.</p>
+  </li>
+  <li>
+    <p><strong>How to Favoritize/UnFavaritize an URL?</strong></p>
+
+    <p>On the browser urlbar click on the star to favoritize it. And click on the star if you need to UnFavaritize it/ to remove from the favoritized dropdown.</p>
+  </li>
+  <li>
+    <p><strong>How to View favoritized URLs?</strong></p>
+
+    <p>ctrl+shift+p(cmd+shift+p) Browser Plus: Fav. This would open an dropdown selection of Favoritized URL. Or click on the down arrow next to the url bar on the left side.</p>
+  </li>
+  <li>
+    <p><strong>How to View Browser Plus History?</strong></p>
+
+    <p>ctrl+shift+p(cmd+shift+p) Browser Plus: History/click on the button icon on the url toolbar. Opens a browser window with the URLs browsed. It is possible to delete the entire history by clicking clear history button in the webpage/delete individual entry by clicking on trash can/delete dates by clicking on the trash can by the side of dates.</p>
+  </li>
+  <li>
+    <p><strong>How to  open developer tool for the browser?</strong></p>
+
+    <p>Press the function key f12/on the clicking on the settings icon on the webpage. Jquery is added for free if it is not available. So you can perform DOM activities.</p>
+  </li>
+  <li>
+    <p><strong>How to show live changes(as soon as you save file) to show up as we are  viewing a file?</strong></p>
+
+    <p>Press the lighting icon. It is a toggle button ie., same button can used on switching on to live view/stop live view. Any save of any window would refresh the window. So css file window/js file window saved would be reflected on save.</p>
+  </li>
+  <li>
+    <p><strong>Is it possible to print the webpage?</strong></p>
+
+    <p>Yes. Click on the print icon.</p>
+  </li>
+  <li>
+    <p><strong>Is BrowserPlus used in any other packages?</strong></p>
+
+    <p><a href="http://atom.io/packages/Navigate"><strong>Navigate</strong></a> ( http://atom.io/packages/navigate )</p>
+
+    <p>This package help in navigating/links on html file. when you press f2 on a html filename it opens up the browser. There are other keys you can use. Here are some of the default key combinations that are available now when Navigate Package is installed along with BrowserPlus</p>
+
+    <p>```javascript
+ ‘F1’:
+   title: ‘F1 - DevDocs Help’
+   type: ‘string’
+   default: ‘http://devdocs.io/#q=&amp;searchterm’</p>
+
+    <p>‘CTRL-F1’:
+   title: ‘Ctrl-F1 - Google Help’
+   type: ‘string’
+   default: ‘https://www.google.com/search?q=&amp;searchterm’</p>
+
+    <p>‘CTRL-F2’:
+   title: ‘Stack Overflow Search’
+   type: ‘string’
+   default: ‘http://stackoverflow.com/search?q=&amp;searchterm’</p>
+
+    <p>‘CTRL-F3’:
+   title: ‘AtomIO Search’
+   type: ‘string’
+   default: ‘https://atom.io/docs/api/search/latest?q=&amp;searchterm’
+ ```
+ <strong>Checkout <a href="http://atom.io/packages/Navigate">Navigate</a></strong></p>
+  </li>
+  <li>
+    <p><strong>Can I add custom key combinations to my weburls?</strong></p>
+
+    <p>Yes!! you can.The word under cursor is available in the field searchterm. For eg when F1 is pressed, help for that keyword, are provided through <a href="http://devdocs.io">devdocs</a> using the config</p>
+
+    <p><code>javascript
+  default: 'http://devdocs.io/#q=&amp;searchterm'
+</code></p>
+
+    <p><strong>Checkout <a href="http://atom.io/packages/Navigate">Navigate</a></strong></p>
+  </li>
+  <li>
+    <p><strong>Can I preview jsp/php/express/django and other frameworks or from localhost in BrowserPlus?</strong></p>
+
+    <p>Yes. Absolutely. You can install this plugin called <strong><a href="http://atom.io/packages/pp">PP</a>(http://atom.io/packages/pp)</strong>. This is used to preview the files. Check more info @ <strong><a href="http://atom.io/packages/pp/readme.md">PP</a></strong></p>
+  </li>
+  <li>
+    <p><strong>Can I get hyperLive(show html changes as I type) preview of the current file?</strong></p>
+
+    <p>Previews can be done using <strong>PP</strong> <a href="http://atom.io/packages/pp">preview plus</a>. This Plugin user BrowserPlus to visualize html file and allows for live/hyperLive options + able to preview in different formats.</p>
+  </li>
+  <li>
+    <p><strong>How can I call BrowserPlus from my plugin?</strong></p>
+
+    <p>atom.workspace.open following by url and you can pass options just as you would do to open a file using atom. If you file starts with http,https or localhost it would automatically open in the browser-plus window.</p>
+  </li>
+  <li>
+    <p><strong>Is there a way enhance the functionality of BrowserPlus/Plugin system for BrowserPlus?</strong></p>
+
+    <p>you can build a plugin for browserplus. It is very simple. Checkout <a href="http://atom.io/packages/browser-plus-zoom">browser-plus-zoom</a> or <a href="http://atom.io/packages/pp/browser-plus-new-window">browser-plus-open-new-window</a> or <a href="http://atom.io/packages/browser-plus-block">browser-plus-block</a>. The naming convention for the plugin is browser-plus-yourpluginname.
+browser-plus provides a service called consumeAddPlugin which can be put under your plugin
+<code>javascript
+  "consumedServices": {
+    "browser-plus": {
+      "versions": {
+        "&gt;=0.0.0": "consumeAddPlugin"
+      }
+    }
+  }
+</code>
+in order to add your plugin to browser-plus pass the details in json format</p>
+
+    <p>“onInit” –&gt; initializes the browser with your script that will be loaded once the browser is opened</p>
+
+    <p>“js” –&gt; load an/array of javascripts both from your resources directory under your package/ from cdns</p>
+
+    <p>“css” –&gt; load an/array of css both from your resources directory under your package/ from cdns</p>
+
+    <p>“menus” –&gt; this can be a single object /array of object in the following format. The plugin can be displayed as context menu or accessed using key combinations.</p>
+
+    <p>“menu-ctrlkey” –&gt; use to invoke you plugin (it can be any key combination)</p>
+
+    <p>“menu-fn” –&gt; this is where the code for you plugin goes . for your convience jQuery is already loaded/notifyBar(https://github.com/dknight/jQuery-Notify-bar)/jStorage
+ another plugin(http://www.jstorage.info/) is loaded.</p>
+
+    <p>your function can be invoked using a key combination/from context menu. If you want it to be a context menu</p>
+
+    <p>“name”: “name of the menu”</p>
+
+    <p>“selector”: “for which the context menu would appear, can be multiple and be separated by ‘,’”</p>
+
+    <p>“selectorFilter”: “a function which would return boolean. if for some reason you want some filter for the selector passed it can be done by sending boolean back”</p>
+
+    <p>The best way make a plugin is copy the browser-plus-open-new-window/browser-plus-zoom and testing with your code.</p>
+
+    <p>And you can do a PR on FAQ for browserplus to update your plugin details :).</p>
+  </li>
+  <li>
+    <p><strong>what browser-plus plugins are availble?</strong></p>
+
+    <p>Look/search for browser-plus- for plugins. That will be the name convention for browserplus plugins.</p>
+
+    <ol>
+      <li><a href="http://atom.io/packages/browser-plus-zoom">browser-plus-zoom</a></li>
+      <li><a href="http://atom.io/packages/pp/browser-plus-new-window">browser-plus-new-window</a></li>
+      <li><a href="http://atom.io/packages/browser-plus-find">browser-plus-find</a></li>
+      <li><a href="http://atom.io/packages/browser-plus-block">browser-plus-block</a></li>
+    </ol>
+
+    <p><a href="http://atom.io/packages/browser-plus-zoom">browser-plus-zoom</a> helps to zoom in /out of the website(ctr++ or ctr–).</p>
+
+    <p><a href="http://atom.io/packages/browser-plus-block">browser-plus-block</a> helps in maintaining particular websites from opening(self restraint)</p>
+
+    <p><a href="http://atom.io/packages/browser-plus-find">browser-plus-find</a> helps in searching in the webpage.</p>
+
+    <p><a href="http://atom.io/packages/pp/browser-plus-new-window">browser-plus-new-window</a> open link in window/tab.</p>
+
+    <p>Your next browser-plus plugin goes here….</p>
+  </li>
+  <li>
+    <p><strong>when opening search website like google/stackoverflow, I don’t want multiple search browsers open. Is it possible to open in the same window?</strong></p>
+
+    <p>Yes. check the setting for openInSameWindow.currently an array of website (google/stackoverflow)</p>
+  </li>
+  <li>
+    <p><strong>Calling BrowserPlus from contextMenu opens the home page. Can I make to open the current file?</strong></p>
+
+    <p>Check the setting. ‘Show Current File’. It is on by default.</p>
+  </li>
+  <li>
+    <p><strong>Can I block Youtube/any website? I get distracted while working.</strong></p>
+
+    <p>yes. Check out <a href="http://atom.io/packages/browser-plus-block">browser-plus-block</a>(http://atom.io/packages/browser-plus-block) plugin.</p>
+  </li>
+  <li>
+    <p><strong>Can I use this browser like chrome to search on the toolbar?</strong></p>
+
+    <p>Yes. As you type more than 2 character the dropdown of search results are shown from bing. Once you click on the result it searches in google and bring the results. if you don’t choose any of it and press enter and if it is url it would go to that url.</p>
+  </li>
+  <li>
+    <p><strong>Can I view documentation/help for languages?</strong>_</p>
+
+    <p>Yes. <a href="http://atom.io/packages/Navigate">Naviagate Plugin</a> does that. You can press f1 and it would show the devdocs help for the word under the cursor.Check <a href="http://atom.io/packages/Navigate">Navigate</a> for more info.</p>
+  </li>
+  <li>
+    <p><strong>How can I make browser-plus better?</strong></p>
+
+    <p>PRs are welcome.Any issue reported would make this a better plugin. This FAQ can be updated with the browser-plus-plugins.</p>
+  </li>
+</ol>
+
+<section class="package-keywords">
+  <strong>Keywords:</strong> browser, webbrowser, web view, web-view, html preview, html, preview, preview-plus <a href="https://github.com/skandasoft/browser-plus/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>

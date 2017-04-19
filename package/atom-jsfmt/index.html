@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atom Packages Directory</title>
+    <link rel="stylesheet" href="/assets/application.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+    <link rel="icon" href="/assets/favicon.png">
+
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><span class="octicon octicon-package"></span>Atom Packages Directory</a></h1>
+      <span class="subheader">a package directory for a <a href="http://atom.io">text editor of the 21st Century</a></span>
+    </header>
+    <section id="content">
+      <h1>
+  Jsfmt
+  <a href="https://github.com/bichiliad/atom-jsfmt">
+    <span class="octicon octicon-mark-github"></span>
+  </a>
+  
+</h1>
+<div class="package-install">
+  <strong>Install with:</strong>
+  <pre>
+    apm install atom-jsfmt
+  </pre>
+</div>
+<h1 id="atom-jsfmt">atom-jsfmt</h1>
+<p><img src="https://david-dm.org/bichiliad/atom-jsfmt.svg" alt="David" /></p>
+
+<p><code>atom-jsfmt</code> is a <a href="http://rdio.github.io/jsfmt/"><code>jsfmt</code></a> plugin for the Atom text editor. <a href="http://rdio.github.io/jsfmt/"><code>jsfmt</code></a> is really good at formatting, searching, and rewriting javascript. It’s pretty nifty.</p>
+
+<p><img src="https://github.com/bichiliad/atom-jsfmt/raw/master/demo.gif" alt="atom-jsfmt in action" /></p>
+
+<h2 id="what-does-it-do">What does it do?</h2>
+
+<ul>
+  <li><strong>Format your code</strong>: Run the <code>Jsfmt: Format</code> command to keep your code well-styled.</li>
+  <li><strong>Format on save</strong>: <code>atom-jsfmt</code> will auto-format your javascript every time you save, so you don’t have to think about it.</li>
+</ul>
+
+<h2 id="how-do-i-get-it">How do I get it?</h2>
+
+<p>Installation can be done from Atom’s package browser (just search for <code>atom-jsfmt</code>). You can also use the <code>apm</code> command line installer:</p>
+
+<p><code>bash
+apm install atom-jsfmt
+</code></p>
+
+<h2 id="how-do-i-tweak-the-formatting">How do I tweak the formatting?</h2>
+
+<p>Although the default style guide is pretty good, you may find yourself wanting to tweak the formatting.
+<code>atom-jsfmt</code> looks for the closest <code>.jsfmtrc</code> file before formatting (you can <a href="https://github.com/rdio/jsfmt#jsfmtrc">read more about them
+here</a>). It checks the directory of the current file,
+and keeps moving up directories until it finds something.</p>
+
+<p>For example, if you like your code indented four spaces, your <code>.jsfmtrc</code> might look like this:</p>
+
+<p><code>json
+{
+    "indent": {
+        "value": "    "
+    }
+}
+</code></p>
+
+<h2 id="options">Options</h2>
+
+<ul>
+  <li><strong>Show Errors</strong>: Whether or not you want to see error messages. You probably do.
+This is set to <code>true</code> by default.</li>
+  <li><strong>Format On Save</strong>: Whether or not you automatically want to format your javascript
+files when you save. Defaults to <code>true</code>.</li>
+</ul>
+
+<h2 id="to-do">To do</h2>
+
+<ul>
+  <li>Look for <code>.jsfmtrc</code> files in all the places that the command line tool looks (like <code>/etc/.jsfmtrc</code> or <code>~/.jsfmtrc</code>).</li>
+  <li>Add searching / rewriting functionality</li>
+  <li>Flag lines with errors</li>
+</ul>
+
+<h2 id="credit">Credit</h2>
+
+<ul>
+  <li><a href="http://rdio.github.io/jsfmt/"><code>jsfmt</code></a> is written and maintained by the good folks at <a href="https://github.com/rdio">rdio</a>.</li>
+</ul>
+
+<h2 id="changelog">Changelog</h2>
+<p>The changelog can be viewed <a href="./CHANGELOG.md">here</a>.</p>
+
+<h2 id="license">License</h2>
+<p>Atom-jsfmt is licensed under the MIT license, which can be viewed <a href="./LICENSE.md">here</a>.</p>
+
+<section class="package-keywords">
+  <strong>Keywords:</strong> javascript, jsfmt <a href="https://github.com/bichiliad/atom-jsfmt/edit/master/package.json">Suggest keywords</a>
+</section>
+
+    </section>
+    <footer>
+      <p>
+        <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="http://bastilian.me">@bastilian</a><br />
+        <small>
+          2283 out of 5680 packages categorised.
+          | Last updated: 2017-04-19</small>
+      </p>
+      <p>
+
+      </p>
+    </footer>
+    <div style="opacity:.15;position:relative;z-index:-1;">
+      <div class="system"></div>
+      <div class="system-2"></div>
+    </div>
+    <a href="https://github.com/bastilian/atom-packages.directory">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+    
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75253038-3', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"light-floating"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+
+    
+  </body>
+</html>
